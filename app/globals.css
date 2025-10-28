@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Glassmorphism Design Tokens === */
+:root {
+  /* Colors */
+  --color-federal: #01085d;
+  --color-indigo: #4a0789;
+  --color-ultraviolet: #5a5d80;
+  --color-azure: #d2e6e6;
+  --color-davy: #57565b;
+  --color-primary-cta-hover: #6F0BCD;
+
+  /* Backgrounds & Glass Effects */
+  --glass-surface-fill: rgba(19,19,33,0.36);
+  --glass-border-stroke: rgba(210,230,230,0.05);
+  --glass-border-glow: rgba(110,20,220,0.08);
+  --card-input-bg: rgba(255,255,255,0.02);
+
+  /* Radii */
+  --radius-card-xl: 24px;
+  --radius-control-md: 16px;
+  --radius-button-pill: 20px;
+
+  /* Shadows */
+  --shadow-deep: 0 6px 24px rgba(1,8,93,0.5), 0 1px 4px rgba(74,7,137,0.12);
+  --shadow-cta-hover: 0 8px 30px rgba(111,11,205,0.28);
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+
+  /* Motion */
+  --motion-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --motion-duration-sm: 160ms;
+  --motion-duration-md: 220ms;
+  --motion-duration-lg: 360ms;
+  --motion-duration-hero: 700ms;
+}
+
+/* === Base Styles === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  overflow-x: hidden;
+}
+
+/* === Apple Liquid Glass Effect === */
+.liquid-glass-navbar {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: liquid-shimmer 8s infinite;
+  pointer-events: none;
+}
+
+@keyframes liquid-shimmer {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* Enhanced glass morphism effects */
+@supports (backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px)) {
+  .liquid-glass-navbar {
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+}
+
+/* === Custom Animations === */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
