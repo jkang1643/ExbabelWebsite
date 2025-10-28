@@ -1,0 +1,50 @@
+# =============================================================================
+# REQUIRED: Create these environment variable files
+# =============================================================================
+
+# Copy the content below to create your .env files
+# These files are already gitignored for security
+
+# =============================================================================
+# FILE: .env.local (for development)
+# =============================================================================
+
+NEXT_PUBLIC_APP_URL=http://localhost:3001
+
+# OR if you have a dev deployment of your app:
+# NEXT_PUBLIC_APP_URL=https://dev.app.exbabel.com
+
+
+# =============================================================================
+# FILE: .env.production (for production)
+# =============================================================================
+
+NEXT_PUBLIC_APP_URL=https://app.exbabel.com
+
+# Optional: Add these if you want analytics
+# NEXT_PUBLIC_ANALYTICS_ID=GA-XXXXX
+# NEXT_PUBLIC_HOTJAR_ID=
+
+
+# =============================================================================
+# QUICK SETUP INSTRUCTIONS
+# =============================================================================
+
+1. Create .env.local:
+   - Copy the NEXT_PUBLIC_APP_URL line above
+   - Set it to where your SaaS app runs locally (e.g., http://localhost:3001)
+   - Or set it to your dev app URL if you have one deployed
+
+2. Create .env.production:
+   - Copy the NEXT_PUBLIC_APP_URL line above
+   - Set it to https://app.exbabel.com (your production SaaS app)
+
+3. Restart your dev server:
+   npm run dev
+
+4. Test it:
+   - Click "Sign Up" on your marketing site
+   - It should redirect to your app URL + /signup
+
+That's it! No other environment variables needed for this marketing site.
+

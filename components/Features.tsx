@@ -79,7 +79,7 @@ export default function Features() {
               <p className="text-lg text-neutral max-w-2xl mx-auto mb-6">
                 Everything you need to break down language barriers and connect with people worldwide
               </p>
-          <button className="btn btn-primary text-white rounded-full px-6 border-none shadow-lg hover:shadow-xl">
+          <button className="btn btn-primary rounded-full px-6 border-none shadow-lg hover:shadow-xl">
             Learn more
           </button>
         </motion.div>

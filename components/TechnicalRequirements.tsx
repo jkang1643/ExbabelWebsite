@@ -117,13 +117,13 @@ export default function TechnicalRequirements() {
                 Our support team is here to help you get started. We provide detailed setup guides, video tutorials, and live support - including on Sundays!
               </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="btn btn-primary text-white rounded-full px-6 border-none shadow-lg hover:shadow-xl">
+              <button className="btn btn-primary rounded-full px-6 border-none shadow-lg hover:shadow-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 View Setup Guide
               </button>
-              <button className="btn btn-outline btn-primary rounded-full px-6">
+              <button className="btn btn-primary rounded-full px-6 border-none">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>

@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content relative overflow-hidden">
+    <footer className="bg-base-200 text-base-content relative overflow-hidden">
       {/* Background decoration */}
       <motion.div
         className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
@@ -26,38 +26,42 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Exbabel
-          </h3>
-          <p className="text-sm text-neutral max-w-xs">
-            Bridging communities through the power of language.
-          </p>
-        </motion.div>
-      </div>
+      <div className="p-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <motion.nav
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Exbabel
+            </h3>
+            <p className="text-sm text-neutral max-w-xs">
+              Bridging communities through the power of language.
+            </p>
+          </motion.nav>
 
-      {Object.entries(links).map(([category, items], categoryIndex) => (
-        <motion.nav
-          key={category}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
-          viewport={{ once: true }}
-        >
-          <h6 className="footer-title text-accent">{category}</h6>
-          {items.map((item) => (
-            <a key={item} href="#" className="link link-hover text-neutral">
-              {item}
-            </a>
+          {Object.entries(links).map(([category, items], categoryIndex) => (
+            <motion.nav
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h6 className="footer-title text-accent uppercase font-semibold mb-3">{category}</h6>
+              <div className="flex flex-col gap-2">
+                {items.map((item) => (
+                  <a key={item} href="#" className="link link-hover text-neutral">
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </motion.nav>
           ))}
-        </motion.nav>
-      ))}
+        </div>
+      </div>
 
       <div className="footer footer-center p-10 bg-base-200 text-base-content border-t border-primary/10 relative z-10 mt-10 w-full">
         <div className="grid grid-flow-col gap-4">

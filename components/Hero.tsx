@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { appRoutes } from "@/lib/config";
 
 export default function Hero() {
   return (
@@ -46,12 +47,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <button className="btn btn-primary btn-lg text-white rounded-full px-8 shadow-lg hover:shadow-xl border-none">
+              <a href={appRoutes.demo} className="btn btn-primary btn-lg rounded-full px-8 shadow-lg hover:shadow-xl border-none">
                 Try for Free
-              </button>
-              <button className="btn btn-outline btn-lg rounded-full px-8">
+              </a>
+              <a href={appRoutes.demo} className="btn btn-outline btn-lg rounded-full px-8">
                 Request a Demo
-              </button>
+              </a>
             </motion.div>
 
             <motion.div 

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
+import { appRoutes } from "@/lib/config";
 
 interface TranslationPair {
   english: string;
@@ -16,23 +17,23 @@ export default function GlassmorphicHero() {
   const [spanishPartialText, setSpanishPartialText] = useState("");
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
-  
-  const lines = [
-    {
-      english: "When we walk through the fire, God is still faithful.",
-      spanish: "Cuando caminamos por el fuego, Dios sigue siendo fiel."
-    },
-    {
-      english: "Even when the storm surrounds us, His presence remains.",
-      spanish: "Incluso cuando la tormenta nos rodea, Su presencia permanece."
-    },
-    {
-      english: "Do not be afraid — your breakthrough is near.",
-      spanish: "No tengas miedo: tu avance está cerca."
-    }
-  ];
 
   const startTranscription = useCallback(() => {
+    const lines = [
+      {
+        english: "When we walk through the fire, God is still faithful.",
+        spanish: "Cuando caminamos por el fuego, Dios sigue siendo fiel."
+      },
+      {
+        english: "Even when the storm surrounds us, His presence remains.",
+        spanish: "Incluso cuando la tormenta nos rodea, Su presencia permanece."
+      },
+      {
+        english: "Do not be afraid — your breakthrough is near.",
+        spanish: "No tengas miedo: tu avance está cerca."
+      }
+    ];
+    
     let lineIdx = 0;
     
     const processLine = () => {
@@ -209,8 +210,9 @@ export default function GlassmorphicHero() {
               transition={{ duration: 0.7, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
-                className="group relative px-8 py-4 bg-primary rounded-[20px] text-white font-bold text-base overflow-hidden"
+              <motion.a
+                href={appRoutes.demo}
+                className="group relative px-8 py-4 bg-primary rounded-[20px] text-white font-bold text-base overflow-hidden text-center"
                 style={{ 
                   fontFamily: 'var(--font-sora), sans-serif',
                   boxShadow: '0 6px 24px rgba(30,58,138,0.5), 0 1px 4px rgba(59,91,219,0.12), 0 0 0 2px rgba(210,230,230,0.06)'
@@ -223,10 +225,11 @@ export default function GlassmorphicHero() {
               >
                 <span className="relative z-10">Try Live Demo</span>
                 <div className="absolute inset-0 bg-gradient-to-b from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
+              </motion.a>
 
-              <motion.button
-                className="px-8 py-4 rounded-[20px] text-neutral font-semibold text-base border-2 border-primary/20"
+              <motion.a
+                href="#how-it-works"
+                className="px-8 py-4 rounded-[20px] text-neutral font-semibold text-base border-2 border-primary/20 text-center"
                 style={{ 
                   fontFamily: 'var(--font-sora), sans-serif',
                   background: 'rgba(255,255,255,0.6)',
@@ -240,7 +243,7 @@ export default function GlassmorphicHero() {
                 whileTap={{ scale: 0.98 }}
               >
                 Learn More
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
 

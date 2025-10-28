@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { appRoutes } from "@/lib/config";
 
 export default function Pricing() {
   const plans = [
@@ -15,6 +16,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: false,
+      signupUrl: appRoutes.pricingStarter,
     },
     {
       name: "Pro",
@@ -27,6 +29,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: true,
+      signupUrl: appRoutes.pricingPro,
     },
     {
       name: "Unlimited",
@@ -39,6 +42,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: false,
+      signupUrl: appRoutes.pricingUnlimited,
     },
   ];
 
@@ -95,9 +99,9 @@ export default function Pricing() {
                     ))}
                   </ul>
                   <div className="card-actions justify-center mt-auto">
-                    <button className={`btn w-full rounded-full ${plan.highlighted ? 'btn-primary text-white border-none shadow-lg' : 'btn-outline btn-primary'}`}>
+                    <a href={plan.signupUrl} className={`btn w-full rounded-full ${plan.highlighted ? 'btn-primary border-none shadow-lg' : 'btn-primary border-none'}`}>
                       Get started free
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -116,7 +120,7 @@ export default function Pricing() {
             <div className="card-body p-8 text-center">
               <h3 className="text-xl font-bold text-neutral mb-2">Need a custom plan?</h3>
               <p className="text-neutral/70 mb-4">Contact our team to build a custom plan at a cost that works for you.</p>
-              <button className="btn btn-primary text-white rounded-full px-8 border-none shadow-lg hover:shadow-xl">Contact Us</button>
+              <a href={appRoutes.pricingCustom} className="btn btn-primary rounded-full px-8 border-none shadow-lg hover:shadow-xl">Contact Us</a>
             </div>
           </div>
         </motion.div>

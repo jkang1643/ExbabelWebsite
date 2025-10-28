@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { appRoutes } from "@/lib/config";
 
 export default function CTA() {
   return (
@@ -60,9 +61,9 @@ export default function CTA() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <button className="btn btn-lg bg-white text-primary hover:bg-base-100 border-none shadow-2xl hover:shadow-3xl hover:scale-105 transition-all rounded-full px-10">
-              Contact us
-            </button>
+            <a href={appRoutes.signup} className="btn btn-lg bg-white text-primary hover:bg-base-100 border-none shadow-2xl hover:shadow-3xl hover:scale-105 transition-all rounded-full px-10">
+              Get Started Free
+            </a>
           </motion.div>
 
           <motion.div 

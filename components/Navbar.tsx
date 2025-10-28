@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { appRoutes } from "@/lib/config";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -171,6 +172,7 @@ export default function Navbar() {
             {/* CTA Buttons */}
             <div className="navbar-end gap-2">
               <motion.a
+                href={appRoutes.signin}
                 className="btn btn-ghost btn-sm rounded-full font-medium hover:bg-black/5 transition-colors"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -178,7 +180,8 @@ export default function Navbar() {
                 Sign in
               </motion.a>
               <motion.a
-                className="btn btn-primary btn-sm rounded-full font-medium px-5 text-white border-none"
+                href={appRoutes.signup}
+                className="btn btn-primary btn-sm rounded-full font-medium px-5 border-none"
                 style={{
                   boxShadow: "0 4px 16px rgba(59, 91, 219, 0.3)",
                 }}
