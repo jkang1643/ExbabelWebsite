@@ -1,0 +1,9 @@
+# AWS Deployment Configuration Template
+# Copy these values to a file named .env.deploy in your project root
+# This file is gitignored for security
+
+AWS_REGION=us-east-1
+S3_BUCKET_NAME=your-bucket-name
+CLOUDFRONT_DISTRIBUTION_ID=your-distribution-id
+AWS_PROFILE=default
+

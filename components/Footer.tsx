@@ -84,6 +84,9 @@ export default function Footer() {
           <p className="text-neutral text-sm">
             © {new Date().getFullYear()} Exbabel. All rights reserved.
           </p>
+          <p className="text-neutral text-xs mt-1 opacity-60">
+            v1.0.0 • Deployed via CI/CD
+          </p>
         </div>
       </div>
     </footer>

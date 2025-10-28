@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sora)', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       colors: {
         'hero-light': 'oklch(0.801 0.056 280.3)', // #b6bae2 - Light lavender-blue for hero gradient
