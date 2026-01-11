@@ -15,6 +15,7 @@ export default function GlassmorphicHero() {
   const [partialText, setPartialText] = useState("");
   const [spanishTranscript, setSpanishTranscript] = useState("");
   const [spanishPartialText, setSpanishPartialText] = useState("");
+  // un-used state below can be kept for future or removed, keeping for safety
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
 
@@ -33,9 +34,9 @@ export default function GlassmorphicHero() {
         spanish: "No tengas miedo: tu avance está cerca."
       }
     ];
-    
+
     let lineIdx = 0;
-    
+
     const processLine = () => {
       if (lineIdx >= lines.length) {
         // Loop back to the beginning
@@ -53,7 +54,7 @@ export default function GlassmorphicHero() {
         if (wordIdx < englishWords.length) {
           const currentEnglishWords = englishWords.slice(0, wordIdx + 1).join(" ");
           const nextEnglishWord = englishWords[wordIdx + 1];
-          
+
           // Show partial of next English word
           if (nextEnglishWord) {
             const partialLength = Math.min(3, Math.floor(nextEnglishWord.length / 2));
@@ -61,7 +62,7 @@ export default function GlassmorphicHero() {
           } else {
             setPartialText("");
           }
-          
+
           setTranscript(currentEnglishWords);
 
           // Spanish transcription with 0.3s delay
@@ -69,7 +70,7 @@ export default function GlassmorphicHero() {
             if (wordIdx < spanishWords.length) {
               const currentSpanishWords = spanishWords.slice(0, wordIdx + 1).join(" ");
               const nextSpanishWord = spanishWords[wordIdx + 1];
-              
+
               // Show partial of next Spanish word
               if (nextSpanishWord) {
                 const partialLength = Math.min(3, Math.floor(nextSpanishWord.length / 2));
@@ -77,13 +78,13 @@ export default function GlassmorphicHero() {
               } else {
                 setSpanishPartialText("");
               }
-              
+
               setSpanishTranscript(currentSpanishWords);
             }
           }, 300);
-          
+
           wordIdx++;
-          
+
           setTimeout(transcribeWords, 120);
         } else {
           // Line complete, trigger translation
@@ -116,358 +117,177 @@ export default function GlassmorphicHero() {
   }, [startTranscription]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Hero gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-hero-light to-hero-light" />
-      
-      {/* Ethereal vignette - positioned more dramatically */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.6),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(165,180,252,0.3),transparent_60%)]" />
-      
-      {/* Floating orbs */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-secondary/20 to-transparent blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-      />
+    <section className="relative min-h-screen overflow-hidden bg-[#F8F9FA]">
+      {/* Slack-style "Aurora" Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Soft Pink Blob */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob" />
 
-      {/* Light shafts - more dramatic */}
-      <div className="absolute top-0 right-1/3 w-2 h-full bg-gradient-to-b from-primary/10 via-primary/5 to-transparent opacity-30" />
-      <div className="absolute top-0 right-2/3 w-1 h-full bg-gradient-to-b from-secondary/8 via-secondary/4 to-transparent opacity-40" />
+        {/* Light Purple Blob */}
+        <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-2000" />
 
-      {/* Micro-grain texture */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'4.5\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")' }} />
+        {/* Pale Yellow Blob */}
+        <div className="absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-4000" />
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 min-h-screen flex flex-col justify-center py-32">
-        {/* 1/3 - 2/3 Layout */}
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-center max-w-[1400px] mx-auto w-full">
-          {/* Left: Hero Content (1/3) */}
+        {/* Subtle Blue/Mint Blob */}
+        <div className="absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-blob animation-delay-6000" />
+      </div>
+
+      {/* Subtle Sparkles (Static for now, can be animated) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute top-[20%] left-[15%] text-indigo-200 text-2xl transform rotate-12">✦</div>
+        <div className="absolute top-[30%] right-[20%] text-purple-200 text-xl transform -rotate-12">✦</div>
+        <div className="absolute bottom-[40%] left-[10%] text-pink-200 text-3xl">✦</div>
+      </div>
+
+      {/* Curved Separator at Bottom */}
+      <div className="absolute bottom-0 left-[-50%] w-[200%] h-[120px] bg-white rounded-t-[100%] z-0 pointer-events-none" />
+
+      <div className="relative z-10 pt-32 pb-24 md:pt-48 md:pb-32 flex flex-col items-center">
+        {/* Centered Content Spine */}
+        <div className="layout-spine text-center space-y-10">
+
+          {/* Headline Group */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-6 max-w-[840px]"
           >
-            <motion.h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral leading-[1.15]"
+            <h1
+              className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
             >
-              The most{" "}
-              <span className="bg-gradient-to-r from-info to-success bg-clip-text text-transparent">
-                advanced
-              </span>
-              {" "}AI-powered{" "}
-              <span className="bg-gradient-to-r from-warning to-error bg-clip-text text-transparent">
-                translation
-              </span>
-              {" "}and{" "}
-              <span className="bg-gradient-to-r from-success to-info bg-clip-text text-transparent">
-                worship
-              </span>
-              {" "}technology{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-error via-warning to-success bg-clip-text text-transparent">
-                  platform
-                </span>
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-info to-secondary rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                />
-              </span>
-            </motion.h1>
+              Give your church a
+              <span className="block text-primary mt-2">collective voice.</span>
+            </h1>
 
-            <motion.p
-              className="text-base md:text-lg text-neutral/70 leading-relaxed"
+            <p
+              className="text-xl md:text-2xl text-base-content/80 leading-relaxed max-w-[640px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
             >
-              Break down language barriers with real-time AI translation that understands context, culture, and nuance. Empower your worship services globally.
-            </motion.p>
-
-            {/* Primary CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <motion.a
-                href={appRoutes.demo}
-                className="group relative px-8 py-4 bg-primary rounded-[20px] text-white font-bold text-base overflow-hidden text-center"
-                style={{ 
-                  fontFamily: 'var(--font-sora), sans-serif',
-                  boxShadow: '0 6px 24px rgba(30,58,138,0.5), 0 1px 4px rgba(59,91,219,0.12), 0 0 0 2px rgba(210,230,230,0.06)'
-                }}
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: '0 8px 30px rgba(59,130,246,0.38), 0 2px 8px rgba(59,91,219,0.2), 0 0 0 2px rgba(210,230,230,0.12)'
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="relative z-10">Try Live Demo</span>
-                <div className="absolute inset-0 bg-gradient-to-b from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.a>
-
-              <motion.a
-                href="#how-it-works"
-                className="px-8 py-4 rounded-[20px] text-neutral font-semibold text-base border-2 border-primary/20 text-center"
-                style={{ 
-                  fontFamily: 'var(--font-sora), sans-serif',
-                  background: 'rgba(255,255,255,0.6)',
-                  backdropFilter: 'blur(8px)',
-                }}
-                whileHover={{ 
-                  scale: 1.02,
-                  background: 'rgba(255,255,255,0.8)',
-                  borderColor: 'rgba(var(--color-primary), 0.4)',
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Learn More
-              </motion.a>
-            </motion.div>
+              Break down language barriers with real-time AI translation that understands context, culture, and nuance.
+            </p>
           </motion.div>
 
-          {/* Right: Live Translation Demo (2/3) */}
+          {/* CTA Row - Centered */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row items-center gap-4 pt-4"
+          >
+            <a
+              href={appRoutes.demo}
+              className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20"
+              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+            >
+              Try for Free
+            </a>
+            <a
+              href="#how-it-works"
+              className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all"
+              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+            >
+              How it works
+            </a>
+          </motion.div>
+
+          {/* Demo Container - Stacked Below */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-[800px] mt-16 md:mt-24 relative"
           >
             {/* Main Glass Card - Live Translation Console */}
-            <div 
-              className="relative rounded-[28px] p-6 md:p-8"
-              style={{
-                background: 'rgba(255,255,255,0.7)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(165,180,252,0.3)',
-                boxShadow: '0 8px 32px rgba(59,130,246,0.15), 0 2px 8px rgba(99,102,241,0.1)',
-              }}
+            <div
+              className="relative rounded-3xl p-6 md:p-8 bg-white shadow-2xl shadow-blue-900/10 border border-white/50 backdrop-blur-sm"
             >
               {/* Header with LIVE Badge */}
-              <div className="flex justify-between items-center mb-3">
-                <motion.div 
-                  className="px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm border border-primary/20"
-                  animate={{ 
-                    boxShadow: [
-                      '0 0 0 0 rgba(99,102,241,0.2)',
-                      '0 0 0 6px rgba(99,102,241,0)',
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <span className="flex items-center gap-1.5" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    <motion.span 
-                      className="w-2 h-2 bg-primary rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                    <span className="text-primary font-bold text-xs">LIVE TRANSLATION</span>
-                  </span>
-                </motion.div>
-
-                {/* Real-time indicator bars */}
-                <div className="flex gap-1">
-                  {[0, 1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      className="w-1 h-6 bg-primary/60 rounded-full"
-                      animate={{ 
-                        height: phase === 'transcribing' ? [6, 24, 6] : 6,
-                        opacity: phase === 'transcribing' ? [0.4, 1, 0.4] : 0.4,
-                      }}
-                      transition={{ 
-                        duration: 1.2,
-                        repeat: phase === 'transcribing' ? Infinity : 0,
-                        delay: i * 0.2,
-                      }}
-                    />
-                  ))}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm border border-blue-100">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+                  Live Translation
+                </div>
+                <div className="flex items-center gap-3 text-slate-500 text-sm font-medium">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                  </div>
+                  <span>Recording in progress...</span>
                 </div>
               </div>
 
-              {/* Microphone Icon & Status */}
-              <div className="flex items-center gap-2 mb-3">
-                <motion.div
-                  className="relative w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center"
-                  animate={phase === 'listening' || phase === 'transcribing' ? {
-                    boxShadow: [
-                      '0 0 0 0 rgba(99,102,241,0.4)',
-                      '0 0 0 10px rgba(99,102,241,0)',
-                    ]
-                  } : {}}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
-                </motion.div>
-                <motion.p 
-                  className="text-[11px] font-semibold text-primary/80"
-                  style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-                  key={phase}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {phase === 'listening' && "Listening... Detecting speech input..."}
-                  {phase === 'transcribing' && "Recording in progress..."}
-                  {phase === 'complete' && "Translation Complete ✓"}
-                </motion.p>
-              </div>
+              {/* Live Transcription Area - Vertical Layout */}
+              <div className="space-y-8 text-left">
 
-              {/* Live Transcription Area */}
-              <div className="mb-3">
-                <label className="block text-neutral/70 text-xs font-semibold mb-1.5 flex items-center gap-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                  <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-[10px] text-primary">
-                    EN
+                {/* Source Input */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">EN</span>
+                    <h3 className="text-sm font-bold text-slate-800">Live Transcription</h3>
                   </div>
-                  Live Transcription
-                </label>
-                <motion.div 
-                  className="rounded-[16px] p-3 bg-gradient-to-br from-white/[0.6] to-white/[0.4] border border-primary/15 h-[3.5rem] flex items-center overflow-hidden"
-                  style={{ backdropFilter: 'blur(8px)' }}
-                >
-                  <p className="text-neutral text-sm leading-tight line-clamp-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    {transcript}
-                    {partialText && (
-                      <span className="text-neutral/40 italic">
-                        {partialText.substring(transcript.length)}
-                      </span>
-                    )}
-                    {(phase === 'listening' || (phase === 'transcribing' && !transcript)) && (
-                      <motion.span
-                        className="inline-block w-0.5 h-4 bg-primary ml-1"
-                        animate={{ opacity: [1, 0] }}
-                        transition={{ duration: 0.8, repeat: Infinity }}
-                      />
-                    )}
-                  </p>
-                </motion.div>
-              </div>
+                  <div className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl p-5 min-h-[80px] flex items-center text-lg md:text-xl text-slate-800 font-medium shadow-inner">
+                    {transcript || <span className="text-slate-300 italic">Listening for speech...</span>}
+                    {partialText && <span className="text-slate-400">{partialText.substring(transcript.length)}</span>}
+                  </div>
+                </div>
 
-              {/* Live Spanish Translation */}
-              <div className="mb-3">
-                <label className="block text-neutral/70 text-xs font-semibold mb-1.5 flex items-center gap-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                  <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-success/30 to-info/30 flex items-center justify-center text-[10px] text-success">
-                    ES
+                {/* Target Output */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">ES</span>
+                    <h3 className="text-sm font-bold text-slate-800">Live Translation</h3>
                   </div>
-                  Live Translation
-                </label>
-                <motion.div 
-                  className="rounded-[16px] p-3 bg-gradient-to-br from-white/[0.6] to-white/[0.4] border border-success/15 h-[3.5rem] flex items-center overflow-hidden"
-                  style={{ backdropFilter: 'blur(8px)' }}
-                >
-                  <p className="text-neutral text-sm leading-tight line-clamp-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    {spanishTranscript}
-                    {spanishPartialText && (
-                      <span className="text-neutral/40 italic">
-                        {spanishPartialText.substring(spanishTranscript.length)}
-                      </span>
-                    )}
-                    {(phase === 'listening' || (phase === 'transcribing' && !spanishTranscript)) && (
-                      <motion.span
-                        className="inline-block w-0.5 h-4 bg-success ml-1"
-                        animate={{ opacity: [1, 0] }}
-                        transition={{ duration: 0.8, repeat: Infinity }}
-                      />
-                    )}
-                  </p>
-                </motion.div>
-              </div>
+                  <div className="w-full bg-white border border-slate-200 rounded-2xl p-5 min-h-[80px] flex items-center text-lg md:text-xl text-slate-800 font-medium shadow-sm">
+                    {spanishTranscript || <span className="text-slate-300 italic">Translation will appear here...</span>}
+                    {spanishPartialText && <span className="opacity-50 text-slate-400">{spanishPartialText.substring(spanishTranscript.length)}</span>}
+                  </div>
+                </div>
 
-              {/* Translation History */}
-              <div>
-                <label className="block text-neutral/70 text-xs font-semibold mb-1.5 flex items-center gap-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                  <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-success/30 to-info/30 flex items-center justify-center text-[10px] text-success">
-                    ES
+                {/* Translation History */}
+                <div className="space-y-3 pt-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-green-600">ES</span>
+                    <h3 className="text-sm font-bold text-slate-700">Translation History</h3>
                   </div>
-                  Translation History
-                </label>
-                <div className="space-y-2 h-[8rem] overflow-y-auto">
-                  <AnimatePresence>
-                    {translatedLines.map((pair, index) => (
-                <motion.div 
+
+                  <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
+                    {translatedLines.length === 0 && (
+                      <div className="text-slate-300 text-sm italic p-2">History will appear here...</div>
+                    )}
+                    {[...translatedLines].reverse().map((pair, index) => (
+                      <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="rounded-[12px] p-2.5 bg-gradient-to-br from-white/[0.6] to-white/[0.4] border border-success/20"
-                  style={{ backdropFilter: 'blur(8px)' }}
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="bg-white border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
                       >
-                        <div className="flex items-start gap-1.5 mb-1">
-                          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">EN → ES</span>
-                          <span className="text-success text-xs">✓</span>
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex items-center gap-1 text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+                            EN <span className="text-slate-400">→</span> ES
+                          </div>
+                          <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                         </div>
-                        <p className="text-neutral/70 text-xs mb-1 leading-tight line-clamp-1" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                          {pair.english}
-                        </p>
-                    <motion.p 
-                          className="text-neutral text-xs font-medium leading-tight line-clamp-1"
-                      style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.3, duration: 0.5 }}
-                        >
-                          {pair.spanish}
-                    </motion.p>
-                </motion.div>
+                        <p className="text-slate-500 mb-1.5 text-sm">{pair.english}</p>
+                        <p className="text-slate-900 font-bold text-lg">{pair.spanish}</p>
+                      </motion.div>
                     ))}
-                  </AnimatePresence>
-                  
-                  {translatedLines.length === 0 && (
-                    <div className="rounded-[12px] p-3 bg-gradient-to-br from-white/[0.4] to-white/[0.3] border border-primary/10 text-center h-[8rem] flex items-center justify-center">
-                      <p className="text-neutral/40 text-xs italic" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                        Translations will appear here...
-                      </p>
-                    </div>
-                  )}
-                    </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>
-          </motion.div>
-        </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ opacity: { delay: 1.5, duration: 0.5 }, y: { duration: 2, repeat: Infinity } }}
-        >
-          <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center pt-2">
-            <motion.div 
-              className="w-1 h-2 bg-primary/50 rounded-full"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
+            {/* Decorative blobbies behind the card */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl -z-10 mix-blend-multiply" />
+            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl -z-10 mix-blend-multiply" />
+
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
 }
-

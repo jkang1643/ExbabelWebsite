@@ -50,22 +50,22 @@ export default function TechnicalRequirements() {
   return (
     <section className="py-20 px-4 bg-base-200">
       <div className="container mx-auto max-w-7xl">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
             What You Need to{" "}
-            <span className="bg-gradient-to-r from-success via-success to-info bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
               Get Started
             </span>
           </h2>
-              <p className="text-lg text-neutral max-w-2xl mx-auto">
-                Simple technical requirements - if you can stream a video, you can use Exbabel
-              </p>
+          <p className="text-lg text-base-content max-w-2xl mx-auto">
+            Simple technical requirements - if you can stream a video, you can use Exbabel
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -80,18 +80,18 @@ export default function TechnicalRequirements() {
               <div className="card bg-white/60 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
                 <div className="card-body p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5a5d80]/10 to-[#5a5d80]/5 flex items-center justify-center text-[#5a5d80]">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center text-accent">
                       {req.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-neutral">{req.title}</h3>
+                    <h3 className="text-lg font-bold text-base-content">{req.title}</h3>
                   </div>
                   <ul className="space-y-3">
                     {req.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                            <svg className="w-5 h-5 text-[#5a5d80] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span className="text-neutral text-sm leading-relaxed">{item}</span>
+                        <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-base-content text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -110,12 +110,12 @@ export default function TechnicalRequirements() {
           viewport={{ once: true }}
         >
           <div className="card-body p-8 items-center text-center">
-              <h3 className="text-2xl font-bold text-neutral mb-2">
-                Need Help Setting Up?
-              </h3>
-              <p className="text-neutral/70 mb-6 max-w-2xl">
-                Our support team is here to help you get started. We provide detailed setup guides, video tutorials, and live support - including on Sundays!
-              </p>
+            <h3 className="text-2xl font-bold text-base-content mb-2">
+              Need Help Setting Up?
+            </h3>
+            <p className="text-base-content/70 mb-6 max-w-2xl">
+              Our support team is here to help you get started. We provide detailed setup guides, video tutorials, and live support - including on Sundays!
+            </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <button className="btn btn-primary rounded-full px-6 border-none shadow-lg hover:shadow-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

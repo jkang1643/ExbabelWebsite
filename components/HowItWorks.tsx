@@ -1,189 +1,370 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
+import { motion, useScroll, useTransform, AnimatePresence, useSpring } from "framer-motion";
+
+// --- Assets / Icons ---
+const AudioIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
+    <path d="M2 10v3" /><path d="M6 6v11" /><path d="M10 3v18" /><path d="M14 8v7" /><path d="M18 5v13" /><path d="M22 10v4" />
+  </svg>
+);
+
+const QRIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
+    <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
+    <rect x="14" y="14" width="7" height="7" rx="1" /><path d="M3 14h7v7H3z" />
+  </svg>
+);
+
+const GlobeIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
+    <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
+  </svg>
+);
+
+const ChatIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </svg>
+);
+
+const Sparkle = ({ delay = 0, style }: { delay?: number; style?: React.CSSProperties }) => (
+  <motion.svg
+    width="20" height="20" viewBox="0 0 24 24" fill="#FFB800"
+    style={style}
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{ scale: [0, 1, 0], opacity: [0, 1, 0], rotate: [0, 45, 90] }}
+    transition={{ duration: 1.5, repeat: Infinity, delay, ease: "easeInOut" }}
+  >
+    <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" />
+  </motion.svg>
+);
+
+// --- Data ---
+const STEPS = [
+  {
+    id: "audio",
+    title: "Connect Audio",
+    description: "Stream crystal-clear audio directly from your sound system. No app download required for you or your audience.",
+    icon: AudioIcon,
+    color: "#611f69" // Slack Purple-ish for accents
+  },
+  {
+    id: "qr",
+    title: "Instant Access",
+    description: "Display a customized QR code. Attendees simply scan to join the session instantly from any smartphone.",
+    icon: QRIcon,
+    color: "#36C5F0" // Slack Blue
+  },
+  {
+    id: "language",
+    title: "Choose Language",
+    description: "Every user picks their preferred language from over 150 options available in real-time.",
+    icon: GlobeIcon,
+    color: "#2EB67D" // Slack Green
+  },
+  {
+    id: "translation",
+    title: "AI Translation",
+    description: "Speech is translated instantly with context-aware AI, delivered as live captions or audio.",
+    icon: ChatIcon,
+    color: "#ECB22E" // Slack Yellow
+  }
+];
+
+const LANGUAGES = [
+  "English", "Spanish", "French", "German", "Japanese", "Korean", "Chinese",
+  "Portuguese", "Italian", "Russian", "Dutch", "Arabic", "Hindi", "Turkish",
+  "English", "Spanish", "French", "German", "Japanese", "Korean", "Chinese"
+];
 
 export default function HowItWorks() {
-  const [activeTab, setActiveTab] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
-  const steps = [
-    {
-      number: "1",
-      title: "Connect Your Audio",
-      description: "Stream audio from your sound system through any computer with Chrome browser. No special hardware needed.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.414a2 2 0 002.828 0l6.364-6.364a2 2 0 000-2.828l-6.364-6.364a2 2 0 00-2.828 0l-6.364 6.364a2 2 0 000 2.828z" />
-        </svg>
-      ),
-    },
-    {
-      number: "2",
-      title: "Share QR Code",
-      description: "Display a QR code on screens or handouts. Attendees scan to instantly connect from any device.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-        </svg>
-      ),
-    },
-    {
-      number: "3",
-      title: "Choose Language",
-      description: "Users select their preferred language from 150+ options. Works on phones, tablets, and computers.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-        </svg>
-      ),
-    },
-    {
-      number: "4",
-      title: "Real-Time Translation",
-      description: "AI translates speech instantly. Users can listen with headphones or read live captions.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-    },
-  ];
+  const [activeStep, setActiveStep] = useState(0);
+  // Smooth out the scroll progress
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  // Update active step based on scroll
+  useMemo(() => scrollYProgress.on("change", (v) => {
+    // Determine step based on scroll quadrants (0-0.25, 0.25-0.5, etc) with a small buffer?
+    // Actually simplicity is best:
+    const step = Math.min(Math.floor(v * 4), 3);
+    setActiveStep(step);
+  }), [scrollYProgress]);
+
+  // Progress Bar Height for the left timeline
+  const progressBarHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
+
+  // Background Blob Animations
+  const blobTransition = {
+    duration: 10,
+    repeat: Infinity,
+    repeatType: "mirror" as const,
+    ease: "easeInOut"
+  };
 
   return (
-    <section id="how-it-works" className="py-20 px-4 bg-base-100 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
-            How It Works
-          </h2>
-          <p className="text-xl text-neutral max-w-2xl mx-auto">
-            Get started in minutes with our simple four-step process
-          </p>
-        </motion.div>
+    <section className="relative w-full bg-white font-sans text-[#1d1c1d]">
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {steps.map((step, index) => (
+      {/* 1. The Interaction Container */}
+      <div ref={containerRef} className="relative h-[400vh]">
+
+        {/* Sticky Viewport */}
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+
+          {/* 2. Background: Aurora Effect */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            {/* Top Left Blob */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent -ml-4 z-0" />
-              )}
+              className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full blur-[300px] opacity-60"
+              style={{ backgroundColor: "#F6E8FF" }}
+              animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+              transition={blobTransition}
+            />
+            {/* Center Blob */}
+            <motion.div
+              className="absolute top-[30%] left-[25%] w-[40vw] h-[40vw] rounded-full blur-[300px] opacity-50"
+              style={{ backgroundColor: "#FFF9E5" }}
+              animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+              transition={{ ...blobTransition, delay: 2 }}
+            />
+            {/* Bottom Right Blob */}
+            <motion.div
+              className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full blur-[300px] opacity-60"
+              style={{ backgroundColor: "#FFEDF2" }}
+              animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+              transition={{ ...blobTransition, delay: 4 }}
+            />
+          </div>
 
-              <div className="card bg-gradient-to-br from-primary/5 to-transparent hover:from-primary/10 transition-all duration-300 border border-primary/20 h-full relative z-10">
-                <div className="card-body items-center text-center">
-                  {/* Step Number Badge */}
-                  <div className="badge badge-primary badge-lg text-white mb-4 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">
-                    {step.number}
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className="text-primary mb-4">
-                    {step.icon}
-                  </div>
-                  
-                  <h3 className="card-title text-accent text-xl justify-center mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-neutral text-sm">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 h-full items-center">
 
-        {/* QR Code Demo Section */}
-        <motion.div 
-          className="card bg-gradient-to-br from-primary to-accent shadow-2xl text-white"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="card-body items-center text-center p-12">
-            <h3 className="text-3xl font-bold mb-6">
-              Just Scan the QR Code to Connect
-            </h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl">
-              No app installation required. Works on any device with a web browser.
-            </p>
-            
-            <div className="flex flex-col md:flex-row gap-8 items-center justify-center w-full">
-              {/* QR Code Placeholder */}
-              <div className="mockup-phone border-primary">
-                <div className="camera"></div>
-                <div className="display">
-                  <div className="artboard artboard-demo phone-1 bg-base-100">
-                    <div className="flex flex-col items-center justify-center h-full p-4">
-                      <div className="w-48 h-48 bg-white rounded-lg flex items-center justify-center mb-4">
-                        <div className="grid grid-cols-3 gap-1 p-4">
-                          {Array.from({ length: 9 }).map((_, i) => (
-                            <div key={i} className="w-8 h-8 bg-primary rounded-sm" />
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-sm text-neutral font-semibold">Scan to Join</p>
-                    </div>
-                  </div>
-                </div>
+            {/* 3. Left Side: Narrative */}
+            <div className="flex flex-col justify-center h-full relative">
+              {/* Timeline Line */}
+              <div className="absolute left-[23px] top-[15%] bottom-[15%] w-[2px] bg-black/5 hidden lg:block overflow-hidden rounded-full">
+                <motion.div
+                  className="w-full bg-[#4A154B]"
+                  style={{ height: progressBarHeight }}
+                />
               </div>
 
-              {/* Feature List */}
-              <div className="flex-1 text-left">
-                <ul className="space-y-4">
-                  {[
-                    "Works on iPhone, Android, tablets, laptops",
-                    "No app installation needed",
-                    "Instant connection via web browser",
-                    "Secure encrypted connection",
-                  ].map((feature, i) => (
-                    <motion.li 
-                      key={i}
-                      className="flex items-center gap-3"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                      viewport={{ once: true }}
+              <div className="space-y-24 py-20">
+                {STEPS.map((step, index) => {
+                  const isActive = index === activeStep;
+                  return (
+                    <motion.div
+                      key={step.id}
+                      className={`relative pl-0 lg:pl-16 transition-all duration-500 ${isActive ? "opacity-100 blur-0 scale-100" : "opacity-15 blur-[1px] scale-95"}`}
                     >
-                      <div className="badge badge-lg bg-white/20 border-white/40">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
+                      {/* Mobile Step Indicator (Desktop uses the line) */}
+                      <div className="lg:absolute lg:left-0 lg:top-1 w-12 h-12 rounded-full border border-black/10 bg-white flex items-center justify-center font-bold text-lg mb-4 lg:mb-0 shadow-sm z-20 transition-colors duration-300"
+                        style={{
+                          borderColor: isActive ? step.color : 'rgba(0,0,0,0.1)',
+                          color: isActive ? step.color : 'inherit'
+                        }}>
+                        {index + 1}
                       </div>
-                      <span className="text-lg">{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+
+                      <h3 className="text-3xl font-bold mb-4 tracking-tight">{step.title}</h3>
+                      <p className="text-lg text-[#616061] leading-relaxed max-w-md">
+                        {step.description}
+                      </p>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
-          </div>
-        </motion.div>
-      </div>
 
-      {/* Background decoration */}
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      />
+            {/* 4. Right Side: Morphing UI Window */}
+            <div className="h-[500px] w-full flex items-center justify-center perspective-1000">
+              <motion.div
+                className="relative w-full max-w-[420px] h-[520px] bg-white rounded-[24px] shadow-2xl border border-[#E2E2E2] overflow-hidden flex flex-col"
+                layout
+                layoutId="morphing-window"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {/* Fake UI Header */}
+                <div className="h-10 border-b border-gray-100 flex items-center px-4 gap-2 bg-gray-50/50">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+
+                {/* Content Area */}
+                <div className="flex-1 relative p-8 flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-50/30">
+                  <AnimatePresence mode="wait">
+
+                    {/* STATE 1: AUDIO */}
+                    {activeStep === 0 && (
+                      <motion.div
+                        key="audio"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="flex items-center justify-center gap-1 h-32"
+                      >
+                        {[...Array(9)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="w-4 bg-[#4A154B] rounded-full"
+                            animate={{
+                              height: [30, 80, 40, 90, 30],
+                            }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                              delay: i * 0.1,
+                              repeatType: "reverse"
+                            }}
+                          />
+                        ))}
+                      </motion.div>
+                    )}
+
+                    {/* STATE 2: QR CODE */}
+                    {activeStep === 1 && (
+                      <motion.div
+                        key="qr"
+                        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        exit={{ opacity: 0, scale: 1.2, filter: "blur(10px)" }}
+                        className="relative"
+                      >
+                        <div className="w-48 h-48 bg-white border-2 border-[#1d1c1d] rounded-2xl p-2 relative shadow-lg">
+                          {/* Corner markers */}
+                          <div className="absolute top-3 left-3 w-8 h-8 border-4 border-black rounded-lg" />
+                          <div className="absolute top-3 right-3 w-8 h-8 border-4 border-black rounded-lg" />
+                          <div className="absolute bottom-3 left-3 w-8 h-8 border-4 border-black rounded-lg" />
+
+                          {/* Pixel Grid */}
+                          <div className="grid grid-cols-6 gap-1 p-8 h-full">
+                            {[...Array(36)].map((_, i) => (
+                              <motion.div
+                                key={i}
+                                className="bg-[#4A154B] rounded-sm"
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: Math.random() > 0.3 ? 1 : 0.2, scale: 1 }}
+                                transition={{ duration: 0.4, delay: i * 0.01 }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* STATE 3: LANGUAGE RAIN */}
+                    {activeStep === 2 && (
+                      <motion.div
+                        key="language"
+                        className="w-full h-full relative overflow-hidden mask-linear-fade"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, y: -20 }}
+                      >
+                        <div className="absolute inset-0 flex flex-col items-center">
+                          <motion.div
+                            className="w-16 h-16 bg-[#1d1c1d] rounded-full flex items-center justify-center text-white mb-6 z-10 shadow-xl"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: "spring" }}
+                          >
+                            <GlobeIcon />
+                          </motion.div>
+
+                          <div className="w-full relative h-[300px] overflow-hidden">
+                            <div className="flex flex-col items-center gap-3">
+                              {/* Infinite Scroll List copy 1 */}
+                              <motion.div
+                                className="flex flex-col items-center gap-3 w-full"
+                                animate={{ y: [0, -400] }}
+                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                              >
+                                {LANGUAGES.concat(LANGUAGES).map((lang, i) => (
+                                  <div key={i} className="w-[80%] bg-white border border-gray-100 shadow-sm rounded-lg py-3 px-6 text-center font-medium text-gray-600">
+                                    {lang}
+                                  </div>
+                                ))}
+                              </motion.div>
+                            </div>
+
+                            {/* Gradient overlays to fade top/bottom */}
+                            <div className="absolute top-0 w-full h-20 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
+                            <div className="absolute bottom-0 w-full h-20 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* STATE 4: TRANSLATION & SPARKLES */}
+                    {activeStep === 3 && (
+                      <motion.div
+                        key="translation"
+                        className="relative w-full h-full flex flex-col justify-center px-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                      >
+                        {/* Floating Sparkles */}
+                        <Sparkle style={{ position: 'absolute', top: '10%', right: '10%' }} delay={0} />
+                        <Sparkle style={{ position: 'absolute', bottom: '20%', left: '5%' }} delay={0.5} />
+                        <Sparkle style={{ position: 'absolute', top: '40%', right: '5%' }} delay={1.0} />
+
+                        <div className="space-y-4">
+                          <motion.div
+                            className="bg-gray-100 rounded-2xl rounded-tl-sm p-4 text-sm text-[#1d1c1d] max-w-[85%]"
+                            initial={{ x: -20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.4 }}
+                          >
+                            <p>Welcome everyone! Today we&apos;ll discuss the Q4 global strategy.</p>
+                          </motion.div>
+
+                          <motion.div
+                            className="self-end bg-[#4A154B] text-white rounded-2xl rounded-tr-sm p-4 text-sm max-w-[85%] shadow-lg"
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.3 }}
+                          >
+                            <div className="flex items-center gap-2 mb-1 opacity-80 text-xs uppercase tracking-wide">
+                              <span>Spanish</span>
+                              <div className="w-1 h-1 bg-white rounded-full" />
+                              <span>Live</span>
+                            </div>
+                            <p>¡Hola a todos! Hoy discutiremos la estrategia global para el cuarto trimestre.</p>
+                          </motion.div>
+
+                          <motion.div
+                            className="self-end bg-[#4A154B] text-white rounded-2xl rounded-tr-sm p-4 text-sm max-w-[85%] shadow-lg opacity-90"
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                          >
+                            <div className="flex items-center gap-2 mb-1 opacity-80 text-xs uppercase tracking-wide">
+                              <span>Japanese</span>
+                              <div className="w-1 h-1 bg-white rounded-full" />
+                              <span>Live</span>
+                            </div>
+                            <p>皆さん、こんにちは！今日は第4四半期のグローバル戦略について話し合います。</p>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
-

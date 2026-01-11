@@ -34,10 +34,10 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-4 text-primary">
               Exbabel
             </h3>
-            <p className="text-sm text-neutral max-w-xs">
+            <p className="text-sm text-base-content max-w-xs">
               Bridging communities through the power of language.
             </p>
           </motion.nav>
@@ -53,7 +53,7 @@ export default function Footer() {
               <h6 className="footer-title text-accent uppercase font-semibold mb-3">{category}</h6>
               <div className="flex flex-col gap-2">
                 {items.map((item) => (
-                  <a key={item} href="#" className="link link-hover text-neutral">
+                  <a key={item} href="#" className="link link-hover text-base-content/70 hover:text-primary">
                     {item}
                   </a>
                 ))}
@@ -81,10 +81,10 @@ export default function Footer() {
           ))}
         </div>
         <div>
-          <p className="text-neutral text-sm">
+          <p className="text-base-content text-sm">
             © {new Date().getFullYear()} Exbabel. All rights reserved.
           </p>
-          <p className="text-neutral text-xs mt-1 opacity-60">
+          <p className="text-base-content/60 text-xs mt-1">
             v1.0.0 • Deployed via CI/CD
           </p>
         </div>
