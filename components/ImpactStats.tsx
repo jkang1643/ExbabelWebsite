@@ -89,7 +89,7 @@ export default function ImpactStats() {
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6 }}
                 >
-                    We’re in the business of <br className="hidden md:block" /> connecting people.
+                    We’re in the business of <br className="hidden md:block" /> removing language barriers.
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full max-w-6xl mx-auto">
@@ -99,7 +99,7 @@ export default function ImpactStats() {
                         suffix="%"
                         description={
                             <>
-                                of users say Exbabel helps them stay more connected<sup>1</sup>
+                                of listeners say Exbabel helps them understand live speech in real time
                             </>
                         }
                         inView={inView}
@@ -111,7 +111,7 @@ export default function ImpactStats() {
                         value={43}
                         description={
                             <>
-                                The average number of apps used by teams in Exbabel
+                                languages supported across captions and audio translation
                             </>
                         }
                         inView={inView}
@@ -124,7 +124,7 @@ export default function ImpactStats() {
                         suffix="%"
                         description={
                             <>
-                                of users say Exbabel helps them collaborate more efficiently
+                                of organizations say Exbabel helps them reach more people
                             </>
                         }
                         inView={inView}
