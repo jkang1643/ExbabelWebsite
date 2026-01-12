@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3 border-b border-black/5" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4 border-b border-black/5" : "bg-transparent py-6"
         }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -37,7 +37,7 @@ export default function Navbar() {
             <a
               key={item}
               href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-[15px] font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+              className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
             >
               {item}
             </a>
@@ -48,13 +48,13 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href={appRoutes.signin}
-            className="hidden md:block text-[15px] font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+            className="hidden md:block text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
           >
             Sign in
           </a>
           <a
             href={appRoutes.demo}
-            className={`px-5 py-2.5 rounded-[4px] text-[15px] font-bold transition-all ${scrolled
+            className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${scrolled
               ? "bg-primary text-white hover:bg-primary/90"
               : "bg-white text-primary border border-white hover:bg-white/90"
               }`}

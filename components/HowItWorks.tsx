@@ -264,8 +264,8 @@ export default function HowItWorks() {
                         <div className="absolute left-0 top-1 w-12 h-12 rounded-full border border-black/10 bg-white flex items-center justify-center font-bold text-lg shadow-sm z-20 transition-colors duration-300" style={{ borderColor: isActive ? step.color : 'rgba(0,0,0,0.1)', color: isActive ? step.color : 'inherit' }}>
                           {index + 1}
                         </div>
-                        <h3 className="text-3xl font-bold mb-4 tracking-tight">{step.title}</h3>
-                        <p className="text-lg text-[#616061] leading-relaxed max-w-md">{step.description}</p>
+                        <h3 className="text-h3 mb-4 tracking-tight">{step.title}</h3>
+                        <p className="text-body leading-relaxed max-w-md">{step.description}</p>
                       </motion.div>
                     );
                   })}
@@ -299,8 +299,9 @@ export default function HowItWorks() {
       <div className="block lg:hidden py-16 px-6 bg-gray-50/50">
         <div className="max-w-md mx-auto space-y-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">How it works</h2>
-            <p className="text-base-content/70">Four simple steps to seamless connection.</p>
+            <div className="text-eyebrow mb-2">SEAMLESS WORKFLOW</div>
+            <h2 className="text-h2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">How it works</h2>
+            <p className="text-body">Four simple steps to seamless connection.</p>
           </div>
 
           {STEPS.map((step, index) => (

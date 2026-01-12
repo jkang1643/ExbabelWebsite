@@ -21,23 +21,25 @@ export default function TrustedPartners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white border-b border-gray-100">
       <div className="layout-spine">
-        <p className="text-[#616061] text-sm font-bold uppercase tracking-widest mb-12 text-center">
-          Trusted by teams at
+        <p className="text-eyebrow mb-12 text-center text-slate-400">
+          WORKS SEAMLESSLY WITH
         </p>
 
         {/* Scrolling logos container */}
         <div className="relative w-full overflow-hidden mask-gradient-x">
           <div className="flex gap-16 md:gap-24 animate-scroll whitespace-nowrap">
-            {duplicatedPartners.map((partner, index) => (
+            {[
+              "Zoom", "YouTube", "OBS Studio", "Microsoft Teams",
+              "Google Meet", "Twitch", "Facebook Live", "Vimeo",
+              "Zoom", "YouTube", "OBS Studio", "Microsoft Teams",
+            ].map((partner, index) => (
               <div key={index} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                <div className="text-3xl font-black text-[#1d1c1d] flex items-center gap-2">
-                  {/* Simple placeholder logo */}
-                  <div className="w-8 h-8 bg-[#1d1c1d] rounded text-white flex items-center justify-center text-sm font-bold">
-                    {partner.icon}
-                  </div>
-                  <span className="text-xl font-bold">{partner.name}</span>
+                <div className="text-2xl font-bold text-[#1d1c1d] flex items-center gap-3">
+                  {/* Simple dot placeholder for logo */}
+                  <div className="w-2 h-2 rounded-full bg-primary/40" />
+                  <span className="tracking-tight">{partner}</span>
                 </div>
               </div>
             ))}

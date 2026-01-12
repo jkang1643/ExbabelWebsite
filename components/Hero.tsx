@@ -19,8 +19,17 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <motion.h1 
-              className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-neutral leading-tight"
+            <motion.div
+              className="text-eyebrow mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              REAL-TIME AI TRANSLATION
+            </motion.div>
+
+            <motion.h1
+              className="text-h1 mb-6 text-neutral"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -31,17 +40,17 @@ export default function Hero() {
               </span>{" "}
               in real-time
             </motion.h1>
-            
-            <motion.p 
-              className="text-lg lg:text-xl text-neutral mb-8 leading-relaxed"
+
+            <motion.p
+              className="text-body mb-8 max-w-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Break down language barriers with AI-powered translation that understands context, culture, and nuance.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,7 +64,7 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="mt-8 text-sm text-neutral/70 flex items-center gap-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -171,7 +180,7 @@ export default function Hero() {
                 <div className="text-2xl font-bold text-primary mb-2">10M+</div>
                 <div className="flex gap-1 h-12 items-end">
                   {[40, 70, 45, 80, 60, 90, 75].map((height, i) => (
-                    <div 
+                    <div
                       key={i}
                       className="flex-1 bg-gradient-to-t from-primary to-secondary rounded-sm"
                       style={{ height: `${height}%` }}
@@ -192,15 +201,15 @@ export default function Hero() {
               <div className="card-body p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="avatar-group -space-x-3">
-                      <div className="avatar w-6">
-                        <div className="bg-gradient-to-br from-primary to-secondary rounded-full" />
-                      </div>
-                      <div className="avatar w-6">
-                        <div className="bg-gradient-to-br from-accent to-blue-600 rounded-full" />
-                      </div>
-                      <div className="avatar w-6">
-                        <div className="bg-gradient-to-br from-info to-secondary rounded-full" />
-                      </div>
+                    <div className="avatar w-6">
+                      <div className="bg-gradient-to-br from-primary to-secondary rounded-full" />
+                    </div>
+                    <div className="avatar w-6">
+                      <div className="bg-gradient-to-br from-accent to-blue-600 rounded-full" />
+                    </div>
+                    <div className="avatar w-6">
+                      <div className="bg-gradient-to-br from-info to-secondary rounded-full" />
+                    </div>
                   </div>
                 </div>
                 <div className="text-sm font-semibold text-neutral">Active Users</div>

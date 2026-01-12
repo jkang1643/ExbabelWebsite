@@ -43,7 +43,7 @@ export default function CTA() {
         >
           <a
             href={appRoutes.demo}
-            className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full hover:shadow-[0_20px_50px_rgba(255,255,255,0.3)] transition-all hover:-translate-y-1 active:scale-95 shadow-xl"
+            className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.02] active:scale-95 shadow-xl"
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
             Get Started Free

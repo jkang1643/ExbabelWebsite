@@ -83,11 +83,19 @@ export default function ImpactStats() {
             </div>
 
             <div ref={ref} className="container mx-auto px-4 text-center relative z-10">
+                <motion.div
+                    className="text-eyebrow mb-6"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    IMPACT AT SCALE
+                </motion.div>
                 <motion.h2
-                    className="text-3xl md:text-5xl font-bold text-base-content mb-20 tracking-tight"
+                    className="text-h2 text-base-content mb-20 tracking-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                 >
                     We’re in the business of <br className="hidden md:block" /> removing language barriers.
                 </motion.h2>

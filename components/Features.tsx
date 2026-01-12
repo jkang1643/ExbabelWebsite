@@ -71,10 +71,11 @@ export default function Features() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent tracking-tight">
+          <div className="text-eyebrow mb-3">POWERFUL FEATURES</div>
+          <h2 className="text-h2 mb-6 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent tracking-tight">
             Why Churches love our platform
           </h2>
-          <p className="text-lg text-base-content max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             Everything you need to break down language barriers and connect with people worldwide.
           </p>
         </motion.div>
@@ -104,30 +105,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Stats Row - Clean & Minimal */}
-        <motion.div
-          className="mt-24 w-full border-t border-gray-100 pt-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            {[
-              { value: "150+", label: "Languages Supported" },
-              { value: "10M+", label: "Translations Daily" },
-              { value: "150+", label: "Countries Connected" },
-            ].map((stat, i) => (
-              <div key={i} className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="text-sm font-semibold text-base-content/60 uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ export default function CapabilitySwitcher() {
             content: (
                 <div className="flex flex-col h-full">
                     <div className="flex-1 p-6 space-y-4 overflow-y-auto bg-white">
-                        <div className="flex gap-3">
+                        <div className="flex gap-4">
                             <div className="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">PA</div>
                             <div className="space-y-1">
                                 <div className="flex items-baseline gap-2">
@@ -28,7 +28,7 @@ export default function CapabilitySwitcher() {
                             </div>
                         </div>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-4">
                             <div className="w-8 h-8 rounded bg-purple-100 flex items-center justify-center text-xs font-bold text-purple-600">AI</div>
                             <div className="space-y-1">
                                 <div className="flex items-baseline gap-2">
@@ -44,7 +44,7 @@ export default function CapabilitySwitcher() {
                             </div>
                         </div>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-4">
                             <div className="w-8 h-8 rounded bg-purple-100 flex items-center justify-center text-xs font-bold text-purple-600">AI</div>
                             <div className="space-y-1">
                                 <div className="flex items-baseline gap-2">
@@ -91,7 +91,7 @@ export default function CapabilitySwitcher() {
                         </div>
 
                         <div className="space-y-4">
-                            <div className="flex gap-3">
+                            <div className="flex gap-4">
                                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">🤖</div>
                                 <div className="bg-white shadow-sm border border-slate-200 rounded-lg p-3 w-full">
                                     <div className="text-xs font-bold text-slate-400 mb-1">DEFINITION CARD</div>
@@ -190,7 +190,7 @@ export default function CapabilitySwitcher() {
                                 key={feature.id}
                                 onClick={() => setActiveFeature(feature.id)}
                                 className={`text-left p-6 rounded-xl transition-all duration-300 group outline-none ${activeFeature === feature.id
-                                    ? "bg-white shadow-xl shadow-black/5 scale-[1.02] border border-base-200"
+                                    ? "bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.1)] scale-[1.02]"
                                     : "hover:bg-base-200/50 text-base-content/60"
                                     }`}
                             >
@@ -218,7 +218,7 @@ export default function CapabilitySwitcher() {
                                 className="absolute inset-0"
                             >
                                 {/* Window Frame */}
-                                <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-2xl shadow-black/30 flex flex-col border border-white/10">
+                                <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3),inset_0_1px_0_0_rgba(255,255,255,0.5)] flex flex-col border border-white/10">
                                     {/* Window Header */}
                                     <div className="bg-slate-100 border-b border-slate-200 h-10 flex items-center px-4 gap-2 shrink-0">
                                         <div className="w-3 h-3 rounded-full bg-red-400/80" />
