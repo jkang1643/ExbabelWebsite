@@ -158,8 +158,8 @@ export default function GlassmorphicHero() {
               className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Give your church a
-              <span className="block text-primary mt-2">collective voice.</span>
+              Give your church one voice —
+              <span className="block text-primary mt-2">in every language</span>
             </h1>
 
             <p
