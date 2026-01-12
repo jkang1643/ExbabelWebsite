@@ -121,16 +121,16 @@ export default function GlassmorphicHero() {
       {/* Slack-style "Aurora" Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Soft Pink Blob */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70 animate-blob" />
 
         {/* Light Purple Blob */}
-        <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70 animate-blob animation-delay-2000" />
 
         {/* Pale Yellow Blob */}
-        <div className="absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-4000" />
+        <div className="absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70 animate-blob animation-delay-4000" />
 
         {/* Subtle Blue/Mint Blob */}
-        <div className="absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-blob animation-delay-6000" />
+        <div className="absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[50px] md:blur-[100px] opacity-70 animate-blob animation-delay-6000" />
       </div>
 
       {/* Subtle Sparkles (Static for now, can be animated) */}

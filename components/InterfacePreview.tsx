@@ -10,8 +10,8 @@ export default function InterfacePreview() {
     <section className="section-pad bg-white relative overflow-hidden">
       {/* Localized Aurora Background for this section */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-[800px] pointer-events-none opacity-40">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[100px] animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] animate-pulse animation-delay-2000" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[50px] md:blur-[100px] animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[50px] md:blur-[100px] animate-pulse animation-delay-2000" />
       </div>
 
       <div className="layout-spine relative z-10">

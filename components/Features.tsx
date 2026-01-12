@@ -90,7 +90,7 @@ export default function Features() {
               viewport={{ once: true }}
               className="group h-full"
             >
-              <div className="h-full p-8 bg-white rounded-lg border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-out group relative overflow-hidden">
+              <div className="h-full p-6 md:p-8 bg-white rounded-lg border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-out group relative overflow-hidden">
                 {/* Hover Gradient Blob */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full pointer-events-none -z-0" />
 
