@@ -155,11 +155,11 @@ export default function GlassmorphicHero() {
             className="space-y-6 max-w-[840px]"
           >
             <h1
-              className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
+              className="text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Give your church one voice —
-              <span className="block text-primary mt-2">in every language</span>
+              Give your church
+              <span className="block text-primary mt-2">one voice</span>
             </h1>
 
             <p
