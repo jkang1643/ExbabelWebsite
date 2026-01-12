@@ -108,10 +108,11 @@ export default function ImpactStats() {
 
                     {/* Stat 2 */}
                     <StatItem
-                        value={43}
+                        value={250}
+                        suffix="+"
                         description={
                             <>
-                                languages supported across captions and audio translation
+                                supported languages including regional variants and dialects
                             </>
                         }
                         inView={inView}
