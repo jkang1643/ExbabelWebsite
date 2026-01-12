@@ -16,7 +16,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: false,
-      signupUrl: appRoutes.pricingStarter,
+      signupUrl: appRoutes.demo,
     },
     {
       name: "Pro",
@@ -29,7 +29,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: true,
-      signupUrl: appRoutes.pricingPro,
+      signupUrl: appRoutes.demo,
     },
     {
       name: "Unlimited",
@@ -42,7 +42,7 @@ export default function Pricing() {
         "Unlimited users",
       ],
       highlighted: false,
-      signupUrl: appRoutes.pricingUnlimited,
+      signupUrl: appRoutes.demo,
     },
   ];
 

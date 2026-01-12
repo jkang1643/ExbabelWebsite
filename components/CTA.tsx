@@ -42,7 +42,7 @@ export default function CTA() {
           transition={{ delay: 0.2 }}
         >
           <a
-            href={appRoutes.signup}
+            href={appRoutes.demo}
             className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full hover:shadow-[0_20px_50px_rgba(255,255,255,0.3)] transition-all hover:-translate-y-1 active:scale-95 shadow-xl"
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >

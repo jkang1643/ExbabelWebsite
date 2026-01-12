@@ -53,7 +53,7 @@ export default function Navbar() {
             Sign in
           </a>
           <a
-            href={appRoutes.signup}
+            href={appRoutes.demo}
             className={`px-5 py-2.5 rounded-[4px] text-[15px] font-bold transition-all ${scrolled
               ? "bg-primary text-white hover:bg-primary/90"
               : "bg-white text-primary border border-white hover:bg-white/90"
