@@ -50,7 +50,7 @@ export default function Footer() {
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <h6 className="footer-title text-accent uppercase font-semibold mb-3">{category}</h6>
+              <h6 className="footer-title text-primary uppercase font-semibold mb-3">{category}</h6>
               <div className="flex flex-col gap-2">
                 {items.map((item) => (
                   <a key={item} href="#" className="link link-hover text-base-content/70 hover:text-primary">
