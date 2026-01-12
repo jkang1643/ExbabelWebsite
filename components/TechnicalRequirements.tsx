@@ -58,10 +58,7 @@ export default function TechnicalRequirements() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
-            What You Need to{" "}
-            <span className="bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
-              Get Started
-            </span>
+            What You Need to <span className="text-primary">Get Started</span>
           </h2>
           <p className="text-lg text-base-content max-w-2xl mx-auto">
             Simple technical requirements - if you can stream a video, you can use Exbabel
@@ -80,7 +77,7 @@ export default function TechnicalRequirements() {
               <div className="card bg-white/60 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
                 <div className="card-body p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center text-accent">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary">
                       {req.icon}
                     </div>
                     <h3 className="text-lg font-bold text-base-content">{req.title}</h3>
@@ -88,7 +85,7 @@ export default function TechnicalRequirements() {
                   <ul className="space-y-3">
                     {req.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         <span className="text-base-content text-sm leading-relaxed">{item}</span>
