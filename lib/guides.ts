@@ -1,0 +1,58 @@
+
+export const guides = {
+    listener: {
+        title: "Join and Configure Sessions as a Listener",
+        src: "https://embed.app.guidde.com/playbooks/pvgw3jLae6MEz1jhDdsT4b?mode=videoAndDoc",
+        transcript: [
+            { time: "00:00", text: "This tutorial guides you through joining and configuring a session in x-bay as a listener." },
+            { time: "00:05", text: "You will learn how to enter session codes. Select languages and customize playback settings for an optimal experience." },
+            { time: "00:11", text: "Click tap to join session to begin joining a live session in X Babel." },
+            { time: "00:17", text: "Click fastest way to join to quickly access the session without delay." },
+            { time: "00:21", text: "Click here to reveal more options, for joining the session manually." },
+            { time: "00:26", text: "Click enter code manually to input a session code for direct access." },
+            { time: "00:31", text: "Enter your session code to connect to the specific session. You want to join?" },
+            { time: "00:35", text: "Click join now to submit your session code and enter the session." },
+            { time: "00:40", text: "Click the language selection menu to choose the languages you want to listen to during the session." },
+            { time: "00:45", text: "Click join session to confirm your language choices and enter the live session." },
+            { time: "00:50", text: "Click play to begin listening to the session audio." },
+            { time: "00:54", text: "Click the voice profile list to select a preferred voice for translation playback." },
+            { time: "00:59", text: "Enter the name of the voice profile you want to use for listening." },
+            { time: "01:02", text: "Click the desired voice profile from the list to apply it to your session." },
+            { time: "01:07", text: "Enter the voice profile name again to confirm your selection for playback." },
+            { time: "01:12", text: "Click here to open the playback, speed settings for the session audio." },
+            { time: "01:16", text: "Click 1.5 to set the playback speed to one and a half times the normal rate." },
+            { time: "01:22", text: "Enter one to specify the exact playback speed multiplier you prefer." },
+            { time: "01:26", text: "Click the voice tone selection menu to choose the tone for the session audio." },
+            { time: "01:31", text: "Click through the available voice tone options, to find one that suits your listening preference." },
+            { time: "01:37", text: "Click the voice tone, you want to apply to the session playback." },
+            { time: "01:40", text: "Click 3 to select the intensity level for the chosen voice tone." },
+            { time: "01:45", text: "Click for example, speak with a warm grandfather, Lee tone to read an example, description of the voice tone." },
+            { time: "01:51", text: "Click done to save your voice tone preferences for the session." },
+            { time: "01:55", text: "Click the voice profile list. Again to review or change your selected voice profile." },
+            { time: "02:01", text: "Click to view the session code and the currently selected voice profile details." },
+            { time: "02:06", text: "Click leave to exit the session when you are finished listening." },
+            { time: "02:10", text: "You have successfully joined an ex Babel session as a listener. Selected your preferred languages and voice profiles and customized playback settings. You can now enjoy real-time voice translation, tailored to your preferences and leave the session when done." },
+        ]
+    },
+    broadcasting: {
+        title: "Configure Church Broadcasting",
+        src: "https://embed.app.guidde.com/playbooks/aPPv4VnxomaPxhPjKawQhx?mode=videoAndDoc",
+        transcript: [
+            { time: "00:00", text: "This tutorial guides you through setting up, live Church broadcasting with X Babel's, real-time voice translation." },
+            { time: "00:06", text: "You will learn how to start broadcasting, share access with listeners and configure audio and latency settings for Optimal Performance." },
+            { time: "00:14", text: "Click the start broadcasting button to initiate your live broadcast session in ex Babel." },
+            { time: "00:20", text: "Click the option to download the QR code that listeners can scan to join your broadcast easily." },
+            { time: "00:26", text: "Click the QR code, download option again to ensure you have the correct code for your audience." },
+            { time: "00:32", text: "Click the language, selection dropdown to choose the languages, you want to support during your broadcast." },
+            { time: "00:37", text: "Click the start broadcasting button with the microphone icon to begin. Transmitting, your voice" },
+            { time: "00:43", text: "Click here to proceed with the broadcasting setup or confirm, your current selections." },
+            { time: "00:48", text: "Click the start broadcasting button again to restart or continue your live broadcast." },
+            { time: "00:54", text: "Click the stop broadcasting button to end your current live broadcast session." },
+            { time: "00:58", text: "Click the audio input drop-down to select the microphone or audio device for your broadcast." },
+            { time: "01:04", text: "Choose the appropriate audio input device to ensure your voice is captured clearly during Broadcasting." },
+            { time: "01:10", text: "Click the basic latency option to select standard latency with lower cost for your broadcast." },
+            { time: "01:16", text: "Click the ultra-low latency option to reduce delay with higher cost for real-time translation." },
+            { time: "01:22", text: "You have successfully set up and managed a live Church. Broadcast using X Babel including sharing access selecting languages, configuring audio inputs and adjusting latency and subscription plans. Next explore Advanced features or invite more listeners to enhance your broadcast experience." },
+        ]
+    }
+};
