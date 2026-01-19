@@ -26,7 +26,7 @@ export default function InterfacePreview() {
             One message. Every language.
           </h2>
           <p className="text-lg text-base-content/80 max-w-2xl mx-auto mb-8">
-            Exbabel translates your content into 150+ languages as it&apos;s happening, so everyone can follow along.
+            Exbabel translates your content into 180+ languages as it&apos;s happening, so everyone can follow along.
           </p>
 
           {/* Pill Toggle */}

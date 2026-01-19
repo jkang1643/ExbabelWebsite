@@ -36,7 +36,7 @@ export default function Pricing() {
       price: "149",
       features: [
         "Unlimited hours of streaming",
-        "Translation into 150+ languages",
+        "Translation into 180+ languages",
         "All languages available",
         "Priority support",
         "Unlimited users",

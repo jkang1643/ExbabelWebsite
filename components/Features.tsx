@@ -14,8 +14,8 @@ export default function Features() {
             ),
         },
         {
-            title: "150+ Languages",
-            description: "Connect with people worldwide through support for over 150 languages and dialects.",
+            title: "180+ Languages",
+            description: "Connect with people worldwide through support for over 180 languages and dialects.",
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -61,8 +61,9 @@ export default function Features() {
     ];
 
     return (
-        <section id="features" className="section-pad bg-transparent relative">
-            {/* Section specific soft glow if needed, or rely on global */}
+        <section id="features" className="section-pad relative overflow-hidden">
+            {/* Section specific soft glow */}
+            <div className="absolute inset-0 bg-section-soft opacity-60 pointer-events-none" />
 
             <div className="layout-spine relative z-10">
                 {/* Header */}
@@ -73,8 +74,8 @@ export default function Features() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <div className="text-eyebrow mb-3 tracking-widest text-base-ink/60">POWERFUL FEATURES</div>
-                    <h2 className="text-h2 mb-6 text-base-ink tracking-tight">
+                    <div className="text-eyebrow mb-3 tracking-widest text-primary/80">POWERFUL FEATURES</div>
+                    <h2 className="text-h2 mb-6 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent tracking-tight">
                         Why Churches love our platform
                     </h2>
                     <p className="text-body max-w-2xl mx-auto text-lg">
@@ -93,15 +94,15 @@ export default function Features() {
                             viewport={{ once: true }}
                             className="group h-full"
                         >
-                            <div className="h-full p-6 md:p-8 bg-base-white/80 backdrop-blur-sm rounded-aurora-xl shadow-aurora-card border border-aurora-subtle hover:shadow-aurora-hover hover:border-aurora-hover hover:-translate-y-1 transition-all duration-300 ease-aurora-out group relative overflow-hidden flex flex-col">
+                            <div className="h-full p-6 md:p-8 bg-white rounded-lg border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-out group relative overflow-hidden flex flex-col">
                                 {/* Hover Gradient Blob */}
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-aurora-purple/40 to-aurora-mint/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full pointer-events-none -z-0 blur-xl" />
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full pointer-events-none -z-0" />
 
-                                <div className="relative z-10 w-12 h-12 flex items-center justify-center text-base-ink mb-6 bg-aurora-mint/30 rounded-aurora-sm group-hover:scale-110 transition-transform duration-300">
+                                <div className="relative z-10 w-12 h-12 flex items-center justify-center text-primary mb-6 bg-blue-50/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-lg font-bold text-base-ink mb-3">{feature.title}</h3>
-                                <p className="text-base-muted leading-relaxed text-[15px] mb-4 flex-grow">{feature.description}</p>
+                                <h3 className="text-lg font-bold text-base-content mb-3">{feature.title}</h3>
+                                <p className="text-base-content/70 leading-relaxed text-[15px] mb-4 flex-grow">{feature.description}</p>
                             </div>
                         </motion.div>
                     ))}

@@ -60,7 +60,7 @@ const STEPS = [
   {
     id: "language",
     title: "Choose Language",
-    description: "Every user picks their preferred language from over 150 options available in real-time.",
+    description: "Every user picks their preferred language from over 180 options available in real-time.",
     icon: GlobeIcon,
     color: "#2EB67D" // Slack Green
   },

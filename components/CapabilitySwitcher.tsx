@@ -11,7 +11,7 @@ export default function CapabilitySwitcher() {
         {
             id: 0,
             label: "Real-time Translation",
-            description: "Instant speech-to-text translation in 150+ languages.",
+            description: "Instant speech-to-text translation in 180+ languages.",
             content: (
                 <div className="flex flex-col h-full">
                     <div className="flex-1 p-6 space-y-4 overflow-y-auto bg-white">

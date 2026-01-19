@@ -37,7 +37,7 @@ export default function Hero() {
             >
               Translate your conversations into{" "}
               <span className="bg-gradient-to-r from-aurora-purple via-aurora-pink to-aurora-mint bg-clip-text text-transparent drop-shadow-sm filter backdrop-brightness-75">
-                150+ languages
+                180+ languages
               </span>{" "}
               in real-time
             </motion.h1>
@@ -113,7 +113,7 @@ export default function Hero() {
                     </svg>
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-base-ink">150+</div>
+                <div className="text-3xl font-bold text-base-ink">180+</div>
                 <div className="text-xs text-base-muted">Languages Supported</div>
               </div>
             </motion.div>

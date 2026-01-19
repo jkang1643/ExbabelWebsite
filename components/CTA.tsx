@@ -92,7 +92,7 @@ export default function CTA() {
             </div>
 
             <div className="relative z-10 space-y-1 md:border-x border-white/10">
-              <div className="text-4xl md:text-5xl font-black tabular-nums tracking-tight">150+</div>
+              <div className="text-4xl md:text-5xl font-black tabular-nums tracking-tight">180+</div>
               <div className="text-[13px] font-extrabold text-white/60 uppercase tracking-[0.2em]">Languages</div>
             </div>
 

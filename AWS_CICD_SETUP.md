@@ -124,6 +124,26 @@ GitHub Actions → AWS OIDC → IAM Role → S3 Bucket + CloudFront
 
 ---
 
+### Step 2.5: Add CloudFront Function (Essential for Routing)
+
+This prevents sub-routes (like `/guides`) from showing the home page.
+
+1.  **Open CloudFront Console** → **Functions**
+2.  **Create function**:
+    - Name: `directory-index-rewrite`
+    - Runtime: `cloudfront-js-1.0` (or 2.0)
+3.  **Paste code**:
+    - Copy code from `cloudfront-function.js` in this repo.
+4.  **Publish** the function.
+5.  **Associate with Distribution**:
+    - Go to your **Distribution** → **Behaviors**
+    - Select the default behavior (`*`) → **Edit**
+    - Scroll to **Function associations**
+    - Viewer request: `Function` -> `directory-index-rewrite`
+    - **Save changes**
+
+---
+
 ### Step 3: Set Up OIDC Identity Provider
 
 1. **Open AWS Console** → Navigate to **IAM**
