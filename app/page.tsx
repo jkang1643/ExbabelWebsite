@@ -11,6 +11,7 @@ import Features from "@/components/Features";
 import TechnicalRequirements from "@/components/TechnicalRequirements";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
+import AsSeenOn from "@/components/AsSeenOn";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <TrustedPartners />
+      <AsSeenOn />
       <CTA />
       <Footer />
     </main>

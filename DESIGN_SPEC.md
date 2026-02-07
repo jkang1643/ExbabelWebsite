@@ -1,251 +1,139 @@
 # Exbabel Design Specification
-**Version:** 1.0.0 (January 2026)  
-**Objective:** Establish a calm, premium, and trustworthy visual language optimized for live worship and teaching environments.
+**Version:** 2.0.0 (January 2026)
+**Objective:** Define the single source of truth for Exbabel's "Aurora" design language—a premium, trustworthy, and interaction-driven system built for live connection.
 
 ---
 
-## 1. Spacing & Rhythm Tokens
-All spacing must strictly adhere to the 8-point grid. No "magic numbers" (e.g., 10px, 13px) are permitted.
+## 1. Core Philosophy: Layers & Light ("Aurora")
+The Aurora Design System moves beyond flat UI. It is built on the philosophy of **layers, depth, and light**.
 
-### 1.1 Base Unit
-*   **Base Unit:** 8px
+> **Base Background → Ambient Aurora → Interaction Aurora → Accent Aurora**
 
-### 1.2 Spacing Scale
-| Token | Value | Tailwind Class | Usage |
+*   **No Dead White:** White is never just "flat color". It is a canvas that reacts to light.
+*   **Light as Feedback:** Interaction is communicated through the emergence of light (gradients/glows), not just color changes.
+*   **Calm Shell, Energetic Core:** Components often appear calm/neutral at rest but reveal their "brand energy" (Aurora gradients) upon interaction.
+
+---
+
+## 2. Technology Stack & Library
+*   **Framework:** Tailwind CSS (Primary styling engine).
+*   **Component Library:** **Daisy UI** (Headless/Utility-first configuration).
+    *   *Configuration:* `themes: false` (We use our own CSS variables).
+    *   *Usage:* We leverage Daisy UI's semantic class names (e.g., `.btn`, `.card`) but override strict visuals with our Aurora design tokens.
+*   **Icons:** Heroicons (Outline & Solid).
+
+---
+
+## 3. Color System
+We use the **OKLCH** color space for perceptual uniformity.
+
+### 3.1 Base Palette
+| Role | Token Name | Value (Hex/Ref) | Usage |
 | :--- | :--- | :--- | :--- |
-| `--space-xs` | 8px | `p-2`, `m-2`, `gap-2` | Icon gaps, tight grouping, labels |
-| `--space-sm` | 16px | `p-4`, `m-4`, `gap-4` | Inline spacing, component internal padding |
-| `--space-md` | 24px | `p-6`, `m-6`, `gap-6` | Card internal padding, standard gaps |
-| `--space-lg` | 32px | `p-8`, `m-8`, `gap-8` | Component to component spacing |
-| `--space-xl` | 48px | `py-12` | Major section internals |
-| `--space-2xl` | 72px | `py-[72px]` | Section separation |
-| `--space-3xl` | 96px | `py-24` | Hero separation, heavy structural breaks |
+| **Surface** | `base-white` | `#FFFFFF` | Cards, main content areas. |
+| **Paper** | `base-paper` | `#F8F9FA` | Page backgrounds (never pure white). |
+| **Ink** | `base-ink` | `#0B1220` | Primary text, Primary Button Backgrounds. |
+| **Muted** | `base-muted` | `#667085` | Secondary text. |
 
-### 1.3 Semantic Spacing Tokens
-*   **Section Vertical Padding:** Default to `py-24` (`--space-3xl`).
-*   **Content Gap:** Default to `gap-8` (`--space-lg`) for grid items.
-*   **Text Head-to-Body:** Use `mb-4` (`--space-sm`) after H2/H3 headings.
+### 3.2 Aurora Gradient System (The "Brand Energy")
+These colors create the "Aurora" effect. They are rarely used as solid blocks, but rather as gradients, blurs, and glows.
 
-### 1.4 Forbidden Spacing Patterns
-*   ❌ No odd-numbered pixels (e.g., 15px, 21px).
-*   ❌ No hard-coded `margin` or `padding` in pixels; use Tailwind spacing classes.
-*   ❌ No inconsistent section heights; all main sections must use `py-24`.
-
----
-
-## 2. Layout System
-A rigid layout rail system ensures structural integrity and reduces horizontal eye strain.
-
-### 2.1 Container Rails
-*   **Standard Content:** `max-width: 1120px` (`max-w-6xl` approximate, or custom `max-w-[1120px]`).
-*   **Narrow / Content-Heavy:** `max-width: 640px` (`max-w-2xl`).
-*   **Wide / Demo:** `max-width: 1280px` (`max-w-7xl`).
-
-### 2.2 Alignment Standards
-*   **Headings:** Left-aligned by default. Centered alignment is reserved for Hero sections and short, impactful "Proof" sections.
-*   **Cards:** Grid layout with `gap-8`. Always aligned to the top.
-
-### 2.3 Section Specs
-| Section Type | Max-Width | Alignment | Padding |
+| Token | Color Name | Hex Ref | Role |
 | :--- | :--- | :--- | :--- |
-| **Hero** | 1120px | Centered | `pt-32 pb-24` |
-| **Content** | 1120px | Left-aligned | `py-24` |
-| **Testimonial** | 640px | Centered | `py-24` |
-| **CTA** | 1120px | Centered | `py-24` |
+| `aurora-pink` | **Rose/Pink** | `#FFD6E5` | Active states, warm highlights, "heartbeat". |
+| `aurora-purple` | **Lavender** | `#EAD6FF` | Primary ambient light, structural depth. |
+| `aurora-mint` | **Cyan/Mint** | `#D6F5FF` | Cool focus, clarity, tech precision. |
+| `aurora-yellow` | **Sunlight** | `#FFF7D1` | Subtle warmth, tertiary accents. |
+
+### 3.3 Functional Colors
+*   **Primary Brand Action/Link:** `oklch(0.608 0.370 264.7)` (Vibrant Blue).
+*   **Logo/Brand Gradient:** The Exbabel brand is defined by the interplay of **Ink (`#0B1220`)** and the **Aurora Gradient (Pink → Mint)**.
 
 ---
 
-## 3. Typography Specification
-Focus on "Quiet Authority" and readability under cognitive load.
+## 4. Typography
+**Font Family:** `Sora` (Headings) + `Inter` (Body).
+**Rationale:** Sora provides a unique, friendly, yet technical character for headings, fitting the "Human + AI" narrative. Inter ensures perfect legibility for UI text.
 
-### 3.1 Font Stack
-*   **Primary:** Sora (Sans-Serif)
-*   **Secondary:** Inter
-*   **Fallback:** System Sans-Serif (`ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`)
-
-### 3.2 Type Scale (Fluid)
-| Role | Class | Size Value (`clamp`) | Weight | Line-Height |
+### 4.1 Type Scale
+| Role | Size | Weight | Line Height | Usage |
 | :--- | :--- | :--- | :--- | :--- |
-| **H1** | `.text-h1` | `clamp(2.5rem, 5vw, 3.5rem)` | 800 (Extra Bold) | 1.1 |
-| **H2** | `.text-h2` | `clamp(2rem, 4vw, 2.5rem)` | 700 (Bold) | 1.2 |
-| **H3** | `.text-h3` | 24px (1.5rem) | 600 (Semibold) | 1.3 |
-| **Body** | `.text-body` | `clamp(1rem, 1.5vw, 1.125rem)` | 400 (Regular) | 1.6 |
-| **Small** | `text-sm` | 14px | 400 (Regular) | 1.5 |
-| **Eyebrow** | `.text-eyebrow`| 13px (0.8125rem) | 700 (Bold) | 1.0 |
-
-### 3.3 Rules of Emphasis
-*   **Eyebrows:** Uppercase, `tracking-[0.08em]`, color: `oklch(0.608 0.370 264.7)`. Used to anchor sections.
-*   **Max Line Length:** Body text must never exceed 640px (approx. 75 characters) to ensure readability.
-*   **Optimized Rendering:** `text-rendering: optimizeLegibility` and `-webkit-font-smoothing: antialiased` must be applied to the `body`.
-*   **Selection:** Customized collection color to match the brand (soft blue background, primary text).
+| **Display H1** | `clamp(2.5rem, 5vw, 3.5rem)` | 800 (ExtraBold) | 1.1 | Hero Section Headings |
+| **H2** | `clamp(2rem, 4vw, 2.5rem)` | 700 (Bold) | 1.2 | Section Titles |
+| **H3** | `24px` | 600 (SemiBold) | 1.3 | Card Titles, Feature Heads |
+| **Body** | `16-18px` | 400 (Regular) | 1.6 | Main reading text |
+| **Eyebrow** | `13px` | 700 (Bold) | 1.0 | Small tags appearing above H1/H2 |
 
 ---
 
-## 4. Color System
-The Aurora Design System prioritize depth and interaction-driven energy.
+## 5. Spacing & Layout Rules
+Strict adherence to an **8pt Grid System**. All spacing tokens must be multiples of 8.
 
-### 4.1 Base Palette
-| Role | HEX | OKLCH (Preferred) | Usage |
-| :--- | :--- | :--- | :--- |
-| **White** (Surface) | `#FFFFFF` | `100% 0 0` | Primary surfaces, cards |
-| **Paper** (Background)| `#F8F9FA` | `98.5% 0.002 240`| Page background |
-| **Ink** (Text/Primary)| `#0B1220` | `15% 0.04 260` | Primary text |
-| **Muted** (Sub-text) | `#667085` | `50% 0.02 250` | Secondary text, descriptions |
+### 5.1 Spacing Tokens
+*   `xs` (8px): Icon gaps, tight labels.
+*   `sm` (16px): Inline spacing.
+*   `md` (24px): Card padding, standard gaps.
+*   `lg` (32px): Component separation.
+*   `xl` (48px): Section breaks.
+*   `3xl` (96px/`py-24`): Major section padding.
 
-### 4.2 Aurora Tints (Light Bleed)
-| Name | HEX | Usage |
-| :--- | :--- | :--- |
-| **Pink** | `#FFD6E5` | Active states, warm focus |
-| **Purple** | `#EAD6FF` | Primary ambient light, primary border tint |
-| **Mint** | `#D6F5FF` | Secondary ambient light, cool focus |
-| **Yellow** | `#FFF7D1` | Sub-level accents |
-
-### 4.3 Functional Colors
-*   **Primary:** `oklch(0.608 0.370 264.7)` (Vibrant Blue - used for CTAs and critical actions)
-*   **Success:** `oklch(76% 0.177 163.223)`
-*   **Warning:** `oklch(82% 0.189 84.429)`
-*   **Error:** `oklch(70% 0.191 22.216)`
-
-### 4.4 Color Rules
-*   ❌ **No Flat White:** Never use flat `#FFFFFF` for the main page background; use **Paper** (`#F8F9FA`).
-*   ✅ **Contrast:** All text on background must exceed WCAG AA (4.5:1).
-*   ✅ **Blur > Saturation:** If a color feels like a "Neon Sign," it is too strong. Increase blur and decrease opacity.
+### 5.2 Layout Containers
+*   **Max Width:** `1120px` (Standard), `1280px` (Wide/Hero).
+*   **Padding:** Default section vertical padding is `py-24` (`96px`).
 
 ---
 
+## 6. Component Specifications
+
+### 6.1 Buttons (The "Aurora Button")
+The primary interface element.
+*   **Shape:** `rounded-full` (Pill).
+*   **Dimensions:** Height `48px` (h-12). Padded `px-8`.
+*   **Primary Variant:**
+    *   *Rest State:* Solid **Ink** (`#0B1220`) background. White text.
+    *   *Hover State:* Reveals the **Aurora Gradient** (Pink → Mint) via a pseudo-element glow behind the button text. The Ink background acts as a shell that lets light "bleed" or "shine through".
+    *   *Shadow:* `shadow-aurora-card` (colored diffused light).
+*   **Secondary Variant:**
+    *   White background, **Aurora Border** (Subtle Purple/Mint), Ink text.
+    *   Hover: Border color shifts, subtle background tint.
+
+### 6.2 Cards ("Lifted by Light")
+*   **Background:** White (`#FFFFFF`).
+*   **Border:** `1px solid rgba(234, 214, 255, 0.28)` (Subtle Purple).
+*   **Radius:** `18px` to `24px` (`rounded-[24px]`).
+*   **Shadow:** Colored, diffused shadow (Not black).
+    *   `0 12px 45px rgba(234, 214, 255, 0.22)`
+*   **Interaction:** On hover, the card lifts (`-translate-y-[2px]`) and the aurora shadow intensifies. A gradient blob may subtly appear inside.
+
+### 6.3 Navbar
+*   **Style:** Glassmorphism ("Apple Liquid Glass").
+*   **Effect:** `backdrop-blur-md` + high saturation (`saturate-150`).
+*   **Border:** Bottom border `1px solid rgba(0,0,0,0.05)`.
+
 ---
 
-## 5. Aurora Design Tokens
+## 7. The Aurora Effect (Technical Spec)
+How to technically implement the brand's unique light effects.
 
-### 5.1 Opacity & Hierarchy
-*   **Ambient:** `0.10` (Background blobs)
-*   **Subtle:** `0.18` (Default borders)
-*   **Hover:** `0.28` (Active interaction)
-*   **Focus Ring:** `0.35` (Accessibility focus)
-
-### 5.2 Blur Scale
-*   **XS:** `16px`
-*   **SM:** `24px`
-*   **MD:** `40px` (Standard card glow)
-*   **LG:** `80px`
-*   **XL:** `160px`
-*   **Hero:** `320px` (Localized section light)
-*   **Ambient:** `520px` (Global page light)
-
-### 5.3 Shadows (Aurora Light Bleed)
-Replaces neutral black shadows with colored diffused light.
-*   **Card:** `0 12px 45px rgba(234, 214, 255, 0.22)`, `0 30px 110px rgba(214, 245, 255, 0.18)`
-*   **Hover:** `0 14px 55px rgba(255, 214, 229, 0.26)`, `0 34px 130px rgba(214, 245, 255, 0.22)`
-
----
-
-## 6. Global Layout Elements
-
-### 6.1 Ambient Background Layer
-The entire app sits on a fixed radial gradient layer to eliminate "dead white."
+### 7.1 The "Ambient Glow" Background
+Every page sits on top of this fixed CSS background to prevent a "dead" white screen.
 ```css
 background-image: 
-  radial-gradient(circle at 20% 10%, rgba(255, 214, 229, 0.18), transparent 55%),
-  radial-gradient(circle at 75% 35%, rgba(234, 214, 255, 0.18), transparent 60%),
-  radial-gradient(circle at 60% 85%, rgba(214, 245, 255, 0.16), transparent 60%);
+  radial-gradient(circle at 20% 10%, var(--color-aurora-pink-muted), transparent 55%),
+  radial-gradient(circle at 75% 35%, var(--color-aurora-purple-muted), transparent 60%),
+  radial-gradient(circle at 60% 85%, var(--color-aurora-mint-muted), transparent 60%);
+/* Plus a 2-4% noise texture overlay */
 ```
 
-### 6.2 Invisible Noise Layer
-A 2–4% opacity grain texture to prevent gradient banding and add physical depth.
-*   **Implementation:** `body::after` pseudo-element with fixed SVG noise at 3% opacity.
+### 7.2 Blur Scales
+We use heavy blurring to diffuse color into light.
+*   **Hero Blur:** `320px` (For large background blobs).
+*   **Card Blur:** `40px` (For internal card gradients).
+*   **Element Blur:** `16px-24px` (For small UI glowing elements).
 
 ---
 
-## 7. Component Specifications
-
-### 7.1 Buttons
-**Concept:** "Core + Calm Shell"
-*   **Radius:** `rounded-full` (Pill).
-*   **Height:** Standardized to 48px (`h-12`).
-*   **Static:** Solid Ink background or White.
-*   **Hover:** Reveals "Core Energy" via a hidden base layer (`::before`) using a radial aurora gradient and `blur-md`. `scale-[1.02]` + subtle shadow increase.
-*   **Motion:** `duration-base` (`180ms`) with `aurora-out` easing.
-*   **Focus:** 2px ring with 2px offset (`ring-primary ring-offset-2`).
-*   **Variants:**
-    *   **Primary:** `bg-primary text-white`.
-    *   **Secondary:** `btn-secondary` or `btn-outline`.
-    *   **Tertiary:** `btn-ghost`, underline on hover.
-
-### 7.2 Cards
-**Concept:** "Lifted by Light"
-*   **Corner Radius:** `18px` (`radius-lg`) or `24px` (`radius-xl`).
-*   **Padding:** 24px (`p-6`).
-*   **Border:** `rgba(234, 214, 255, 0.28)` (Subtle purple tint).
-*   **Styling:** "Vercel Shadow" approach: `shadow-[0_0_0_1px_rgba(0,0,0,0.08)]` instead of heavy borders.
-*   **Interaction:** Transforms `-2px` on Y-axis while expanding the light-bleed shadow (`shadow-aurora-hover`).
-
-### 7.3 Navbar
-*   **Height:** 72px.
-*   **Vibe:** Glassmorphism with "Apple Liquid Glass" effect.
-*   **Layout:** Logo Left, Navigation Center (optional), CTA Right.
-*   **Implementation:** `-webkit-backdrop-filter: blur(24px) saturate(180%)`.
-
-### 7.4 Forms
-*   **Inputs:** `h-12`, `rounded-lg` (`radius-md`), border: `border-accent/20`.
-*   **Focus:** `border-primary`, `ring-1`, `ring-primary`.
-*   **Labels:** Small, Semibold, `mb-2`.
-
----
-
-## 8. Motion & Interaction
-
-### 8.1 Performance Rules
-*   **Duration:** `120ms` (fast) to `180ms` (base).
-*   **Easing:** `cubic-bezier(0.2, 0.8, 0.2, 1)` (Standard) or `cubic-bezier(0.16, 1, 0.3, 1)` (Out/Quiet).
-*   **Hardware Acceleration:** Use `will-change-transform` for complex animations.
-
-### 8.2 Interaction Guidelines (Aurora Awakening)
-1.  **Aurora Awakening:** Light should feel like it's "waking up" behind an element on hover.
-2.  **Continuous Flow:** Avoid hard section dividers. Use transparent backgrounds for sections and overlapping aurora blobs to bridge transitions.
-3.  **Prohibited:** ❌ No "Jump" effects (`-translate-y-2`). Use `scale` or subtle shadows instead.
-
----
-
-## 9. Content & CTA Rules
-
-### 9.1 Headlines
-*   **Character Limit:** H1 should not exceed 50 characters. H2 should not exceed 80 characters.
-*   **Clarity:** Use active voice. "Give your church a voice" vs "Churches are being given voices."
-
-### 9.2 CTA Patterns
-*   **Primary:** "Get Started" or "Watch Demo".
-*   **Secondary:** "Learn More" or "View Pricing".
-*   **Placement:** Every page must end with a "Final CTA" section to prevent dead-ends.
-
----
-
----
-
-## 10. Accessibility Specification
-Accessibility is a core feature, not a checklist item.
-
-### 10.1 Visual
-*   **Minimum Contrast:** 4.5:1 for body text; 3:1 for large text.
-*   **Focus Ring:** Never remove `outline-none` without providing a custom `:focus` visible state.
-*   **Motion:** Wrap all purely decorative animations in `(prefers-reduced-motion: no-preference)` queries.
-
-### 10.2 Structure
-*   **Heading Hierarchy:** Always use `<h1>` → `<h2>` → `<h3>` sequentially. Never skip levels for "styling" reasons.
-*   **ARIA:** All buttons without text must have `aria-label`.
-
----
-
-## 11. Design System Governance
-
-### 11.1 Additions
-*   A new component must be used in at least **two** different sections before being added to the system.
-*   New components must be reviewed for 8pt grid compliance.
-*   **Aurora Alignment:** New components must embody the "Layers and Light" philosophy.
-
-### 11.2 Anti-Patterns
-*   "The Drift": Adding one-off colors or font sizes to fix a specific section.
-*   "The Bloat": Over-animating a simple text section.
-*   "The Ghost": Using gray text that falls below contrast thresholds.
-
----
-*End of Specification. Strictly enforced by Exbabel Engineering.*
+## 8. Future Design & Governance
+*   **Governance:** New components must be "Aurora Aligned" (use depth/light, not flat colors).
+*   **Expansion:** Future dashboards should retain the "Paper" background and "Card" metaphors but may reduce padding (`md` -> `sm`) for information density.
+*   **Dark Mode:** Future consideration. The "Aurora" colors (Pink/Purple/Mint) must be adjusted to have higher lightness/luminosity against dark backgrounds (Ink/Black).
