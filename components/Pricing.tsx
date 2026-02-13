@@ -7,48 +7,63 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      price: "24",
+      originalPrice: 45,
+      discountedPrice: 22.50,
+      description: "Everything you need to start translating live services",
       features: [
-        "5 hours of streaming",
-        "+$2 per additional hour",
-        "Translation into 2 other languages",
-        "Pick and choose languages anytime",
-        "Unlimited users",
+        { text: "6 hrs/mo live + 10 hrs solo", icon: "🎙️" },
+        { text: "60 natural voices", icon: "🔊" },
+        { text: "200+ languages", icon: "🌐" },
+        { text: "3 languages at once", icon: "🔀" },
+        { text: "Email & phone support", icon: "📧" },
+        { text: "30-day free trial", icon: "🎁" },
       ],
+      cta: "Start Free Trial",
       highlighted: false,
-      signupUrl: appRoutes.demo,
+      badge: "🎁 30-DAY FREE TRIAL",
+      signupUrl: appRoutes.pricingStarter,
     },
     {
       name: "Pro",
-      price: "49",
+      originalPrice: 100,
+      discountedPrice: 50,
+      description: "More hours, more voices, faster translation",
       features: [
-        "10 hours of streaming",
-        "+$3 per additional hour",
-        "Translation into 4 other languages",
-        "Pick and choose languages anytime",
-        "Unlimited users",
+        { text: "12 hrs/mo live + 20 hrs solo", icon: "🎙️" },
+        { text: "90 premium AI voices", icon: "🔊" },
+        { text: "250+ languages & dialects", icon: "🌐" },
+        { text: "5 languages at once", icon: "🔀" },
+        { text: "50% faster translation", icon: "⚡" },
+        { text: "24/7 support", icon: "📧" },
       ],
+      cta: "Get Pro",
       highlighted: true,
-      signupUrl: appRoutes.demo,
+      signupUrl: appRoutes.pricingPro,
     },
     {
       name: "Unlimited",
-      price: "149",
+      originalPrice: 300,
+      discountedPrice: 150,
+      description: "No limits. World-class voices. White-glove service.",
       features: [
-        "Unlimited hours of streaming",
-        "Translation into 180+ languages",
-        "All languages available",
-        "Priority support",
-        "Unlimited users",
+        { text: "Unlimited live & solo hours", icon: "🎙️" },
+        { text: "Studio-grade lifelike voices", icon: "🔊" },
+        { text: "250+ languages & dialects", icon: "🌐" },
+        { text: "Unlimited simultaneous languages", icon: "🔀" },
+        { text: "Fastest translation speed", icon: "⚡" },
+        { text: "24/7 priority + personal onboarding", icon: "📧" },
+        { text: "Custom branding & voice cloning", icon: "💎" },
       ],
+      cta: "Go Unlimited",
       highlighted: false,
-      signupUrl: appRoutes.demo,
+      signupUrl: appRoutes.pricingUnlimited,
     },
   ];
 
   return (
     <section id="pricing" className="py-20 px-4 bg-base-100 relative overflow-hidden">
       <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Header with Promo Banner */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -56,16 +71,25 @@ export default function Pricing() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          {/* Promo Banner */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-red-500 text-white px-5 py-2 rounded-full text-sm font-semibold mb-7 shadow-lg">
+            <span>🔥</span>
+            <span>Launch Promotion — <strong>50% OFF</strong> all plans for 1 year</span>
+            <span>🔥</span>
+          </div>
+
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Break Language Barriers<br />
             <span className="bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
-              Pricing
+              In Your Ministry
             </span>
           </h2>
-          <p className="text-lg text-base-content max-w-2xl mx-auto">
-            Try Exbabel for free with four hours of captions and translations, then choose a plan that works for you. All plans are month-to-month and can be changed anytime.
+          <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
+            Real-time AI translation for churches. Your congregation hears every word, in their language.
           </p>
         </motion.div>
 
+        {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {plans.map((plan, index) => (
             <motion.div
@@ -75,31 +99,91 @@ export default function Pricing() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className={`card bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full rounded-3xl ${plan.highlighted ? 'border-2 border-primary scale-105' : 'border border-[#5a5d80]/20'
+              <div className={`card bg-white backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full rounded-3xl relative ${plan.highlighted ? 'border-2 border-primary scale-105' : 'border border-[#5a5d80]/20'
                 }`}>
+                {/* Popular Badge */}
                 {plan.highlighted && (
-                  <div className="badge badge-primary absolute top-6 right-6 text-white rounded-full px-4">Popular</div>
-                )}
-                <div className="card-body p-8">
-                  <h3 className="text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
-                  <div className="text-center my-6">
-                    <span className="text-5xl font-bold text-primary">${plan.price}</span>
-                    <span className="text-base-content/70 text-lg">/mo</span>
-                    <p className="text-xs text-base-content/60 mt-2">USD</p>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                    ⭐ MOST POPULAR
                   </div>
-                  <ul className="space-y-3 mb-8">
+                )}
+
+                {/* Free Trial Badge */}
+                {plan.badge && !plan.highlighted && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                    {plan.badge}
+                  </div>
+                )}
+
+                <div className={`card-body p-8 ${plan.highlighted ? 'pt-10' : 'pt-8'}`}>
+                  {/* Plan Name & Description */}
+                  <h3 className="text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
+                  <p className="text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
+
+                  {/* Pricing */}
+                  <div className="text-center mb-5 min-h-[160px] flex flex-col justify-start">
+                    {plan.name === "Starter" ? (
+                      <>
+                        <div className="flex items-baseline justify-center gap-2 mb-1 h-6">
+                          <div className="text-base text-base-content/50 line-through">
+                            ${plan.originalPrice}<span className="text-sm">/mo</span>
+                          </div>
+                          <div className="text-base font-medium text-base-content/70">
+                            then ${plan.discountedPrice.toFixed(2)}/mo
+                          </div>
+                        </div>
+                        <div className="text-sm text-base-content/50 font-medium mb-1 uppercase tracking-wide">
+                          Free for 30 Days
+                        </div>
+                        <div className="text-5xl font-extrabold text-base-content leading-none">
+                          $0
+                        </div>
+                        <div className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mt-2">
+                          Save ${((plan.originalPrice - plan.discountedPrice) * 12).toFixed(0)}/year
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-base text-base-content/50 line-through mb-1 h-6">
+                          ${plan.originalPrice}<span className="text-sm">/mo</span>
+                        </div>
+                        {/* Spacer to align with 'Free for 30 Days' line in Starter plan */}
+                        <div className="h-6 mb-1" aria-hidden="true" />
+
+                        <div className="text-5xl font-extrabold text-base-content leading-none">
+                          ${plan.discountedPrice % 1 === 0 ? plan.discountedPrice : plan.discountedPrice.toFixed(2)}
+                          <span className="text-lg font-medium text-base-content/70">/mo</span>
+                        </div>
+                        <div className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mt-2">
+                          Save ${((plan.originalPrice - plan.discountedPrice) * 12).toFixed(0)}/year
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Divider */}
+                  <div className="w-full h-px bg-base-content/10 mb-5"></div>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-6 flex-grow">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-base-content text-sm leading-relaxed">{feature}</span>
+                      <li key={idx} className="flex items-center gap-2.5 text-sm text-base-content/80">
+                        <span className="text-base flex-shrink-0">{feature.icon}</span>
+                        <span className="leading-relaxed">{feature.text}</span>
                       </li>
                     ))}
                   </ul>
+
+                  {/* CTA Button */}
                   <div className="card-actions justify-center mt-auto">
-                    <a href={plan.signupUrl} className={`btn w-full rounded-full ${plan.highlighted ? 'btn-primary border-none shadow-lg' : 'btn-primary border-none'}`}>
-                      Get started free
+                    <a
+                      href={plan.signupUrl}
+                      className={`btn w-full rounded-xl font-bold ${plan.highlighted
+                        ? 'btn-primary border-none shadow-lg hover:shadow-xl'
+                        : 'btn-primary border-none'
+                        }`}
+                    >
+                      {plan.cta}
                     </a>
                   </div>
                 </div>
@@ -108,6 +192,29 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Trust Indicators */}
+        <motion.div
+          className="flex justify-center gap-8 flex-wrap mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-base">🔒</span>
+            <span className="text-sm text-base-content/70">Secure payment via Stripe</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-base">↩️</span>
+            <span className="text-sm text-base-content/70">Cancel anytime</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-base">🎁</span>
+            <span className="text-sm text-base-content/70">30-day free trial on Starter</span>
+          </div>
+        </motion.div>
+
+        {/* Custom Plan CTA */}
         <motion.div
           className="text-center"
           initial={{ opacity: 0 }}
