@@ -227,9 +227,11 @@ export default function GlassmorphicHero() {
                     <span className="text-xs font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">EN</span>
                     <h3 className="text-sm font-bold text-slate-800">Live Transcription</h3>
                   </div>
-                  <div className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl p-5 min-h-[80px] flex items-center text-lg md:text-xl text-slate-800 font-medium shadow-inner">
-                    {transcript || <span className="text-slate-300 italic">Listening for speech...</span>}
-                    {partialText && <span className="text-slate-400">{partialText.substring(transcript.length)}</span>}
+                  <div className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl p-5 h-[100px] flex items-start text-lg md:text-xl text-slate-800 font-medium shadow-inner overflow-hidden">
+                    <div className="w-full">
+                      {transcript || <span className="text-slate-300 italic">Listening for speech...</span>}
+                      {partialText && <span className="text-slate-400">{partialText.substring(transcript.length)}</span>}
+                    </div>
                   </div>
                 </div>
 
@@ -239,9 +241,11 @@ export default function GlassmorphicHero() {
                     <span className="text-xs font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">ES</span>
                     <h3 className="text-sm font-bold text-slate-800">Live Translation</h3>
                   </div>
-                  <div className="w-full bg-white border border-slate-200 rounded-2xl p-5 min-h-[80px] flex items-center text-lg md:text-xl text-slate-800 font-medium shadow-sm">
-                    {spanishTranscript || <span className="text-slate-300 italic">Translation will appear here...</span>}
-                    {spanishPartialText && <span className="opacity-50 text-slate-400">{spanishPartialText.substring(spanishTranscript.length)}</span>}
+                  <div className="w-full bg-white border border-slate-200 rounded-2xl p-5 h-[100px] flex items-start text-lg md:text-xl text-slate-800 font-medium shadow-sm overflow-hidden">
+                    <div className="w-full">
+                      {spanishTranscript || <span className="text-slate-300 italic">Translation will appear here...</span>}
+                      {spanishPartialText && <span className="opacity-50 text-slate-400">{spanishPartialText.substring(spanishTranscript.length)}</span>}
+                    </div>
                   </div>
                 </div>
 
