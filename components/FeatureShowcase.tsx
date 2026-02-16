@@ -24,7 +24,7 @@ const FEATURES: Feature[] = [
         title: "Lifelike Voices for 90 Countries",
         description: "Natural voices that feel human. Coverage for 99%+ of the world population.",
         accentColor: "#7C3AED",
-        videoSrc: "/videos/90naturalvoices.mp4",
+        videoSrc: "/videos/90naturalvoicesv2.mp4",
         badge: "90+",
     },
     {

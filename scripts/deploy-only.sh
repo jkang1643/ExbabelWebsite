@@ -46,17 +46,34 @@ echo "  Bucket: $S3_BUCKET_NAME"
 echo "  Distribution: $CLOUDFRONT_DISTRIBUTION_ID"
 echo ""
 
-# Check if out/ directory exists
+# 1. Check if out/ directory exists
 if [ ! -d "out" ]; then
     echo -e "${RED}❌ 'out' directory not found${NC}"
     echo "Please build the project first: npm run build"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Found out/ directory${NC}"
+# 2. Verification Steps (Manual Checklist Parity)
+echo "🔍 Verifying existing build output..."
+
+# Check for existence of videos
+if [ ! -d "out/videos" ] || [ -z "$(ls -A out/videos)" ]; then
+    echo -e "${RED}❌ Verification failed - out/videos is missing or empty!${NC}"
+    echo "This build is incomplete. Aborting deployment."
+    exit 1
+fi
+
+# Check for new FeatureShowcase section
+if ! grep -q "What sets Exbabel apart" out/index.html; then
+    echo -e "${RED}❌ Verification failed - New FeatureShowcase section not found in index.html!${NC}"
+    echo "This build is stale. Aborting deployment."
+    exit 1
+fi
+
+echo -e "${GREEN}✓ Verification completed - build output is valid${NC}"
 echo ""
 
-# Sync to S3
+# 3. Sync to S3
 echo "☁️  Syncing to S3..."
 
 # Upload non-HTML files with long cache
