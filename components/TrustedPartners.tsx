@@ -24,19 +24,20 @@ export default function TrustedPartners() {
     <section className="py-24 bg-white border-b border-gray-100">
       <div className="layout-spine">
         <p className="text-eyebrow mb-12 text-center text-slate-400">
-          WORKS SEAMLESSLY WITH
+          TRUSTED BY CHURCHES WORLDWIDE
         </p>
 
         {/* Scrolling logos container */}
         <div className="relative w-full overflow-hidden mask-gradient-x">
           <div className="flex gap-16 md:gap-24 animate-scroll whitespace-nowrap">
             {[
-              "Zoom", "YouTube", "OBS Studio", "Microsoft Teams",
-              "Google Meet", "Twitch", "Facebook Live", "Vimeo",
-              "Zoom", "YouTube", "OBS Studio", "Microsoft Teams",
+              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Houston Chinese Community Church",
+              "Trail Church", "1st Baptist Church of Houston",
+              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Houston Chinese Community Church",
+              "Trail Church", "1st Baptist Church of Houston"
             ].map((partner, index) => (
-              <div key={index} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                <div className="text-2xl font-bold text-[#1d1c1d] flex items-center gap-3">
+              <div key={index} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                <div className="text-xl md:text-2xl font-bold text-[#1d1c1d] flex items-center gap-3">
                   {/* Simple dot placeholder for logo */}
                   <div className="w-2 h-2 rounded-full bg-primary/40" />
                   <span className="tracking-tight">{partner}</span>

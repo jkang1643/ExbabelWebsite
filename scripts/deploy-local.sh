@@ -55,8 +55,9 @@ echo "  Bucket: $S3_BUCKET_NAME"
 echo "  Distribution: $CLOUDFRONT_DISTRIBUTION_ID"
 echo ""
 
-# Build the application
-echo "📦 Building Next.js application..."
+# 1. Clean and Build
+echo "📦 Cleaning and building Next.js application..."
+npm run clean
 npm run build
 
 if [ ! -d "out" ]; then
@@ -64,13 +65,31 @@ if [ ! -d "out" ]; then
     exit 1
 fi
 
-echo -e "${GREEN}✓ Build completed${NC}"
+# 2. Verification Steps
+echo "🔍 Verifying build output..."
+
+# Check for existence of videos
+if [ ! -d "out/videos" ] || [ -z "$(ls -A out/videos)" ]; then
+    echo -e "${RED}❌ Verification failed - out/videos is missing or empty!${NC}"
+    echo "This will cause videos to be deleted from S3. Aborting deployment."
+    exit 1
+fi
+
+# Check for new FeatureShowcase section
+if ! grep -q "What sets Exbabel apart" out/index.html; then
+    echo -e "${RED}❌ Verification failed - New FeatureShowcase section not found in index.html!${NC}"
+    echo "Is your code saved? Aborting deployment."
+    exit 1
+fi
+
+echo -e "${GREEN}✓ Verification completed - build output is valid${NC}"
 echo ""
 
-# Sync to S3
+# 3. Sync to S3
 echo "☁️  Syncing to S3..."
 
-# Upload non-HTML files with long cache
+# Upload everything to S3 with --delete
+# This ensures S3 perfectly matches our local 'out' folder
 aws s3 sync out/ s3://$S3_BUCKET_NAME \
     --region $AWS_REGION \
     --profile ${AWS_PROFILE:-default} \
@@ -79,15 +98,13 @@ aws s3 sync out/ s3://$S3_BUCKET_NAME \
     --exclude "*.html" \
     --exclude "*.txt"
 
-# Upload HTML files with short cache
+# Finally sync HTML files with short cache
 aws s3 sync out/ s3://$S3_BUCKET_NAME \
     --region $AWS_REGION \
     --profile ${AWS_PROFILE:-default} \
-    --delete \
-    --cache-control "public, max-age=0, must-revalidate" \
-    --exclude "*" \
     --include "*.html" \
     --include "*.txt" \
+    --cache-control "public, max-age=0, must-revalidate" \
     --content-type "text/html"
 
 echo -e "${GREEN}✓ S3 sync completed${NC}"

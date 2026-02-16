@@ -52,16 +52,19 @@ export default function Navbar() {
           >
             Sign in
           </a>
-          <a
-            href={appRoutes.demo}
-            className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${scrolled
-              ? "bg-primary text-white hover:bg-primary/90"
-              : "bg-white text-primary border border-white hover:bg-white/90"
-              }`}
-            style={!scrolled ? { color: '#1d1c1d', backgroundColor: 'white' } : {}}
-          >
-            Try for free
-          </a>
+          <div className="relative">
+
+            <a
+              href={appRoutes.demo}
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg ${scrolled
+                ? "bg-primary text-white hover:bg-primary/90 scale-105"
+                : "bg-white text-primary border-2 border-white hover:bg-white/90"
+                }`}
+              style={!scrolled ? { color: '#1d1c1d', backgroundColor: 'white' } : {}}
+            >
+              Try for free
+            </a>
+          </div>
         </div>
       </div>
     </motion.nav>

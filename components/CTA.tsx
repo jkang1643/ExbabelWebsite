@@ -6,10 +6,14 @@ import { appRoutes } from "@/lib/config";
 export default function CTA() {
   return (
     <section className="py-32 relative overflow-hidden bg-gradient-to-br from-[#4F46E5] via-[#E11D48] to-[#0D9488]">
-      {/* Decorative Glows for depth */}
+      {/* Animated gradient blobs for depth */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-400/30 rounded-full blur-[60px] md:blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-teal-400/30 rounded-full blur-[60px] md:blur-[120px] animate-pulse" />
+        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50"
+          style={{ background: 'radial-gradient(circle, #818CF850 0%, #818CF825 50%, transparent 70%)' }} />
+        <div className="showcase-blob absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45"
+          style={{ background: 'radial-gradient(circle, #14B8A645 0%, #14B8A622 50%, transparent 70%)', animationDelay: '5s' }} />
+        <div className="showcase-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40"
+          style={{ background: 'radial-gradient(circle, #FB718540 0%, #FB718520 50%, transparent 70%)', animationDelay: '10s' }} />
       </div>
 
       <div className="layout-spine relative z-10 text-center text-white">
@@ -31,7 +35,7 @@ export default function CTA() {
           transition={{ delay: 0.1 }}
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
-          Start translating for free with 4 hours of live translation. Join thousands who are breaking down barriers and building connections.
+          Join 500+ churches breaking down barriers and building connections. Start your 30-day free trial today — no credit card required.
         </motion.p>
 
         <motion.div
@@ -42,11 +46,11 @@ export default function CTA() {
           transition={{ delay: 0.2 }}
         >
           <a
-            href={appRoutes.demo}
+            href={appRoutes.pricingStarter}
             className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.02] active:scale-95 shadow-xl"
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
-            Get Started Free
+            Start Your Free Trial
           </a>
         </motion.div>
 
@@ -60,8 +64,8 @@ export default function CTA() {
         >
           {[
             "No credit card required",
-            "Free forever plan",
-            "Cancel anytime"
+            "30-day money-back guarantee",
+            "Cancel anytime — no questions asked"
           ].map((text, i) => (
             <div key={i} className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">

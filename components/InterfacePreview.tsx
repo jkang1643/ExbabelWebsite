@@ -55,14 +55,14 @@ export default function InterfacePreview() {
           className="relative w-full max-w-[1000px] mx-auto"
         >
           {/* Main Container - Clean Product Frame */}
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl shadow-blue-900/10 overflow-hidden">
+          <div className="rounded-2xl border-0 bg-white shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 overflow-hidden">
 
             {/* Minimal Header */}
-            <div className="h-12 border-b border-gray-100 bg-gray-50/50 flex items-center px-4 gap-2">
+            <div className="h-12 border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white flex items-center px-4 gap-2">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-                <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-                <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div className="w-3 h-3 rounded-full bg-slate-300 shadow-sm"></div>
+                <div className="w-3 h-3 rounded-full bg-slate-300 shadow-sm"></div>
+                <div className="w-3 h-3 rounded-full bg-slate-300 shadow-sm"></div>
               </div>
             </div>
 

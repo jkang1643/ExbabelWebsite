@@ -31,8 +31,16 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 px-4 bg-gradient-to-b from-blue-50/20 to-base-100">
-      <div className="container mx-auto max-w-4xl">
+    <section id="faq" className="py-20 px-4 bg-gradient-to-b from-blue-50/20 to-base-100 relative overflow-hidden">
+      {/* Animated gradient blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="showcase-blob absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-25"
+          style={{ background: 'radial-gradient(circle, #7C3AED28 0%, #7C3AED12 50%, transparent 70%)' }} />
+        <div className="showcase-blob absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #2563EB22 0%, #2563EB10 50%, transparent 70%)', animationDelay: '6s' }} />
+      </div>
+
+      <div className="container mx-auto max-w-4xl relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}

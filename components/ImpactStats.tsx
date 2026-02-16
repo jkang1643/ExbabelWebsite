@@ -103,11 +103,11 @@ export default function ImpactStats() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full max-w-6xl mx-auto">
                     {/* Stat 1 */}
                     <StatItem
-                        value={90}
-                        suffix="%"
+                        value={500}
+                        suffix="+"
                         description={
                             <>
-                                of listeners say Exbabel helps them understand live speech in real time
+                                churches and organizations trust Exbabel for real-time translation
                             </>
                         }
                         inView={inView}
@@ -116,11 +116,11 @@ export default function ImpactStats() {
 
                     {/* Stat 2 */}
                     <StatItem
-                        value={250}
-                        suffix="+"
+                        value={10}
+                        suffix="M+"
                         description={
                             <>
-                                supported languages including regional variants and dialects
+                                translations delivered across 250+ languages and dialects
                             </>
                         }
                         inView={inView}
@@ -129,11 +129,11 @@ export default function ImpactStats() {
 
                     {/* Stat 3 */}
                     <StatItem
-                        value={87}
-                        suffix="%"
+                        value={99}
+                        suffix=".9%"
                         description={
                             <>
-                                of organizations say Exbabel helps them reach more people
+                                uptime guarantee - your services run smoothly every time
                             </>
                         }
                         inView={inView}

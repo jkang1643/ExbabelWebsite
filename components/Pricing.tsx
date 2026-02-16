@@ -62,6 +62,16 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="py-20 px-4 bg-base-100 relative overflow-hidden">
+      {/* Animated gradient blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="showcase-blob absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
+          style={{ background: 'radial-gradient(circle, #7C3AED35 0%, #7C3AED18 50%, transparent 70%)' }} />
+        <div className="showcase-blob absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
+          style={{ background: 'radial-gradient(circle, #2563EB30 0%, #2563EB15 50%, transparent 70%)', animationDelay: '4s' }} />
+        <div className="showcase-blob absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #059669 25 0%, #05966912 50%, transparent 70%)', animationDelay: '8s' }} />
+      </div>
+
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header with Promo Banner */}
         <motion.div
@@ -99,11 +109,13 @@ export default function Pricing() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className={`card bg-white backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full rounded-3xl relative ${plan.highlighted ? 'border-2 border-primary scale-105' : 'border border-[#5a5d80]/20'
+              <div className={`card bg-white backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative ${plan.highlighted
+                ? 'border-0 scale-105 shadow-[0_24px_64px_rgba(79,70,229,0.25),0_12px_32px_rgba(79,70,229,0.15)] ring-2 ring-primary/50'
+                : 'border-0 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.16),0_8px_24px_rgba(0,0,0,0.1)] ring-1 ring-slate-900/5 hover:ring-slate-900/10'
                 }`}>
                 {/* Popular Badge */}
                 {plan.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.4)] whitespace-nowrap z-10">
                     ⭐ MOST POPULAR
                   </div>
                 )}

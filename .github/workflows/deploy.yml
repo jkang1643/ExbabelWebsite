@@ -36,6 +36,19 @@ jobs:
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          echo "🔍 Verifying build output..."
+          if [ ! -d "out/videos" ] || [ -z "$(ls -A out/videos)" ]; then
+            echo "❌ ERROR: out/videos is missing or empty! Build might be broken."
+            exit 1
+          fi
+          if ! grep -q "What sets Exbabel apart" out/index.html; then
+            echo "❌ ERROR: New FeatureShowcase section not found in index.html! Build is stale."
+            exit 1
+          fi
+          echo "✅ Build verified successfully"
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:

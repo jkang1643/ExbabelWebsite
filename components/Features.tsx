@@ -94,15 +94,15 @@ export default function Features() {
                             viewport={{ once: true }}
                             className="group h-full"
                         >
-                            <div className="h-full p-6 md:p-8 bg-white rounded-lg border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-out group relative overflow-hidden flex flex-col">
+                            <div className="h-full p-6 md:p-8 bg-white rounded-xl border-0 shadow-[0_12px_40px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_56px_rgba(0,0,0,0.14),0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group relative overflow-hidden flex flex-col ring-1 ring-slate-900/5 hover:ring-slate-900/10">
                                 {/* Hover Gradient Blob */}
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full pointer-events-none -z-0" />
+                                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100/60 to-blue-100/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full pointer-events-none blur-2xl" />
 
-                                <div className="relative z-10 w-12 h-12 flex items-center justify-center text-primary mb-6 bg-blue-50/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                                <div className="relative z-10 w-14 h-14 flex items-center justify-center text-white mb-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-[0_8px_24px_rgba(59,130,246,0.35)]">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-lg font-bold text-base-content mb-3">{feature.title}</h3>
-                                <p className="text-base-content/70 leading-relaxed text-[15px] mb-4 flex-grow">{feature.description}</p>
+                                <h3 className="text-lg font-bold text-slate-900 mb-3 relative z-10">{feature.title}</h3>
+                                <p className="text-slate-600 leading-relaxed text-[15px] mb-4 flex-grow relative z-10">{feature.description}</p>
                             </div>
                         </motion.div>
                     ))}
