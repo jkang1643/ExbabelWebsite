@@ -296,7 +296,7 @@ export default function FeatureShowcase() {
                                         />
 
                                         {/* Video container */}
-                                        <div className="relative z-10 w-full h-full rounded-[24px] overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.12),0_6px_20px_rgba(0,0,0,0.08)] ring-1 ring-slate-900/5 bg-slate-50">
+                                        <div className="relative z-10 w-full h-full rounded-[24px] overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.12),0_6px_20px_rgba(0,0,0,0.08)] ring-1 ring-slate-900/5 bg-white">
                                             {/* Video A */}
                                             <video
                                                 ref={videoARef}
@@ -371,7 +371,7 @@ export default function FeatureShowcase() {
                         {FEATURES.map((feature, idx) => (
                             <div key={feature.id} className="bg-white rounded-2xl shadow-lg overflow-hidden">
                                 {/* Video */}
-                                <div className="relative w-full bg-slate-50" style={{ maxHeight: '60vh' }}>
+                                <div className="relative w-full bg-white" style={{ maxHeight: '60vh' }}>
                                     <video
                                         src={feature.videoSrc}
                                         muted
