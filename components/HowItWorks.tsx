@@ -252,23 +252,55 @@ export default function HowItWorks() {
 
             <div className="relative z-10 w-full max-w-6xl mx-auto px-6 grid grid-cols-2 gap-24 h-full items-center">
               {/* Left Side: Timeline & Text */}
-              <div className="flex flex-col justify-center h-full relative">
-                <div className="absolute left-[23px] top-[15%] bottom-[15%] w-[2px] bg-black/5 block overflow-hidden rounded-full">
-                  <motion.div className="w-full bg-[#4A154B]" style={{ height: progressBarHeight }} />
+              <div className="flex flex-col justify-center h-full max-w-xl">
+
+                {/* Header Section */}
+                <div className="mb-8 mt-24">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold mb-3 uppercase tracking-wider">
+                    Simple Setup
+                  </div>
+                  <h2 className="text-3xl font-bold mb-3 tracking-tight">So easy to use, it feels like magic.</h2>
+                  <p className="text-base text-slate-500 leading-relaxed">
+                    Get started in minutes. No complex hardware or technical expertise required.
+                  </p>
                 </div>
-                <div className="space-y-24 py-20">
-                  {STEPS.map((step, index) => {
-                    const isActive = index === activeStep;
-                    return (
-                      <motion.div key={step.id} className={`relative pl-16 transition-all duration-500 ${isActive ? "opacity-100 blur-0 scale-100" : "opacity-15 blur-[1px] scale-95"}`}>
-                        <div className="absolute left-0 top-1 w-12 h-12 rounded-full border border-black/10 bg-white flex items-center justify-center font-bold text-lg shadow-sm z-20 transition-colors duration-300" style={{ borderColor: isActive ? step.color : 'rgba(0,0,0,0.1)', color: isActive ? step.color : 'inherit' }}>
-                          {index + 1}
-                        </div>
-                        <h3 className="text-h3 mb-4 tracking-tight">{step.title}</h3>
-                        <p className="text-body leading-relaxed max-w-md">{step.description}</p>
-                      </motion.div>
-                    );
-                  })}
+
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-slate-100 block overflow-hidden rounded-full z-0">
+                    <motion.div className="w-full bg-[#4A154B]" style={{ height: progressBarHeight }} />
+                  </div>
+
+                  <div className="space-y-8 py-2 relative z-10">
+                    {STEPS.map((step, index) => {
+                      const isActive = index === activeStep;
+                      return (
+                        <motion.div
+                          key={step.id}
+                          className="relative pl-14 transition-all duration-500"
+                        >
+                          <div
+                            className="absolute left-0 top-0 w-10 h-10 rounded-full border-2 bg-white flex items-center justify-center font-bold text-base shadow-sm z-20 transition-all duration-300"
+                            style={{
+                              borderColor: isActive ? step.color : '#e2e8f0',
+                              backgroundColor: isActive ? step.color : 'white',
+                              color: isActive ? 'white' : '#94a3b8',
+                              transform: isActive ? 'scale(1.1)' : 'scale(1)',
+                              boxShadow: isActive ? `0 4px 12px ${step.color}40` : 'none'
+                            }}
+                          >
+                            {index + 1}
+                          </div>
+                          <h3 className={`text-lg font-bold mb-1 transition-colors duration-300 ${isActive ? "text-slate-900" : "text-slate-300"}`}>
+                            {step.title}
+                          </h3>
+                          <p className={`text-sm leading-relaxed max-w-sm transition-colors duration-300 ${isActive ? "text-slate-600" : "text-slate-300"}`}>
+                            {step.description}
+                          </p>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -296,9 +328,9 @@ export default function HowItWorks() {
       </div>
 
       {/* --- MOBILE VIEW (Visible on < LG) --- */}
-      <div className="block lg:hidden py-16 px-6 bg-gray-50/50">
-        <div className="max-w-md mx-auto space-y-16">
-          <div className="text-center mb-12">
+      <div className="block lg:hidden py-12 px-6 bg-gray-50/50">
+        <div className="max-w-md mx-auto space-y-12">
+          <div className="text-center mb-8">
             <div className="text-eyebrow mb-2">SEAMLESS WORKFLOW</div>
             <h2 className="text-h2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">How it works</h2>
             <p className="text-body">Four simple steps to seamless connection.</p>
@@ -316,7 +348,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Step Visual Card */}
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden h-[360px] flex flex-col">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden max-h-[320px] flex flex-col">
                 <div className="h-8 border-b border-gray-100 flex items-center px-3 gap-1.5 bg-gray-50/50">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
