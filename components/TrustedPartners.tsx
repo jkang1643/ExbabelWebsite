@@ -21,8 +21,9 @@ export default function TrustedPartners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="py-24 bg-white border-b border-gray-100">
-      <div className="layout-spine">
+    <section className="relative py-24 bg-gradient-to-b from-[#F8F9FA] to-white border-b border-gray-100">
+
+      <div className="layout-spine relative z-20">
         <p className="text-eyebrow mb-12 text-center text-slate-400">
           TRUSTED BY CHURCHES WORLDWIDE
         </p>

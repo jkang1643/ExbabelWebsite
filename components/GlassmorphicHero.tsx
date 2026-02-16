@@ -143,10 +143,7 @@ export default function GlassmorphicHero() {
         <div className="absolute bottom-[40%] left-[10%] text-pink-200 text-3xl">✦</div>
       </div>
 
-      {/* Curved Separator at Bottom */}
-      <div className="absolute bottom-0 left-[-50%] w-[200%] h-[120px] bg-white rounded-t-[100%] z-0 pointer-events-none" />
-
-      <div className="relative z-10 pt-24 pb-24 md:pt-32 md:pb-32 flex flex-col items-center">
+      <div className="relative z-10 pt-24 pb-12 md:pt-32 md:pb-20 flex flex-col items-center">
         {/* Centered Content Spine */}
         <div className="layout-spine text-center space-y-8">
 

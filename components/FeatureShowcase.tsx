@@ -16,6 +16,8 @@ interface Feature {
     badge?: string;
     videoFit?: "cover" | "contain";
     zoom?: number;
+    videoBg?: string;
+    translateY?: string;
 }
 
 const FEATURES: Feature[] = [
@@ -41,6 +43,7 @@ const FEATURES: Feature[] = [
         description: "Auto-refines grammar and phrasing.",
         accentColor: "#0891B2",
         videoSrc: "/videos/clarity engine.mp4",
+        videoBg: "bg-slate-50",
     },
     {
         id: "phrases",
@@ -56,7 +59,8 @@ const FEATURES: Feature[] = [
         description: "Keeps translations worship-appropriate.",
         accentColor: "#DC2626",
         videoSrc: "/videos/profanity filter.mp4",
-        zoom: 1.1,
+        zoom: 1.22,
+        translateY: "8%",
     },
     {
         id: "bible",
@@ -289,14 +293,14 @@ export default function FeatureShowcase() {
 
                                         {/* Blob background */}
                                         <div
-                                            className="showcase-blob absolute -inset-12 rounded-[40px] transition-all duration-700 ease-out"
+                                            className="showcase-blob absolute -inset-32 rounded-[60px] transition-all duration-700 ease-out"
                                             style={{
-                                                background: `radial-gradient(ellipse at 50% 40%, ${active.accentColor}50 0%, ${active.accentColor}25 45%, transparent 65%)`,
+                                                background: `radial-gradient(ellipse at 50% 40%, ${active.accentColor}50 0%, ${active.accentColor}30 35%, ${active.accentColor}15 55%, transparent 75%)`,
                                             }}
                                         />
 
                                         {/* Video container */}
-                                        <div className="relative z-10 w-full h-full rounded-[24px] overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.12),0_6px_20px_rgba(0,0,0,0.08)] ring-1 ring-slate-900/5 bg-white">
+                                        <div className={`relative z-10 w-full h-full rounded-[24px] overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.12),0_6px_20px_rgba(0,0,0,0.08)] ring-1 ring-slate-900/5 ${active.videoBg || "bg-white"}`}>
                                             {/* Video A */}
                                             <video
                                                 ref={videoARef}
@@ -310,7 +314,7 @@ export default function FeatureShowcase() {
                                                     opacity: activeVideo === "A" ? 1 : 0,
                                                     transform:
                                                         activeVideo === "A"
-                                                            ? `translateY(0) scale(${active.zoom || 1})`
+                                                            ? `translateY(${active.translateY || "0"}) scale(${active.zoom || 1})`
                                                             : prefersReduced
                                                                 ? "translateY(0) scale(1)"
                                                                 : "translateY(16px) scale(1.01)",
@@ -331,7 +335,7 @@ export default function FeatureShowcase() {
                                                     opacity: activeVideo === "B" ? 1 : 0,
                                                     transform:
                                                         activeVideo === "B"
-                                                            ? `translateY(0) scale(${active.zoom || 1})`
+                                                            ? `translateY(${active.translateY || "0"}) scale(${active.zoom || 1})`
                                                             : prefersReduced
                                                                 ? "translateY(0) scale(1)"
                                                                 : "translateY(16px) scale(1.01)",
@@ -371,7 +375,7 @@ export default function FeatureShowcase() {
                         {FEATURES.map((feature, idx) => (
                             <div key={feature.id} className="bg-white rounded-2xl shadow-lg overflow-hidden">
                                 {/* Video */}
-                                <div className="relative w-full bg-white" style={{ maxHeight: '60vh' }}>
+                                <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ maxHeight: '60vh' }}>
                                     <video
                                         src={feature.videoSrc}
                                         muted
