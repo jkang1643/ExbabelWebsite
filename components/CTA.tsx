@@ -35,7 +35,7 @@ export default function CTA() {
           transition={{ delay: 0.1 }}
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
-          Join churches breaking down barriers and building connections. Start your 30-day free trial today — no credit card required.
+          Join churches breaking down barriers and building connections. Start your 30-day free trial today — it&apos;s on the house!
         </motion.p>
 
         <motion.div
@@ -63,7 +63,7 @@ export default function CTA() {
           transition={{ delay: 0.3 }}
         >
           {[
-            "No credit card required",
+            "It's on the house!",
             "30-day money-back guarantee",
             "Cancel anytime — no questions asked"
           ].map((text, i) => (
