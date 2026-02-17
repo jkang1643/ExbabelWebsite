@@ -5,58 +5,31 @@ import { motion } from "framer-motion";
 export default function Testimonials() {
     const testimonials = [
         {
-            quote: "Exbabel has completely transformed how we reach our Spanish-speaking congregation. The translations are accurate and capture the theological nuances perfectly.",
-            name: "Pastor Michael Chen",
+            quote: "Exbabel has completely transformed how we reach our congregation. The translations are accurate and capture the theological nuances perfectly.",
+            name: "Pastor Israel Kang",
             title: "Senior Pastor",
-            organization: "Grace Community Church",
+            organization: "Houston Apostolic Church",
             rating: 5,
-            initials: "MC",
+            initials: "IK",
             color: "bg-blue-500"
         },
         {
-            quote: "We've grown our attendance by 40% since implementing Exbabel. Non-English speakers finally feel welcomed and included in our services.",
-            name: "Rev. Sarah Martinez",
-            title: "Lead Minister",
-            organization: "First United Methodist",
+            quote: "As a multicultural church, Exbabel is essential. We now offer services in multiple languages simultaneously without any technical headaches.",
+            name: "",
+            title: "",
+            organization: "Houston Chinese Community Church",
             rating: 5,
-            initials: "SM",
+            initials: "HC",
             color: "bg-purple-500"
         },
         {
             quote: "The setup was incredibly easy. We were translating our first service in less than 10 minutes. The support team has been phenomenal.",
-            name: "David Kim",
-            title: "Technical Director",
-            organization: "New Life Fellowship",
+            name: "",
+            title: "",
+            organization: "Trail Church",
             rating: 5,
-            initials: "DK",
+            initials: "TC",
             color: "bg-green-500"
-        },
-        {
-            quote: "As a multicultural church, Exbabel is essential. We now offer services in 5 languages simultaneously without any technical headaches.",
-            name: "Pastor James Okonkwo",
-            title: "Senior Pastor",
-            organization: "International Gospel Center",
-            rating: 5,
-            initials: "JO",
-            color: "bg-orange-500"
-        },
-        {
-            quote: "The AI understands context and cultural nuances in ways that surprised us. It's not just translation—it's true communication.",
-            name: "Maria Rodriguez",
-            title: "Worship Director",
-            organization: "Cornerstone Church",
-            rating: 5,
-            initials: "MR",
-            color: "bg-pink-500"
-        },
-        {
-            quote: "Our refugee ministry has exploded thanks to Exbabel. We're now reaching families from 12 different countries in their native languages.",
-            name: "Rev. John Thompson",
-            title: "Outreach Pastor",
-            organization: "City Hope Church",
-            rating: 5,
-            initials: "JT",
-            color: "bg-indigo-500"
         }
     ];
 
@@ -130,12 +103,16 @@ export default function Testimonials() {
                                     </div>
 
                                     <div className="flex-1 min-w-0">
-                                        <div className="font-bold text-slate-900 text-sm">
-                                            {testimonial.name}
-                                        </div>
-                                        <div className="text-xs text-slate-500">
-                                            {testimonial.title}
-                                        </div>
+                                        {testimonial.name && (
+                                            <div className="font-bold text-slate-900 text-sm">
+                                                {testimonial.name}
+                                            </div>
+                                        )}
+                                        {testimonial.title && (
+                                            <div className="text-xs text-slate-500">
+                                                {testimonial.title}
+                                            </div>
+                                        )}
                                         <div className="text-xs text-primary font-medium">
                                             {testimonial.organization}
                                         </div>
