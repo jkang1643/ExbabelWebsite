@@ -103,11 +103,11 @@ export default function ImpactStats() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full max-w-6xl mx-auto">
                     {/* Stat 1 */}
                     <StatItem
-                        value={500}
+                        value={1000}
                         suffix="+"
                         description={
                             <>
-                                churches and organizations trust Exbabel for real-time translation
+                                of sermons translated in real time
                             </>
                         }
                         inView={inView}
