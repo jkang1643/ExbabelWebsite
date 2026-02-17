@@ -60,9 +60,7 @@ export default function Testimonials() {
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
                         Hear from our community
                     </h2>
-                    <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
-                        Join hundreds of churches using Exbabel to break down language barriers and grow their congregations.
-                    </p>
+                    Join churches using Exbabel to break down language barriers and grow their congregations.
                 </motion.div>
 
                 {/* Testimonials Grid */}

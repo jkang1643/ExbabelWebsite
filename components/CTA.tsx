@@ -35,7 +35,7 @@ export default function CTA() {
           transition={{ delay: 0.1 }}
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
-          Join 500+ churches breaking down barriers and building connections. Start your 30-day free trial today — no credit card required.
+          Join churches breaking down barriers and building connections. Start your 30-day free trial today — no credit card required.
         </motion.p>
 
         <motion.div
