@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Testimonials() {
     const testimonials = [
         {
-            quote: "Exbabel has completely transformed how we reach our congregation. The translations are accurate and capture the theological nuances perfectly.",
+            quote: "Exbabel has completely transformed how we reach those in our community. There was one Spanish lady that we could not reach before and now we can reach her. Also there is a Chinese lady who loves using this every week. The translations are top quality and the speed of translations really impressed me. I have told all my friends about this amazing software tool.",
             name: "Pastor Israel Kang",
             title: "Senior Pastor",
             organization: "Houston Apostolic Church",
