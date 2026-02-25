@@ -29,8 +29,8 @@ const VIDEO_DATA: VideoItem[] = [
         subtitle: "Watch how Exbabel translates live speech to texts & audio instantly.",
         duration: "2:15",
         posterImage: "/photos/exbabel product video picture.png",
-        previewVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&mute=1&controls=0&loop=1&playlist=rNwDGQVu_o0",
-        fullVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1",
+        previewVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&mute=1&controls=0&loop=1&playlist=rNwDGQVu_o0&playsinline=1",
+        fullVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&playsinline=1",
     },
     {
         id: "demo-3",
@@ -39,8 +39,8 @@ const VIDEO_DATA: VideoItem[] = [
         subtitle: "An AI Showcase of our Exbabel Platform",
         duration: "1:10",
         posterImage: "/photos/pastor showcase.png",
-        previewVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1&mute=1&controls=0&loop=1&playlist=O-5FYsfVNY4",
-        fullVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1",
+        previewVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1&mute=1&controls=0&loop=1&playlist=O-5FYsfVNY4&playsinline=1",
+        fullVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1&playsinline=1",
     },
     {
         id: "demo-2",
@@ -49,8 +49,8 @@ const VIDEO_DATA: VideoItem[] = [
         subtitle: "Step-by-step guide to streaming a multi-lingual session.",
         duration: "1:45",
         posterImage: "/photos/settings up your firs broadcast.png",
-        previewVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1&mute=1&controls=0&loop=1&playlist=IEAedQlehMY&start=8",
-        fullVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1",
+        previewVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1&mute=1&controls=0&loop=1&playlist=IEAedQlehMY&start=8&playsinline=1",
+        fullVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1&playsinline=1",
     },
     {
         id: "demo-4",
@@ -214,12 +214,13 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
             role="button"
         >
             {/* Background / Poster */}
-            <motion.div layout className="absolute inset-0 w-full h-full">
+            <motion.div layout className="absolute inset-0 w-full h-full bg-gray-100">
                 <img
                     src={video.posterImage}
                     alt=""
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    loading={isActive ? "eager" : "lazy"}
+                    {...(isActive ? { fetchPriority: "high" } as any : {})}
                 />
             </motion.div>
 
@@ -231,7 +232,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[200%] md:h-[200%] pointer-events-none flex items-center justify-center">
                                 <iframe
                                     src={video.previewVideoSrc}
-                                    className="w-full h-full border-0 pointer-events-none bg-black max-w-none scale-[1.3]"
+                                    className="w-full h-full border-0 pointer-events-none max-w-none scale-[1.3]"
                                     style={{ aspectRatio: "16/9", minWidth: "100%", minHeight: "100%" }}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     tabIndex={-1}
@@ -246,7 +247,8 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                             playsInline
                             muted
                             loop
-                            preload="none"
+                            autoPlay={isActive && !prefersReducedMotion}
+                            preload={isActive ? "auto" : "metadata"}
                         />
                     )
                 ) : null}
