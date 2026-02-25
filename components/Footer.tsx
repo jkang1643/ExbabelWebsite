@@ -53,7 +53,7 @@ export default function Footer() {
               <h6 className="footer-title text-primary uppercase font-semibold mb-3">{category}</h6>
               <div className="flex flex-col gap-2">
                 {items.map((item) => (
-                  <a key={item} href="#" className="link link-hover text-base-content/70 hover:text-primary">
+                  <a key={item} href={item === "Support" ? "mailto:support@exbabel.com" : "#"} className="link link-hover text-base-content/70 hover:text-primary">
                     {item}
                   </a>
                 ))}

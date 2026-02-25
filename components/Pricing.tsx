@@ -238,7 +238,7 @@ export default function Pricing() {
             <div className="card-body p-8 text-center">
               <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
               <p className="text-base-content/70 mb-4">Contact our team to build a custom plan at a cost that works for you.</p>
-              <a href={appRoutes.pricingCustom} className="btn btn-primary rounded-full px-8 border-none shadow-lg hover:shadow-xl">Contact Us</a>
+              <a href="mailto:support@exbabel.com" className="btn btn-primary rounded-full px-8 border-none shadow-lg hover:shadow-xl">Contact Us</a>
             </div>
           </div>
         </motion.div>
