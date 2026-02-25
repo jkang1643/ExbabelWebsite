@@ -82,6 +82,32 @@ export default function GuidesLandingPage() {
                         </motion.div>
                     </Link>
                 </div>
+
+                {/* Setup Guide Video */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="max-w-4xl mx-auto mt-20"
+                >
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl font-bold text-base-ink tracking-tight">
+                            Platform Setup Guide
+                        </h2>
+                        <p className="text-base-muted mt-2">
+                            Watch our step-by-step walkthrough on how to use Exbabel for your ministry.
+                        </p>
+                    </div>
+                    <div className="relative w-full aspect-video rounded-aurora-xl overflow-hidden shadow-aurora-card border border-aurora-subtle bg-base-white p-2">
+                        <iframe
+                            src="https://www.youtube.com/embed/IEAedQlehMY?si=eWOYGVjy6JgGrTwt"
+                            title="Exbabel Setup Guide"
+                            className="w-full h-full rounded-lg border-0 bg-black"
+                            allowFullScreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        />
+                    </div>
+                </motion.div>
             </div>
         </main>
     );

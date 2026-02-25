@@ -11,6 +11,7 @@ import HowItWorks from "@/components/HowItWorks";
 import InterfacePreview from "@/components/InterfacePreview";
 import VideoShowcase from "@/components/VideoShowcase";
 import Pricing from "@/components/Pricing";
+import VideoLibrarySection from "@/components/VideoLibrarySection";
 
 import FAQ from "@/components/FAQ";
 import TechnicalRequirements from "@/components/TechnicalRequirements";
@@ -33,6 +34,7 @@ export default function Home() {
       <InterfacePreview />
       {/* 6. How it works */}
       <HowItWorks />
+      <VideoLibrarySection />
       {/* 7. Hear from community */}
       <Testimonials />
       {/* 8. Break Language Barriers - Pricing */}
