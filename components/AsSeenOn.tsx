@@ -13,7 +13,7 @@ export default function AsSeenOn() {
                 <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                     {/* Launch Llama Newsletter Badge */}
                     <a
-                        href="https://launchllama.com"
+                        href="https://tools.launchllama.co/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="transition-transform hover:scale-105 duration-300"
