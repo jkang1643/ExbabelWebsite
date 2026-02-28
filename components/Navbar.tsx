@@ -42,6 +42,12 @@ export default function Navbar() {
               {item}
             </a>
           ))}
+          <a
+            href="/impact"
+            className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+          >
+            Impact
+          </a>
         </div>
 
         {/* CTA Buttons */}

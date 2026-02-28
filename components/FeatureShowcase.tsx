@@ -264,9 +264,20 @@ export default function FeatureShowcase() {
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-base leading-relaxed text-slate-600">
+                                            <p className="text-base leading-relaxed text-slate-600 mb-6">
                                                 {active.description}
                                             </p>
+
+                                            {(active.id === "voices" || active.id === "languages") && (
+                                                <a
+                                                    href="/impact"
+                                                    className="inline-flex items-center gap-1.5 text-sm font-bold transition-all group/link"
+                                                    style={{ color: active.accentColor }}
+                                                >
+                                                    Explore global coverage
+                                                    <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                                                </a>
+                                            )}
 
                                             {/* Progress indicator */}
                                             <div className="mt-6 flex items-center gap-2">
@@ -405,9 +416,18 @@ export default function FeatureShowcase() {
                                             </span>
                                         )}
                                     </div>
-                                    <p className="text-sm leading-relaxed text-slate-600">
+                                    <p className="text-sm leading-relaxed text-slate-600 mb-4">
                                         {feature.description}
                                     </p>
+                                    {(feature.id === "voices" || feature.id === "languages") && (
+                                        <a
+                                            href="/impact"
+                                            className="inline-flex items-center gap-1.5 text-sm font-bold transition-all"
+                                            style={{ color: feature.accentColor }}
+                                        >
+                                            Explore global coverage →
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         ))}

@@ -142,6 +142,25 @@ export default function ImpactStats() {
                 </div>
             </div>
 
+            {/* View Full Impact Page CTA */}
+            <motion.div
+                className="mt-20 text-center relative z-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+            >
+                <a
+                    href="/impact"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 transition-all group"
+                >
+                    Explore Global Coverage
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <p className="mt-4 text-sm text-base-content/40 font-medium tracking-wide">
+                    VIEW COMPLETE WORLDWIDE SUPPORT DATA
+                </p>
+            </motion.div>
+
             {/* Optional: We can keep the bottom divider if needed for the next section, 
           but the prompt only specified the top one. Current implementation had a bottom one.
           I'll leave the bottom simple or clean to let the next section start naturally?

@@ -23,10 +23,17 @@ export default function TrustedPartners() {
   return (
     <section className="relative py-24 bg-gradient-to-b from-[#F8F9FA] to-white border-b border-gray-100">
 
-      <div className="layout-spine relative z-20">
-        <p className="text-eyebrow mb-12 text-center text-slate-400">
+      <div className="layout-spine relative z-20 text-center">
+        <p className="text-eyebrow mb-4 text-slate-400">
           TRUSTED BY CHURCHES WORLDWIDE
         </p>
+        <a
+          href="/impact"
+          className="inline-flex items-center gap-1 text-sm font-medium text-primary/60 hover:text-primary transition-colors mb-12 group"
+        >
+          View our global impact
+          <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
 
         {/* Scrolling logos container */}
         <div className="relative w-full overflow-hidden mask-gradient-x">

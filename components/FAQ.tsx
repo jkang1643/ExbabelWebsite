@@ -6,7 +6,15 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Which languages are supported?",
-      answer: "Exbabel supports translation into 180+ languages and dialects, including English, Spanish, French, Chinese (Simplified & Traditional), Arabic, Hindi, Portuguese, Russian, Japanese, Korean, German, Italian, and many more. We continuously add support for additional languages.",
+      answer: (
+        <>
+          Exbabel supports translation into{" "}
+          <a href="/impact" className="text-primary font-bold hover:underline decoration-2 underline-offset-4">
+            180+ languages and dialects
+          </a>
+          , including English, Spanish, French, Chinese (Simplified & Traditional), Arabic, Hindi, Portuguese, Russian, Japanese, Korean, German, Italian, and many more. We continuously add support for additional languages.
+        </>
+      ),
     },
     {
       question: "How is this different from Google Translate?",
