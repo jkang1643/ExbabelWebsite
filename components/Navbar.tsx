@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { appRoutes } from "@/lib/config";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +27,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-black text-primary tracking-tight transition-colors duration-300">
             Exbabel
           </span>
@@ -33,15 +35,19 @@ export default function Navbar() {
 
         {/* Desktop Menu - Centered & Simple */}
         <div className="hidden lg:flex items-center gap-8">
-          {["How It Works", "Features", "Pricing", "FAQ"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
-            >
-              {item}
-            </a>
-          ))}
+          {["How It Works", "Features", "Pricing", "FAQ"].map((item) => {
+            const id = item.toLowerCase().replace(/\s+/g, '-');
+            const targetHref = pathname === '/' ? `#${id}` : `/#${id}`;
+            return (
+              <a
+                key={item}
+                href={targetHref}
+                className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+              >
+                {item}
+              </a>
+            );
+          })}
           <a
             href="/impact"
             className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"

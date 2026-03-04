@@ -7,7 +7,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      price: 49,
+      price: 45,
       description: "Everything you need to start translating live services",
       features: [
         { text: "6 hrs/mo live + 10 hrs solo", icon: "🎙️" },
@@ -43,7 +43,7 @@ export default function Pricing() {
       price: 299,
       description: "No limits. World-class voices. White-glove service.",
       features: [
-        { text: "Unlimited live & solo hours", icon: "🎙️" },
+        { text: "18 hrs/mo live + unlimited solo hours", icon: "🎙️" },
         { text: "Studio-grade lifelike voices", icon: "🔊" },
         { text: "250+ languages & dialects", icon: "🌐" },
         { text: "Unlimited simultaneous languages", icon: "🔀" },
