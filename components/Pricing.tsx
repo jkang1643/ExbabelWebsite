@@ -7,8 +7,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      originalPrice: 45,
-      discountedPrice: 22.50,
+      price: 49,
       description: "Everything you need to start translating live services",
       features: [
         { text: "6 hrs/mo live + 10 hrs solo", icon: "🎙️" },
@@ -25,8 +24,7 @@ export default function Pricing() {
     },
     {
       name: "Pro",
-      originalPrice: 100,
-      discountedPrice: 50,
+      price: 99,
       description: "More hours, more voices, faster translation",
       features: [
         { text: "12 hrs/mo live + 20 hrs solo", icon: "🎙️" },
@@ -42,8 +40,7 @@ export default function Pricing() {
     },
     {
       name: "Unlimited",
-      originalPrice: 300,
-      discountedPrice: 150,
+      price: 299,
       description: "No limits. World-class voices. White-glove service.",
       features: [
         { text: "Unlimited live & solo hours", icon: "🎙️" },
@@ -81,13 +78,6 @@ export default function Pricing() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Promo Banner */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-red-500 text-white px-5 py-2 rounded-full text-sm font-semibold mb-7 shadow-lg">
-            <span>🔥</span>
-            <span>Launch Promotion — <strong>50% OFF</strong> all plans for 1 year</span>
-            <span>🔥</span>
-          </div>
-
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Break Language Barriers<br />
             <span className="bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
@@ -137,11 +127,8 @@ export default function Pricing() {
                     {plan.name === "Starter" ? (
                       <>
                         <div className="flex items-baseline justify-center gap-2 mb-1 h-6">
-                          <div className="text-base text-base-content/50 line-through">
-                            ${plan.originalPrice}<span className="text-sm">/mo</span>
-                          </div>
                           <div className="text-base font-medium text-base-content/70">
-                            then ${plan.discountedPrice.toFixed(2)}/mo
+                            then ${plan.price}/mo
                           </div>
                         </div>
                         <div className="text-sm text-base-content/50 font-medium mb-1 uppercase tracking-wide">
@@ -150,24 +137,16 @@ export default function Pricing() {
                         <div className="text-5xl font-extrabold text-base-content leading-none">
                           $0
                         </div>
-                        <div className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mt-2">
-                          Save ${((plan.originalPrice - plan.discountedPrice) * 12).toFixed(0)}/year
-                        </div>
                       </>
                     ) : (
                       <>
-                        <div className="text-base text-base-content/50 line-through mb-1 h-6">
-                          ${plan.originalPrice}<span className="text-sm">/mo</span>
-                        </div>
+                        <div className="h-6 mb-1" aria-hidden="true" />
                         {/* Spacer to align with 'Free for 30 Days' line in Starter plan */}
                         <div className="h-6 mb-1" aria-hidden="true" />
 
                         <div className="text-5xl font-extrabold text-base-content leading-none">
-                          ${plan.discountedPrice % 1 === 0 ? plan.discountedPrice : plan.discountedPrice.toFixed(2)}
+                          ${plan.price}
                           <span className="text-lg font-medium text-base-content/70">/mo</span>
-                        </div>
-                        <div className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mt-2">
-                          Save ${((plan.originalPrice - plan.discountedPrice) * 12).toFixed(0)}/year
                         </div>
                       </>
                     )}
