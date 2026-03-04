@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { appRoutes } from "@/lib/config";
 
 export default function Navbar() {
@@ -27,11 +28,11 @@ export default function Navbar() {
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-black text-primary tracking-tight transition-colors duration-300">
             Exbabel
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Menu - Centered & Simple */}
         <div className="hidden lg:flex items-center gap-8">
