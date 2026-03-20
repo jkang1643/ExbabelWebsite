@@ -39,10 +39,10 @@ export default function TrustedPartners() {
         <div className="relative w-full overflow-hidden mask-gradient-x">
           <div className="flex gap-16 md:gap-24 animate-scroll whitespace-nowrap">
             {[
-              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Houston Chinese Community Church",
-              "Trail Church", "1st Baptist Church of Houston",
-              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Houston Chinese Community Church",
-              "Trail Church", "1st Baptist Church of Houston"
+              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Lighthouse Church",
+              "1st Baptist Church of Houston",
+              "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Lighthouse Church",
+              "1st Baptist Church of Houston"
             ].map((partner, index) => (
               <div key={index} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <div className="text-xl md:text-2xl font-bold text-[#1d1c1d] flex items-center gap-3">

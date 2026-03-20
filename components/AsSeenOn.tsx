@@ -10,7 +10,7 @@ export default function AsSeenOn() {
                     AS SEEN ON
                 </p>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
                     {/* Launch Llama Newsletter Badge */}
                     <a
                         href="https://tools.launchllama.co/"
@@ -23,8 +23,23 @@ export default function AsSeenOn() {
                             alt="As seen on Launch Llama Newsletter"
                             width={800}
                             height={200}
-                            className="h-auto w-full max-w-[400px] md:max-w-[500px]"
+                            className="h-auto w-full max-w-[250px] md:max-w-[300px]"
                             priority={false}
+                        />
+                    </a>
+
+                    {/* ElevenLabs Startup Grants */}
+                    <a
+                        href="https://elevenlabs.io/startup-grants"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-transform hover:scale-105 duration-300"
+                    >
+                        <img 
+                            src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp" 
+                            alt="ElevenLabs" 
+                            style={{ width: "250px" }}
+                            className="h-auto"
                         />
                     </a>
 
@@ -40,7 +55,7 @@ export default function AsSeenOn() {
                             alt="AI for Church Leaders"
                             width={600}
                             height={200}
-                            className="h-auto w-full max-w-[300px] md:max-w-[350px]"
+                            className="h-auto w-full max-w-[200px] md:max-w-[250px]"
                             priority={false}
                         />
                     </a>

@@ -70,11 +70,11 @@ const FEATURES: Feature[] = [
         videoSrc: "/videos/biblevesrerecognition.mp4",
     },
     {
-        id: "chatgpt",
-        title: "Powered by ChatGPT Accuracy",
-        description: "Context-aware, sermon-ready precision.",
+        id: "voicecloning",
+        title: "Voice Cloning",
+        description: "Clone your pastor's unique voice with stunning accuracy, ensuring every translation carries the same warmth, tone, and authority as the original sermon.",
         accentColor: "#7C3AED",
-        videoSrc: "/videos/translationpoweredbychatgpt.mp4",
+        videoSrc: "/videos/voicecloning.mp4",
     },
 ];
 

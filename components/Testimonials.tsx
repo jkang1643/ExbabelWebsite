@@ -14,21 +14,21 @@ export default function Testimonials() {
             color: "bg-blue-500"
         },
         {
-            quote: "As a multicultural church, Exbabel is essential. We now offer services in multiple languages simultaneously without any technical headaches.",
-            name: "",
-            title: "",
-            organization: "Houston Chinese Community Church",
+            quote: "Recently at the church we started using Exbabel, I'm telling you its a game changer. Our non english spakers can benefit from the full range of our preaching and teachings without us needing to print trnslated notes in advance. the real time multilingual capabilities make it a must for any multicultural congregation. Give it a try, and if you're like us, you'll love it!",
+            name: "Pastor David Joy",
+            title: "Senior Pastor",
+            organization: "Lighthouse Church",
             rating: 5,
-            initials: "HC",
+            initials: "DJ",
             color: "bg-purple-500"
         },
         {
-            quote: "The setup was incredibly easy. We were translating our first service in less than 10 minutes. The support team has been phenomenal.",
-            name: "",
-            title: "",
-            organization: "Trail Church",
+            quote: "Exbabel has been a tremendous resource for Lighthouse Church. Two different langauge groups at our church were represented. I knew they wanted to be part of our english services but there was a disconnect. They were really only catching abotu 25% of what was being said in services. This was a great concern from me. We had no one that could do translation on a weekly basis. We started using it the following sunday, and I had folks coming to me after service that this was a tremendous resource for our spanish and farsi speakers, enabling us to minsiter as effectively as posssible.",
+            name: "Pastor Gary Pierson",
+            title: "Senior Pastor",
+            organization: "Lighthouse Pentecostal Church",
             rating: 5,
-            initials: "TC",
+            initials: "GP",
             color: "bg-green-500"
         }
     ];
