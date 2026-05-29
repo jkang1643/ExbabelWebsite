@@ -38,52 +38,52 @@ export default function DecorativeWisp({
             <stop offset="0%" stopColor={colorPrimary} />
             <stop offset="100%" stopColor={colorSecondary} />
           </linearGradient>
-          
-          {/* Deep Outer Glow */}
-          <filter id={`glow-outer-${id}`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="15" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-          
-          {/* Sharp Inner Glow */}
-          <filter id={`glow-inner-${id}`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-          
         </defs>
 
         <g>
-          {/* Layer 1: Thick ambient plasma glow */}
+          {/* Layer 1: Simulated Outer Glow (Fast Geometric Stroke) */}
           <motion.path
             d={path1}
             fill="none"
             stroke={`url(#grad-${id})`}
-            strokeWidth="30"
-            filter={`url(#glow-outer-${id})`}
-            opacity="0.6"
+            strokeWidth="60"
+            strokeLinecap="round"
+            opacity="0.15"
             animate={{ d: [path1, path2, path1] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: delay }}
           />
           
-          {/* Layer 2: Main ribbon body */}
+          {/* Layer 2: Simulated Inner Glow (Fast Geometric Stroke) */}
           <motion.path
             d={path1}
             fill="none"
             stroke={`url(#grad-${id})`}
-            strokeWidth="12"
-            filter={`url(#glow-inner-${id})`}
+            strokeWidth="20"
+            strokeLinecap="round"
+            opacity="0.4"
             animate={{ d: [path1, path2, path1] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: delay }}
           />
           
-          {/* Layer 3: Sinuous bright core */}
+          {/* Layer 3: Main ribbon body */}
+          <motion.path
+            d={path1}
+            fill="none"
+            stroke={`url(#grad-${id})`}
+            strokeWidth="6"
+            strokeLinecap="round"
+            opacity="0.8"
+            animate={{ d: [path1, path2, path1] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: delay }}
+          />
+          
+          {/* Layer 4: Sinuous bright core */}
           <motion.path
             d={path1}
             fill="none"
             stroke="rgba(255,255,255,0.9)"
-            strokeWidth="3"
-            filter={`url(#glow-inner-${id})`}
+            strokeWidth="2"
+            strokeLinecap="round"
             animate={{ d: [path1, path2, path1] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: delay }}
           />
