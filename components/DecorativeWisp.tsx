@@ -32,7 +32,7 @@ export default function DecorativeWisp({
 
   return (
     <div className={`pointer-events-none ${className}`}>
-      <svg className="w-full h-full opacity-90" preserveAspectRatio="none" viewBox="0 0 200 200">
+      <svg className="w-full h-full opacity-90 overflow-visible" preserveAspectRatio="none" viewBox="0 0 200 200">
         <defs>
           <linearGradient id={`grad-${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor={colorPrimary} />

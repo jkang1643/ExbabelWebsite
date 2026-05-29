@@ -49,7 +49,7 @@ export default function GettingStartedSection() {
             Setup takes minutes, not months.
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-lg text-base-content/70 max-w-2xl mx-auto font-medium">
-            You don't need a dedicated IT team to start offering multi-language livestreams. We've designed Exbabel to plug right into the tools you already know how to use.
+            {"You don't need a dedicated IT team to start offering multi-language livestreams. We've designed Exbabel to plug right into the tools you already know how to use."}
           </motion.p>
         </div>
 

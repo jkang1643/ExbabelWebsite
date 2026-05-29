@@ -105,8 +105,8 @@ export default function LiveTranslationPage() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <DecorativeWisp className="absolute -top-20 -left-20 w-80 h-80 -z-20 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#D6F5FF" delay={1} />
-          <DecorativeWisp className="absolute -bottom-20 -right-20 w-80 h-80 -z-20 rotate-12" colorPrimary="#FFF7D1" colorSecondary="#EAD6FF" delay={3} />
+          <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-[150vw] h-[150vh] -z-20 -rotate-12 opacity-80" colorPrimary="#FFD6E5" colorSecondary="#D6F5FF" delay={1} />
+          <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[150vw] h-[150vh] -z-20 rotate-12 opacity-80" colorPrimary="#FFF7D1" colorSecondary="#EAD6FF" delay={3} />
           <LiveTranslationGraphic />
         </motion.div>
       </section>
@@ -145,7 +145,7 @@ export default function LiveTranslationPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <DecorativeWisp className="absolute -top-10 -right-20 w-full h-full -z-20 rotate-90 opacity-60" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
+              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 rotate-90 opacity-60" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
               <HowItWorksGraphic />
             </motion.div>
           </div>
@@ -158,8 +158,8 @@ export default function LiveTranslationPage() {
       {/* 4. Benefits / Why Choose */}
       <section className="py-24 px-6 max-w-7xl mx-auto z-10 relative">
         {/* Background Wisps for Benefits Section */}
-        <DecorativeWisp className="absolute top-0 right-0 w-[500px] h-[500px] -z-20 opacity-30 rotate-12" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={1} />
-        <DecorativeWisp className="absolute bottom-0 left-0 w-[500px] h-[500px] -z-20 opacity-30 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={3} />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[150vw] h-[150vh] -z-20 opacity-50 rotate-12" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={1} />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[150vw] h-[150vh] -z-20 opacity-50 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={3} />
         
         <motion.div className="text-center mb-16" initial="initial" whileInView="whileInView" variants={staggerContainer}>
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content mb-4 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Why Churches Choose Exbabel</motion.h2>
@@ -200,7 +200,7 @@ export default function LiveTranslationPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-green-300/20 to-blue-300/20 blur-3xl -z-10 rounded-full" />
-            <DecorativeWisp className="absolute -top-20 -left-32 w-[150%] h-[150%] -z-20 -rotate-45 opacity-50" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={4} />
+            <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 -rotate-45 opacity-50" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={4} />
             <LiveCaptionsGraphic />
           </motion.div>
           <motion.div 
@@ -237,8 +237,8 @@ export default function LiveTranslationPage() {
       {/* 6. Use Cases & ROI */}
       <section className="py-24 px-6 max-w-7xl mx-auto z-10 relative">
         {/* Background Wisps for Use Cases Section */}
-        <DecorativeWisp className="absolute top-1/4 -left-32 w-[600px] h-[600px] -z-20 opacity-30 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
-        <DecorativeWisp className="absolute bottom-32 -right-32 w-[600px] h-[600px] -z-20 opacity-40 -rotate-45" colorPrimary="#FFF7D1" colorSecondary="#D6F5FF" delay={5} />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-40 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[150vw] h-[150vh] -z-20 opacity-40 -rotate-45" colorPrimary="#FFF7D1" colorSecondary="#D6F5FF" delay={5} />
 
         <motion.h2 
           className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}
@@ -356,7 +356,7 @@ export default function LiveTranslationPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="absolute inset-0 bg-gradient-to-bl from-purple-300/20 to-blue-300/20 blur-3xl -z-10 rounded-full" />
-            <DecorativeWisp className="absolute -top-10 -right-20 w-[120%] h-[120%] -z-20 rotate-12 opacity-60" colorPrimary="#FFD6E5" colorSecondary="#EAD6FF" delay={6} />
+            <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 rotate-12 opacity-60" colorPrimary="#FFD6E5" colorSecondary="#EAD6FF" delay={6} />
             <UnlimitedLanguagesGraphic />
           </motion.div>
         </div>
@@ -370,7 +370,7 @@ export default function LiveTranslationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.3),transparent_60%)]" />
         
         {/* Single massive ribbon for the background instead of multiple clipped ones */}
-        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] max-w-[2000px] max-h-[1500px] -z-10 opacity-40 mix-blend-screen" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-10 opacity-60" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" />
         
         <motion.div 
           className="max-w-4xl mx-auto relative z-10 space-y-8"
