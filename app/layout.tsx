@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="exbabel">
-      <body className={`${sora.variable} font-sans`}>
+    <html lang="en" data-theme="exbabel" suppressHydrationWarning>
+      <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
         {children}
         {/* Start of HubSpot Embed Code */}
         <Script

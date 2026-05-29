@@ -121,18 +121,18 @@ export default function GlassmorphicHero() {
       {/* Slack-style "Aurora" Background with enhanced animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Soft Pink Blob */}
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70" />
+        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full filter blur-[60px] md:blur-[120px] opacity-70" />
 
         {/* Light Purple Blob */}
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70"
+        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full filter blur-[60px] md:blur-[120px] opacity-70"
           style={{ animationDelay: '4s' }} />
 
         {/* Pale Yellow Blob */}
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-70"
+        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full filter blur-[60px] md:blur-[120px] opacity-70"
           style={{ animationDelay: '8s' }} />
 
         {/* Subtle Blue/Mint Blob */}
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[50px] md:blur-[100px] opacity-70"
+        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full filter blur-[50px] md:blur-[100px] opacity-70"
           style={{ animationDelay: '12s' }} />
       </div>
 
@@ -154,17 +154,23 @@ export default function GlassmorphicHero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-6 max-w-[840px]"
           >
-            {/* Tagline Banner */}
+            {/* New Product Announcement Banner */}
             <motion.a
-              href="/impact"
+              href="/live"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/20 text-primary hover:border-primary/40 transition-all group shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-primary/20 text-primary hover:border-primary/40 transition-all group shadow-sm hover:shadow-md"
             >
-              <span className="text-sm font-semibold">Trusted by churches and teams worldwide</span>
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-sm font-bold tracking-tight">Introducing Exbabel Live Video Translation</span>
+              <span className="text-sm text-primary/70 mx-1">•</span>
+              <span className="text-sm font-medium">Learn more</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.a>
 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-aurora-purple: #EAD6FF;
+            --color-aurora-mint: #D6F5FF;
+        }
+        body { 
+            margin: 0; 
+            background-color: #FFFFFF; 
+            height: 100vh; 
+            overflow: hidden; 
+            font-family: 'Sora', 'Inter', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .aurora-bg {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 50% 50%, rgba(234, 214, 255, 0.25), transparent 60%);
+            z-index: -1;
+        }
+        .video-box {
+            width: 440px; height: 280px;
+            background: #0B1220;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 110px rgba(214, 245, 255, 0.3);
+            border: 1px solid rgba(234, 214, 255, 0.28);
+        }
+        .caption-bar {
+            position: absolute;
+            bottom: 20px; left: 20px; right: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+        }
+        .text-reveal {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite;
+        }
+        .waveform {
+            position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+            display: flex; gap: 4px; height: 40px; align-items: center;
+        }
+        .bar {
+            width: 6px; background: var(--color-aurora-mint); border-radius: 4px;
+            animation: bounce 1s infinite alternate;
+        }
+        .bar:nth-child(2) { animation-delay: 0.2s; background: var(--color-aurora-purple); }
+        .bar:nth-child(3) { animation-delay: 0.4s; background: #FFD6E5; }
+        .bar:nth-child(4) { animation-delay: 0.1s; }
+        .bar:nth-child(5) { animation-delay: 0.3s; background: var(--color-aurora-purple); }
+
+        @keyframes bounce {
+            0% { height: 10px; }
+            100% { height: 40px; }
+        }
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="aurora-bg"></div>
+    <div class="video-box flex flex-col items-center justify-center">
+        <div class="waveform">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="caption-bar">
+            <span class="text-reveal">Bienvenidos a nuestra iglesia</span>
+        </div>
+    </div>
+</body>
+</html>
