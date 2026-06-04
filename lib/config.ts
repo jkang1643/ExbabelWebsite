@@ -17,9 +17,9 @@ export const appRoutes = {
   contact: `${getAppUrl()}/contact`,
 
   // Pricing redirects - route to checkout with plan parameter
-  pricingStarter: `${getAppUrl()}/checkout?plan=starter`,
-  pricingPro: `${getAppUrl()}/checkout?plan=pro`,
-  pricingUnlimited: `${getAppUrl()}/checkout?plan=unlimited`,
+  pricingStarter: `${getAppUrl()}/translate/checkout?plan=starter`,
+  pricingPro: `${getAppUrl()}/translate/checkout?plan=pro`,
+  pricingUnlimited: `${getAppUrl()}/translate/checkout?plan=unlimited`,
   pricingCustom: `${getAppUrl()}/contact?type=enterprise`,
 };
 
