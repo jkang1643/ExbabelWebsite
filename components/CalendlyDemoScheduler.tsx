@@ -15,7 +15,7 @@ export default function CalendlyDemoScheduler({
   onEventScheduled,
 }: CalendlyDemoSchedulerProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/jkang1643/new-meeting";
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/your-calendly-link/15min";
 
   useEffect(() => {
     setIsMounted(true);
