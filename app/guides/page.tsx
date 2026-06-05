@@ -7,15 +7,16 @@ export default function GuidesLandingPage() {
     return (
         <main className="min-h-screen bg-base-paper pt-32 pb-20">
             <div className="layout-spine max-w-5xl mx-auto px-6">
+                <h1 className="sr-only">How can we help you?</h1>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold text-base-ink mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold text-base-ink mb-6 tracking-tight">
                         How can we help you?
-                    </h1>
+                    </h2>
                     <p className="text-lg text-base-muted/80 max-w-2xl mx-auto">
                         Select the guide that matches your role to get started with Exbabel.
                     </p>

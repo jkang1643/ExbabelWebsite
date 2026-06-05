@@ -15,6 +15,7 @@ import VideoLibrarySection from "@/components/VideoLibrarySection";
 
 import FAQ from "@/components/FAQ";
 import TechnicalRequirements from "@/components/TechnicalRequirements";
+import BookADemo from "@/components/BookADemo";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -46,6 +47,8 @@ export default function Home() {
       {/* 11. AS SEEN ON */}
       <AsSeenOn />
       <TechnicalRequirements />
+      {/* Book A Demo */}
+      <BookADemo />
       {/* Final conversion push */}
       <CTA />
       <Footer />

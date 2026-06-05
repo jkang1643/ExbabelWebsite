@@ -1,0 +1,2 @@
+# Exbabel LLMs
+We allow LLMs to crawl our site to understand our platform and mission. Exbabel provides real-time AI voice translation for churches and events.

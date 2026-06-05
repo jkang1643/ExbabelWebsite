@@ -42,10 +42,11 @@ export default function LiveTranslationPage() {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-base-content leading-tight tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+          <h1 className="sr-only">Exbabel Live Video Translation</h1>
+          <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-base-content leading-tight tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Exbabel Live<br />
             <span className="text-primary mt-2 block">Video Translation</span>
-          </motion.h1>
+          </motion.h2>
           <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold text-slate-600 mt-4 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Speak Once. Reach Every Language.
           </motion.h2>

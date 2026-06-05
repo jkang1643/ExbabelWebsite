@@ -174,13 +174,14 @@ export default function GlassmorphicHero() {
               </svg>
             </motion.a>
 
-            <h1
+            <h1 className="sr-only">Give your church one voice</h1>
+            <h2
               className="text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               Give your church
               <span className="block text-primary mt-2">one voice</span>
-            </h1>
+            </h2>
 
             <p
               className="text-xl md:text-2xl text-base-content/80 leading-relaxed max-w-[640px] mx-auto font-medium"

@@ -1,0 +1,84 @@
+ba251c8869739d224 [GoogleSpeech] ✅ FINAL (1 result(s)): "Adjusting one, two, three. Can you hear me?"
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 📥 RESULT RECEIVED: FINAL "Adjusting one, two, three. Can you hear me?..." (pipeline: normal)
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [AUDIO_BUFFER_TEST] 🎵 Buffer Status: {
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   type: 'FINAL',
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   chunks: 27,
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   durationMs: 2600,
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   utilizationPercent: '13.5',
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   totalBytes: 129600,
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   isWorking: '✅ YES'
+2026-06-02T14:33:15.468000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 }
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [AUDIO_BUFFER_TEST] 🔍 Retrieval Test on FINAL: { 
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   last750ms: '33600 bytes',
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   last600ms: '28800 bytes',
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   canRecover: '✅ YES',
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   estimatedMs: '700ms'
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 }
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 📥 RESULT RECEIVED: FINAL "Adjusting one, two, three. Can you hear me?..." (meta: {"pipeline":"normal","detectedLanguage":"en-us"})
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 📝 FINAL signal received (43 chars): "Adjusting one, two, three. Can you hear me?..."
+2026-06-02T14:33:15.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 🔍 FINAL meta: {"pipeline":"normal","detectedLanguage":"en-us"} - isForcedFinal: false
+2026-06-02T14:33:15.822000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " " (isFinal: false, total: 85)
+2026-06-02T14:33:15.825000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "123" (isFinal: false, total: 86)
+2026-06-02T14:33:16.098000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Ingested 100 PCM frames from bus (total: 4800)
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] ✅ FINAL Transcript (after 999ms wait): "Adjusting one, two, three. Can you hear me?..."
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GrammarWorker] 💾 Using cached FINAL result (43 chars): "Adjusting one, two, three. Can you hear me?"
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 🔍 Target languages for session: []    
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] No listeners yet, skipping translation 
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 📤 SENT_TO_HOST (FINAL, seqId: 199, targetLang: en)
+2026-06-02T14:33:16.469000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [HostMode] 📡 SENT_TO_ALL_LISTENERS (FINAL, seqId: 199)
+2026-06-02T14:33:16.626000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "." (isFinal: false, total: 87)
+2026-06-02T14:33:16.826000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " ¿" (isFinal: false, total: 88)
+2026-06-02T14:33:16.827000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "Me" (isFinal: false, total: 89)
+2026-06-02T14:33:17.049000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " escucha" (isFinal: false, total: 90)
+2026-06-02T14:33:17.639000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "?" (isFinal: false, total: 91)
+2026-06-02T14:33:17.643000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " Uno" (isFinal: false, total: 92)
+2026-06-02T14:33:18.039000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "," (isFinal: false, total: 93)
+2026-06-02T14:33:18.043000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " prob" (isFinal: false, total: 94)
+2026-06-02T14:33:18.111000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Ingested 100 PCM frames from bus (total: 4900)
+2026-06-02T14:33:18.241000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "ando" (isFinal: false, total: 95)
+2026-06-02T14:33:18.439000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " uno" (isFinal: false, total: 96)
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [AudioBuffer] 📊 Buffer status {
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   chunks: 26,
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   totalReceived: 1000,
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   bufferDurationMs: 2498,
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224   utilizationPercent: '13.0'
+2026-06-02T14:33:18.810000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 }
+2026-06-02T14:33:18.831000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " dos" (isFinal: false, total: 97)
+2026-06-02T14:33:19.040000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " tres" (isFinal: false, total: 98)
+2026-06-02T14:33:19.241000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "." (isFinal: false, total: 99)
+2026-06-02T14:33:19.244000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " ¿" (isFinal: false, total: 100)
+2026-06-02T14:33:19.249000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "Me" (isFinal: false, total: 101)
+2026-06-02T14:33:19.439000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " escucha" (isFinal: false, total: 102)
+2026-06-02T14:33:19.837000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "?" (isFinal: false, total: 103)
+2026-06-02T14:33:20.110000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Ingested 100 PCM frames from bus (total: 5000)
+2026-06-02T14:33:20.172000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Source partial: "1, 2, 3..."
+2026-06-02T14:33:21.039000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " Uno" (isFinal: false, total: 104)
+2026-06-02T14:33:21.439000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "," (isFinal: false, total: 105)
+2026-06-02T14:33:21.443000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " prob" (isFinal: false, total: 106)
+2026-06-02T14:33:21.637000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "ando" (isFinal: false, total: 107)
+2026-06-02T14:33:21.839000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " uno" (isFinal: false, total: 108)
+2026-06-02T14:33:22.037000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " dos" (isFinal: false, total: 109)
+2026-06-02T14:33:22.113000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Ingested 100 PCM frames from bus (total: 5100)
+2026-06-02T14:33:22.240000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " tres" (isFinal: false, total: 110)
+2026-06-02T14:33:22.633000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "." (isFinal: false, total: 111)
+2026-06-02T14:33:22.638000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " ¿" (isFinal: false, total: 112)
+2026-06-02T14:33:22.647000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "Me" (isFinal: false, total: 113)
+2026-06-02T14:33:22.837000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " escucha" (isFinal: false, total: 114)
+2026-06-02T14:33:22.998000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] ❌ 6 chunk timeouts in 2500ms - forcing stream restart to prevent transcript freeze
+2026-06-02T14:33:22.998000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] 🔄 Restarting stream (restart #8)...
+2026-06-02T14:33:23.119000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] 🔄 Scheduling retry 1/3 for chunk chunk_1048_1780410803018 in 100ms
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] Starting stream #8 (API: v1p1beta1)...
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] Reset cumulative audio time. Context: "Adjusting one, two, three. Can you hear me?"
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] ✅ Using latest_long model WITH PhraseSet
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] 🔧 Applying STT routing parameters: {"model":"latest_long","useEnhanced":true,"profanityFilter":false,"enableAutomaticPunctuation":true}
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] ✅ PhraseSet ENABLED (v1p1beta1 API): projects/exbabel-tts-prod/locations/global/phraseSets/church-glossary-10k
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] 🔍 VERIFICATION: PhraseSet will be sent in API request (v1p1beta1 API)
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech]    adaptation.phraseSets: [{"name":"projects/exbabel-tts-prod/locations/global/phraseSets/church-glossary-10k"}]
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech]    Model: latest_long (enhanced: true)
+2026-06-02T14:33:23.199000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [GoogleSpeech] Stream started successfully        
+2026-06-02T14:33:23.232000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "?" (isFinal: false, total: 115)
+2026-06-02T14:33:24.111000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Ingested 100 PCM frames from bus (total: 5200)
+2026-06-02T14:33:24.240000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: " Uno" (isFinal: false, total: 116)
+2026-06-02T14:33:24.431000+00:00 core-backend/exbabel-core/9f6996f178d94f6ba251c8869739d224 [TranslationWorker:es] Transcript delta: "," (isFinal: false, total: 117)
+^C
+jkang1643@Kang:~/projects/realtimetranslationapp$ 
