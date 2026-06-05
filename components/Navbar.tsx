@@ -101,7 +101,7 @@ export default function Navbar() {
           <div className="relative">
 
             <Link
-              href="/#book-demo"
+              href="/demo"
               className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg ${scrolled
                 ? "bg-primary text-white hover:bg-primary/90 scale-105"
                 : "bg-white text-primary border-2 border-white hover:bg-white/90"
