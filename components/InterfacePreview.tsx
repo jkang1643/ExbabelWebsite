@@ -154,7 +154,7 @@ export default function InterfacePreview() {
                   One message.<br/>Every language.
               </h2>
               <p className="text-xl text-gray-600 mb-10 max-w-xl">
-                  Exbabel translates your content into 90+ languages as it's happening, so everyone can follow along.
+                  Exbabel translates your content into 90+ languages as it&apos;s happening, so everyone can follow along.
               </p>
 
               <button 
@@ -226,7 +226,7 @@ export default function InterfacePreview() {
                     ))}
                     {filteredLanguages.length === 0 && (
                         <div className="col-span-full py-12 text-center text-gray-500">
-                          No languages found matching "{search}".
+                          No languages found matching &quot;{search}&quot;.
                         </div>
                     )}
                 </div>

@@ -7,7 +7,7 @@ import TrustedPartners from "@/components/TrustedPartners";
 import AsSeenOn from "@/components/AsSeenOn";
 import FeatureShowcase from "@/components/FeatureShowcase";
 import Testimonials from "@/components/Testimonials";
-import HowItWorks from "@/components/HowItWorks";
+import WhyChurchesChoose from "@/components/WhyChurchesChoose";
 import InterfacePreview from "@/components/InterfacePreview";
 import VideoShowcase from "@/components/VideoShowcase";
 import Pricing from "@/components/Pricing";
@@ -31,8 +31,8 @@ export default function Home() {
       <FeatureShowcase />
       {/* 5. One message. Every language. */}
       <InterfacePreview />
-      {/* 6. How it works */}
-      <HowItWorks />
+      {/* 6. Why Churches Choose ExBabel */}
+      <WhyChurchesChoose />
       <VideoLibrarySection />
       {/* 7. Hear from community */}
       <Testimonials />
