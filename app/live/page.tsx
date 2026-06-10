@@ -31,11 +31,11 @@ const staggerContainer = {
 
 export default function LiveTranslationPage() {
   return (
-    <main className="min-h-screen bg-white relative overflow-hidden font-sans">
+    <main className="min-h-screen bg-white relative z-0 overflow-hidden font-sans">
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 max-w-7xl mx-auto z-10 flex flex-col lg:flex-row items-center gap-12">
+      <section className="relative pt-32 pb-24 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         <motion.div 
           className="flex-1 text-left space-y-6 layout-spine md:px-0 md:items-start text-center lg:text-left"
           initial="initial"
@@ -82,7 +82,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 2. Problem/Solution & Showcase */}
-      <section className="py-24 px-6 max-w-7xl mx-auto z-10 relative">
+      <section className="py-24 px-6 max-w-7xl mx-auto relative">
         <motion.div 
           className="text-center mb-16 space-y-4 max-w-3xl mx-auto"
           initial="initial"
@@ -113,7 +113,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 3. How It Works */}
-      <section id="how-it-works" className="py-24 px-6 relative z-10">
+      <section id="how-it-works" className="py-24 px-6 relative">
         <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" variants={staggerContainer}>
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>How Exbabel Live Video Translation Works</motion.h2>
           
@@ -157,7 +157,7 @@ export default function LiveTranslationPage() {
       <GettingStartedSection />
 
       {/* 4. Benefits / Why Choose */}
-      <section className="py-24 px-6 max-w-7xl mx-auto z-10 relative">
+      <section className="py-24 px-6 max-w-7xl mx-auto relative">
         {/* Background Wisps for Benefits Section */}
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[150vw] h-[150vh] -z-20 opacity-50 rotate-12" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={1} />
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[150vw] h-[150vh] -z-20 opacity-50 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={3} />
@@ -191,7 +191,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 5. Live Voice & Captions */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             className="flex justify-center order-2 lg:order-1 relative"
@@ -236,7 +236,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 6. Use Cases & ROI */}
-      <section className="py-24 px-6 max-w-7xl mx-auto z-10 relative">
+      <section className="py-24 px-6 max-w-7xl mx-auto relative">
         {/* Background Wisps for Use Cases Section */}
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-40 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[150vw] h-[150vh] -z-20 opacity-40 -rotate-45" colorPrimary="#FFF7D1" colorSecondary="#D6F5FF" delay={5} />
@@ -325,7 +325,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 9. Scale & Infrastructure */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             className="space-y-12"
@@ -367,7 +367,7 @@ export default function LiveTranslationPage() {
       <IntegrationsSection />
 
       {/* 11. Final CTA */}
-      <section className="py-32 px-6 bg-slate-900 text-center z-10 relative overflow-hidden mt-12">
+      <section className="py-32 px-6 bg-slate-900 text-center relative overflow-hidden mt-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.3),transparent_60%)]" />
         
         {/* Single massive ribbon for the background instead of multiple clipped ones */}
