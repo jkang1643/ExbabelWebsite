@@ -107,7 +107,11 @@ export default function LiveTranslationPage() {
         >
           <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-[150vw] h-[150vh] -z-20 -rotate-12 opacity-80" colorPrimary="#FFD6E5" colorSecondary="#D6F5FF" delay={1} />
           <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[150vw] h-[150vh] -z-20 rotate-12 opacity-80" colorPrimary="#FFF7D1" colorSecondary="#EAD6FF" delay={3} />
-          <LiveTranslationGraphic />
+          <img 
+            src="/photos/exbabel product video picture.png" 
+            alt="Exbabel Product Showcase" 
+            className="w-full rounded-[24px] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] ring-1 ring-gray-900/5 relative z-10"
+          />
         </motion.div>
       </section>
 
