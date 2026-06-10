@@ -264,7 +264,7 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="pt-12 pb-4 w-full"
+            className="pt-8 pb-0 w-full"
           >
             <TrustedPartners />
           </motion.div>
@@ -278,8 +278,7 @@ export default function GlassmorphicHero() {
         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="w-full flex-grow relative"
       >
-        {/* Added a margin top to cleanly separate from the text above */}
-        <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
+        <div className="mt-4 md:mt-6 border-t border-white/10 shadow-2xl">
           <LiveTranslationGraphic />
         </div>
       </motion.div>

@@ -21,7 +21,7 @@ export default function TrustedPartners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="relative py-4 md:py-6 max-w-5xl mx-auto">
+    <section className="relative max-w-5xl mx-auto">
       <div className="layout-spine relative z-20 text-center flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 opacity-80">
         <p className="text-sm font-semibold tracking-wide text-slate-500 whitespace-nowrap">
           Trusted by top churches
