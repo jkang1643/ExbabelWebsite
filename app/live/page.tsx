@@ -71,11 +71,11 @@ export default function LiveTranslationPage() {
           <div className="relative w-full flex justify-center">
              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-90" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" />
              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-90" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={2} reverse={true} />
-             <div className="relative z-10 w-full max-w-[500px] flex items-center justify-center">
-               <div className="origin-center scale-[0.45] md:scale-[0.5] lg:scale-[0.45] xl:scale-[0.55] w-[1100px] flex-shrink-0 flex justify-center -ml-[300px] md:-ml-[250px] lg:-ml-[300px] xl:-ml-[250px]">
-                 <LiveTranslationGraphic />
-               </div>
-             </div>
+             <img 
+               src="/photos/exbabel_live_translation_concept_1780070697205.png" 
+               alt="Live Translation Concept" 
+               className="w-full max-w-lg rounded-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-gray-900/5 relative z-10"
+             />
           </div>
         </motion.div>
       </section>
