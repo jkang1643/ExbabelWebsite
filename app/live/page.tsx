@@ -55,7 +55,7 @@ export default function LiveTranslationPage() {
             Exbabel Live Video Translation transforms any church livestream, conference, or event into a multilingual experience in real time. As your pastor speaks, Exbabel instantly translates their voice into multiple languages with live captions.
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 pt-4 w-full justify-center lg:justify-start">
-            <a href="#" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <a href="/demo" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Schedule a Demo
             </a>
             <a href="#how-it-works" className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
@@ -386,7 +386,7 @@ export default function LiveTranslationPage() {
             Turn every livestream, sermon, conference, and event into a multilingual experience with real-time speech-to-speech translation, AI voiceovers, and live captions. Welcome more people. Reach more communities. Extend your ministry beyond language barriers.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-            <a href="#" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <a href="/demo" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Schedule a Live Demo
             </a>
             <a href="#" className="px-10 py-4 rounded-md text-slate-900 font-bold text-lg bg-white border-2 border-transparent hover:bg-slate-50 transition-all transform hover:-translate-y-0.5 shadow-lg text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
