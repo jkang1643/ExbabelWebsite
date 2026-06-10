@@ -52,10 +52,10 @@ export default function LiveTranslationGraphic() {
           <svg className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full" viewBox="0 0 800 800" fill="none">
             <circle cx="400" cy="400" r="100" stroke="white" strokeWidth="2" />
             <circle cx="400" cy="400" r="150" stroke="white" strokeWidth="2" />
-            <circle cx="400" cy="400" r="220" stroke="white" strokeWidth="1.5" />
-            <circle cx="400" cy="400" r="300" stroke="white" strokeWidth="1" />
-            <circle cx="400" cy="400" r="400" stroke="white" strokeWidth="0.5" />
-            <circle cx="400" cy="400" r="520" stroke="white" strokeWidth="0.5" opacity="0.5" />
+            <motion.circle cx="400" cy="400" r="220" stroke="white" strokeWidth="1.5" animate={{ r: [220, 230, 220], opacity: [1, 0.5, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
+            <motion.circle cx="400" cy="400" r="300" stroke="white" strokeWidth="1" animate={{ r: [300, 320, 300], opacity: [1, 0.4, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} />
+            <motion.circle cx="400" cy="400" r="400" stroke="white" strokeWidth="0.5" animate={{ r: [400, 430, 400], opacity: [1, 0.3, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }} />
+            <motion.circle cx="400" cy="400" r="520" stroke="white" strokeWidth="0.5" opacity="0.5" animate={{ r: [520, 560, 520], opacity: [0.5, 0.1, 0.5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} />
           </svg>
         </div>
 
