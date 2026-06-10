@@ -1,0 +1,221 @@
+Keyword,Volume,KD,CPC,Intent,Buyer Persona,Relevance,Opportunity Score,Revenue Score,Competition,Cluster
+french to english,1220000,48,4.36,Transactional,General User,6,59803.92,187736.47,0.2,Specific Language Translation Pairs
+portuguese to english,368000,14,4.62,Transactional,General User,6,54117.65,180016.94,0.2,Specific Language Translation Pairs
+english to chinese,550000,22,4.02,Transactional,General User,6,55000,159192,0.2,Specific Language Translation Pairs
+italian to english,368000,15,4.32,Transactional,General User,6,51111.11,158976,0.2,Specific Language Translation Pairs
+translate to english,1830000,86,4.27,Transactional,General User,6,51404.49,158037.98,0.2,Specific Language Translation Pairs
+english to french,1000000,50,4.24,Transactional,General User,6,47169.81,144000,0.2,Specific Language Translation Pairs
+english to russian,550000,34,5.08,Transactional,General User,6,37162.16,135924.32,0.2,Specific Language Translation Pairs
+german to english,673000,37,4.3,Transactional,General User,6,42062.5,130225.5,0.2,Specific Language Translation Pairs
+english to portuguese,301000,15,4.28,Transactional,General User,6,41805.56,128828,0.2,Specific Language Translation Pairs
+english to italian,368000,27,4.13,Transactional,General User,6,30666.67,91190.4,0.2,Specific Language Translation Pairs
+english to german,550000,50,4.63,Transactional,General User,6,25943.4,86484.91,0.2,Specific Language Translation Pairs
+english to urdu,135000,20,7.77,Transactional,General User,6,14673.91,82091.74,0.2,Specific Language Translation Pairs
+latin to english,201000,20,4.61,Transactional,General User,6,21847.83,72517.3,0.2,Specific Language Translation Pairs
+translate english to french,368000,38,3.69,Transactional,General User,6,22439.02,59616,0.2,Specific Language Translation Pairs
+russian to english,368000,53,4.67,Transactional,General User,6,16428.57,55239.43,0.2,Specific Language Translation Pairs
+on demand interpretation services,1900,1,46.16,Commercial,Conference Organizer,10,950,54815,0.2,Conference and Event Interpretation
+on-demand interpretation services,1900,1,46.16,Commercial,Conference Organizer,10,950,54815,0.2,Conference and Event Interpretation
+english to latin,165000,31,4.97,Transactional,General User,6,12132.35,43414.41,0.2,Specific Language Translation Pairs
+online translation tools,368000,72,7.9,Commercial,General User,4,9813.33,38762.67,0.2,General Translation and Tools
+translation tools online,368000,94,7.9,Commercial,General User,4,7587.63,29971.13,0.2,General Translation and Tools
+translate english to urdu,49500,25,6.19,Transactional,General User,6,4419.64,19697.46,0.2,Specific Language Translation Pairs
+translate german to english,110000,33,3.38,Transactional,General User,6,7638.89,18590,0.2,Specific Language Translation Pairs
+translate english to russian,110000,45,3.82,Transactional,General User,6,5729.17,15757.5,0.2,Specific Language Translation Pairs
+translate english to hindi,90500,43,4.3,Transactional,General User,6,4918.48,15227.61,0.2,Specific Language Translation Pairs
+english to swahili translator,4400,0,4.12,Commercial,General User,4,2933.33,6042.67,0.2,Real-Time Translation Solutions
+closed captioning,14800,24,13.04,Informational,Livestreamer,7,548.15,5003.5,0.2,Live Captioning and Subtitles
+english to pashto translator,3600,0,3.94,Commercial,General User,4,2400,4728,0.2,Specific Language Translation Pairs
+interpreter vs translator,4400,0,5.92,Informational,General User,5,1466.67,4341.33,0.2,General Translation and Tools
+simultaneous interpretation services,260,10,75.07,Commercial,Conference Organizer,10,40,3753.5,0.2,Conference and Event Interpretation
+conference interpretation services,90,2,103.42,Commercial,Conference Organizer,8,36,3723.12,0.2,Conference and Event Interpretation
+interpreter,60500,73,5.19,Informational,Conference Organizer,8,796.05,3305.21,0.2,
+simultaneous interpretation service,260,14,75.07,Commercial,Conference Organizer,10,30.59,2870.32,0.2,Conference and Event Interpretation
+english to portuguese translator,27100,29,3.35,Commercial,General User,4,1693.75,2837.03,0.2,Specific Language Translation Pairs
+translation and interpretation,1600,0,4.79,Informational,General User,10,533.33,2554.67,0.2,General Translation and Tools
+english to tagalog translator,18100,24,3.72,Commercial,General User,4,1340.74,2493.78,0.2,Real-Time Translation Solutions
+on-demand interpretation,140,0,20.61,Commercial,Conference Organizer,10,93.33,2404.5,0.2,Conference and Event Interpretation
+english tagalog translator,14800,20,3.57,Commercial,General User,4,1286.96,2297.22,0.2,Real-Time Translation Solutions
+live translation airpods,8100,25,5.22,Commercial,Livestreamer,6,578.57,2265.11,0.2,Real-Time Translation Solutions
+zoom webinar,8100,56,8.44,Commercial,Conference Organizer,8,261.29,2205.29,0.5,Webinar Solutions
+ai translator,18100,80,3.84,Commercial,General User,9,420.93,1818.42,0.5,AI Translation Technology
+english to turkish translator,12100,24,3.92,Commercial,General User,4,896.3,1756.74,0.2,Real-Time Translation Solutions
+what is a webinar,5400,26,12.48,Informational,General User,7,186.21,1626.7,0.2,Webinar Solutions
+english russian translator,8100,22,4.75,Commercial,General User,4,648,1539,0.2,Specific Language Translation Pairs
+airpods live translation,8100,28,3.71,Commercial,Livestreamer,6,522.58,1454.08,0.2,Real-Time Translation Solutions
+on-site interpretation services,170,3,19.47,Commercial,Conference Organizer,10,56.67,1379.13,0.2,Conference and Event Interpretation
+speech to text api,1000,34,33.13,Commercial,General User,6,54.05,1343.11,0.2,General Translation and Tools
+interpretation and translation services,480,42,44.64,Commercial,General User,10,21.33,1190.4,0.2,General Translation and Tools
+real time translation,5400,49,5.57,Commercial,Livestreamer,9,186.21,1166.82,0.8,Real-Time Translation Solutions
+google meet webinar,390,24,45.2,Commercial,Conference Organizer,7,28.89,1142.56,0.2,Webinar Solutions
+webinar example,170,0,38.4,Informational,General User,5,56.67,1088,0.2,Webinar Solutions
+live translation app,4400,52,6.78,Commercial,Livestreamer,8,151.72,1028.69,0.5,Real-Time Translation Solutions
+ai translation tool,1600,53,19.81,Commercial,General User,7,57.14,990.5,0.2,AI Translation Technology
+translator vs interpreter,1300,0,4.05,Informational,General User,5,433.33,877.5,0.2,General Translation and Tools
+ai native,2400,20,15.91,Informational,General User,5,104.35,830.09,0.2,AI Translation Technology
+real time translation app,2400,49,7.06,Commercial,General User,10,87.27,770.18,0.5,Real-Time Translation Solutions
+google translator online,14800,100,5.17,Commercial,General User,4,287.38,742.87,0.2,
+google meet live translation,480,4,8.49,Commercial,Livestreamer,5,137.14,727.71,0.2,Webinar Solutions
+zoom webinar platform,1600,57,14.07,Commercial,General User,7,53.33,656.6,0.2,Webinar Solutions
+closed captioning service,480,19,16.62,Commercial,Livestreamer,6,43.64,543.93,0.2,Live Captioning and Subtitles
+language translator speaker,12100,54,3.61,Informational,General User,6,212.28,459.8,0.2,General Translation and Tools
+talking translator languages,12100,92,3.61,Commercial,General User,4,254.74,459.8,0.2,General Translation and Tools
+record webinar,320,6,25.84,Informational,General User,5,35.56,459.38,0.2,Webinar Solutions
+iphone live translation,2400,35,6.19,Commercial,Livestreamer,5,117.07,452.93,0.5,Real-Time Translation Solutions
+real time translator,5400,60,5.57,Informational,General User,10,78.26,435.91,0.8,Real-Time Translation Solutions
+on site interpretation services,170,16,19.47,Commercial,Conference Organizer,10,17.89,435.51,0.2,Conference and Event Interpretation
+webinar tools,140,37,217.69,Informational,General User,6,3.26,425.25,0.5,Webinar Solutions
+ai powered translation,2400,64,5.41,Commercial,Enterprise Buyer,8,71.64,387.58,0.2,AI Translation Technology
+interpretation vs translation,480,0,3.3,Informational,General User,7,160,369.6,0.2,General Translation and Tools
+simultaneous translation services,50,12,43.5,Commercial,Conference Organizer,10,6.67,362.5,0.2,Conference and Event Interpretation
+ai video translator,2400,42,4.04,Commercial,General User,7,100,353.5,0.5,AI Translation Technology
+language translator speaking,12100,74,3.61,Informational,General User,6,157.14,340.37,0.2,General Translation and Tools
+best live translation app,720,24,5.92,Commercial,Livestreamer,9,48,319.68,0.5,
+language translator speak,12100,84,3.61,Informational,General User,6,139.08,301.25,0.2,General Translation and Tools
+translation and interpretation network,210,10,26.39,Informational,General User,7,16.15,298.41,0.2,General Translation and Tools
+youtube video translator,1900,41,3.42,Commercial,General User,8,86.36,295.36,0.2,Live Captioning and Subtitles
+language translation speaking,12100,92,3.61,Informational,General User,6,127.37,275.88,0.2,
+live video call,5400,61,2.12,Commercial,Livestreamer,6,168.75,268.31,0.2,Webinar Solutions
+zoom ai translation,70,0,4.94,Commercial,Livestreamer,9,46.67,259.35,0.2,Webinar Solutions
+live audio translation,1000,41,4.87,Commercial,Livestreamer,10,42.55,259.04,0.5,Real-Time Translation Solutions
+zoom webinar pricing,880,31,6.96,Commercial,Conference Organizer,6,47.57,248.3,0.5,Webinar Solutions
+how to record a webinar,210,1,8.99,Informational,General User,5,52.5,235.99,0.2,
+ai translation services,320,73,23.82,Commercial,Enterprise Buyer,9,8.42,225.66,0.2,
+youtube live translation,110,3,5.99,Commercial,Livestreamer,8,36.67,219.63,0.2,
+airpods real time translation,480,26,6.55,Commercial,General User,8,33.1,216.83,0.2,
+how to set up a zoom meeting,5400,24,2.13,Informational,Livestreamer,5,200,213,0.2,
+ai translation software,170,73,39.27,Commercial,Enterprise Buyer,8,4.47,175.68,0.2,
+judson's live,8100,1,0.17,Informational,General User,5,2025,172.13,0.2,
+ai translation app,880,40,7.15,Commercial,General User,5,38.26,170.98,0.5,
+language translation devices,1600,15,2,Commercial,General User,5,133.33,166.67,0.8,
+ai language translator,1000,76,7.06,Commercial,General User,8,23.53,166.12,0.8,
+speech translator,1600,81,4.49,Commercial,General User,8,36.78,165.15,0.5,
+translate ai,2900,100,4.33,Commercial,General User,5,56.31,152.39,0.2,
+ai powered language translation,880,70,5.53,Commercial,Enterprise Buyer,9,24.11,149.99,0.2,
+ai-powered language translation,880,70,5.53,Commercial,Enterprise Buyer,9,24.11,149.99,0.2,
+set up a zoom meeting,1900,44,7.41,Informational,General User,5,40.43,149.78,0.2,
+live translation apple,590,40,8.06,Commercial,Livestreamer,5,27.44,138.24,0.2,
+best ai translator,720,11,7.58,Informational,General User,5,36,136.44,0.8,
+apple live translation languages,720,25,3.96,Commercial,Livestreamer,5,51.43,127.29,0.2,
+translation earbuds real time,390,17,3.41,Commercial,General User,9,30,115.09,0.8,
+ai voice translator,880,37,4.02,Commercial,Livestreamer,5,38.26,96.13,0.8,
+live translation extension,140,25,9.52,Commercial,Livestreamer,8,10,95.2,0.2,
+best ai for translation,320,19,14.66,Informational,General User,5,12.8,93.82,0.5,
+ai speech to text,720,54,5.17,Commercial,General User,6,24,93.06,0.5,
+free ai translation tool,20,0,10.88,Transactional,General User,8,8.33,87.04,0.5,
+meta ai translation,390,24,5.76,Commercial,Enterprise Buyer,4,28.89,83.2,0.2,
+what is the difference between translation and interpretation,720,0,0.54,Informational,General User,6,240,77.76,0.2,
+set up zoom meeting,1000,25,4.14,Informational,Livestreamer,5,35.71,73.93,0.2,
+masters in translation and interpretation,170,11,11.97,Informational,General User,5,12.14,72.67,0.2,
+zoom webinar plus,390,12,2.38,Commercial,General User,4,52,61.88,0.2,
+ai voice to text,590,76,5.53,Commercial,General User,6,14.39,59.68,0.5,
+live closed captioning,210,42,5.32,Commercial,Livestreamer,9,8.75,52.37,0.5,
+webinar meeting,170,63,32.49,Informational,General User,6,2.58,50.21,0.2,
+types of interpretation services,30,0,10.02,Informational,General User,5,10,50.1,0.2,
+ai real time translation,170,55,7.87,Commercial,Livestreamer,9,5.57,49.35,0.5,
+virtual interpretation services,30,24,15.51,Commercial,Livestreamer,10,2.22,43.08,0.2,
+ai subtitle translator,210,29,5.21,Commercial,Livestreamer,5,13.13,42.74,0.2,
+ai subtitles,590,60,3.63,Commercial,Livestreamer,5,17.88,40.56,0.5,
+how to set up zoom meeting,1600,22,1.23,Informational,Livestreamer,5,64,39.36,0.2,
+simultaneous translation app,140,35,5.74,Commercial,Livestreamer,8,6.83,39.2,0.5,
+live subtitles,210,15,3.75,Informational,Livestreamer,8,11.67,35,0.2,
+real time language translator,480,59,4.9,Informational,General User,10,7.06,34.59,0.8,
+what is the difference between interpretation and translation,720,4,0.54,Informational,General User,6,102.86,33.33,0.2,
+translation ai tool,70,69,17.57,Commercial,General User,8,1.87,32.8,0.5,
+online interpretation services,70,42,8.12,Commercial,Conference Organizer,10,3.11,31.58,0.2,
+zoom webinar cost,170,18,4.13,Commercial,General User,4,14.17,29.25,0.5,
+google ai text to speech,320,66,4.5,Commercial,General User,5,9.28,26.09,0.2,
+language line interpretation services,20,0,7.82,Commercial,Enterprise Buyer,4,6.67,26.07,0.5,
+free interpretation services,110,22,6.56,Commercial,Conference Organizer,4,7.86,25.77,0.5,
+real time audio translation,260,45,4.96,Informational,General User,10,5.1,25.29,0.5,
+best translation ai,140,26,11.32,Informational,General User,5,4.38,24.76,0.5,
+create zoom webinar,40,19,26.89,Informational,General User,5,1.82,24.45,0.2,
+simultaneous interpreting app,40,29,9.96,Commercial,Livestreamer,9,2.11,23.59,0.8,
+speech to speech ai,210,87,3.68,Commercial,General User,10,4.52,20.77,0.5,
+free closed captioning,70,21,7.6,Commercial,Livestreamer,4,5.19,19.7,0.5,
+webinar conference software,30,31,9.71,Commercial,Conference Organizer,9,1.76,19.28,0.2,
+how to set up a webinar in zoom,90,22,10.4,Informational,General User,5,3.6,18.72,0.2,
+text to speech free ai,390,57,2.28,Commercial,General User,5,12.38,17.64,0.5,
+best ai translation tools,90,48,16.57,Informational,General User,6,1.67,16.57,0.5,
+subtitle ai,170,60,4.68,Commercial,Livestreamer,5,5.15,15.07,0.5,
+translation and interpretation agencies,40,16,7.12,Commercial,Enterprise Buyer,4,4.21,14.99,0.2,
+translate with ai,110,82,5.85,Commercial,General User,8,2.5,14.63,0.5,
+live event captioning,10,13,12.89,Commercial,Conference Organizer,8,1.05,13.57,0.5,
+ai translation for videos,40,49,6.46,Commercial,Livestreamer,9,1.45,10.57,0.5,
+conference webinar software,30,77,9.71,Commercial,Conference Organizer,9,0.75,8.19,0.2,
+best translation ai tools,10,48,47.89,Informational,General User,9,0.19,7.98,0.5,
+google real time translation,390,78,3.4,Informational,General User,5,4.64,7.89,0.5,
+how to run a webinar,20,49,39.91,Informational,General User,5,0.38,7.67,0.2,
+ai generated subtitles,90,50,4.62,Commercial,Livestreamer,4,3.21,7.42,0.5,
+language interpretation companies,40,51,9.33,Commercial,Enterprise Buyer,4,1.4,6.55,0.5,
+translation and interpretation companies,40,46,7.12,Commercial,Enterprise Buyer,4,1.63,5.81,0.2,
+subtitle translator ai,30,22,3.78,Commercial,Livestreamer,4,2.14,4.05,0.5,
+best ai tool for translation,40,69,8.7,Informational,General User,8,0.53,3.71,0.5,
+best free ai text to speech,140,62,3.35,Informational,General User,5,2.06,3.45,0.5,
+ai to human translator,50,63,2.67,Commercial,General User,7,1.45,3.39,0.5,
+ai tools for translation,70,70,5.73,Informational,General User,6,0.96,3.3,0.2,
+closed captioning systems,20,29,0.55,Commercial,Enterprise Buyer,4,1.25,0.34,0.2,
+dialogue live,10,0,0.02,Informational,General User,4,3.33,0.03,0.2,
+plymouth live,480,30,0,Informational,General User,5,14.55,0,0.2,
+w place live,6600,30,0,Informational,General User,5,200,0,0.2,
+lancaster live incident list,12100,1,0,Informational,General User,5,3025,0,0.2,
+live translate z flip 6,10,0,0,Commercial,General User,4,2.22,0,0.8,
+closed captioning and subtitles,20,9,0,Informational,Livestreamer,7,1.67,0,0.2,
+subtitles without closed captioning,10,0,0,Informational,General User,5,3.33,0,0.2,
+captioning and subtitling international,10,0,0,Informational,Conference Organizer,6,1.67,0,0.5,
+closed captioning and subtitles difference,10,0,0,Informational,General User,4,3.33,0,0.2,
+to live subtitles,10,15,0,Informational,Livestreamer,6,0.56,0,0.2,
+live caption languages,10,55,0,Informational,Livestreamer,9,0.17,0,0.2,
+how do live subtitles work,10,63,0,Informational,General User,5,0.15,0,0.2,
+paradox live voice drama translation,10,0,0,Informational,General User,4,3.33,0,0.2,
+how are subtitles made for live tv,10,0,0,Informational,General User,5,3.33,0,0.2,
+closed captioning in different languages,0,0,0,Informational,Livestreamer,7,0,0,0.5,
+live captioning vs closed captioning,10,0,0,Informational,General User,4,3.33,0,0.2,
+closed captioning vs live captioning,10,0,0,Informational,General User,4,3.33,0,0.2,
+live captions language teams,0,0,0,Informational,Conference Organizer,9,0,0,0.5,
+live captions and subtitles teams,0,0,0,Informational,Conference Organizer,9,0,0,0.5,
+paradox live voice drama love translation,0,0,0,Informational,General User,4,0,0,0.5,
+paradox live cozmez voice drama translation,0,0,0,Informational,General User,4,0,0,0.5,
+ava live subtitles for all your conversations,0,0,0,Commercial,Livestreamer,6,0,0,0.5,
+whispered interpretation example,10,40,0,Informational,Conference Organizer,5,0.22,0,0.5,
+spoken live,10,18,0,Informational,General User,4,0.48,0,0.2,
+zoom webinar vs meeting,1000,6,0,Informational,Livestreamer,5,111.11,0,0.2,
+how to set up zoom as a webinar,10,0,0,Informational,General User,5,3.33,0,0.2,
+simulated live webinar,10,0,0,Informational,General User,6,1.67,0,0.5,
+zoom webinar settings,90,5,0,Informational,General User,4,11.25,0,0.2,
+webinar invite,170,0,0,Informational,General User,4,56.67,0,0.2,
+zoom phone webinar,10,79,0,Commercial,General User,5,0.24,0,0.2,
+how to set up zoom webinar,70,12,0,Informational,General User,5,4.67,0,0.2,
+record live webinar,10,0,0,Informational,General User,5,3.33,0,0.2,
+how to set up a zoom webinar,140,11,0,Informational,General User,5,10,0,0.2,
+teams webinar features,70,7,0,Informational,General User,4,7,0,0.2,
+teams webinar without registration,20,0,0,Informational,General User,4,6.67,0,0.2,
+zoom webinar setup,90,15,0,Informational,General User,5,5,0,0.2,
+teams webinar functionality,20,0,0,Informational,General User,4,6.67,0,0.2,
+deepl online translator,74000,74,0,Commercial,General User,4,1922.08,0,0.2,
+bing translator online,10,0,0,Commercial,General User,4,6.67,0,0.2,
+simultaneous interpretation booth,20,0,0,Commercial,Conference Organizer,9,13.33,0,0.2,
+interpretation of message means decoding,0,0,0,Informational,General User,4,0,0,0.5,
+what is oral interpretation,140,0,0,Informational,General User,5,46.67,0,0.2,
+simultaneous interpreting training,30,0,0,Informational,Conference Organizer,5,10,0,0.2,
+simultaneous interpretation translation,10,0,0,Commercial,Conference Organizer,9,6.67,0,0.2,
+best interpretation company,10,0,0,Commercial,Conference Organizer,6,3.33,0,0.5,
+simultaneous interpretation equipment rental,20,0,0,Commercial,Conference Organizer,7,6.67,0,0.5,
+program of oral interpretation,50,0,0,Informational,General User,4,16.67,0,0.2,
+google meet language interpretation,10,0,0,Commercial,Livestreamer,8,3.33,0,0.5,
+interpretation services in new york,30,16,0,Commercial,Conference Organizer,6,2.73,0,0.5,
+re-translation versus streaming for simultaneous translation,0,0,0,Informational,General User,5,0,0,0.5,
+what is cross cultural interpretation,0,0,0,Informational,General User,6,0,0,0.5,
+how does simultaneous interpretation work,10,0,0,Informational,General User,5,3.33,0,0.2,
+simultaneous interpretation equipment rental singapore,10,0,0,Transactional,Conference Organizer,4,4.17,0,0.5,
+consecutive interpretation services,70,0,0,Commercial,Conference Organizer,4,46.67,0,0.2,
+remote simultaneous interpreting platforms,50,1,0,Commercial,Livestreamer,10,25,0,0.2,
+simultaneous translation vs consecutive,10,0,0,Informational,General User,5,3.33,0,0.2,
+consecutive and simultaneous translation,10,0,0,Informational,General User,5,3.33,0,0.2,
+interpretation services los angeles,50,8,0,Commercial,Conference Organizer,5,7.14,0,0.5,
+language interpretation software,10,62,0,Commercial,Enterprise Buyer,8,0.29,0,0.5,
+cultural interpretation services,10,0,0,Commercial,General User,4,6.67,0,0.2,
+simultaneous interpreting equipment rental,20,0,0,Transactional,Conference Organizer,4,8.33,0,0.5,
+ai powered translation platforms,3600,69,0,Commercial,Enterprise Buyer,8,100,0,0.2,
+neural machine translation service,3600,21,0,Commercial,Enterprise Buyer,8,300,0,0.2,
+ai generated subtitles free,10,35,0,Commercial,Livestreamer,4,0.49,0,0.5,
