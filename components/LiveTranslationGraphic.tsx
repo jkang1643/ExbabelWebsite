@@ -3,346 +3,214 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PREACHING_LINES = [
-  { source: "And so we look to the future with hope.", target: "Y así miramos al futuro con esperanza." },
-  { source: "Technology should serve humanity.", target: "La tecnología debería servir a la humanidad." },
-  { source: "Breaking down every barrier.", target: "Derribando cada barrera." },
-  { source: "Connecting every community together.", target: "Conectando a cada comunidad." },
-  { source: "This is our vision for tomorrow.", target: "Esta es nuestra visión para el mañana." },
-];
-
 export default function LiveTranslationGraphic() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [log, setLog] = useState<{ source: string, target: string }[]>([]);
-  
-  // Mouse animation states
-  const [mousePos, setMousePos] = useState({ x: '80%', y: '80%' });
-  const [mouseOpacity, setMouseOpacity] = useState(0);
-  const [isClicking, setIsClicking] = useState(false);
+  const targetText = "Me alegra muchísimo que vengas a nuestra iglesia, y que nos escuches por primera vez.";
+  const [visibleChars, setVisibleChars] = useState(0);
 
-  // Initial Mouse Animation Sequence
   useEffect(() => {
-    // 1. Mouse appears
-    const t1 = setTimeout(() => {
-      setMouseOpacity(1);
-    }, 500);
-
-    // 2. Mouse moves to play button (roughly left side center)
-    const t2 = setTimeout(() => {
-      setMousePos({ x: '25%', y: '35%' });
-    }, 1200);
-
-    // 3. Mouse clicks
-    const t3 = setTimeout(() => {
-      setIsClicking(true);
-    }, 2200);
-
-    // 4. Mouse releases and starts playing
-    const t4 = setTimeout(() => {
-      setIsClicking(false);
-      setIsPlaying(true);
-    }, 2400);
-
-    // 5. Mouse moves away and fades out
-    const t5 = setTimeout(() => {
-      setMousePos({ x: '10%', y: '80%' });
-    }, 2700);
-    
-    const t6 = setTimeout(() => {
-      setMouseOpacity(0);
-    }, 3200);
-
-    return () => {
-      clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); 
-      clearTimeout(t4); clearTimeout(t5); clearTimeout(t6);
-    };
-  }, []);
-
-  // Subtitle progression logic
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    setLog([PREACHING_LINES[0]]);
-
+    let currentChars = 0;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = prev + 1;
-        if (next >= PREACHING_LINES.length) {
-          setTimeout(() => {
-            setCurrentIndex(0);
-            setLog([]);
-          }, 3500);
-          return prev;
-        }
-        setLog((prevLog) => [...prevLog, PREACHING_LINES[next]]);
-        return next;
-      });
-    }, 3000);
+      if (currentChars < targetText.length) {
+        currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
+        if (currentChars > targetText.length) currentChars = targetText.length;
+        setVisibleChars(currentChars);
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          setVisibleChars(0);
+        }, 4000); // Wait 4 seconds before looping
+      }
+    }, 45); // Roughly conversational speed
+    
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [visibleChars === 0]); // Re-run effect when reset
 
-  const currentLine = PREACHING_LINES[currentIndex];
+  const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-8 relative">
+    <div className="w-full flex items-center justify-center pt-4 pb-12 px-4 md:px-8 overflow-hidden">
       
-      {/* Fake Mouse Cursor */}
-      <motion.div
-        className="absolute z-50 pointer-events-none drop-shadow-xl"
-        initial={{ top: '80%', left: '80%', opacity: 0 }}
-        animate={{ 
-          top: mousePos.y, 
-          left: mousePos.x, 
-          opacity: mouseOpacity,
-          scale: isClicking ? 0.8 : 1
-        }}
-        transition={{ duration: isClicking ? 0.1 : 0.8, ease: "easeInOut" }}
-      >
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.44c.41 0 .75-.34.75-.75v-.19c0-.2-.08-.39-.22-.53L6.35 2.53a.5.5 0 0 0-.85.35v.33z" fill="white" stroke="#0B1220" strokeWidth="1.5"/>
-        </svg>
-      </motion.div>
-
-      {/* Outer Browser/App Wrapper */}
-      <div className="rounded-2xl border border-white/10 bg-[#0B1220] overflow-hidden shadow-2xl shadow-green-900/10 flex flex-col h-[700px] font-sans text-white relative">
+      {/* Contained Tech Graphic Card */}
+      <div className="relative w-full max-w-[1100px] h-[500px] md:h-[620px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10">
         
-        {/* Top App Bar */}
-        <div className="h-14 border-b border-white/10 flex items-center justify-between px-6 bg-white/[0.02] shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0B1220]">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <span className="font-semibold text-lg tracking-tight">Exbabel</span>
-          </div>
-          <div className="flex gap-3">
-            <div className="px-3 py-1.5 rounded-md bg-white/5 text-sm font-medium text-gray-300">Sign In</div>
-            <div className="px-3 py-1.5 rounded-md bg-blue-600 text-sm font-medium text-white shadow-lg shadow-blue-500/20">Sign Up</div>
-          </div>
+        {/* Background Image (Desaturated Pastor) */}
+        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
+          <motion.img 
+            src="/photos/pastor showcase.png" 
+            alt="Pastor Preaching"
+            className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Tech Gradient Overlay (Red/Orange glow on the right) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1a1a2e]/60 to-[#e11d48]/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent opacity-80" />
         </div>
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden p-6 gap-6 bg-[#080d18]">
-          
-          {/* Left Side: Video Player Section */}
-          <div className="flex-[2] flex flex-col gap-4 min-w-0">
-            {/* Main Video Viewport */}
-            <div className="flex-1 rounded-xl border border-white/5 bg-[#0B1220] relative overflow-hidden group shadow-inner">
-              
-              {/* Background Pastor Image with "Talking" Animation */}
-              <div className="absolute inset-0 bg-black flex items-center justify-center overflow-hidden">
-                <motion.img 
-                  src="/photos/pastor showcase.png" 
-                  alt="Pastor Preaching"
-                  className="w-full h-full object-cover object-top opacity-70"
-                  animate={isPlaying ? {
-                     scale: [1, 1.02, 1.01, 1.03, 1], // Subtle breathing/moving scale
-                     y: [0, -2, 1, -1, 0], // Subtle vertical bobbing to simulate energy/talking
-                  } : { scale: 1, y: 0 }}
-                  transition={isPlaying ? { duration: 2.5, repeat: Infinity, ease: "easeInOut" } : {}}
-                />
-                
-                {/* Optional "South Park" style split jaw animation for literal lips moving. 
-                    Uncomment and adjust the clip-path percentage if you want a more literal talking effect. */}
-                {/* 
-                <motion.img 
-                  src="/photos/pastor showcase.png" 
-                  className="absolute inset-0 w-full h-full object-cover object-top opacity-70"
-                  style={{ clipPath: 'polygon(0 40%, 100% 40%, 100% 100%, 0 100%)' }} // Adjust 40% to match jawline
-                  animate={isPlaying ? { y: [0, 4, 0, 6, 0, 2, 0] } : { y: 0 }}
-                  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-                /> 
-                */}
+        {/* Concentric Tech Waves (Audio/Radio waves) */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none overflow-hidden rounded-[3rem]">
+          <svg className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full" viewBox="0 0 800 800" fill="none">
+            <circle cx="400" cy="400" r="100" stroke="white" strokeWidth="2" />
+            <circle cx="400" cy="400" r="150" stroke="white" strokeWidth="2" />
+            <circle cx="400" cy="400" r="220" stroke="white" strokeWidth="1.5" />
+            <circle cx="400" cy="400" r="300" stroke="white" strokeWidth="1" />
+            <circle cx="400" cy="400" r="400" stroke="white" strokeWidth="0.5" />
+            <circle cx="400" cy="400" r="520" stroke="white" strokeWidth="0.5" opacity="0.5" />
+          </svg>
+        </div>
 
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_#0B1220_120%)]" />
-              </div>
+        {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
+        <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30">
+          <motion.div 
+            className="w-20 h-20 md:w-24 md:h-24 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l15-9L5 3z" />
+            </svg>
+          </motion.div>
+        </div>
 
-              {/* Graphical Audio Visualizer / Speech Indicator */}
-              <AnimatePresence>
-                {isPlaying && (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="absolute bottom-1/4 left-1/2 -translate-x-1/2 flex items-end gap-1 mb-10 opacity-60"
-                  >
-                    {[...Array(5)].map((_, i) => (
-                      <motion.div 
-                        key={i}
-                        className="w-1.5 bg-emerald-400 rounded-full"
-                        animate={{ height: [4, 16, 8, 24, 4][i] }} // Different heights per bar
-                        transition={{ 
-                          duration: 0.5, 
-                          repeat: Infinity, 
-                          repeatType: "mirror",
-                          delay: i * 0.1,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Video Player Chrome */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
-                <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-red-500 animate-pulse' : 'bg-gray-500'}`} />
-                <span className="text-xs font-semibold tracking-wider text-white">
-                  {isPlaying ? 'LIVE' : 'READY'}
-                </span>
-              </div>
-              
-              <div className="absolute top-4 right-4 hidden md:flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
-                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-300">
-                  <polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                </svg>
-                <span className="text-xs font-medium text-gray-300">Main Auditorium</span>
-              </div>
-
-              {/* Play Button Overlay */}
-              <AnimatePresence>
-                {!isPlaying && (
-                  <motion.div 
-                    exit={{ opacity: 0, scale: 1.5 }}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 cursor-pointer"
-                    onClick={() => setIsPlaying(true)}
-                  >
-                    <motion.div 
-                      className={`w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md border transition-colors
-                        ${isClicking ? 'bg-emerald-500/40 border-emerald-400' : 'bg-black/50 border-white/20'}`}
-                      animate={isClicking ? { scale: 0.9 } : { scale: 1 }}
-                    >
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="white" className="ml-2">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Real-time Subtitles Overlay */}
-              <div className="absolute bottom-6 left-0 right-0 px-8 md:px-12 flex flex-col items-center justify-end z-30 pointer-events-none">
-                <AnimatePresence mode="wait">
-                  {isPlaying && currentLine && (
-                    <motion.div
-                      key={currentIndex}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.4 }}
-                      className="text-center w-full flex justify-center"
-                    >
-                      <div className="bg-black/80 backdrop-blur-md border border-white/10 px-6 py-3 rounded-xl inline-block max-w-[90%] shadow-2xl">
-                         <p className="text-lg md:text-2xl font-semibold text-white drop-shadow-md tracking-wide">
-                           {currentLine.target}
-                         </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-            </div>
-
-            {/* Bottom Stream Info Card */}
-            <div className="bg-[#0B1220] border border-white/5 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between shadow-sm gap-4 shrink-0">
-              <div>
-                <h3 className="font-semibold text-lg flex items-center gap-2">
-                  Exbabel Live 
-                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wide
-                    ${isPlaying ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-gray-500/10 text-gray-400 border-gray-500/20'}`}>
-                    {isPlaying ? 'Online' : 'Offline'}
-                  </span>
-                </h3>
-                <p className="text-sm text-gray-400 mt-1 line-clamp-1">Real-time AI speech translation — captions and voiceovers.</p>
-              </div>
-              <div className="flex items-center gap-3 bg-black/30 px-4 py-2 rounded-lg border border-white/5 shrink-0">
-                <div className="flex flex-col">
-                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">AI Voiceover & Subtitles</span>
-                  <div className="flex items-center gap-2 text-sm font-medium">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
-                      <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                    Español (Spanish)
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 ml-2">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side: Subtitle Log */}
-          <div className="flex-1 bg-[#0B1220] border border-white/5 rounded-xl flex flex-col shadow-sm max-w-full lg:max-w-[320px]">
-            <div className="p-5 border-b border-white/5 flex justify-between items-center bg-white/[0.01] rounded-t-xl shrink-0">
-              <div className="flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-                <h3 className="font-semibold text-sm">Subtitle Log</h3>
-              </div>
-              <div className={`flex items-center gap-1.5 text-[10px] font-bold tracking-wider
-                ${isPlaying ? 'text-emerald-400' : 'text-gray-500'}`}>
-                <div className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]' : 'bg-gray-500'}`} />
-                {isPlaying ? 'CONNECTED' : 'WAITING'}
-              </div>
-            </div>
+        {/* Phone Mockup (Right Side) */}
+        <div className="absolute right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 origin-right scale-[0.70] md:scale-75">
+          <motion.div 
+            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
             
-            <div className="flex-1 p-5 overflow-y-auto flex flex-col gap-4 custom-scrollbar">
-              <AnimatePresence>
-                {log.map((entry, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    className="group"
-                  >
-                    <p className="text-xs text-gray-500 mb-1 leading-relaxed transition-colors group-hover:text-gray-400">{entry.source}</p>
-                    <p className="text-sm text-emerald-300 font-medium leading-relaxed drop-shadow-sm">{entry.target}</p>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+            {/* iOS Status Bar (White) */}
+            <div className="h-10 md:h-12 w-full bg-white flex items-center justify-between px-5 md:px-6 shrink-0 z-50 text-black font-semibold text-[12px] md:text-[14px]">
+              <span>8:32</span>
               
-              {/* Typing indicator */}
-              {isPlaying && currentLine && (
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex items-center gap-1.5 mt-2 p-2"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-600 animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-600 animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-600 animate-bounce" style={{ animationDelay: "300ms" }} />
-                </motion.div>
-              )}
-
-              {!isPlaying && (
-                <div className="h-full flex items-center justify-center text-xs text-gray-500 text-center px-4">
-                  Waiting for stream to begin... Click play to start simulation.
+              {/* Dynamic Island Cutout */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-1.5 md:top-2 w-[100px] md:w-[120px] h-[24px] md:h-[30px] bg-black rounded-full z-50 shadow-inner" />
+              
+              <div className="flex items-center gap-1.5">
+                <svg className="w-4 h-2.5 md:w-[18px] md:h-3" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2 22h20V2z" />
+                </svg>
+                <span className="font-bold text-[11px] md:text-[13px] tracking-tight">5G</span>
+                <div className="w-5 h-2.5 md:w-6 md:h-3 rounded-[3px] border border-black p-[1px] relative">
+                  <div className="bg-black w-[58%] h-full rounded-[1px]" />
+                  <div className="absolute -right-1 top-1 w-[2px] h-1 bg-black rounded-r-sm" />
                 </div>
-              )}
+              </div>
             </div>
-          </div>
-          
+
+            {/* App Top Navigation Bar */}
+            <div className="h-[56px] md:h-[64px] bg-[#141527] border-b border-white/5 flex items-center justify-between px-3 md:px-4 shrink-0 z-40">
+              <div className="flex items-center gap-1.5">
+                {/* Session ID Pill */}
+                <div className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-md border border-[#0d593f] bg-[#072d20] text-[#10b981] text-[10px] md:text-[11px] font-extrabold tracking-wider">
+                  2UU6SV
+                </div>
+                {/* S2S Pill */}
+                <div className="px-1.5 py-0.5 md:px-2 md:py-1 rounded-md bg-white/5 text-[#84879e] text-[10px] md:text-[11px] font-bold">
+                  S2S
+                </div>
+                {/* Language Dropdown */}
+                <div className="px-1.5 py-0.5 md:px-2 md:py-1 rounded-md border border-white/10 bg-white/5 flex items-center gap-1 md:gap-1.5">
+                  <span className="text-[12px] md:text-[14px]">🇪🇸</span>
+                  <span className="text-white text-[10px] md:text-[11px] font-semibold">Spanish (Spain)...</span>
+                  <svg className="w-2 h-2 md:w-2.5 md:h-2.5" viewBox="0 0 24 24" fill="none" stroke="#84879e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
+              
+              {/* Active Status */}
+              <div className="flex items-center gap-1.5 px-2 py-0.5 md:px-2.5 md:py-1 rounded-full border border-[#0d593f] bg-[#072d20] text-[#10b981] text-[9px] md:text-[10px] font-bold tracking-wider">
+                <div className="w-1.5 h-1.5 bg-[#10b981] rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                ACTIVE
+              </div>
+            </div>
+
+            {/* Main Transcript Area */}
+            <div className="flex-1 flex flex-col justify-end p-4 md:p-5 pb-6 md:pb-8 relative bg-[#141527]">
+              
+              <div className="flex flex-col gap-5 md:gap-7 text-[18px] md:text-[22px] leading-[1.3] font-bold tracking-tight">
+                {/* Completed Sentences */}
+                <div className="text-[#84879e] drop-shadow-sm">
+                  Peter, y luego arrepiéntanse y sean bautizados cada uno de ustedes en el nombre de Jesucristo.
+                </div>
+                <div className="text-[#84879e] drop-shadow-sm">
+                  ¡Sí, aleluya!
+                </div>
+                <div className="text-[#84879e] drop-shadow-sm">
+                  Gracias por escuchar este mensaje hoy.
+                </div>
+                
+                {/* Active Streaming Sentence */}
+                <div className="text-[#10b981] drop-shadow-sm min-h-[80px] md:min-h-[100px]">
+                  {visibleText}
+                  <motion.span 
+                    className="inline-block w-[2px] h-[18px] md:h-[22px] bg-[#10b981] ml-[2px] align-middle"
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                  />
+                </div>
+              </div>
+
+              {/* Floating Auto-Scroll Button */}
+              <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-40">
+                <button className="bg-[#10b981] hover:bg-[#0ea5e9] transition-colors text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-1.5 md:gap-2 shadow-[0_8px_20px_rgba(16,185,129,0.3)]">
+                  <div className="bg-white/20 w-4 h-4 md:w-5 md:h-5 rounded flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 md:w-3 md:h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                  </div>
+                  Resume Auto-Scroll
+                </button>
+              </div>
+            </div>
+
+            {/* App Bottom Audio Control Bar */}
+            <div className="h-[60px] md:h-[70px] bg-[#1a1b2e] border-t border-white/5 px-3 md:px-4 flex flex-col justify-center shrink-0 z-40">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 md:gap-2.5">
+                  {/* Animated Waveform */}
+                  <div className="flex items-center gap-[2px] h-4">
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [4, 12, 6, 16, 4] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [10, 16, 8, 12, 10] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [6, 14, 4, 10, 6] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [12, 6, 16, 8, 12] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} />
+                  </div>
+                  <span className="text-[#84879e] text-[10px] md:text-xs font-semibold tracking-wide">Streaming Translated Audio</span>
+                </div>
+                
+                <button className="px-2.5 py-1.5 md:px-3.5 md:py-2 rounded-lg border border-white/10 bg-white/5 text-[#a1a1aa] text-[9px] md:text-[10px] font-bold tracking-wider hover:bg-white/10 transition-colors">
+                  Switch to Text Mode
+                </button>
+              </div>
+            </div>
+
+            {/* Safari / iOS Browser Bottom Chrome */}
+            <div className="h-[74px] md:h-[84px] bg-[#f2f2f7] flex items-start pt-2.5 md:pt-3 justify-between px-4 md:px-5 shrink-0 text-black border-t border-gray-300 z-50">
+              <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-500 hover:text-black transition-colors">
+                <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              
+              <div className="flex-1 max-w-[180px] md:max-w-[200px] h-[38px] md:h-[44px] bg-white rounded-xl mx-2 md:mx-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)] border border-gray-200 flex items-center justify-between px-2.5 md:px-3">
+                <div className="flex items-center gap-2 text-blue-600">
+                   <svg className="w-4 h-4 md:w-[18px] md:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                </div>
+                <span className="text-[13px] md:text-[15px] font-medium tracking-tight">app.exbabel.com</span>
+                <button className="text-gray-400 hover:text-black">
+                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 1 0 2.1-5.7L2 8"></path></svg>
+                </button>
+              </div>
+              
+              <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-500 hover:text-black transition-colors">
+                 <div className="w-1 h-1 rounded-full bg-currentColor flex items-center justify-center gap-1">
+                    <span className="w-1 h-1 rounded-full bg-current absolute -translate-x-2"></span>
+                    <span className="w-1 h-1 rounded-full bg-current"></span>
+                    <span className="w-1 h-1 rounded-full bg-current absolute translate-x-2"></span>
+                 </div>
+              </button>
+            </div>
+
+          </motion.div>
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #374151;
-          border-radius: 4px;
-        }
-      `}} />
     </div>
   );
 }

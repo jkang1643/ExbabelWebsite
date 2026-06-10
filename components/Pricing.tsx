@@ -98,9 +98,9 @@ export default function Pricing() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
             Break Language Barriers<br />
-            <span className="bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
+            <span>
               In Your Ministry
             </span>
           </h2>

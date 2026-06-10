@@ -59,7 +59,7 @@ export default function TechnicalRequirements() {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
-                        What You Need to <span className="text-primary">Get Started</span>
+                        What You Need to Get Started
                     </h2>
                     <p className="text-lg text-base-content max-w-2xl mx-auto">
                         Simple technical requirements - if you can stream a video, you can use Exbabel

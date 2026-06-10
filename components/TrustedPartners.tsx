@@ -24,12 +24,12 @@ export default function TrustedPartners() {
     <section className="relative py-24 bg-gradient-to-b from-[#F8F9FA] to-white border-b border-gray-100">
 
       <div className="layout-spine relative z-20 text-center">
-        <p className="text-eyebrow mb-4 text-slate-400">
+        <p className="text-sm md:text-base font-bold tracking-widest text-slate-400 uppercase mb-3">
           TRUSTED BY CHURCHES WORLDWIDE
         </p>
         <a
           href="/impact"
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary/60 hover:text-primary transition-colors mb-12 group"
+          className="inline-flex items-center gap-1 text-base font-semibold text-primary/80 hover:text-primary transition-colors mb-12 group"
         >
           View our global impact
           <span className="group-hover:translate-x-0.5 transition-transform">→</span>

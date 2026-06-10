@@ -22,7 +22,7 @@ export default function InterfacePreview() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
             One message. Every language.
           </h2>
           <p className="text-lg text-base-content/80 max-w-2xl mx-auto mb-8">

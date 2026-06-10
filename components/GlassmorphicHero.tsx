@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { appRoutes } from "@/lib/config";
+import LiveTranslationGraphic from "./LiveTranslationGraphic";
 
 interface TranslationPair {
   english: string;
@@ -18,6 +19,22 @@ export default function GlassmorphicHero() {
   // un-used state below can be kept for future or removed, keeping for safety
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
+
+  // Flipping Slogan Logic
+  const flipWords = [
+    "Be understood.",
+    "Reach everyone.",
+    "Connect globally.",
+    "Break barriers."
+  ];
+  const [flipIndex, setFlipIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlipIndex((prev) => (prev + 1) % flipWords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [flipWords.length]);
 
   const startTranscription = useCallback(() => {
     const lines = [
@@ -117,205 +134,145 @@ export default function GlassmorphicHero() {
   }, [startTranscription]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F8F9FA]">
+    <section className="relative min-h-screen overflow-hidden bg-base-paper flex flex-col">
+      
+      {/* Dot Grid Pattern - Modern SaaS look */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+        style={{ 
+          backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
+          backgroundSize: "24px 24px" 
+        }} 
+      />
+
       {/* Slack-style "Aurora" Background with enhanced animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Soft Pink Blob */}
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FFD6E5] rounded-full filter blur-[60px] md:blur-[120px] opacity-70" />
+        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
 
         {/* Light Purple Blob */}
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full filter blur-[60px] md:blur-[120px] opacity-70"
-          style={{ animationDelay: '4s' }} />
+        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60"
+          style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
 
         {/* Pale Yellow Blob */}
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] bg-[#FFF7D1] rounded-full filter blur-[60px] md:blur-[120px] opacity-70"
-          style={{ animationDelay: '8s' }} />
+        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60"
+          style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
 
         {/* Subtle Blue/Mint Blob */}
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] bg-[#D6F5FF] rounded-full filter blur-[50px] md:blur-[100px] opacity-70"
-          style={{ animationDelay: '12s' }} />
+        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60"
+          style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
       </div>
 
-      {/* Subtle Sparkles (Static for now, can be animated) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute top-[20%] left-[15%] text-indigo-200 text-2xl transform rotate-12">✦</div>
-        <div className="absolute top-[30%] right-[20%] text-purple-200 text-xl transform -rotate-12">✦</div>
-        <div className="absolute bottom-[40%] left-[10%] text-pink-200 text-3xl">✦</div>
-      </div>
-
-      <div className="relative z-10 pt-24 pb-12 md:pt-32 md:pb-20 flex flex-col items-center">
+      <div className="relative z-10 pt-24 pb-8 md:pt-28 flex flex-col items-center flex-shrink-0">
         {/* Centered Content Spine */}
-        <div className="layout-spine text-center space-y-8">
+        <div className="layout-spine text-center space-y-6">
 
           {/* Headline Group */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6 max-w-[840px]"
+            className="space-y-4 max-w-[960px] mx-auto"
           >
-            {/* New Product Announcement Banner */}
+            {/* Upscale Glassmorphic Banner */}
             <motion.a
               href="/live"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-primary/20 text-primary hover:border-primary/40 transition-all group shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-[0_4px_20px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9)] text-base-ink hover:bg-white/70 transition-all group hover:scale-[1.02] active:scale-[0.98]"
             >
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
               <span className="text-sm font-bold tracking-tight">Introducing Exbabel Live Video Translation</span>
-              <span className="text-sm text-primary/70 mx-1">•</span>
+              <span className="text-sm text-base-muted mx-1">•</span>
               <span className="text-sm font-medium">Learn more</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.a>
 
-            <h1 className="sr-only">Give your church one voice</h1>
+            <h1 className="sr-only">Speak once. Break language barriers.</h1>
             <h2
-              className="text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-base-content leading-[1.05] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Give your church
-              <span className="block text-primary mt-2">one voice</span>
+              <span>Speak once.</span>
+              <span className="text-primary inline-grid text-left">
+                {/* Invisible widest words to hold the layout width constant */}
+                {flipWords.map((word, index) => (
+                  <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
+                    {word}
+                  </span>
+                ))}
+                
+                {/* The actual animated word */}
+                <span className="col-start-1 row-start-1 flex justify-start">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={flipIndex}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="whitespace-nowrap"
+                    >
+                      {flipWords[flipIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </span>
             </h2>
 
             <p
-              className="text-xl md:text-2xl text-base-content/80 leading-relaxed max-w-[640px] mx-auto font-medium"
+              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Break down language barriers with real-time AI translation that understands context, culture, and nuance.
+              The complete church translation platform for multilingual congregations. Live captions, audio translation, video translation, and AI-powered interpretation built specifically for ministry.
             </p>
           </motion.div>
 
-          {/* CTA Row - Centered */}
+          {/* Premium CTA Row */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center gap-4 pt-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
           >
             <a
               href={appRoutes.demo}
-              className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20"
+              className="px-8 py-4 rounded-md bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-sm relative overflow-hidden group"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Try for Free
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+              Book a demo
             </a>
             <a
-              href="#how-it-works"
-              className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all"
+              href="#pricing"
+              className="px-8 py-4 rounded-md text-base-ink font-bold text-lg bg-white border border-base-ink/20 shadow-sm hover:border-base-ink/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              How it works
+              Find your plan &rarr;
             </a>
           </motion.div>
-
-          {/* Demo Container - Stacked Below */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-[800px] mt-16 md:mt-24 relative min-h-[600px] md:min-h-[700px]"
-          >
-            {/* Main Glass Card - Live Translation Console */}
-            <div
-              className="relative rounded-3xl p-6 md:p-8 bg-white shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15),0_0_0_1px_rgba(0,0,0,0.05)] border-0 backdrop-blur-sm ring-1 ring-gray-900/5"
-            >
-              {/* Subtle inner glow for depth */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white via-transparent to-gray-50/20 pointer-events-none"></div>
-
-              {/* Header with LIVE Badge */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full text-xs font-bold tracking-wide uppercase shadow-[0_4px_14px_0_rgba(59,130,246,0.4)] border-0">
-                  <div className="w-2 h-2 bg-white rounded-full animate-pulse shadow-lg" />
-                  Live Translation
-                </div>
-                <div className="flex items-center gap-3 text-slate-600 text-sm font-medium">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-0 flex items-center justify-center text-white shadow-[0_4px_14px_0_rgba(59,130,246,0.3)]">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
-                  </div>
-                  <span>Recording in progress...</span>
-                </div>
-              </div>
-
-              {/* Live Transcription Area - Vertical Layout */}
-              <div className="space-y-8 text-left relative z-10">
-
-                {/* Source Input */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-md border border-blue-200/50 shadow-sm">EN</span>
-                    <h3 className="text-sm font-bold text-slate-900">Live Transcription</h3>
-                  </div>
-                  <div className="w-full bg-gradient-to-br from-slate-50 via-white to-slate-50/50 border-0 rounded-2xl p-6 h-[100px] flex items-start text-lg md:text-xl text-slate-900 font-medium shadow-[0_8px_30px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)] ring-1 ring-slate-900/5 overflow-hidden">
-                    <div className="w-full">
-                      {transcript || <span className="text-slate-400 italic">Listening for speech...</span>}
-                      {partialText && <span className="text-slate-400">{partialText.substring(transcript.length)}</span>}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Target Output */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md border border-green-200/50 shadow-sm">ES</span>
-                    <h3 className="text-sm font-bold text-slate-900">Live Translation</h3>
-                  </div>
-                  <div className="w-full bg-white border-0 rounded-2xl p-6 h-[100px] flex items-start text-lg md:text-xl text-slate-900 font-medium shadow-[0_12px_40px_rgba(0,0,0,0.15),0_4px_12px_rgba(0,0,0,0.1)] ring-1 ring-slate-900/5 overflow-hidden">
-                    <div className="w-full">
-                      {spanishTranscript || <span className="text-slate-400 italic">Translation will appear here...</span>}
-                      {spanishPartialText && <span className="opacity-50 text-slate-400">{spanishPartialText.substring(spanishTranscript.length)}</span>}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Translation History */}
-                <div className="space-y-3 pt-2 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-green-600">ES</span>
-                    <h3 className="text-sm font-bold text-slate-800">Translation History</h3>
-                  </div>
-
-                  <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
-                    {translatedLines.length === 0 && (
-                      <div className="text-slate-400 text-sm italic p-2">History will appear here...</div>
-                    )}
-                    {[...translatedLines].reverse().map((pair, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        className="bg-white border-0 rounded-xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.16),0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300 ring-1 ring-slate-900/5 hover:ring-slate-900/10"
-                      >
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/50 shadow-sm">
-                            EN <span className="text-slate-400">→</span> ES
-                          </div>
-                          <svg className="w-4 h-4 text-green-500 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
-                        </div>
-                        <p className="text-slate-500 mb-2 text-sm leading-relaxed">{pair.english}</p>
-                        <p className="text-slate-900 font-bold text-lg leading-snug">{pair.spanish}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Decorative blobbies behind the card */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl -z-10 mix-blend-multiply" />
-            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl -z-10 mix-blend-multiply" />
-
-          </motion.div>
-
         </div>
       </div>
+
+      {/* Embedded LiveTranslationGraphic Animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full flex-grow relative"
+      >
+        {/* Added a margin top to cleanly separate from the text above */}
+        <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
+          <LiveTranslationGraphic />
+        </div>
+      </motion.div>
+
     </section>
   );
 }
