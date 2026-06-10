@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { appRoutes } from "@/lib/config";
 import LiveTranslationGraphic from "./LiveTranslationGraphic";
 
@@ -241,14 +242,14 @@ export default function GlassmorphicHero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
           >
-            <a
-              href={appRoutes.demo}
+            <Link
+              href="/demo"
               className="px-8 py-4 rounded-md bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-sm relative overflow-hidden group"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
               Book a demo
-            </a>
+            </Link>
             <a
               href="#pricing"
               className="px-8 py-4 rounded-md text-base-ink font-bold text-lg bg-white border border-base-ink/20 shadow-sm hover:border-base-ink/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
