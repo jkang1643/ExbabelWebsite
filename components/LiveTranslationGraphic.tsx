@@ -28,10 +28,10 @@ export default function LiveTranslationGraphic() {
   const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full flex items-center justify-center pt-4 pb-12 px-4 md:px-8 overflow-hidden">
+    <div className="w-full flex items-center justify-center py-12 px-4 md:px-8 overflow-hidden">
       
       {/* Contained Tech Graphic Card */}
-      <div className="relative w-full max-w-[1100px] h-[500px] md:h-[620px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10">
+      <div className="relative w-full max-w-[1100px] h-[600px] md:h-[750px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10">
         
         {/* Background Image (Desaturated Pastor) */}
         <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
@@ -62,7 +62,7 @@ export default function LiveTranslationGraphic() {
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
         <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30">
           <motion.div 
-            className="w-20 h-20 md:w-24 md:h-24 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
+            className="w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -73,9 +73,9 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 origin-right scale-[0.70] md:scale-75">
+        <div className="absolute right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20">
           <motion.div 
-            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col"
+            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.85] md:scale-100"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
