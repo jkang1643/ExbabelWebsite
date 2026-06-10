@@ -71,7 +71,6 @@ export default function LiveTranslationPage() {
           <div className="relative w-full flex justify-center">
              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-90" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" />
              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-90" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={2} reverse={true} />
-             <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-gray-50/20 pointer-events-none rounded-3xl" />
              <img 
                src="/photos/exbabel_live_translation_concept_1780070697205.png" 
                alt="Live Translation Concept" 
