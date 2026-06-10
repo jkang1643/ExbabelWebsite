@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function LiveCaptionsGraphic() {
   return (
-    <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden bg-white rounded-[24px] border border-[rgba(234,214,255,0.28)] shadow-[0_12px_45px_rgba(234,214,255,0.22)]">
+    <div className="relative z-10 w-full h-[400px] flex items-center justify-center overflow-hidden rounded-[24px]">
       <style dangerouslySetInnerHTML={{__html: `
         .lc-aurora-bg {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
