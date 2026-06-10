@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
 import LiveTranslationGraphic from "./LiveTranslationGraphic";
+import TrustedPartners from "./TrustedPartners";
 
 interface TranslationPair {
   english: string;
@@ -257,6 +258,15 @@ export default function GlassmorphicHero() {
             >
               Find your plan &rarr;
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="pt-12 pb-4 w-full"
+          >
+            <TrustedPartners />
           </motion.div>
         </div>
       </div>

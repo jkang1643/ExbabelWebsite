@@ -21,22 +21,14 @@ export default function TrustedPartners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="relative py-24 bg-gradient-to-b from-[#F8F9FA] to-white border-b border-gray-100">
-
-      <div className="layout-spine relative z-20 text-center">
-        <p className="text-sm md:text-base font-bold tracking-widest text-slate-400 uppercase mb-3">
-          TRUSTED BY CHURCHES WORLDWIDE
+    <section className="relative py-8">
+      <div className="layout-spine relative z-20 text-center flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 opacity-80">
+        <p className="text-sm font-semibold tracking-wide text-slate-500 whitespace-nowrap">
+          Trusted by top churches
         </p>
-        <a
-          href="/impact"
-          className="inline-flex items-center gap-1 text-base font-semibold text-primary/80 hover:text-primary transition-colors mb-12 group"
-        >
-          View our global impact
-          <span className="group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
 
         {/* Scrolling logos container */}
-        <div className="relative w-full overflow-hidden mask-gradient-x">
+        <div className="relative flex-1 w-full overflow-hidden mask-gradient-x">
           <div className="flex gap-16 md:gap-24 animate-scroll whitespace-nowrap">
             {[
               "Houston Apostolic Church", "Lighthouse Pentecostal Church", "Lighthouse Church",

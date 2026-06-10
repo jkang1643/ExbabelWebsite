@@ -24,8 +24,7 @@ export default function Home() {
       <Navbar />
       {/* 1. Hero page */}
       <GlassmorphicHero />
-      {/* 2. TRUSTED BY 500+ CHURCHES scrolling */}
-      <TrustedPartners />
+      {/* 2. Demo video */}
       {/* 3. Demo video */}
       <VideoShowcase />
       {/* 4. Features cards (scrollytelling) */}
