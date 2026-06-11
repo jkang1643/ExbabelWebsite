@@ -8,22 +8,38 @@ export default function LiveTranslationGraphic() {
   const [visibleChars, setVisibleChars] = useState(0);
 
   useEffect(() => {
-    let currentChars = 0;
-    const interval = setInterval(() => {
-      if (currentChars < targetText.length) {
-        currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
-        if (currentChars > targetText.length) currentChars = targetText.length;
-        setVisibleChars(currentChars);
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          setVisibleChars(0);
-        }, 4000); // Wait 4 seconds before looping
-      }
-    }, 45); // Roughly conversational speed
+    let active = true;
+    let timer: NodeJS.Timeout | null = null;
     
-    return () => clearInterval(interval);
-  }, [visibleChars === 0]); // Re-run effect when reset
+    const runTyping = () => {
+      let currentChars = 0;
+      setVisibleChars(0);
+      
+      const nextTick = () => {
+        if (!active) return;
+        if (currentChars < targetText.length) {
+          currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
+          if (currentChars > targetText.length) currentChars = targetText.length;
+          setVisibleChars(currentChars);
+          timer = setTimeout(nextTick, 45);
+        } else {
+          // Finished typing, wait 4 seconds before restarting the typing animation
+          timer = setTimeout(() => {
+            if (active) runTyping();
+          }, 4000);
+        }
+      };
+      
+      timer = setTimeout(nextTick, 45);
+    };
+    
+    runTyping();
+    
+    return () => {
+      active = false;
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
 
   const visibleText = targetText.substring(0, visibleChars);
 
@@ -49,30 +65,35 @@ export default function LiveTranslationGraphic() {
           <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-r from-transparent to-[#1a1a2e] z-10" />
         </div>
 
-        {/* Concentric Tech Waves (Audio/Radio waves - Wifi ripple style) */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-25 pointer-events-none overflow-hidden rounded-[3rem]">
-          <svg className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full" viewBox="0 0 800 800" fill="none">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <motion.circle
-                key={i}
-                cx="400"
-                cy="400"
-                r="50"
-                stroke="white"
-                strokeWidth="1.5"
-                animate={{
-                  r: [50, 450],
-                  opacity: [0, 0.5, 0]
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                  delay: i * 1
-                }}
-              />
-            ))}
-          </svg>
+        {/* Card Background & Waves Wrapper (to clip waves to card rounded borders without clipping overlapping play button) */}
+        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem] pointer-events-none z-10">
+          {/* Concentric Tech Waves (Centered behind the phone mockup) */}
+          <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 w-[112px] h-[242px] sm:w-[134px] sm:h-[291px] md:w-[187px] md:h-[406px] lg:w-[210px] lg:h-[454px] flex items-center justify-center">
+            <div className="absolute w-[800px] h-[800px] flex items-center justify-center opacity-25">
+              <svg className="w-full h-full" viewBox="0 0 800 800" fill="none">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <motion.circle
+                    key={i}
+                    cx="400"
+                    cy="400"
+                    r="50"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    animate={{
+                      r: [50, 450],
+                      opacity: [0, 0.5, 0]
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeOut",
+                      delay: i * 1
+                    }}
+                  />
+                ))}
+              </svg>
+            </div>
+          </div>
         </div>
 
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
