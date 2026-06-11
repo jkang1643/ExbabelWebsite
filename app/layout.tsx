@@ -34,8 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="exbabel" suppressHydrationWarning>
       <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
-        {/* Solid white notch cover for mobile safe areas */}
-        <div className="ios-notch-cover pointer-events-none" />
         {children}
         {/* Start of HubSpot Embed Code */}
         <Script

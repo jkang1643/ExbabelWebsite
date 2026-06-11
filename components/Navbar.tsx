@@ -30,17 +30,19 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-safe-area ${
         scrolled 
           ? "bg-white shadow-sm border-b border-black/5 navbar-padding-scrolled" 
           : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none navbar-padding-normal"
       }`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
+      <motion.div 
+        className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-black text-primary tracking-tight transition-colors duration-300">
@@ -125,7 +127,7 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      </div>
-    </motion.nav>
+      </motion.div>
+    </nav>
   );
 }
