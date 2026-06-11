@@ -16,6 +16,16 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+
+    // Dynamic viewport-fit cover fix for iOS Safari notch gap
+    const meta = document.querySelector('meta[name="viewport"]');
+    if (meta) {
+      const content = meta.getAttribute("content") || "";
+      if (!content.includes("viewport-fit=cover")) {
+        meta.setAttribute("content", "width=device-width, initial-scale=1, viewport-fit=cover");
+      }
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
