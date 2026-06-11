@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 
@@ -13,6 +13,12 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Exbabel - Bridging Communities. Building Futures.",
   description: "AI platform that bridges communities through real-time translation",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

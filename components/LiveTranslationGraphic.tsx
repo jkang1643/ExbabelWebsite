@@ -34,17 +34,19 @@ export default function LiveTranslationGraphic() {
       <div className="relative w-full max-w-[1100px] h-[360px] sm:h-[450px] md:h-[520px] lg:h-[580px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
         
         {/* Background Image (Desaturated Pastor) */}
-        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
+        <div className="absolute inset-y-0 left-0 w-[55%] sm:w-[60%] md:w-[65%] lg:w-[60%] overflow-hidden rounded-l-[2rem] md:rounded-l-[3rem]">
           <motion.img 
             src="/photos/pastor showcase.png" 
             alt="Pastor Preaching"
-            className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
+            className="w-full h-full object-cover object-left-top opacity-60 grayscale mix-blend-luminosity"
             animate={{ scale: [1, 1.03, 1] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
           {/* Tech Gradient Overlay (Red/Orange glow on the right) */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1a1a2e]/60 to-[#e11d48]/40 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent opacity-80" />
+          {/* Smooth transition fade-out to card solid dark background */}
+          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-r from-transparent to-[#1a1a2e] z-10" />
         </div>
 
         {/* Concentric Tech Waves (Audio/Radio waves - Wifi ripple style) */}
@@ -87,9 +89,9 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[144px] h-[312px] sm:w-[176px] sm:h-[381px] md:w-[232px] md:h-[503px] lg:w-[255px] lg:h-[552px] flex items-center justify-center">
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[112px] h-[242px] sm:w-[134px] sm:h-[291px] md:w-[187px] md:h-[406px] lg:w-[210px] lg:h-[454px] flex items-center justify-center">
           <motion.div 
-            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.45] sm:scale-[0.55] md:scale-[0.62] lg:scale-[0.68] shrink-0"
+            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.35] sm:scale-[0.42] md:scale-[0.50] lg:scale-[0.56] shrink-0"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
