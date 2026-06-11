@@ -33,13 +33,9 @@ export default function Navbar() {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-black/5" 
-          : "bg-white/90 backdrop-blur-md shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
+          ? "bg-white shadow-sm border-b border-black/5 navbar-padding-scrolled" 
+          : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none navbar-padding-normal"
       }`}
-      style={{
-        paddingTop: scrolled ? "calc(env(safe-area-inset-top, 0px) + 0.75rem)" : "calc(env(safe-area-inset-top, 0px) + 1.5rem)",
-        paddingBottom: scrolled ? "0.75rem" : "1.5rem",
-      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}

@@ -89,7 +89,7 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] overflow-hidden">
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] overflow-hidden isolate">
           <motion.div 
             className="absolute top-0 left-0 w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-top-left phone-mockup-transform shrink-0"
             initial={{ y: 30, opacity: 0 }}
