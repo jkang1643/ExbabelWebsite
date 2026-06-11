@@ -404,3 +404,22 @@ body::after {
 .stroke-primary {
   stroke: oklch(0.608 0.370 264.7) !important;
 }
+
+.phone-mockup-transform {
+  transform: scale(0.42) !important;
+}
+@media (min-width: 640px) {
+  .phone-mockup-transform {
+    transform: scale(0.52) !important;
+  }
+}
+@media (min-width: 768px) {
+  .phone-mockup-transform {
+    transform: scale(0.59) !important;
+  }
+}
+@media (min-width: 1024px) {
+  .phone-mockup-transform {
+    transform: scale(0.68) !important;
+  }
+}

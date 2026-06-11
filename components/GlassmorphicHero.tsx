@@ -136,7 +136,7 @@ export default function GlassmorphicHero() {
   }, [startTranscription]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-base-paper flex flex-col">
+    <section className="relative min-h-screen bg-base-paper flex flex-col">
       
       {/* Dot Grid Pattern - Modern SaaS look */}
       <div 

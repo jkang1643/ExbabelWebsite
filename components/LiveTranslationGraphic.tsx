@@ -8,111 +8,90 @@ export default function LiveTranslationGraphic() {
   const [visibleChars, setVisibleChars] = useState(0);
 
   useEffect(() => {
-    let active = true;
-    let timer: NodeJS.Timeout | null = null;
+    let currentChars = 0;
+    const interval = setInterval(() => {
+      if (currentChars < targetText.length) {
+        currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
+        if (currentChars > targetText.length) currentChars = targetText.length;
+        setVisibleChars(currentChars);
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          setVisibleChars(0);
+        }, 4000); // Wait 4 seconds before looping
+      }
+    }, 45); // Roughly conversational speed
     
-    const runTyping = () => {
-      let currentChars = 0;
-      setVisibleChars(0);
-      
-      const nextTick = () => {
-        if (!active) return;
-        if (currentChars < targetText.length) {
-          currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
-          if (currentChars > targetText.length) currentChars = targetText.length;
-          setVisibleChars(currentChars);
-          timer = setTimeout(nextTick, 45);
-        } else {
-          // Finished typing, wait 4 seconds before restarting the typing animation
-          timer = setTimeout(() => {
-            if (active) runTyping();
-          }, 4000);
-        }
-      };
-      
-      timer = setTimeout(nextTick, 45);
-    };
-    
-    runTyping();
-    
-    return () => {
-      active = false;
-      if (timer) clearTimeout(timer);
-    };
-  }, []);
+    return () => clearInterval(interval);
+  }, [visibleChars === 0]); // Re-run effect when reset
 
   const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full flex items-center justify-center py-6 md:py-10 px-4 md:px-8 overflow-hidden">
+    <div className="w-full flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 md:px-8 overflow-hidden">
       
       {/* Contained Tech Graphic Card */}
-      <div className="relative w-full max-w-[1100px] h-[360px] sm:h-[450px] md:h-[520px] lg:h-[580px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
+      <div className="relative w-full max-w-[1100px] h-[280px] sm:h-[340px] md:h-[450px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
         
         {/* Background Image (Desaturated Pastor) */}
-        <div className="absolute inset-y-0 left-0 w-[55%] sm:w-[60%] md:w-[65%] lg:w-[60%] overflow-hidden rounded-l-[2rem] md:rounded-l-[3rem]">
+        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
           <motion.img 
             src="/photos/pastor showcase.png" 
             alt="Pastor Preaching"
-            className="w-full h-full object-cover object-left-top opacity-60 grayscale mix-blend-luminosity"
-            animate={{ scale: [1, 1.03, 1] }}
+            className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
+            animate={{ scale: [1.15, 1.18, 1.15] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
           {/* Tech Gradient Overlay (Red/Orange glow on the right) */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1a1a2e]/60 to-[#e11d48]/40 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent opacity-80" />
-          {/* Smooth transition fade-out to card solid dark background */}
-          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-r from-transparent to-[#1a1a2e] z-10" />
         </div>
 
-        {/* Card Background & Waves Wrapper (to clip waves to card rounded borders without clipping overlapping play button) */}
-        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem] pointer-events-none z-10">
-          {/* Concentric Tech Waves (Centered behind the phone mockup) */}
-          <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 w-[112px] h-[242px] sm:w-[134px] sm:h-[291px] md:w-[187px] md:h-[406px] lg:w-[210px] lg:h-[454px] flex items-center justify-center">
-            <div className="absolute w-[800px] h-[800px] flex items-center justify-center opacity-25">
-              <svg className="w-full h-full" viewBox="0 0 800 800" fill="none">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <motion.circle
-                    key={i}
-                    cx="400"
-                    cy="400"
-                    r="50"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    animate={{
-                      r: [50, 450],
-                      opacity: [0, 0.5, 0]
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeOut",
-                      delay: i * 1
-                    }}
-                  />
-                ))}
-              </svg>
-            </div>
+        {/* Concentric Tech Waves (Audio/Radio waves) */}
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] flex items-center justify-center">
+          <div className="absolute w-[800px] h-[800px] flex items-center justify-center opacity-25 pointer-events-none">
+            <svg className="w-full h-full" viewBox="0 0 800 800" fill="none">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <motion.circle
+                  key={i}
+                  cx="400"
+                  cy="400"
+                  r="50"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  animate={{
+                    r: [50, 450],
+                    opacity: [0, 0.5, 0]
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeOut",
+                    delay: i * 1
+                  }}
+                />
+              ))}
+            </svg>
           </div>
         </div>
 
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
-        <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:-bottom-6 md:-left-6 z-30">
+        <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30">
           <motion.div 
-            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_12px_24px_rgba(244,63,94,0.3)] cursor-pointer border-2 md:border-4 border-white"
+            className="w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white ml-1 sm:ml-1.5 md:ml-2 lg:ml-3" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M5 3v18l15-9L5 3z" />
             </svg>
           </motion.div>
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[112px] h-[242px] sm:w-[134px] sm:h-[291px] md:w-[187px] md:h-[406px] lg:w-[210px] lg:h-[454px] flex items-center justify-center">
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] overflow-hidden">
           <motion.div 
-            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.35] sm:scale-[0.42] md:scale-[0.50] lg:scale-[0.56] shrink-0"
+            className="absolute top-0 left-0 w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-top-left phone-mockup-transform shrink-0"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
