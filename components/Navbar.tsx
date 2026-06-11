@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-safe-area ${
         scrolled 
           ? "bg-white shadow-sm border-b border-black/5 navbar-padding-scrolled" 
           : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none navbar-padding-normal"

@@ -451,3 +451,27 @@ body::after {
   padding-top: calc(env(safe-area-inset-top, 0px) + 0.75rem) !important;
   padding-bottom: 0.75rem !important;
 }
+
+/* Bulletproof pseudo-element notch cover on the navbar */
+.navbar-safe-area {
+  position: fixed !important;
+}
+.navbar-safe-area::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -120px !important; /* Plenty of height to cover status bar/notch on all devices */
+  left: 0 !important;
+  right: 0 !important;
+  height: 120px !important;
+  background: inherit !important; /* Inherits background color dynamically from the navbar state */
+  pointer-events: none !important;
+}
+
+/* WebKit-compatible rounded corner clipping mask for phone mockup */
+.phone-container-clip {
+  position: absolute;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  -webkit-mask-image: -webkit-radial-gradient(white, white) !important;
+  mask-image: radial-gradient(white, white) !important;
+}
