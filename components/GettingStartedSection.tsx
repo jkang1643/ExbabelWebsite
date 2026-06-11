@@ -89,7 +89,7 @@ export default function GettingStartedSection() {
             variants={fadeInUp}
           >
             {/* Ambient glow behind animation */}
-            <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full -z-10" />
+            <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full -z-10 hidden lg:block" />
             <OBSSetupAnimation />
           </motion.div>
         </div>

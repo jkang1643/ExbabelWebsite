@@ -489,7 +489,7 @@ export default function WhyChurchesChoose() {
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-section-soft opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[200px]"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[200px] hidden lg:block"
           style={{ background: "radial-gradient(ellipse, rgba(234,214,255,0.12), rgba(214,245,255,0.08), transparent)" }} />
       </div>
 

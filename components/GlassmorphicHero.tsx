@@ -150,18 +150,18 @@ export default function GlassmorphicHero() {
       {/* Slack-style "Aurora" Background with enhanced animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Soft Pink Blob */}
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
+        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
 
         {/* Light Purple Blob */}
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60"
+        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block"
           style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
 
         {/* Pale Yellow Blob */}
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60"
+        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block"
           style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
 
         {/* Subtle Blue/Mint Blob */}
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60"
+        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block"
           style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
       </div>
 

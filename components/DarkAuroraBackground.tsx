@@ -27,7 +27,7 @@ export default function DarkAuroraBackground() {
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#2E0249] rounded-full mix-blend-screen filter blur-[120px] opacity-50"
+                className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#2E0249] rounded-full mix-blend-screen filter blur-[120px] opacity-50 hidden lg:block"
             />
 
             {/* Blob 2: Dark Raspberry/Pink (Top Right) */}
@@ -44,7 +44,7 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 2
                 }}
-                className="absolute top-[5%] -right-[15%] w-[50%] h-[60%] bg-[#4A042E] rounded-full mix-blend-screen filter blur-[130px] opacity-40"
+                className="absolute top-[5%] -right-[15%] w-[50%] h-[60%] bg-[#4A042E] rounded-full mix-blend-screen filter blur-[130px] opacity-40 hidden lg:block"
             />
 
             {/* Blob 3: Deep Navy/Blue (Bottom Left) */}
@@ -61,7 +61,7 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 4
                 }}
-                className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-[#022C43] rounded-full mix-blend-screen filter blur-[140px] opacity-50"
+                className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-[#022C43] rounded-full mix-blend-screen filter blur-[140px] opacity-50 hidden lg:block"
             />
 
             {/* Blob 4: Deep Amber/Gold (Bottom Center/Right) */}
@@ -78,7 +78,7 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 1
                 }}
-                className="absolute bottom-[10%] right-[10%] w-[40%] h-[50%] bg-[#3D2C00] rounded-full mix-blend-screen filter blur-[120px] opacity-30"
+                className="absolute bottom-[10%] right-[10%] w-[40%] h-[50%] bg-[#3D2C00] rounded-full mix-blend-screen filter blur-[120px] opacity-30 hidden lg:block"
             />
 
             {/* Overlay to unify contrast */}

@@ -155,9 +155,9 @@ export default function InterfacePreview() {
 
       {/* Aurora Background */}
       <div className="absolute inset-0 z-0 opacity-40 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_6s_ease-in-out_infinite]"></div>
-          <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite]" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[50%] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_7s_ease-in-out_infinite]" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block"></div>
+          <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[50%] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Top and Bottom Gradient Blends for Seamless Transitions */}

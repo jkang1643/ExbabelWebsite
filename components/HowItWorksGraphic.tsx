@@ -43,7 +43,7 @@ export default function HowItWorksGraphic() {
           transition={{ duration: 1 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[80px] hidden md:block"
           animate={{ scale: step === 2 ? 1.5 : 1, opacity: step === 2 ? 0.8 : 0.2 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         />

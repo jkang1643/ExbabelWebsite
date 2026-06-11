@@ -7,11 +7,11 @@ export default function CTA() {
     <section className="py-32 relative overflow-hidden bg-gradient-to-br from-[#4F46E5] via-[#E11D48] to-[#0D9488]">
       {/* Static gradient blobs for depth — removed showcase-blob animations */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50"
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50 hidden lg:block"
           style={{ background: 'radial-gradient(circle, #818CF850 0%, #818CF825 50%, transparent 70%)' }} />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45"
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45 hidden lg:block"
           style={{ background: 'radial-gradient(circle, #14B8A645 0%, #14B8A622 50%, transparent 70%)' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40 hidden lg:block"
           style={{ background: 'radial-gradient(circle, #FB718540 0%, #FB718520 50%, transparent 70%)' }} />
       </div>
 
