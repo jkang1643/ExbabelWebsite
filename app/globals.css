@@ -432,36 +432,19 @@ body::after {
 
 /* iOS-safe dynamic navbar paddings */
 .navbar-padding-normal {
-  padding-top: calc(env(safe-area-inset-top, 0px) + 1.5rem) !important;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 120px + 1.5rem) !important;
   padding-bottom: 1.5rem !important;
 }
 
 .navbar-padding-scrolled {
-  padding-top: calc(env(safe-area-inset-top, 0px) + 0.75rem) !important;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 120px + 0.75rem) !important;
   padding-bottom: 0.75rem !important;
 }
 
-/* Bulletproof pseudo-element notch cover on the navbar */
+/* Bulletproof iOS Safari notch cover by shifting navbar top boundary */
 .navbar-safe-area {
   position: fixed !important;
-}
-.navbar-safe-area::before {
-  content: "" !important;
-  position: absolute !important;
-  top: -120px !important; /* Plenty of height to cover status bar/notch on all devices */
-  left: 0 !important;
-  right: 0 !important;
-  height: 120px !important;
-  background: inherit !important; /* Dynamically inherits the background color of the navbar */
-  pointer-events: none !important;
-  display: block !important;
-}
-
-@media (min-width: 1024px) {
-  /* On desktop, hide the notch cover when not scrolled (navbar is transparent) */
-  .navbar-safe-area:not(.navbar-padding-scrolled)::before {
-    display: none !important;
-  }
+  top: -120px !important;
 }
 
 /* WebKit-compatible rounded corner clipping mask for phone mockup */
