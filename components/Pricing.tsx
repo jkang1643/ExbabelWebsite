@@ -78,7 +78,7 @@ export default function Pricing() {
   const isYearly = billingInterval === "yearly";
 
   return (
-    <section id="pricing" className="py-20 px-4 bg-base-100 relative overflow-hidden">
+    <section id="pricing" className="py-20 px-6 bg-base-100 relative overflow-hidden">
       {/* Animated gradient blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="showcase-blob absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"

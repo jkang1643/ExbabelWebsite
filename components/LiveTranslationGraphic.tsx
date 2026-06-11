@@ -60,22 +60,22 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
-        <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30">
+        <div className="absolute bottom-4 left-4 md:-bottom-8 md:-left-8 z-30">
           <motion.div 
-            className="w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
+            className="w-16 h-16 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_12px_24px_rgba(244,63,94,0.3)] cursor-pointer border-2 md:border-4 border-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 md:w-14 md:h-14 text-white ml-1.5 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M5 3v18l15-9L5 3z" />
             </svg>
           </motion.div>
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[208px] h-[450px] md:w-[375px] md:h-[812px] flex items-center justify-center">
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[176px] h-[381px] sm:w-[208px] sm:h-[450px] md:w-[375px] md:h-[812px] flex items-center justify-center">
           <motion.div 
-            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.65] md:scale-100 shrink-0"
+            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.55] sm:scale-[0.65] md:scale-100 shrink-0"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

@@ -363,7 +363,7 @@ export default function FeatureShowcase() {
             </div>
 
             {/* MOBILE: Simple vertical list (below lg) */}
-            <section className="block lg:hidden py-12 px-4 relative overflow-hidden">
+            <section className="block lg:hidden py-12 px-6 relative overflow-hidden">
                 {/* Section-level soft glow */}
                 <div className="absolute inset-0 bg-section-soft opacity-60 pointer-events-none" />
 

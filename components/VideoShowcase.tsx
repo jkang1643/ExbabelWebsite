@@ -37,7 +37,7 @@ export default function VideoShowcase() {
                     style={{ background: 'radial-gradient(circle, #2563EB18 0%, #2563EB08 50%, transparent 70%)', animationDelay: '5s' }} />
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     className="text-center mb-12"
                     initial={{ opacity: 0, y: 30 }}

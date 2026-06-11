@@ -45,7 +45,7 @@ export default function Testimonials() {
                     style={{ background: 'radial-gradient(circle, #059669 30 0%, #05966918 50%, transparent 70%)', animationDelay: '6s' }} />
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
                 <motion.div
                     className="text-center mb-16"

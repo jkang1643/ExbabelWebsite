@@ -60,7 +60,7 @@ export default function InterfacePreview() {
   const filteredLanguages = LANGUAGES.filter(l => l.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <section className="section-pad bg-white relative overflow-hidden h-[800px] flex items-center justify-center">
+    <section className="section-pad bg-white relative overflow-hidden h-auto md:h-[800px] py-16 md:py-24 flex items-center justify-center">
       
       {/* CSS for infinite vertical scrolling */}
       <style dangerouslySetInnerHTML={{__html: `
@@ -92,11 +92,11 @@ export default function InterfacePreview() {
       </div>
 
       {/* World Map Background Image */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-[0.2] pointer-events-none select-none ml-[20%]">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map" className="w-[85%] max-w-[1400px] object-contain filter grayscale" />
+      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-[0.2] pointer-events-none select-none md:ml-[20%] ml-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map" className="w-[90%] sm:w-[85%] max-w-[1400px] object-contain filter grayscale" />
       </div>
 
-      <div className="relative z-30 flex flex-col md:flex-row w-full max-w-[1400px] mx-auto px-6 md:px-12 h-full items-center">
+      <div className="relative z-30 flex flex-col md:flex-row w-full max-w-[1400px] mx-auto px-6 md:px-12 h-auto md:h-full items-center">
         
         {/* Left Side: Scrolling Language Bubbles */}
         <div className="hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-center gap-6 justify-start pl-4 pointer-events-none select-none">
