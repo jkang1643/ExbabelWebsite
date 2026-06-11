@@ -463,8 +463,16 @@ body::after {
   left: 0 !important;
   right: 0 !important;
   height: 120px !important;
-  background: inherit !important; /* Inherits background color dynamically from the navbar state */
+  background-color: #ffffff !important; /* Explicitly solid white */
   pointer-events: none !important;
+  display: block !important;
+}
+
+@media (min-width: 1024px) {
+  /* On desktop, hide the notch cover when not scrolled (navbar is transparent) */
+  .navbar-safe-area:not(.navbar-padding-scrolled)::before {
+    display: none !important;
+  }
 }
 
 /* WebKit-compatible rounded corner clipping mask for phone mockup */
