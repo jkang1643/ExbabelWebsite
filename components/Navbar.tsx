@@ -33,10 +33,18 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-safe-area ${
         scrolled 
-          ? "bg-white shadow-sm border-b border-black/5 navbar-padding-scrolled" 
-          : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none navbar-padding-normal"
+          ? "navbar-padding-scrolled" 
+          : "navbar-padding-normal"
       }`}
     >
+      {/* Absolute background cover for notch & navbar to prevent compositor clipping on iOS Safari */}
+      <div 
+        className={`absolute top-[-100px] left-0 right-0 bottom-0 transition-all duration-300 pointer-events-none z-[-1] ${
+          scrolled 
+            ? "bg-white shadow-sm border-b border-black/5" 
+            : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
+        }`}
+      />
       <motion.div 
         className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between"
         initial={{ opacity: 0 }}

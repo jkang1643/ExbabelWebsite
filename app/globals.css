@@ -134,6 +134,7 @@
 /* === Base Styles === */
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-base-paper);
 }
 
 body {
@@ -432,19 +433,19 @@ body::after {
 
 /* iOS-safe dynamic navbar paddings */
 .navbar-padding-normal {
-  padding-top: calc(env(safe-area-inset-top, 0px) + 120px + 1.5rem) !important;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 1.5rem) !important;
   padding-bottom: 1.5rem !important;
 }
 
 .navbar-padding-scrolled {
-  padding-top: calc(env(safe-area-inset-top, 0px) + 120px + 0.75rem) !important;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 0.75rem) !important;
   padding-bottom: 0.75rem !important;
 }
 
-/* Bulletproof iOS Safari notch cover by shifting navbar top boundary */
+/* Bulletproof layout container at top of viewport */
 .navbar-safe-area {
   position: fixed !important;
-  top: -120px !important;
+  top: 0 !important;
 }
 
 /* WebKit-compatible rounded corner clipping mask for phone mockup */
@@ -454,4 +455,18 @@ body::after {
   isolation: isolate !important;
   -webkit-mask-image: -webkit-radial-gradient(white, white) !important;
   mask-image: radial-gradient(white, white) !important;
+}
+
+/* Mobile optimizations to prevent WebKit rendering crashes and layout bugs */
+@media (max-width: 1023px) {
+  body {
+    background-attachment: scroll !important;
+  }
+  body::after {
+    display: none !important; /* Disable fullscreen SVG noise layer to resolve dynamic rasterization crash */
+  }
+  .showcase-blob {
+    animation: none !important; /* Disable heavy Gaussian blur dynamic morphing/drifting */
+    transform: none !important;
+  }
 }

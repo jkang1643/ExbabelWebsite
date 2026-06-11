@@ -11,8 +11,8 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Exbabel - Bridging Communities. Building Futures.",
-  description: "AI platform that bridges communities through real-time translation",
+  title: "Exbabel - AI Speech-to-Speech Translation Platform",
+  description: "The complete real-time speech-to-speech translation platform for live video, audio, and synchronized captions.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
