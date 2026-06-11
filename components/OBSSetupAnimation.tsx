@@ -52,7 +52,7 @@ export default function OBSSetupAnimation() {
         <div className="flex-1 p-4 flex flex-col gap-4">
           <div className="flex-1 bg-black border border-[#111] relative flex items-center justify-center overflow-hidden">
              {/* Fake pastor video feed */}
-             <img src="/photos/exbabel_live_translation_concept_1780070697205.png" className="w-full h-full object-cover opacity-50 blur-[2px]" alt="feed" />
+             <img src="/photos/exbabel_live_translation_concept_1780070697205.webp" className="w-full h-full object-cover opacity-50 blur-[2px]" alt="feed" loading="lazy" />
              {isStreaming && (
                <div className="absolute top-4 right-4 px-3 py-1 bg-red-600 text-white font-bold text-xs rounded-sm flex items-center gap-2 animate-pulse">
                  <div className="w-2 h-2 bg-white rounded-full" />

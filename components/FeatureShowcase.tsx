@@ -3,6 +3,56 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useReducedMotion } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+/* ─────────────────────────────────────────────
+ * MOBILE LAZY VIDEO CARD
+ * Only loads/plays video when scrolled into view
+ * ───────────────────────────────────────────── */
+function MobileFeatureCard({ feature }: { feature: Feature }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+
+    useEffect(() => {
+        if (inView && videoRef.current) {
+            videoRef.current.src = feature.videoSrc;
+            videoRef.current.load();
+            videoRef.current.play().catch(() => {});
+        }
+    }, [inView, feature.videoSrc]);
+
+    return (
+        <div ref={ref} className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ maxHeight: '60vh' }}>
+                <video
+                    ref={videoRef}
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    className="w-full h-full object-contain"
+                    style={{ maxHeight: '60vh' }}
+                />
+            </div>
+            <div className="p-6" style={{ borderLeft: `5px solid ${feature.accentColor}` }}>
+                <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-xl font-bold text-slate-900">{feature.title}</h3>
+                    {feature.badge && (
+                        <span className="text-xs font-bold px-2.5 py-1 rounded-lg text-white" style={{ backgroundColor: feature.accentColor }}>
+                            {feature.badge}
+                        </span>
+                    )}
+                </div>
+                <p className="text-sm leading-relaxed text-slate-600 mb-4">{feature.description}</p>
+                {(feature.id === "voices" || feature.id === "languages") && (
+                    <a href="/impact" className="inline-flex items-center gap-1.5 text-sm font-bold transition-all" style={{ color: feature.accentColor }}>
+                        Explore global coverage →
+                    </a>
+                )}
+            </div>
+        </div>
+    );
+}
 
 /* ─────────────────────────────────────────────
  * DATA MODEL
@@ -23,16 +73,16 @@ interface Feature {
 const FEATURES: Feature[] = [
     {
         id: "voices",
-        title: "Lifelike Voices for 90 Countries",
-        description: "Natural voices that feel human. Coverage for 99%+ of the world population.",
+        title: "90+ Languages with Voices for Global Reach.",
+        description: "Real-time translation in over 90 languages, helping you connect with audiences worldwide.",
         accentColor: "#7C3AED",
-        videoSrc: "/videos/90naturalvoicesv2.mp4",
+        videoSrc: "/videos/90 lanaguges supported.mp4",
         badge: "90+",
     },
     {
         id: "languages",
-        title: "250+ Languages & Dialects",
-        description: "Reach every member, in their language.",
+        title: "250+ Caption Languages Supported",
+        description: "Translate captions, chat, and written content across 250+ languages, reaching virtually every audience worldwide.",
         accentColor: "#2563EB",
         videoSrc: "/videos/250 langugaes and dialects.mp4",
         badge: "250+",
@@ -63,11 +113,11 @@ const FEATURES: Feature[] = [
         translateY: "8%",
     },
     {
-        id: "bible",
-        title: "Bible Verse Detection",
-        description: "Automatically recognizes scripture references.",
+        id: "latency",
+        title: "⚡ Sub-Second Latency",
+        description: "Lab-tested live translation with <1 second delay—the fastest software platform available. Guaranteed.",
         accentColor: "#D97706",
-        videoSrc: "/videos/biblevesrerecognition.mp4",
+        videoSrc: "/videos/subsecond latency.mp4",
     },
     {
         id: "voicecloning",
@@ -172,41 +222,44 @@ export default function FeatureShowcase() {
         }
     }, [activeVideo]);
 
-    /* ── Scroll-driven progress tracking ── */
+    /* ── Scroll-driven progress tracking (rAF-throttled) ── */
+    const rafRef = useRef<number>(0);
     useEffect(() => {
         const handleScroll = () => {
-            if (!containerRef.current) return;
+            if (rafRef.current) return; // Already scheduled
+            rafRef.current = requestAnimationFrame(() => {
+                rafRef.current = 0;
+                if (!containerRef.current) return;
 
-            const rect = containerRef.current.getBoundingClientRect();
-            const containerHeight = containerRef.current.offsetHeight;
-            const viewportHeight = window.innerHeight;
+                const rect = containerRef.current.getBoundingClientRect();
+                const containerHeight = containerRef.current.offsetHeight;
+                const viewportHeight = window.innerHeight;
 
-            // Calculate scroll progress through the container
-            // When container top hits top of viewport, we start (progress = 0)
-            // When container bottom hits top of viewport, we end (progress = 1)
-            const scrollableHeight = containerHeight - viewportHeight;
-            const scrolled = Math.max(0, -rect.top);
-            const progress = scrollableHeight > 0 ? Math.min(1, scrolled / scrollableHeight) : 0;
+                const scrollableHeight = containerHeight - viewportHeight;
+                const scrolled = Math.max(0, -rect.top);
+                const progress = scrollableHeight > 0 ? Math.min(1, scrolled / scrollableHeight) : 0;
 
-            setScrollProgress(progress);
+                setScrollProgress(progress);
 
-            // Determine active feature based on progress
-            // Divide progress into equal segments for each feature
-            const segmentSize = 1 / FEATURES.length;
-            const featureIndex = Math.min(
-                FEATURES.length - 1,
-                Math.floor(progress / segmentSize)
-            );
+                const segmentSize = 1 / FEATURES.length;
+                const featureIndex = Math.min(
+                    FEATURES.length - 1,
+                    Math.floor(progress / segmentSize)
+                );
 
-            if (featureIndex !== activeIdx) {
-                transitionToFeature(featureIndex);
-            }
+                if (featureIndex !== activeIdx) {
+                    transitionToFeature(featureIndex);
+                }
+            });
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll(); // Initial call
+        handleScroll();
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        };
     }, [activeIdx, transitionToFeature]);
 
     return (
@@ -319,7 +372,7 @@ export default function FeatureShowcase() {
                                                 muted
                                                 loop
                                                 playsInline
-                                                preload="metadata"
+                                                preload="none"
                                                 className={`absolute inset-0 w-full h-full object-${active.videoFit || "cover"} transition-all duration-700 ease-out`}
                                                 style={{
                                                     opacity: activeVideo === "A" ? 1 : 0,
@@ -381,55 +434,10 @@ export default function FeatureShowcase() {
                         </p>
                     </div>
 
-                    {/* ── Feature List ── */}
+                    {/* ── Feature List (lazy-loaded videos) ── */}
                     <div className="space-y-8">
-                        {FEATURES.map((feature, idx) => (
-                            <div key={feature.id} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                                {/* Video */}
-                                <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ maxHeight: '60vh' }}>
-                                    <video
-                                        src={feature.videoSrc}
-                                        muted
-                                        loop
-                                        playsInline
-                                        autoPlay
-                                        className="w-full h-full object-contain"
-                                        style={{ maxHeight: '60vh' }}
-                                    />
-                                </div>
-
-                                {/* Content */}
-                                <div
-                                    className="p-6"
-                                    style={{ borderLeft: `5px solid ${feature.accentColor}` }}
-                                >
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <h3 className="text-xl font-bold text-slate-900">
-                                            {feature.title}
-                                        </h3>
-                                        {feature.badge && (
-                                            <span
-                                                className="text-xs font-bold px-2.5 py-1 rounded-lg text-white"
-                                                style={{ backgroundColor: feature.accentColor }}
-                                            >
-                                                {feature.badge}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <p className="text-sm leading-relaxed text-slate-600 mb-4">
-                                        {feature.description}
-                                    </p>
-                                    {(feature.id === "voices" || feature.id === "languages") && (
-                                        <a
-                                            href="/impact"
-                                            className="inline-flex items-center gap-1.5 text-sm font-bold transition-all"
-                                            style={{ color: feature.accentColor }}
-                                        >
-                                            Explore global coverage →
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
+                        {FEATURES.map((feature) => (
+                            <MobileFeatureCard key={feature.id} feature={feature} />
                         ))}
                     </div>
                 </div>

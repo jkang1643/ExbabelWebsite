@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export default function Testimonials() {
     const testimonials = [
         {
@@ -35,25 +33,17 @@ export default function Testimonials() {
 
     return (
         <section className="py-24 md:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-            {/* Animated gradient blobs */}
+            {/* Static background blobs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="showcase-blob absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-40"
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-40"
                     style={{ background: 'radial-gradient(circle, #7C3AED40 0%, #7C3AED20 50%, transparent 70%)' }} />
-                <div className="showcase-blob absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-35"
-                    style={{ background: 'radial-gradient(circle, #2563EB35 0%, #2563EB18 50%, transparent 70%)', animationDelay: '3s' }} />
-                <div className="showcase-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-3xl opacity-30"
-                    style={{ background: 'radial-gradient(circle, #059669 30 0%, #05966918 50%, transparent 70%)', animationDelay: '6s' }} />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-35"
+                    style={{ background: 'radial-gradient(circle, #2563EB35 0%, #2563EB18 50%, transparent 70%)' }} />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
+                <div className="text-center mb-16">
                     <div className="text-eyebrow mb-4 tracking-widest text-primary/80">
                         LOVED BY CHURCH LEADERS
                     </div>
@@ -61,19 +51,12 @@ export default function Testimonials() {
                         Hear from our community
                     </h2>
                     Join churches using Exbabel to break down language barriers and grow their congregations.
-                </motion.div>
+                </div>
 
                 {/* Testimonials Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {testimonials.map((testimonial, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
+                        <div key={index} className="group">
                             <div className="h-full p-8 bg-white rounded-2xl border-0 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.16),0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col ring-1 ring-slate-900/5 hover:ring-slate-900/10">
                                 {/* Star Rating */}
                                 <div className="flex gap-1 mb-4">
@@ -117,18 +100,12 @@ export default function Testimonials() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* Bottom CTA */}
-                <motion.div
-                    className="text-center mt-16"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    viewport={{ once: true }}
-                >
+                <div className="text-center mt-16">
                     <p className="text-base-content/70 mb-4">
                         Join these leaders in breaking down language barriers
                     </p>
@@ -138,7 +115,7 @@ export default function Testimonials() {
                     >
                         Start Your Free Trial
                     </a>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

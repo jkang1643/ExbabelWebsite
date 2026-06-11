@@ -28,7 +28,7 @@ const VIDEO_DATA: VideoItem[] = [
         title: "Meet Exbabel",
         subtitle: "Watch how Exbabel translates live speech to texts & audio instantly.",
         duration: "2:15",
-        posterImage: "/photos/exbabel product video picture.png",
+        posterImage: "/photos/exbabel-product-video-picture.webp",
         previewVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&mute=1&controls=0&loop=1&playlist=rNwDGQVu_o0&playsinline=1",
         fullVideoSrc: "https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&playsinline=1",
     },
@@ -38,7 +38,7 @@ const VIDEO_DATA: VideoItem[] = [
         title: "Meet the Pastor",
         subtitle: "An AI Showcase of our Exbabel Platform",
         duration: "1:10",
-        posterImage: "/photos/pastor showcase.png",
+        posterImage: "/photos/pastor-showcase.webp",
         previewVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1&mute=1&controls=0&loop=1&playlist=O-5FYsfVNY4&playsinline=1",
         fullVideoSrc: "https://www.youtube.com/embed/O-5FYsfVNY4?autoplay=1&playsinline=1",
     },
@@ -48,7 +48,7 @@ const VIDEO_DATA: VideoItem[] = [
         title: "Meet the Platform",
         subtitle: "Step-by-step guide to streaming a multi-lingual session.",
         duration: "1:45",
-        posterImage: "/photos/settings up your firs broadcast.png",
+        posterImage: "/photos/settings-up-your-firs-broadcast.webp",
         previewVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1&mute=1&controls=0&loop=1&playlist=IEAedQlehMY&start=8&playsinline=1",
         fullVideoSrc: "https://www.youtube.com/embed/IEAedQlehMY?autoplay=1&playsinline=1",
     },
@@ -219,8 +219,9 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                     src={video.posterImage}
                     alt=""
                     className="w-full h-full object-cover"
-                    loading={isActive ? "eager" : "lazy"}
-                    {...(isActive ? { fetchPriority: "high" } as any : {})}
+                    loading="lazy"
+                    width={800}
+                    height={450}
                 />
             </motion.div>
 
@@ -248,7 +249,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                             muted
                             loop
                             autoPlay={isActive && !prefersReducedMotion}
-                            preload={isActive ? "auto" : "metadata"}
+                            preload="none"
                         />
                     )
                 ) : null}

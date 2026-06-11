@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
@@ -11,11 +11,18 @@ export default function Navbar() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
+  // Throttled scroll handler using requestAnimationFrame
+  const rafRef = useRef<number>(0);
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) return; // Already scheduled
+    rafRef.current = requestAnimationFrame(() => {
       setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+      rafRef.current = 0;
+    });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Dynamic viewport-fit cover fix for iOS Safari notch gap
     const meta = document.querySelector('meta[name="viewport"]');
@@ -26,8 +33,11 @@ export default function Navbar() {
       }
     }
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [handleScroll]);
 
   return (
     <nav
@@ -45,11 +55,8 @@ export default function Navbar() {
             : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
         }`}
       />
-      <motion.div 
+      <div 
         className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -135,7 +142,7 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
     </nav>
   );
 }

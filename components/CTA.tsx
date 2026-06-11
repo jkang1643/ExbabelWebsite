@@ -1,50 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { appRoutes } from "@/lib/config";
 
 export default function CTA() {
   return (
     <section className="py-32 relative overflow-hidden bg-gradient-to-br from-[#4F46E5] via-[#E11D48] to-[#0D9488]">
-      {/* Animated gradient blobs for depth */}
+      {/* Static gradient blobs for depth — removed showcase-blob animations */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50"
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50"
           style={{ background: 'radial-gradient(circle, #818CF850 0%, #818CF825 50%, transparent 70%)' }} />
-        <div className="showcase-blob absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45"
-          style={{ background: 'radial-gradient(circle, #14B8A645 0%, #14B8A622 50%, transparent 70%)', animationDelay: '5s' }} />
-        <div className="showcase-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40"
-          style={{ background: 'radial-gradient(circle, #FB718540 0%, #FB718520 50%, transparent 70%)', animationDelay: '10s' }} />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45"
+          style={{ background: 'radial-gradient(circle, #14B8A645 0%, #14B8A622 50%, transparent 70%)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40"
+          style={{ background: 'radial-gradient(circle, #FB718540 0%, #FB718520 50%, transparent 70%)' }} />
       </div>
 
       <div className="layout-spine relative z-10 text-center text-white">
-        <motion.h2
+        <h2
           className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-[1.1]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
           Supercharge your communication <br /> with AI today!
-        </motion.h2>
+        </h2>
 
-        <motion.p
+        <p
           className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
           Join churches breaking down barriers and building connections. Start your 30-day free trial today — it&apos;s on the house!
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="mb-10"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
+        <div className="mb-10">
           <a
             href={appRoutes.pricingStarter}
             className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.02] active:scale-95 shadow-xl"
@@ -52,16 +38,10 @@ export default function CTA() {
           >
             Start Your Free Trial
           </a>
-        </motion.div>
+        </div>
 
         {/* Checkmarks */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-8 mb-20 text-[15px] font-bold text-white/90"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
+        <div className="flex flex-wrap justify-center gap-8 mb-20 text-[15px] font-bold text-white/90">
           {[
             "It's on the house!",
             "30-day money-back guarantee",
@@ -76,16 +56,10 @@ export default function CTA() {
               {text}
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Stats Box - Glassmorphism */}
-        <motion.div
-          className="w-full max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
+        <div className="w-full max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6 rounded-[2rem] bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative group overflow-hidden">
             {/* Subtle inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
@@ -105,7 +79,7 @@ export default function CTA() {
               <div className="text-[13px] font-extrabold text-white/60 uppercase tracking-[0.2em]">Uptime</div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

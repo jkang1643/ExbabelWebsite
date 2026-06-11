@@ -19,7 +19,7 @@ export default function AsSeenOn() {
                         className="transition-transform hover:scale-105 duration-300"
                     >
                         <Image
-                            src="/badges/llbadge2.png"
+                            src="/badges/llbadge2.webp"
                             alt="As seen on Launch Llama Newsletter"
                             width={800}
                             height={200}

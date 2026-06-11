@@ -134,7 +134,7 @@ export default function LiveTranslationShowcase() {
               {/* Background Pastor Image with "Talking" Animation */}
               <div className="absolute inset-0 bg-black flex items-center justify-center overflow-hidden">
                 <motion.img 
-                  src="/photos/pastor showcase.png" 
+                  src="/photos/pastor-showcase.webp" 
                   alt="Pastor Preaching"
                   className="w-full h-full object-cover object-top opacity-70"
                   animate={isPlaying ? {
@@ -148,7 +148,7 @@ export default function LiveTranslationShowcase() {
                     Uncomment and adjust the clip-path percentage if you want a more literal talking effect. */}
                 {/* 
                 <motion.img 
-                  src="/photos/pastor showcase.png" 
+                  src="/photos/pastor-showcase.webp" 
                   className="absolute inset-0 w-full h-full object-cover object-top opacity-70"
                   style={{ clipPath: 'polygon(0 40%, 100% 40%, 100% 100%, 0 100%)' }} // Adjust 40% to match jawline
                   animate={isPlaying ? { y: [0, 4, 0, 6, 0, 2, 0] } : { y: 0 }}

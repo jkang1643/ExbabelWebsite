@@ -29,10 +29,10 @@ const BENEFITS: BenefitCard[] = [
     accentTo: "#6366F1",
     icon: (active) => {
       const avatars = [
-        { src: "/avatars/avatar-1.png", flag: "🇪🇸", z: 5, x: -6 },
-        { src: "/avatars/avatar-2.png", flag: "🇰🇷", z: 4, x: -3 },
-        { src: "/avatars/avatar-3.png", flag: "🇳🇬", z: 3, x: 3 },
-        { src: "/avatars/avatar-4.png", flag: "🇫🇷", z: 2, x: 6 },
+        { src: "/avatars/avatar-1.webp", flag: "🇪🇸", z: 5, x: -6 },
+        { src: "/avatars/avatar-2.webp", flag: "🇰🇷", z: 4, x: -3 },
+        { src: "/avatars/avatar-3.webp", flag: "🇳🇬", z: 3, x: 3 },
+        { src: "/avatars/avatar-4.webp", flag: "🇫🇷", z: 2, x: 6 },
       ];
       return (
         <div className="flex items-center justify-center h-full">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { appRoutes } from "@/lib/config";
 
 export default function Pricing() {
@@ -79,25 +78,17 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="py-20 px-6 bg-base-100 relative overflow-hidden">
-      {/* Animated gradient blobs */}
+      {/* Background blobs — static */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="showcase-blob absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
           style={{ background: 'radial-gradient(circle, #7C3AED35 0%, #7C3AED18 50%, transparent 70%)' }} />
-        <div className="showcase-blob absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
-          style={{ background: 'radial-gradient(circle, #2563EB30 0%, #2563EB15 50%, transparent 70%)', animationDelay: '4s' }} />
-        <div className="showcase-blob absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
-          style={{ background: 'radial-gradient(circle, #059669 25 0%, #05966912 50%, transparent 70%)', animationDelay: '8s' }} />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
+          style={{ background: 'radial-gradient(circle, #2563EB30 0%, #2563EB15 50%, transparent 70%)' }} />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
             Break Language Barriers<br />
             <span>
@@ -132,24 +123,20 @@ export default function Pricing() {
               </span>
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {plans.map((plan, index) => {
             const isActive = selectedPlan === plan.name.toLowerCase();
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 onClick={() => setSelectedPlan(plan.name.toLowerCase())}
                 style={{ cursor: "pointer" }}
               >
                 <div
-                  className="card bg-white backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
+                  className="bg-white backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
                   style={{
                     border: isActive ? `2px solid ${plan.accentColor}` : "2px solid transparent",
                     boxShadow: isActive
@@ -187,14 +174,14 @@ export default function Pricing() {
                     </div>
                   )}
 
-                  <div className="card-body p-8 pt-10">
-                    {/* Plan Name & Description — fixed height so all price blocks align */}
+                  <div className="p-8 pt-10 flex flex-col h-full">
+                    {/* Plan Name & Description */}
                     <div style={{ minHeight: "8rem" }}>
                       <h3 className="text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
                       <p className="text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
                     </div>
 
-                    {/* Pricing — fixed height for alignment */}
+                    {/* Pricing */}
                     <div className="text-center mb-5 flex flex-col justify-center" style={{ minHeight: 130 }}>
                       {isYearly ? (
                         <>
@@ -257,11 +244,11 @@ export default function Pricing() {
                     </ul>
 
                     {/* CTA Button */}
-                    <div className="card-actions justify-center mt-auto">
+                    <div className="mt-auto text-center">
                       <a
                         href={plan.signupUrl(billingInterval)}
                         onClick={(e) => e.stopPropagation()}
-                        className="btn w-full rounded-xl font-bold border-none"
+                        className="inline-block w-full py-3 rounded-xl font-bold border-none text-center transition-all"
                         style={{
                           background: isActive
                             ? `linear-gradient(135deg, ${plan.accentColor}, ${plan.accentColor}cc)`
@@ -275,19 +262,13 @@ export default function Pricing() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Trust Indicators */}
-        <motion.div
-          className="flex justify-center gap-8 flex-wrap mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
+        <div className="flex justify-center gap-8 flex-wrap mb-6">
           <div className="flex items-center gap-2">
             <span className="text-base">🔒</span>
             <span className="text-sm text-base-content/70">Secure payment via Stripe</span>
@@ -300,24 +281,18 @@ export default function Pricing() {
             <span className="text-base">🎁</span>
             <span className="text-sm text-base-content/70">30-day free trial on Starter</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Custom Plan CTA */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="card bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
-            <div className="card-body p-8 text-center">
+        <div className="text-center">
+          <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
+            <div className="p-8 text-center">
               <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
               <p className="text-base-content/70 mb-4">Contact our team to build a custom plan at a cost that works for you.</p>
-              <a href="mailto:support@exbabel.com" className="btn btn-primary rounded-full px-8 border-none shadow-lg hover:shadow-xl">Contact Us</a>
+              <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Contact Us</a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

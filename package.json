@@ -29,7 +29,6 @@
     "@types/react-dom": "^19.0.1",
     "commander": "^15.0.0",
     "csv-writer": "^1.6.0",
-    "daisyui": "^5.3.10",
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "^15.0.3",

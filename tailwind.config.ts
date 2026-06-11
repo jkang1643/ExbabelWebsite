@@ -24,6 +24,11 @@ const config: Config = {
           paper: 'var(--color-base-paper)',
           ink: 'var(--color-base-ink)',
           muted: 'var(--color-base-muted)',
+          // DaisyUI compatibility mappings
+          100: 'var(--color-base-white)',
+          200: 'var(--color-base-paper)',
+          300: '#E5E7EB',
+          content: 'var(--color-base-ink)',
         }
       },
       borderRadius: {
@@ -79,16 +84,7 @@ const config: Config = {
       }
     },
   },
-  plugins: [
-    require("daisyui"),
-  ],
-  daisyui: {
-    themes: false, // Disable built-in themes, use CSS-based theme only
-    styled: true,
-    base: true,
-    utils: true,
-    logs: false,
-  },
+  plugins: [],
 };
 export default config;
 

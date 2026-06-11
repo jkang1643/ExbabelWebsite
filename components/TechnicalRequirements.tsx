@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function TechnicalRequirements() {
@@ -51,32 +50,20 @@ export default function TechnicalRequirements() {
     return (
         <section className="py-20 px-4 bg-base-200">
             <div className="container mx-auto max-w-7xl">
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
+                <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
                         What You Need to Get Started
                     </h2>
                     <p className="text-lg text-base-content max-w-2xl mx-auto">
                         Simple technical requirements - if you can stream a video, you can use Exbabel
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     {requirements.map((req, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="card bg-white/60 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
-                                <div className="card-body p-6">
+                        <div key={index}>
+                            <div className="bg-white/60 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
+                                <div className="p-6">
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary">
                                             {req.icon}
@@ -95,19 +82,13 @@ export default function TechnicalRequirements() {
                                     </ul>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* Setup Guide CTA */}
-                <motion.div
-                    className="card bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 rounded-3xl"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="card-body p-8 items-center text-center">
+                <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 rounded-3xl">
+                    <div className="p-8 flex flex-col items-center text-center">
                         <h3 className="text-2xl font-bold text-base-content mb-2">
                             Need Help Setting Up?
                         </h3>
@@ -115,13 +96,13 @@ export default function TechnicalRequirements() {
                             Our support team is here to help you get started. We provide detailed setup guides, video tutorials, and live support - including on Sundays!
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center">
-                            <Link href="/guides" className="btn btn-primary rounded-full px-6 border-none shadow-lg hover:shadow-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <Link href="/guides" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                 </svg>
                                 View Setup Guide
                             </Link>
-                            <a href="mailto:support@exbabel.com" className="btn btn-primary rounded-full px-6 border-none">
+                            <a href="mailto:support@exbabel.com" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full transition-all">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
@@ -129,7 +110,7 @@ export default function TechnicalRequirements() {
                             </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

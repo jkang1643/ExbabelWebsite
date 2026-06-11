@@ -33,12 +33,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="exbabel" suppressHydrationWarning>
+      <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="dns-prefetch" href="//js-na2.hs-scripts.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
         {children}
-        {/* Start of HubSpot Embed Code */}
+        {/* Start of HubSpot Embed Code — lazyOnload to avoid blocking interactivity */}
         <Script
           id="hs-script-loader"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="//js-na2.hs-scripts.com/245326184.js"
         />
         {/* End of HubSpot Embed Code */}

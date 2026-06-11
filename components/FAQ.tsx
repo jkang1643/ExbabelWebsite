@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function FAQ() {
   const faqs = [
@@ -38,55 +38,57 @@ export default function FAQ() {
     },
   ];
 
+  const [openIndex, setOpenIndex] = useState<number>(0);
+
   return (
     <section id="faq" className="py-20 px-4 bg-gradient-to-b from-blue-50/20 to-base-100 relative overflow-hidden">
-      {/* Animated gradient blobs */}
+      {/* Background blobs — static, no animation class */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="showcase-blob absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-25"
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-25"
           style={{ background: 'radial-gradient(circle, #7C3AED28 0%, #7C3AED12 50%, transparent 70%)' }} />
-        <div className="showcase-blob absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full blur-3xl opacity-20"
-          style={{ background: 'radial-gradient(circle, #2563EB22 0%, #2563EB10 50%, transparent 70%)', animationDelay: '6s' }} />
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #2563EB22 0%, #2563EB10 50%, transparent 70%)' }} />
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
             FAQs
           </h2>
           <p className="text-lg text-base-content">
             Everything you need to know before getting started
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <div className="collapse collapse-plus bg-white/70 backdrop-blur-sm border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 shadow-sm hover:shadow-md transition-all rounded-2xl">
-                <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
-                <div className="collapse-title text-base font-semibold text-base-content">
-                  {faq.question}
+            <div key={index}>
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+                className="w-full text-left bg-white/70 backdrop-blur-sm border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 shadow-sm hover:shadow-md transition-all rounded-2xl overflow-hidden"
+              >
+                <div className="flex items-center justify-between px-6 py-4">
+                  <span className="text-base font-semibold text-base-content pr-4">{faq.question}</span>
+                  <svg
+                    className={`w-5 h-5 text-base-content/50 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
                 </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70 text-sm leading-relaxed">{faq.answer}</p>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-out ${openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'}`}
+                >
+                  <div className="px-6 text-base-content/70 text-sm leading-relaxed">{faq.answer}</div>
                 </div>
-              </div>
-            </motion.div>
+              </button>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

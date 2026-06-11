@@ -36,7 +36,7 @@ export default function LiveTranslationGraphic() {
         {/* Background Image (Desaturated Pastor) */}
         <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
           <motion.img 
-            src="/photos/pastor showcase.png" 
+            src="/photos/pastor-showcase.webp" 
             alt="Pastor Preaching"
             className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
             animate={{ scale: [1.15, 1.18, 1.15] }}
