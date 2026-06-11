@@ -30,8 +30,8 @@ export default function Navbar() {
         paddingTop: scrolled ? "calc(env(safe-area-inset-top, 0px) + 0.75rem)" : "calc(env(safe-area-inset-top, 0px) + 1.5rem)",
         paddingBottom: scrolled ? "0.75rem" : "1.5rem",
       }}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
