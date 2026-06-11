@@ -500,7 +500,7 @@ export default function WhyChurchesChoose() {
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] mb-5 text-base-content"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Why Churches Choose{" "}
-            <span className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">ExBabel</span>
+            <span className="text-primary">Exbabel</span>
           </h2>
           <p className="text-base-content/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-medium">
             Everything your church needs to break the language barrier — nothing it doesn&apos;t.

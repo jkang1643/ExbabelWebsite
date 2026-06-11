@@ -28,10 +28,10 @@ export default function LiveTranslationGraphic() {
   const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full flex items-center justify-center py-12 px-4 md:px-8 overflow-hidden">
+    <div className="w-full flex items-center justify-center py-6 md:py-10 px-4 md:px-8 overflow-hidden">
       
       {/* Contained Tech Graphic Card */}
-      <div className="relative w-full max-w-[1100px] h-[520px] md:h-[750px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
+      <div className="relative w-full max-w-[1100px] h-[360px] sm:h-[450px] md:h-[520px] lg:h-[580px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
         
         {/* Background Image (Desaturated Pastor) */}
         <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
@@ -47,35 +47,49 @@ export default function LiveTranslationGraphic() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent opacity-80" />
         </div>
 
-        {/* Concentric Tech Waves (Audio/Radio waves) */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none overflow-hidden rounded-[3rem]">
+        {/* Concentric Tech Waves (Audio/Radio waves - Wifi ripple style) */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-25 pointer-events-none overflow-hidden rounded-[3rem]">
           <svg className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full" viewBox="0 0 800 800" fill="none">
-            <circle cx="400" cy="400" r="100" stroke="white" strokeWidth="2" />
-            <circle cx="400" cy="400" r="150" stroke="white" strokeWidth="2" />
-            <motion.circle cx="400" cy="400" r="220" stroke="white" strokeWidth="1.5" animate={{ r: [220, 230, 220], opacity: [1, 0.5, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
-            <motion.circle cx="400" cy="400" r="300" stroke="white" strokeWidth="1" animate={{ r: [300, 320, 300], opacity: [1, 0.4, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} />
-            <motion.circle cx="400" cy="400" r="400" stroke="white" strokeWidth="0.5" animate={{ r: [400, 430, 400], opacity: [1, 0.3, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }} />
-            <motion.circle cx="400" cy="400" r="520" stroke="white" strokeWidth="0.5" opacity="0.5" animate={{ r: [520, 560, 520], opacity: [0.5, 0.1, 0.5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} />
+            {[0, 1, 2, 3, 4].map((i) => (
+              <motion.circle
+                key={i}
+                cx="400"
+                cy="400"
+                r="50"
+                stroke="white"
+                strokeWidth="1.5"
+                animate={{
+                  r: [50, 450],
+                  opacity: [0, 0.5, 0]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                  delay: i * 1
+                }}
+              />
+            ))}
           </svg>
         </div>
 
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
-        <div className="absolute bottom-4 left-4 md:-bottom-8 md:-left-8 z-30">
+        <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:-bottom-6 md:-left-6 z-30">
           <motion.div 
-            className="w-16 h-16 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_12px_24px_rgba(244,63,94,0.3)] cursor-pointer border-2 md:border-4 border-white"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_12px_24px_rgba(244,63,94,0.3)] cursor-pointer border-2 md:border-4 border-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-6 h-6 md:w-14 md:h-14 text-white ml-1.5 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white ml-1 sm:ml-1.5 md:ml-2 lg:ml-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M5 3v18l15-9L5 3z" />
             </svg>
           </motion.div>
         </div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[176px] h-[381px] sm:w-[208px] sm:h-[450px] md:w-[375px] md:h-[812px] flex items-center justify-center">
+        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[144px] h-[312px] sm:w-[176px] sm:h-[381px] md:w-[232px] md:h-[503px] lg:w-[255px] lg:h-[552px] flex items-center justify-center">
           <motion.div 
-            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.55] sm:scale-[0.65] md:scale-100 shrink-0"
+            className="relative w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[0_32px_80px_rgba(0,0,0,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-center scale-[0.45] sm:scale-[0.55] md:scale-[0.62] lg:scale-[0.68] shrink-0"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
