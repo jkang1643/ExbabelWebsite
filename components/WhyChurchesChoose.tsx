@@ -398,21 +398,28 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0, w: 1, h: 1 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const prefersReduced = useReducedMotion();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+    }
+  }, []);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!cardRef.current || prefersReduced) return;
+      if (!cardRef.current || prefersReduced || isTouch) return;
       const rect = cardRef.current.getBoundingClientRect();
       setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, w: rect.width, h: rect.height });
     },
-    [prefersReduced]
+    [prefersReduced, isTouch]
   );
 
   const normX = mouse.w ? (mouse.x - mouse.w / 2) / (mouse.w / 2) : 0;
   const normY = mouse.h ? (mouse.y - mouse.h / 2) / (mouse.h / 2) : 0;
-  const tiltX = isHovered && !prefersReduced ? normY * -4 : 0;
-  const tiltY = isHovered && !prefersReduced ? normX * 4 : 0;
+  const tiltX = isHovered && !prefersReduced && !isTouch ? normY * -4 : 0;
+  const tiltY = isHovered && !prefersReduced && !isTouch ? normX * 4 : 0;
 
   return (
     <motion.div
@@ -429,9 +436,11 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
         onMouseLeave={() => setIsHovered(false)}
         className="relative rounded-2xl overflow-hidden cursor-default h-full"
         style={{
-          transform: isHovered && !prefersReduced
+          transform: isHovered && !prefersReduced && !isTouch
             ? `translate3d(0,-8px,0) scale(1.04) perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
-            : "translate3d(0,0,0) scale(1) perspective(800px) rotateX(0deg) rotateY(0deg)",
+            : isHovered && isTouch
+            ? "translate3d(0,-4px,0) scale(1.02)"
+            : "translate3d(0,0,0) scale(1)",
           transformStyle: "preserve-3d",
           transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
           boxShadow: isHovered
@@ -443,7 +452,7 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
           WebkitBackdropFilter: "blur(12px)",
         }}
       >
-        {isHovered && !prefersReduced && (
+        {isHovered && !prefersReduced && !isTouch && (
           <div className="absolute inset-0 pointer-events-none z-0"
             style={{ background: `radial-gradient(circle 200px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}10, transparent)` }} />
         )}
