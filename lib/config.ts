@@ -21,6 +21,10 @@ export const appRoutes = {
   pricingPro: `${getAppUrl()}/translate/checkout?plan=pro`,
   pricingUnlimited: `${getAppUrl()}/translate/checkout?plan=unlimited`,
   pricingCustom: `${getAppUrl()}/contact?type=enterprise`,
+
+  // Live product pricing redirects
+  pricingLive: `${getAppUrl()}/live/checkout?plan=live_platform`,
+  pricingLiveAnnual: `${getAppUrl()}/live/checkout?plan=live_platform&billing=yearly`,
 };
 
 // Helper function for external navigation

@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { AuroraCard } from '@/components/AuroraCard';
+import { appRoutes } from '@/lib/config';
 
 import LiveTranslationGraphic from '@/components/LiveTranslationGraphic';
 import LiveTranslationShowcase from '@/components/LiveTranslationShowcase';
@@ -29,7 +30,15 @@ const staggerContainer = {
   transition: { staggerChildren: 0.15 }
 };
 
+
 export default function LiveTranslationPage() {
+  const [billingInterval, setBillingInterval] = useState<'monthly' | 'yearly'>('monthly');
+  const monthlyPrice = 29;
+  const annualPrice = 290;
+  const displayPrice = billingInterval === 'yearly' ? annualPrice : monthlyPrice;
+  const displayUnit = billingInterval === 'yearly' ? '/yr' : '/mo';
+  const checkoutUrl = billingInterval === 'yearly' ? appRoutes.pricingLiveAnnual : appRoutes.pricingLive;
+
   return (
     <main className="min-h-screen bg-white relative z-0 overflow-hidden font-sans">
       <Navbar />
@@ -317,9 +326,124 @@ export default function LiveTranslationPage() {
             </table>
           </div>
           <div className="mt-12 text-center">
-            <a href="#" className="inline-block px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-              Calculate Your Savings
+            <a href="#pricing" className="inline-block px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              See Pricing
             </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 7. Live Pricing Section */}
+      <section id="pricing" className="py-24 px-6 relative">
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 opacity-40 rotate-12" colorPrimary="#EAD6FF" colorSecondary="#D6F5FF" delay={2} />
+        <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30%] w-[150vw] h-[150vh] -z-20 opacity-40 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={4} />
+
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center mb-14 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-lg text-base-content/80 max-w-2xl mx-auto leading-relaxed font-medium">
+              One plan. No tiers. Just pay for what you stream.
+            </p>
+          </div>
+
+          {/* Billing Toggle */}
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex bg-slate-100 rounded-full p-1.5 gap-0 ring-1 ring-slate-200">
+              <button
+                className={`px-7 py-2.5 rounded-full text-sm font-bold transition-all ${billingInterval === 'monthly' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
+                onClick={() => setBillingInterval('monthly')}
+              >
+                Monthly
+              </button>
+              <button
+                className={`px-7 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${billingInterval === 'yearly' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
+                onClick={() => setBillingInterval('yearly')}
+              >
+                Annual
+                <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE 17%</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Pricing Card */}
+          <div className="bg-white rounded-3xl shadow-[0_16px_48px_rgb(0,0,0,0.08)] ring-1 ring-slate-900/5 overflow-hidden">
+            {/* Card Header */}
+            <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-slate-100">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Exbabel Live Platform</h3>
+                </div>
+                <p className="text-base-content/70 text-sm font-medium">Real-time AI translation overlay for any livestream</p>
+              </div>
+              <div className="text-left md:text-right">
+                {billingInterval === 'yearly' && (
+                  <div className="text-slate-400 text-sm line-through mb-1">${monthlyPrice * 12}/yr</div>
+                )}
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-extrabold text-base-content tracking-tight">${displayPrice}</span>
+                  <span className="text-slate-500 text-sm font-semibold">{displayUnit}</span>
+                </div>
+                {billingInterval === 'yearly' && (
+                  <div className="text-green-600 text-xs font-bold mt-1">Save ${monthlyPrice * 12 - annualPrice}/year</div>
+                )}
+              </div>
+            </div>
+
+            {/* Usage Rate Banner */}
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 px-8 md:px-10 py-5 flex items-center gap-4 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                <span className="text-lg">⏱️</span>
+              </div>
+              <div>
+                <span className="text-lg font-extrabold text-primary">+ $10</span>
+                <span className="text-slate-600 text-sm font-medium ml-1">/hour per language — only pay for what you stream</span>
+              </div>
+            </div>
+
+            {/* Features Grid */}
+            <div className="p-8 md:p-10">
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+                {[
+                  { icon: '👥', text: 'Unlimited viewers per session' },
+                  { icon: '🎥', text: 'Real-time video overlay & captions' },
+                  { icon: '🌍', text: '60+ premium languages with AI voices' },
+                  { icon: '💻', text: 'Zero hardware — works with any stream' },
+                  { icon: '⚡', text: 'Setup in under 5 minutes' },
+                  { icon: '📞', text: 'Email & phone support' },
+                ].map((f, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-lg">{f.icon}</span>
+                    <span className="text-slate-700 font-medium text-sm">{f.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trial Badge */}
+              <div className="bg-green-50 border border-green-200 rounded-xl px-5 py-3 text-center mb-8">
+                <span className="text-green-700 font-bold text-sm">🎁 Includes 30-day free trial — cancel anytime, no credit card required</span>
+              </div>
+
+              {/* CTA */}
+              <a
+                href={checkoutUrl}
+                className="block w-full text-center px-10 py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20"
+                style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+              >
+                Start 30-Day Free Trial
+              </a>
+              <p className="text-center text-slate-400 text-xs mt-3 font-medium">No credit card required • Cancel anytime</p>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -386,11 +510,11 @@ export default function LiveTranslationPage() {
             Turn every livestream, sermon, conference, and event into a multilingual experience with real-time speech-to-speech translation, AI voiceovers, and live captions. Welcome more people. Reach more communities. Extend your ministry beyond language barriers.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-            <a href="/demo" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-              Schedule a Live Demo
+            <a href={checkoutUrl} className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              Start 30-Day Free Trial
             </a>
-            <a href="#" className="px-10 py-4 rounded-md text-slate-900 font-bold text-lg bg-white border-2 border-transparent hover:bg-slate-50 transition-all transform hover:-translate-y-0.5 shadow-lg text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-              See Exbabel Live in Action
+            <a href="/demo" className="px-10 py-4 rounded-md text-slate-900 font-bold text-lg bg-white border-2 border-transparent hover:bg-slate-50 transition-all transform hover:-translate-y-0.5 shadow-lg text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              Schedule a Live Demo
             </a>
           </div>
         </motion.div>
