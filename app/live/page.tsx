@@ -67,8 +67,8 @@ export default function LiveTranslationPage() {
             <a href="/demo" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Schedule a Demo
             </a>
-            <a href="#how-it-works" className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-              Watch a Live Example
+            <a href={appRoutes.pricingLive} className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              Start Free Trial
             </a>
           </motion.div>
         </motion.div>

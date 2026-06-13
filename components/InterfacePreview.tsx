@@ -238,8 +238,14 @@ export default function InterfacePreview() {
           <div className="flex flex-col gap-4 animate-scroll-up pt-4">
             {[...COL1, ...COL1].map((lang, i) => (
               <div key={`col1-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-base leading-none">{countryToEmoji(lang.country)}</span>
+                  <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
+                      <img 
+                        src={`https://flagcdn.com/${lang.country}.svg`} 
+                        alt={`${lang.name} flag`} 
+                        className="w-full h-full object-cover" 
+                        loading="lazy" 
+                        decoding="async"
+                      />
                   </div>
                   <span className="font-semibold text-sm tracking-wide">{lang.name}</span>
               </div>
@@ -250,8 +256,14 @@ export default function InterfacePreview() {
           <div className="flex flex-col gap-4 animate-scroll-down pt-4">
             {[...COL2, ...COL2].map((lang, i) => (
               <div key={`col2-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-base leading-none">{countryToEmoji(lang.country)}</span>
+                  <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
+                      <img 
+                        src={`https://flagcdn.com/${lang.country}.svg`} 
+                        alt={`${lang.name} flag`} 
+                        className="w-full h-full object-cover" 
+                        loading="lazy" 
+                        decoding="async"
+                      />
                   </div>
                   <span className="font-semibold text-sm tracking-wide">{lang.name}</span>
               </div>
@@ -305,8 +317,14 @@ export default function InterfacePreview() {
                     `}} />
                     {filteredLanguages.map(lang => (
                         <div key={lang.code} className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 text-white transition-all cursor-pointer group select-none hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                            <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
-                                <span className="text-base leading-none">{countryToEmoji(lang.country)}</span>
+                            <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 bg-white/10">
+                                <img 
+                                  src={`https://flagcdn.com/${lang.country}.svg`} 
+                                  alt={`${lang.name} flag`} 
+                                  className="w-full h-full object-cover" 
+                                  loading="lazy" 
+                                  decoding="async"
+                                />
                             </div>
                             <span className="font-medium text-sm tracking-wide truncate w-full" title={lang.name}>{lang.name}</span>
                         </div>
