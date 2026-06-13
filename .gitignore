@@ -39,3 +39,9 @@ next-env.d.ts
 # Windows metadata
 *Zone.Identifier
 
+# Python & AI Utility
+venv/
+*.pb
+*.png
+*.jpg
+*.jpeg

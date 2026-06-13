@@ -56,7 +56,7 @@ export default function VideoShowcase() {
 
                 <div className="max-w-5xl mx-auto">
                     <div
-                        className="relative rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 cursor-pointer group"
+                        className="relative bg-black rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 cursor-pointer group"
                         onClick={toggleMute}
                     >
                         {/* Poster image shown until video loads */}
