@@ -23,8 +23,8 @@ export const appRoutes = {
   pricingCustom: `${getAppUrl()}/contact?type=enterprise`,
 
   // Live product pricing redirects
-  pricingLive: `${getAppUrl()}/live/checkout?plan=live_platform`,
-  pricingLiveAnnual: `${getAppUrl()}/live/checkout?plan=live_platform&billing=yearly`,
+  pricingLive: `${getAppUrl()}/live/checkout`,
+  pricingLiveAnnual: `${getAppUrl()}/live/checkout?billing=yearly`,
 };
 
 // Helper function for external navigation
