@@ -36,20 +36,20 @@ function parseCSV(filepath: string, sourceName: string): MergedKeyword[] {
 
   const results: MergedKeyword[] = [];
   for (let i = 1; i < lines.length; i++) {
-    const cols = lines[i].split(',');
-    const kw = cols[kwIdx]?.trim();
+    const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+    const kw = cols[kwIdx]?.replace(/^"|"$/g, '')?.trim();
     if (!kw) continue;
     results.push({
       keyword: kw,
       volume: parseInt(cols[volIdx] || '0', 10) || 0,
       difficulty: parseInt(cols[diffIdx] || '0', 10) || 0,
       cpc: parseFloat(cols[cpcIdx] || '0') || 0,
-      intent: cols[intentIdx]?.trim() || 'Unknown',
-      buyerPersona: cols[personaIdx]?.trim() || '',
+      intent: cols[intentIdx]?.replace(/^"|"$/g, '')?.trim() || 'Unknown',
+      buyerPersona: cols[personaIdx]?.replace(/^"|"$/g, '')?.trim() || '',
       relevance: parseInt(cols[relIdx] || '0', 10) || 0,
       revenueScore: parseFloat(cols[revIdx] || '0') || 0,
       competition: parseFloat(cols[compIdx] || '0') || 0,
-      cluster: cols[clusterIdx]?.trim() || '',
+      cluster: cols[clusterIdx]?.replace(/^"|"$/g, '')?.trim() || '',
       source: sourceName,
     });
   }
@@ -144,28 +144,23 @@ function isExcluded(keyword: string): boolean {
 
 // Main
 const reportsDir = path.resolve(__dirname, '../seo-reports');
-const files = [
-  { path: path.join(reportsDir, '2026-06-09-live-captioning-and-translation-1780968719-keywords.csv'), name: 'V2-API' },
-  { path: path.join(reportsDir, '2026-06-09-google-translate-1780969839-keywords.csv'), name: 'V2-CSV' },
-  { path: path.join(reportsDir, '2026-06-09-a-keywords.csv'), name: 'V1' },
-];
+const outDir = process.env.RUN_DIR || reportsDir;
+const masterFile = path.join(reportsDir, 'master-keywords.csv');
 
 const allKeywords: MergedKeyword[] = [];
-for (const file of files) {
-  if (fs.existsSync(file.path)) {
-    const parsed = parseCSV(file.path, file.name);
-    console.log(`Loaded ${parsed.length} keywords from ${file.name}`);
-    allKeywords.push(...parsed);
-  }
+if (fs.existsSync(masterFile)) {
+  const parsed = parseCSV(masterFile, 'Master');
+  console.log(`Loaded ${parsed.length} keywords from master-keywords.csv`);
+  allKeywords.push(...parsed);
+} else {
+  console.log('No master-keywords.csv found. Run seo-agent.ts first.');
+  process.exit(1);
 }
 
-// Deduplicate — prefer V2-API > V2-CSV > V1 (better data quality)
+// Deduplicate
 const deduped = new Map<string, MergedKeyword>();
-const priority = ['V1', 'V2-CSV', 'V2-API']; // later wins
-for (const prio of priority) {
-  for (const kw of allKeywords.filter(k => k.source === prio)) {
-    deduped.set(kw.keyword.toLowerCase(), kw);
-  }
+for (const kw of allKeywords) {
+  deduped.set(kw.keyword.toLowerCase(), kw);
 }
 
 console.log(`\nTotal unique keywords: ${deduped.size}`);
@@ -192,7 +187,7 @@ const csvHeader = 'Keyword,Volume,KD,CPC,Intent,Buyer Persona,Relevance,Revenue 
 const csvRows = goldmine.map(k =>
   `${k.keyword},${k.volume},${k.difficulty},${k.cpc},${k.intent},${k.buyerPersona},${k.relevance},${k.revenueScore},${k.competition},${k.cluster},${k.source}`
 );
-fs.writeFileSync(path.join(reportsDir, 'goldmine-keywords.csv'), [csvHeader, ...csvRows].join('\n'));
+fs.writeFileSync(path.join(outDir, 'goldmine-keywords.csv'), [csvHeader, ...csvRows].join('\n'));
 
 // Write Markdown report
 const tierLabels = [
@@ -262,10 +257,10 @@ md += `| Avg. KD | ${Math.round(goldmine.reduce((s, k) => s + k.difficulty, 0) /
 md += `| Highest CPC keyword | ${goldmine.sort((a, b) => b.cpc - a.cpc)[0]?.keyword} ($${goldmine[0]?.cpc}) |\n`;
 md += `| Highest volume keyword | ${goldmine.sort((a, b) => b.volume - a.volume)[0]?.keyword} (${goldmine[0]?.volume.toLocaleString()}) |\n`;
 
-fs.writeFileSync(path.join(reportsDir, 'goldmine-keywords.md'), md);
+fs.writeFileSync(path.join(outDir, 'goldmine-keywords.md'), md);
 
-console.log('✅ Written: goldmine-keywords.csv');
-console.log('✅ Written: goldmine-keywords.md');
+console.log(`✅ Written: ${path.relative(process.cwd(), path.join(outDir, 'goldmine-keywords.csv'))}`);
+console.log(`✅ Written: ${path.relative(process.cwd(), path.join(outDir, 'goldmine-keywords.md'))}`);
 console.log(`\n🏆 Top 10 Goldmine Keywords:`);
 goldmine.sort((a, b) => b.revenueScore - a.revenueScore);
 for (const k of goldmine.slice(0, 10)) {

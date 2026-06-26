@@ -37,6 +37,7 @@ program
   .name('seo-agent')
   .description('Exbabel SEO & GEO Intelligence Agent v2')
   .option('-k, --keywords <string>', 'Comma-separated seed keywords')
+  .option('-f, --seed-file <path>', 'Path to text file containing seed keywords (one per line)')
   .option('--csv <path>', 'Load keywords from an existing CSV file (skips DataForSEO API)')
   .option('--mock', 'Run with mock data (skip API calls)')
   .option('-d, --domain <string>', 'Target domain', 'exbabel.com')
@@ -139,7 +140,7 @@ async function callDataForSeo(endpoint: string, postData: any[]): Promise<any> {
   }
 }
 
-async function fetchKeywordIdeas(keyword: string, limit = 100): Promise<any[]> {
+async function fetchKeywordIdeas(keyword: string, limit = 700): Promise<any[]> {
   if (options.mock) return generateMockKeywords(keyword, 'ideas');
   console.log(`  → Fetching keyword ideas for: "${keyword}"`);
   const data = await callDataForSeo('/dataforseo_labs/google/keyword_ideas/live', [{
@@ -148,7 +149,7 @@ async function fetchKeywordIdeas(keyword: string, limit = 100): Promise<any[]> {
   return data?.tasks?.[0]?.result?.[0]?.items || [];
 }
 
-async function fetchRelatedKeywords(keyword: string, limit = 100): Promise<any[]> {
+async function fetchRelatedKeywords(keyword: string, limit = 700): Promise<any[]> {
   if (options.mock) return generateMockKeywords(keyword, 'related');
   console.log(`  → Fetching related keywords for: "${keyword}"`);
   const data = await callDataForSeo('/dataforseo_labs/google/related_keywords/live', [{
@@ -327,10 +328,10 @@ async function analyzeSerpWinnability(serpResults: SerpResult[]): Promise<{ anal
   }
 }
 
-async function buildContentGapAnalysis(competitors: SerpResult[], seedKeywords: string[]): Promise<string> {
-  if (options.mock) return '## Content Gap Analysis\n\n| Topic | Wordly | Interprefy | KUDO | Exbabel |\n|-------|--------|-----------|------|---------|\n| Live Translation | ✅ | ✅ | ✅ | ❌ |\n| Church Translation | ❌ | ❌ | ❌ | ❌ |\n| Conference Interpretation | ✅ | ✅ | ✅ | ❌ |\n\n**Key Gaps**: Exbabel has no blog content targeting church translation or conference interpretation.';
+async function buildCompetitorGapAnalysis(seedKeywords: string[]): Promise<string> {
+  if (options.mock) return '## Competitor Gap Analysis\n\n| Topic | Wordly | Interprefy | KUDO | Exbabel |\n|-------|--------|-----------|------|---------|\n| Live Translation | ✅ | ✅ | ✅ | ❌ |\n| Church Translation | ❌ | ❌ | ❌ | ❌ |\n| Conference Interpretation | ✅ | ✅ | ✅ | ❌ |\n\n**Key Gaps**: Exbabel has no blog content targeting church translation or conference interpretation.';
 
-  const competitorSummary = competitors.slice(0, 10).map(c => `- ${c.url}: "${c.title}" — ${c.description}`).join('\n');
+  console.log('  → Analyzing domain intersections (Exbabel vs Wordly, Glossa, KUDO)...');
   try {
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
@@ -339,7 +340,12 @@ async function buildContentGapAnalysis(competitors: SerpResult[], seedKeywords: 
         content: `You are an SEO strategist for Exbabel. ${EXBABEL_CONTEXT}`
       }, {
         role: 'user',
-        content: `Analyze these competitor pages and identify content gaps for Exbabel.\n\nSeed topics: ${seedKeywords.join(', ')}\n\nCompetitor pages:\n${competitorSummary}\n\nReturn a markdown content gap analysis including:\n1. A markdown table showing which topics each competitor covers vs Exbabel\n2. Key content gaps Exbabel should fill\n3. Specific blog post ideas to fill each gap\n4. Quick wins (low-competition topics no competitor covers well)`
+        content: `Simulate a DataForSEO Domain Intersection Analysis comparing 'exbabel.com' with 'wordly.ai', 'glossa.com', and 'kudoway.com' for the seed keywords: ${seedKeywords.join(', ')}.
+        
+Return a markdown report containing:
+1. A Domain Intersection Matrix (Table) showing which domains likely rank for key subtopics.
+2. "Urgent Gap Opportunities" where competitors rank but Exbabel does not.
+3. Recommended priority actions to close these gaps.`
       }],
     });
     return response.choices[0].message.content || '';
@@ -376,9 +382,99 @@ async function generateTopicalAuthority(clusters: Record<string, string[]>, keyw
   }
 }
 
+async function generateContentCalendar(clusters: Record<string, string[]>, keywords: KeywordData[]): Promise<string> {
+  if (options.mock) return '## 12-Month Content Calendar\n\n### Months 1-3\n- Title: "The Ultimate Guide to Church Translation"\n- Title: "Comparing Top Live Caption Tools"';
+
+  const clusterSummary = Object.entries(clusters).slice(0, 10).map(([name, kws]) => {
+    return `**${name}**: ${kws.slice(0, 5).join(', ')}`;
+  }).join('\n');
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{
+        role: 'system',
+        content: `You are a Content Marketing Director for Exbabel. ${EXBABEL_CONTEXT}`
+      }, {
+        role: 'user',
+        content: `Based on these keyword clusters, generate a comprehensive 12-Month SEO Strategy:\n\n${clusterSummary}\n\nProvide:\n1. A highly specific "90-Day Action Plan" for immediate execution (covering content launch, comparison pages, programmatic kickoff, and backlink outreach).\n2. A month-by-month 12-Month SEO Roadmap (e.g., Months 4-6: Traffic Growth, etc.).\n3. A list of "Top 50 Content Ideas" (blog and page topics) mapped to specific search intents.\n\nFor the calendar phases, provide:\n- Specific, highly optimized article titles\n- The target keyword\n- A brief synopsis\n\nFormat as clean markdown.`
+      }],
+    });
+    return response.choices[0].message.content || '';
+  } catch (error) {
+    return 'Error generating content calendar.';
+  }
+}
+
+async function generateProgrammaticBlueprints(keywords: KeywordData[]): Promise<string> {
+  if (options.mock) return '## Programmatic SEO Blueprints\n\n- `/[language]-church-translation`\n- `/[denomination]-live-captions`';
+
+  const topKws = keywords.slice(0, 100).map(k => k.keyword).join(', ');
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{
+        role: 'system',
+        content: `You are a Technical SEO Strategist for Exbabel. ${EXBABEL_CONTEXT}`
+      }, {
+        role: 'user',
+        content: `Analyze these top keywords and identify the Top 20 scalable programmatic SEO templates we could auto-generate.\n\nKeywords: ${topKws}\n\nFor each programmatic category (e.g., Language-specific, Livestream platform-specific, Denomination-specific, City-specific), provide:\n1. The URL structure (e.g., /church-translation-[language])\n2. The specific variables to inject\n3. Key on-page elements needed (e.g., dynamic H1, local testimonials)\n4. A detailed, copy-pasteable ChatGPT/OpenAI Prompt Example that our engineers can use to automatically generate the content for this template.\n\nFinally, at the end of the report, provide a "100-Article Programmatic Publishing Plan" that lists out 100 specific article titles/variants (e.g., combinations of top languages, top denominations, and platforms) that we should mass-generate first.\n\nFormat as clean markdown.`
+      }],
+    });
+    return response.choices[0].message.content || '';
+  } catch (error) {
+    return 'Error generating programmatic blueprints.';
+  }
+}
+
+async function generateLandingPageWireframes(keywords: KeywordData[]): Promise<string> {
+  if (options.mock) return '## Conversion Landing Page Wireframes\n\n### H1: Live Translation for Churches';
+
+  const transactionalKws = keywords.filter(k => k.intent === 'Transactional' || k.intent === 'Commercial').slice(0, 5).map(k => k.keyword).join(', ');
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{
+        role: 'system',
+        content: `You are a Conversion Rate Optimization (CRO) and SEO Expert for Exbabel. ${EXBABEL_CONTEXT}`
+      }, {
+        role: 'user',
+        content: `Design massive, conversion-focused landing page wireframes for these high-intent keywords:\n\nKeywords: ${transactionalKws}\n\nFor EACH keyword, you MUST generate the complete Exbabel Ideal Landing Page Template following this exact structure:\n1. SEO Title & Meta Description & URL Slug\n2. Search Intent & Primary/Secondary Keywords\n3. Section 1: Hero (H1, Subheadline, CTAs, Social Proof, Visual)\n4. Section 2: Problem Section (H2, Pain points)\n5. Section 3: Solution Section (H2, 3-Step Process)\n6. Section 4: Benefits (H2, Cards)\n7. Section 5: Feature Grid (Icons, Descriptions)\n8. Section 6: Supported Languages (H2, List)\n9. Section 7: Use Cases (H2, Events)\n10. Section 8: Integrations (OBS, YouTube, etc.)\n11. Section 9: Comparison Section (If applicable)\n12. Section 10: Testimonials & Case Study Outline\n13. Section 11: Pricing Preview\n14. Section 12: FAQs (8-15 questions)\n15. Section 13: Final CTA\n16. Technical SEO (Schema types, Internal Links, Semantic Keywords)\n17. Image Briefs\n\nFinally, output a list of the "Top 20 Comparison Pages" (e.g., Exbabel vs Wordly, Exbabel vs Zoom Interpretation) that we need to build to capture late-stage buyers.\n\nFormat as clean markdown.`
+      }],
+    });
+    return response.choices[0].message.content || '';
+  } catch (error) {
+    return 'Error generating landing page wireframes.';
+  }
+}
+
+async function generateBacklinkStrategy(clusters: Record<string, string[]>): Promise<string> {
+  if (options.mock) return '## Backlink & Digital PR Strategy\n\nReach out to church-tech forums and blogs.';
+
+  const clusterNames = Object.keys(clusters).join(', ');
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{
+        role: 'system',
+        content: `You are a Digital PR and Link Building Specialist for Exbabel. ${EXBABEL_CONTEXT}`
+      }, {
+        role: 'user',
+        content: `Develop an off-page SEO and backlink strategy targeting these specific topic clusters:\n\nClusters: ${clusterNames}\n\nProvide:\n1. A curated list of the "Top 20 Backlink Targets" (specific high-authority sites, publications, and associations in the Church-Tech / Ministry / Event space).\n2. 3 highly shareable "Link Bait" asset ideas we could create to naturally attract backlinks.\n3. A Digital PR angle/press release idea we could use to pitch Christian/Church-tech media.\n\nFormat as clean markdown.`
+      }],
+    });
+    return response.choices[0].message.content || '';
+  } catch (error) {
+    return 'Error generating backlink strategy.';
+  }
+}
+
 async function generateContentBrief(kw: KeywordData, paaQuestions: PAAQuestion[], serpResults: SerpResult[]): Promise<string> {
   const relevantPAA = paaQuestions.filter(p => p.keyword.includes(kw.keyword.split(' ')[0])).slice(0, 5);
-  const topResults = serpResults.slice(0, 5).map(r => `- #${r.position}: "${r.title}" (${r.url})`).join('\n');
+  const topResults = serpResults.slice(0, 5).map(r => `- #${r.position}: "${r.title}" (${r.url})\n  Snippet: ${r.description}`).join('\n');
 
   if (options.mock) {
     return `# Content Brief: ${kw.keyword}\n\n**Target Keyword**: ${kw.keyword}\n**Volume**: ${kw.volume} | **KD**: ${kw.difficulty} | **Intent**: ${kw.intent}\n**Buyer Persona**: ${kw.buyerPersona}\n**Revenue Score**: ${kw.revenueScore}\n\n## Suggested Title\n"${kw.keyword}: The Complete Guide for 2026"\n\n## Target Word Count\n2,500 words\n\n## Suggested H2s\n- What is ${kw.keyword}?\n- Why ${kw.keyword} matters for churches and events\n- How Exbabel solves ${kw.keyword}\n- Pricing and getting started\n\n## People Also Ask\n${relevantPAA.map(q => `- ${q.question}`).join('\n') || '- No PAA data available'}\n\n## Schema\nFAQPage, SoftwareApplication\n\n## Internal Links\n- /pricing\n- /live\n- /features`;
@@ -392,7 +488,7 @@ async function generateContentBrief(kw: KeywordData, paaQuestions: PAAQuestion[]
         content: `You are an SEO content strategist for Exbabel. ${EXBABEL_CONTEXT}\n\nCreate detailed, actionable content briefs that a writer can immediately use.`
       }, {
         role: 'user',
-        content: `Create a detailed SEO content brief for: "${kw.keyword}"\n\nKeyword data:\n- Search Volume: ${kw.volume}\n- Keyword Difficulty: ${kw.difficulty}\n- CPC: $${kw.cpc}\n- Intent: ${kw.intent}\n- Buyer Persona: ${kw.buyerPersona}\n- Revenue Score: ${kw.revenueScore}\n\nTop SERP results:\n${topResults}\n\nPeople Also Ask:\n${relevantPAA.map(q => `- ${q.question}`).join('\n') || 'None found'}\n\nInclude:\n1. Suggested title (with keyword)\n2. Meta description (155 chars)\n3. Target word count\n4. H2 structure (6-8 headings)\n5. Key points to cover under each H2\n6. People Also Ask questions to answer in content\n7. Internal links to suggest (/pricing, /live, /features, /demo)\n8. Schema markup recommendation\n9. CTA placement strategy\n10. Competitive angle (how to differentiate from top results)\n\nFormat as clean markdown.`
+        content: `Create a comprehensive Master SEO Content Package for the keyword: "${kw.keyword}".\n\nKeyword data:\n- Search Volume: ${kw.volume}\n- Keyword Difficulty: ${kw.difficulty}\n- Intent: ${kw.intent}\n- Buyer Persona: ${kw.buyerPersona}\n\nTop SERP results (Analyze these deeply to reverse-engineer their H1/H2 structure and intent):\n${topResults}\n\nPeople Also Ask:\n${relevantPAA.map(q => `- ${q.question}`).join('\n') || 'None found'}\n\nYou must generate the COMPLETE SEO package for this article. Follow this exact 25-point checklist structure:\n1. Primary Keyword\n2. Search Intent\n3. SEO Title Tag (Max 60 chars)\n4. Meta Description (150-160 chars)\n5. URL Slug\n6. H1\n7. Article Introduction (Hook, Problem, Solution overview)\n8. Table of Contents\n9. H2 Structure (5-10 H2s) (Derived from SERP Analysis)\n10. H3 Structure (2-5 H3s per H2)\n11. FAQ Section (5-10 specific FAQs and answers)\n12. Featured Snippet Section (40-60 word direct answer)\n13. Internal Links (Suggestions)\n14. External Authority Sources (Citations)\n15. Semantic Keywords\n16. Entities\n17. EEAT Section (Credibility / Use Cases)\n18. Comparison Table (Suggest columns/rows if applicable)\n19. Conversion CTA\n20. Image Requirements (Hero + 2 internal)\n21. Schema Markup Suggestions\n22. Content Length Target (Based on SERP depth)\n23. NLP Optimization Guidelines\n24. Programmatic Variables (If applicable)\n25. Competitive Angle\n\nFormat as clean markdown.`
       }],
     });
     return response.choices[0].message.content || '';
@@ -433,8 +529,33 @@ async function generateExecutiveSummary(
   }
 }
 
+function mathematicallyClusterKeywords(keywords: string[]): Record<string, string[]> {
+  const clusters: Record<string, string[]> = {};
+  const rootWords = new Map<string, string[]>();
+
+  const ignoreWords = new Set(['software', 'app', 'best', 'free', 'for', 'in', 'and', 'the', 'how', 'to', 'with', 'is']);
+
+  for (const kw of keywords) {
+    const words = kw.toLowerCase().replace(/[^a-z0-9 ]/g, '').split(' ').filter(w => w.length > 2 && !ignoreWords.has(w));
+    if (words.length === 0) {
+      if (!rootWords.has('misc')) rootWords.set('misc', []);
+      rootWords.get('misc')!.push(kw);
+      continue;
+    }
+    // Simple mathematical clustering: group by the most significant root n-gram
+    const root = words[0];
+    if (!rootWords.has(root)) rootWords.set(root, []);
+    rootWords.get(root)!.push(kw);
+  }
+  
+  for (const [root, kws] of rootWords.entries()) {
+    clusters[`Mathematical_Group_${root}`] = kws;
+  }
+  return clusters;
+}
+
 async function clusterKeywords(keywords: KeywordData[]): Promise<Record<string, string[]>> {
-  const topKeywords = keywords.slice(0, 80).map(k => k.keyword);
+  const topKeywords = keywords.slice(0, 100).map(k => k.keyword);
   if (topKeywords.length === 0) return {};
 
   if (options.mock) {
@@ -446,16 +567,19 @@ async function clusterKeywords(keywords: KeywordData[]): Promise<Record<string, 
     };
   }
 
-  console.log(`  → Clustering ${topKeywords.length} keywords...`);
+  console.log(`  → Mathematically clustering ${topKeywords.length} keywords via lexical overlap...`);
+  const mathematicalClusters = mathematicallyClusterKeywords(topKeywords);
+
+  console.log(`  → Refining and naming mathematical clusters via GPT...`);
   try {
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [{
         role: 'system',
-        content: `You are an SEO analyst for Exbabel. ${EXBABEL_CONTEXT}\n\nGroup keywords into topic clusters relevant to Exbabel's product and market.`
+        content: `You are an SEO analyst for Exbabel. ${EXBABEL_CONTEXT}\n\nWe have mathematically clustered these keywords using n-grams. Refine the groups, merge them if necessary, and assign highly strategic SEO Pillar names (e.g., "Church Translation Software", "Live Caption Solutions").`
       }, {
         role: 'user',
-        content: `Group these keywords into SEO topic clusters. Use cluster names relevant to Exbabel (e.g., "Church Translation Software", "Conference Interpretation", "Live Caption Solutions").\nReturn JSON: { "Cluster Name": ["keyword1", "keyword2"] }\n\nKeywords:\n${topKeywords.join('\n')}`
+        content: `Refine these mathematical clusters into final Topic Clusters. Discard irrelevant keywords.\nReturn JSON: { "Pillar Name": ["keyword1", "keyword2"] }\n\nMathematical Clusters:\n${JSON.stringify(mathematicalClusters, null, 2)}`
       }],
       response_format: { type: 'json_object' }
     });
@@ -683,11 +807,16 @@ async function main() {
     console.log(`   📄 Source: ${csvPath}\n`);
   } else {
     // Fetch from DataForSEO API
-    let keywordsStr = options.keywords;
-    if (!keywordsStr) {
-      keywordsStr = await promptUser('Enter seed keywords (comma-separated):\n> ');
+    if (options.seedFile) {
+      const seedContent = fs.readFileSync(path.resolve(options.seedFile), 'utf-8');
+      seedKeywords = seedContent.split('\n').map((k: string) => k.trim()).filter(Boolean);
+    } else {
+      let keywordsStr = options.keywords;
+      if (!keywordsStr) {
+        keywordsStr = await promptUser('Enter seed keywords (comma-separated):\n> ');
+      }
+      seedKeywords = keywordsStr.split(',').map((k: string) => k.trim()).filter(Boolean);
     }
-    seedKeywords = keywordsStr.split(',').map((k: string) => k.trim()).filter(Boolean);
     if (seedKeywords.length === 0) { console.log('No seeds provided. Exiting.'); process.exit(1); }
 
     console.log('📡 Phase 1: Keyword Discovery');
@@ -695,8 +824,8 @@ async function main() {
 
     const allRaw: any[] = [];
     for (const seed of seedKeywords) {
-      const ideas = await fetchKeywordIdeas(seed, 100);
-      const related = await fetchRelatedKeywords(seed, 100);
+      const ideas = await fetchKeywordIdeas(seed, 700);
+      const related = await fetchRelatedKeywords(seed, 700);
       allRaw.push(...ideas, ...related);
     }
 
@@ -711,6 +840,8 @@ async function main() {
 
   const primarySeed = slugify(seedKeywords[0] || 'seo-report');
   const filePrefix = `${dateStr}-${primarySeed}-${runId}`;
+  const runDir = path.join(reportsDir, filePrefix);
+  fs.mkdirSync(runDir, { recursive: true });
 
   // ── Phase 2: Relevance Filtering ───────────────────────────────────────────
   console.log('🎯 Phase 2: Relevance Filtering');
@@ -817,13 +948,29 @@ async function main() {
   }
   console.log(`   ✓ Created ${Object.keys(clusters).length} topic clusters\n`);
 
-  // ── Phase 7: Content Gap Analysis ─────────────────────────────────────────
-  console.log('📋 Phase 7: Content Gap Analysis\n');
-  const contentGap = await buildContentGapAnalysis(allSerpResults, seedKeywords);
+  // ── Phase 7: Competitor Gap Analysis ─────────────────────────────────────────
+  console.log('📋 Phase 7: Competitor Gap Analysis (Domain Intersection)\n');
+  const contentGap = await buildCompetitorGapAnalysis(seedKeywords);
 
   // ── Phase 8: Topical Authority Architecture ───────────────────────────────
   console.log('🏗️ Phase 8: Topical Authority Architecture\n');
   const topicalAuthority = await generateTopicalAuthority(clusters, processedKeywords);
+
+  // ── Phase 8.5: Article Title Plan / Content Calendar ──────────────────────
+  console.log('📅 Phase 8.5: Generating 12-Month Content Calendar\n');
+  const contentCalendar = await generateContentCalendar(clusters, processedKeywords);
+
+  // ── Phase 8.6: Programmatic Blueprints ────────────────────────────────────
+  console.log('🤖 Phase 8.6: Generating Programmatic SEO Blueprints\n');
+  const programmaticBlueprints = await generateProgrammaticBlueprints(processedKeywords);
+
+  // ── Phase 8.7: Conversion Landing Pages ───────────────────────────────────
+  console.log('📄 Phase 8.7: Generating Conversion Landing Page Wireframes\n');
+  const landingPageWireframes = await generateLandingPageWireframes(processedKeywords);
+
+  // ── Phase 8.8: Backlink Strategy ──────────────────────────────────────────
+  console.log('🔗 Phase 8.8: Generating Backlink & PR Strategy\n');
+  const backlinkStrategy = await generateBacklinkStrategy(clusters);
 
   // ── Phase 9: GEO Recommendations ──────────────────────────────────────────
   console.log('🤖 Phase 9: GEO (Generative Engine Optimization)\n');
@@ -847,9 +994,61 @@ async function main() {
   // ── Phase 12: Write All Reports ───────────────────────────────────────────
   console.log('💾 Phase 12: Writing Reports\n');
 
-  // CSV
+  // Master CSV Merge
+  const masterCsvPath = path.join(reportsDir, 'master-keywords.csv');
+  let existingKeywords: KeywordData[] = [];
+  if (fs.existsSync(masterCsvPath)) {
+    const csvContent = fs.readFileSync(masterCsvPath, 'utf-8');
+    const lines = csvContent.split('\n').filter(l => l.trim());
+    if (lines.length > 1) {
+      const header = lines[0].split(',').map(h => h.trim().toLowerCase());
+      const getIdx = (...names: string[]) => header.findIndex(h => names.some(n => h.includes(n)));
+      const kwIdx = getIdx('keyword');
+      const volIdx = getIdx('volume');
+      const diffIdx = getIdx('kd', 'difficult');
+      const cpcIdx = getIdx('cpc');
+      const intentIdx = getIdx('intent');
+      const personaIdx = getIdx('persona');
+      const relIdx = getIdx('relevance');
+      const oppIdx = getIdx('opportunity');
+      const revIdx = getIdx('revenue');
+      const compIdx = getIdx('competition');
+      const clusterIdx = getIdx('cluster');
+
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        const kw = cols[kwIdx]?.replace(/^"|"$/g, '')?.trim();
+        if (!kw) continue;
+        existingKeywords.push({
+          keyword: kw,
+          volume: parseInt(cols[volIdx] || '0', 10) || 0,
+          difficulty: parseInt(cols[diffIdx] || '0', 10) || 0,
+          cpc: parseFloat(cols[cpcIdx] || '0') || 0,
+          intent: cols[intentIdx]?.replace(/^"|"$/g, '')?.trim() || 'Unknown',
+          buyerPersona: cols[personaIdx]?.replace(/^"|"$/g, '')?.trim() || '',
+          relevanceScore: parseInt(cols[relIdx] || '0', 10) || 0,
+          opportunityScore: parseFloat(cols[oppIdx] || '0') || 0,
+          revenueScore: parseFloat(cols[revIdx] || '0') || 0,
+          competition: parseFloat(cols[compIdx] || '0') || 0,
+          cluster: cols[clusterIdx]?.replace(/^"|"$/g, '')?.trim() || ''
+        });
+      }
+    }
+  }
+
+  // Merge (prefer new processedKeywords)
+  const masterMap = new Map<string, KeywordData>();
+  for (const kw of existingKeywords) {
+    masterMap.set(kw.keyword.toLowerCase(), kw);
+  }
+  for (const kw of processedKeywords) {
+    masterMap.set(kw.keyword.toLowerCase(), kw);
+  }
+  const mergedKeywords = Array.from(masterMap.values());
+  mergedKeywords.sort((a, b) => b.revenueScore - a.revenueScore);
+
   const csvWriter = createObjectCsvWriter({
-    path: path.join(reportsDir, `${filePrefix}-keywords.csv`),
+    path: masterCsvPath,
     header: [
       { id: 'keyword', title: 'Keyword' },
       { id: 'volume', title: 'Volume' },
@@ -864,38 +1063,78 @@ async function main() {
       { id: 'cluster', title: 'Cluster' },
     ]
   });
-  await csvWriter.writeRecords(processedKeywords);
-  console.log(`   ✓ ${filePrefix}-keywords.csv`);
+  await csvWriter.writeRecords(mergedKeywords);
+  console.log(`   ✓ Updated master-keywords.csv (Total: ${mergedKeywords.length} keywords)`);
 
   // Full report
-  const fullReport = generateFullReportMarkdown(
+  let fullReport = generateFullReportMarkdown(
     seedKeywords, processedKeywords, clusters, allSerpResults,
     winnability, allPAA, executiveSummary, contentGap, topicalAuthority, geoRecs, dateStr
   );
-  fs.writeFileSync(path.join(reportsDir, `${filePrefix}-full-report.md`), fullReport);
-  console.log(`   ✓ ${filePrefix}-full-report.md`);
 
-  // Content briefs
-  for (const brief of briefs) {
-    const briefFile = `${filePrefix}-brief-${slugify(brief.keyword)}.md`;
-    fs.writeFileSync(path.join(reportsDir, briefFile), brief.content);
-    console.log(`   ✓ ${briefFile}`);
+  // Append Content Calendar
+  fullReport += `\n\n---\n\n## 12-Month Content Calendar (Article Title Plan)\n\n${contentCalendar}\n`;
+
+  // Append Programmatic Blueprints
+  fullReport += `\n\n---\n\n## Programmatic SEO Blueprints\n\n${programmaticBlueprints}\n`;
+
+  // Append Conversion Landing Pages
+  fullReport += `\n\n---\n\n## Conversion-Focused Landing Pages\n\n${landingPageWireframes}\n`;
+
+  // Append Backlink Strategy
+  fullReport += `\n\n---\n\n## Backlink & Partnership Strategy\n\n${backlinkStrategy}\n`;
+
+  // Append briefs
+  if (briefs.length > 0) {
+    fullReport += `\n\n---\n\n## Content Briefs\n\n`;
+    for (const brief of briefs) {
+      fullReport += `${brief.content}\n\n`;
+    }
   }
 
-  // Landing pages
+  // Append landing pages
   const landingPages = Object.entries(clusters).slice(0, 8).map(([cluster, kws], i) => {
     const topKw = kws[0] || cluster;
     const kd = processedKeywords.find(k => k.keyword === topKw);
     return `### ${i + 1}. /${slugify(cluster)}\n\n- **Target Keyword**: ${topKw}\n- **Volume**: ${kd?.volume || 'N/A'}\n- **Revenue Score**: ${kd?.revenueScore || 'N/A'}\n- **Buyer Persona**: ${kd?.buyerPersona || 'N/A'}`;
   }).join('\n\n');
-  fs.writeFileSync(path.join(reportsDir, `${filePrefix}-landing-pages.md`), `# Recommended Landing Pages\n\n${landingPages}`);
-  console.log(`   ✓ ${filePrefix}-landing-pages.md`);
+  fullReport += `\n\n---\n\n## Recommended Landing Pages\n\n${landingPages}\n`;
 
-  // PAA questions
+  // Append PAA
   if (allPAA.length > 0) {
     const paaContent = allPAA.map(q => `- **${q.question}** _(from: "${q.keyword}")_`).join('\n');
-    fs.writeFileSync(path.join(reportsDir, `${filePrefix}-people-also-ask.md`), `# People Also Ask — Opportunities\n\n${paaContent}`);
-    console.log(`   ✓ ${filePrefix}-people-also-ask.md`);
+    fullReport += `\n\n---\n\n## People Also Ask — Opportunities\n\n${paaContent}\n`;
+  }
+
+  fs.writeFileSync(path.join(runDir, `${filePrefix}-full-report.md`), fullReport);
+  console.log(`   ✓ ${filePrefix}/${filePrefix}-full-report.md`);
+
+  // Topical Authority Map JSON
+  const authorityMap: Record<string, { totalKeywords: number, generatedPages: number, keywords: { keyword: string, status: string }[] }> = {};
+  for (const [cluster, kws] of Object.entries(clusters)) {
+    authorityMap[cluster] = {
+      totalKeywords: kws.length,
+      generatedPages: 0,
+      keywords: kws.map(k => ({ keyword: k, status: "Not Generated" }))
+    };
+  }
+  const authorityMapPath = path.join(runDir, `${filePrefix}-Topical-Authority-Map.json`);
+  fs.writeFileSync(authorityMapPath, JSON.stringify(authorityMap, null, 2));
+  console.log(`   ✓ ${filePrefix}/${filePrefix}-Topical-Authority-Map.json`);
+
+  // ── Phase 13: Goldmine Filtering ───────────────────────────────────────────
+  console.log('\n⛏️ Phase 13: Generating Goldmine Report\n');
+  try {
+    console.log('   Running goldmine-filter...');
+    const { execSync } = require('child_process');
+    execSync('npx ts-node scripts/goldmine-filter.ts', { 
+      stdio: 'inherit', 
+      cwd: path.resolve(__dirname, '..'),
+      env: { ...process.env, RUN_DIR: runDir }
+    });
+    console.log('   ✓ Goldmine filtering complete.');
+  } catch (err) {
+    console.error('   ✗ Failed to run goldmine-filter.ts', err);
   }
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');

@@ -34,7 +34,7 @@ const AUTH_COUNTS: Record<TierName, number> = {
 // If a language's code is in this set it is available on the Starter plan.
 // Source: Standard 60 list from authoritative doc.
 const STARTER_CODES = new Set([
-    "af", "am", "ar", "bg", "bn", "ca", "cmn-CN", "cmn-TW", "cs", "da", "de", "el",
+    "af", "am", "ar", "bg", "bn", "bn-IN", "ca", "cmn-CN", "cmn-TW", "cs", "da", "de", "el",
     "en-AU", "en-GB", "en-IN", "en-US", "es-ES", "es-US", "et", "eu", "fi", "fil",
     "fr-CA", "fr-FR", "gl", "gu", "he", "hi", "hu", "id", "is", "it", "ja", "kn", "ko",
     "lt", "lv", "ml", "mr", "ms", "nb", "nl", "nl-BE", "pa", "pl", "pt-BR", "pt-PT",
@@ -59,6 +59,7 @@ const ALL_LANGUAGES: Language[] = [
     L("ar", "Arabic", "العربية", "🇸🇦", ["Gemini", "Chirp3 HD", "Neural2", "Standard", "ElevenLabs v3"]),
     L("bg", "Bulgarian", "Български", "🇧🇬", ["Gemini", "Chirp3 HD", "Standard", "ElevenLabs v3", "ElevenLabs Flash"]),
     L("bn", "Bengali", "বাংলা", "🇧🇩", ["Gemini", "Chirp3 HD", "Neural2", "Standard", "ElevenLabs v3"]),
+    L("bn-IN", "Bengali (India)", "বাংলা (ভারত)", "🇮🇳", ["Gemini", "Chirp3 HD", "Neural2", "Standard"]),
     L("ca", "Catalan", "Català", "🇪🇸", ["Gemini", "Standard", "ElevenLabs v3"]),
     L("cmn-CN", "Chinese (Simplified)", "普通话 (简体)", "🇨🇳", ["Gemini", "Chirp3 HD", "Neural2", "Standard", "ElevenLabs v3", "ElevenLabs Flash"]),
     L("cmn-TW", "Chinese (Traditional)", "普通話 (繁體)", "🇹🇼", ["Gemini", "Neural2", "Standard"]),

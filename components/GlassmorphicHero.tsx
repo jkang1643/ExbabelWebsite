@@ -165,16 +165,16 @@ export default function GlassmorphicHero() {
           style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
       </div>
 
-      <div className="relative z-10 pt-24 pb-8 md:pt-28 flex flex-col items-center flex-shrink-0">
+      <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
         {/* Centered Content Spine */}
-        <div className="layout-spine text-center space-y-6">
+        <div className="layout-spine text-center flex flex-col items-center gap-8">
 
           {/* Headline Group */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-4 max-w-[960px] mx-auto"
+            className="flex flex-col items-center gap-8 max-w-[960px] mx-auto"
           >
             {/* Upscale Glassmorphic Banner */}
             <motion.a
@@ -241,7 +241,7 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
               href="/demo"
@@ -264,7 +264,7 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="pt-8 pb-0 w-full"
+            className="w-full"
           >
             <TrustedPartners />
           </motion.div>
@@ -278,7 +278,7 @@ export default function GlassmorphicHero() {
         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="w-full flex-grow relative"
       >
-        <div className="mt-4 md:mt-6 border-t border-white/10 shadow-2xl">
+        <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
           <LiveTranslationGraphic />
         </div>
       </motion.div>

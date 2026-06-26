@@ -28,10 +28,10 @@ export default function LiveTranslationGraphic() {
   const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 md:px-8 overflow-hidden">
+    <div className="w-full flex items-center justify-center pb-12 md:pb-20 px-4 md:px-8 overflow-hidden">
       
       {/* Contained Tech Graphic Card */}
-      <div className="relative w-full max-w-[1100px] h-[280px] sm:h-[340px] md:h-[450px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10 mt-8 md:mt-0">
+      <div className="relative w-full max-w-[1100px] h-[280px] sm:h-[340px] md:h-[450px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10">
         
         {/* Background Image (Desaturated Pastor) */}
         <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
