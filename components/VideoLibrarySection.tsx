@@ -214,7 +214,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
             role="button"
         >
             {/* Background / Poster */}
-            <motion.div layout className="absolute inset-0 w-full h-full bg-gray-100">
+            <motion.div layout className={`absolute inset-0 w-full h-full bg-black transition-opacity duration-700 ${isActive ? 'opacity-0 delay-700' : 'opacity-100 delay-0'}`}>
                 <img
                     src={video.posterImage}
                     alt=""

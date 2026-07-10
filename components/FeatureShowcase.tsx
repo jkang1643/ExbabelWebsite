@@ -218,6 +218,10 @@ export default function FeatureShowcase() {
     useEffect(() => {
         const currentRef = activeVideo === "A" ? videoARef : videoBRef;
         if (currentRef.current) {
+            // Explicitly call load() for the initial video to ensure it doesn't stay blank
+            if (activeVideo === "A" && currentRef.current === videoARef.current && !currentRef.current.readyState) {
+                currentRef.current.load();
+            }
             currentRef.current.play().catch(() => { });
         }
     }, [activeVideo]);

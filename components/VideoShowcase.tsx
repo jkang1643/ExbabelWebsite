@@ -56,27 +56,16 @@ export default function VideoShowcase() {
 
                 <div className="max-w-5xl mx-auto">
                     <div
-                        className="relative bg-black rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 cursor-pointer group"
+                        className="relative bg-white rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25),0_16px_32px_-8px_rgba(0,0,0,0.15)] ring-1 ring-slate-900/5 cursor-pointer group"
                         onClick={toggleMute}
                     >
-                        {/* Poster image shown until video loads */}
-                        {!hasStarted && (
-                            <img
-                                src="/photos/exbabel-product-video-picture.webp"
-                                alt="Exbabel product demo"
-                                className="w-full h-auto max-h-[70vh] object-contain lg:object-cover"
-                                width={1280}
-                                height={720}
-                            />
-                        )}
                         <video
                             ref={videoRef}
-                            className={`w-full h-auto max-h-[70vh] object-contain lg:object-cover ${!hasStarted ? 'hidden' : ''}`}
+                            className="w-full h-auto max-h-[70vh] aspect-video object-contain lg:object-cover bg-white"
                             muted={isMuted}
                             loop
                             playsInline
                             preload="none"
-                            poster="/photos/exbabel-product-video-picture.webp"
                         />
 
                         {/* Sound Indicator Overlay */}

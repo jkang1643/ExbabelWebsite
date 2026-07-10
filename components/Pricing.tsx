@@ -55,7 +55,7 @@ export default function Pricing() {
       annualPrice: 2900,
       description: "No limits. World-class voices. White-glove service.",
       features: [
-        { text: "15 hours live included + unlimited solo hours", icon: "🎙️" },
+        { text: "36 hours live included + unlimited solo hours", icon: "🎙️" },
         { text: "60 premium languages with voices (TTS)", icon: "🔊" },
         { text: "90 premium languages with voices (TTS)", icon: "🎤" },
         { text: "75 world-class life-like languages with voices (ElevenLabs)", icon: "💎" },
