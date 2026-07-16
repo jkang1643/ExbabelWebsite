@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
   const links = {
@@ -8,6 +9,13 @@ export default function Footer() {
     Company: ["About", "Careers", "Press", "Partners"],
     Resources: ["Blog", "Documentation", "Support", "Community"],
     Legal: ["Privacy", "Terms", "Security", "Compliance"],
+  };
+
+  // Map specific items to their real routes
+  const linkHrefs: Record<string, string> = {
+    Support: "mailto:support@exbabel.com",
+    Privacy: "/privacy",
+    Terms: "/terms",
   };
 
   return (
@@ -52,11 +60,24 @@ export default function Footer() {
             >
               <h6 className="text-xs tracking-wider text-primary uppercase font-bold mb-3">{category}</h6>
               <div className="flex flex-col gap-2">
-                {items.map((item) => (
-                  <a key={item} href={item === "Support" ? "mailto:support@exbabel.com" : "#"} className="text-sm text-slate-600 hover:text-primary hover:underline transition-colors">
-                    {item}
-                  </a>
-                ))}
+                {items.map((item) => {
+                  const href = linkHrefs[item] || "#";
+                  const isInternal = href.startsWith("/");
+
+                  if (isInternal) {
+                    return (
+                      <Link key={item} href={href} className="text-sm text-slate-600 hover:text-primary hover:underline transition-colors">
+                        {item}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <a key={item} href={href} className="text-sm text-slate-600 hover:text-primary hover:underline transition-colors">
+                      {item}
+                    </a>
+                  );
+                })}
               </div>
             </motion.nav>
           ))}
@@ -92,3 +113,4 @@ export default function Footer() {
     </footer>
   );
 }
+

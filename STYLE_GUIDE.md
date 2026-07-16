@@ -10,7 +10,7 @@ Our theme is configured to automatically apply correct colors when using semanti
 ### 📝 Text Colors
 | Role | Class | OKLCH Value | Usage |
 | :--- | :--- | :--- | :--- |
-| **Primary** | `text-primary` | `oklch(0.608 0.370 264.7)` | Brand accents, CTAs, eyebrows |
+| **Primary** | `text-primary` | `#394dfe` | Brand accents, CTAs, eyebrows |
 | **Body (Default)** | `text-base-content` | `oklch(0.474 0.050 238.1)` | Standard descriptions, paragraphs |
 | **Editorial Body** | `text-body` | Custom (Slate-600) | Long-form reading content |
 | **Muted** | `text-base-content/70` | - | Secondary info, less prominent text |

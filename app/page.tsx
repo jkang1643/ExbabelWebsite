@@ -43,6 +43,9 @@ const CTA = dynamic(() => import("@/components/CTA"), {
 const Footer = dynamic(() => import("@/components/Footer"), {
   loading: () => <footer className="py-12" aria-hidden />,
 });
+const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"), {
+  loading: () => null,
+});
 
 export default function Home() {
   return (
@@ -74,6 +77,8 @@ export default function Home() {
       {/* Final conversion push */}
       <CTA />
       <Footer />
+      {/* Cookies consent popup (client-only, no SSR) */}
+      <CookiesPopup />
     </main>
   );
 }
