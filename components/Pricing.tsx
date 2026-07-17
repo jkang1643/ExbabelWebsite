@@ -289,7 +289,7 @@ export default function Pricing() {
             <div className="p-8 text-center">
               <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
               <p className="text-base-content/70 mb-4">Contact our team to build a custom plan at a cost that works for you.</p>
-              <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all">Contact Us</a>
+              <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all">Contact Us</a>
             </div>
           </div>
         </div>

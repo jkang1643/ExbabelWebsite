@@ -182,7 +182,7 @@ export default function GlassmorphicHero() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-[0_4px_20px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9)] text-base-ink hover:bg-white/70 transition-all group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border-2 border-white text-[#1d1c1d] shadow-md hover:shadow-lg hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
             >
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -245,7 +245,7 @@ export default function GlassmorphicHero() {
           >
             <Link
               href="/demo"
-              className="px-8 py-4 rounded-md bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-sm relative overflow-hidden group"
+              className="px-8 py-4 rounded-full bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
@@ -253,7 +253,7 @@ export default function GlassmorphicHero() {
             </Link>
             <a
               href="#pricing"
-              className="px-8 py-4 rounded-md text-base-ink font-bold text-lg bg-white border border-base-ink/20 shadow-sm hover:border-base-ink/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               Find your plan &rarr;
