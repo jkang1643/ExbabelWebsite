@@ -14,6 +14,7 @@ import LiveCaptionsGraphic from '@/components/LiveCaptionsGraphic';
 import UnlimitedLanguagesGraphic from '@/components/UnlimitedLanguagesGraphic';
 import DecorativeWisp from '@/components/DecorativeWisp';
 import IntegrationsSection from '@/components/IntegrationsSection';
+import SupportedPlatformsSection from '@/components/SupportedPlatformsSection';
 import GettingStartedSection from '@/components/GettingStartedSection';
 
 const fadeInUp = {
@@ -489,6 +490,9 @@ export default function LiveTranslationPage() {
 
       {/* 10. Integrations */}
       <IntegrationsSection />
+
+      {/* 10.5 Supported Platforms */}
+      <SupportedPlatformsSection />
 
       {/* 11. Final CTA */}
       <section className="py-32 px-6 bg-slate-900 text-center relative overflow-hidden mt-12">

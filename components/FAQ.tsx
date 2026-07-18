@@ -1,42 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import { HOME_FAQ_DATA } from "@/lib/schema";
 
 export default function FAQ() {
-  const faqs = [
-    {
-      question: "Which languages are supported?",
-      answer: (
+  // Use the centralized FAQ data but render with JSX for the link in the first answer
+  const faqs = HOME_FAQ_DATA.map((faq, i) => ({
+    question: faq.question,
+    answer:
+      i === 1 ? (
         <>
           Exbabel supports translation into{" "}
-          <a href="/impact" className="text-primary font-bold hover:underline decoration-2 underline-offset-4">
+          <a
+            href="/impact"
+            className="text-primary font-bold hover:underline decoration-2 underline-offset-4"
+          >
             180+ languages and dialects
           </a>
-          , including English, Spanish, French, Chinese (Simplified & Traditional), Arabic, Hindi, Portuguese, Russian, Japanese, Korean, German, Italian, and many more. We continuously add support for additional languages.
+          , including English, Spanish, French, Chinese (Simplified &amp;
+          Traditional), Arabic, Hindi, Portuguese, Russian, Japanese, Korean,
+          German, Italian, and many more. 90+ languages include premium AI voice
+          output, and 250+ are available for captions and text translation.
         </>
+      ) : (
+        faq.answer
       ),
-    },
-    {
-      question: "How is this different from Google Translate?",
-      answer: "The biggest difference is our AI models are custom-trained to understand context, cultural nuances, and specialized terminology. Unlike generic translation apps that only work with everyday conversations, Exbabel is designed to handle complex, professional communication with higher accuracy and cultural sensitivity.",
-    },
-    {
-      question: "Do users need to install an app?",
-      answer: "No, anyone can access translations directly through their web browser - no installation required. Simply scan a QR code or visit a link to start receiving translations on any device: phone, tablet, or computer.",
-    },
-    {
-      question: "What are the technical requirements?",
-      answer: "You just need a computer with a modern web browser (Chrome, Firefox, Safari, or Edge) and a stable internet connection. For audio input, you can use your device's built-in microphone or connect to a professional audio system.",
-    },
-    {
-      question: "Does the platform use Artificial Intelligence (AI)?",
-      answer: "Yes, Exbabel uses advanced AI models to power our translation service. We have fine-tuned these models to accurately understand context, idioms, and cultural nuances, ensuring your message stays true to its original meaning even after translation.",
-    },
-    {
-      question: "Is there a trial or demo available?",
-      answer: "Yes! Please get started and create your free account, which comes with four hours of captions and translation so you can try it out risk-free.",
-    },
-  ];
+  }));
 
   const [openIndex, setOpenIndex] = useState<number>(0);
 

@@ -8,7 +8,7 @@ const steps = [
   {
     number: "1",
     title: "Connect Your Stream",
-    desc: "Open your encoder settings (OBS, vMix, etc.) and enter your unique Exbabel RTMP URL and Stream Key. No extra hardware required."
+    desc: "Open your encoder settings (OBS, vMix, etc.) and enter your unique Exbabel RTMP URL, or simply paste a stream URL from YouTube, Facebook, or 1,800+ other platforms."
   },
   {
     number: "2",

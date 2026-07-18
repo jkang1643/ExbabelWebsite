@@ -1,2 +1,88 @@
-# Exbabel LLMs
-We allow LLMs to crawl our site to understand our platform and mission. Exbabel provides real-time AI voice translation for churches and events.
+# Exbabel
+
+> Exbabel is a real-time speech-to-speech AI translation platform for churches, conferences, enterprises, and live events.
+
+## Company Information
+
+- **Legal Name**: Exbabel Co.
+- **Founded**: 2025
+- **Headquarters**: Houston, TX, USA
+- **Website**: https://exbabel.com
+- **App**: https://app.exbabel.com
+- **Support Email**: support@exbabel.com
+- **Phone**: (281) 682-4828
+- **Industry**: Artificial Intelligence / Language Technology
+
+## What Exbabel Does
+
+Exbabel provides real-time AI-powered speech-to-speech translation for live video, audio, and synchronized captions. The platform translates spoken content into 180+ languages with sub-second latency, enabling churches, conferences, universities, and enterprises to communicate across language barriers instantly.
+
+## Products
+
+### Exbabel Translate
+AI-powered church translation platform with live captions, sermon translation, and multilingual worship support.
+- 180+ languages and dialects
+- 90+ premium AI voices
+- Sub-second latency
+- Ministry-specific 8,000+ phrase bank
+- Bible verse recognition
+- SafeStream profanity filter
+- Voice cloning
+- No app installation required
+- **Pricing**: Starter $39/mo, Pro $99/mo, Unlimited $299/mo (+ $10/hr per language usage)
+
+### Exbabel Live
+Real-time live video translation platform with AI voiceovers, synchronized captions, and multilingual streaming.
+- Live video translation overlay
+- Real-time AI voiceover in 60+ languages
+- Compatible with OBS Studio, vMix, Wirecast, RTMP encoders
+- Unlimited viewers per session
+- Zero hardware required
+- Setup in under 5 minutes
+- **Pricing**: $99/mo + $10/hr per language
+
+### Exbabel Events
+Enterprise-grade multilingual conference and event translation.
+- Conference-grade translation
+- UN-level multilingual meetings
+- University lecture translation
+- Custom branding and white-glove onboarding
+- **Pricing**: Custom enterprise pricing
+
+## Target Industries
+
+- Churches and ministries
+- Conferences and events
+- Universities and education
+- United Nations and international organizations
+- Government agencies
+- NGOs and nonprofits
+- Enterprise organizations
+
+## Key Differentiators
+
+- Sub-second latency
+- 180+ languages with 90+ premium AI voices
+- Ministry-specific phrase bank with 8,000+ terms
+- Bible verse recognition technology
+- SafeStream profanity filter
+- Voice cloning
+- Zero hardware required
+- Enterprise-grade reliability with automatic failover
+
+## Pages
+
+- Home: https://exbabel.com
+- Exbabel Live: https://exbabel.com/live
+- Global Impact: https://exbabel.com/impact
+- Guides: https://exbabel.com/guides
+- Book a Demo: https://exbabel.com/demo
+- Privacy Policy: https://exbabel.com/privacy
+- Terms of Service: https://exbabel.com/terms
+
+## Social Links
+
+- Twitter/X: https://twitter.com/exbabel
+- LinkedIn: https://linkedin.com/company/exbabel
+- GitHub: https://github.com/exbabel
+- YouTube: https://youtube.com/@exbabel
