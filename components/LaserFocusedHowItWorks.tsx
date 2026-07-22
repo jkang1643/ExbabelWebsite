@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { appRoutes } from "@/lib/config";
+import HeroVideoCoverSvg from "@/components/svg/HeroVideoCoverSvg";
 import ConnectInputsSvg from "@/components/svg/ConnectInputsSvg";
 import TranslationPipelineSvg from "@/components/svg/TranslationPipelineSvg";
 import QrJoinSvg from "@/components/svg/QrJoinSvg";
@@ -7,32 +11,34 @@ import DashboardSvg from "@/components/svg/DashboardSvg";
 import BeforeDuringAfterGraphic from "@/components/BeforeDuringAfterGraphic";
 
 export default function LaserFocusedHowItWorks() {
+  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+
   return (
     <div>
       {/* ── HERO ── */}
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-24">
         <div className="layout-spine max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
             {/* Left — Content */}
-            <div className="space-y-6">
+            <div className="lg:col-span-6 space-y-6">
               <h1 className="text-h1 text-base-ink" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
-                Meet Exbabel
+                Live Audio &amp; AI Translation for your event
               </h1>
-              <p className="text-body text-base-muted leading-relaxed">
-                Watch how Exbabel translates live speech to texts &amp; audio instantly.
+              <p className="text-body text-base-muted leading-relaxed text-lg">
+                AI voice translation, simultaneous interpretation, guided tours, silent conferencing and more.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-4">
                 <a
                   href={appRoutes.pricingStarter}
                   className="px-8 py-4 bg-primary text-white text-base font-extrabold rounded-button-pill shadow-cta-hover hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
                   style={{ fontFamily: "var(--font-sora), sans-serif" }}
                 >
-                  Start Free Trial &rarr;
+                  Start for free &rarr;
                 </a>
                 <a
                   href="/demo"
-                  className="px-8 py-4 bg-base-ink text-white text-base font-bold rounded-button-pill hover:opacity-90 transition-all"
+                  className="px-8 py-4 bg-base-paper text-base-ink text-base font-bold rounded-button-pill border border-aurora-subtle hover:bg-base-300 transition-all"
                   style={{ fontFamily: "var(--font-sora), sans-serif" }}
                 >
                   Book a Demo
@@ -40,15 +46,45 @@ export default function LaserFocusedHowItWorks() {
               </div>
             </div>
 
-            {/* Right — Video */}
-            <div className="relative w-full aspect-video rounded-aurora-xl overflow-hidden shadow-aurora-card border border-aurora-subtle">
-              <iframe
-                src="https://www.youtube.com/embed/rNwDGQVu_o0?rel=0&modestbranding=1"
-                title="How Exbabel Works — Real-Time AI Translation Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
+            {/* Right — Interactive Sketch Cover & Video Player */}
+            <div className="lg:col-span-6 relative">
+              {!isPlayingVideo ? (
+                <div
+                  onClick={() => setIsPlayingVideo(true)}
+                  className="relative group cursor-pointer select-none"
+                  role="button"
+                  aria-label="Play Exbabel demo video"
+                >
+                  {/* SVG Cover Illustration */}
+                  <HeroVideoCoverSvg className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.01]" />
+
+                  {/* Floating Pill Play Button ("▶ Watch") */}
+                  <div className="absolute top-[52%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20">
+                    <div className="flex items-center gap-2.5 px-6 py-3.5 bg-primary text-white text-base font-bold rounded-full shadow-lg group-hover:bg-blue-700 group-hover:scale-105 transition-all">
+                      <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      <span>Watch</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative w-full aspect-video rounded-aurora-xl overflow-hidden shadow-aurora-card border border-aurora-subtle">
+                  <iframe
+                    src="https://www.youtube.com/embed/rNwDGQVu_o0?autoplay=1&rel=0&modestbranding=1"
+                    title="How Exbabel Works — Real-Time AI Translation Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                  <button
+                    onClick={() => setIsPlayingVideo(false)}
+                    className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-black/70 hover:bg-black text-white text-xs font-bold rounded-full transition-all"
+                  >
+                    ✕ Close
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
