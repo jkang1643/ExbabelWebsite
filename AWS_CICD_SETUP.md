@@ -144,6 +144,26 @@ This prevents sub-routes (like `/guides`) from showing the home page.
 
 ---
 
+### Step 2.6: Add CloudFront Security Headers Function (Crucial for Security)
+
+This function adds necessary security headers (like HSTS, CSP, X-Frame-Options) to your site's responses, greatly improving your security posture.
+
+1.  **Open CloudFront Console** → **Functions**
+2.  **Create function**:
+    - Name: `security-headers-injector`
+    - Runtime: `cloudfront-js-1.0` (or 2.0)
+3.  **Paste code**:
+    - Copy code from `cloudfront-response-function.js` in this repo.
+4.  **Publish** the function.
+5.  **Associate with Distribution**:
+    - Go to your **Distribution** → **Behaviors**
+    - Select the default behavior (`*`) → **Edit**
+    - Scroll to **Function associations**
+    - Viewer response: `Function` -> `security-headers-injector`
+    - **Save changes**
+
+---
+
 ### Step 3: Set Up OIDC Identity Provider
 
 1. **Open AWS Console** → Navigate to **IAM**

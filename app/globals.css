@@ -472,6 +472,10 @@ body::after {
   mask-image: radial-gradient(white, white) !important;
 }
 
+.clip-chevron-right {
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
 /* Mobile optimizations to prevent WebKit rendering crashes and layout bugs */
 @media (max-width: 1023px) {
   body::before {

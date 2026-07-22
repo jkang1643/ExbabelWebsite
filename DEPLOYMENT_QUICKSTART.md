@@ -51,6 +51,7 @@ Setup Progress:
 [ ] CloudFront distribution created
 [ ] CloudFront custom error page configured (404)
 [ ] CloudFront Distribution ID noted
+[ ] Security Headers CloudFront Function added (Optional but Recommended)
 [ ] OIDC Identity Provider created
 [ ] IAM Policy created (GitHubActionsDeploymentPolicy)
 [ ] IAM Role created (GitHubActionsDeploymentRole)

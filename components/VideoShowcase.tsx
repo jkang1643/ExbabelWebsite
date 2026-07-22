@@ -33,6 +33,7 @@ export default function VideoShowcase() {
 
     return (
         <section
+            id="demo-video"
             ref={sectionRef}
             className="py-12 md:py-32 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden"
         >

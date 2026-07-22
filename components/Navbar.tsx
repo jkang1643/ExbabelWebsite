@@ -99,7 +99,14 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {["How It Works", "Pricing", "FAQ"].map((item) => {
+          <Link
+            href="/how-it-works"
+            className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+          >
+            How It Works
+          </Link>
+
+          {["Pricing", "FAQ"].map((item) => {
             const id = item.toLowerCase().replace(/\s+/g, '-');
             const targetHref = pathname === '/' ? `#${id}` : `/#${id}`;
             return (
