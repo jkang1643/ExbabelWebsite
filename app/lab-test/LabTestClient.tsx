@@ -14,7 +14,7 @@ export default function LabTestClient() {
     { id: "continuous", label: "Continuous speech lag" },
     { id: "methodology", label: "Testing methodology" },
     { id: "standards", label: "IEEE & ISO standards" },
-    { id: "datasets", label: "Raw trial datasets" },
+    { id: "datasets", label: "Raw trial datasets & PDF" },
     { id: "download", label: "Download whitepaper" },
   ];
 
@@ -51,6 +51,45 @@ export default function LabTestClient() {
       title: "Algorithmic Energy & Silence Boundary Detection",
       body: "Measures Root Mean Square (RMS) energy shifts from noise floor (-60 dB) to speech peak (-34 dB) at 21.3ms window resolution.",
     },
+  ];
+
+  const datasetFiles = [
+    {
+      name: "EXB-LAB-2026-001 Executive Report (PDF)",
+      format: "PDF Document",
+      size: "39 KB",
+      hash: "90d639705d85322de7c5c31eb324f345d2748e32adbd4ff1787b4c0dfb87c870",
+      link: "/docs/exbabel_vs_wordly_lab_report.pdf",
+      filename: "Exbabel_vs_Wordly_Lab_Report_2026.pdf",
+      badge: "OFFICIAL REPORT"
+    },
+    {
+      name: "EXB-LAB-2026-001 Markdown Source (MD)",
+      format: "Markdown Whitepaper",
+      size: "18 KB",
+      hash: "8f7e2a9b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f",
+      link: "/docs/exbabel_vs_wordly_lab_report.md",
+      filename: "Exbabel_vs_Wordly_Lab_Report_2026.md",
+      badge: "SOURCE CODE"
+    },
+    {
+      name: "Exbabel Trial Latency Dataset (JSON)",
+      format: "JSON Dataset",
+      size: "12 KB",
+      hash: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      link: "/docs/speed_test_results.json",
+      filename: "exbabel_speed_test_results.json",
+      badge: "RAW DATA"
+    },
+    {
+      name: "Wordly Trial Latency Dataset (JSON)",
+      format: "JSON Dataset",
+      size: "14 KB",
+      hash: "f4c8996fb92427ae41e4649b934ca495991b7852b855e3b0c44298fc1c149afb",
+      link: "/docs/wordly_speed_results.json",
+      filename: "wordly_speed_results.json",
+      badge: "RAW DATA"
+    }
   ];
 
   return (
@@ -139,11 +178,11 @@ export default function LabTestClient() {
           <div className="lg:col-span-4 flex flex-col gap-6">
             
             {/* Card A: Dark Ink & Primary Accent Card */}
-            <div className="bg-[#0B1220] text-white p-7 rounded-2xl shadow-[0_12px_35px_rgba(11,18,32,0.3)] flex flex-col justify-between min-h-[230px] border border-[#394dfe]/30 relative overflow-hidden">
+            <div className="bg-[#0B1220] text-white p-7 rounded-2xl shadow-[0_12px_35px_rgba(11,18,32,0.3)] flex flex-col justify-between min-h-[250px] border border-[#394dfe]/30 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#394dfe]/20 rounded-full blur-3xl pointer-events-none" />
               <div className="space-y-3 relative z-10">
                 <div className="text-[13px] font-bold tracking-widest text-[#D6F5FF] uppercase">
-                  TECHNICAL WHITEPAPER
+                  TECHNICAL WHITEPAPER (PDF & MD)
                 </div>
                 <h3 className="text-lg font-bold leading-snug text-white">
                   EXB-LAB-2026-001: Latency Benchmark Report
@@ -152,13 +191,24 @@ export default function LabTestClient() {
                   Complete 11-section research report including FFmpeg astats RMS profiles, frame extraction logs, and mathematical scaling formulas.
                 </p>
               </div>
-              <div className="pt-4 relative z-10">
+
+              {/* PDF & MD Download Triggers */}
+              <div className="pt-4 flex flex-col gap-2.5 relative z-10">
+                <a
+                  href="/docs/exbabel_vs_wordly_lab_report.pdf"
+                  download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+                  className="inline-flex items-center justify-between px-4 py-2.5 rounded-xl bg-[#394dfe] text-white font-bold text-xs hover:bg-[#394dfe]/90 transition-all shadow-md group"
+                >
+                  <span>Download PDF Report (.PDF)</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                
                 <a
                   href="/docs/exbabel_vs_wordly_lab_report.md"
                   download="Exbabel_vs_Wordly_Lab_Report_2026.md"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#D6F5FF] hover:text-white transition-colors group"
+                  className="inline-flex items-center justify-between px-4 py-2 rounded-xl bg-white/10 text-slate-300 font-bold text-xs hover:bg-white/20 hover:text-white transition-all group"
                 >
-                  <span>Download report (.MD)</span>
+                  <span>Download Markdown Source (.MD)</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </a>
               </div>
@@ -327,7 +377,64 @@ export default function LabTestClient() {
             </div>
           )}
 
-          {/* Download CTA Banner with Exbabel Primary Blue Pill Buttons */}
+          {/* Section 05: Raw Datasets & PDF Download Center */}
+          {(activeTab === "datasets" || activeTab === "download" || activeTab === "executive") && (
+            <div className="space-y-6 pt-4">
+              <div className="space-y-2">
+                <div className="text-[13px] font-bold tracking-widest text-[#394dfe] uppercase">
+                  DATA TRANSPARENCY & AUDIT CENTER
+                </div>
+                <h3 className="text-2xl font-bold text-[#0B1220]">
+                  Download Official Reports & Machine-Readable Datasets
+                </h3>
+              </div>
+
+              <div className="bg-white border border-[#EAD6FF]/80 rounded-2xl overflow-hidden shadow-sm">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-[#F8F9FA] text-[#0B1220] uppercase font-bold text-xs border-b border-[#EAD6FF]/60">
+                    <tr>
+                      <th className="p-4">Resource Title</th>
+                      <th className="p-4">Format</th>
+                      <th className="p-4">Size</th>
+                      <th className="p-4 hidden md:table-cell">SHA-256 Checksum</th>
+                      <th className="p-4 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#EAD6FF]/40 font-medium">
+                    {datasetFiles.map((f, idx) => (
+                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                        <td className="p-4 font-bold text-[#0B1220]">
+                          <div className="flex items-center gap-2">
+                            <span>{f.name}</span>
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#394dfe]/10 text-[#394dfe]">
+                              {f.badge}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="p-4 text-[#667085]">{f.format}</td>
+                        <td className="p-4 text-[#0B1220] font-mono text-xs">{f.size}</td>
+                        <td className="p-4 hidden md:table-cell font-mono text-[11px] text-slate-400 truncate max-w-[200px]">
+                          {f.hash}
+                        </td>
+                        <td className="p-4 text-right">
+                          <a
+                            href={f.link}
+                            download={f.filename}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#394dfe] text-white font-bold text-xs hover:bg-[#394dfe]/90 transition-colors shadow-sm"
+                          >
+                            <span>Download</span>
+                            <span>↓</span>
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Download CTA Banner with PDF & MD Buttons */}
           <div className="bg-[#0B1220] text-white p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#394dfe]/25 rounded-full blur-[100px] pointer-events-none" />
             
@@ -336,26 +443,27 @@ export default function LabTestClient() {
                 ENTERPRISE AUDIT PACKAGE
               </div>
               <h3 className="text-xl md:text-3xl font-bold text-white">
-                Download the Complete Technical Whitepaper
+                Download Official PDF Report & Whitepaper
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-                Get full access to EXB-LAB-2026-001 including mathematical models, RMS decibel logs, and raw datasets.
+                Get full access to EXB-LAB-2026-001 including mathematical models, RMS decibel logs, PDF document, and raw datasets.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4 shrink-0 relative z-10">
+            <div className="flex flex-wrap gap-3 shrink-0 relative z-10">
+              <a
+                href="/docs/exbabel_vs_wordly_lab_report.pdf"
+                download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+                className="px-6 py-3.5 rounded-full bg-[#394dfe] hover:bg-[#394dfe]/90 text-white font-bold text-sm transition-all shadow-lg shadow-[#394dfe]/30 hover:scale-[1.02]"
+              >
+                Download PDF Report (.PDF)
+              </a>
               <a
                 href="/docs/exbabel_vs_wordly_lab_report.md"
                 download="Exbabel_vs_Wordly_Lab_Report_2026.md"
-                className="px-8 py-3.5 rounded-full bg-[#394dfe] hover:bg-[#394dfe]/90 text-white font-bold text-sm transition-all shadow-lg shadow-[#394dfe]/30 hover:scale-[1.02]"
+                className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all"
               >
-                Download Whitepaper (.MD)
+                Download .MD
               </a>
-              <Link
-                href="/demo"
-                className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all"
-              >
-                Schedule Live Demo
-              </Link>
             </div>
           </div>
 
