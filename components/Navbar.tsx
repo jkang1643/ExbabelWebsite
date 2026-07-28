@@ -66,7 +66,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu - Centered & Simple */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto py-1 scrollbar-none">
           
           {/* Products Dropdown */}
           <div 
@@ -104,6 +104,14 @@ export default function Navbar() {
             className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
           >
             How It Works
+          </Link>
+
+          <Link
+            href="/lab-test"
+            className="text-xs sm:text-sm font-bold text-primary bg-cyan-50 border border-cyan-200 px-3 py-1.5 rounded-full hover:bg-cyan-100 transition-colors flex items-center gap-1.5 shrink-0 shadow-sm"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+            Laboratory Testing
           </Link>
 
           {["Pricing", "FAQ"].map((item) => {

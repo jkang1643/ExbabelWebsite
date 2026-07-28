@@ -1,0 +1,52 @@
+{
+  "wordly_utterances": [
+    {
+      "utterance": "1. Short ('hello can you hear me')",
+      "speech_onset_s": 3.5,
+      "speech_end_s": 4.0,
+      "caption_visible_s": 6.767,
+      "audio_start_s": 7.9,
+      "ttfc_from_onset_s": 3.267,
+      "ttfs_from_onset_s": 4.4,
+      "ttfc_from_end_s": 2.767,
+      "ttfs_from_end_s": 3.9
+    },
+    {
+      "utterance": "2. Numbers ('testing 1 2 3')",
+      "speech_onset_s": 18.5,
+      "speech_end_s": 19.18,
+      "caption_visible_s": 19.867,
+      "audio_start_s": 23.92,
+      "ttfc_from_onset_s": 1.367,
+      "ttfs_from_onset_s": 5.42,
+      "ttfc_from_end_s": 0.687,
+      "ttfs_from_end_s": 4.74
+    },
+    {
+      "utterance": "3. Continuous speech ('then peter said unto them, repent and be baptized every one of you...')",
+      "speech_onset_s": 25.68,
+      "speech_end_s": 32.5,
+      "first_word_caption_s": 26.967,
+      "full_sentence_caption_s": 33.033,
+      "audio_start_s": 32.9,
+      "ttfc_first_word_s": 1.287,
+      "ttfs_audio_start_s": 7.22,
+      "note": "Wordly buffers continuously during speech and holds TTS audio output for 7.22 seconds until a major pause!"
+    }
+  ],
+  "wordly_averages": {
+    "avg_ttfc_onset_s": 1.974,
+    "avg_ttfs_onset_s": 5.68
+  },
+  "exbabel_performance": {
+    "exbabel_ttfc_s": 1.013,
+    "exbabel_ttfs_s": 2.027,
+    "exbabel_ttfc_pure_processing_s": 0.403,
+    "exbabel_ttfs_pure_processing_s": 1.417
+  },
+  "comparison_summary": {
+    "wordly_avg_ttfs_s": 5.68,
+    "exbabel_ttfs_s": 2.027,
+    "speedup_factor": "2.8x faster on average; 4.5x-10x faster on continuous speech audio playback start!"
+  }
+}
