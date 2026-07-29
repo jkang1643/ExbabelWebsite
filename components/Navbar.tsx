@@ -65,8 +65,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Menu - Centered & Simple */}
-        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto py-1 scrollbar-none">
+        {/* Desktop Menu - Centered & Simple (No overflow-x-auto to prevent dropdown clipping) */}
+        <div className="flex items-center gap-3 sm:gap-5 lg:gap-7 py-1">
           
           {/* Products Dropdown */}
           <div 
@@ -74,25 +74,57 @@ export default function Navbar() {
             onMouseEnter={() => setIsProductsOpen(true)}
             onMouseLeave={() => setIsProductsOpen(false)}
           >
-            <button className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors flex items-center gap-1.5 py-2">
+            <button 
+              onClick={() => setIsProductsOpen((prev) => !prev)}
+              className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors flex items-center gap-1.5 py-2 focus:outline-none"
+            >
               Products
-              <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" /></svg>
+              <svg 
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${isProductsOpen ? 'rotate-180 text-primary' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
             
             <AnimatePresence>
               {isProductsOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full -left-4 mt-1 w-56 bg-white border border-gray-100 rounded-2xl shadow-xl py-3 overflow-hidden origin-top-left"
+                  className="absolute top-full -left-2 mt-1 w-60 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                 >
-                  <Link href="/live" className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors">
-                    Live Video Translation
+                  <Link 
+                    href="/live" 
+                    onClick={() => setIsProductsOpen(false)}
+                    className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
+                  >
+                    <div className="font-bold text-gray-900">Live Video Translation</div>
+                    <div className="text-xs text-gray-500 font-normal">Real-time AI speech-to-speech stream</div>
                   </Link>
-                  <Link href="/live" className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors">
-                    Live Video Captions
+                  <Link 
+                    href="/live" 
+                    onClick={() => setIsProductsOpen(false)}
+                    className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
+                  >
+                    <div className="font-bold text-gray-900">Live Video Captions</div>
+                    <div className="text-xs text-gray-500 font-normal">Sub-second multilingual captions</div>
+                  </Link>
+                  <div className="my-1.5 border-t border-gray-100" />
+                  <Link 
+                    href="/lab-test" 
+                    onClick={() => setIsProductsOpen(false)}
+                    className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
+                  >
+                    <div className="font-bold text-primary flex items-center gap-1.5">
+                      <span>Lab Latency Report</span>
+                      <span className="text-[10px] bg-cyan-100 text-cyan-800 px-1.5 py-0.5 rounded font-mono uppercase">EXB-LAB</span>
+                    </div>
+                    <div className="text-xs text-gray-500 font-normal">Independent IEEE/ISO benchmark report</div>
                   </Link>
                 </motion.div>
               )}
