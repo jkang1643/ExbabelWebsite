@@ -23,17 +23,17 @@ export default function GlassmorphicHero() {
 
   // Flipping Slogan Logic
   const flipWords = [
-    "Reach everyone.",
-    "Stream in real-time.",
-    "Break language barriers.",
-    "Connect globally."
+    "Global executive summits.",
+    "International delegations.",
+    "Institutional excellence.",
+    "Sovereign communications."
   ];
   const [flipIndex, setFlipIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setFlipIndex((prev) => (prev + 1) % flipWords.length);
-    }, 3000);
+    }, 3200);
     return () => clearInterval(interval);
   }, [flipWords.length]);
 
@@ -130,67 +130,49 @@ export default function GlassmorphicHero() {
     <section className="relative min-h-screen bg-base-paper flex flex-col">
       {/* Dot Grid Pattern */}
       <div 
-        className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+        className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none" 
         style={{ 
           backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
           backgroundSize: "24px 24px" 
         }} 
       />
 
-      {/* Aurora Background */}
+      {/* Subtle Ambient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
+        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[120px] opacity-40 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-purple)' }} />
+        <div className="showcase-blob absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full filter blur-[120px] opacity-40 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-mint)' }} />
       </div>
 
-      <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
-        <div className="layout-spine text-center flex flex-col items-center gap-8">
+      <div className="relative z-10 pt-[130px] pb-8 flex flex-col items-center flex-shrink-0">
+        <div className="layout-spine text-center flex flex-col items-center gap-9">
 
-          {/* Headline Group */}
+          {/* Main Content Group */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center gap-8 max-w-[980px] mx-auto"
+            className="flex flex-col items-center gap-7 max-w-[980px] mx-auto"
           >
-            {/* Status Symbol Badge Bar */}
+            {/* Royal Patronage & Executive Patron Crest Badge */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-wrap items-center justify-center gap-2.5"
+              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#0B1220] text-white border border-[#C5A059]/40 shadow-lg"
             >
-              {/* Status Symbol 1: Live Engine */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 shadow-sm text-xs font-bold font-mono">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>STATUS: ENGINE ONLINE</span>
-              </div>
-
-              {/* Status Symbol 2: Latency Benchmark */}
-              <Link
-                href="/lab-test"
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary shadow-sm text-xs font-bold font-mono hover:bg-primary/20 transition-all"
-              >
-                <span>⚡ 10.2× CONTINUOUS SPEECH ADVANTAGE</span>
-              </Link>
-
-              {/* Status Symbol 3: ISO/IEEE Verified */}
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-700 text-xs font-bold font-mono hidden sm:inline-flex">
-                <span>🛡️ IEEE 829 & ISO 25010 AUDITED</span>
+              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
+              <span className="text-xs font-bold font-mono tracking-widest text-[#E2C787] uppercase">
+                EXECUTIVE PATRONAGE & INSTITUTIONAL ACCESS
               </span>
             </motion.div>
 
-            <h1 className="sr-only">Speak once. Break language barriers.</h1>
+            {/* Headline */}
+            <h1 className="sr-only">The Standard for Real-Time Multilingual Communication</h1>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0B1220] leading-[1.12] tracking-tight flex flex-wrap justify-center gap-x-3"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <span>Speak once.</span>
+              <span>The Gold Standard for</span>
               <span className="text-primary inline-grid text-left">
                 {flipWords.map((word, index) => (
                   <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
@@ -202,10 +184,10 @@ export default function GlassmorphicHero() {
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={flipIndex}
-                      initial={{ y: 20, opacity: 0 }}
+                      initial={{ y: 18, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      exit={{ y: -18, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
                       className="whitespace-nowrap"
                     >
                       {flipWords[flipIndex]}
@@ -215,47 +197,48 @@ export default function GlassmorphicHero() {
               </span>
             </h2>
 
+            {/* Sub-headline */}
             <p
-              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[800px] mx-auto font-medium"
+              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-[820px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              The zero-latency translation platform engineered for continuous speech. Delivering live streaming audio (~2.0s) and captions (~1.0s) in 100+ languages—up to 30× faster than traditional sentence buffering.
+              Engineered for global leadership, executive summits, and international delegations. Exbabel delivers sub-second neural speech translation (~2.0s) and frame-accurate captioning with uncompromising confidentiality.
             </p>
           </motion.div>
 
-          {/* Status Metrics Strip */}
+          {/* Institutional Trust Metrics Strip */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-[840px] mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-[900px] mx-auto"
           >
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFC</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">1.013s</div>
-              <div className="text-[11px] text-slate-500 font-medium">First Caption Onset</div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">GOVERNANCE</div>
+              <div className="text-lg font-extrabold text-[#0B1220]">ISO/IEC 25010</div>
+              <div className="text-[11px] text-slate-500 font-medium">Audited Performance Standard</div>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFS</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">2.027s</div>
-              <div className="text-[11px] text-slate-500 font-medium">Audio Playback Stream</div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">CAPTION ONSET</div>
+              <div className="text-lg font-extrabold text-[#0B1220]">1.013s TTFC</div>
+              <div className="text-[11px] text-slate-500 font-medium">Sub-Second Processing</div>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">BENCHMARK</div>
-              <div className="text-xl font-extrabold text-[#394dfe]">10.2×</div>
-              <div className="text-[11px] text-slate-500 font-medium">Continuous Advantage</div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STREAM LATENCY</div>
+              <div className="text-lg font-extrabold text-[#394dfe]">10.2× ADVANTAGE</div>
+              <div className="text-[11px] text-slate-500 font-medium">Continuous Speech Benchmark</div>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-emerald-600 uppercase">PROTOCOL</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">ISO 25010</div>
-              <div className="text-[11px] text-slate-500 font-medium">Empirical Audit Passed</div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-emerald-600 uppercase">CONFIDENTIALITY</div>
+              <div className="text-lg font-extrabold text-[#0B1220]">ZERO STORAGE</div>
+              <div className="text-[11px] text-slate-500 font-medium">Ephemeral Memory Pipeline</div>
             </div>
           </motion.div>
 
-          {/* Premium CTA Row */}
+          {/* Corporate Executive Access CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -264,19 +247,19 @@ export default function GlassmorphicHero() {
           >
             <Link
               href="/demo"
-              className="px-8 py-4 rounded-full bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group"
+              className="px-9 py-4 rounded-full bg-[#0B1220] hover:bg-[#0B1220]/90 text-white font-bold text-base transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg border border-[#C5A059]/40 relative overflow-hidden group"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
-              Book a live demo
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+              Request Executive Access
             </Link>
             
             <Link
               href="/lab-test"
-              className="px-8 py-4 rounded-full text-[#394dfe] font-bold text-lg bg-white border border-[#394dfe]/30 shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+              className="px-9 py-4 rounded-full text-[#0B1220] font-bold text-base bg-white border border-slate-300 shadow-sm hover:shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <span>View Lab Benchmarks</span>
+              <span>View Institutional Audit Report</span>
               <span>→</span>
             </Link>
           </motion.div>
