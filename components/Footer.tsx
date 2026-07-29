@@ -54,7 +54,7 @@ export default function Footer() {
               Exbabel
             </h3>
             <p className="text-sm text-slate-600 max-w-xs">
-              Real-time speech-to-speech AI translation platform for live video, audio, and captions.
+              The enterprise platform for real-time multilingual translation.
             </p>
           </motion.nav>
 

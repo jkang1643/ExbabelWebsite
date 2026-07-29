@@ -500,19 +500,15 @@ export default function WhyChurchesChoose() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold tracking-[0.18em] uppercase mb-7">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute h-full w-full rounded-full bg-primary opacity-60" />
-              <span className="relative rounded-full h-1.5 w-1.5 bg-primary" />
-            </span>
-            Built for Churches
+            For Churches & Ministries
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] mb-5 text-base-content"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}>
-            Why Churches Choose{" "}
+            Why Leading Churches Choose{" "}
             <span className="text-primary">Exbabel</span>
           </h2>
           <p className="text-base-content/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-medium">
-            Everything your church needs to break the language barrier — nothing it doesn&apos;t.
+            A single platform for every language in your congregation — replacing interpreters, equipment, and coordination.
           </p>
         </motion.div>
 

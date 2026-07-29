@@ -50,7 +50,7 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-600 mb-4">{feature.description}</p>
                 <a href="/lab-test" className="inline-flex items-center gap-1.5 text-sm font-bold transition-all" style={{ color: feature.accentColor }}>
-                    View technical benchmarks →
+                    View performance report →
                 </a>
             </div>
         </div>
@@ -77,39 +77,35 @@ interface Feature {
 const FEATURES: Feature[] = [
     {
         id: "voices",
-        title: "100+ Languages with Real-Time Neural Speech Streaming",
-        description: "Sub-second speech-to-speech translation in over 100 languages, preserving natural vocal cadence, emotional resonance, and speech clarity.",
+        title: "100+ Languages, One Platform",
+        description: "Speech-to-speech translation across more than 100 languages, preserving the speaker's natural cadence, tone, and emotional clarity.",
         accentColor: "#394DFE",
         videoSrc: "/videos/90 lanaguges supported.mp4",
-        badge: "100+ ACTIVE",
-        statusSymbol: "[STATUS: 100+ LANGUAGES]",
+        badge: "100+ Active",
     },
     {
         id: "continuous",
-        title: "Streaming Architecture Engineered for Continuous Speech",
-        description: "Eliminates sentence silence buffering. Streams live translated speech in ~2.0s—delivering a 10.2× speedup at 20s continuous speech and 30× at 60s.",
+        title: "Continuous Streaming Architecture",
+        description: "Eliminates sentence buffering entirely. Translated speech streams in approximately two seconds — delivering a 10× advantage over segmented systems.",
         accentColor: "#0284C7",
         videoSrc: "/videos/Live voice translation.mp4",
-        badge: "10.2× FASTER",
-        statusSymbol: "[STATUS: ZERO-DELAY STREAM]",
+        badge: "10.2× Faster",
     },
     {
         id: "captions",
-        title: "1.013s Sub-Second Multilingual Live Captions",
-        description: "Frame-accurate target captions rendered in ~1.0 second from speech onset, tested under IEEE 829-2008 and ISO/IEC 25010 quality standards.",
+        title: "Sub-Second Multilingual Captions",
+        description: "Live captions appear within one second of speech onset, tested and verified under IEEE 829 and ISO 25010 quality standards.",
         accentColor: "#059669",
         videoSrc: "/videos/instant AI transcription.mp4",
         badge: "1.01s TTFC",
-        statusSymbol: "[STATUS: 1.01s TTFC ONSET]",
     },
     {
         id: "privacy",
-        title: "Zero-Retention Security & Enterprise Audit Reliability",
-        description: "Ephemeral in-memory audio stream processing with zero-data retention, end-to-end encryption, and 99.99% operational uptime SLA.",
+        title: "Enterprise-Grade Security",
+        description: "Zero-retention processing with end-to-end encryption. No audio is stored, logged, or used for model training. 99.99% uptime SLA.",
         accentColor: "#4F46E5",
         videoSrc: "/videos/zero setup.mp4",
         badge: "ISO 25010",
-        statusSymbol: "[STATUS: ISO AUDITED]",
     },
 ];
 
@@ -173,11 +169,11 @@ export default function FeatureShowcase() {
                                 
                                 {/* Section Header */}
                                 <div className="text-center mb-12">
-                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold font-mono mb-3">
-                                        ⚡ BENCHMARK-BACKED CAPABILITIES
+                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+                                        Platform Capabilities
                                     </div>
                                     <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-tight">
-                                        Engineered for Real-Time Continuous Speech
+                                        Built for Continuous Speech at Scale
                                     </h2>
                                 </div>
 
@@ -195,14 +191,11 @@ export default function FeatureShowcase() {
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
                                                     className="space-y-4"
                                                 >
-                                                    {/* Status Symbol Badge */}
+                                                    {/* Badge */}
                                                     <div className="flex items-center gap-2">
-                                                        <span className="text-xs font-mono font-bold px-3 py-1 rounded bg-[#0B1220] text-[#D6F5FF]">
-                                                            {active.statusSymbol}
-                                                        </span>
                                                         {active.badge && (
                                                             <span
-                                                                className="text-xs font-bold px-3 py-1 rounded-full text-white"
+                                                                className="text-xs font-semibold px-3 py-1 rounded-full text-white"
                                                                 style={{ backgroundColor: active.accentColor }}
                                                             >
                                                                 {active.badge}
@@ -225,7 +218,7 @@ export default function FeatureShowcase() {
                                                     className="inline-flex items-center gap-2 text-sm font-bold transition-all group/link"
                                                     style={{ color: active.accentColor }}
                                                 >
-                                                    <span>View lab benchmark report</span>
+                                                    <span>View performance report</span>
                                                     <span className="group-hover/link:translate-x-1 transition-transform">→</span>
                                                 </a>
                                             </div>
@@ -251,8 +244,8 @@ export default function FeatureShowcase() {
                                     {/* RIGHT: Video Stage */}
                                     <div className="relative w-full aspect-[4/3]">
                                         {/* Progress Counter */}
-                                        <div className="absolute -top-8 left-0 text-xs font-bold font-mono text-slate-500 uppercase tracking-wider">
-                                            FEATURE CAPABILITY {String(activeIdx + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
+                                        <div className="absolute -top-8 left-0 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                            Capability {String(activeIdx + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
                                         </div>
 
                                         {/* Blob Background */}
@@ -305,11 +298,11 @@ export default function FeatureShowcase() {
             <section className="block lg:hidden py-12 px-6 relative overflow-hidden bg-slate-50">
                 <div className="relative z-10 max-w-2xl mx-auto space-y-8">
                     <div className="text-center mb-8 space-y-2">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold font-mono">
-                            ⚡ BENCHMARK-BACKED CAPABILITIES
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+                            Platform Capabilities
                         </div>
                         <h2 className="text-2xl font-extrabold text-[#0B1220]">
-                            What Sets Exbabel Apart
+                            Built for Continuous Speech at Scale
                         </h2>
                     </div>
 

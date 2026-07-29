@@ -23,10 +23,10 @@ export default function GlassmorphicHero() {
 
   // Rotating Text Slogans
   const flipWords = [
-    "Be understood.",
-    "Reach everyone.",
-    "Connect globally.",
-    "Break barriers."
+    "Every language.",
+    "One service.",
+    "Understood.",
+    "Connected."
   ];
   const [flipIndex, setFlipIndex] = useState(0);
 
@@ -161,26 +161,23 @@ export default function GlassmorphicHero() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border-2 border-white text-[#1d1c1d] shadow-md hover:shadow-lg hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-slate-200 text-[#1d1c1d] shadow-sm hover:shadow-md hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              <span className="text-sm font-bold tracking-tight">Introducing Exbabel Live Video Translation</span>
-              <span className="text-sm text-base-muted mx-1">•</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <span className="text-sm font-semibold tracking-tight">Now Available — Live Video Translation for Global Congregations</span>
+              <span className="text-sm text-base-muted mx-1">·</span>
               <span className="text-sm font-medium">Learn more</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.a>
 
-            <h1 className="sr-only">Speak once. Break language barriers.</h1>
+            <h1 className="sr-only">Every voice. Every language. One service.</h1>
             <h2
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <span>Speak once.</span>
+              <span>Every voice.</span>
               <span className="text-primary inline-grid text-left">
                 {flipWords.map((word, index) => (
                   <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
@@ -209,41 +206,11 @@ export default function GlassmorphicHero() {
               className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              The complete church translation platform for multilingual congregations. Live captions, audio translation, video translation, and AI-powered interpretation built specifically for ministry.
+              The real-time AI translation platform trusted by churches and institutions worldwide to deliver live speech, captions, and audio — simultaneously, in over 100 languages.
             </p>
           </motion.div>
 
-          {/* Subtle High-Status Benchmark Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-[840px] mx-auto"
-          >
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFC</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">1.013s</div>
-              <div className="text-[11px] text-slate-500 font-medium">First Caption Onset</div>
-            </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFS</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">2.027s</div>
-              <div className="text-[11px] text-slate-500 font-medium">Audio Playback Stream</div>
-            </div>
-
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">BENCHMARK</div>
-              <div className="text-xl font-extrabold text-[#394dfe]">10.2×</div>
-              <div className="text-[11px] text-slate-500 font-medium">Continuous Advantage</div>
-            </div>
-
-            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
-              <div className="text-[10px] font-bold font-mono tracking-widest text-emerald-600 uppercase">PROTOCOL</div>
-              <div className="text-xl font-extrabold text-[#0B1220]">ISO 25010</div>
-              <div className="text-[11px] text-slate-500 font-medium">Empirical Audit Passed</div>
-            </div>
-          </motion.div>
 
           {/* Restored Classic Premium CTA Row */}
           <motion.div
@@ -258,14 +225,14 @@ export default function GlassmorphicHero() {
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
-              Book a demo
+              Schedule a Consultation
             </Link>
             <a
               href="#pricing"
               className="px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Find your plan &rarr;
+              Explore Capabilities
             </a>
           </motion.div>
 

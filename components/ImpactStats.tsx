@@ -47,7 +47,7 @@ const StatItem = ({ value, suffix = "", prefix = "", description, statusSymbol, 
             transition={{ duration: 0.6, delay: delay, ease: "easeOut" }}
         >
             <div className="inline-block mx-auto">
-                <span className="text-[10px] font-bold font-mono px-2.5 py-1 rounded bg-[#0B1220] text-[#D6F5FF]">
+                <span className="text-[10px] font-semibold px-2.5 py-1 rounded bg-[#0B1220] text-[#D6F5FF] tracking-wide uppercase">
                     {statusSymbol}
                 </span>
             </div>
@@ -75,14 +75,14 @@ export default function ImpactStats() {
                 
                 {/* Header */}
                 <div className="max-w-3xl mx-auto space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold font-mono">
-                        📊 PRODUCTION PERFORMANCE METRICS
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+                        Performance
                     </div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight">
-                        Proven Real-Time Speed & Precision
+                        Measured. Verified. Proven.
                     </h2>
                     <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                        Empirical benchmark results under IEEE 829 and ISO/IEC 25010 performance testing standards.
+                        Platform performance benchmarked under IEEE 829 and ISO 25010 testing standards.
                     </p>
                 </div>
 
@@ -91,31 +91,31 @@ export default function ImpactStats() {
                     <StatItem
                         value={10}
                         suffix="×"
-                        statusSymbol="[STATUS: 10.2× ADVANTAGE]"
-                        description="Speedup advantage during continuous speech vs buffering"
+                        statusSymbol="10.2× Advantage"
+                        description="Continuous speed advantage during live speech vs buffered systems"
                         delay={0.1}
                         inView={inView}
                     />
                     <StatItem
                         value={1}
                         suffix="s"
-                        statusSymbol="[STATUS: 1.01s TTFC]"
-                        description="Sub-second time to first caption onset from live speech"
+                        statusSymbol="1.01s TTFC"
+                        description="Time to first caption onset from live speech"
                         delay={0.2}
                         inView={inView}
                     />
                     <StatItem
                         value={100}
                         suffix="+"
-                        statusSymbol="[STATUS: 100+ LANGS]"
-                        description="Multilingual continuous speech translation languages"
+                        statusSymbol="100+ Languages"
+                        description="Multilingual speech-to-speech translation languages supported"
                         delay={0.3}
                         inView={inView}
                     />
                     <StatItem
                         value={99}
                         suffix="%"
-                        statusSymbol="[STATUS: ISO AUDITED]"
+                        statusSymbol="ISO Verified"
                         description="Contextual decibel and acoustic translation accuracy"
                         delay={0.4}
                         inView={inView}

@@ -14,17 +14,17 @@ export default function Pricing() {
       annualPrice: 375,
       description: "Everything you need to start translating live services",
       features: [
-        { text: "6 hours live + 10 hours solo included", icon: "🎙️" },
-        { text: "60 premium languages with voices (TTS)", icon: "🔊" },
-        { text: "200+ languages", icon: "🌐" },
-        { text: "Unlimited simultaneous languages", icon: "🔀" },
-        { text: "Email & phone support", icon: "📧" },
-        { text: "30-day free trial", icon: "🎁" },
-        { text: "Additional hours: $10/hour", icon: "⏱️" },
+        { text: "6 hours live + 10 hours solo included", icon: "✓" },
+        { text: "60 premium languages with voices (TTS)", icon: "✓" },
+        { text: "200+ languages", icon: "✓" },
+        { text: "Unlimited simultaneous languages", icon: "✓" },
+        { text: "Email & phone support", icon: "✓" },
+        { text: "30-day free trial", icon: "✓" },
+        { text: "Additional hours: $10/hour", icon: "✓" },
       ],
       cta: "Start Free Trial",
       highlighted: false,
-      badge: "🎁 30-DAY FREE TRIAL",
+      badge: "30-DAY TRIAL INCLUDED",
       accentColor: "#10b981",
       signupUrl: (interval: string) =>
         `${appRoutes.pricingStarter}${interval === "yearly" ? "&billing=yearly" : ""}`,
@@ -35,13 +35,13 @@ export default function Pricing() {
       annualPrice: 950,
       description: "More hours, more voices, faster translation",
       features: [
-        { text: "12 hours live + 20 hours solo included", icon: "🎙️" },
-        { text: "90 premium languages with voices (TTS)", icon: "🔊" },
-        { text: "250+ languages & dialects", icon: "🌐" },
-        { text: "Unlimited simultaneous languages", icon: "🔀" },
-        { text: "50% faster translation", icon: "⚡" },
-        { text: "24/7 support", icon: "📧" },
-        { text: "Additional hours: $10/hour", icon: "⏱️" },
+        { text: "12 hours live + 20 hours solo included", icon: "✓" },
+        { text: "90 premium languages with voices (TTS)", icon: "✓" },
+        { text: "250+ languages & dialects", icon: "✓" },
+        { text: "Unlimited simultaneous languages", icon: "✓" },
+        { text: "50% faster translation", icon: "✓" },
+        { text: "24/7 support", icon: "✓" },
+        { text: "Additional hours: $10/hour", icon: "✓" },
       ],
       cta: "Get Pro",
       highlighted: true,
@@ -55,18 +55,18 @@ export default function Pricing() {
       annualPrice: 2900,
       description: "No limits. World-class voices. White-glove service.",
       features: [
-        { text: "36 hours live included + unlimited solo hours", icon: "🎙️" },
-        { text: "60 premium languages with voices (TTS)", icon: "🔊" },
-        { text: "90 premium languages with voices (TTS)", icon: "🎤" },
-        { text: "75 world-class life-like languages with voices (ElevenLabs)", icon: "💎" },
-        { text: "250+ languages & dialects", icon: "🌐" },
-        { text: "Unlimited simultaneous languages", icon: "🔀" },
-        { text: "Fastest translation speed", icon: "⚡" },
-        { text: "24/7 priority + personal onboarding", icon: "📧" },
-        { text: "Custom branding & voice cloning", icon: "💎" },
-        { text: "Additional hours: $10/hour", icon: "⏱️" },
+        { text: "36 hours live included + unlimited solo hours", icon: "✓" },
+        { text: "60 premium languages with voices (TTS)", icon: "✓" },
+        { text: "90 premium languages with voices (TTS)", icon: "✓" },
+        { text: "75 world-class life-like languages with voices (ElevenLabs)", icon: "✓" },
+        { text: "250+ languages & dialects", icon: "✓" },
+        { text: "Unlimited simultaneous languages", icon: "✓" },
+        { text: "Fastest translation speed", icon: "✓" },
+        { text: "24/7 priority + personal onboarding", icon: "✓" },
+        { text: "Custom branding & voice cloning", icon: "✓" },
+        { text: "Additional hours: $10/hour", icon: "✓" },
       ],
-      cta: "Go Unlimited",
+      cta: "Contact Sales",
       highlighted: false,
       accentColor: "#8b5cf6",
       signupUrl: (interval: string) =>
@@ -90,14 +90,12 @@ export default function Pricing() {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
-            Break Language Barriers<br />
-            <span>
-              In Your Ministry
-            </span>
+            Select Your Plan
           </h2>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
-            Real-time AI translation for churches. Your congregation hears every word, in their language.
+            Real-time AI translation for churches and organizations of every size.
           </p>
+
 
           {/* Monthly / Annual Toggle */}
           <div className="inline-flex bg-base-200 rounded-full p-1 gap-0">
@@ -148,7 +146,7 @@ export default function Pricing() {
                   {/* Popular Badge */}
                   {plan.highlighted && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.4)] whitespace-nowrap z-10">
-                      ⭐ MOST POPULAR
+                      Recommended
                     </div>
                   )}
 
@@ -237,7 +235,7 @@ export default function Pricing() {
                     <ul className="space-y-2 mb-6 flex-grow">
                       {plan.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center gap-2.5 text-sm text-base-content/80">
-                          <span className="text-base flex-shrink-0">{feature.icon}</span>
+                          <span className="text-sm flex-shrink-0 text-primary font-semibold">✓</span>
                           <span className="leading-relaxed">{feature.text}</span>
                         </li>
                       ))}
@@ -270,16 +268,14 @@ export default function Pricing() {
         {/* Trust Indicators */}
         <div className="flex justify-center gap-8 flex-wrap mb-6">
           <div className="flex items-center gap-2">
-            <span className="text-base">🔒</span>
+            <span className="text-sm text-base-content/70">✓</span>
             <span className="text-sm text-base-content/70">Secure payment via Stripe</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-base">↩️</span>
             <span className="text-sm text-base-content/70">Cancel anytime</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-base">🎁</span>
-            <span className="text-sm text-base-content/70">30-day free trial on Starter</span>
+            <span className="text-sm text-base-content/70">30-day trial on Starter</span>
           </div>
         </div>
 
@@ -288,7 +284,7 @@ export default function Pricing() {
           <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
             <div className="p-8 text-center">
               <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
-              <p className="text-base-content/70 mb-4">Contact our team to build a custom plan at a cost that works for you.</p>
+              <p className="text-base-content/70 mb-4">For organizations with specific requirements, our team will design a tailored deployment.</p>
               <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all">Contact Us</a>
             </div>
           </div>

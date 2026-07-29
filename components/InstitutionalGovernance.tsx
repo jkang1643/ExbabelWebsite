@@ -6,27 +6,27 @@ import Link from "next/link";
 export default function InstitutionalGovernance() {
   const hallmarks = [
     {
-      kicker: "GOVERNANCE & COMPLIANCE",
-      title: "ISO/IEC 25010 & IEEE 829 Certified",
-      description: "Rigorous empirical testing protocols governing system time-behavior, response latency, and acoustic energy RMS window segmentation under zero-bias conditions.",
-      badge: "AUDITED STANDARD"
+      kicker: "COMPLIANCE",
+      title: "ISO/IEC 25010 & IEEE 829 Verified",
+      description: "Platform performance independently tested against ISO 25010 quality metrics and IEEE 829 test documentation standards for latency, accuracy, and reliability.",
+      badge: "VERIFIED"
     },
     {
-      kicker: "EXECUTIVE PATRONAGE",
-      title: "Executive Advisory & High-Level Access",
-      description: "Operated under executive patronage for global summits, executive leadership boards, and international delegations.",
-      badge: "EXECUTIVE ACCESS"
+      kicker: "INSTITUTIONAL ACCESS",
+      title: "Executive & Institutional Deployment",
+      description: "Dedicated onboarding and support for leadership teams, international delegations, and organizations requiring private deployment.",
+      badge: "PRIVATE ACCESS"
     },
     {
-      kicker: "DATA PRIVACY PROTOCOL",
-      title: "Ephemeral Air-Gapped Processing",
-      description: "Zero-retention in-memory neural pipeline ensuring absolute confidentiality with no persistent data logging or AI model training on live streams.",
+      kicker: "DATA PRIVACY",
+      title: "Zero-Retention Data Processing",
+      description: "All audio is processed in memory and discarded immediately. No recordings, no transcripts, no data retention of any kind.",
       badge: "ZERO RETENTION"
     },
     {
-      kicker: "ENTERPRISE RELIABILITY",
-      title: "99.99% Operational SLA Infrastructure",
-      description: "Redundant edge streaming architecture engineered for uninterrupted continuous speech audio delivery across 100+ global languages.",
+      kicker: "INFRASTRUCTURE",
+      title: "99.99% Uptime Infrastructure",
+      description: "Redundant global architecture engineered for uninterrupted service delivery across all supported languages.",
       badge: "HIGH AVAILABILITY"
     }
   ];
@@ -41,15 +41,14 @@ export default function InstitutionalGovernance() {
         
         {/* Section Header with Gold Standard Symbol Emblem */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 text-[#E2C787] border border-[#C5A059]/40 text-xs font-bold font-mono">
-            <span className="text-[#C5A059]">👑</span>
-            <span>THE GOLD STANDARD IN REAL-TIME TRANSLATION</span>
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 text-[#E2C787] border border-[#C5A059]/40 text-xs font-semibold tracking-widest uppercase">
+            Trust & Compliance
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Institutional Governance & Enterprise Reliability
+            The Standard for Institutional Translation
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
-            Setting Exbabel apart through rigorous scientific verification, sovereign-grade security, and private executive access.
+            Verified performance. Sovereign-grade privacy. The infrastructure organizations depend on.
           </p>
         </div>
 
@@ -79,11 +78,11 @@ export default function InstitutionalGovernance() {
         {/* Executive Access Banner */}
         <div className="bg-gradient-to-r from-white/10 via-white/5 to-white/10 p-8 rounded-2xl border border-[#C5A059]/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
-            <div className="text-xs font-mono font-bold text-[#E2C787]">
-              EXECUTIVE DELEGATION & INSTITUTIONAL ACCESS
+            <div className="text-xs font-semibold tracking-widest text-[#E2C787] uppercase">
+              Institutional & Executive Access
             </div>
             <h4 className="text-lg font-bold text-white">
-              Request Private Executive Access or Review Institutional Audit Report
+              Request Private Deployment or Review the Technical Audit Report
             </h4>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -97,7 +96,7 @@ export default function InstitutionalGovernance() {
               href="/lab-test"
               className="px-6 py-2.5 rounded-full border border-white/30 text-white font-bold text-sm hover:bg-white/10 transition-all"
             >
-              Institutional Audit →
+              Technical Report
             </Link>
           </div>
         </div>

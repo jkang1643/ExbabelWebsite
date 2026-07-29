@@ -48,10 +48,10 @@ export default function VideoShowcase() {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
-                        See Exbabel in Action
+                        Exbabel in Practice
                     </h2>
                     <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
-                        Watch how real-time translation transforms your services
+                        Live translation delivered in real time across a multilingual congregation.
                     </p>
                 </div>
 

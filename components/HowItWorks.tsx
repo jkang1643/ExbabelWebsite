@@ -14,31 +14,27 @@ const fadeUp = (delay = 0) => ({
 const STEPS = [
   {
     number: "01",
-    statusSymbol: "[STATUS: INGEST READY]",
-    title: "Instant One-Click Session Launch",
+    title: "Launch a Live Session",
     description:
-      "Create a live streaming session in seconds. Select source language and microphone input—zero hardware or local app installation required.",
+      "Create a translation session from any browser. Select your language and begin speaking — no equipment or installation required.",
   },
   {
     number: "02",
-    statusSymbol: "[STATUS: NEURAL PIPELINE]",
-    title: "Sub-Second Target Configuration",
+    title: "Configure Target Languages",
     description:
-      "Configure target languages instantly. Exbabel's neural pipeline processes continuous speech parallel to your live audio stream.",
+      "Choose from over 100 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
   },
   {
     number: "03",
-    statusSymbol: "[STATUS: ZERO-FRICTION ACCESS]",
-    title: "Instant Web & QR Code Access",
+    title: "Share Access Instantly",
     description:
-      "Attendees scan a QR code or tap a web link on any phone, tablet, or browser to join immediately without downloading apps.",
+      "Attendees join via QR code or web link on any device — phone, tablet, or laptop. No app download required.",
   },
   {
     number: "04",
-    statusSymbol: "[STATUS: LIVE STREAM DELIVERED]",
-    title: "Continuous Speech Audio & Captions",
+    title: "Listen and Read in Real Time",
     description:
-      "Speak naturally without pausing. Exbabel streams live translated speech audio (~2.0s) and frame-accurate captions (~1.0s) in real-time.",
+      "Translated speech audio streams in approximately two seconds. Multilingual captions appear in approximately one second. Speak naturally — without pausing.",
   },
 ];
 
@@ -49,7 +45,7 @@ function DashboardMockup() {
         <div className="flex items-center justify-between px-5 py-3 bg-slate-50 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold text-primary">Exbabel</span>
-            <span className="text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full font-mono">STATUS: ONLINE</span>
+            <span className="text-[10px] font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded-full">Online</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-full bg-slate-200" />
@@ -68,7 +64,7 @@ function DashboardMockup() {
             className="relative z-10 bg-white rounded-xl shadow-2xl p-6 w-64 border border-slate-100"
             {...fadeUp(0.2)}
           >
-            <div className="text-xs font-bold text-slate-400 mb-1 font-mono">[SESSION PARAMETERS]</div>
+            <div className="text-xs font-semibold text-slate-400 mb-1 tracking-wide uppercase">Session Parameters</div>
             <div className="text-sm font-bold text-slate-900 mb-4">Start Live Stream</div>
             
             <div className="space-y-3 mb-5">
@@ -104,11 +100,11 @@ function LanguageSelectorMockup() {
       <div className="bg-white rounded-2xl shadow-xl ring-1 ring-slate-900/5 p-6 border border-slate-100 space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <div className="text-xs font-bold text-slate-400 font-mono">[PIPELINE TARGETS]</div>
+            <div className="text-xs font-semibold text-slate-400 tracking-wide uppercase">Target Languages</div>
             <div className="text-sm font-bold text-slate-900">Configured Output Languages</div>
           </div>
-          <span className="text-xs font-bold font-mono px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
-            100+ READY
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">
+            Online
           </span>
         </div>
 
@@ -136,7 +132,7 @@ function QrCodeMockup() {
   return (
     <div className="relative w-full max-w-md mx-auto">
       <div className="bg-white rounded-2xl shadow-xl ring-1 ring-slate-900/5 p-6 border border-slate-100 flex flex-col items-center text-center space-y-4">
-        <div className="text-xs font-bold text-slate-400 font-mono">[ZERO-APP ATTENDEE ACCESS]</div>
+        <div className="text-xs font-semibold text-slate-400 tracking-wide uppercase">Instant Attendee Access</div>
         <div className="w-36 h-36 bg-slate-900 rounded-xl p-3 flex items-center justify-center relative shadow-inner">
           <div className="w-full h-full border-2 border-dashed border-white/40 rounded-lg flex items-center justify-center text-white font-mono text-xs font-bold">
             QR CODE
@@ -155,20 +151,20 @@ function TranslateLiveMockup() {
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-bold font-mono text-emerald-700">STREAM ACTIVE</span>
+            <span className="text-xs font-semibold text-emerald-700 tracking-wide">Stream Active</span>
           </div>
-          <span className="text-xs font-mono text-slate-400">LATENCY: 2.02s</span>
+          <span className="text-xs text-slate-400">Latency: 2.02s</span>
         </div>
 
         <div className="space-y-2">
           <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
             <span className="font-bold text-slate-400 block mb-0.5">SPEAKER (ENGLISH)</span>
-            <p className="text-slate-800 font-medium">"Welcome everyone to our service today."</p>
+            <p className="text-slate-800 font-medium">&ldquo;Welcome everyone to our service today.&rdquo;</p>
           </div>
 
           <div className="bg-primary/10 p-3 rounded-xl border border-primary/20 text-xs">
             <span className="font-bold text-primary block mb-0.5">STREAM (SPANISH)</span>
-            <p className="text-slate-900 font-bold">"Bienvenidos a todos a nuestro servicio hoy."</p>
+            <p className="text-slate-900 font-bold">&ldquo;Bienvenidos a todos a nuestro servicio hoy.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -181,14 +177,14 @@ export default function HowItWorks() {
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold font-mono">
-            ⚙️ WORKFLOW ARCHITECTURE
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+            How It Works
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight">
-            How Exbabel Delivers Real-Time Translation
+            Operational in Under Two Minutes
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Zero app downloads. Zero expensive hardware. Operational in under two minutes.
+            No hardware. No app downloads. No interpreters to schedule. Simply speak — and every listener hears you in their language.
           </p>
         </div>
 
@@ -202,9 +198,6 @@ export default function HowItWorks() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-black text-[#394dfe] font-mono">{step.number}</span>
-                  <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-white text-slate-700 border border-slate-200">
-                    {step.statusSymbol}
-                  </span>
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1220] leading-snug">{step.title}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>

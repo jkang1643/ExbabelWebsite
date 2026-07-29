@@ -13,7 +13,7 @@ export default function ContinuousSpeechGraphic({ className = "" }: { className?
       {/* TRACK 1: CONTINUOUS SPEECH SOURCE WAVEFORM */}
       <g transform="translate(40, 15)">
         <text x="0" y="16" fill="#0B1220" fontSize="12" fontWeight="800" fontStyle="italic" fontFamily="var(--font-sora), sans-serif">
-          CONTINUOUS UNINTERRUPTED SPEECH ("THEN PETER SAID UNTO THEM...")
+          CONTINUOUS UNINTERRUPTED SPEECH (&quot;THEN PETER SAID UNTO THEM...&quot;)
         </text>
         
         {/* Waveform Bar (0s to 6.8s) */}

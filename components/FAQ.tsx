@@ -42,10 +42,10 @@ export default function FAQ() {
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
-            FAQs
+            Frequently Asked Questions
           </h2>
           <p className="text-lg text-base-content">
-            Everything you need to know before getting started
+            Common questions about deployment, capabilities, and integration.
           </p>
         </div>
 

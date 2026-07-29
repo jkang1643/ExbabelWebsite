@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
+import ShutdownBanner from "./ShutdownBanner";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,13 +40,15 @@ export default function Navbar() {
   }, [handleScroll]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-safe-area ${
-        scrolled 
-          ? "navbar-padding-scrolled" 
-          : "navbar-padding-normal"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <ShutdownBanner />
+      <nav
+        className={`transition-all duration-300 navbar-safe-area ${
+          scrolled 
+            ? "navbar-padding-scrolled" 
+            : "navbar-padding-normal"
+        }`}
+      >
       <div 
         className={`absolute top-[-100px] left-0 right-0 bottom-0 transition-all duration-300 pointer-events-none z-[-1] ${
           scrolled 
@@ -61,10 +64,7 @@ export default function Navbar() {
           <span className="text-2xl font-black text-primary tracking-tight transition-colors duration-300">
             Exbabel
           </span>
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 hidden sm:inline-flex">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>ONLINE</span>
-          </span>
+
         </Link>
 
         {/* Desktop Menu - Restored Classic Text with Subtle High-Status Indicators */}
@@ -123,8 +123,7 @@ export default function Navbar() {
                     className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
                   >
                     <div className="font-bold text-primary flex items-center gap-1.5">
-                      <span>Lab Latency Report</span>
-                      <span className="text-[10px] bg-cyan-100 text-cyan-800 px-1.5 py-0.5 rounded font-mono uppercase">EXB-LAB</span>
+                      Performance Report
                     </div>
                     <div className="text-xs text-gray-500 font-normal">Independent IEEE/ISO benchmark report</div>
                   </Link>
@@ -142,10 +141,9 @@ export default function Navbar() {
 
           <Link
             href="/lab-test"
-            className="text-xs sm:text-sm font-bold text-primary bg-cyan-50 border border-cyan-200 px-3 py-1.5 rounded-full hover:bg-cyan-100 transition-colors flex items-center gap-1.5 shrink-0 shadow-sm"
+            className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-            Laboratory Testing
+            Performance Report
           </Link>
 
           {["Pricing", "FAQ"].map((item) => {
@@ -186,11 +184,12 @@ export default function Navbar() {
                 }`}
               style={!scrolled ? { color: '#1d1c1d', backgroundColor: 'white' } : {}}
             >
-              Book a Demo
+              Request a Consultation
             </Link>
           </div>
         </div>
       </div>
     </nav>
-  );
+  </header>
+);
 }

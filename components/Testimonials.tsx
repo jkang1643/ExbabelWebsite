@@ -12,7 +12,7 @@ export default function Testimonials() {
             color: "bg-blue-500"
         },
         {
-            quote: "Recently at the church we started using Exbabel, I'm telling you its a game changer. Our non english spakers can benefit from the full range of our preaching and teachings without us needing to print trnslated notes in advance. the real time multilingual capabilities make it a must for any multicultural congregation. Give it a try, and if you're like us, you'll love it!",
+            quote: "Recently at the church we started using Exbabel, I'm telling you it's a game changer. Our non-English speakers can benefit from the full range of our preaching and teachings without us needing to print translated notes in advance. The real-time multilingual capabilities make it a must for any multicultural congregation. Give it a try, and if you're like us, you'll love it!",
             name: "Pastor David Joy",
             title: "Senior Pastor",
             organization: "Lighthouse Church",
@@ -21,7 +21,7 @@ export default function Testimonials() {
             color: "bg-purple-500"
         },
         {
-            quote: "Exbabel has been a tremendous resource for Lighthouse Church. Two different langauge groups at our church were represented. I knew they wanted to be part of our english services but there was a disconnect. They were really only catching abotu 25% of what was being said in services. This was a great concern from me. We had no one that could do translation on a weekly basis. We started using it the following sunday, and I had folks coming to me after service that this was a tremendous resource for our spanish and farsi speakers, enabling us to minsiter as effectively as posssible.",
+            quote: "Exbabel has been a tremendous resource for Lighthouse Church. Two different language groups at our church were represented. I knew they wanted to be part of our English services but there was a disconnect. They were really only catching about 25% of what was being said in services. This was a great concern for me. We had no one that could do translation on a weekly basis. We started using it the following Sunday, and I had folks coming to me after service that this was a tremendous resource for our Spanish and Farsi speakers, enabling us to minister as effectively as possible.",
             name: "Pastor Gary Pierson",
             title: "Senior Pastor",
             organization: "Lighthouse Pentecostal Church",
@@ -45,12 +45,12 @@ export default function Testimonials() {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <div className="text-eyebrow mb-4 tracking-widest text-primary/80">
-                        LOVED BY CHURCH LEADERS
+                        VOICES FROM OUR COMMUNITY
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
-                        Hear from our community
+                        Trusted by Church Leaders Nationwide
                     </h2>
-                    Join churches using Exbabel to break down language barriers and grow their congregations.
+                    Pastors and ministry leaders share how Exbabel has transformed their congregations.
                 </div>
 
                 {/* Testimonials Grid */}
@@ -113,7 +113,7 @@ export default function Testimonials() {
                         href="#pricing"
                         className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
                     >
-                        Start Your Free Trial
+                        Get Started
                     </a>
                 </div>
             </div>
