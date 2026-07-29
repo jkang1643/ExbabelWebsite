@@ -13,9 +13,9 @@ export default function InstitutionalGovernance() {
     },
     {
       kicker: "EXECUTIVE PATRONAGE",
-      title: "Royal Delegation & Executive Advisory",
-      description: "Operated under private executive patronage for sovereign state summits, Fortune 500 boards, and high-level international delegations.",
-      badge: "PRIVILEGED ACCESS"
+      title: "Executive Advisory & High-Level Access",
+      description: "Operated under executive patronage for global summits, executive leadership boards, and international delegations.",
+      badge: "EXECUTIVE ACCESS"
     },
     {
       kicker: "DATA PRIVACY PROTOCOL",
@@ -39,17 +39,17 @@ export default function InstitutionalGovernance() {
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 space-y-16">
         
-        {/* Section Header */}
+        {/* Section Header with Gold Standard Symbol Emblem */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#E2C787] border border-[#C5A059]/40 text-xs font-bold font-mono">
-            <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
-            <span>INSTITUTIONAL GOVERNANCE & PATRONAGE</span>
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 text-[#E2C787] border border-[#C5A059]/40 text-xs font-bold font-mono">
+            <span className="text-[#C5A059]">👑</span>
+            <span>THE GOLD STANDARD IN REAL-TIME TRANSLATION</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            The Infrastructure of Global Executive Communication
+            Institutional Governance & Enterprise Reliability
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
-            Setting Exbabel apart through rigorous scientific verification, sovereign-grade security, and private executive patronage.
+            Setting Exbabel apart through rigorous scientific verification, sovereign-grade security, and private executive access.
           </p>
         </div>
 
@@ -76,14 +76,14 @@ export default function InstitutionalGovernance() {
           ))}
         </div>
 
-        {/* Private Access Banner */}
+        {/* Executive Access Banner */}
         <div className="bg-gradient-to-r from-white/10 via-white/5 to-white/10 p-8 rounded-2xl border border-[#C5A059]/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <div className="text-xs font-mono font-bold text-[#E2C787]">
-              EXECUTIVE DELEGATION ACCESS
+              EXECUTIVE DELEGATION & INSTITUTIONAL ACCESS
             </div>
             <h4 className="text-lg font-bold text-white">
-              Request Private Access or Review Institutional Audit Report
+              Request Private Executive Access or Review Institutional Audit Report
             </h4>
           </div>
           <div className="flex flex-wrap gap-3">

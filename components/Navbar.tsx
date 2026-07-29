@@ -14,7 +14,7 @@ export default function Navbar() {
   // Throttled scroll handler using requestAnimationFrame
   const rafRef = useRef<number>(0);
   const handleScroll = useCallback(() => {
-    if (rafRef.current) return; // Already scheduled
+    if (rafRef.current) return;
     rafRef.current = requestAnimationFrame(() => {
       setScrolled(window.scrollY > 20);
       rafRef.current = 0;
@@ -24,7 +24,6 @@ export default function Navbar() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Dynamic viewport-fit cover fix for iOS Safari notch gap
     const meta = document.querySelector('meta[name="viewport"]');
     if (meta) {
       const content = meta.getAttribute("content") || "";
@@ -47,7 +46,6 @@ export default function Navbar() {
           : "navbar-padding-normal"
       }`}
     >
-      {/* Absolute background cover for notch & navbar to prevent compositor clipping on iOS Safari */}
       <div 
         className={`absolute top-[-100px] left-0 right-0 bottom-0 transition-all duration-300 pointer-events-none z-[-1] ${
           scrolled 
@@ -63,9 +61,13 @@ export default function Navbar() {
           <span className="text-2xl font-black text-primary tracking-tight transition-colors duration-300">
             Exbabel
           </span>
+          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 hidden sm:inline-flex">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>ONLINE</span>
+          </span>
         </Link>
 
-        {/* Desktop Menu - Centered & Simple */}
+        {/* Desktop Menu - Restored Classic Text with Subtle High-Status Indicators */}
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-7 py-1">
           
           {/* Products Dropdown */}
@@ -176,7 +178,6 @@ export default function Navbar() {
             Sign in
           </a>
           <div className="relative">
-
             <Link
               href="/demo"
               className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg ${scrolled
