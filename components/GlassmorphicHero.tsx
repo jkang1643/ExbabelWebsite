@@ -18,16 +18,15 @@ export default function GlassmorphicHero() {
   const [partialText, setPartialText] = useState("");
   const [spanishTranscript, setSpanishTranscript] = useState("");
   const [spanishPartialText, setSpanishPartialText] = useState("");
-  // un-used state below can be kept for future or removed, keeping for safety
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
 
   // Flipping Slogan Logic
   const flipWords = [
-    "Be understood.",
     "Reach everyone.",
-    "Connect globally.",
-    "Break barriers."
+    "Stream in real-time.",
+    "Break language barriers.",
+    "Connect globally."
   ];
   const [flipIndex, setFlipIndex] = useState(0);
 
@@ -58,7 +57,6 @@ export default function GlassmorphicHero() {
 
     const processLine = () => {
       if (lineIdx >= lines.length) {
-        // Loop back to the beginning
         lineIdx = 0;
         setTimeout(processLine, 1500);
         return;
@@ -74,7 +72,6 @@ export default function GlassmorphicHero() {
           const currentEnglishWords = englishWords.slice(0, wordIdx + 1).join(" ");
           const nextEnglishWord = englishWords[wordIdx + 1];
 
-          // Show partial of next English word
           if (nextEnglishWord) {
             const partialLength = Math.min(3, Math.floor(nextEnglishWord.length / 2));
             setPartialText(currentEnglishWords + " " + nextEnglishWord.substring(0, partialLength) + "...");
@@ -84,13 +81,11 @@ export default function GlassmorphicHero() {
 
           setTranscript(currentEnglishWords);
 
-          // Spanish transcription with 0.3s delay
           setTimeout(() => {
             if (wordIdx < spanishWords.length) {
               const currentSpanishWords = spanishWords.slice(0, wordIdx + 1).join(" ");
               const nextSpanishWord = spanishWords[wordIdx + 1];
 
-              // Show partial of next Spanish word
               if (nextSpanishWord) {
                 const partialLength = Math.min(3, Math.floor(nextSpanishWord.length / 2));
                 setSpanishPartialText(currentSpanishWords + " " + nextSpanishWord.substring(0, partialLength) + "...");
@@ -103,17 +98,14 @@ export default function GlassmorphicHero() {
           }, 300);
 
           wordIdx++;
-
-          setTimeout(transcribeWords, 120);
+          setTimeout(transcribeWords, 220);
         } else {
-          // Line complete, trigger translation
-          setPartialText("");
-          setSpanishPartialText("");
           setTimeout(() => {
-            setTranslatedLines(prev => [...prev, currentLine]);
-            setTranscript("");
-            setSpanishTranscript("");
             lineIdx++;
+            setTranscript("");
+            setPartialText("");
+            setSpanishTranscript("");
+            setSpanishPartialText("");
             setTimeout(processLine, 800);
           }, 600);
         }
@@ -126,7 +118,6 @@ export default function GlassmorphicHero() {
   }, []);
 
   useEffect(() => {
-    // Initial listening phase
     const listeningTimer = setTimeout(() => {
       setPhase('transcribing');
       startTranscription();
@@ -137,8 +128,7 @@ export default function GlassmorphicHero() {
 
   return (
     <section className="relative min-h-screen bg-base-paper flex flex-col">
-      
-      {/* Dot Grid Pattern - Modern SaaS look */}
+      {/* Dot Grid Pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
         style={{ 
@@ -147,26 +137,15 @@ export default function GlassmorphicHero() {
         }} 
       />
 
-      {/* Slack-style "Aurora" Background with enhanced animations */}
+      {/* Aurora Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Soft Pink Blob */}
         <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
-
-        {/* Light Purple Blob */}
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block"
-          style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
-
-        {/* Pale Yellow Blob */}
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block"
-          style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
-
-        {/* Subtle Blue/Mint Blob */}
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block"
-          style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
+        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
+        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
+        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
       </div>
 
       <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
-        {/* Centered Content Spine */}
         <div className="layout-spine text-center flex flex-col items-center gap-8">
 
           {/* Headline Group */}
@@ -174,27 +153,37 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center gap-8 max-w-[960px] mx-auto"
+            className="flex flex-col items-center gap-8 max-w-[980px] mx-auto"
           >
-            {/* Upscale Glassmorphic Banner */}
-            <motion.a
-              href="/live"
+            {/* Status Symbol Badge Bar */}
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border-2 border-white text-[#1d1c1d] shadow-md hover:shadow-lg hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex flex-wrap items-center justify-center gap-2.5"
             >
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              {/* Status Symbol 1: Live Engine */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 shadow-sm text-xs font-bold font-mono">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>STATUS: ENGINE ONLINE</span>
+              </div>
+
+              {/* Status Symbol 2: Latency Benchmark */}
+              <Link
+                href="/lab-test"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary shadow-sm text-xs font-bold font-mono hover:bg-primary/20 transition-all"
+              >
+                <span>⚡ 10.2× CONTINUOUS SPEECH ADVANTAGE</span>
+              </Link>
+
+              {/* Status Symbol 3: ISO/IEEE Verified */}
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-700 text-xs font-bold font-mono hidden sm:inline-flex">
+                <span>🛡️ IEEE 829 & ISO 25010 AUDITED</span>
               </span>
-              <span className="text-sm font-bold tracking-tight">Introducing Exbabel Live Video Translation</span>
-              <span className="text-sm text-base-muted mx-1">•</span>
-              <span className="text-sm font-medium">Learn more</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.a>
+            </motion.div>
 
             <h1 className="sr-only">Speak once. Break language barriers.</h1>
             <h2
@@ -203,14 +192,12 @@ export default function GlassmorphicHero() {
             >
               <span>Speak once.</span>
               <span className="text-primary inline-grid text-left">
-                {/* Invisible widest words to hold the layout width constant */}
                 {flipWords.map((word, index) => (
                   <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
                     {word}
                   </span>
                 ))}
                 
-                {/* The actual animated word */}
                 <span className="col-start-1 row-start-1 flex justify-start">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -229,11 +216,43 @@ export default function GlassmorphicHero() {
             </h2>
 
             <p
-              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
+              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[800px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              The complete church translation platform for multilingual congregations. Live captions, audio translation, video translation, and AI-powered interpretation built specifically for ministry.
+              The zero-latency translation platform engineered for continuous speech. Delivering live streaming audio (~2.0s) and captions (~1.0s) in 100+ languages—up to 30× faster than traditional sentence buffering.
             </p>
+          </motion.div>
+
+          {/* Status Metrics Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-[840px] mx-auto"
+          >
+            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFC</div>
+              <div className="text-xl font-extrabold text-[#0B1220]">1.013s</div>
+              <div className="text-[11px] text-slate-500 font-medium">First Caption Onset</div>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">STATUS: TTFS</div>
+              <div className="text-xl font-extrabold text-[#0B1220]">2.027s</div>
+              <div className="text-[11px] text-slate-500 font-medium">Audio Playback Stream</div>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-[#394dfe] uppercase">BENCHMARK</div>
+              <div className="text-xl font-extrabold text-[#394dfe]">10.2×</div>
+              <div className="text-[11px] text-slate-500 font-medium">Continuous Advantage</div>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-2xl border border-[#EAD6FF]/80 shadow-sm text-center space-y-1">
+              <div className="text-[10px] font-bold font-mono tracking-widest text-emerald-600 uppercase">PROTOCOL</div>
+              <div className="text-xl font-extrabold text-[#0B1220]">ISO 25010</div>
+              <div className="text-[11px] text-slate-500 font-medium">Empirical Audit Passed</div>
+            </div>
           </motion.div>
 
           {/* Premium CTA Row */}
@@ -241,7 +260,7 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
           >
             <Link
               href="/demo"
@@ -249,15 +268,17 @@ export default function GlassmorphicHero() {
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
-              Book a demo
+              Book a live demo
             </Link>
-            <a
-              href="#pricing"
-              className="px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+            
+            <Link
+              href="/lab-test"
+              className="px-8 py-4 rounded-full text-[#394dfe] font-bold text-lg bg-white border border-[#394dfe]/30 shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              Find your plan &rarr;
-            </a>
+              <span>View Lab Benchmarks</span>
+              <span>→</span>
+            </Link>
           </motion.div>
 
           <motion.div

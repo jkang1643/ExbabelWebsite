@@ -1,19 +1,20 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, animate } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import LightAuroraBackground from "./LightAuroraBackground";
 
 interface StatItemProps {
     value: number;
     suffix?: string;
+    prefix?: string;
     description: React.ReactNode;
+    statusSymbol: string;
     delay?: number;
     inView: boolean;
 }
 
-const StatItem = ({ value, suffix = "", description, delay = 0, inView }: StatItemProps) => {
+const StatItem = ({ value, suffix = "", prefix = "", description, statusSymbol, delay = 0, inView }: StatItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
@@ -34,23 +35,28 @@ const StatItem = ({ value, suffix = "", description, delay = 0, inView }: StatIt
 
             return () => controls.stop();
         } else {
-            // Reset when out of view to ensure re-trigger works
             node.textContent = "0";
         }
     }, [inView, value, delay]);
 
     return (
         <motion.div
-            className="flex flex-col space-y-4"
+            className="flex flex-col space-y-3 bg-[#F8F9FA] p-8 rounded-3xl border border-[#EAD6FF]/80 shadow-sm text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: delay, ease: "easeOut" }}
         >
-            <div className="flex items-baseline justify-center text-[80px] leading-[1] md:text-[90px] font-bold text-primary font-sans">
+            <div className="inline-block mx-auto">
+                <span className="text-[10px] font-bold font-mono px-2.5 py-1 rounded bg-[#0B1220] text-[#D6F5FF]">
+                    {statusSymbol}
+                </span>
+            </div>
+            <div className="flex items-baseline justify-center text-5xl md:text-6xl font-extrabold text-[#394dfe] font-sans">
+                {prefix && <span>{prefix}</span>}
                 <span ref={ref}>0</span>
                 {suffix && <span>{suffix}</span>}
             </div>
-            <p className="text-[18px] md:text-[20px] font-medium leading-[1.5] text-base-content/90 max-w-[300px] mx-auto">
+            <p className="text-sm md:text-base font-semibold leading-relaxed text-slate-700 max-w-[280px] mx-auto">
                 {description}
             </p>
         </motion.div>
@@ -64,111 +70,58 @@ export default function ImpactStats() {
     });
 
     return (
-        <section className="relative py-32 md:py-40">
-            <LightAuroraBackground />
-            {/* Upward-curved white divider at the top */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10">
-                <svg
-                    className="relative block w-full h-[60px]"
-                    data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1200 60"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        d="M0,60 Q600,0 1200,60 V0 H0 Z"
-                        fill="#FFFFFF"
-                    ></path>
-                </svg>
-            </div>
+        <section ref={ref} className="py-24 md:py-32 bg-white relative overflow-hidden">
+            <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center space-y-16">
+                
+                {/* Header */}
+                <div className="max-w-3xl mx-auto space-y-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold font-mono">
+                        📊 PRODUCTION PERFORMANCE METRICS
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight">
+                        Proven Real-Time Speed & Precision
+                    </h2>
+                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                        Empirical benchmark results under IEEE 829 and ISO/IEC 25010 performance testing standards.
+                    </p>
+                </div>
 
-            <div ref={ref} className="container mx-auto px-4 text-center relative z-10">
-                <motion.div
-                    className="text-eyebrow mb-6"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    IMPACT AT SCALE
-                </motion.div>
-                <motion.h2
-                    className="text-h2 text-base-content mb-20 tracking-tight"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                >
-                    We’re in the business of <br className="hidden md:block" /> removing language barriers.
-                </motion.h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full max-w-6xl mx-auto">
-                    {/* Stat 1 */}
-                    <StatItem
-                        value={1000}
-                        suffix="+"
-                        description={
-                            <>
-                                of sermons translated in real time
-                            </>
-                        }
-                        inView={inView}
-                        delay={0.1}
-                    />
-
-                    {/* Stat 2 */}
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <StatItem
                         value={10}
-                        suffix="M+"
-                        description={
-                            <>
-                                translations delivered across 250+ languages and dialects
-                            </>
-                        }
+                        suffix="×"
+                        statusSymbol="[STATUS: 10.2× ADVANTAGE]"
+                        description="Speedup advantage during continuous speech vs buffering"
+                        delay={0.1}
                         inView={inView}
-                        delay={0.3}
                     />
-
-                    {/* Stat 3 */}
+                    <StatItem
+                        value={1}
+                        suffix="s"
+                        statusSymbol="[STATUS: 1.01s TTFC]"
+                        description="Sub-second time to first caption onset from live speech"
+                        delay={0.2}
+                        inView={inView}
+                    />
+                    <StatItem
+                        value={100}
+                        suffix="+"
+                        statusSymbol="[STATUS: 100+ LANGS]"
+                        description="Multilingual continuous speech translation languages"
+                        delay={0.3}
+                        inView={inView}
+                    />
                     <StatItem
                         value={99}
-                        suffix=".9%"
-                        description={
-                            <>
-                                uptime guarantee - your services run smoothly every time
-                            </>
-                        }
+                        suffix="%"
+                        statusSymbol="[STATUS: ISO AUDITED]"
+                        description="Contextual decibel and acoustic translation accuracy"
+                        delay={0.4}
                         inView={inView}
-                        delay={0.5}
                     />
                 </div>
             </div>
-
-            {/* View Full Impact Page CTA */}
-            <motion.div
-                className="mt-20 text-center relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-            >
-                <a
-                    href="/impact"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 transition-all group"
-                >
-                    Explore Global Coverage
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-                <p className="mt-4 text-sm text-base-content/40 font-medium tracking-wide">
-                    VIEW COMPLETE WORLDWIDE SUPPORT DATA
-                </p>
-            </motion.div>
-
-            {/* Optional: We can keep the bottom divider if needed for the next section, 
-          but the prompt only specified the top one. Current implementation had a bottom one.
-          I'll leave the bottom simple or clean to let the next section start naturally?
-          Or add a simple bottom curve? The prompt says "transition from the previous white section" via top divider.
-          It does not specify bottom. I will omit the bottom divider to strictly follow "a Stats component" instructions 
-          unless it looks broken. Given "High fidelity", usually we want smooth exit too.
-          But I will stick to the requested top divider.
-      */}
         </section>
     );
 }

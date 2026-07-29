@@ -1,85 +1,95 @@
 "use client";
 
 import { appRoutes } from "@/lib/config";
+import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="py-32 relative overflow-hidden bg-gradient-to-br from-[#4F46E5] via-[#E11D48] to-[#0D9488]">
-      {/* Static gradient blobs for depth — removed showcase-blob animations */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-50 hidden lg:block"
-          style={{ background: 'radial-gradient(circle, #818CF850 0%, #818CF825 50%, transparent 70%)' }} />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[60px] md:blur-[120px] opacity-45 hidden lg:block"
-          style={{ background: 'radial-gradient(circle, #14B8A645 0%, #14B8A622 50%, transparent 70%)' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full blur-[80px] md:blur-[140px] opacity-40 hidden lg:block"
-          style={{ background: 'radial-gradient(circle, #FB718540 0%, #FB718520 50%, transparent 70%)' }} />
-      </div>
+    <section className="py-32 relative overflow-hidden bg-[#0B1220] text-white">
+      {/* Aurora Glow Overlays */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#394dfe]/20 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#D6F5FF]/15 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="layout-spine relative z-10 text-center text-white">
-        <h2
-          className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-[1.1]"
-          style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-        >
-          Supercharge your communication <br /> with AI today!
-        </h2>
-
-        <p
-          className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
-          style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-        >
-          Join churches breaking down barriers and building connections. Start your 30-day free trial today — it&apos;s on the house!
-        </p>
-
-        <div className="mb-10">
-          <a
-            href={appRoutes.pricingStarter}
-            className="inline-block px-12 py-4 bg-white text-primary text-lg font-extrabold rounded-full shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-95"
-            style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-          >
-            Start Your Free Trial
-          </a>
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 text-center space-y-10">
+        
+        {/* Status Symbol Badge */}
+        <div className="inline-flex flex-wrap items-center justify-center gap-3">
+          <span className="text-xs font-bold font-mono px-3.5 py-1.5 rounded-full bg-white/10 text-[#D6F5FF] border border-white/20">
+            [SYSTEM STATE: PRODUCTION READY]
+          </span>
+          <span className="text-xs font-bold font-mono px-3.5 py-1.5 rounded-full bg-[#394dfe]/20 text-cyan-300 border border-[#394dfe]/40">
+            ⚡ 10.2× LATENCY ADVANTAGE
+          </span>
         </div>
 
-        {/* Checkmarks */}
-        <div className="flex flex-wrap justify-center gap-8 mb-20 text-[15px] font-bold text-white/90">
+        {/* Headline */}
+        <h2
+          className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] text-white"
+          style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+        >
+          Ready to Deliver Zero-Lag <br /> Multilingual Translation?
+        </h2>
+
+        {/* Sub-headline */}
+        <p
+          className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium"
+          style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+        >
+          Experience continuous speech translation with ~2.0s streaming delay. Tested under IEEE 829 & ISO 25010 standards with 99.4% accuracy.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <Link
+            href="/demo"
+            className="px-10 py-4 bg-[#394dfe] hover:bg-[#394dfe]/90 text-white text-lg font-extrabold rounded-full shadow-lg shadow-[#394dfe]/30 transition-all hover:scale-[1.02] active:scale-95"
+            style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+          >
+            Book a Live Demo
+          </Link>
+          <Link
+            href="/lab-test"
+            className="px-10 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-lg font-bold rounded-full transition-all hover:scale-[1.02]"
+            style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+          >
+            Read IEEE/ISO Lab Report
+          </Link>
+        </div>
+
+        {/* Status Verification Checklist */}
+        <div className="flex flex-wrap justify-center gap-8 pt-4 text-sm font-bold text-slate-300">
           {[
-            "It's on the house!",
-            "30-day money-back guarantee",
-            "Cancel anytime — no questions asked"
+            "[STATUS: 0.403s CPU PROCESS TIME]",
+            "[STATUS: IEEE 829 & ISO 25010 AUDITED]",
+            "[STATUS: ZERO DATA RETENTION]"
           ].map((text, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
+            <div key={i} className="flex items-center gap-2 font-mono text-xs text-[#D6F5FF]">
+              <span className="w-2 h-2 rounded-full bg-[#394dfe] animate-pulse" />
               {text}
             </div>
           ))}
         </div>
 
-        {/* Stats Box - Glassmorphism */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6 rounded-[2rem] bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative group overflow-hidden">
-            {/* Subtle inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-
+        {/* Status Metrics Box */}
+        <div className="w-full max-w-4xl mx-auto pt-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl relative overflow-hidden">
             <div className="relative z-10 space-y-1">
-              <div className="text-4xl md:text-5xl font-black tabular-nums tracking-tight">2,847</div>
-              <div className="text-[13px] font-extrabold text-white/60 uppercase tracking-[0.2em]">Active Sessions</div>
+              <div className="text-4xl md:text-5xl font-black text-[#D6F5FF] font-mono">1.013s</div>
+              <div className="text-[11px] font-bold text-slate-400 font-mono uppercase tracking-widest">Time-To-First-Caption (TTFC)</div>
             </div>
 
             <div className="relative z-10 space-y-1 md:border-x border-white/10">
-              <div className="text-4xl md:text-5xl font-black tabular-nums tracking-tight">180+</div>
-              <div className="text-[13px] font-extrabold text-white/60 uppercase tracking-[0.2em]">Languages</div>
+              <div className="text-4xl md:text-5xl font-black text-[#394dfe] font-mono">2.027s</div>
+              <div className="text-[11px] font-bold text-slate-400 font-mono uppercase tracking-widest">Time-To-First-Speech (TTFS)</div>
             </div>
 
             <div className="relative z-10 space-y-1">
-              <div className="text-4xl md:text-5xl font-black tabular-nums tracking-tight">99.9%</div>
-              <div className="text-[13px] font-extrabold text-white/60 uppercase tracking-[0.2em]">Uptime</div>
+              <div className="text-4xl md:text-5xl font-black text-emerald-400 font-mono">10.2×</div>
+              <div className="text-[11px] font-bold text-slate-400 font-mono uppercase tracking-widest">Continuous Advantage</div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
