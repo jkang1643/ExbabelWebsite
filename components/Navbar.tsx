@@ -43,10 +43,10 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <ShutdownBanner />
       <nav
-        className={`transition-all duration-300 navbar-safe-area ${
+        className={`relative w-full transition-all duration-300 ${
           scrolled 
-            ? "navbar-padding-scrolled" 
-            : "navbar-padding-normal"
+            ? "py-3 bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" 
+            : "py-4 bg-white/80 backdrop-blur-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
         }`}
       >
       <div 
@@ -141,7 +141,7 @@ export default function Navbar() {
 
           <Link
             href="/lab-test"
-            className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
+            className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors cursor-pointer"
           >
             Performance Report
           </Link>
