@@ -2,6 +2,7 @@
 
 import { appRoutes } from "@/lib/config";
 import Link from "next/link";
+import EsotericWallpaperCTA from "./EsotericWallpaperCTA";
 
 export default function CTA() {
   return (
@@ -9,6 +10,9 @@ export default function CTA() {
       {/* Aurora Glow Overlays */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#394dfe]/20 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#D6F5FF]/15 rounded-full blur-[140px] pointer-events-none" />
+
+      {/* Procedurally Generated Esoteric SVG Background */}
+      <EsotericWallpaperCTA />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 text-center space-y-10">
         

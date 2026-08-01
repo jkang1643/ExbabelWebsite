@@ -3,9 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { appRoutes } from "@/lib/config";
 import LiveTranslationGraphic from "./LiveTranslationGraphic";
 import TrustedPartners from "./TrustedPartners";
+import EsotericWallpaper from "./EsotericWallpaper";
 
 interface TranslationPair {
   english: string;
@@ -127,22 +127,19 @@ export default function GlassmorphicHero() {
   }, [startTranscription]);
 
   return (
-    <section className="relative min-h-screen bg-base-paper flex flex-col">
-      {/* Dot Grid Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
-        style={{ 
-          backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
-          backgroundSize: "24px 24px" 
-        }} 
-      />
+    <section className="relative min-h-screen bg-[#050810] flex flex-col overflow-hidden">
+      
+      {/* ─────────────────────────────────────────────────────────
+          ESOTERIC FRACTAL BACKGROUND
+      ───────────────────────────────────────────────────────── */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Deep Velvet & Indigo Auroras */}
+        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full filter blur-[120px] md:blur-[180px] opacity-40 mix-blend-screen" style={{ backgroundColor: '#4F46E5' }} />
+        <div className="absolute top-[10%] right-[-20%] w-[50vw] h-[50vw] rounded-full filter blur-[120px] md:blur-[180px] opacity-30 mix-blend-screen" style={{ backgroundColor: '#7C3AED' }} />
+        <div className="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] rounded-full filter blur-[140px] md:blur-[200px] opacity-20 mix-blend-screen" style={{ backgroundColor: '#F59E0B' }} />
 
-      {/* Aurora Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
+        {/* Animated React Component with Drop-Shadow Glow Effects */}
+        <EsotericWallpaper />
       </div>
 
       <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
@@ -161,31 +158,31 @@ export default function GlassmorphicHero() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-slate-200 text-[#1d1c1d] shadow-sm hover:shadow-md hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-900/60 border border-slate-700/60 backdrop-blur-md text-indigo-200 shadow-[0_0_20px_rgba(79,70,229,0.2)] hover:shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:bg-slate-800/80 transition-all group hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(245,158,11,1)]"></span>
               <span className="text-sm font-semibold tracking-tight">Now Available — Live Video Translation for Global Congregations</span>
-              <span className="text-sm text-base-muted mx-1">·</span>
-              <span className="text-sm font-medium">Learn more</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="text-sm text-slate-500 mx-1">·</span>
+              <span className="text-sm font-medium text-amber-300">Learn more</span>
+              <svg className="w-4 h-4 text-amber-300 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.a>
 
             <h1 className="sr-only">Every voice. Every language. One service.</h1>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3"
+              className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] tracking-tight flex flex-col md:flex-row flex-wrap items-center justify-center gap-x-3 drop-shadow-xl text-center"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <span>Every voice.</span>
-              <span className="text-primary inline-grid text-left">
+              <span className="text-amber-400 inline-grid text-center drop-shadow-[0_0_30px_rgba(245,158,11,0.6)]">
                 {flipWords.map((word, index) => (
                   <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
                     {word}
                   </span>
                 ))}
                 
-                <span className="col-start-1 row-start-1 flex justify-start">
+                <span className="col-start-1 row-start-1 flex justify-center">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={flipIndex}
@@ -203,7 +200,7 @@ export default function GlassmorphicHero() {
             </h2>
 
             <p
-              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
+              className="text-lg md:text-xl text-indigo-100/80 leading-relaxed max-w-[760px] mx-auto font-medium drop-shadow-md"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               The real-time AI translation platform trusted by churches and institutions worldwide to deliver live speech, captions, and audio — simultaneously, in over 100 languages.
@@ -212,7 +209,7 @@ export default function GlassmorphicHero() {
 
 
 
-          {/* Restored Classic Premium CTA Row */}
+          {/* Premium Esoteric CTA Row */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -221,15 +218,15 @@ export default function GlassmorphicHero() {
           >
             <Link
               href="/demo"
-              className="px-8 py-4 rounded-full bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group"
+              className="px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-bold text-lg hover:from-amber-400 hover:to-yellow-500 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_rgba(245,158,11,0.4)] relative overflow-hidden group border border-amber-300/50"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
               Schedule a Consultation
             </Link>
             <a
               href="#pricing"
-              className="px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-8 py-4 rounded-full text-indigo-200 font-bold text-lg bg-slate-900/50 border border-indigo-500/30 backdrop-blur-md shadow-lg hover:bg-slate-800/80 hover:border-indigo-400/50 transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               Explore Capabilities
@@ -240,7 +237,7 @@ export default function GlassmorphicHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="w-full"
+            className="w-full filter invert-[0.8] brightness-[2] sepia-[0.2] hue-rotate-[180deg]" // Adjusted to make partners look good on dark
           >
             <TrustedPartners />
           </motion.div>
@@ -254,7 +251,7 @@ export default function GlassmorphicHero() {
         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="w-full flex-grow relative"
       >
-        <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
+        <div className="mt-8 md:mt-12 border-t border-indigo-900/30 shadow-[0_-20px_60px_rgba(79,70,229,0.1)]">
           <LiveTranslationGraphic />
         </div>
       </motion.div>
