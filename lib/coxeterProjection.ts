@@ -16,7 +16,7 @@
  *   Lisi, A. G. (2007). "An Exceptionally Simple Theory of Everything." arXiv:0711.0770
  */
 
-const PHI = (1 + Math.sqrt(5)) / 2; // Golden Ratio ≈ 1.6180339887
+
 
 // ─── Types ───────────────────────────────────────────────────────────
 
@@ -39,7 +39,7 @@ export type CoxeterParams = {
   innerRadius: number;     // Radius of the innermost ring (SVG units)
   edgeDensity: number;     // 0.0–1.0: fraction of possible edges to draw
   phaseOffset: number;     // Global angular offset (radians)
-  goldenScale: number;     // Multiplier on the Golden Ratio spacing (0.5–2.0)
+  semanticMean: number;    // The characteristic polynomial root of the seed
 };
 
 // ─── Vertex Generator ────────────────────────────────────────────────
@@ -54,12 +54,13 @@ export type CoxeterParams = {
  * rings offset by half an angular step (like the E8 projection).
  */
 export function generateCoxeterVertices(params: CoxeterParams): CoxeterVertex[] {
-  const { ringCount, verticesPerRing, innerRadius, phaseOffset, goldenScale } = params;
+  const { ringCount, verticesPerRing, innerRadius, phaseOffset, semanticMean } = params;
   const vertices: CoxeterVertex[] = [];
 
   for (let r = 0; r < ringCount; r++) {
-    // Golden Ratio scaling: each ring is φ^(r*s) times the inner radius
-    const radius = innerRadius * Math.pow(PHI, r * goldenScale);
+    // The Semantic Mean: Exponential continuous progression similar to the Golden Ratio, 
+    // but mathematically derived from the specific Gematria of the seed.
+    const radius = innerRadius * Math.pow(semanticMean, r * 0.7);
     
     // Alternating rings are offset by half an angular step
     // This creates the interlocking pattern seen in E8 projections
@@ -198,7 +199,7 @@ export function coxeterToSVGPaths(
     );
     
     // Estimate max radius (rough)
-    const maxRadius = 150 * Math.pow(PHI, (ringCount - 1) * 0.7);
+    const maxRadius = 150 * Math.pow(1.6, (ringCount - 1) * 0.7);
     const normalizedDist = avgDist / maxRadius;
 
     let layer: 1 | 2 | 3 = 3;
@@ -217,11 +218,11 @@ export function coxeterToSVGPaths(
  * Generate concentric ring circles for visual framing.
  */
 export function generateRingCircles(params: CoxeterParams): { r: number; isDashed: boolean }[] {
-  const { ringCount, innerRadius, goldenScale } = params;
+  const { ringCount, innerRadius, semanticMean } = params;
   const circles: { r: number; isDashed: boolean }[] = [];
 
   for (let k = 0; k < ringCount; k++) {
-    const radius = innerRadius * Math.pow(PHI, k * goldenScale);
+    const radius = innerRadius * Math.pow(semanticMean, k * 0.7);
     circles.push({
       r: radius,
       isDashed: k % 2 === 1,

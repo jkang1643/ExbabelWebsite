@@ -25,25 +25,67 @@ type GeneratorProps = {
 // the seed string into deterministic physical parameters that drive
 // the Calabi-Yau and Coxeter mathematical structures.
 
-function seedToHash(seed: string): number[] {
-  // cyrb128-based hash: converts any string into 4 × 32-bit integers
-  let h1 = 1779033703, h2 = 3144134277, h3 = 1013904242, h4 = 2773480762;
+function seedToSemanticMean(seed: string) {
+  // Map characters to the 22 foundational Gematria values
+  const gematriaValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400];
+  const coefficients: number[] = [];
+  let sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
+
+  if (!seed || seed.length === 0) seed = " ";
+
   for (let i = 0; i < seed.length; i++) {
-    const k = seed.charCodeAt(i);
-    h1 = h2 ^ Math.imul(h1 ^ k, 597399067);
-    h2 = h3 ^ Math.imul(h2 ^ k, 2869860233);
-    h3 = h4 ^ Math.imul(h3 ^ k, 951274213);
-    h4 = h1 ^ Math.imul(h4 ^ k, 2716044179);
+    const charCode = seed.charCodeAt(i);
+    const value = gematriaValues[charCode % 22];
+    
+    // Normalize coefficients to prevent numeric overflow in polynomial eval
+    const normalizedValue = value / 100;
+    coefficients.push(normalizedValue);
+
+    if (i % 4 === 0) sum1 += value * (i + 1);
+    if (i % 4 === 1) sum2 += value * (i + 1);
+    if (i % 4 === 2) sum3 += value * (i + 1);
+    if (i % 4 === 3) sum4 += value * (i + 1);
   }
-  h1 = Math.imul(h3 ^ (h1 >>> 18), 597399067);
-  h2 = Math.imul(h4 ^ (h2 >>> 22), 2869860233);
-  h3 = Math.imul(h1 ^ (h3 >>> 17), 951274213);
-  h4 = Math.imul(h2 ^ (h4 >>> 19), 2716044179);
-  return [(h1 ^ h2 ^ h3 ^ h4) >>> 0, (h2 ^ h1) >>> 0, (h3 ^ h4) >>> 0, (h4 ^ h3) >>> 0];
+
+  // Calculate the characteristic polynomial root (Newton-Raphson method)
+  // Polynomial: x^k - c_0*x^(k-1) - c_1*x^(k-2) - ... - c_{k-1} = 0
+  const k = coefficients.length;
+  const f = (x: number) => {
+    let result = Math.pow(x, k);
+    for (let i = 0; i < k; i++) {
+      result -= coefficients[i] * Math.pow(x, k - 1 - i);
+    }
+    return result;
+  };
+  const df = (x: number) => {
+    let result = k * Math.pow(x, k - 1);
+    for (let i = 0; i < k - 1; i++) {
+      result -= coefficients[i] * (k - 1 - i) * Math.pow(x, k - 2 - i);
+    }
+    return result;
+  };
+
+  let x = 1.618; // Start initial guess at the Golden Ratio
+  for (let iter = 0; iter < 20; iter++) {
+    const y = f(x);
+    const yprime = df(x);
+    if (Math.abs(yprime) < Number.EPSILON) break;
+    x = x - y / yprime;
+  }
+
+  // Ensure the root is positive and within a visually pleasing bounds [1.1, 2.5]
+  let semanticMean = Math.abs(x);
+  if (semanticMean < 1.1) semanticMean = 1.1 + (semanticMean % 0.5);
+  if (semanticMean > 2.5 || isNaN(semanticMean)) semanticMean = 2.5 - (semanticMean % 1.0 || 0);
+
+  return {
+    semanticMean,
+    hash: [sum1 || 1779033703, sum2 || 3144134277, sum3 || 1013904242, sum4 || 2773480762]
+  };
 }
 
 function extractPhysicsParams(seed: string) {
-  const hash = seedToHash(seed);
+  const { hash, semanticMean } = seedToSemanticMean(seed);
 
   // Extract deterministic parameters from the hash bits
   const n = 3 + (hash[0] % 6);                          // Calabi-Yau degree: 3–8
@@ -53,7 +95,6 @@ function extractPhysicsParams(seed: string) {
   const symmetryOrder = 4 + (hash[2] % 13) * 2;          // Dihedral N: 4–30 (even)
   const ringCount = 3 + (hash[2] >>> 8) % 6;             // Coxeter rings: 3–8
   const edgeDensity = 0.2 + ((hash[3] % 80) / 100);      // Edge density: 0.2–1.0
-  const goldenScale = 0.5 + ((hash[3] >>> 8) % 150) / 100; // φ scaling: 0.5–2.0
   const globalRotation = (hash[0] >>> 16) % 360;          // Global rotation: 0–360°
   const globalScale = 0.8 + ((hash[1] >>> 8) % 40) / 100; // Global scale: 0.8–1.2
   const phaseOffset = ((hash[3] >>> 16) % 628) / 100;     // Ring phase: 0–2π
@@ -66,7 +107,7 @@ function extractPhysicsParams(seed: string) {
       innerRadius: 180,
       edgeDensity,
       phaseOffset,
-      goldenScale,
+      semanticMean,
     } as CoxeterParams,
     symmetryOrder,
     globalRotation,
