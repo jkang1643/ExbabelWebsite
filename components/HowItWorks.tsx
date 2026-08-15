@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { appRoutes } from "@/lib/config";
+import HowItWorksGraphic from "@/components/HowItWorksGraphic";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -16,28 +17,24 @@ const STEPS = [
     title: "Launch a Live Session",
     description:
       "Create a translation session from any browser. Select your language and begin speaking — no equipment or installation required.",
-    imageSrc: "/images/step-1.png",
   },
   {
     number: "02",
     title: "Configure Target Languages",
     description:
       "Choose from over 100 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
-    imageSrc: "/images/step-2.png",
   },
   {
     number: "03",
     title: "Share Access Instantly",
     description:
       "Attendees join via QR code or web link on any device — phone, tablet, or laptop. No app download required.",
-    imageSrc: "/images/step-3.png",
   },
   {
     number: "04",
     title: "Listen and Read in Real Time",
     description:
       "Translated speech audio streams in approximately two seconds. Multilingual captions appear in approximately one second. Speak naturally — without pausing.",
-    imageSrc: "/images/step-4.png",
   },
 ];
 
@@ -198,10 +195,7 @@ export default function HowItWorks() {
               {...fadeUp(idx * 0.15)}
               className="bg-[#F8F9FA] rounded-2xl p-6 border border-[#EAD6FF]/60 flex flex-col justify-between space-y-4 hover:-translate-y-1 transition-all"
             >
-              <div className="space-y-4">
-                <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-white mb-4 shadow-sm border border-slate-100">
-                  <img src={step.imageSrc} alt={step.title} className="w-full h-full object-cover" />
-                </div>
+              <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-black text-[#394dfe] font-mono">{step.number}</span>
                 </div>
@@ -210,6 +204,11 @@ export default function HowItWorks() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Interactive Workflow Graphic */}
+        <div className="mt-16 bg-[#F8F9FA] p-6 rounded-3xl border border-[#EAD6FF]/80 shadow-sm">
+          <HowItWorksGraphic />
         </div>
       </div>
     </section>
