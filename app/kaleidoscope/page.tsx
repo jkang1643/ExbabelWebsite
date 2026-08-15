@@ -11,7 +11,7 @@ export default function KaleidoscopeSandbox() {
         <h1 className="text-4xl font-bold mb-4">Kaleidoscope Sandbox</h1>
         <p className="text-slate-400 max-w-xl">
           This is a blank environment with a fixed background and a very tall scrollable area (300vh). 
-          Scroll down the page to manually drive the kaleidoscope's continuous motor. The deeper you scroll, the more it unfolds.
+          Scroll down the page to manually drive the kaleidoscope&apos;s continuous motor. The deeper you scroll, the more it unfolds.
         </p>
       </div>
     </main>
