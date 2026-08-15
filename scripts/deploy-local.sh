@@ -102,6 +102,8 @@ aws s3 sync out/ s3://$S3_BUCKET_NAME \
 aws s3 sync out/ s3://$S3_BUCKET_NAME \
     --region $AWS_REGION \
     --profile ${AWS_PROFILE:-default} \
+    --exclude "*" \
+    --include "*/" \
     --include "*.html" \
     --include "*.txt" \
     --cache-control "public, max-age=0, must-revalidate" \

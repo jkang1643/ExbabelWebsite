@@ -70,6 +70,7 @@ jobs:
             --delete \
             --cache-control "public, max-age=0, must-revalidate" \
             --exclude "*" \
+            --include "*/" \
             --include "*.html" \
             --include "*.txt" \
             --content-type "text/html"
