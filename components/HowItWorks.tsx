@@ -188,29 +188,9 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {STEPS.map((step, idx) => (
-            <motion.div
-              key={step.number}
-              {...fadeUp(idx * 0.15)}
-              className="bg-[#F8F9FA] rounded-2xl p-6 border border-[#EAD6FF]/60 flex flex-col justify-between space-y-4 hover:-translate-y-1 transition-all"
-            >
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-black text-[#394dfe] font-mono">{step.number}</span>
-                </div>
-                <h3 className="text-lg font-bold text-[#0B1220] leading-snug">{step.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Interactive Workflow Graphic */}
-        <div className="mt-16 bg-[#F8F9FA] p-6 rounded-3xl border border-[#EAD6FF]/80 shadow-sm">
-          <HowItWorksGraphic />
-        </div>
+        <HowItWorksGraphic />
       </div>
     </section>
   );
 }
+

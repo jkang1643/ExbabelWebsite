@@ -14,7 +14,7 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
     const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
     useEffect(() => {
-        if (inView && videoRef.current) {
+        if (inView && videoRef.current && feature.videoSrc) {
             videoRef.current.src = feature.videoSrc;
             videoRef.current.load();
             videoRef.current.play().catch(() => {});
@@ -23,16 +23,22 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
 
     return (
         <div ref={ref} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-[#EAD6FF]/60">
-            <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ maxHeight: '60vh' }}>
-                <video
-                    ref={videoRef}
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="w-full h-full object-contain"
-                    style={{ maxHeight: '60vh' }}
-                />
+            <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ minHeight: feature.animationComponent ? '300px' : 'auto', maxHeight: '60vh' }}>
+                {feature.animationComponent ? (
+                    <div className="absolute inset-0 w-full h-full">
+                        {feature.animationComponent}
+                    </div>
+                ) : (
+                    <video
+                        ref={videoRef}
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        className="w-full h-full object-contain"
+                        style={{ maxHeight: '60vh' }}
+                    />
+                )}
             </div>
             <div className="p-6" style={{ borderLeft: `5px solid ${feature.accentColor}` }}>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -65,7 +71,8 @@ interface Feature {
     title: string;
     description: string;
     accentColor: string;
-    videoSrc: string;
+    videoSrc?: string;
+    animationComponent?: React.ReactNode;
     badge?: string;
     statusSymbol?: string;
     videoFit?: "cover" | "contain";
@@ -74,13 +81,100 @@ interface Feature {
     translateY?: string;
 }
 
+function SecurityAnimation() {
+    const [display, setDisplay] = useState("99.00");
+
+    useEffect(() => {
+        let current = 99.00;
+        let paused = false;
+
+        const intervalId = setInterval(() => {
+            if (paused) return;
+            
+            current += 0.01;
+            if (current >= 99.99) {
+                current = 99.99;
+                setDisplay("99.99");
+                paused = true;
+                setTimeout(() => {
+                    current = 99.00;
+                    paused = false;
+                }, 3000);
+            } else {
+                setDisplay(current.toFixed(2));
+            }
+        }, 15);
+        
+        return () => clearInterval(intervalId);
+    }, []);
+
+    return (
+        <div className="absolute inset-0 w-full h-full bg-[#FCFCFD] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px', opacity: 0.4 }} />
+            
+            <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
+                
+                {/* Title */}
+                <div className="flex items-center gap-2 sm:gap-3 text-2xl sm:text-4xl font-bold text-[#0B1220] tracking-tight mb-6 sm:mb-8">
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    Enterprise Security
+                </div>
+
+                {/* Animated Shield */}
+                <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="relative z-10 mb-6 sm:mb-8"
+                >
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-indigo-200 flex items-center justify-center bg-indigo-50/50 backdrop-blur-md relative shadow-[0_8px_32px_rgba(79,70,229,0.15)]">
+                        <motion.div
+                            animate={{ top: ['0%', '100%', '0%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            className="absolute left-0 right-0 h-0.5 bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-20"
+                        />
+                        <svg className="w-10 h-10 sm:w-14 sm:h-14 text-indigo-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        {[0, 1, 2].map((i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ rotate: i * 120 }}
+                                animate={{ rotate: i * 120 + 360 }}
+                                transition={{ duration: 4 + i, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-[-14px] sm:inset-[-18px] rounded-full border border-dashed border-indigo-200"
+                            >
+                                <div className="w-2 h-2 bg-indigo-500 rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+                
+                {/* Looping Counter */}
+                <motion.div 
+                    key={display === "99.99" ? "done" : "counting"}
+                    initial={display === "99.99" ? { scale: 1.05 } : { scale: 1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="text-[4rem] sm:text-[6rem] lg:text-[7.5rem] font-black tracking-tighter text-[#3B82F6] leading-none"
+                    style={{ letterSpacing: '-0.04em' }}
+                >
+                    {display}%
+                </motion.div>
+            </div>
+        </div>
+    );
+}
+
 const FEATURES: Feature[] = [
     {
         id: "voices",
         title: "100+ Languages, One Platform",
         description: "Speech-to-speech translation across more than 100 languages, preserving the speaker's natural cadence, tone, and emotional clarity.",
         accentColor: "#394DFE",
-        videoSrc: "/videos/90 lanaguges supported.mp4",
+        videoSrc: "/videos/90naturalvoices.mp4",
         badge: "100+ Active",
     },
     {
@@ -88,7 +182,7 @@ const FEATURES: Feature[] = [
         title: "Continuous Streaming Architecture",
         description: "Eliminates sentence buffering entirely. Translated speech streams in approximately two seconds — delivering a 10× advantage over segmented systems.",
         accentColor: "#0284C7",
-        videoSrc: "/videos/Live voice translation.mp4",
+        videoSrc: "/videos/continousstreamingarchitecture.mp4",
         badge: "10.2× Faster",
     },
     {
@@ -96,7 +190,7 @@ const FEATURES: Feature[] = [
         title: "Sub-Second Multilingual Captions",
         description: "Live captions appear within one second of speech onset, tested and verified under IEEE 829 and ISO 25010 quality standards.",
         accentColor: "#059669",
-        videoSrc: "/videos/instant AI transcription.mp4",
+        videoSrc: "/videos/subsecond latency.mp4",
         badge: "1.01s TTFC",
     },
     {
@@ -104,7 +198,7 @@ const FEATURES: Feature[] = [
         title: "Enterprise-Grade Security",
         description: "Zero-retention processing with end-to-end encryption. No audio is stored, logged, or used for model training. 99.99% uptime SLA.",
         accentColor: "#4F46E5",
-        videoSrc: "/videos/zero setup.mp4",
+        animationComponent: <SecurityAnimation />,
         badge: "ISO 25010",
     },
 ];
@@ -126,7 +220,7 @@ export default function FeatureShowcase() {
         const nextFeature = FEATURES[newIdx];
         const nextVideo = activeVideo === "A" ? videoBRef.current : videoARef.current;
 
-        if (nextVideo) {
+        if (nextVideo && nextFeature.videoSrc) {
             nextVideo.src = nextFeature.videoSrc;
             nextVideo.load();
             nextVideo.play().catch(() => {});
@@ -135,6 +229,12 @@ export default function FeatureShowcase() {
         setActiveVideo((prev) => (prev === "A" ? "B" : "A"));
         setActiveIdx(newIdx);
     }, [activeIdx, activeVideo]);
+
+    useEffect(() => {
+        if (videoARef.current) {
+            videoARef.current.play().catch(() => {});
+        }
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -258,13 +358,22 @@ export default function FeatureShowcase() {
 
                                         {/* Video Container */}
                                         <div className={`relative z-10 w-full h-full rounded-[24px] overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.12)] ring-1 ring-slate-900/5 ${active.videoBg || "bg-white"}`}>
+                                            
+                                            {/* Custom Animation Overlay */}
+                                            <div 
+                                                className="absolute inset-0 transition-opacity duration-700 ease-out z-30 bg-white"
+                                                style={{ opacity: active.animationComponent ? 1 : 0, pointerEvents: active.animationComponent ? 'auto' : 'none' }}
+                                            >
+                                                {active.animationComponent}
+                                            </div>
                                             <video
                                                 ref={videoARef}
                                                 src={FEATURES[0].videoSrc}
+                                                autoPlay
                                                 muted
                                                 loop
                                                 playsInline
-                                                preload="none"
+                                                preload="metadata"
                                                 className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
                                                 style={{
                                                     opacity: activeVideo === "A" ? 1 : 0,

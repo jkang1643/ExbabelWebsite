@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
-import ShutdownBanner from "./ShutdownBanner";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +40,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <ShutdownBanner />
       <nav
         className={`relative w-full transition-all duration-300 ${
           scrolled 
