@@ -30,8 +30,8 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section id="faq" className="py-20 px-4 bg-gradient-to-b from-blue-50/20 to-base-100 relative overflow-hidden">
-      {/* Background blobs — static, no animation class */}
+    <section id="faq" className="py-16 md:py-24 px-4 bg-gradient-to-b from-blue-50/20 to-base-100 relative overflow-hidden">
+      {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-25"
           style={{ background: 'radial-gradient(circle, #7C3AED28 0%, #7C3AED12 50%, transparent 70%)' }} />
@@ -40,26 +40,27 @@ export default function FAQ() {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-base-content">
+          <p className="text-sm sm:text-base md:text-lg text-base-content max-w-2xl mx-auto">
             Common questions about deployment, capabilities, and integration.
           </p>
         </div>
 
-        <div className="space-y-3">
+        {/* FAQ list with explicit flex gap (no vertical layout stretching on mobile) */}
+        <div className="flex flex-col gap-3.5 my-0">
           {faqs.map((faq, index) => (
-            <div key={index}>
+            <div key={index} className="w-full my-0">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                className="w-full text-left bg-white/70 backdrop-blur-sm border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 shadow-sm hover:shadow-md transition-all rounded-2xl overflow-hidden"
+                className="w-full text-left bg-white border border-slate-200/80 hover:border-slate-300 shadow-sm hover:shadow-md transition-all rounded-2xl overflow-hidden focus:outline-none"
               >
-                <div className="flex items-center justify-between px-6 py-4">
-                  <span className="text-base font-semibold text-base-content pr-4">{faq.question}</span>
+                <div className="flex items-center justify-between px-5 sm:px-6 py-4">
+                  <span className="text-sm sm:text-base font-semibold text-gray-900 pr-4">{faq.question}</span>
                   <svg
-                    className={`w-5 h-5 text-base-content/50 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45' : ''}`}
+                    className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45 text-primary' : ''}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -71,7 +72,7 @@ export default function FAQ() {
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-out ${openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'}`}
                 >
-                  <div className="px-6 text-base-content/70 text-sm leading-relaxed">{faq.answer}</div>
+                  <div className="px-5 sm:px-6 text-gray-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">{faq.answer}</div>
                 </div>
               </button>
             </div>
