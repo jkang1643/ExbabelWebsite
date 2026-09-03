@@ -22,7 +22,7 @@ const STEPS = [
     number: "02",
     title: "Configure Target Languages",
     description:
-      "Choose from over 100 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
+      "Choose from over 200 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
   },
   {
     number: "03",

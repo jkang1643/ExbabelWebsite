@@ -206,7 +206,7 @@ export default function GlassmorphicHero() {
               className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              The real-time AI translation platform trusted by churches and institutions worldwide to deliver live speech, captions, and audio — simultaneously, in over 100 languages.
+              The real-time AI translation platform trusted by churches and institutions worldwide to deliver live speech, captions, and audio — simultaneously, in over 200 languages.
             </p>
           </motion.div>
 
