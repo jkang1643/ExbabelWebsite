@@ -103,22 +103,22 @@ export default function Navbar() {
                     transition={{ duration: 0.15 }}
                     className="absolute top-full -left-2 mt-1 w-60 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                   >
-                    <a 
+                    <Link 
                       href={appRoutes.live} 
                       onClick={() => setIsProductsOpen(false)}
                       className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
                     >
                       <div className="font-bold text-gray-900">Live Video Translation</div>
                       <div className="text-xs text-gray-500 font-normal">Real-time AI speech-to-speech stream</div>
-                    </a>
-                    <a 
+                    </Link>
+                    <Link 
                       href={appRoutes.live} 
                       onClick={() => setIsProductsOpen(false)}
                       className="block px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-slate-50 hover:text-primary transition-colors"
                     >
                       <div className="font-bold text-gray-900">Live Video Captions</div>
                       <div className="text-xs text-gray-500 font-normal">Sub-second multilingual captions</div>
-                    </a>
+                    </Link>
                     <div className="my-1.5 border-t border-gray-100" />
                     <Link 
                       href="/lab-test" 
@@ -225,20 +225,20 @@ export default function Navbar() {
               <div className="px-6 py-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div className="space-y-1">
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Products</div>
-                  <a
+                  <Link
                     href={appRoutes.live}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block px-3 py-2.5 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors"
                   >
                     Live Video Translation
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={appRoutes.live}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block px-3 py-2.5 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors"
                   >
                     Live Video Captions
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">

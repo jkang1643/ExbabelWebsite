@@ -10,7 +10,7 @@ export const getAppUrl = () => {
 
 // Redirect paths for the SaaS app
 export const appRoutes = {
-  live: `${getAppUrl()}/live`,
+  live: '/live',
   signup: `${getAppUrl()}/signup`,
   signin: `${getAppUrl()}/signin`,
   dashboard: `${getAppUrl()}/dashboard`,
