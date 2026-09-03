@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import LatencyPipelineGraphic from "@/components/svg/LatencyPipelineGraphic";
 import ContinuousSpeechGraphic from "@/components/svg/ContinuousSpeechGraphic";
 import SignalProcessingGraphic from "@/components/svg/SignalProcessingGraphic";
@@ -94,29 +95,182 @@ export default function LabTestClient() {
 
   return (
     <div className="bg-[#F8F9FA] text-[#0B1220] min-h-screen font-sans relative overflow-hidden">
+      {/* Dedicated Solid Blue Research Lab Top Header Bar */}
+      <header className="w-full bg-[#394dfe] text-white py-4 px-6 sm:px-12 shadow-md relative z-30">
+        <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-4">
+          
+          {/* Left: Brand & Pill Badge */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="text-2xl font-black text-white tracking-tight hover:opacity-90 transition-opacity">
+              Exbabel
+            </Link>
+            <span className="text-white/40 font-light">|</span>
+            <span className="bg-white/15 border border-white/25 text-white text-[11px] font-black tracking-widest px-3.5 py-1 rounded-full uppercase">
+              RESEARCH LAB
+            </span>
+          </div>
+
+          {/* Right: Nav Link & Download Buttons */}
+          <div className="flex items-center gap-3 sm:gap-5">
+            <Link 
+              href="/" 
+              className="text-xs sm:text-sm font-bold text-white/90 hover:text-white transition-colors flex items-center gap-1.5 mr-2"
+            >
+              <span>← Back to Home</span>
+            </Link>
+            
+            <a
+              href="/docs/exbabel_vs_wordly_lab_report.pdf"
+              download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-[#394dfe] font-extrabold text-xs sm:text-sm whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-slate-50 transition-all group"
+            >
+              <svg className="w-4 h-4 flex-shrink-0 text-[#394dfe]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>Download PDF Report</span>
+            </a>
+
+            <a
+              href="/docs/exbabel_vs_wordly_lab_report.md"
+              download="Exbabel_vs_Wordly_Lab_Report_2026.md"
+              className="inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-white font-black text-xs hover:bg-white/25 transition-all"
+            >
+              .MD
+            </a>
+          </div>
+
+        </div>
+      </header>
+
       {/* Ambient Aurora Background Blurs */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#394dfe]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#D6F5FF]/40 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-[#EAD6FF]/30 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      {/* Main Title Section Header with Primary Blue H1 Headline */}
-      <section className="max-w-[1280px] mx-auto px-6 sm:px-12 pt-12 pb-10">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-2xl font-black text-[#394dfe] tracking-tight">Exbabel</span>
-          <span className="text-slate-300 font-light">|</span>
-          <span className="text-[13px] font-bold tracking-widest text-[#394dfe] uppercase">
-            RESEARCH LAB BENCHMARK REPORT
-          </span>
-        </div>
-
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#394dfe] tracking-tight leading-[1.1] mb-5 font-sans">
+      {/* Main Title Section Header & Key Takeaways Banner */}
+      <section className="max-w-[1280px] mx-auto px-6 sm:px-12 pt-8 pb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#394dfe] tracking-tight leading-[1.1] mb-4 font-sans">
           Real-Time Speech Translation Latency Analysis
         </h1>
-        <p className="text-base sm:text-lg text-[#667085] max-w-3xl leading-[1.6]">
+        <p className="text-base sm:text-lg text-[#667085] max-w-3xl leading-[1.6] mb-8">
           Empirical objective audio-visual latency evaluation measuring end-to-end performance 
           from speech onset to target-language caption visibility (TTFC) and synthesized audio playback (TTFS). 
           Conducted under IEEE 829 software performance testing guidelines.
         </p>
+
+        {/* HIGH-IMPACT KEY TAKEAWAYS & WORDLY COMPETITOR COMPARISON HERO CARD */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 text-[#0B1220] border border-[#EAD6FF] shadow-[0_16px_50px_rgba(57,77,254,0.1)] relative overflow-hidden mb-4">
+          {/* Subtle Ambient Lighting Background */}
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#394dfe]/5 rounded-full blur-[100px] pointer-events-none -z-0" />
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#D6F5FF]/30 rounded-full blur-[80px] pointer-events-none -z-0" />
+
+          <div className="relative z-10 space-y-6">
+            
+            {/* Direct Head-to-Head Header with Logos */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#EAD6FF]/80">
+              <div className="flex items-center gap-3">
+                <span className="px-3.5 py-1 rounded-full bg-[#394dfe] text-white text-xs font-black tracking-widest uppercase shadow-sm">
+                  KEY TAKEAWAYS
+                </span>
+                <span className="text-xs font-bold text-[#667085]">
+                  Direct Head-to-Head Performance Summary
+                </span>
+              </div>
+              
+              {/* VS Competitor Branding */}
+              <div className="flex items-center gap-3 bg-[#F8F9FA] px-4 py-2 rounded-2xl border border-[#EAD6FF]/80 shadow-sm">
+                <span className="text-base sm:text-lg font-black text-[#0B1220] tracking-tight">Exbabel</span>
+                <span className="text-xs font-bold text-[#394dfe] bg-[#394dfe]/10 px-2 py-0.5 rounded-md">VS</span>
+                <div className="bg-white px-3 py-1.5 rounded-lg flex items-center justify-center border border-slate-200 shadow-sm">
+                  <Image 
+                    src="/photos/6985523b7c2acbba74c2eecb_Wordly Tagline 2 (1).svg" 
+                    alt="Wordly" 
+                    width={90} 
+                    height={35} 
+                    className="h-6 w-auto object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* TL;DR Summary Headline for instant understanding */}
+            <div className="max-w-4xl space-y-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B1220] leading-tight">
+                Exbabel is <span className="text-[#394dfe] underline decoration-4 decoration-[#394dfe]">up to 10.2× faster</span> than Wordly during continuous speech.
+              </h2>
+              <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+                While Wordly pauses and buffers audio for up to 7.22 seconds waiting for the speaker to stop talking, 
+                Exbabel streams live translated speech continuously in under 2 seconds without interruptions.
+              </p>
+            </div>
+
+            {/* 3 Main Takeaway Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              
+              <div className="bg-[#F8F9FA] rounded-2xl p-5 border border-[#EAD6FF]/80 hover:border-[#394dfe] transition-all flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md">
+                <div className="space-y-1">
+                  <div className="text-xs font-bold text-[#059669] uppercase tracking-wider flex items-center gap-1.5">
+                    <span>⚡ Continuous Speech Lag</span>
+                  </div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#0B1220]">
+                    10.2× <span className="text-sm font-bold text-[#059669] bg-[#059669]/10 px-2 py-0.5 rounded-full">FASTER</span>
+                  </div>
+                </div>
+                <div className="text-xs text-[#667085] leading-relaxed pt-3 border-t border-[#EAD6FF]/60">
+                  <strong className="text-[#0B1220]">Zero Audio Buffering:</strong> Exbabel stays at ~2.0s streaming lag. Wordly forces listeners to wait <span className="text-red-600 font-semibold">7.22s+</span> for sentence breaks.
+                </div>
+              </div>
+
+              <div className="bg-[#F8F9FA] rounded-2xl p-5 border border-[#EAD6FF]/80 hover:border-[#394dfe] transition-all flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md">
+                <div className="space-y-1">
+                  <div className="text-xs font-bold text-[#394dfe] uppercase tracking-wider flex items-center gap-1.5">
+                    <span>⚡ Live Speech Start (TTFS)</span>
+                  </div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#0B1220]">
+                    2.80× <span className="text-sm font-bold text-[#394dfe] bg-[#394dfe]/10 px-2 py-0.5 rounded-full">FASTER</span>
+                  </div>
+                </div>
+                <div className="text-xs text-[#667085] leading-relaxed pt-3 border-t border-[#EAD6FF]/60">
+                  <strong className="text-[#0B1220]">2.02s vs 5.68s:</strong> Exbabel starts synthesized translated speech audio playback almost 3 seconds before Wordly even begins.
+                </div>
+              </div>
+
+              <div className="bg-[#F8F9FA] rounded-2xl p-5 border border-[#EAD6FF]/80 hover:border-[#394dfe] transition-all flex flex-col justify-between space-y-3 shadow-sm hover:shadow-md">
+                <div className="space-y-1">
+                  <div className="text-xs font-bold text-[#7C3AED] uppercase tracking-wider flex items-center gap-1.5">
+                    <span>⚡ Target Subtitles (TTFC)</span>
+                  </div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#0B1220]">
+                    1.95× <span className="text-sm font-bold text-[#7C3AED] bg-[#7C3AED]/10 px-2 py-0.5 rounded-full">FASTER</span>
+                  </div>
+                </div>
+                <div className="text-xs text-[#667085] leading-relaxed pt-3 border-t border-[#EAD6FF]/60">
+                  <strong className="text-[#0B1220]">1.01s vs 1.97s:</strong> On-screen captions appear in ~1.0 second from speech onset, giving instant visual translation.
+                </div>
+              </div>
+
+            </div>
+
+            {/* Quick Action Download Bar inside Hero Card */}
+            <div className="pt-4 border-t border-[#EAD6FF]/80 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#667085]">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>EXB-LAB-2026-001 Official Technical Audit & Benchmark Report</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href="/docs/exbabel_vs_wordly_lab_report.pdf"
+                  download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#394dfe] text-white font-bold text-xs hover:bg-[#394dfe]/90 transition-all shadow-sm"
+                >
+                  <span>Download Full PDF Report (.PDF)</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
       {/* Main Siemens Layout Grid */}

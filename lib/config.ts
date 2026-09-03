@@ -5,7 +5,7 @@
 
 // Get the SaaS app URL from environment variables
 export const getAppUrl = () => {
-  return process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003';
+  return process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 };
 
 // Redirect paths for the SaaS app

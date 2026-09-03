@@ -178,12 +178,20 @@ const FEATURES: Feature[] = [
         badge: "100+ Active",
     },
     {
+        id: "languages",
+        title: "250 Languages and Regional Dialects",
+        description: "Full speech-to-speech coverage across 250 languages and regional dialects \u2014 from widely spoken global languages to underrepresented local variants. Every voice is heard, everywhere.",
+        accentColor: "#8B5CF6",
+        videoSrc: "/videos/250 langugaes and dialects.mp4",
+        badge: "250+ Active",
+    },
+    {
         id: "continuous",
         title: "Continuous Streaming Architecture",
-        description: "Eliminates sentence buffering entirely. Translated speech streams in approximately two seconds — delivering a 10× advantage over segmented systems.",
+        description: "Eliminates sentence buffering entirely. Translated speech streams in approximately two seconds \u2014 delivering a 10\u00d7 advantage over segmented systems.",
         accentColor: "#0284C7",
         videoSrc: "/videos/continousstreamingarchitecture.mp4",
-        badge: "10.2× Faster",
+        badge: "10.2\u00d7 Faster",
     },
     {
         id: "captions",
@@ -202,6 +210,7 @@ const FEATURES: Feature[] = [
         badge: "ISO 25010",
     },
 ];
+
 
 export default function FeatureShowcase() {
     const [activeIdx, setActiveIdx] = useState(0);
@@ -262,7 +271,7 @@ export default function FeatureShowcase() {
         <>
             {/* DESKTOP: Scrollytelling (lg and above) */}
             <div className="hidden lg:block">
-                <div ref={containerRef} className="relative h-[400vh]">
+                <div ref={containerRef} className="relative h-[500vh]">
                     <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white">
                         <section className="w-full py-12 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
                             <div className="max-w-6xl mx-auto">

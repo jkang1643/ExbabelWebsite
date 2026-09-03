@@ -18,9 +18,6 @@ const FeatureShowcase = dynamic(() => import("@/components/FeatureShowcase"), {
 const InterfacePreview = dynamic(() => import("@/components/InterfacePreview"), {
   loading: () => <section className="min-h-[850px]" aria-hidden />,
 });
-const InstitutionalGovernance = dynamic(() => import("@/components/InstitutionalGovernance"), {
-  loading: () => <section className="py-24" aria-hidden />,
-});
 const WhyChurchesChoose = dynamic(() => import("@/components/WhyChurchesChoose"), {
   loading: () => <section className="py-24 md:py-32" aria-hidden />,
 });
@@ -70,7 +67,6 @@ export default function Home() {
         <HowItWorks />
         <FeatureShowcase />
         <InterfacePreview />
-        <InstitutionalGovernance />
         <WhyChurchesChoose />
         <VideoLibrarySection />
         <Testimonials />
