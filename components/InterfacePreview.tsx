@@ -165,7 +165,7 @@ const CAPTION_LANGUAGES: Language[] = [
     { code: 'MNI', name: 'Manipuri', country: 'in', support: 'captions' },
     { code: 'SAT', name: 'Santali', country: 'in', support: 'captions' },
     { code: 'SA', name: 'Sanskrit', country: 'in', support: 'captions' },
-    { code: 'KOK', name: 'Konkani', country: 'in', support: 'captions' },
+    { code: 'KOK2', name: 'Konkani', country: 'in', support: 'captions' },
     { code: 'BO', name: 'Tibetan', country: 'cn', support: 'captions' },
     { code: 'II', name: 'Yi', country: 'cn', support: 'captions' },
     { code: 'ZH2', name: 'Cantonese', country: 'hk', support: 'captions' },
@@ -495,8 +495,8 @@ export default function InterfacePreview() {
                       .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
                       .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
                     `}} />
-                    {filteredLanguages.map(lang => (
-                        <div key={lang.code} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-white transition-all cursor-pointer group select-none hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                    {filteredLanguages.map((lang, index) => (
+                        <div key={`${lang.code}-${index}`} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-white transition-all cursor-pointer group select-none hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                             <div className="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 bg-white/10">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img 
