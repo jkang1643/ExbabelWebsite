@@ -15,7 +15,7 @@ export default function CalendlyDemoScheduler({
   onEventScheduled,
 }: CalendlyDemoSchedulerProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/jkang1643/book-an-exbabel-demo";
+  const calendlyUrl = (process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/jkang1643/book-an-exbabel-demo").trim();
 
   useEffect(() => {
     setIsMounted(true);
@@ -34,14 +34,19 @@ export default function CalendlyDemoScheduler({
 
   if (!isMounted) return <div className="h-[600px] flex items-center justify-center text-gray-500">Loading scheduler...</div>;
 
+  const prefillObj: { name?: string; email?: string } = {};
+  if (prefillName && prefillName.trim()) {
+    prefillObj.name = prefillName.trim();
+  }
+  if (prefillEmail && prefillEmail.trim()) {
+    prefillObj.email = prefillEmail.trim();
+  }
+
   return (
     <div className="w-full h-full min-h-[600px] rounded-2xl overflow-hidden bg-white">
       <InlineWidget
         url={calendlyUrl}
-        prefill={{
-          name: prefillName,
-          email: prefillEmail,
-        }}
+        prefill={Object.keys(prefillObj).length > 0 ? prefillObj : undefined}
         styles={{
           height: '600px',
           width: '100%'

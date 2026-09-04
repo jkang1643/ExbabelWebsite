@@ -219,8 +219,8 @@ export default function BookADemo() {
                   <p className="text-gray-600">Select a convenient time for your 15-minute demo.</p>
                 </div>
                 <CalendlyDemoScheduler 
-                  prefillName={`${formState.firstName} ${formState.lastName}`} 
-                  prefillEmail={formState.email} 
+                  prefillName={`${formState.firstName.trim()} ${formState.lastName.trim()}`.trim()} 
+                  prefillEmail={formState.email.trim()} 
                   onEventScheduled={handleEventScheduled}
                 />
               </motion.div>
