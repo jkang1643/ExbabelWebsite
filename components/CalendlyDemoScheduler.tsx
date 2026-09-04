@@ -54,24 +54,6 @@ export default function CalendlyDemoScheduler({
       prefillObj.email = prefillEmail.trim();
     }
 
-    // 3. MutationObserver to explicitly grant allow-scripts and allow-same-origin on Calendly iframe
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node instanceof HTMLIFrameElement) {
-            node.setAttribute(
-              "sandbox",
-              "allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-modals"
-            );
-          }
-        });
-      });
-    });
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current, { childList: true, subtree: true });
-    }
-
     const initWidget = () => {
       if (window.Calendly && containerRef.current) {
         containerRef.current.innerHTML = "";
@@ -80,19 +62,10 @@ export default function CalendlyDemoScheduler({
           parentElement: containerRef.current,
           prefill: Object.keys(prefillObj).length > 0 ? prefillObj : undefined,
         });
-
-        // Apply sandbox attributes to any iframe created immediately
-        const iframe = containerRef.current.querySelector("iframe");
-        if (iframe) {
-          iframe.setAttribute(
-            "sandbox",
-            "allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-modals"
-          );
-        }
       }
     };
 
-    // 4. Load Calendly JS Widget Script if not present
+    // 3. Load Calendly JS Widget Script if not present
     const scriptId = "calendly-widget-script";
     let script = document.getElementById(scriptId) as HTMLScriptElement | null;
 
@@ -107,7 +80,7 @@ export default function CalendlyDemoScheduler({
       initWidget();
     }
 
-    // 5. Listen for postMessage event from Calendly
+    // 4. Listen for postMessage event from Calendly
     const handleMessage = (e: MessageEvent) => {
       if (e.data && e.data.event === "calendly.event_scheduled") {
         console.log("Calendly event scheduled:", e.data.payload);
@@ -122,7 +95,6 @@ export default function CalendlyDemoScheduler({
     window.addEventListener("message", handleMessage);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("message", handleMessage);
     };
   }, [baseCalendlyUrl, prefillName, prefillEmail, onEventScheduled]);
