@@ -57,7 +57,7 @@ echo ""
 
 # 1. Clean and Build
 echo "📦 Cleaning and building Next.js application..."
-npm run clean
+rm -rf out
 npm run build
 
 if [ ! -d "out" ]; then
