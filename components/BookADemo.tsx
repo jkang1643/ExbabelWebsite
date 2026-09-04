@@ -37,44 +37,37 @@ export default function BookADemo() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError(null);
-
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-    if (baseUrl) {
-      try {
-        await fetch(`${baseUrl}/api/demo-request`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formState),
-        });
-      } catch (err) {
-        console.warn("Lead API unreachable, proceeding to Calendly:", err);
-      }
-    }
-
     setIsSubmitting(false);
     setIsSubmitted(true);
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (baseUrl) {
+      fetch(`${baseUrl}/api/demo-request`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      }).catch((err) => {
+        console.warn("Lead API unreachable:", err);
+      });
+    }
   };
 
-  const handleEventScheduled = async () => {
+  const handleEventScheduled = () => {
     setIsScheduled(true);
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     if (baseUrl) {
-      try {
-        await fetch(`${baseUrl}/api/demo-request`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: formState.email, status: "scheduled" }),
-        });
-      } catch (e) {
+      fetch(`${baseUrl}/api/demo-request`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: formState.email, status: "scheduled" }),
+      }).catch((e) => {
         console.warn("Failed to tag lead on API:", e);
-      }
+      });
     }
   };
 
