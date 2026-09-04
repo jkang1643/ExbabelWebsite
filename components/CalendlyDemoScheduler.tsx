@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CalendlyDemoSchedulerProps {
   prefillName?: string;
@@ -29,10 +29,17 @@ export default function CalendlyDemoScheduler({
   onEventScheduled,
 }: CalendlyDemoSchedulerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [useIframeFallback, setUseIframeFallback] = useState(false);
 
   const baseCalendlyUrl = (
     process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/jkang1643/book-an-exbabel-demo"
   ).trim();
+
+  // Construct direct link with prefill parameters for new tab fallback
+  const prefillParams = new URLSearchParams();
+  if (prefillName && prefillName.trim()) prefillParams.set("name", prefillName.trim());
+  if (prefillEmail && prefillEmail.trim()) prefillParams.set("email", prefillEmail.trim());
+  const directLink = `${baseCalendlyUrl}${prefillParams.toString() ? `?${prefillParams.toString()}` : ""}`;
 
   useEffect(() => {
     // 1. Load Calendly CSS stylesheet
@@ -62,6 +69,8 @@ export default function CalendlyDemoScheduler({
           parentElement: containerRef.current,
           prefill: Object.keys(prefillObj).length > 0 ? prefillObj : undefined,
         });
+      } else {
+        setUseIframeFallback(true);
       }
     };
 
@@ -75,9 +84,21 @@ export default function CalendlyDemoScheduler({
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
       script.onload = initWidget;
+      script.onerror = () => {
+        console.warn("Calendly widget.js blocked or failed to load, switching to iframe fallback.");
+        setUseIframeFallback(true);
+      };
       document.body.appendChild(script);
     } else if (window.Calendly) {
       initWidget();
+    } else {
+      // Fallback timer if script is stuck
+      const timer = setTimeout(() => {
+        if (!window.Calendly) {
+          setUseIframeFallback(true);
+        }
+      }, 2000);
+      return () => clearTimeout(timer);
     }
 
     // 4. Listen for postMessage event from Calendly
@@ -100,12 +121,32 @@ export default function CalendlyDemoScheduler({
   }, [baseCalendlyUrl, prefillName, prefillEmail, onEventScheduled]);
 
   return (
-    <div className="w-full h-full min-h-[650px] rounded-2xl overflow-hidden bg-white relative">
-      <div 
-        ref={containerRef} 
-        className="w-full h-[650px]"
-        style={{ minWidth: "320px", height: "650px" }}
-      />
+    <div className="w-full h-full min-h-[650px] rounded-2xl overflow-hidden bg-white relative flex flex-col items-center">
+      {useIframeFallback ? (
+        <iframe
+          src={directLink}
+          className="w-full h-[650px] border-0 rounded-2xl"
+          title="Calendly Scheduling Page"
+        />
+      ) : (
+        <div 
+          ref={containerRef} 
+          className="w-full h-[650px]"
+          style={{ minWidth: "320px", height: "650px" }}
+        />
+      )}
+
+      {/* Direct link fallback banner for users with strict adblockers */}
+      <div className="mt-4 text-center pb-2">
+        <a
+          href={directLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline bg-primary/5 px-4 py-2 rounded-lg transition-colors"
+        >
+          Having trouble loading the calendar? Book directly on Calendly ↗
+        </a>
+      </div>
     </div>
   );
 }
