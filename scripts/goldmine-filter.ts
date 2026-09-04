@@ -12,6 +12,7 @@ interface MergedKeyword {
   revenueScore: number;
   competition: number;
   cluster: string;
+  allocationBucket: 'Core' | 'Experimental';
   source: string;
 }
 
@@ -33,12 +34,14 @@ function parseCSV(filepath: string, sourceName: string): MergedKeyword[] {
   const revIdx = getIdx('revenue');
   const compIdx = getIdx('competition');
   const clusterIdx = getIdx('cluster');
+  const bucketIdx = getIdx('allocation', 'bucket');
 
   const results: MergedKeyword[] = [];
   for (let i = 1; i < lines.length; i++) {
     const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
     const kw = cols[kwIdx]?.replace(/^"|"$/g, '')?.trim();
     if (!kw) continue;
+    const bucket = (cols[bucketIdx]?.replace(/^"|"$/g, '')?.trim() || 'Core') as 'Core' | 'Experimental';
     results.push({
       keyword: kw,
       volume: parseInt(cols[volIdx] || '0', 10) || 0,
@@ -50,6 +53,7 @@ function parseCSV(filepath: string, sourceName: string): MergedKeyword[] {
       revenueScore: parseFloat(cols[revIdx] || '0') || 0,
       competition: parseFloat(cols[compIdx] || '0') || 0,
       cluster: cols[clusterIdx]?.replace(/^"|"$/g, '')?.trim() || '',
+      allocationBucket: bucket,
       source: sourceName,
     });
   }
@@ -183,33 +187,37 @@ goldmine.sort((a, b) => {
 console.log(`Goldmine keywords: ${goldmine.length}\n`);
 
 // Write CSV
-const csvHeader = 'Keyword,Volume,KD,CPC,Intent,Buyer Persona,Relevance,Revenue Score,Competition,Cluster,Source';
+const csvHeader = 'Keyword,Volume,KD,CPC,Intent,Buyer Persona,Relevance,Revenue Score,Competition,Cluster,Allocation Bucket,Source';
 const csvRows = goldmine.map(k =>
-  `${k.keyword},${k.volume},${k.difficulty},${k.cpc},${k.intent},${k.buyerPersona},${k.relevance},${k.revenueScore},${k.competition},${k.cluster},${k.source}`
+  `${k.keyword},${k.volume},${k.difficulty},${k.cpc},${k.intent},${k.buyerPersona},${k.relevance},${k.revenueScore},${k.competition},${k.cluster},${k.allocationBucket || 'Core'},${k.source}`
 );
 fs.writeFileSync(path.join(outDir, 'goldmine-keywords.csv'), [csvHeader, ...csvRows].join('\n'));
 
 // Write Markdown report
 const tierLabels = [
-  { name: '🏆 Tier 1: Highest Revenue Potential', filter: (k: MergedKeyword) => k.revenueScore > 1000 || k.cpc > 20 },
+  { name: '🏆 Tier 1: Highest Revenue Potential (Core 80%)', filter: (k: MergedKeyword) => k.revenueScore > 1000 || k.cpc > 20 },
   { name: '🥇 Tier 2: High-Value Commercial Keywords', filter: (k: MergedKeyword) => k.revenueScore > 100 || (k.cpc > 5 && k.volume > 100) },
-  { name: '🎯 Tier 3: Niche Long-Tail Opportunities', filter: (k: MergedKeyword) => k.volume > 0 },
+  { name: '🚀 Tier 3: Experimental & Emerging Opportunities (20%)', filter: (k: MergedKeyword) => k.allocationBucket === 'Experimental' || k.keyword.includes('ai') },
+  { name: '🎯 Tier 4: Niche Long-Tail Opportunities', filter: (k: MergedKeyword) => k.volume > 0 },
 ];
+
+const coreCount = goldmine.filter(k => (k.allocationBucket || 'Core') === 'Core').length;
+const expCount = goldmine.filter(k => k.allocationBucket === 'Experimental').length;
 
 let md = `# 🏆 Exbabel Goldmine Keywords Report
 
 **Generated**: ${new Date().toISOString().split('T')[0]}
-**Sources**: 3 CSV files merged & deduplicated
+**Sources**: Merged & Deduplicated Keyword Intelligence
 **Total Unique Keywords**: ${deduped.size}
-**Goldmine Keywords (Exbabel-relevant)**: ${goldmine.length}
+**Goldmine Keywords**: ${goldmine.length}
+**Portfolio Distribution**: ${coreCount} Core (80%) / ${expCount} Experimental (20%)
 
 ---
 
-## How to Use This Report
+## Portfolio Strategy & How to Use This Report
 
-1. **Tier 1** = Write content for these FIRST. Highest revenue potential.
-2. **Tier 2** = Build pillar/spoke content around these topics.
-3. **Tier 3** = Long-tail keywords to weave into existing blog content.
+1. **80% Core Keywords** = High proven demand, strong advertiser CPC dollars ($5+), optimal organic CTR, and winnable Brand-Domain-Page competition.
+2. **20% Experimental Keywords** = Emerging AI/GEO queries, multi-platform targets (YouTube, TikTok, OBS), zero-volume high-intent queries.
 
 ---
 

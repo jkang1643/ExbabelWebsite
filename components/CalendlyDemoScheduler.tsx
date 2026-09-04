@@ -23,9 +23,11 @@ export default function CalendlyDemoScheduler({
 
   useCalendlyEventListener({
     onEventScheduled: (e) => {
-      console.log("Event scheduled:", e.data.payload);
+      console.log("Event scheduled:", e?.data?.payload);
       if (onEventScheduled) {
-        onEventScheduled();
+        setTimeout(() => {
+          onEventScheduled();
+        }, 150);
       }
     },
   });

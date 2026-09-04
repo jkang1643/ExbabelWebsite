@@ -42,35 +42,39 @@ export default function BookADemo() {
     setIsSubmitting(true);
     setError(null);
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-    try {
-      await fetch(`${baseUrl}/api/demo-request`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      });
-    } catch (err) {
-      console.warn("Lead API unreachable, proceeding to Calendly:", err);
-    } finally {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+    if (baseUrl) {
+      try {
+        await fetch(`${baseUrl}/api/demo-request`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formState),
+        });
+      } catch (err) {
+        console.warn("Lead API unreachable, proceeding to Calendly:", err);
+      }
     }
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   const handleEventScheduled = async () => {
     setIsScheduled(true);
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
-    try {
-      await fetch(`${baseUrl}/api/demo-request`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: formState.email, status: "scheduled" }),
-      });
-    } catch (e) {
-      console.error("Failed to tag lead:", e);
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (baseUrl) {
+      try {
+        await fetch(`${baseUrl}/api/demo-request`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: formState.email, status: "scheduled" }),
+        });
+      } catch (e) {
+        console.warn("Failed to tag lead on API:", e);
+      }
     }
   };
 

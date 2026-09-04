@@ -15,13 +15,19 @@ npx ts-node scripts/seo-agent.ts -f master-keywords.csv
 ```
 
 ### What It Does:
-1. **Mathematical Clustering**: Scans keywords and mathematically groups them using n-gram lexical overlap, then uses GPT to assign strategic Pillar names (e.g., "Live Caption Solutions").
-2. **Deep SERP Analysis Layer**: Fetches the Top 10 SERP results for your top keywords and mathematically reverse-engineers their H1/H2 structures, intents, and snippets to build mathematically superior content briefs.
-3. **Competitor Gap Engine**: Simulates a Domain Intersection analysis to compare `exbabel.com` against `wordly.ai`, `kudoway.com`, and `glossa.com`, identifying and prioritizing exact "Urgent Gap Opportunities."
-4. **Blueprint Generation**:
+1. **80/20 Portfolio Allocation Strategy**: Automatically partitions keyword selection into **80% Core Keywords** (high-converting, proven commercial demand) and **20% Experimental Keywords** (emerging AI/GEO queries, multi-platform search targets, zero-volume high-intent terms).
+2. **4 Modernized Keyword Selection Pillars**:
+   - **Pillar 1: Demand Signals** (Search volume, 1st-party customer query logs, and user engagement signals).
+   - **Pillar 2: Raw CPC Dollar Commercial Intent** (Evaluates raw advertiser spend e.g. $5+ vs $0 to confirm commercial monetization).
+   - **Pillar 3: Organic CTR & SERP Feature Impact** (Evaluates AI Overviews, Ads, and Featured Snippets to calculate true organic click potential vs. GEO optimization targets).
+   - **Pillar 4: Search Everywhere Competition (Brand -> Domain -> Page)** (Evaluates brand power, domain authority, and page-level specificity across search engines and AI platforms).
+3. **Mathematical Clustering**: Scans keywords and mathematically groups them using n-gram lexical overlap, then uses GPT to assign strategic Pillar names (e.g., "Live Caption Solutions").
+4. **Deep SERP Analysis Layer**: Fetches the Top 10 SERP results for your top keywords and mathematically reverse-engineers their H1/H2 structures, intents, and snippets to build mathematically superior content briefs.
+5. **Competitor Gap Engine**: Simulates a Domain Intersection analysis to compare `exbabel.com` against `wordly.ai`, `kudoway.com`, and `glossa.com`, identifying and prioritizing exact "Urgent Gap Opportunities."
+6. **Blueprint Generation**:
    - Generates the 25-Point SEO Checklists for articles.
    - Generates the 17-Section Conversion Landing Page wireframes.
-5. **Topical Authority Tracker**: Outputs a `Topical-Authority-Map.json` to track precisely how many keywords in a cluster have generated pages vs. total keywords.
+7. **Topical Authority Tracker**: Outputs a `Topical-Authority-Map.json` to track precisely how many keywords in a cluster have generated pages vs. total keywords.
 
 ### Key Outputs:
 - `[date]-full-report.md` (Strategy, Roadmap, Competitor Gaps)

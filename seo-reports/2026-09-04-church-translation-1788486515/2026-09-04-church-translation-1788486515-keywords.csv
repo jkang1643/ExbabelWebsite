@@ -1,0 +1,31 @@
+Keyword,Volume,KD,CPC,Intent,Buyer Persona,Relevance,Opportunity Score,Revenue Score,Organic CTR Score,AI Overview,BDP Comp Score,Allocation Bucket,Competition,Cluster
+best church translation,5000,20,2,Commercial,Church Admin,8,434.78,3732.81,0.9,false,8.7,Core,0.2,Church Translation
+best pricing church translation,5000,20,2,Commercial,Church Admin,8,434.78,3732.81,0.9,false,8.7,Core,0.2,Church Translation
+alternative to pricing church translation,5000,20,2,Commercial,Church Admin,8,434.78,3732.81,0.9,false,8.7,Core,0.2,Church Translation
+top pricing church translation,4000,30,2.5,Commercial,Church Admin,8,222.22,2914.9,0.9,false,10,Core,0.5,Church Translation
+vs pricing church translation,4000,30,2.5,Commercial,Church Admin,8,222.22,2914.9,0.9,false,10,Core,0.5,Church Translation
+free pricing church translation,3000,40,3,Commercial,Church Admin,8,122.45,2326.15,0.9,false,10,Core,0.8,Church Translation
+review pricing church translation,3000,40,3,Commercial,Church Admin,8,122.45,2326.15,0.9,false,10,Core,0.8,Church Translation
+best live captions,5000,20,2,Commercial,Enterprise Buyer,8,434.78,2281.16,0.55,true,8.7,Core,0.2,Live Translation Tools
+pricing church translation,2000,50,3.5,Commercial,Church Admin,8,75.47,1620.21,0.9,false,10,Core,0.2,Church Translation
+enterprise pricing church translation,2000,50,3.5,Commercial,Church Admin,8,75.47,1620.21,0.9,false,10,Core,0.2,Church Translation
+pricing pricing church translation,2000,50,3.5,Commercial,Church Admin,8,75.47,1620.21,0.9,false,10,Core,0.2,Church Translation
+alternative to church translation,5000,20,2,Informational,Church Admin,8,217.39,1333.15,0.9,false,8.7,Core,0.2,Church Translation
+top church translation,4000,30,2.5,Informational,Church Admin,8,111.11,1041.04,0.9,false,10,Core,0.5,Church Translation
+vs church translation,4000,30,2.5,Informational,Church Admin,8,111.11,1041.04,0.9,false,10,Core,0.5,Church Translation
+pricing live captions,2000,50,3.5,Commercial,Enterprise Buyer,8,75.47,990.13,0.55,true,10,Core,0.2,Live Translation Tools
+how to use pricing church translation,1000,60,4,Commercial,Church Admin,8,30.3,835.89,0.9,false,10,Experimental,0.5,Church Translation
+free church translation,3000,40,3,Informational,Church Admin,8,61.22,830.77,0.9,false,10,Core,0.8,Church Translation
+review church translation,3000,40,3,Informational,Church Admin,8,61.22,830.77,0.9,false,10,Core,0.8,Church Translation
+alternative to live captions,5000,20,2,Informational,Enterprise Buyer,8,217.39,814.7,0.55,true,8.7,Core,0.2,Live Translation Tools
+top live captions,4000,30,2.5,Informational,Enterprise Buyer,8,111.11,636.19,0.55,true,10,Core,0.5,Live Translation Tools
+vs live captions,4000,30,2.5,Informational,Enterprise Buyer,8,111.11,636.19,0.55,true,10,Core,0.5,Live Translation Tools
+enterprise church translation,2000,50,3.5,Informational,Church Admin,8,37.74,578.65,0.9,false,10,Core,0.2,Church Translation
+ai powered pricing church translation,1000,60,4,Commercial,Church Admin,8,30.3,510.82,0.55,true,10,Experimental,0.5,Church Translation
+free live captions,3000,40,3,Informational,Enterprise Buyer,8,61.22,507.69,0.55,true,10,Core,0.8,Live Translation Tools
+review live captions,3000,40,3,Informational,Enterprise Buyer,8,61.22,507.69,0.55,true,10,Core,0.8,Live Translation Tools
+enterprise live captions,2000,50,3.5,Informational,Enterprise Buyer,8,37.74,353.62,0.55,true,10,Core,0.2,Live Translation Tools
+how to use church translation,1000,60,4,Informational,Church Admin,8,15.15,298.53,0.9,false,10,Experimental,0.5,Church Translation
+ai powered church translation,1000,60,4,Informational,Church Admin,8,15.15,182.44,0.55,true,10,Experimental,0.5,Church Translation
+ai powered live captions,1000,60,4,Informational,Enterprise Buyer,8,15.15,182.44,0.55,true,10,Experimental,0.5,Live Translation Tools
+how to use live captions,1000,60,4,Informational,Enterprise Buyer,8,15.15,182.44,0.55,true,10,Experimental,0.5,Live Translation Tools
