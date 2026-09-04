@@ -21,8 +21,10 @@ export default function CalendlyDemoScheduler({
   ).trim();
 
   // Build iframe src with prefill params
+  // embed_domain is required by Calendly to validate the embedding site
   const params = new URLSearchParams({
     embed_type: "Inline",
+    embed_domain: "exbabel.com",
     hide_gdpr_banner: "1",
   });
   if (prefillName?.trim()) params.set("name", prefillName.trim());
