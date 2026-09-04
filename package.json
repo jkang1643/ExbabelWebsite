@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rm -rf out .next",
+    "clean": "rm -rf out .next tsconfig.tsbuildinfo",
     "deploy:local": "bash scripts/deploy-local.sh",
     "deploy:check": "npm run build && echo '✅ Build successful - ready for deployment'"
   },
