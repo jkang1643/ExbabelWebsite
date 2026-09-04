@@ -75,9 +75,9 @@ if [ ! -d "out/videos" ] || [ -z "$(ls -A out/videos)" ]; then
     exit 1
 fi
 
-# Check for new FeatureShowcase section
-if ! grep -q "What sets Exbabel apart" out/index.html; then
-    echo -e "${RED}❌ Verification failed - New FeatureShowcase section not found in index.html!${NC}"
+# Check for FeatureShowcase section
+if ! grep -q "FeatureShowcase" out/index.html; then
+    echo -e "${RED}❌ Verification failed - FeatureShowcase section not found in index.html!${NC}"
     echo "Is your code saved? Aborting deployment."
     exit 1
 fi
