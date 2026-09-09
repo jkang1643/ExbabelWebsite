@@ -66,7 +66,7 @@ export default function Pricing() {
         { text: "Custom branding & voice cloning", icon: "✓" },
         { text: "Additional hours: $10/hour", icon: "✓" },
       ],
-      cta: "Contact Sales",
+      cta: "Get Unlimited",
       highlighted: false,
       accentColor: "#8b5cf6",
       signupUrl: (interval: string) =>

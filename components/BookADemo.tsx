@@ -43,7 +43,7 @@ export default function BookADemo() {
     setIsSubmitting(false);
     setIsSubmitted(true);
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
     if (baseUrl) {
       fetch(`${baseUrl}/api/demo-request`, {
         method: "POST",
@@ -59,7 +59,7 @@ export default function BookADemo() {
 
   const handleEventScheduled = () => {
     setIsScheduled(true);
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
     if (baseUrl) {
       fetch(`${baseUrl}/api/demo-request`, {
         method: "POST",
