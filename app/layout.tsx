@@ -57,8 +57,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-theme="exbabel" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R9MC0WBGBM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-R9MC0WBGBM');
+          `}
+        </Script>
+        {/* Preconnect to critical third-party origins */}
         <link rel="dns-prefetch" href="//js-na2.hs-scripts.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
         {/* Global JSON-LD schemas */}
