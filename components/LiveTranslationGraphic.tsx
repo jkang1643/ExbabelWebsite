@@ -1,13 +1,23 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function LiveTranslationGraphic() {
   const targetText = "Me alegra muchísimo que vengas a nuestra iglesia, y que nos escuches por primera vez.";
   const [visibleChars, setVisibleChars] = useState(0);
 
+  // Video playback states
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Background transcription typewriter effect (paused when video is active)
   useEffect(() => {
+    if (isPlaying) return;
+
     let currentChars = 0;
     const interval = setInterval(() => {
       if (currentChars < targetText.length) {
@@ -23,7 +33,85 @@ export default function LiveTranslationGraphic() {
     }, 45); // Roughly conversational speed
     
     return () => clearInterval(interval);
-  }, [visibleChars === 0]); // Re-run effect when reset
+  }, [visibleChars === 0, isPlaying]);
+
+  // Video autoplay trigger with graceful fallback for audio restrictions
+  useEffect(() => {
+    if (isPlaying && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      setIsPaused(false);
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay with sound restricted by browser -> fall back to muted
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            setIsMuted(true);
+            videoRef.current.play();
+          }
+        });
+      }
+    }
+  }, [isPlaying]);
+
+  // Handle keyboard shortcuts (Escape to close video)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isPlaying) {
+        handleClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isPlaying]);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setIsPaused(false);
+  };
+
+  const handleClose = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+    setIsPlaying(false);
+    setProgress(0);
+    setIsPaused(false);
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
+    setProgress(0);
+    setIsPaused(false);
+  };
+
+  const togglePlayPause = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPaused(false);
+    } else {
+      videoRef.current.pause();
+      setIsPaused(true);
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const { currentTime, duration } = videoRef.current;
+    if (duration) {
+      setProgress((currentTime / duration) * 100);
+    }
+  };
 
   const visibleText = targetText.substring(0, visibleChars);
 
@@ -48,7 +136,7 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Concentric Tech Waves (Audio/Radio waves) */}
-        <div className="absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] flex items-center justify-center">
+        <div className={`absolute right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] flex items-center justify-center transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <div className="absolute w-[800px] h-[800px] flex items-center justify-center opacity-25 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 800 800" fill="none">
               {[0, 1, 2, 3, 4].map((i) => (
@@ -76,20 +164,133 @@ export default function LiveTranslationGraphic() {
         </div>
 
         {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
-        <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30">
-          <motion.div 
-            className="w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.4)] cursor-pointer border-4 border-white"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M5 3v18l15-9L5 3z" />
-            </svg>
-          </motion.div>
-        </div>
+        <AnimatePresence>
+          {!isPlaying && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.25 }}
+              className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30"
+            >
+              {/* Subtle ambient pulse ring */}
+              <div 
+                className="absolute inset-0 rounded-full bg-[#F43F5E]/30 animate-ping pointer-events-none" 
+                style={{ animationDuration: '3s' }} 
+              />
+
+              <motion.button 
+                onClick={handlePlay}
+                aria-label="Play whiteboard video demonstration"
+                title="Play Video Demonstration"
+                className="relative group w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] hover:bg-[#e11d48] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.45)] cursor-pointer border-4 border-white transition-colors"
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.94 }}
+              >
+                <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M5 3v18l15-9L5 3z" />
+                </svg>
+
+                {/* Tooltip hint on hover */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 backdrop-blur-md text-white text-xs font-semibold rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
+                  Watch Animation
+                </div>
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Video Overlay Layer: Overlays in the exact spot of the graphic card */}
+        <AnimatePresence>
+          {isPlaying && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.99 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.99 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center cursor-pointer shadow-2xl border border-white/10"
+              onClick={togglePlayPause}
+            >
+              {/* HTML5 Video Element */}
+              <video
+                ref={videoRef}
+                src="/photos/yes_minor_edit_the_iphone_need (2).mp4"
+                playsInline
+                autoPlay
+                className="w-full h-full object-cover object-center"
+                onEnded={handleVideoEnd}
+                onTimeUpdate={handleTimeUpdate}
+              />
+
+              {/* Center Pause Indicator Overlay */}
+              <AnimatePresence>
+                {isPaused && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    className="absolute inset-0 bg-black/40 flex items-center justify-center z-45 pointer-events-none"
+                  >
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl">
+                      <svg className="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Sleek Top Controls Bar */}
+              <div 
+                className="absolute top-3 md:top-5 right-3 md:right-5 z-50 flex items-center gap-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Mute/Unmute Toggle */}
+                <button
+                  onClick={toggleMute}
+                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
+                  aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                  title={isMuted ? "Unmute" : "Mute"}
+                >
+                  {isMuted ? (
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                  )}
+                </button>
+
+                {/* Close Button */}
+                <button
+                  onClick={handleClose}
+                  className="flex items-center gap-1.5 px-3 py-1.5 md:py-2 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95 text-xs md:text-sm font-medium"
+                  aria-label="Close video and return to graphic"
+                  title="Close (Esc)"
+                >
+                  <svg className="w-4 h-4 md:w-4.5 md:h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="hidden sm:inline">Close</span>
+                </button>
+              </div>
+
+              {/* Sleek Bottom Progress Bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20 z-50 pointer-events-none">
+                <div 
+                  className="h-full bg-gradient-to-r from-[#F43F5E] via-[#f59e0b] to-[#10b981] transition-all duration-100 ease-linear shadow-[0_0_8px_rgba(244,63,94,0.6)]"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Phone Mockup (Right Side) */}
-        <div className="right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip">
+        <div className={`right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <motion.div 
             className="absolute top-0 left-0 w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-top-left phone-mockup-transform shrink-0"
             initial={{ y: 30, opacity: 0 }}
