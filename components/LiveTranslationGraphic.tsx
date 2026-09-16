@@ -126,8 +126,8 @@ export default function LiveTranslationGraphic() {
           <motion.img 
             src="/photos/pastor-showcase.webp" 
             alt="Pastor Preaching"
-            className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
-            animate={{ scale: [1.15, 1.18, 1.15] }}
+            className={`w-full h-full object-cover object-top grayscale mix-blend-luminosity transition-opacity duration-700 ${isPlaying ? 'opacity-0' : 'opacity-60'}`}
+            animate={{ scale: isPlaying ? 1.15 : [1.15, 1.18, 1.15] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
             fetchPriority="high"
           />
@@ -149,8 +149,8 @@ export default function LiveTranslationGraphic() {
                   stroke="white"
                   strokeWidth="1.5"
                   animate={{
-                    r: [50, 450],
-                    opacity: [0, 0.5, 0]
+                    r: isPlaying ? 50 : [50, 450],
+                    opacity: isPlaying ? 0 : [0, 0.5, 0]
                   }}
                   transition={{
                     duration: 5,
@@ -219,7 +219,7 @@ export default function LiveTranslationGraphic() {
             src="/photos/yes_minor_edit_the_iphone_need (2).mp4"
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center transform-gpu"
             onEnded={handleVideoEnd}
             onTimeUpdate={handleTimeUpdate}
             />
@@ -386,10 +386,10 @@ export default function LiveTranslationGraphic() {
                 <div className="flex items-center gap-2 md:gap-2.5">
                   {/* Animated Waveform */}
                   <div className="flex items-center gap-[2px] h-4">
-                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [4, 12, 6, 16, 4] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }} />
-                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [10, 16, 8, 12, 10] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} />
-                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [6, 14, 4, 10, 6] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} />
-                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: [12, 6, 16, 8, 12] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: isPlaying ? 4 : [4, 12, 6, 16, 4] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: isPlaying ? 4 : [10, 16, 8, 12, 10] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: isPlaying ? 4 : [6, 14, 4, 10, 6] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} />
+                    <motion.div className="w-[2px] md:w-[3px] bg-[#10b981] rounded-full" animate={{ height: isPlaying ? 4 : [12, 6, 16, 8, 12] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} />
                   </div>
                   <span className="text-[#84879e] text-[10px] md:text-xs font-semibold tracking-wide">Streaming Translated Audio</span>
                 </div>
