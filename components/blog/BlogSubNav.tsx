@@ -16,10 +16,10 @@ export default function BlogSubNav() {
 
   return (
     <div className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-14 sm:h-15 flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-14 sm:h-15 flex items-center justify-between gap-3 sm:gap-6">
         
         {/* Left: Publication Branding */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2.5 flex-shrink-0">
           <Link
             href="/blog"
             className="flex items-center gap-2 group font-bold text-base sm:text-lg text-slate-900 tracking-tight hover:text-primary transition-colors"
@@ -33,12 +33,12 @@ export default function BlogSubNav() {
           </Link>
         </div>
 
-        {/* Center: Topic Categories - NO horizontal scrollbar visible, compact responsive tabs */}
+        {/* Center: Topic Categories (Desktop & Tablet) - justify-start guarantees All Articles is never clipped */}
         <nav
-          className="hidden md:flex items-center gap-1 xl:gap-1.5 overflow-x-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1 relative flex-1 justify-center max-w-3xl"
+          className="hidden md:flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-1 relative flex-1 min-w-0 justify-start 2xl:justify-center px-2"
           aria-label="Publication Topics"
         >
-          {/* "All Topics" Tab */}
+          {/* "All Articles" Tab - Guaranteed visible, never clipped */}
           <Link
             href="/blog"
             onClick={() => setClickedTab("all")}
@@ -48,8 +48,8 @@ export default function BlogSubNav() {
               whileHover={{ scale: 1.06, y: -1 }}
               whileTap={{ scale: 0.88 }}
               transition={{ type: "spring", stiffness: 600, damping: 20 }}
-              className={`relative px-2.5 xl:px-3 py-1 rounded-full ${
-                isAllActive ? "text-white" : "text-slate-600 hover:text-slate-900"
+              className={`relative px-3.5 py-1.5 rounded-full ${
+                isAllActive ? "text-white font-bold" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {isAllActive && (
@@ -79,7 +79,7 @@ export default function BlogSubNav() {
                   whileHover={{ scale: 1.06, y: -1 }}
                   whileTap={{ scale: 0.88 }}
                   transition={{ type: "spring", stiffness: 600, damping: 20 }}
-                  className={`relative px-2.5 xl:px-3 py-1 rounded-full font-medium ${
+                  className={`relative px-3 py-1.5 rounded-full font-medium ${
                     isActive
                       ? "text-white font-semibold"
                       : "text-slate-600 hover:text-slate-900"
@@ -100,7 +100,7 @@ export default function BlogSubNav() {
         </nav>
 
         {/* Right: Quick CTA & Search Button */}
-        <div className="flex items-center gap-2.5 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <div className="relative">
             {isSearchOpen ? (
               <motion.div
@@ -165,6 +165,33 @@ export default function BlogSubNav() {
           </motion.a>
         </div>
 
+      </div>
+
+      {/* Mobile Topic Scroller (sub-row on mobile viewports) */}
+      <div className="md:hidden border-t border-slate-100 px-4 py-2 overflow-x-auto no-scrollbar flex items-center gap-1.5">
+        <Link
+          href="/blog"
+          className={`text-[11px] whitespace-nowrap px-3 py-1 rounded-full font-medium transition-colors flex-shrink-0 ${
+            isAllActive ? "bg-slate-950 text-white font-bold" : "text-slate-600 bg-slate-100 hover:bg-slate-200"
+          }`}
+        >
+          All Articles
+        </Link>
+        {BLOG_CATEGORIES.map((cat) => {
+          const href = `/blog/category/${cat.slug}`;
+          const isActive = pathname.startsWith(href);
+          return (
+            <Link
+              key={cat.slug}
+              href={href}
+              className={`text-[11px] whitespace-nowrap px-3 py-1 rounded-full font-medium transition-colors flex-shrink-0 ${
+                isActive ? "bg-slate-950 text-white font-bold" : "text-slate-600 bg-slate-100 hover:bg-slate-200"
+              }`}
+            >
+              {cat.name}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
