@@ -11,7 +11,6 @@ import {
   BLOG_CATEGORIES,
   getCategoryBySlug,
   getPostsByCategory,
-  getAllPosts,
 } from "@/lib/blog";
 
 const Footer = dynamic(() => import("@/components/Footer"), {
@@ -70,7 +69,8 @@ export default async function CategoryPage({
   }
 
   const posts = getPostsByCategory(category.slug);
-  const allPosts = getAllPosts();
+  const primaryPost = posts[0];
+  const secondaryPosts = posts.slice(1);
 
   return (
     <>
@@ -87,86 +87,147 @@ export default async function CategoryPage({
       <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
         <Navbar />
 
-        {/* Secondary Publication Sub-Nav */}
-        <div className="pt-20 sm:pt-24">
+        {/* Secondary Publication Sub-Nav - tight spacing to navbar */}
+        <div className="pt-16 sm:pt-20">
           <BlogSubNav />
         </div>
 
-        {/* Category Masthead Header */}
-        <section className="py-12 sm:py-16 lg:py-20 border-b border-slate-100">
+        {/* Integrated Category Content Section - Fits in Viewport */}
+        <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
-            <span className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase mb-4 block">
-              TOPIC ARCHIVE
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-              {category.name}
-            </h1>
-            <p className="text-slate-600 text-lg sm:text-xl font-normal max-w-2xl leading-relaxed">
-              {category.description}
-            </p>
-          </div>
-        </section>
+            
+            {/* Compact Header */}
+            <div className="mb-6 sm:mb-8">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <span className="text-[11px] font-mono font-bold tracking-widest text-slate-400 uppercase">
+                  TOPIC ARCHIVE · {posts.length} {posts.length === 1 ? "ARTICLE" : "ARTICLES"}
+                </span>
+              </div>
 
-        {/* Articles Section */}
-        <section className="py-16 sm:py-20">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
-            {posts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-                {posts.map((post) => (
-                  <article key={post.slug} className="group flex flex-col">
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+                  {category.name}
+                </h1>
+                <p className="text-slate-500 text-sm sm:text-base font-normal max-w-xl leading-relaxed">
+                  {category.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Articles Presentation */}
+            {primaryPost ? (
+              <div className="space-y-10">
+                {/* Primary Article - Horizontal Split Hero Card that fits on screen */}
+                <article className="group relative rounded-[28px] sm:rounded-[32px] overflow-hidden bg-slate-50/70 border border-slate-200/80 p-5 sm:p-7 lg:p-8 hover:border-primary/40 hover:shadow-xl transition-all duration-300">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                    
+                    {/* Left: Article Image (5-6 cols) */}
                     <Link
-                      href={`/blog/${post.slug}`}
-                      className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden aspect-[1.62/1] bg-slate-100 block"
+                      href={`/blog/${primaryPost.slug}`}
+                      className="lg:col-span-6 relative rounded-[20px] sm:rounded-[24px] overflow-hidden aspect-[1.5/1] bg-slate-200 block shadow-sm"
                     >
                       <img
-                        src={post.featuredImage}
-                        alt={post.featuredImageAlt}
+                        src={primaryPost.featuredImage}
+                        alt={primaryPost.featuredImageAlt}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
+                      {/* Floating UI Badge */}
+                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>{primaryPost.editorialPill.statusText || "Featured Guide"}</span>
+                      </div>
                     </Link>
 
-                    <div className="pt-4 flex flex-col">
-                      <div className="flex items-center gap-2 text-[11px] font-bold tracking-widest text-slate-500 uppercase mb-2">
-                        <span>{post.category}</span>
+                    {/* Right: Article Details (6-7 cols) */}
+                    <div className="lg:col-span-6 flex flex-col justify-center">
+                      <div className="flex items-center gap-3 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                        <span className="text-primary font-bold">{primaryPost.category}</span>
                         <span>·</span>
-                        <span>{post.readTime}</span>
+                        <span>{primaryPost.readTime}</span>
+                        <span>·</span>
+                        <span className="font-mono text-slate-400">{primaryPost.datePublished}</span>
                       </div>
 
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="group-hover:text-blue-600 transition-colors"
-                      >
-                        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
-                          {post.title}
+                      <Link href={`/blog/${primaryPost.slug}`}>
+                        <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 group-hover:text-primary transition-colors leading-[1.18] mb-3">
+                          {primaryPost.title}
                         </h2>
                       </Link>
 
-                      <p className="text-sm text-slate-600 line-clamp-2 mt-2 font-normal leading-relaxed">
-                        {post.excerpt}
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 line-clamp-3 font-normal">
+                        {primaryPost.excerpt}
                       </p>
+
+                      <div className="flex items-center gap-4">
+                        <Link
+                          href={`/blog/${primaryPost.slug}`}
+                          className="inline-flex items-center px-6 py-2.5 rounded-full bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-slate-800 transition-all shadow-sm"
+                        >
+                          Read Full Guide →
+                        </Link>
+                      </div>
                     </div>
-                  </article>
-                ))}
+
+                  </div>
+                </article>
+
+                {/* Additional Articles Grid if more than 1 exist */}
+                {secondaryPosts.length > 0 && (
+                  <div className="pt-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-6">
+                      More in {category.name}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                      {secondaryPosts.map((post) => (
+                        <article key={post.slug} className="group flex flex-col">
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="relative rounded-[22px] overflow-hidden aspect-[1.62/1] bg-slate-100 block shadow-sm group-hover:shadow-md transition-shadow"
+                          >
+                            <img
+                              src={post.featuredImage}
+                              alt={post.featuredImageAlt}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </Link>
+                          <div className="pt-3">
+                            <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">
+                              {post.readTime}
+                            </span>
+                            <Link href={`/blog/${post.slug}`}>
+                              <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors mt-1 line-clamp-2">
+                                {post.title}
+                              </h4>
+                            </Link>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
-              <div className="rounded-[28px] bg-slate-50 border border-slate-200/60 p-10 sm:p-14 text-center max-w-2xl mx-auto">
-                <span className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase mb-3 block">
-                  EDITORIAL UPDATE
+              /* Editorial Note if category has no articles yet */
+              <div className="rounded-[24px] bg-slate-50 border border-slate-200/70 p-8 sm:p-12 text-center max-w-xl mx-auto my-6">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase mb-2 block">
+                  EDITORIAL NOTICE
                 </span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  New guides in {category.name} are coming soon
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  New guides in {category.name} are in production
                 </h3>
-                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  Our AV engineering team and ministry researchers are preparing dedicated handbooks for this topic. In the meantime, explore our core publications.
+                <p className="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed">
+                  Our AV engineering team and ministry researchers are compiling handbooks for this subject. In the meantime, explore our core publications.
                 </p>
                 <Link
                   href="/blog"
-                  className="inline-flex items-center px-6 py-3 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
+                  className="inline-flex items-center px-5 py-2.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
                 >
-                  Browse All Articles →
+                  Browse All Publications →
                 </Link>
               </div>
             )}
+
           </div>
         </section>
 

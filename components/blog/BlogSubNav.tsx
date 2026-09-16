@@ -16,46 +16,46 @@ export default function BlogSubNav() {
 
   return (
     <div className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 h-14 sm:h-16 flex items-center justify-between gap-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-14 sm:h-15 flex items-center justify-between gap-4">
         
         {/* Left: Publication Branding */}
-        <div className="flex items-center gap-6 flex-shrink-0">
+        <div className="flex items-center gap-3 flex-shrink-0">
           <Link
             href="/blog"
-            className="flex items-center gap-2 group font-bold text-lg sm:text-xl text-slate-900 tracking-tight hover:text-primary transition-colors"
+            className="flex items-center gap-2 group font-bold text-base sm:text-lg text-slate-900 tracking-tight hover:text-primary transition-colors"
           >
-            <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.95 }}>
+            <motion.span whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>
               Exbabel Insights
             </motion.span>
-            <span className="hidden sm:inline-block text-[10px] uppercase font-mono tracking-widest px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+            <span className="hidden sm:inline-block text-[9px] uppercase font-mono tracking-widest px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
               Publication
             </span>
           </Link>
         </div>
 
-        {/* Center: Topic Categories with Framer Motion Animated Sliding Pill & Click Bounces */}
+        {/* Center: Topic Categories - NO horizontal scrollbar visible, compact responsive tabs */}
         <nav
-          className="hidden md:flex items-center gap-1.5 lg:gap-2 overflow-x-auto py-1 scrollbar-none relative"
+          className="hidden md:flex items-center gap-1 xl:gap-1.5 overflow-x-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1 relative flex-1 justify-center max-w-3xl"
           aria-label="Publication Topics"
         >
           {/* "All Topics" Tab */}
           <Link
             href="/blog"
             onClick={() => setClickedTab("all")}
-            className="relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors whitespace-nowrap z-10 block"
+            className="relative text-[11px] xl:text-xs font-semibold tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
           >
             <motion.div
-              whileHover={{ scale: 1.08, y: -2 }}
+              whileHover={{ scale: 1.06, y: -1 }}
               whileTap={{ scale: 0.88 }}
               transition={{ type: "spring", stiffness: 600, damping: 20 }}
-              className={`relative px-3 py-1 rounded-full ${
+              className={`relative px-2.5 xl:px-3 py-1 rounded-full ${
                 isAllActive ? "text-white" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {isAllActive && (
                 <motion.span
                   layoutId="activeSubNavPill"
-                  className="absolute inset-0 rounded-full bg-slate-950 shadow-md -z-10"
+                  className="absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
                   transition={{ type: "spring", stiffness: 450, damping: 32 }}
                 />
               )}
@@ -73,13 +73,13 @@ export default function BlogSubNav() {
                 key={cat.slug}
                 href={href}
                 onClick={() => setClickedTab(cat.slug)}
-                className="relative px-1 py-1 text-xs tracking-wide transition-colors whitespace-nowrap z-10 block"
+                className="relative text-[11px] xl:text-xs tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
               >
                 <motion.div
-                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileHover={{ scale: 1.06, y: -1 }}
                   whileTap={{ scale: 0.88 }}
                   transition={{ type: "spring", stiffness: 600, damping: 20 }}
-                  className={`relative px-3 py-1 rounded-full font-medium ${
+                  className={`relative px-2.5 xl:px-3 py-1 rounded-full font-medium ${
                     isActive
                       ? "text-white font-semibold"
                       : "text-slate-600 hover:text-slate-900"
@@ -88,7 +88,7 @@ export default function BlogSubNav() {
                   {isActive && (
                     <motion.span
                       layoutId="activeSubNavPill"
-                      className="absolute inset-0 rounded-full bg-slate-950 shadow-md -z-10"
+                      className="absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
                       transition={{ type: "spring", stiffness: 450, damping: 32 }}
                     />
                   )}
@@ -100,20 +100,20 @@ export default function BlogSubNav() {
         </nav>
 
         {/* Right: Quick CTA & Search Button */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2.5 flex-shrink-0">
           <div className="relative">
             {isSearchOpen ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1.5"
               >
                 <input
                   type="text"
-                  placeholder="Search articles..."
+                  placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-40 sm:w-56 text-xs px-3.5 py-1.5 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900 shadow-inner"
+                  className="w-32 sm:w-44 text-xs px-3 py-1 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900 shadow-inner"
                   autoFocus
                   onBlur={() => !searchQuery && setIsSearchOpen(false)}
                 />
@@ -132,7 +132,7 @@ export default function BlogSubNav() {
                 whileTap={{ scale: 0.88 }}
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
+                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
                 aria-label="Search articles"
               >
                 <svg
@@ -153,13 +153,13 @@ export default function BlogSubNav() {
           </div>
 
           <motion.a
-            whileHover={{ scale: 1.08, y: -2 }}
+            whileHover={{ scale: 1.06, y: -1 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 500, damping: 22 }}
             href="https://app.exbabel.com/live/checkout"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-md"
+            className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-xs"
           >
             Start Free
           </motion.a>
