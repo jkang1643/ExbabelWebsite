@@ -201,27 +201,28 @@ export default function LiveTranslationGraphic() {
           )}
         </AnimatePresence>
 
-        {/* Video Overlay Layer: Overlays in the exact spot of the graphic card */}
-        <AnimatePresence>
-          {isPlaying && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.99 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.99 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center cursor-pointer shadow-2xl border border-white/10"
-              onClick={togglePlayPause}
-            >
-              {/* HTML5 Video Element */}
-              <video
-                ref={videoRef}
-                src="/photos/yes_minor_edit_the_iphone_need (2).mp4"
-                playsInline
-                autoPlay
-                className="w-full h-full object-cover object-center"
-                onEnded={handleVideoEnd}
-                onTimeUpdate={handleTimeUpdate}
-              />
+        {/* Video Overlay Layer: Always in DOM to preload, just hidden when not playing */}
+        <motion.div
+            initial={false}
+            animate={{ 
+                opacity: isPlaying ? 1 : 0, 
+                scale: isPlaying ? 1 : 0.99,
+                pointerEvents: isPlaying ? "auto" : "none" 
+            }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center cursor-pointer shadow-2xl border border-white/10"
+            onClick={togglePlayPause}
+        >
+            {/* HTML5 Video Element */}
+            <video
+            ref={videoRef}
+            src="/photos/yes_minor_edit_the_iphone_need (2).mp4"
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-center"
+            onEnded={handleVideoEnd}
+            onTimeUpdate={handleTimeUpdate}
+            />
 
               {/* Center Pause Indicator Overlay */}
               <AnimatePresence>
@@ -286,9 +287,7 @@ export default function LiveTranslationGraphic() {
                   style={{ width: `${progress}%` }}
                 />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </motion.div>
 
         {/* Phone Mockup (Right Side) */}
         <div className={`right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
