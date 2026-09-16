@@ -58,7 +58,7 @@ export default function ChurchTranslationIntro() {
         {mounted && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "100px" }}
+            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "100px" }}
             transition={{ duration: 0.8 }}
             className="mb-8 h-20 w-full max-w-[300px] relative"
           >
@@ -93,7 +93,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "100px" }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "100px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-4xl"
         >
@@ -108,7 +108,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "100px" }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative mb-20 w-full max-w-4xl"
         >
@@ -132,7 +132,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}} viewport={{ once: true, margin: "100px" }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="w-full max-w-5xl mx-auto"
         >

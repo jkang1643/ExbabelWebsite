@@ -111,7 +111,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="relative max-w-[900px] mx-auto rounded-3xl p-2 bg-white/50 backdrop-blur-md shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] ring-1 ring-gray-900/5"
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "-100px" }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
           <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-[150vw] h-[150vh] -z-20 -rotate-12 opacity-80" colorPrimary="#FFD6E5" colorSecondary="#D6F5FF" delay={1} />
@@ -150,7 +150,7 @@ export default function LiveTranslationPage() {
             <motion.div 
               className="flex justify-center relative"
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}} viewport={{ once: true, margin: "-50px" }}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
@@ -204,7 +204,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="flex justify-center order-2 lg:order-1 relative"
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}} viewport={{ once: true }}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-green-300/20 to-blue-300/20 blur-3xl -z-10 rounded-full" />
@@ -251,7 +251,7 @@ export default function LiveTranslationPage() {
         <motion.h2 
           className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
         >
           Church Use Cases
         </motion.h2>
@@ -281,7 +281,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-12">
@@ -337,7 +337,7 @@ export default function LiveTranslationPage() {
         <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-14 space-y-4">
@@ -471,7 +471,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="flex justify-center relative"
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}} viewport={{ once: true }}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             <div className="absolute inset-0 bg-gradient-to-bl from-purple-300/20 to-blue-300/20 blur-3xl -z-10 rounded-full" />
@@ -497,7 +497,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="max-w-4xl mx-auto relative z-10 space-y-8"
           initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}} viewport={{ once: true }}
+          whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Ready to Reach More People?</h2>

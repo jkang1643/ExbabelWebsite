@@ -113,7 +113,7 @@ function LanguageSelectorMockup() {
             <motion.div
               key={lang}
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}} viewport={{ once: true }}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
               className="flex items-center justify-between px-3 py-2 bg-slate-50 rounded-xl border border-slate-200/80 text-xs font-medium text-slate-700"
             >
