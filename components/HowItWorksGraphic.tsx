@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "200px" },
+  viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" },
   transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
@@ -92,7 +92,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
       <motion.div 
         className="w-full md:w-1/2 relative flex justify-center md:justify-start"
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "200px" }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
@@ -179,7 +179,7 @@ export default function HowItWorksGraphic() {
             strokeLinecap="round"
             opacity="0.15"
             initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.15 }} viewport={{ once: true, margin: "200px" }}
+            whileInView={{ pathLength: 1, opacity: 0.15 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
             transition={{ duration: 2, ease: "easeInOut" }}
           />
           <motion.path
@@ -189,7 +189,7 @@ export default function HowItWorksGraphic() {
             strokeLinecap="round"
             opacity="0.4"
             initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: "200px" }}
+            whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
             transition={{ duration: 2, ease: "easeInOut" }}
           />
         </svg>
