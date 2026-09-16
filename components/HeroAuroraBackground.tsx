@@ -135,8 +135,8 @@ export default function HeroAuroraBackground() {
       />
 
       {/* Massive subtle background glows to tie it all together */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block transform-gpu will-change-transform" />
-      <div className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block transform-gpu will-change-transform" />
+      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block" />
+      <div className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block" />
     </div>
   );
 }

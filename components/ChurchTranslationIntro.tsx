@@ -48,8 +48,8 @@ export default function ChurchTranslationIntro() {
   return (
     <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden bg-white">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-emerald-50/50 blur-[100px] rounded-full opacity-60 transform-gpu will-change-transform" />
-        <div className="absolute top-[10%] right-[-5%] w-[600px] h-[600px] bg-blue-50/50 blur-[100px] rounded-full opacity-60 transform-gpu will-change-transform" />
+        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-emerald-50/50 blur-[100px] rounded-full opacity-60 hidden md:block" />
+        <div className="absolute top-[10%] right-[-5%] w-[600px] h-[600px] bg-blue-50/50 blur-[100px] rounded-full opacity-60 hidden md:block" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
@@ -116,7 +116,7 @@ export default function ChurchTranslationIntro() {
           className="relative mb-20 w-full max-w-4xl"
         >
           {/* Intense Colorful Backdrop Glow for Pills */}
-          <div className="absolute inset-0 top-1/2 -translate-y-1/2 w-full h-[80px] bg-gradient-to-r from-emerald-300/40 via-blue-300/40 to-purple-300/40 blur-2xl rounded-full transform-gpu will-change-transform" />
+          <div className="absolute inset-0 top-1/2 -translate-y-1/2 w-full h-[80px] bg-gradient-to-r from-emerald-300/40 via-blue-300/40 to-purple-300/40 blur-2xl rounded-full" />
           
           <div className="relative z-10 flex flex-wrap justify-center gap-3 md:gap-4">
             {features.map((feature, i) => (

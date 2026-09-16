@@ -178,7 +178,6 @@ export default function HowItWorksGraphic() {
             stroke="url(#timelineGrad)"
             strokeWidth="80"
             strokeLinecap="round"
-            filter="url(#glow)"
             opacity="0.15"
             initial={{ pathLength: 0, opacity: 0 }}
             whileInView={{ pathLength: 1, opacity: 0.15 }}

@@ -314,9 +314,9 @@ export default function InterfacePreview() {
 
       {/* Aurora Background with Winding Ribbons */}
       <div className="absolute inset-0 z-0 opacity-80 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform"></div>
-          <div className="absolute top-[10%] right-[-10%] w-[60vw] h-[60vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block"></div>
+          <div className="absolute top-[10%] right-[-10%] w-[60vw] h-[60vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '4s' }}></div>
 
           {/* Winding Ribbons (from Hero) */}
           <svg className="absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">

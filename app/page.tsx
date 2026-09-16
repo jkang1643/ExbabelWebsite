@@ -60,7 +60,7 @@ export default function Home() {
       <SoftwareApplicationSchema product={PRODUCTS.events} />
       <BreadcrumbSchema items={[]} />
 
-      <main className="min-h-screen bg-white contain-paint">
+      <main className="min-h-screen bg-white">
         <Navbar />
         <GlassmorphicHero />
 
