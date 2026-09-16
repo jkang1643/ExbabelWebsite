@@ -6,15 +6,10 @@ import SoftwareApplicationSchema from "@/components/schema/SoftwareApplicationSc
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import { HOME_FAQ_DATA, PRODUCTS } from "@/lib/schema";
 
-const VideoShowcase = dynamic(() => import("@/components/VideoShowcase"), {
-  loading: () => <section className="py-12 md:py-32" aria-hidden />,
-});
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
-const FeatureShowcase = dynamic(() => import("@/components/FeatureShowcase"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
+
+import ChurchTranslationIntro from "@/components/ChurchTranslationIntro";
+import HowItWorks from "@/components/HowItWorks";
+import FeatureShowcase from "@/components/FeatureShowcase";
 const InterfacePreview = dynamic(() => import("@/components/InterfacePreview"), {
   loading: () => <section className="min-h-[850px]" aria-hidden />,
 });
@@ -52,6 +47,11 @@ const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"), {
   loading: () => null,
 });
 
+
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <>
@@ -60,10 +60,11 @@ export default function Home() {
       <SoftwareApplicationSchema product={PRODUCTS.events} />
       <BreadcrumbSchema items={[]} />
 
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white contain-paint">
         <Navbar />
         <GlassmorphicHero />
-        <VideoShowcase />
+
+        <ChurchTranslationIntro />
         <HowItWorks />
         <FeatureShowcase />
         <InterfacePreview />

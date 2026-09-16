@@ -312,22 +312,109 @@ export default function InterfacePreview() {
         }
       `}} />
 
-      {/* Aurora Background */}
-      <div className="absolute inset-0 z-0 opacity-40 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block"></div>
-          <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[50%] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[100px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '4s' }}></div>
+      {/* Aurora Background with Winding Ribbons */}
+      <div className="absolute inset-0 z-0 opacity-80 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform"></div>
+          <div className="absolute top-[10%] right-[-10%] w-[60vw] h-[60vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block transform-gpu will-change-transform" style={{ animationDelay: '4s' }}></div>
+
+          {/* Winding Ribbons (from Hero) */}
+          <svg className="absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="ribbonGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#EAD6FF" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#D6F5FF" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#FFD6E5" stopOpacity="0.0" />
+              </linearGradient>
+              <linearGradient id="ribbonGradRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#D6F5FF" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#EAD6FF" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#FFD6E5" stopOpacity="0.0" />
+              </linearGradient>
+              <filter id="ribbonGlowPreview" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            {/* Left Ribbon Main */}
+            <motion.path
+              d="M -10,0 C 25,35 30,70 -10,110"
+              fill="none"
+              stroke="url(#ribbonGradLeft)"
+              strokeWidth="7"
+              filter="url(#ribbonGlowPreview)"
+              animate={{
+                d: [
+                  "M -10,0 C 25,35 30,70 -10,110",
+                  "M -5,-5 C 30,30 20,75 -5,115",
+                  "M -10,0 C 25,35 30,70 -10,110"
+                ]
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Left Ribbon Echo */}
+            <motion.path
+              d="M -20,10 C 15,45 20,80 -20,120"
+              fill="none"
+              stroke="url(#ribbonGradLeft)"
+              strokeWidth="2.5"
+              filter="url(#ribbonGlowPreview)"
+              opacity="0.6"
+              animate={{
+                d: [
+                  "M -20,10 C 15,45 20,80 -20,120",
+                  "M -15,5 C 20,40 10,85 -15,125",
+                  "M -20,10 C 15,45 20,80 -20,120"
+                ]
+              }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            {/* Right Ribbon Main */}
+            <motion.path
+              d="M 110,-10 C 75,25 70,60 110,100"
+              fill="none"
+              stroke="url(#ribbonGradRight)"
+              strokeWidth="6"
+              filter="url(#ribbonGlowPreview)"
+              animate={{
+                d: [
+                  "M 110,-10 C 75,25 70,60 110,100",
+                  "M 105,-15 C 70,30 80,55 105,105",
+                  "M 110,-10 C 75,25 70,60 110,100"
+                ]
+              }}
+              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Right Ribbon Echo */}
+            <motion.path
+              d="M 120,0 C 85,35 80,70 120,110"
+              fill="none"
+              stroke="url(#ribbonGradRight)"
+              strokeWidth="3.5"
+              filter="url(#ribbonGlowPreview)"
+              opacity="0.7"
+              animate={{
+                d: [
+                  "M 120,0 C 85,35 80,70 120,110",
+                  "M 115,-5 C 80,40 90,65 115,115",
+                  "M 120,0 C 85,35 80,70 120,110"
+                ]
+              }}
+              transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </svg>
       </div>
 
       {/* Top and Bottom Gradient Blends for Seamless Transitions */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#F8F9FA] to-transparent pointer-events-none z-20" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent pointer-events-none z-20" />
 
-      {/* Interactive World Map Background SVG */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 0.85, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "200px" }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
       >
@@ -351,7 +438,7 @@ export default function InterfacePreview() {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "200px" }}
               className="flex flex-col items-center md:items-start w-full"
             >
               <motion.div variants={itemVariants} className="relative mb-8">
@@ -384,11 +471,10 @@ export default function InterfacePreview() {
             </motion.div>
         </div>
 
-        {/* Right Side: Scrolling Language Bubbles */}
         <motion.div 
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "200px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-start gap-6 justify-end pr-4 pointer-events-none select-none"
         >

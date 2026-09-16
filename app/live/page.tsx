@@ -53,13 +53,13 @@ export default function LiveTranslationPage() {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          <h1 className="sr-only">Exbabel Live Video Translation</h1>
+          <h1 className="sr-only">Live Video Translation for Churches & Events</h1>
           <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-base-content leading-tight tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Exbabel Live<br />
             <span className="text-primary mt-2 block">Video Translation</span>
           </motion.h2>
           <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold text-slate-600 mt-4 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-            Speak Once. Reach Every Language.
+            Translate Church Livestreams in Real Time
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-lg md:text-xl text-base-content/80 max-w-2xl leading-relaxed font-medium">
             Exbabel Live Video Translation transforms any church livestream, conference, or event into a multilingual experience in real time. As your pastor speaks, Exbabel instantly translates their voice into multiple languages with live captions.

@@ -22,7 +22,7 @@ export default function LaserFocusedHowItWorks() {
             {/* Left — Content */}
             <div className="lg:col-span-6 space-y-6">
               <h1 className="text-h1 text-base-ink" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
-                Live Audio &amp; AI Translation for your event
+                How Exbabel Real-Time AI Translation Works
               </h1>
               <p className="text-body text-base-muted leading-relaxed text-lg">
                 AI voice translation, simultaneous interpretation, guided tours, silent conferencing and more.

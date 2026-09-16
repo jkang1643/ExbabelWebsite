@@ -444,9 +444,9 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
           transformStyle: "preserve-3d",
           transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
           boxShadow: isHovered
-            ? `0 20px 60px ${card.accentFrom}18, 0 8px 24px rgba(0,0,0,0.06)`
+            ? `0 20px 80px ${card.accentFrom}60, 0 8px 30px ${card.accentFrom}40`
             : "0 1px 4px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.03)",
-          border: `1px solid ${isHovered ? `${card.accentFrom}35` : "rgba(0,0,0,0.06)"}`,
+          border: `${isHovered ? '2px' : '1px'} solid ${isHovered ? `${card.accentFrom}A0` : "rgba(0,0,0,0.06)"}`,
           backgroundColor: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.65)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
@@ -454,7 +454,7 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
       >
         {isHovered && !prefersReduced && !isTouch && (
           <div className="absolute inset-0 pointer-events-none z-0"
-            style={{ background: `radial-gradient(circle 200px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}10, transparent)` }} />
+            style={{ background: `radial-gradient(circle 250px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}50, transparent)` }} />
         )}
 
         <div className="relative z-10">

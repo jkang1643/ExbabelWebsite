@@ -102,17 +102,15 @@ export default function ImpactHero() {
                 </motion.div>
 
                 {/* Title */}
-                <h1 className="sr-only">Breaking Language Barriers Across the Globe</h1>
-                <motion.h2
+                
+                <motion.h1
                     className="text-center text-4xl md:text-6xl font-extrabold text-base-ink tracking-tight leading-[1.1] mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    Breaking Language Barriers{" "}
-                    <br className="hidden md:block" />
-                    Across the Globe
-                </motion.h2>
+                    Languages and AI Voices Supported by Exbabel
+                </motion.h1>
 
                 {/* Subtitle */}
                 <motion.p

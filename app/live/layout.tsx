@@ -5,13 +5,13 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import { PRODUCTS } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Live Video Translation",
-  description: "Transform your church livestream into a multilingual experience with real-time AI voice translation, live video overlays, and synchronized captions in 60+ languages.",
+  title: "Live Video Translation & AI Voiceover",
+  description: "Translate church livestreams and live events in real time with AI voice translation, multilingual captions and synchronized video. Works with OBS, vMix, RTMP and more.",
   alternates: { canonical: "/live" },
   openGraph: {
     title: "Exbabel Live — Real-Time Video Translation",
     description: "Transform any livestream into a multilingual experience with AI voice translation, video overlays, and live captions. Works with OBS, vMix, Wirecast, and RTMP.",
-    url: "https://exbabel.com/live",
+    url: "https://www.exbabel.com/live",
     images: [{ url: "/photos/exbabel-product-video-picture.webp", width: 1200, height: 630, alt: "Exbabel Live Video Translation Platform" }],
   },
   twitter: {
@@ -33,7 +33,7 @@ export default function LiveLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       <SoftwareApplicationSchema product={PRODUCTS.live} />
-      <BreadcrumbSchema items={[{ name: "Exbabel Live", url: "https://exbabel.com/live" }]} />
+      <BreadcrumbSchema items={[{ name: "Exbabel Live", url: "https://www.exbabel.com/live" }]} />
       <FAQSchema faqs={LIVE_FAQS} />
       {children}
     </>

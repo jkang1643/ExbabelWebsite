@@ -13,20 +13,20 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://exbabel.com"),
+  metadataBase: new URL("https://www.exbabel.com"),
   title: {
-    default: "Exbabel - AI Speech-to-Speech Translation Platform",
+    default: "Church Translation System & Live AI Translation | Exbabel",
     template: "%s | Exbabel",
   },
   description:
-    "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. Translate live video, audio, and captions into 180+ languages.",
+    "Real-time church translation for sermons, services and livestreams. Deliver AI-translated speech and live captions to listeners in multiple languages on any device.",
   keywords: [
     "real-time translation", "AI translation", "speech-to-speech translation",
     "live translation", "church translation", "conference translation",
     "multilingual events", "AI captions", "live captions", "sermon translation",
     "enterprise translation", "Exbabel",
   ],
-  authors: [{ name: "Exbabel Co.", url: "https://exbabel.com" }],
+  authors: [{ name: "Exbabel Co.", url: "https://www.exbabel.com" }],
   creator: "Exbabel Co.",
   publisher: "Exbabel Co.",
   icons: {
@@ -42,16 +42,15 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   appleWebApp: { capable: true, statusBarStyle: "default" },
-  alternates: { canonical: "/" },
   openGraph: {
-    type: "website", locale: "en_US", url: "https://exbabel.com", siteName: "Exbabel",
-    title: "Exbabel - AI Speech-to-Speech Translation Platform",
-    description: "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. Translate live video, audio, and captions into 180+ languages.",
+    type: "website", locale: "en_US", url: "https://www.exbabel.com", siteName: "Exbabel",
+    title: "Church Translation System & Live AI Translation | Exbabel",
+    description: "Real-time church translation for sermons, services and livestreams. Deliver AI-translated speech and live captions to listeners in multiple languages on any device.",
     images: [{ url: "/photos/exbabel_live_translation_concept_1780070697205.webp", width: 1200, height: 630, alt: "Exbabel - Real-time AI Translation Platform" }],
   },
   twitter: {
     card: "summary_large_image", site: "@exbabel", creator: "@exbabel",
-    title: "Exbabel - AI Speech-to-Speech Translation Platform",
+    title: "Church Translation System & Live AI Translation | Exbabel",
     description: "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. 180+ languages.",
     images: ["/photos/exbabel_live_translation_concept_1780070697205.webp"],
   },

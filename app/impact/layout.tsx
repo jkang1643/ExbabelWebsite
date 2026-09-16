@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "Global Impact",
-  description: "See how Exbabel is breaking language barriers across the globe with real-time AI translation supporting 180+ languages, 90+ AI voices, and 190+ countries.",
+  title: "Supported Translation Languages & AI Voices",
+  description: "Explore the languages, dialects and AI voices supported by Exbabel for real-time speech translation, captions and multilingual live events.",
   alternates: { canonical: "/impact" },
   openGraph: {
     title: "Exbabel Global Impact — 180+ Languages, 190+ Countries",

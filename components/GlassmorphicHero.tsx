@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import HeroAuroraBackground from "./HeroAuroraBackground";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
@@ -130,20 +131,16 @@ export default function GlassmorphicHero() {
     <section className="relative min-h-screen bg-base-paper flex flex-col">
       {/* Dot Grid Pattern */}
       <div 
-        className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+        className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none" 
         style={{ 
           backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
-          backgroundSize: "24px 24px" 
+          backgroundSize: "24px 24px",
+          maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)"
         }} 
       />
 
-      {/* Aurora Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="showcase-blob absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-pink)' }} />
-        <div className="showcase-blob absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-purple)', animationDelay: '4s' }} />
-        <div className="showcase-blob absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full filter blur-[80px] md:blur-[160px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-yellow)', animationDelay: '8s' }} />
-        <div className="showcase-blob absolute bottom-[-10%] right-[10%] w-[40vw] h-[40vw] rounded-full filter blur-[70px] md:blur-[140px] opacity-60 hidden lg:block" style={{ backgroundColor: 'var(--color-aurora-mint)', animationDelay: '12s' }} />
-      </div>
+      <HeroAuroraBackground />
 
       <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
         <div className="layout-spine text-center flex flex-col items-center gap-8">
@@ -172,12 +169,11 @@ export default function GlassmorphicHero() {
               </svg>
             </motion.a>
 
-            <h1 className="sr-only">Every voice. Every language. One service.</h1>
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3"
+            <p
+              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              <span>Every voice.</span>
+              <span className="text-base-ink/80">Every voice.</span>
               <span className="text-primary inline-grid text-left">
                 {flipWords.map((word, index) => (
                   <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
@@ -200,13 +196,16 @@ export default function GlassmorphicHero() {
                   </AnimatePresence>
                 </span>
               </span>
-            </h2>
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              Real-Time AI Translation for Churches and Live Events
+            </h1>
 
             <p
               className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
-              The real-time AI translation platform trusted by churches and institutions worldwide to deliver live speech, captions, and audio — simultaneously, in over 200 languages.
+              Exbabel is a real-time church translation system for sermons, worship services, livestreams, conferences, and live events. Translate speech into natural AI audio and live captions so every listener can follow in their language from any device.
             </p>
           </motion.div>
 

@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import LaserFocusedHowItWorks from "@/components/LaserFocusedHowItWorks";
+const ChurchTranslationHowItWorks = dynamic(() => import("@/components/ChurchTranslationHowItWorks"), { loading: () => <section className="py-24" aria-hidden /> });
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 
 const FAQ = dynamic(() => import("@/components/FAQ"), {
@@ -15,9 +16,9 @@ const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"), {
 });
 
 export const metadata: Metadata = {
-  title: "How It Works | Exbabel - AI Speech Translation in 5 Simple Steps",
+  title: "How Real-Time AI Translation Works | Exbabel",
   description:
-    "Learn how Exbabel translates live events in 5 simple steps. Connect your audio, AI translates in real time, attendees scan a QR code to listen in 180+ languages.",
+    "See how Exbabel turns live speech into translated AI audio and captions. Connect your audio, choose languages, share a QR code and translate in real time.",
   alternates: {
     canonical: "/how-it-works",
   },
@@ -40,6 +41,7 @@ export default function HowItWorksPage() {
         <LaserFocusedHowItWorks />
 
         {/* FAQs placed right after main walkthrough */}
+        <ChurchTranslationHowItWorks />
         <FAQ />
 
         <Footer />
