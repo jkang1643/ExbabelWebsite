@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
+import BlogSubNav from "@/components/blog/BlogSubNav";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import BlogPostingSchema from "@/components/schema/BlogPostingSchema";
 import { getPostBySlug } from "@/lib/blog";
@@ -136,36 +137,41 @@ export default function OnDemandInterpretationArticle() {
       <main className="min-h-screen bg-white">
         <Navbar />
 
-        <article className="pt-28 pb-20">
-          {/* ── Breadcrumbs (visible) ─────────────────────────────────── */}
-          <nav
-            aria-label="Breadcrumb"
-            className="max-w-3xl mx-auto px-6 mb-8"
-          >
-            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 font-medium">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-primary transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="hover:text-primary transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li className="text-slate-600" aria-current="page">
-                On-Demand Interpretation Services
-              </li>
-            </ol>
-          </nav>
+        {/* Secondary Publication Sub-Nav */}
+        <div className="pt-16 sm:pt-20">
+          <BlogSubNav />
+        </div>
+
+        <article className="pt-8 pb-20">
+          {/* ── Back Navigation & Breadcrumb Bar ─────────────────── */}
+          <div className="max-w-3xl mx-auto px-6 mb-8 flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-900 hover:text-white transition-all shadow-xs group"
+            >
+              <span className="group-hover:-translate-x-1 transition-transform duration-200">←</span>
+              <span>Back to All Articles</span>
+            </Link>
+
+            <nav aria-label="Breadcrumb">
+              <ol className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+                <li>
+                  <Link href="/blog" className="hover:text-primary transition-colors">
+                    Insights
+                  </Link>
+                </li>
+                <li aria-hidden="true">&rsaquo;</li>
+                <li>
+                  <Link
+                    href={`/blog/category/${post.categorySlug || 'ai-translation'}`}
+                    className="text-slate-600 hover:text-primary transition-colors"
+                  >
+                    {post.category}
+                  </Link>
+                </li>
+              </ol>
+            </nav>
+          </div>
 
           {/* ── Article Header ────────────────────────────────────────── */}
           <header className="max-w-3xl mx-auto px-6 mb-10">

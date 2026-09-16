@@ -59,7 +59,7 @@ export default function BlogSubNav() {
                   transition={{ type: "spring", stiffness: 450, damping: 32 }}
                 />
               )}
-              <span>All Topics</span>
+              <span>All Articles</span>
             </motion.div>
           </Link>
 
