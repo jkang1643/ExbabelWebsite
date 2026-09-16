@@ -50,7 +50,7 @@ const BENEFITS: BenefitCard[] = [
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={a.src}
-                  alt=""
+                  alt="User avatar"
                   className="w-[68px] h-[68px] rounded-full object-cover border-[3px] border-white shadow-lg shadow-slate-200/80"
                 />
                 <div

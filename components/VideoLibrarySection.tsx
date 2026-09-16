@@ -217,7 +217,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
             <motion.div layout className={`absolute inset-0 w-full h-full bg-black transition-opacity duration-700 ${isActive ? 'opacity-0 delay-700' : 'opacity-100 delay-0'}`}>
                 <img
                     src={video.posterImage}
-                    alt=""
+                    alt={video.title}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={800}

@@ -421,7 +421,7 @@ export default function InterfacePreview() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/world-map.svg"
-          alt=""
+          alt="World map illustration"
           className="w-[90%] max-w-[1400px] h-auto opacity-[0.08]"
           loading="lazy"
           width={950}

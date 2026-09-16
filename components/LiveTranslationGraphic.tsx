@@ -129,6 +129,7 @@ export default function LiveTranslationGraphic() {
             className="w-full h-full object-cover object-top opacity-60 grayscale mix-blend-luminosity"
             animate={{ scale: [1.15, 1.18, 1.15] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            fetchPriority="high"
           />
           {/* Tech Gradient Overlay (Red/Orange glow on the right) */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1a1a2e]/60 to-[#e11d48]/40 mix-blend-multiply" />
@@ -192,9 +193,9 @@ export default function LiveTranslationGraphic() {
                 </svg>
 
                 {/* Tooltip hint on hover */}
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 backdrop-blur-md text-white text-xs font-semibold rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 backdrop-blur-md text-white text-xs font-semibold rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
                   Watch Animation
-                </div>
+                </span>
               </motion.button>
             </motion.div>
           )}

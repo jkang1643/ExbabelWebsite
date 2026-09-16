@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "dataforseo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "dataforseo-mcp-server"
+      ],
+      "env": {
+        "DATAFORSEO_LOGIN": "support@exbabel.com",
+        "DATAFORSEO_USERNAME": "support@exbabel.com",
+        "DATAFORSEO_PASSWORD": "bb0c8f6499aa4bb7"
+      }
+    }
+  }
+}
