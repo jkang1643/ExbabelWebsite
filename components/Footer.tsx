@@ -16,6 +16,7 @@ export default function Footer() {
     Support: "mailto:support@exbabel.com",
     Privacy: "/privacy",
     Terms: "/terms",
+    Blog: "/blog",
     "Lab Benchmarks": "/lab-test",
   };
 
@@ -114,10 +115,10 @@ export default function Footer() {
         </div>
         <div>
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} Exbabel Co. All rights reserved.
+            &copy; {new Date().getFullYear()} Exbabel Co. All rights reserved.
           </p>
           <p className="text-slate-400 text-xs mt-1">
-            Houston, TX, USA • (281) 682-4828 • support@exbabel.com
+            Houston, TX, USA &bull; (281) 682-4828 &bull; support@exbabel.com
           </p>
         </div>
       </div>
