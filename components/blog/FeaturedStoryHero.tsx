@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import type { BlogPost } from "@/lib/blog";
 
 interface FeaturedStoryHeroProps {
@@ -21,7 +22,7 @@ export default function FeaturedStoryHero({ post }: FeaturedStoryHeroProps) {
             </span>
 
             <Link href={`/blog/${post.slug}`} className="group">
-              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-900 tracking-tight leading-[1.08] mb-6 group-hover:text-blue-600 transition-colors">
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-900 tracking-tight leading-[1.08] mb-6 group-hover:text-primary transition-colors">
                 {post.title}
               </h1>
             </Link>
@@ -31,45 +32,64 @@ export default function FeaturedStoryHero({ post }: FeaturedStoryHeroProps) {
             </p>
 
             <div className="flex items-center gap-4">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-sm"
+              <motion.div
+                whileHover={{ scale: 1.08, y: -3 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 500, damping: 20 }}
               >
-                Read More
-              </Link>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md"
+                >
+                  Read More →
+                </Link>
+              </motion.div>
               <span className="text-xs text-slate-400 font-mono">
                 {post.readTime}
               </span>
             </div>
           </div>
 
-          {/* Right: 60-62% Large Rounded Editorial Image Container */}
+          {/* Right: 60-62% Large Rounded Editorial Image Container with 5x Dynamic Motion */}
           <div className="lg:col-span-7">
-            <Link
-              href={`/blog/${post.slug}`}
-              className="group block relative rounded-[28px] sm:rounded-[36px] overflow-hidden aspect-[1.45/1] sm:aspect-[1.52/1] bg-gradient-to-br from-sky-100 via-indigo-50 to-slate-100 border border-slate-200/60 shadow-sm"
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="relative"
             >
-              {/* Background Editorial Graphic Image */}
-              <img
-                src={post.featuredImage}
-                alt={post.featuredImageAlt}
-                className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
-              />
+              <Link
+                href={`/blog/${post.slug}`}
+                className="group block relative rounded-[28px] sm:rounded-[36px] overflow-hidden aspect-[1.45/1] sm:aspect-[1.52/1] bg-gradient-to-br from-sky-100 via-indigo-50 to-slate-100 border border-slate-200/60 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+              >
+                {/* Background Editorial Graphic Image with 5x Zoom Effect */}
+                <img
+                  src={post.featuredImage}
+                  alt={post.featuredImageAlt}
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
 
-              {/* Floating UI Pill Badge */}
-              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-black/5 shadow-md flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-semibold text-slate-800 tracking-tight">
-                  {post.editorialPill.statusText || "Live Translation"}
-                </span>
-              </div>
+                {/* Floating UI Pill Badge with Continuous Floating Animation */}
+                <motion.div
+                  animate={{ y: [-8, 6, -8], rotate: [-1, 1, -1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-6 right-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full border border-black/10 shadow-xl flex items-center gap-2.5 z-10"
+                >
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900 tracking-tight">
+                    {post.editorialPill.statusText || "Live Translation"}
+                  </span>
+                </motion.div>
 
-              {/* Bottom Subtle Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-center justify-between text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="font-medium">Click to read full article</span>
-                <span className="font-semibold">Exbabel Editorial →</span>
-              </div>
-            </Link>
+                {/* Bottom Overlay with dynamic reveal */}
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-center justify-between text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="font-medium tracking-wide">Click to read full article</span>
+                  <span className="font-bold text-sky-300">Exbabel Editorial →</span>
+                </div>
+              </Link>
+            </motion.div>
           </div>
 
         </div>

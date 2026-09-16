@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import type { BlogPost } from "@/lib/blog";
 
 interface TopArticlesGridProps {
@@ -9,7 +10,6 @@ interface TopArticlesGridProps {
 }
 
 export default function TopArticlesGrid({ posts }: TopArticlesGridProps) {
-  // Up to 6 articles in 3-column format
   const displayPosts = posts.slice(0, 6);
 
   return (
@@ -17,27 +17,35 @@ export default function TopArticlesGrid({ posts }: TopArticlesGridProps) {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Heading */}
-        <div className="mb-10 sm:mb-12">
+        <div className="mb-10 sm:mb-12 flex items-center justify-between">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
             Top Articles
           </h2>
+          <span className="text-xs font-mono text-slate-400 font-semibold tracking-wider uppercase">
+            Curated Insights
+          </span>
         </div>
 
-        {/* 3-Column Visual Editorial Grid */}
+        {/* 3-Column Visual Editorial Grid with 5x Lift Animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {displayPosts.map((post) => (
-            <article key={post.slug} className="group flex flex-col">
-              
-              {/* Large Rounded Image Container - No outer card border or shadow */}
+            <motion.article
+              key={post.slug}
+              whileHover={{ y: -10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+              className="group flex flex-col"
+            >
+              {/* Rounded Image Container */}
               <Link
                 href={`/blog/${post.slug}`}
-                className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden aspect-[1.62/1] bg-slate-100 block"
+                className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden aspect-[1.62/1] bg-slate-100 block shadow-sm group-hover:shadow-2xl transition-all duration-500"
               >
                 <img
                   src={post.featuredImage}
                   alt={post.featuredImageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
               </Link>
 
               {/* Metadata & Title Below Image */}
@@ -46,14 +54,18 @@ export default function TopArticlesGrid({ posts }: TopArticlesGridProps) {
                   {post.category}
                 </span>
 
-                <Link href={`/blog/${post.slug}`} className="group-hover:text-blue-600 transition-colors">
+                <Link href={`/blog/${post.slug}`} className="group-hover:text-primary transition-colors">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug line-clamp-2">
                     {post.title}
                   </h3>
                 </Link>
-              </div>
 
-            </article>
+                <div className="flex items-center gap-2 mt-3 text-xs font-bold text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">
+                  <span>Read Article</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
 

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function FeaturedTopicBanner() {
   return (
@@ -9,40 +10,72 @@ export default function FeaturedTopicBanner() {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Large 50/50 Split Container with pale brand background & 36px rounded corners */}
-        <div className="rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#E8F8B6] border border-[#d9ec9c] flex flex-col lg:flex-row items-stretch min-h-[440px]">
-          
-          {/* Left: Art-Directed Fluid Glass / 3D Waveform Illustration */}
+        <motion.div
+          whileHover={{ y: -6 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          className="rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#E8F8B6] border border-[#d9ec9c] flex flex-col lg:flex-row items-stretch min-h-[440px] shadow-sm hover:shadow-xl transition-shadow"
+        >
+          {/* Left: Art-Directed Fluid Glass with Animated Live Equalizer Waves */}
           <div className="lg:w-1/2 relative bg-gradient-to-tr from-[#99E3D8] via-[#B5F1D3] to-[#C9F8B5] p-8 sm:p-12 flex items-center justify-center overflow-hidden min-h-[320px] lg:min-h-auto">
             {/* Ambient Refraction Elements */}
-            <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/40 blur-3xl" />
-            <div className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-cyan-200/50 blur-3xl" />
+            <motion.div
+              animate={{ scale: [1, 1.15, 1], rotate: [0, 45, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/40 blur-3xl"
+            />
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], rotate: [0, -45, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-cyan-200/50 blur-3xl"
+            />
             
-            {/* Dynamic Glass Wave Visual */}
-            <div className="relative z-10 w-full max-w-md aspect-[1.3/1] rounded-[28px] bg-white/30 backdrop-blur-md border border-white/60 p-6 flex flex-col justify-between shadow-sm">
+            {/* Dynamic Glass Wave Visual with Floating Motion */}
+            <motion.div
+              animate={{ y: [-6, 6, -6] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-full max-w-md aspect-[1.3/1] rounded-[28px] bg-white/40 backdrop-blur-md border border-white/70 p-6 flex flex-col justify-between shadow-xl"
+            >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 text-slate-800 text-xs font-semibold">
-                  <span className="text-sm">✦</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 text-slate-800 text-xs font-semibold shadow-xs">
+                  <span className="text-sm text-emerald-600 animate-spin">✦</span>
                   <span>Audio & Caption Engine</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-700">1.013s</span>
+                <span className="text-xs font-mono font-bold text-slate-800 bg-white/60 px-2 py-0.5 rounded-md">
+                  1.013s
+                </span>
               </div>
 
-              {/* Stylized waveforms */}
-              <div className="space-y-2 py-4">
-                <div className="h-3 w-3/4 rounded-full bg-slate-900/20" />
-                <div className="h-3 w-full rounded-full bg-slate-900/30" />
-                <div className="h-3 w-5/6 rounded-full bg-slate-900/25" />
-                <div className="h-3 w-2/3 rounded-full bg-slate-900/15" />
+              {/* Rhythmic Animated Equalizer Audio Bars (5x Motion) */}
+              <div className="flex items-end justify-center gap-2.5 h-20 py-2">
+                {[0.4, 0.9, 0.6, 1.0, 0.7, 0.3, 0.85, 0.5, 0.95, 0.4].map((h, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      scaleY: [h * 0.3, h * 1.3, h * 0.5, h * 1.1, h * 0.3],
+                    }}
+                    transition={{
+                      duration: 1.4 + (i % 3) * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.1,
+                    }}
+                    className="w-2.5 rounded-full bg-slate-900 origin-bottom"
+                    style={{ height: "100%" }}
+                  />
+                ))}
               </div>
 
-              <div className="flex items-center justify-between text-xs text-slate-800 font-medium">
-                <span>180+ Languages</span>
-                <span className="text-emerald-700 font-bold">● Active Stream</span>
+              <div className="flex items-center justify-between text-xs text-slate-800 font-medium pt-2 border-t border-slate-900/10">
+                <span className="font-bold">180+ Languages</span>
+                <span className="text-emerald-800 font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
+                  Active Live Stream
+                </span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right: Generously Padded Content */}
+          {/* Right: Content */}
           <div className="lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
             <span className="text-xs font-mono font-bold tracking-widest text-slate-700 uppercase mb-4">
               CHURCH TRANSLATION HUB
@@ -57,16 +90,23 @@ export default function FeaturedTopicBanner() {
             </p>
 
             <div>
-              <Link
-                href="/blog/category/church-translation"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-950 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-sm"
+              <motion.div
+                whileHover={{ scale: 1.08, y: -3 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                className="w-fit"
               >
-                Explore Church Translation
-              </Link>
+                <Link
+                  href="/blog/category/church-translation"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-950 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md"
+                >
+                  Explore Church Translation →
+                </Link>
+              </motion.div>
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -3,60 +3,97 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { BLOG_CATEGORIES } from "@/lib/blog";
 
 export default function BlogSubNav() {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [clickedTab, setClickedTab] = useState<string | null>(null);
+
+  const isAllActive = pathname === "/blog" || pathname === "/blog/";
 
   return (
-    <div className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all">
+    <div className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 h-14 sm:h-16 flex items-center justify-between gap-6">
         
         {/* Left: Publication Branding */}
         <div className="flex items-center gap-6 flex-shrink-0">
           <Link
             href="/blog"
-            className="flex items-center gap-2 group font-bold text-lg sm:text-xl text-slate-900 tracking-tight hover:text-blue-600 transition-colors"
+            className="flex items-center gap-2 group font-bold text-lg sm:text-xl text-slate-900 tracking-tight hover:text-primary transition-colors"
           >
-            <span>Exbabel Insights</span>
+            <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.95 }}>
+              Exbabel Insights
+            </motion.span>
             <span className="hidden sm:inline-block text-[10px] uppercase font-mono tracking-widest px-2 py-0.5 rounded bg-slate-100 text-slate-600">
               Publication
             </span>
           </Link>
         </div>
 
-        {/* Center: Topic Categories (scrollable on tablet/mobile) */}
+        {/* Center: Topic Categories with Framer Motion Animated Sliding Pill & Click Bounces */}
         <nav
-          className="hidden md:flex items-center gap-1 lg:gap-2 overflow-x-auto py-1 scrollbar-none"
+          className="hidden md:flex items-center gap-1.5 lg:gap-2 overflow-x-auto py-1 scrollbar-none relative"
           aria-label="Publication Topics"
         >
+          {/* "All Topics" Tab */}
           <Link
             href="/blog"
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
-              pathname === "/blog" || pathname === "/blog/"
-                ? "bg-slate-900 text-white"
-                : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-            }`}
+            onClick={() => setClickedTab("all")}
+            className="relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors whitespace-nowrap z-10 block"
           >
-            All Topics
+            <motion.div
+              whileHover={{ scale: 1.08, y: -2 }}
+              whileTap={{ scale: 0.88 }}
+              transition={{ type: "spring", stiffness: 600, damping: 20 }}
+              className={`relative px-3 py-1 rounded-full ${
+                isAllActive ? "text-white" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              {isAllActive && (
+                <motion.span
+                  layoutId="activeSubNavPill"
+                  className="absolute inset-0 rounded-full bg-slate-950 shadow-md -z-10"
+                  transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                />
+              )}
+              <span>All Topics</span>
+            </motion.div>
           </Link>
 
+          {/* Category Tabs */}
           {BLOG_CATEGORIES.map((cat) => {
             const href = `/blog/category/${cat.slug}`;
             const isActive = pathname.startsWith(href);
+
             return (
               <Link
                 key={cat.slug}
                 href={href}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors whitespace-nowrap ${
-                  isActive
-                    ? "bg-slate-900 text-white font-semibold"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                }`}
+                onClick={() => setClickedTab(cat.slug)}
+                className="relative px-1 py-1 text-xs tracking-wide transition-colors whitespace-nowrap z-10 block"
               >
-                {cat.name}
+                <motion.div
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 600, damping: 20 }}
+                  className={`relative px-3 py-1 rounded-full font-medium ${
+                    isActive
+                      ? "text-white font-semibold"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeSubNavPill"
+                      className="absolute inset-0 rounded-full bg-slate-950 shadow-md -z-10"
+                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                    />
+                  )}
+                  <span>{cat.name}</span>
+                </motion.div>
               </Link>
             );
           })}
@@ -66,27 +103,33 @@ export default function BlogSubNav() {
         <div className="flex items-center gap-3 flex-shrink-0">
           <div className="relative">
             {isSearchOpen ? (
-              <div className="flex items-center gap-2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex items-center gap-2"
+              >
                 <input
                   type="text"
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-40 sm:w-56 text-xs px-3 py-1.5 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900"
+                  className="w-40 sm:w-56 text-xs px-3.5 py-1.5 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900 shadow-inner"
                   autoFocus
                   onBlur={() => !searchQuery && setIsSearchOpen(false)}
                 />
                 <button
                   type="button"
                   onClick={() => setIsSearchOpen(false)}
-                  className="text-slate-400 hover:text-slate-700 text-xs"
+                  className="text-slate-400 hover:text-slate-700 text-xs p-1"
                   aria-label="Close search"
                 >
                   ✕
                 </button>
-              </div>
+              </motion.div>
             ) : (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.15, rotate: 10 }}
+                whileTap={{ scale: 0.88 }}
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
                 className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
@@ -105,18 +148,21 @@ export default function BlogSubNav() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-              </button>
+              </motion.button>
             )}
           </div>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 500, damping: 22 }}
             href="https://app.exbabel.com/live/checkout"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-sm"
+            className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-md"
           >
             Start Free
-          </a>
+          </motion.a>
         </div>
 
       </div>
