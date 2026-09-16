@@ -47,9 +47,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <motion.nav
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+           
           >
             <h3 className="text-3xl font-bold mb-4 text-primary">
               Exbabel
@@ -63,9 +63,9 @@ export default function Footer() {
             <motion.nav
               key={category}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
+             
             >
               <h6 className="text-xs tracking-wider text-primary uppercase font-bold mb-3">{category}</h6>
               <div className="flex flex-col gap-2">
@@ -104,9 +104,9 @@ export default function Footer() {
               aria-label={`Exbabel on ${social.name}`}
               className="w-10 h-10 rounded-full flex items-center justify-center border border-slate-200 hover:bg-primary hover:text-white transition-all bg-white shadow-sm"
               initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "300px" }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-              viewport={{ once: true }}
+             
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-xs font-bold">{social.initial}</span>

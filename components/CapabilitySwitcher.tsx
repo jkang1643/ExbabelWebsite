@@ -169,9 +169,9 @@ export default function CapabilitySwitcher() {
                 <motion.div
                     className="text-center mb-16 md:mb-24 max-w-[800px] mx-auto"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                   
                 >
                     <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight text-base-content">
                         Reimagine what’s possible with <br className="hidden md:block" /> AI translation.

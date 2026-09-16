@@ -150,9 +150,9 @@ export default function LiveTranslationPage() {
             <motion.div 
               className="flex justify-center relative"
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "300px" }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+             
             >
               <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 rotate-90 opacity-60" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
               <HowItWorksGraphic />

@@ -19,9 +19,9 @@ export default function LegalSection() {
         {/* Section eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+         
           className="text-center mb-12"
         >
           <p className="text-xs tracking-wider text-primary uppercase font-bold mb-3">
@@ -40,9 +40,9 @@ export default function LegalSection() {
           {/* Privacy Policy */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+           
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
           >
             <button
@@ -153,9 +153,9 @@ export default function LegalSection() {
           {/* Terms of Service */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+           
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
           >
             <button

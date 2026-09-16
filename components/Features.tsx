@@ -70,9 +70,9 @@ export default function Features() {
                 <motion.div
                     className="text-editorial mb-20"
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                   
                 >
                     <div className="text-eyebrow mb-3 tracking-widest text-primary/80">POWERFUL FEATURES</div>
                     <h2 className="text-h2 mb-6 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent tracking-tight">
@@ -89,9 +89,9 @@ export default function Features() {
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "300px" }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                           
                             className="group h-full"
                         >
                             <div className="h-full p-6 md:p-8 bg-white rounded-xl border-0 shadow-[0_12px_40px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_56px_rgba(0,0,0,0.14),0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group relative overflow-hidden flex flex-col ring-1 ring-slate-900/5 hover:ring-slate-900/10">
