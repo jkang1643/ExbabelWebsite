@@ -436,7 +436,7 @@ export default function InterfacePreview() {
             <motion.div 
               variants={containerVariants}
               initial="hidden"
-              whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+              whileInView="visible" viewport={{ once: true, margin: "300px" }}
               className="flex flex-col items-center md:items-start w-full"
             >
               <motion.div variants={itemVariants} className="relative mb-8">

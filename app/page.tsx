@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import GlassmorphicHero from "@/components/GlassmorphicHero";
 import FAQSchema from "@/components/schema/FAQSchema";
@@ -10,42 +9,18 @@ import { HOME_FAQ_DATA, PRODUCTS } from "@/lib/schema";
 import ChurchTranslationIntro from "@/components/ChurchTranslationIntro";
 import HowItWorks from "@/components/HowItWorks";
 import FeatureShowcase from "@/components/FeatureShowcase";
-const InterfacePreview = dynamic(() => import("@/components/InterfacePreview"), {
-  loading: () => <section className="min-h-[850px]" aria-hidden />,
-});
-const WhyChurchesChoose = dynamic(() => import("@/components/WhyChurchesChoose"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
-const VideoLibrarySection = dynamic(() => import("@/components/VideoLibrarySection"), {
-  loading: () => <section className="py-24" aria-hidden />,
-});
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
-const Pricing = dynamic(() => import("@/components/Pricing"), {
-  loading: () => <section className="py-20" aria-hidden />,
-});
-const ImpactStats = dynamic(() => import("@/components/ImpactStats"), {
-  loading: () => <section className="py-32 md:py-40" aria-hidden />,
-});
-const FAQ = dynamic(() => import("@/components/FAQ"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
-const AsSeenOn = dynamic(() => import("@/components/AsSeenOn"), {
-  loading: () => <section className="py-16" aria-hidden />,
-});
-const TechnicalRequirements = dynamic(() => import("@/components/TechnicalRequirements"), {
-  loading: () => <section className="py-24" aria-hidden />,
-});
-const CTA = dynamic(() => import("@/components/CTA"), {
-  loading: () => <section className="py-24 md:py-32" aria-hidden />,
-});
-const Footer = dynamic(() => import("@/components/Footer"), {
-  loading: () => <footer className="py-12" aria-hidden />,
-});
-const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"), {
-  loading: () => null,
-});
+import InterfacePreview from "@/components/InterfacePreview";
+import WhyChurchesChoose from "@/components/WhyChurchesChoose";
+import VideoLibrarySection from "@/components/VideoLibrarySection";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
+import ImpactStats from "@/components/ImpactStats";
+import FAQ from "@/components/FAQ";
+import AsSeenOn from "@/components/AsSeenOn";
+import TechnicalRequirements from "@/components/TechnicalRequirements";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+import CookiesPopup from "@/components/CookiesPopup";
 
 
 export const metadata = {

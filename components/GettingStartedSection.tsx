@@ -25,7 +25,7 @@ const steps = [
 const staggerContainer = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
-  viewport: { once: true, margin: "-100px" },
+  viewport: { once: true, margin: "300px" },
   transition: { staggerChildren: 0.15 }
 };
 
@@ -39,7 +39,7 @@ const fadeInUp = {
 export default function GettingStartedSection() {
   return (
     <section className="py-32 px-6 relative z-10 bg-slate-50 border-y border-slate-100">
-      <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}>
+      <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "300px" }} variants={staggerContainer}>
         
         <div className="text-center mb-20 space-y-4">
           <motion.div variants={fadeInUp}>
