@@ -15,7 +15,7 @@ export default function FeaturesPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      <BreadcrumbSchema items={[{ name: 'Features', item: 'https://www.exbabel.com/features' }]} />
+      <BreadcrumbSchema items={[{ name: 'Features', url: 'https://www.exbabel.com/features' }]} />
       <div className="pt-32 pb-16">
         <div className="layout-spine max-w-4xl mx-auto text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-base-ink mb-6" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
