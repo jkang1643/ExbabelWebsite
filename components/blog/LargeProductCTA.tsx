@@ -36,7 +36,7 @@ export default function LargeProductCTA() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <a
-                href="https://app.exbabel.com/live/checkout"
+                href="https://app.exbabel.com/translate/checkout?plan=starter"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-9 py-4 rounded-full bg-slate-950 text-white font-bold text-sm hover:bg-slate-900 hover:scale-[1.02] transition-all shadow-xl inline-flex items-center justify-center gap-2"

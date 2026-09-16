@@ -156,7 +156,7 @@ export default function BlogSubNav() {
             whileHover={{ scale: 1.06, y: -1 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 500, damping: 22 }}
-            href="https://app.exbabel.com/live/checkout"
+            href="https://app.exbabel.com/translate/checkout?plan=starter"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-xs"

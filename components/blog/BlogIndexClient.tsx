@@ -312,7 +312,7 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
-                href="https://app.exbabel.com/live/checkout"
+                href="https://app.exbabel.com/translate/checkout?plan=starter"
                 className="px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all duration-200 hover:scale-105"
               >
                 Start 30-Day Free Trial
