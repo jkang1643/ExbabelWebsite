@@ -193,7 +193,7 @@ export default function WordlyHowItWorks() {
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               className="bg-white border-2 border-slate-100 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden"

@@ -49,8 +49,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="flex-1 text-left space-y-6 layout-spine md:px-0 md:items-start text-center lg:text-left"
           initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
+          whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
           <h1 className="sr-only">Live Video Translation for Churches & Events</h1>
@@ -96,7 +95,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="text-center mb-16 space-y-4 max-w-3xl mx-auto"
           initial="initial"
-          whileInView="whileInView"
+          whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>One Service. Unlimited Languages.</motion.h2>
@@ -112,7 +111,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="relative max-w-[900px] mx-auto rounded-3xl p-2 bg-white/50 backdrop-blur-md shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] ring-1 ring-gray-900/5"
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
@@ -124,7 +123,7 @@ export default function LiveTranslationPage() {
 
       {/* 3. How It Works */}
       <section id="how-it-works" className="py-24 px-6 relative">
-        <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" variants={staggerContainer}>
+        <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}>
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>How Exbabel Live Video Translation Works</motion.h2>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -152,7 +151,7 @@ export default function LiveTranslationPage() {
             <motion.div 
               className="flex justify-center relative"
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
@@ -172,7 +171,7 @@ export default function LiveTranslationPage() {
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[150vw] h-[150vh] -z-20 opacity-50 rotate-12" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={1} />
         <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[150vw] h-[150vh] -z-20 opacity-50 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={3} />
         
-        <motion.div className="text-center mb-16" initial="initial" whileInView="whileInView" variants={staggerContainer}>
+        <motion.div className="text-center mb-16" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}>
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content mb-4 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Why Churches Choose Exbabel</motion.h2>
           <motion.h3 variants={fadeInUp} className="text-2xl font-semibold text-primary">Reach More People Without Adding More Services</motion.h3>
         </motion.div>
@@ -180,7 +179,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="initial"
-          whileInView="whileInView"
+          whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
           {[
@@ -206,7 +205,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="flex justify-center order-2 lg:order-1 relative"
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -217,7 +216,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="space-y-12 order-1 lg:order-2"
             initial="initial"
-            whileInView="whileInView"
+            whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp}>
@@ -254,7 +253,7 @@ export default function LiveTranslationPage() {
         <motion.h2 
           className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
           viewport={{ once: true }}
         >
           Church Use Cases
@@ -262,7 +261,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
           initial="initial"
-          whileInView="whileInView"
+          whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
           {[
@@ -285,7 +284,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
@@ -342,7 +341,7 @@ export default function LiveTranslationPage() {
         <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
@@ -455,7 +454,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="space-y-12"
             initial="initial"
-            whileInView="whileInView"
+            whileInView="whileInView" viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp}>
@@ -477,7 +476,7 @@ export default function LiveTranslationPage() {
           <motion.div 
             className="flex justify-center relative"
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -504,7 +503,7 @@ export default function LiveTranslationPage() {
         <motion.div 
           className="max-w-4xl mx-auto relative z-10 space-y-8"
           initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >

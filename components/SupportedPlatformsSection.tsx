@@ -167,7 +167,7 @@ export default function SupportedPlatformsSection() {
     <section className="py-24 px-6 relative z-10 bg-white overflow-hidden">
       <DecorativeWisp className="absolute top-0 right-1/4 w-[600px] h-[600px] -z-10 opacity-30 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#D6F5FF" delay={1} />
       
-      <motion.div className="max-w-5xl mx-auto" initial="initial" whileInView="whileInView" variants={staggerContainer}>
+      <motion.div className="max-w-5xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}>
         <div className="text-center mb-16 space-y-4">
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Universal Link Ingestion

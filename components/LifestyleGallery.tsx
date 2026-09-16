@@ -14,7 +14,7 @@ export default function LifestyleGallery() {
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white"
@@ -24,7 +24,7 @@ export default function LifestyleGallery() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-slate-300 text-base md:text-lg font-medium"
@@ -38,7 +38,7 @@ export default function LifestyleGallery() {
           {/* Photo 1: Conference Auditorium Audience */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group aspect-[4/3]"
@@ -63,7 +63,7 @@ export default function LifestyleGallery() {
           {/* Photo 2: Church Live Translation & Choir */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group aspect-[4/3]"

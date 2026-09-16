@@ -39,7 +39,7 @@ export default function UnlimitedLanguagesGraphic() {
             justify-content: center;
             font-weight: 500;
             color: #0B1220;
-            box-shadow: 0 12px 45px rgba(234, 214, 255, 0.22);
+            
             animation: ul-float 6s ease-in-out infinite alternate;
             z-index: 10;
         }
@@ -49,8 +49,8 @@ export default function UnlimitedLanguagesGraphic() {
         .ul-lang-fr { background: #FFF7D1; bottom: 20%; right: 30%; animation-delay: -3s; }
 
         @keyframes ul-float {
-            0% { transform: translateY(0px) scale(1); box-shadow: 0 12px 45px rgba(234, 214, 255, 0.22); }
-            100% { transform: translateY(-20px) scale(1.05); box-shadow: 0 30px 110px rgba(214, 245, 255, 0.3); }
+            0% { transform: translateY(0px) scale(1);  }
+            100% { transform: translateY(-20px) scale(1.05);  }
         }
         
         .ul-pulse-ring {
