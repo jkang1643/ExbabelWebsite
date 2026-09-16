@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, getAllCategories } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -8,6 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `https://exbabel.com${post.canonicalUrl}`,
     lastModified: new Date(post.dateModified),
     changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const categoryPages = getAllCategories().map((cat) => ({
+    url: `https://exbabel.com/blog/category/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
@@ -22,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://exbabel.com/how-it-works", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://exbabel.com/lab-test", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: "https://exbabel.com/blog", lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    ...categoryPages,
     ...blogPosts,
     { url: "https://exbabel.com/privacy", lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: "https://exbabel.com/terms", lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },

@@ -2,8 +2,20 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
-import BlogIndexClient from "@/components/blog/BlogIndexClient";
-import { getAllPosts } from "@/lib/blog";
+import BlogSubNav from "@/components/blog/BlogSubNav";
+import FeaturedStoryHero from "@/components/blog/FeaturedStoryHero";
+import TopArticlesGrid from "@/components/blog/TopArticlesGrid";
+import FeaturedTopicBanner from "@/components/blog/FeaturedTopicBanner";
+import EditorsPickGrid from "@/components/blog/EditorsPickGrid";
+import CategoryDiscovery from "@/components/blog/CategoryDiscovery";
+import LargeProductCTA from "@/components/blog/LargeProductCTA";
+import LatestArticlesFeed from "@/components/blog/LatestArticlesFeed";
+import {
+  getAllPosts,
+  getFeaturedPost,
+  getTopArticles,
+  getEditorsPicks,
+} from "@/lib/blog";
 
 const Footer = dynamic(() => import("@/components/Footer"), {
   loading: () => <footer className="py-12" aria-hidden />,
@@ -13,14 +25,14 @@ const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"), {
 });
 
 export const metadata: Metadata = {
-  title: "Blog — AI Translation Insights & Guides",
+  title: "Exbabel Insights — AI Translation, Church AV & Live Audio Publication",
   description:
-    "Expert insights on AI-powered translation for churches, conferences, and live events. Practical guides, industry analysis, and product updates from the Exbabel team.",
+    "The official publication from Exbabel. In-depth engineering guides, church translation systems, sub-second latency benchmarks, and on-demand interpretation analysis.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — AI Translation Insights & Guides | Exbabel",
+    title: "Exbabel Insights — AI Translation & Live Services Publication",
     description:
-      "Expert insights on AI-powered translation for churches, conferences, and live events.",
+      "Expert editorial guides on AI translation for churches, conferences, and live worship broadcasts.",
     url: "https://exbabel.com/blog",
     type: "website",
     images: [
@@ -28,21 +40,24 @@ export const metadata: Metadata = {
         url: "https://exbabel.com/photos/blog/church-translation-hero.jpg",
         width: 1200,
         height: 675,
-        alt: "Exbabel Blog — AI Translation Insights & Guides",
+        alt: "Exbabel Insights — AI Translation Publication",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Exbabel Blog",
+    title: "Exbabel Insights — AI Translation Publication",
     description:
-      "Expert insights on AI-powered translation for churches, conferences, and live events.",
+      "Expert editorial guides on AI translation for churches, conferences, and live worship broadcasts.",
     images: ["https://exbabel.com/photos/blog/church-translation-hero.jpg"],
   },
 };
 
 export default function BlogIndexPage() {
-  const posts = getAllPosts();
+  const allPosts = getAllPosts();
+  const featuredPost = getFeaturedPost();
+  const topArticles = getTopArticles();
+  const editorsPicks = getEditorsPicks();
 
   return (
     <>
@@ -50,9 +65,37 @@ export default function BlogIndexPage() {
         items={[{ name: "Blog", url: "https://exbabel.com/blog" }]}
       />
 
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white">
+        {/* Global Navigation */}
         <Navbar />
-        <BlogIndexClient posts={posts} />
+
+        {/* Secondary Publication Navigation */}
+        <div className="pt-20 sm:pt-24">
+          <BlogSubNav />
+        </div>
+
+        {/* 01. Featured Story Hero (40/60 Editorial Layout) */}
+        <FeaturedStoryHero post={featuredPost} />
+
+        {/* 02. Top Articles (3-Column Visual Editorial Grid) */}
+        <TopArticlesGrid posts={topArticles} />
+
+        {/* 03. Featured Topic Hub (50/50 Split Pillar Banner) */}
+        <FeaturedTopicBanner />
+
+        {/* 04. Editor's Pick (3-Column Experimental Art Direction) */}
+        <EditorsPickGrid posts={editorsPicks} />
+
+        {/* 05. Category Discovery (Subject Area Navigation) */}
+        <CategoryDiscovery />
+
+        {/* 06. Monumental Product Billboard CTA */}
+        <LargeProductCTA />
+
+        {/* 07. Chronological Latest Articles Feed */}
+        <LatestArticlesFeed posts={allPosts} />
+
+        {/* Global Footer & Cookie Consent */}
         <Footer />
         <CookiesPopup />
       </main>

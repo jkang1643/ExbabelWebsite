@@ -1,9 +1,8 @@
 /**
- * Blog Data Layer
+ * Blog Data Layer & Publication Architecture
  *
- * Central registry for all blog posts. Adding a new article is as simple as
- * appending an entry to the BLOG_POSTS array and creating the corresponding
- * page component under app/blog/[slug]/page.tsx.
+ * Central registry for Exbabel Insights editorial SaaS publication.
+ * Supports categories, pillar hubs, top articles, and editor's picks.
  */
 
 export type EditorialArchetype =
@@ -31,6 +30,65 @@ export interface EditorialColorTheme {
   tagColor: string;
 }
 
+export interface BlogCategoryInfo {
+  slug: string;
+  name: string;
+  description: string;
+  pillarTitle?: string;
+  tagline?: string;
+}
+
+export const BLOG_CATEGORIES: BlogCategoryInfo[] = [
+  {
+    slug: "church-translation",
+    name: "Church Translation",
+    description:
+      "Resources and field guides for building an inclusive, multilingual church experience with real-time AI translation and captions.",
+    pillarTitle: "Everything you need to know about AI translation for churches",
+    tagline: "Multilingual Worship · Sermon Translation · Audio Streams · QR Phone Access",
+  },
+  {
+    slug: "live-translation",
+    name: "Live Translation",
+    description:
+      "Real-time speech-to-speech AI translation pipelines, low-latency streaming protocols, and live broadcast engineering.",
+    pillarTitle: "The Future of Real-Time Speech-to-Speech Streaming",
+    tagline: "Sub-Second Latency · WebRTC & RTMP · 180+ Languages · Zero Hardware",
+  },
+  {
+    slug: "ai-translation",
+    name: "AI Translation",
+    description:
+      "Deep dives into neural translation models, speech synthesis, domain-specific terminology, and audio fidelity.",
+    pillarTitle: "Benchmarking Next-Gen Neural Translation vs. Human Interpreters",
+    tagline: "Latency Benchmarks · Acoustic Models · Vocabulary Customization",
+  },
+  {
+    slug: "church-technology",
+    name: "Church Technology",
+    description:
+      "AV engineering, audio consoles, Dante network integration, and broadcast setups for modern worship ministries.",
+    pillarTitle: "Modern Church AV: Audio Routing & Livestream Integration",
+    tagline: "Dante Audio · OBS Studio · Behringer & Allen-Heath · Wireless Systems",
+  },
+  {
+    slug: "guides",
+    name: "Guides",
+    description:
+      "Step-by-step implementation walkthroughs, equipment checklists, and best practices for production teams.",
+    pillarTitle: "Production Handbooks & AV Checklists",
+    tagline: "Setup Guides · Volunteer Training · Troubleshooting · Audio Interfaces",
+  },
+  {
+    slug: "case-studies",
+    name: "Case Studies",
+    description:
+      "Real-world accounts of churches, conferences, and global ministries scaling multilingual engagement with Exbabel.",
+    pillarTitle: "Ministry Stories: Translating Across Borders and Languages",
+    tagline: "Bilingual Congregations · Global Conferences · Worship Testimonials",
+  },
+];
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -41,6 +99,7 @@ export interface BlogPost {
   datePublished: string;
   dateModified: string;
   category: string;
+  categorySlug: string;
   featuredImage: string;
   featuredImageAlt: string;
   keywords: string[];
@@ -51,6 +110,9 @@ export interface BlogPost {
   colorTheme: EditorialColorTheme;
   editorialPill: EditorialPillData;
   relatedPosts: string[];
+  isFeatured?: boolean;
+  isTopArticle?: boolean;
+  isEditorsPick?: boolean;
   cta?: {
     primary: { text: string; href: string };
     secondary?: { text: string; href: string };
@@ -71,6 +133,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-09-16",
     dateModified: "2026-09-16",
     category: "Church Translation",
+    categorySlug: "church-translation",
     featuredImage: "/photos/blog/church-translation-hero.jpg",
     featuredImageAlt:
       "Editorial collage showing a church attendee using a smartphone language selection interface with floating translation UI and wireless earbuds on a deep blue background",
@@ -104,6 +167,8 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "18 listeners · Español",
     },
     relatedPosts: ["on-demand-interpretation-services"],
+    isFeatured: true,
+    isTopArticle: true,
     cta: {
       primary: {
         text: "Start a Free Trial",
@@ -129,6 +194,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-09-16",
     dateModified: "2026-09-16",
     category: "AI Translation",
+    categorySlug: "ai-translation",
     featuredImage: "/photos/blog/on-demand-interpretation-services-hero.jpg",
     featuredImageAlt:
       "Conference audience using AI-powered on-demand interpretation on smartphones and wireless earbuds",
@@ -158,6 +224,8 @@ export const BLOG_POSTS: BlogPost[] = [
       pipelineSteps: ["Audio", "STT", "Translate", "TTS"],
     },
     relatedPosts: ["church-translation-system"],
+    isTopArticle: true,
+    isEditorsPick: true,
     cta: {
       primary: {
         text: "Start Free Trial",
@@ -182,11 +250,40 @@ export function getAllPosts(): BlogPost[] {
   );
 }
 
-export function getPostsByCategory(category: string): BlogPost[] {
-  if (category === "All" || category === "all") return getAllPosts();
+export function getPostsByCategory(categorySlug: string): BlogPost[] {
+  if (categorySlug === "All" || categorySlug === "all") return getAllPosts();
   return getAllPosts().filter(
-    (post) => post.category.toLowerCase() === category.toLowerCase()
+    (post) =>
+      post.categorySlug.toLowerCase() === categorySlug.toLowerCase() ||
+      post.category.toLowerCase().replace(/\s+/g, "-") === categorySlug.toLowerCase()
   );
+}
+
+export function getFeaturedPost(): BlogPost {
+  return (
+    BLOG_POSTS.find((p) => p.isFeatured) ||
+    BLOG_POSTS[0]
+  );
+}
+
+export function getTopArticles(): BlogPost[] {
+  const top = BLOG_POSTS.filter((p) => p.isTopArticle);
+  if (top.length >= 2) return top;
+  return getAllPosts();
+}
+
+export function getEditorsPicks(): BlogPost[] {
+  const picks = BLOG_POSTS.filter((p) => p.isEditorsPick);
+  if (picks.length > 0) return picks;
+  return getAllPosts();
+}
+
+export function getAllCategories(): BlogCategoryInfo[] {
+  return BLOG_CATEGORIES;
+}
+
+export function getCategoryBySlug(slug: string): BlogCategoryInfo | undefined {
+  return BLOG_CATEGORIES.find((cat) => cat.slug.toLowerCase() === slug.toLowerCase());
 }
 
 export function getRelatedPosts(currentSlug: string): BlogPost[] {
