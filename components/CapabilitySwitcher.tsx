@@ -169,7 +169,7 @@ export default function CapabilitySwitcher() {
                 <motion.div
                     className="text-center mb-16 md:mb-24 max-w-[800px] mx-auto"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
+                    whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >

@@ -413,8 +413,7 @@ export default function InterfacePreview() {
 
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 0.85, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
-        viewport={{ once: true, margin: "200px" }}
+        whileInView={{ opacity: 0.85, scale: 1 }}} viewport={{ once: true, margin: "200px" }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
       >
@@ -472,8 +471,7 @@ export default function InterfacePreview() {
 
         <motion.div 
           initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 } viewport={{ once: true, margin: "-50px" }}}
-          viewport={{ once: true, margin: "200px" }}
+          whileInView={{ opacity: 1, x: 0 }}} viewport={{ once: true, margin: "200px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-start gap-6 justify-end pr-4 pointer-events-none select-none"
         >

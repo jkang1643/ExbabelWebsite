@@ -70,8 +70,7 @@ export default function UseCasesGraphic() {
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -80,8 +79,7 @@ export default function UseCasesGraphic() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-base md:text-lg text-slate-600 font-medium"
           >
@@ -95,8 +93,7 @@ export default function UseCasesGraphic() {
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
-              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className={`rounded-3xl p-10 flex flex-col items-center justify-center text-center transition-all duration-300 min-h-[220px] shadow-sm hover:shadow-xl ${
                 item.isHighlighted

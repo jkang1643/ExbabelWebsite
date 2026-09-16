@@ -1,29 +1,24 @@
-import os
+import glob
+import re
 
-path = '/home/jkang1643/projects/exbabel/components/GlassmorphicHero.tsx'
-with open(path, 'r', encoding='utf-8') as f:
-    content = f.read()
+files = glob.glob('/home/jkang1643/projects/exbabel/components/**/*.tsx', recursive=True)
+files.append('/home/jkang1643/projects/exbabel/app/live/page.tsx')
 
-bad_string = '''            <p
-              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <span className="text-base-ink/80">Every voice.</span>
-              <span className="text-primary inline-grid text-left">
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <span>Every voice.</span>
-              <span className="text-primary inline-grid text-left">'''
+for filepath in files:
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-good_string = '''            <p
-              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <span className="text-base-ink/80">Every voice.</span>
-              <span className="text-primary inline-grid text-left">'''
+    original = content
+    
+    # Fix the missing brace from the regex mistake
+    content = content.replace('} viewport={{ once: true, margin: "-50px" }}}', '}} viewport={{ once: true, margin: "-50px" }}')
+    content = content.replace('} viewport={{ once: true, margin: "-50px" }}', '}} viewport={{ once: true, margin: "-50px" }}')
 
-content = content.replace(bad_string, good_string)
+    # Remove duplicated viewport on the same or next lines.
+    content = re.sub(r'viewport=\{\{\s*once:\s*true,\s*margin:\s*"-50px"\s*\}\}\s*viewport=', 'viewport=', content)
+    content = re.sub(r'viewport=\{\{\s*once:\s*true,\s*margin:\s*"-50px"\s*\}\}\s*\n\s*viewport=', '\n            viewport=', content)
 
-with open(path, 'w', encoding='utf-8') as f:
-    f.write(content)
-print("Fixed GlassmorphicHero.tsx syntax error")
+    if content != original:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f'Fixed syntax in {filepath}')

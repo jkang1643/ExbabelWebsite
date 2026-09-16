@@ -61,8 +61,7 @@ export default function AIWorkflowGraphic() {
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-black tracking-tight mb-4"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -71,8 +70,7 @@ export default function AIWorkflowGraphic() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-blue-100 text-base md:text-lg max-w-2xl mx-auto font-medium"
           >
@@ -94,8 +92,7 @@ export default function AIWorkflowGraphic() {
               {/* Icon Container */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
-                viewport={{ once: true }}
+                whileInView={{ opacity: 1, scale: 1 }}} viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-5 relative z-10 shadow-lg group-hover:scale-110 group-hover:bg-white/20 transition-all"
               >

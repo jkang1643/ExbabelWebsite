@@ -424,8 +424,7 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95, }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, } viewport={{ once: true, margin: "-50px" }}}
-      viewport={{ once: true, margin: "-40px" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, }}} viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: index * 0.1, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       className="h-full"
     >
@@ -496,8 +495,7 @@ export default function WhyChurchesChoose() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
         <motion.div className="text-center mb-14 md:mb-16"
           initial={{ opacity: 0, y: 24, }}
-          whileInView={{ opacity: 1, y: 0, } viewport={{ once: true, margin: "-50px" }}}
-          viewport={{ once: true, margin: "-60px" }}
+          whileInView={{ opacity: 1, y: 0, }}} viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold tracking-[0.18em] uppercase mb-7">
             For Churches & Ministries

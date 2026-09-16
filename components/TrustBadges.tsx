@@ -48,7 +48,7 @@ export default function TrustBadges() {
                 <motion.div
                     className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 } viewport={{ once: true, margin: "-50px" }}}
+                    whileInView={{ opacity: 1, y: 0 }}} viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
@@ -56,7 +56,7 @@ export default function TrustBadges() {
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 } viewport={{ once: true, margin: "-50px" }}}
+                            whileInView={{ opacity: 1, scale: 1 }}} viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
                             viewport={{ once: true }}
                             className="flex items-center gap-3 group"
@@ -80,7 +80,7 @@ export default function TrustBadges() {
                 <motion.div
                     className="mt-12 text-center"
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 } viewport={{ once: true, margin: "-50px" }}}
+                    whileInView={{ opacity: 1 }}} viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     viewport={{ once: true }}
                 >
