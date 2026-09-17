@@ -1,3 +1,18 @@
+
+/* Desktop: Instant render (matches current behavior) */
+:root {
+  --reveal-opacity: 1;
+  --reveal-y: 0px;
+}
+
+/* Mobile: Restores the smooth fade-up from commit c1eb118 */
+@media (max-width: 767px) {
+  :root {
+    --reveal-opacity: 0;
+    --reveal-y: 30px;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

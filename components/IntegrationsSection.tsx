@@ -63,15 +63,15 @@ const integrations = [
 ];
 
 const staggerContainer = {
-  initial: { },
-  whileInView: { },
-  viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "-50px" : "-100px" },
+  initial: { opacity: "var(--reveal-opacity)" },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, margin: "-100px" },
   transition: { staggerChildren: 0.1 }
 };
 
 const fadeInUp = {
-  initial: { y: 30 },
-  whileInView: { y: 0 },
+  initial: { opacity: "var(--reveal-opacity)", y: "var(--reveal-y)" },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6, ease: "easeOut" }
 };
@@ -82,7 +82,7 @@ export default function IntegrationsSection() {
       <DecorativeWisp className="absolute top-0 right-0 w-[600px] h-[600px] -z-10 opacity-30 rotate-12" colorPrimary="#D6F5FF" colorSecondary="#EAD6FF" delay={2} />
       <DecorativeWisp className="absolute bottom-0 left-0 w-[600px] h-[600px] -z-10 opacity-20 -rotate-12" colorPrimary="#FFD6E5" colorSecondary="#FFF7D1" delay={4} />
       
-      <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "-50px" : "-100px" }} variants={staggerContainer}>
+      <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
         <div className="text-center mb-16 space-y-4">
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Works With Your Setup
