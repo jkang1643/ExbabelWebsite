@@ -11,9 +11,9 @@ import DarkAuroraBackground from "../DarkAuroraBackground";
  * ───────────────────────────────────────────── */
 const AnimatedBar = ({ percentage, color, inView, delay }: { percentage: number; color: string; inView: boolean; delay: number }) => {
     return (
-        <div className="mobile-fade-up w-full h-2 rounded-full bg-white/10 overflow-hidden">
+        <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
             <motion.div
-                className="mobile-fade-up h-full rounded-full"
+                className="h-full rounded-full"
                 style={{ backgroundColor: color }}
                 initial={{ width: 0 }}
                 animate={inView ? { width: `${percentage}%` } : { width: 0 }}
@@ -67,21 +67,21 @@ const TierCard = ({ tier, index, inView }: { tier: VoiceTier; index: number; inV
             initial={{ y: 30 }}
             animate={inView ? { y: 0 } : { y: 30 }}
             transition={{ duration: 0.5, delay }}
-            className="mobile-fade-up relative group"
+            className="relative group"
         >
-            <div className="mobile-fade-up relative bg-white/[0.06] md:backdrop-blur-sm rounded-2xl border border-white/10 
+            <div className="relative bg-white/[0.06] md:backdrop-blur-sm rounded-2xl border border-white/10 
                       p-6 hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300 h-full">
                 {/* Accent line */}
                 <div
-                    className="mobile-fade-up absolute top-0 left-6 right-6 h-[2px] rounded-full opacity-60"
+                    className="absolute top-0 left-6 right-6 h-[2px] rounded-full opacity-60"
                     style={{ backgroundColor: tier.accentColor }}
                 />
 
                 {/* Header */}
-                <div className="mobile-fade-up flex items-start justify-between mb-4 mt-2">
+                <div className="flex items-start justify-between mb-4 mt-2">
                     <div>
-                        <h3 className="mobile-fade-up text-lg font-bold text-white">{tier.name}</h3>
-                        <p className="mobile-fade-up text-xs text-white/50 font-medium">{tier.provider}</p>
+                        <h3 className="text-lg font-bold text-white">{tier.name}</h3>
+                        <p className="text-xs text-white/50 font-medium">{tier.provider}</p>
                     </div>
                     <span className={`text-[10px] font-bold px-2 py-1 rounded-md border ${qualityBadgeColor[tier.quality] || ""}`}>
                         {tier.quality}
@@ -89,22 +89,22 @@ const TierCard = ({ tier, index, inView }: { tier: VoiceTier; index: number; inV
                 </div>
 
                 {/* Language count */}
-                <div className="mobile-fade-up flex items-baseline gap-1 mb-2">
+                <div className="flex items-baseline gap-1 mb-2">
                     <span
                         ref={countRef}
-                        className="mobile-fade-up text-3xl font-extrabold"
+                        className="text-3xl font-extrabold"
                         style={{ color: tier.accentColor }}
                     >
                         0
                     </span>
-                    <span className="mobile-fade-up text-sm text-white/60 font-medium">languages</span>
+                    <span className="text-sm text-white/60 font-medium">languages</span>
                 </div>
 
                 {/* Progress bar */}
                 <AnimatedBar percentage={percentage} color={tier.accentColor} inView={inView} delay={delay + 0.3} />
 
                 {/* Description */}
-                <p className="mobile-fade-up text-sm text-white/50 leading-relaxed mt-4">
+                <p className="text-sm text-white/50 leading-relaxed mt-4">
                     {tier.description}
                 </p>
             </div>
@@ -119,31 +119,31 @@ export default function VoicesShowcase() {
     const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
 
     return (
-        <section ref={ref} className="mobile-fade-up relative bg-[#0F0B15] py-24 md:py-32 overflow-hidden">
+        <section ref={ref} className="relative bg-[#0F0B15] py-24 md:py-32 overflow-hidden">
             <DarkAuroraBackground />
 
-            <div className="mobile-fade-up relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
+            <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <motion.div
-                    className="mobile-fade-up text-center mb-16"
+                    className="text-center mb-16"
                     initial={{ y: 20 }}
                     animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="mobile-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-4 border border-white/10">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-4 border border-white/10">
                         🔊 VOICES SHOWCASE
                     </span>
-                    <h2 className="mobile-fade-up text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
                         6,700+ Natural AI Voices
                     </h2>
-                    <p className="mobile-fade-up text-lg text-white/60 max-w-2xl mx-auto">
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
                         We leverage the world&apos;s best text-to-speech engines for studio-quality, lifelike
                         speech synthesis in every supported language.
                     </p>
                 </motion.div>
 
                 {/* Tier Cards Grid */}
-                <div className="mobile-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {VOICE_TIERS.map((tier, idx) => (
                         <TierCard key={tier.name} tier={tier} index={idx} inView={inView} />
                     ))}
@@ -151,7 +151,7 @@ export default function VoicesShowcase() {
 
                 {/* Bottom note */}
                 <motion.p
-                    className="mobile-fade-up text-center text-sm text-white/40 mt-12 max-w-xl mx-auto"
+                    className="text-center text-sm text-white/40 mt-12 max-w-xl mx-auto"
                     
                     animate={inView ? { } : { }}
                     transition={{ delay: 1 }}

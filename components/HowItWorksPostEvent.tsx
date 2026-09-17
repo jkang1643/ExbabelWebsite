@@ -27,39 +27,39 @@ export default function HowItWorksPostEvent() {
   ];
 
   return (
-    <section className="mobile-fade-up py-20 bg-white relative overflow-hidden">
-      <div className="mobile-fade-up layout-spine max-w-6xl mx-auto px-4">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="layout-spine max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="mobile-fade-up text-center mb-16 max-w-3xl mx-auto">
-          <span className="mobile-fade-up text-xs font-black uppercase text-purple-600 tracking-widest block mb-2">Phase 4 — Post-Event &amp; Intelligence</span>
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="text-xs font-black uppercase text-purple-600 tracking-widest block mb-2">Phase 4 — Post-Event &amp; Intelligence</span>
           <h2
-            className="mobile-fade-up text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
+            className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
           >
             Post-Event Dubbing, Transcripts &amp; Security
           </h2>
-          <p className="mobile-fade-up text-slate-600 text-base md:text-lg font-medium">
+          <p className="text-slate-600 text-base md:text-lg font-medium">
             Your event doesn&apos;t end when the live stream stops. Exbabel turns live audio into persistent multilingual media assets and verified transcripts.
           </p>
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="mobile-fade-up grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {deliverables.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ y: 20 }}
               whileInView={{ y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="mobile-fade-up bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all"
+              className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all"
             >
-              <div className="mobile-fade-up w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-2xl mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-2xl mb-6">
                 {item.icon}
               </div>
-              <h3 className="mobile-fade-up text-xl font-bold text-slate-900 mb-3" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+              <h3 className="text-xl font-bold text-slate-900 mb-3" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                 {item.title}
               </h3>
-              <p className="mobile-fade-up text-slate-600 text-sm md:text-base leading-relaxed font-medium">
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
                 {item.desc}
               </p>
             </motion.div>
@@ -67,24 +67,24 @@ export default function HowItWorksPostEvent() {
         </div>
 
         {/* Enterprise Compliance Security Grid */}
-        <div className="mobile-fade-up bg-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-2xl relative">
-          <div className="mobile-fade-up text-center max-w-2xl mx-auto mb-8">
-            <span className="mobile-fade-up text-[10px] font-black uppercase text-emerald-400 tracking-widest block mb-1">Security &amp; Compliance Standards</span>
-            <h4 className="mobile-fade-up text-2xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+        <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-2xl relative">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-[10px] font-black uppercase text-emerald-400 tracking-widest block mb-1">Security &amp; Compliance Standards</span>
+            <h4 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
               Enterprise-Grade Data Protection
             </h4>
-            <p className="mobile-fade-up text-xs text-slate-300">
+            <p className="text-xs text-slate-300">
               Zero audio retention policy options available for sensitive executive, legal, or governmental proceedings.
             </p>
           </div>
 
-          <div className="mobile-fade-up grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center font-bold text-xs">
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">ISO 27001</div>
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">SOC 2 Type II</div>
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">GDPR Compliant</div>
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">HIPAA Ready</div>
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">CCPA Certified</div>
-            <div className="mobile-fade-up p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">VPAT Accessible</div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center font-bold text-xs">
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">ISO 27001</div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">SOC 2 Type II</div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">GDPR Compliant</div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">HIPAA Ready</div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">CCPA Certified</div>
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200">VPAT Accessible</div>
           </div>
         </div>
       </div>

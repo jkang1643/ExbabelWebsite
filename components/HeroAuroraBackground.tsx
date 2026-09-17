@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 export default function HeroAuroraBackground() {
   return (
-    <div className="mobile-fade-up absolute inset-0 overflow-hidden  z-0 pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden  z-0 pointer-events-none">
       {/* 
         We use an SVG to draw smooth, flowing ribbons that frame the text.
       */}
       {/* Mobile-only fallback background for performance */}
-      <div className="mobile-fade-up absolute inset-0 bg-gradient-to-br from-[#E5CBFF]/40 via-[#C6F0FF]/40 to-[#FFD6E5]/40 md:hidden z-[-1]" />
-      <svg className="mobile-fade-up absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#E5CBFF]/40 via-[#C6F0FF]/40 to-[#FFD6E5]/40 md:hidden z-[-1]" />
+      <svg className="absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E5CBFF" stopOpacity="0.95" />
@@ -100,7 +100,7 @@ export default function HeroAuroraBackground() {
 
       {/* Floating 3D Orbs (Glassy Spheres) */}
       <motion.div
-        className="mobile-fade-up absolute w-32 h-32 rounded-full hidden md:block top-[20%] left-[12%]"
+        className="absolute w-32 h-32 rounded-full hidden md:block top-[20%] left-[12%]"
         style={{
           background: 'radial-gradient(circle at 30% 30%, #ffffff 0%, #EAD6FF 60%, #C8A2C8 100%)',
           boxShadow: '0 20px 40px rgba(234, 214, 255, 0.4), inset 0 0 20px rgba(255,255,255,0.9)',
@@ -112,7 +112,7 @@ export default function HeroAuroraBackground() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="mobile-fade-up absolute w-24 h-24 rounded-full hidden md:block bottom-[25%] right-[15%]"
+        className="absolute w-24 h-24 rounded-full hidden md:block bottom-[25%] right-[15%]"
         style={{
           background: 'radial-gradient(circle at 30% 30%, #ffffff 0%, #D6F5FF 60%, #ADD8E6 100%)',
           boxShadow: '0 20px 40px rgba(214, 245, 255, 0.4), inset 0 0 20px rgba(255,255,255,0.9)',
@@ -124,7 +124,7 @@ export default function HeroAuroraBackground() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="mobile-fade-up absolute w-16 h-16 rounded-full hidden md:block top-[15%] right-[28%]"
+        className="absolute w-16 h-16 rounded-full hidden md:block top-[15%] right-[28%]"
         style={{
           background: 'radial-gradient(circle at 30% 30%, #ffffff 0%, #FFD6E5 60%, #FFB6C1 100%)',
           boxShadow: '0 10px 30px rgba(255, 214, 229, 0.4), inset 0 0 15px rgba(255,255,255,0.9)',
@@ -137,9 +137,9 @@ export default function HeroAuroraBackground() {
       />
 
       {/* Enhanced optical glows (~10% coverage & saturation increase for even coverage) */}
-      <div className="mobile-fade-up absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] bg-[#E5CBFF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
-      <div className="mobile-fade-up absolute top-[10%] right-[-10%] w-[55vw] h-[55vw] bg-[#C6F0FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
-      <div className="mobile-fade-up absolute bottom-[-5%] left-[20%] w-[45vw] h-[35vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[130px] opacity-[0.25] pointer-events-none hidden lg:block" />
+      <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] bg-[#E5CBFF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
+      <div className="absolute top-[10%] right-[-10%] w-[55vw] h-[55vw] bg-[#C6F0FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-[-5%] left-[20%] w-[45vw] h-[35vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[130px] opacity-[0.25] pointer-events-none hidden lg:block" />
     </div>
   );
 }

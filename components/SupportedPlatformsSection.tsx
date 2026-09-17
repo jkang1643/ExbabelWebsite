@@ -147,15 +147,15 @@ const EXTRA_PLATFORMS = [
 ];
 
 const staggerContainer = {
-  initial: { },
-  whileInView: { },
+  initial: { opacity: "var(--reveal-opacity)" },
+  whileInView: { opacity: 1 },
   viewport: { once: true, margin: "-100px" },
   transition: { staggerChildren: 0.1 }
 };
 
 const fadeInUp = {
-  initial: { y: 30 },
-  whileInView: { y: 0 },
+  initial: { opacity: "var(--reveal-opacity)", y: "var(--reveal-y)" },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6, ease: "easeOut" }
 };
@@ -164,46 +164,46 @@ export default function SupportedPlatformsSection() {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <section className="mobile-fade-up py-24 px-6 relative z-10 bg-white overflow-hidden">
-      <DecorativeWisp className="mobile-fade-up absolute top-0 right-1/4 w-[600px] h-[600px] -z-10 opacity-30 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#D6F5FF" delay={1} />
+    <section className="py-24 px-6 relative z-10 bg-white overflow-hidden">
+      <DecorativeWisp className="absolute top-0 right-1/4 w-[600px] h-[600px] -z-10 opacity-30 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#D6F5FF" delay={1} />
       
-      <motion.div className="mobile-fade-up max-w-5xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
-        <div className="mobile-fade-up text-center mb-16 space-y-4">
-          <motion.h2 variants={fadeInUp} className="mobile-fade-up text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+      <motion.div className="max-w-5xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
+        <div className="text-center mb-16 space-y-4">
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Universal Link Ingestion
           </motion.h2>
-          <motion.p variants={fadeInUp} className="mobile-fade-up text-lg text-base-content/70 max-w-2xl mx-auto font-medium">
+          <motion.p variants={fadeInUp} className="text-lg text-base-content/70 max-w-2xl mx-auto font-medium">
             Paste almost any URL to restream it directly into Exbabel Live. We natively support over 1,800 different streaming platforms and websites.
           </motion.p>
         </div>
 
-        <motion.div variants={fadeInUp} className="mobile-fade-up bg-slate-50/50 md:backdrop-blur-xl p-8 md:p-12 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-slate-900/5 transition-all">
+        <motion.div variants={fadeInUp} className="bg-slate-50/50 md:backdrop-blur-xl p-8 md:p-12 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-slate-900/5 transition-all">
           
           {/* Popular Platforms Grid */}
-          <div className="mobile-fade-up grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {POPULAR_PLATFORMS.map((p, idx) => (
               <div 
                 key={idx}
-                className="mobile-fade-up flex items-center gap-2 bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:border-gray-300 transition-all cursor-default"
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:border-gray-300 transition-all cursor-default"
               >
                 <img
                   src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=32`}
                   alt={p.label}
                   width="20"
                   height="20"
-                  className="mobile-fade-up rounded-md"
+                  className="rounded-md"
                   loading="lazy"
                   onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                 />
-                <span className="mobile-fade-up text-xs font-semibold text-slate-700">{p.label}</span>
+                <span className="text-xs font-semibold text-slate-700">{p.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="mobile-fade-up mt-8 pt-6 border-t border-gray-200">
+          <div className="mt-8 pt-6 border-t border-gray-200">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="mobile-fade-up w-full flex items-center justify-center gap-2 text-sm font-bold text-primary hover:text-primary/80 transition-colors py-2"
+              className="w-full flex items-center justify-center gap-2 text-sm font-bold text-primary hover:text-primary/80 transition-colors py-2"
             >
               {showAll ? 'Hide Full List' : 'View All 1,800+ Supported Platforms'}
               <svg 
@@ -221,28 +221,28 @@ export default function SupportedPlatformsSection() {
                   animate={{ height: 'auto', }}
                   exit={{ height: 0, }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="mobile-fade-up overflow-hidden mt-6"
+                  className="overflow-hidden mt-6"
                 >
-                  <div className="mobile-fade-up flex flex-wrap gap-2 justify-center max-h-[500px] overflow-y-auto p-2" style={{ scrollbarWidth: 'thin' }}>
+                  <div className="flex flex-wrap gap-2 justify-center max-h-[500px] overflow-y-auto p-2" style={{ scrollbarWidth: 'thin' }}>
                     {EXTRA_PLATFORMS.map((p, idx) => (
                       <div
                         key={idx}
-                        className="mobile-fade-up flex items-center gap-1.5 bg-white border border-gray-100 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] text-gray-500 hover:text-slate-700 transition-colors"
+                        className="flex items-center gap-1.5 bg-white border border-gray-100 rounded-lg px-2.5 py-1.5 shadow-sm text-[11px] text-gray-500 hover:text-slate-700 transition-colors"
                       >
                         <img
                           src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=16`}
                           alt={p.label}
                           width="14"
                           height="14"
-                          className="mobile-fade-up rounded-sm opacity-60"
+                          className="rounded-sm opacity-60"
                           loading="lazy"
                           onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                         />
-                        <span className="mobile-fade-up font-medium">{p.label}</span>
+                        <span className="font-medium">{p.label}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="mobile-fade-up text-center text-xs text-gray-400 mt-6 italic font-medium">
+                  <p className="text-center text-xs text-gray-400 mt-6 italic font-medium">
                     + hundreds more domains. Universal ingestion powered by yt-dlp.
                   </p>
                 </motion.div>

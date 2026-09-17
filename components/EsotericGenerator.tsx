@@ -168,8 +168,8 @@ export default function EsotericGenerator({ seed }: GeneratorProps) {
   );
 
   return (
-    <div className="mobile-fade-up absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center opacity-90 mix-blend-screen pointer-events-none">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" className="mobile-fade-up w-full h-full max-w-[2000px] object-cover drop-shadow-[0_0_20px_rgba(253,224,71,0.5)]">
+    <div className="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center opacity-90 mix-blend-screen pointer-events-none">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" className="w-full h-full max-w-[2000px] object-cover drop-shadow-[0_0_20px_rgba(253,224,71,0.5)]">
         <defs>
           <linearGradient id="gen-gold" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#FEF08A" />

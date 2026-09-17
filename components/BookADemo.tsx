@@ -72,12 +72,12 @@ export default function BookADemo() {
   };
 
   return (
-    <section id="book-demo" className="mobile-fade-up py-24 bg-white relative overflow-hidden">
-      <div className="mobile-fade-up absolute inset-0 bg-slate-50/50 -z-10" />
-      <div className="mobile-fade-up max-w-4xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="mobile-fade-up text-center mb-12">
+    <section id="book-demo" className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-slate-50/50 -z-10" />
+      <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center mb-12">
           <motion.h2 
-            className="mobile-fade-up text-4xl md:text-5xl font-black mb-4 tracking-tight text-[#1d1c1d]"
+            className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-[#1d1c1d]"
             initial={{ y: 20 }}
             whileInView={{ y: 0 }} viewport={{ once: true, margin: "-100px" }}
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
@@ -85,7 +85,7 @@ export default function BookADemo() {
             See Exbabel in Action
           </motion.h2>
           <motion.p 
-            className="mobile-fade-up text-lg text-gray-600 max-w-2xl mx-auto font-medium"
+            className="text-lg text-gray-600 max-w-2xl mx-auto font-medium"
             initial={{ y: 20 }}
             whileInView={{ y: 0 }} viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
@@ -98,7 +98,7 @@ export default function BookADemo() {
         {/* Value Props */}
         {!isSubmitted && !isScheduled && (
           <motion.div 
-            className="mobile-fade-up flex flex-wrap justify-center gap-6 mb-12 text-sm font-semibold text-gray-700"
+            className="flex flex-wrap justify-center gap-6 mb-12 text-sm font-semibold text-gray-700"
             
              viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2 }}
@@ -109,9 +109,9 @@ export default function BookADemo() {
               "Live translation demo",
               "Mobile app walkthrough"
             ].map((prop, i) => (
-              <div key={i} className="mobile-fade-up flex items-center gap-2">
-                <div className="mobile-fade-up w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <svg className="mobile-fade-up w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div key={i} className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -121,7 +121,7 @@ export default function BookADemo() {
           </motion.div>
         )}
 
-        <div className="mobile-fade-up bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12 relative overflow-hidden">
+        <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12 relative overflow-hidden">
           <AnimatePresence mode="wait">
             {!isSubmitted && !isScheduled && (
               <motion.form 
@@ -130,33 +130,33 @@ export default function BookADemo() {
                 initial={{ x: -20 }}
                 animate={{ x: 0 }}
                 exit={{ x: 20 }}
-                className="mobile-fade-up space-y-6"
+                className="space-y-6"
               >
-                <div className="mobile-fade-up grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="mobile-fade-up space-y-2">
-                    <label htmlFor="firstName" className="mobile-fade-up block text-sm font-bold text-gray-700">First Name *</label>
-                    <input required type="text" id="firstName" name="firstName" value={formState.firstName} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="block text-sm font-bold text-gray-700">First Name *</label>
+                    <input required type="text" id="firstName" name="firstName" value={formState.firstName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
                   </div>
-                  <div className="mobile-fade-up space-y-2">
-                    <label htmlFor="lastName" className="mobile-fade-up block text-sm font-bold text-gray-700">Last Name *</label>
-                    <input required type="text" id="lastName" name="lastName" value={formState.lastName} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="block text-sm font-bold text-gray-700">Last Name *</label>
+                    <input required type="text" id="lastName" name="lastName" value={formState.lastName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
                   </div>
                 </div>
 
-                <div className="mobile-fade-up space-y-2">
-                  <label htmlFor="email" className="mobile-fade-up block text-sm font-bold text-gray-700">Email *</label>
-                  <input required type="email" id="email" name="email" value={formState.email} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-700">Email *</label>
+                  <input required type="email" id="email" name="email" value={formState.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
                 </div>
 
-                <div className="mobile-fade-up space-y-2">
-                  <label htmlFor="churchName" className="mobile-fade-up block text-sm font-bold text-gray-700">Church Name *</label>
-                  <input required type="text" id="churchName" name="churchName" value={formState.churchName} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
+                <div className="space-y-2">
+                  <label htmlFor="churchName" className="block text-sm font-bold text-gray-700">Church Name *</label>
+                  <input required type="text" id="churchName" name="churchName" value={formState.churchName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
                 </div>
 
-                <div className="mobile-fade-up grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="mobile-fade-up space-y-2">
-                    <label htmlFor="role" className="mobile-fade-up block text-sm font-bold text-gray-700">Role *</label>
-                    <select required id="role" name="role" value={formState.role} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 bg-white">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="role" className="block text-sm font-bold text-gray-700">Role *</label>
+                    <select required id="role" name="role" value={formState.role} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 bg-white">
                       <option value="" disabled>Select your role</option>
                       <option value="Pastor">Pastor</option>
                       <option value="Administrator">Administrator</option>
@@ -164,9 +164,9 @@ export default function BookADemo() {
                       <option value="Other">Other</option>
                     </select>
                   </div>
-                  <div className="mobile-fade-up space-y-2">
-                    <label htmlFor="churchSize" className="mobile-fade-up block text-sm font-bold text-gray-700">Church Size *</label>
-                    <select required id="churchSize" name="churchSize" value={formState.churchSize} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 bg-white">
+                  <div className="space-y-2">
+                    <label htmlFor="churchSize" className="block text-sm font-bold text-gray-700">Church Size *</label>
+                    <select required id="churchSize" name="churchSize" value={formState.churchSize} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900 bg-white">
                       <option value="" disabled>Select church size</option>
                       <option value="Under 100">Under 100</option>
                       <option value="100 - 500">100 - 500</option>
@@ -176,18 +176,18 @@ export default function BookADemo() {
                   </div>
                 </div>
 
-                <div className="mobile-fade-up space-y-2">
-                  <label htmlFor="phoneNumber" className="mobile-fade-up block text-sm font-bold text-gray-700">Phone Number (optional)</label>
-                  <input type="tel" id="phoneNumber" name="phoneNumber" value={formState.phoneNumber} onChange={handleChange} className="mobile-fade-up w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
+                <div className="space-y-2">
+                  <label htmlFor="phoneNumber" className="block text-sm font-bold text-gray-700">Phone Number (optional)</label>
+                  <input type="tel" id="phoneNumber" name="phoneNumber" value={formState.phoneNumber} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-gray-900" />
                 </div>
 
-                {error && <div className="mobile-fade-up text-red-500 text-sm font-medium">{error}</div>}
+                {error && <div className="text-red-500 text-sm font-medium">{error}</div>}
 
-                <div className="mobile-fade-up pt-6 text-center">
+                <div className="pt-6 text-center">
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="mobile-fade-up w-full md:w-auto inline-block px-12 py-4 bg-primary text-white text-lg font-extrabold rounded-full hover:shadow-[0_8px_30px_rgba(79,70,229,0.4)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-70 shadow-xl"
+                    className="w-full md:w-auto inline-block px-12 py-4 bg-primary text-white text-lg font-extrabold rounded-full hover:shadow-[0_8px_30px_rgba(79,70,229,0.4)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-70 shadow-xl"
                     style={{ fontFamily: 'var(--font-sora), sans-serif' }}
                   >
                     {isSubmitting ? "Processing..." : "Continue to Schedule →"}
@@ -202,11 +202,11 @@ export default function BookADemo() {
                 initial={{ scale: 0.95 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.95 }}
-                className="mobile-fade-up w-full"
+                className="w-full"
               >
-                <div className="mobile-fade-up text-center mb-6">
-                  <h3 className="mobile-fade-up text-2xl font-bold text-gray-900 mb-2">Pick a Time</h3>
-                  <p className="mobile-fade-up text-gray-600">Select a convenient time for your 15-minute demo.</p>
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Pick a Time</h3>
+                  <p className="text-gray-600">Select a convenient time for your 15-minute demo.</p>
                 </div>
                 <CalendlyDemoScheduler 
                   prefillName={`${formState.firstName.trim()} ${formState.lastName.trim()}`.trim()} 
@@ -221,15 +221,15 @@ export default function BookADemo() {
                 key="success"
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
-                className="mobile-fade-up text-center py-16"
+                className="text-center py-16"
               >
-                <div className="mobile-fade-up w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
-                  <svg className="mobile-fade-up w-12 h-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                  <svg className="w-12 h-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="mobile-fade-up text-3xl font-black text-gray-900 mb-4" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Demo Scheduled Successfully</h3>
-                <p className="mobile-fade-up text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
+                <h3 className="text-3xl font-black text-gray-900 mb-4" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Demo Scheduled Successfully</h3>
+                <p className="text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
                   Thank you for scheduling a demo with Exbabel. We&apos;ve sent a confirmation email and look forward to showing you how Exbabel can help your church provide live translation and captions.
                 </p>
               </motion.div>

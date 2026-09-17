@@ -35,9 +35,9 @@ export default function EsotericWallpaperKaleidoscope() {
   const segments = Array.from({ length: N }).map((_, i) => i * (360 / N));
 
   return (
-    <div className="mobile-fade-up absolute inset-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen z-0 flex items-center justify-center opacity-80">
-      <div className="mobile-fade-up w-full h-full flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" className="mobile-fade-up w-full h-full max-w-[2000px] object-cover scale-125 md:scale-100">
+    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen z-0 flex items-center justify-center opacity-80">
+      <div className="w-full h-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" className="w-full h-full max-w-[2000px] object-cover scale-125 md:scale-100">
           <defs>
             <linearGradient id="esoteric-gold" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FEF08A" />

@@ -45,22 +45,22 @@ const StatCard = ({ value, suffix, label, sublabel, delay, inView, accentColor, 
 
     return (
         <motion.div
-            className="mobile-fade-up relative flex flex-col items-center text-center px-6 py-8 md:py-12"
+            className="relative flex flex-col items-center text-center px-6 py-8 md:py-12"
             initial={{ y: 40 }}
             animate={inView ? { y: 0 } : { y: 40 }}
             transition={{ duration: 0.7, delay, ease: "easeOut" }}
         >
             {/* Number */}
-            <div className="mobile-fade-up flex items-baseline gap-1">
+            <div className="flex items-baseline gap-1">
                 <span
                     ref={ref}
-                    className="mobile-fade-up text-[64px] md:text-[88px] font-extrabold leading-[1] tracking-tight"
+                    className="text-[64px] md:text-[88px] font-extrabold leading-[1] tracking-tight"
                     style={{ color: accentColor }}
                 >
                     0
                 </span>
                 <span
-                    className="mobile-fade-up text-[40px] md:text-[56px] font-bold leading-[1]"
+                    className="text-[40px] md:text-[56px] font-bold leading-[1]"
                     style={{ color: accentColor }}
                 >
                     {suffix}
@@ -68,10 +68,10 @@ const StatCard = ({ value, suffix, label, sublabel, delay, inView, accentColor, 
             </div>
 
             {/* Label */}
-            <p className="mobile-fade-up text-lg md:text-xl font-semibold text-base-ink mt-4">
+            <p className="text-lg md:text-xl font-semibold text-base-ink mt-4">
                 {label}
             </p>
-            <p className="mobile-fade-up text-sm md:text-base text-base-muted mt-1 max-w-[260px]">
+            <p className="text-sm md:text-base text-base-muted mt-1 max-w-[260px]">
                 {sublabel}
             </p>
         </motion.div>
@@ -85,18 +85,18 @@ export default function ImpactHero() {
     });
 
     return (
-        <section className="mobile-fade-up relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
+        <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
             <LightAuroraBackground />
 
-            <div ref={ref} className="mobile-fade-up relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
+            <div ref={ref} className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
                 {/* Eyebrow */}
                 <motion.div
-                    className="mobile-fade-up text-center mb-4"
+                    className="text-center mb-4"
                     initial={{ y: 10 }}
                     animate={inView ? { y: 0 } : { y: 10 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="mobile-fade-up inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wide">
+                    <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wide">
                         🌍 GLOBAL IMPACT
                     </span>
                 </motion.div>
@@ -104,7 +104,7 @@ export default function ImpactHero() {
                 {/* Title */}
                 
                 <motion.h1
-                    className="mobile-fade-up text-center text-4xl md:text-6xl font-extrabold text-base-ink tracking-tight leading-[1.1] mb-4"
+                    className="text-center text-4xl md:text-6xl font-extrabold text-base-ink tracking-tight leading-[1.1] mb-4"
                     initial={{ y: 20 }}
                     animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
@@ -114,20 +114,20 @@ export default function ImpactHero() {
 
                 {/* Subtitle */}
                 <motion.p
-                    className="mobile-fade-up text-center text-lg md:text-xl text-base-muted max-w-3xl mx-auto mb-16"
+                    className="text-center text-lg md:text-xl text-base-muted max-w-3xl mx-auto mb-16"
                     initial={{ y: 20 }}
                     animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     Exbabel supports{" "}
-                    <span className="mobile-fade-up font-semibold text-base-ink">196 countries</span>,{" "}
-                    <span className="mobile-fade-up font-semibold text-base-ink">~90% of all nations</span>, and{" "}
-                    <span className="mobile-fade-up font-semibold text-base-ink">99.9% of world population</span>{" "}
+                    <span className="font-semibold text-base-ink">196 countries</span>,{" "}
+                    <span className="font-semibold text-base-ink">~90% of all nations</span>, and{" "}
+                    <span className="font-semibold text-base-ink">99.9% of world population</span>{" "}
                     — real-time AI translation everywhere people need it.
                 </motion.p>
 
                 {/* Stats Row — 4 stats */}
-                <div className="mobile-fade-up relative grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 max-w-6xl mx-auto">
+                <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 max-w-6xl mx-auto">
                     <StatCard
                         value={TOTAL_COUNTRIES}
                         suffix=""
@@ -137,7 +137,7 @@ export default function ImpactHero() {
                         inView={inView}
                         accentColor="#7C3AED"
                     />
-                    <div className="mobile-fade-up hidden md:block absolute left-1/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
+                    <div className="hidden md:block absolute left-1/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
                     <StatCard
                         value={99.9}
                         suffix="%"
@@ -148,7 +148,7 @@ export default function ImpactHero() {
                         accentColor="#059669"
                         isDecimal
                     />
-                    <div className="mobile-fade-up hidden md:block absolute left-2/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
+                    <div className="hidden md:block absolute left-2/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
                     <StatCard
                         value={90}
                         suffix="+"
@@ -158,7 +158,7 @@ export default function ImpactHero() {
                         inView={inView}
                         accentColor="#2563EB"
                     />
-                    <div className="mobile-fade-up hidden md:block absolute left-3/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
+                    <div className="hidden md:block absolute left-3/4 top-[30%] bottom-[30%] w-px bg-gradient-to-b from-transparent via-slate-300/40 to-transparent" />
                     <StatCard
                         value={6700}
                         suffix="+"

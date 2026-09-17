@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
  */
 export default function DarkAuroraBackground() {
     return (
-        <div className="mobile-fade-up absolute inset-0 overflow-hidden bg-[#0F0B15] -z-10 pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden bg-[#0F0B15] -z-10 pointer-events-none">
             {/* Blob 1: Dark Deep Purple (Top Left) */}
             <motion.div
                 initial={{ x: 0, y: 0, scale: 1 }}
@@ -27,7 +27,7 @@ export default function DarkAuroraBackground() {
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="mobile-fade-up absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#2E0249] rounded-full mix-blend-screen filter blur-[120px] opacity-50 hidden lg:block"
+                className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[#2E0249] rounded-full mix-blend-screen filter blur-[120px] opacity-50 hidden lg:block"
             />
 
             {/* Blob 2: Dark Raspberry/Pink (Top Right) */}
@@ -44,7 +44,7 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 2
                 }}
-                className="mobile-fade-up absolute top-[5%] -right-[15%] w-[50%] h-[60%] bg-[#4A042E] rounded-full mix-blend-screen filter blur-[130px] opacity-40 hidden lg:block"
+                className="absolute top-[5%] -right-[15%] w-[50%] h-[60%] bg-[#4A042E] rounded-full mix-blend-screen filter blur-[130px] opacity-40 hidden lg:block"
             />
 
             {/* Blob 3: Deep Navy/Blue (Bottom Left) */}
@@ -61,7 +61,7 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 4
                 }}
-                className="mobile-fade-up absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-[#022C43] rounded-full mix-blend-screen filter blur-[140px] opacity-50 hidden lg:block"
+                className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-[#022C43] rounded-full mix-blend-screen filter blur-[140px] opacity-50 hidden lg:block"
             />
 
             {/* Blob 4: Deep Amber/Gold (Bottom Center/Right) */}
@@ -78,11 +78,11 @@ export default function DarkAuroraBackground() {
                     ease: "easeInOut",
                     delay: 1
                 }}
-                className="mobile-fade-up absolute bottom-[10%] right-[10%] w-[40%] h-[50%] bg-[#3D2C00] rounded-full mix-blend-screen filter blur-[120px] opacity-30 hidden lg:block"
+                className="absolute bottom-[10%] right-[10%] w-[40%] h-[50%] bg-[#3D2C00] rounded-full mix-blend-screen filter blur-[120px] opacity-30 hidden lg:block"
             />
 
             {/* Overlay to unify contrast */}
-            <div className="mobile-fade-up absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/20" />
         </div>
     );
 }

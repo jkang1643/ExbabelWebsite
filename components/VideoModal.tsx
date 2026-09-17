@@ -37,7 +37,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                     
                     
                     exit={{ }}
-                    className="mobile-fade-up fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 md:p-12 md:backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 md:p-12 md:backdrop-blur-sm"
                     onClick={onClose}
                 >
                     <motion.div
@@ -45,7 +45,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                         animate={{ scale: 1, y: 0 }}
                         exit={{ scale: 0.95, y: 20 }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="mobile-fade-up relative w-full max-w-5xl rounded-2xl md:rounded-3xl bg-gray-900 shadow-2xl overflow-hidden flex flex-col"
+                        className="relative w-full max-w-5xl rounded-2xl md:rounded-3xl bg-gray-900 shadow-2xl overflow-hidden flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                         role="dialog"
                         aria-modal="true"
@@ -54,7 +54,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                         {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="mobile-fade-up absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white/70 hover:bg-black/80 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
+                            className="absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white/70 hover:bg-black/80 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
                             aria-label="Close modal"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -63,14 +63,14 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                             </svg>
                         </button>
 
-                        <div className="mobile-fade-up relative w-full aspect-video bg-black flex-shrink-0 flex items-center justify-center">
+                        <div className="relative w-full aspect-video bg-black flex-shrink-0 flex items-center justify-center">
                             {!videoSrc ? (
-                                <p className="mobile-fade-up text-white/50 text-xl font-medium">Video playback not available</p>
+                                <p className="text-white/50 text-xl font-medium">Video playback not available</p>
                             ) : videoSrc.includes("youtube.com") ? (
                                 <iframe
                                     src={videoSrc}
                                     title={title}
-                                    className="mobile-fade-up w-full h-full border-0"
+                                    className="w-full h-full border-0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowFullScreen
                                 />
@@ -78,7 +78,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                                 <video
                                     ref={videoRef}
                                     src={videoSrc}
-                                    className="mobile-fade-up w-full h-full object-contain"
+                                    className="w-full h-full object-contain"
                                     controls
                                     autoPlay
                                     playsInline
@@ -86,10 +86,10 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                             )}
                         </div>
 
-                        <div className="mobile-fade-up p-6 md:p-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-                            <h3 id="video-modal-title" className="mobile-fade-up text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+                        <div className="p-6 md:p-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+                            <h3 id="video-modal-title" className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
                             {description && (
-                                <p className="mobile-fade-up text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
                                     {description}
                                 </p>
                             )}

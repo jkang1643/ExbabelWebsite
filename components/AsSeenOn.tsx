@@ -4,26 +4,26 @@ import Image from "next/image";
 
 export default function AsSeenOn() {
     return (
-        <section className="mobile-fade-up py-16 bg-white border-b border-gray-100">
-            <div className="mobile-fade-up layout-spine">
-                <p className="mobile-fade-up text-eyebrow mb-8 text-center text-slate-400">
+        <section className="py-16 bg-white border-b border-gray-100">
+            <div className="layout-spine">
+                <p className="text-eyebrow mb-8 text-center text-slate-400">
                     AS SEEN ON
                 </p>
 
-                <div className="mobile-fade-up flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
                     {/* Launch Llama Newsletter Badge */}
                     <a
                         href="https://tools.launchllama.co/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mobile-fade-up transition-transform hover:scale-105 duration-300"
+                        className="transition-transform hover:scale-105 duration-300"
                     >
                         <Image
                             src="/badges/llbadge2.webp"
                             alt="As seen on Launch Llama Newsletter"
                             width={800}
                             height={200}
-                            className="mobile-fade-up h-auto w-full max-w-[250px] md:max-w-[300px]"
+                            className="h-auto w-full max-w-[250px] md:max-w-[300px]"
                             priority={false}
                         />
                     </a>
@@ -33,13 +33,13 @@ export default function AsSeenOn() {
                         href="https://elevenlabs.io/startup-grants"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mobile-fade-up transition-transform hover:scale-105 duration-300"
+                        className="transition-transform hover:scale-105 duration-300"
                     >
                         <img 
                             src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp" 
                             alt="ElevenLabs" 
                             style={{ width: "250px" }}
-                            className="mobile-fade-up h-auto"
+                            className="h-auto"
                         />
                     </a>
 
@@ -48,14 +48,14 @@ export default function AsSeenOn() {
                         href="https://aiforchurchleaders.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mobile-fade-up transition-transform hover:scale-105 duration-300"
+                        className="transition-transform hover:scale-105 duration-300"
                     >
                         <Image
                             src="/badges/AI for Church Leadrs.jpg"
                             alt="AI for Church Leaders"
                             width={600}
                             height={200}
-                            className="mobile-fade-up h-auto w-full max-w-[200px] md:max-w-[250px]"
+                            className="h-auto w-full max-w-[200px] md:max-w-[250px]"
                             priority={false}
                         />
                     </a>

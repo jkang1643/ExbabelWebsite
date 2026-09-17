@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function DarkHeroAuroraBackground() {
   return (
-    <div className="mobile-fade-up absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {/* Dot Grid Pattern - Dark Version */}
       <div 
-        className="mobile-fade-up absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+        className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
         style={{ 
           backgroundImage: "radial-gradient(circle at center, #ffffff 1px, transparent 1px)", 
           backgroundSize: "24px 24px",
@@ -20,7 +20,7 @@ export default function DarkHeroAuroraBackground() {
       {/* 
         We use an SVG to draw smooth, flowing ribbons that frame the text.
       */}
-      <svg className="mobile-fade-up absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <svg className="absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="darkHeroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#394dfe" stopOpacity="0.8" />
@@ -109,7 +109,7 @@ export default function DarkHeroAuroraBackground() {
 
       {/* Floating 3D Orbs (Glassy Spheres) */}
       <motion.div
-        className="mobile-fade-up absolute w-32 h-32 rounded-full hidden md:block top-[20%] left-[12%]"
+        className="absolute w-32 h-32 rounded-full hidden md:block top-[20%] left-[12%]"
         style={{
           background: 'radial-gradient(circle at 30% 30%, #4a5cff 0%, #394dfe 60%, #1e29a8 100%)',
           boxShadow: '0 20px 40px rgba(57, 77, 254, 0.4), inset 0 0 20px rgba(255,255,255,0.2)',
@@ -121,7 +121,7 @@ export default function DarkHeroAuroraBackground() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="mobile-fade-up absolute w-24 h-24 rounded-full hidden md:block bottom-[25%] right-[15%]"
+        className="absolute w-24 h-24 rounded-full hidden md:block bottom-[25%] right-[15%]"
         style={{
           background: 'radial-gradient(circle at 30% 30%, #D6F5FF 0%, #6bc1ff 60%, #207ab5 100%)',
           boxShadow: '0 20px 40px rgba(107, 193, 255, 0.4), inset 0 0 20px rgba(255,255,255,0.2)',
@@ -134,8 +134,8 @@ export default function DarkHeroAuroraBackground() {
       />
       
       {/* Massive subtle background glows to tie it all together */}
-      <div className="mobile-fade-up absolute top-[0%] left-[10%] w-[50vw] h-[50vw] bg-[#394dfe] rounded-full mix-blend-screen filter blur-[180px] opacity-20 pointer-events-none hidden lg:block" />
-      <div className="mobile-fade-up absolute bottom-[0%] right-[10%] w-[50vw] h-[50vw] bg-[#D6F5FF] rounded-full mix-blend-screen filter blur-[160px] opacity-10 pointer-events-none hidden lg:block" />
+      <div className="absolute top-[0%] left-[10%] w-[50vw] h-[50vw] bg-[#394dfe] rounded-full mix-blend-screen filter blur-[180px] opacity-20 pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-[0%] right-[10%] w-[50vw] h-[50vw] bg-[#D6F5FF] rounded-full mix-blend-screen filter blur-[160px] opacity-10 pointer-events-none hidden lg:block" />
     </div>
   );
 }

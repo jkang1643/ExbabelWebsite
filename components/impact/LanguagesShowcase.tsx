@@ -208,23 +208,23 @@ const LanguageCard = ({ lang, index, inView, dimmed }: {
             </span>
 
             {/* Flag + Name */}
-            <div className="mobile-fade-up flex items-start gap-2 mb-2.5 pr-8">
-                <span className="mobile-fade-up text-xl leading-none flex-shrink-0 mt-0.5">{lang.flag}</span>
-                <div className="mobile-fade-up min-w-0">
-                    <p className="mobile-fade-up text-sm font-bold text-white leading-tight truncate">{lang.name}</p>
-                    <p className="mobile-fade-up text-[10px] text-white/45 truncate mt-0.5">{lang.nativeName}</p>
+            <div className="flex items-start gap-2 mb-2.5 pr-8">
+                <span className="text-xl leading-none flex-shrink-0 mt-0.5">{lang.flag}</span>
+                <div className="min-w-0">
+                    <p className="text-sm font-bold text-white leading-tight truncate">{lang.name}</p>
+                    <p className="text-[10px] text-white/45 truncate mt-0.5">{lang.nativeName}</p>
                 </div>
             </div>
 
             {/* Engine badges (up to 3, then +N) */}
-            <div className="mobile-fade-up flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1">
                 {lang.tiers.slice(0, 3).map(t => (
                     <span key={t} className={`text-[8px] font-bold px-1 py-0.5 rounded border ${ENGINE_BADGE[t]}`}>
                         {ENGINE_LABEL[t]}
                     </span>
                 ))}
                 {lang.tiers.length > 3 && (
-                    <span className="mobile-fade-up text-[8px] font-bold px-1 py-0.5 rounded border bg-white/10 text-white/40 border-white/10">
+                    <span className="text-[8px] font-bold px-1 py-0.5 rounded border bg-white/10 text-white/40 border-white/10">
                         +{lang.tiers.length - 3}
                     </span>
                 )}
@@ -242,9 +242,9 @@ const PlanCard = ({ planKey, count, isActive, onClick }: {
             <button onClick={onClick}
                 className={`flex flex-col items-center px-5 py-4 rounded-2xl border transition-all text-center min-w-[110px]
                     ${isActive ? "bg-white/20 border-white/40 shadow-lg" : "bg-white/5 border-white/10 hover:bg-white/10"}`}>
-                <span className="mobile-fade-up text-2xl mb-1">🌐</span>
-                <span className="mobile-fade-up text-sm font-bold text-white">All Plans</span>
-                <span className="mobile-fade-up text-xs text-white/50 mt-0.5">{count} langs</span>
+                <span className="text-2xl mb-1">🌐</span>
+                <span className="text-sm font-bold text-white">All Plans</span>
+                <span className="text-xs text-white/50 mt-0.5">{count} langs</span>
             </button>
         );
     }
@@ -254,10 +254,10 @@ const PlanCard = ({ planKey, count, isActive, onClick }: {
             style={isActive ? { borderColor: cfg.color, backgroundColor: `${cfg.color}22` } : {}}
             className={`flex flex-col items-center px-5 py-4 rounded-2xl border transition-all text-center min-w-[140px]
                 ${isActive ? "shadow-lg" : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"}`}>
-            <span className="mobile-fade-up text-2xl mb-1">{cfg.icon}</span>
-            <span className="mobile-fade-up text-sm font-bold text-white">{planKey}</span>
-            <span className="mobile-fade-up text-xs mt-0.5 font-semibold" style={{ color: cfg.color }}>{count} languages</span>
-            <span className="mobile-fade-up text-[10px] text-white/40 mt-1 leading-tight max-w-[130px]">
+            <span className="text-2xl mb-1">{cfg.icon}</span>
+            <span className="text-sm font-bold text-white">{planKey}</span>
+            <span className="text-xs mt-0.5 font-semibold" style={{ color: cfg.color }}>{count} languages</span>
+            <span className="text-[10px] text-white/40 mt-1 leading-tight max-w-[130px]">
                 {cfg.desc.split("·")[0].trim()}
             </span>
         </button>
@@ -296,28 +296,28 @@ export default function LanguagesShowcase() {
     };
 
     return (
-        <section ref={ref} className="mobile-fade-up relative bg-[#0F0B15] py-24 md:py-32 overflow-hidden">
+        <section ref={ref} className="relative bg-[#0F0B15] py-24 md:py-32 overflow-hidden">
             <DarkAuroraBackground />
-            <div className="mobile-fade-up relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
+            <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
 
                 {/* Header */}
-                <motion.div className="mobile-fade-up text-center mb-12"
+                <motion.div className="text-center mb-12"
                     initial={{ y: 20 }}
                     animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6 }}>
-                    <span className="mobile-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-5 border border-white/10">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-5 border border-white/10">
                         🗣 LANGUAGES WITH VOICE
                     </span>
-                    <h2 className="mobile-fade-up text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
                         AI Voices for Every Plan
                     </h2>
-                    <p className="mobile-fade-up text-lg text-white/60 max-w-2xl mx-auto">
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
                         All tiers include high-quality voice support. Choose your plan to access our full library of 90+ languages and premium AI models.
                     </p>
                 </motion.div>
 
                 {/* Engine counts bar */}
-                <motion.div className="mobile-fade-up flex flex-wrap justify-center gap-2 mb-10"
+                <motion.div className="flex flex-wrap justify-center gap-2 mb-10"
                      animate={inView ? { } : { }}
                     transition={{ delay: 0.1 }}>
                     {(Object.entries(AUTH_COUNTS) as [TierName, number][]).map(([tier, count]) => (
@@ -328,11 +328,11 @@ export default function LanguagesShowcase() {
                 </motion.div>
 
                 {/* Plan selector */}
-                <motion.div className="mobile-fade-up mb-10" initial={{ y: 12 }}
+                <motion.div className="mb-10" initial={{ y: 12 }}
                     animate={inView ? { y: 0 } : { y: 12 }}
                     transition={{ delay: 0.15 }}>
-                    <p className="mobile-fade-up text-center text-[10px] text-white/35 uppercase tracking-widest mb-3 font-bold">Filter by your plan</p>
-                    <div className="mobile-fade-up flex flex-wrap justify-center gap-3">
+                    <p className="text-center text-[10px] text-white/35 uppercase tracking-widest mb-3 font-bold">Filter by your plan</p>
+                    <div className="flex flex-wrap justify-center gap-3">
                         <PlanCard planKey="All" count={counts.All} isActive={activePlan === "All"} onClick={() => setActivePlan("All")} />
                         <PlanCard planKey="Starter" count={counts.Starter} isActive={activePlan === "Starter"} onClick={() => setActivePlan("Starter")} />
                         <PlanCard planKey="Pro" count={counts.Pro} isActive={activePlan === "Pro"} onClick={() => setActivePlan("Pro")} />
@@ -340,15 +340,15 @@ export default function LanguagesShowcase() {
                     </div>
                     {activePlan !== "All" && (
                         <motion.div key={activePlan} initial={{ y: 6 }} animate={{ y: 0 }}
-                            className="mobile-fade-up text-center mt-5 flex flex-col items-center gap-2">
-                            <p className="mobile-fade-up text-sm text-white/60 max-w-lg mx-auto">
-                                <span className="mobile-fade-up font-bold text-white">{PLAN_CONFIG[activePlan].icon} {activePlan}:</span>{" "}
+                            className="text-center mt-5 flex flex-col items-center gap-2">
+                            <p className="text-sm text-white/60 max-w-lg mx-auto">
+                                <span className="font-bold text-white">{PLAN_CONFIG[activePlan].icon} {activePlan}:</span>{" "}
                                 {PLAN_CONFIG[activePlan].desc}
                             </p>
                             {activePlan !== "Unlimited" && (
                                 <a href="/pricing"
                                     style={{ color: PLAN_CONFIG[activePlan].color, borderColor: `${PLAN_CONFIG[activePlan].color}50`, backgroundColor: `${PLAN_CONFIG[activePlan].color}15` }}
-                                    className="mobile-fade-up inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full border transition-all hover:opacity-80">
+                                    className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full border transition-all hover:opacity-80">
                                     Upgrade to {activePlan === "Starter" ? "Pro" : "Unlimited"} for more languages →
                                 </a>
                             )}
@@ -357,16 +357,16 @@ export default function LanguagesShowcase() {
                 </motion.div>
 
                 {/* Search */}
-                <motion.div className="mobile-fade-up flex justify-center mb-7"
+                <motion.div className="flex justify-center mb-7"
                      animate={inView ? { } : { }} transition={{ delay: 0.2 }}>
                     <input type="text" placeholder="Search language..."
                         value={search} onChange={e => setSearch(e.target.value)}
-                        className="mobile-fade-up w-full sm:w-72 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 transition-colors" />
+                        className="w-full sm:w-72 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 transition-colors" />
                 </motion.div>
 
                 {/* Grid */}
                 <AnimatePresence mode="popLayout">
-                    <motion.div layout className="mobile-fade-up grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5">
+                    <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5">
                         {sorted.map((lang, idx) => (
                             <LanguageCard
                                 key={lang.code} lang={lang} index={idx} inView={inView}
@@ -377,22 +377,22 @@ export default function LanguagesShowcase() {
                 </AnimatePresence>
 
                 {/* Plan legend */}
-                <motion.div className="mobile-fade-up flex flex-wrap justify-center gap-4 mt-10"
+                <motion.div className="flex flex-wrap justify-center gap-4 mt-10"
                      animate={inView ? { } : { }} transition={{ delay: 0.6 }}>
                     {(["Starter", "Pro", "Unlimited"] as PlanTier[]).map(p => {
                         const cfg = PLAN_CONFIG[p];
                         return (
-                            <div key={p} className="mobile-fade-up flex items-center gap-2">
+                            <div key={p} className="flex items-center gap-2">
                                 <span className={`text-[9px] font-black px-2 py-0.5 rounded-md border ${cfg.bg} ${cfg.border} ${cfg.text}`}>
                                     {cfg.icon} {p}
                                 </span>
-                                <span className="mobile-fade-up text-[11px] text-white/40">{cfg.desc}</span>
+                                <span className="text-[11px] text-white/40">{cfg.desc}</span>
                             </div>
                         );
                     })}
                 </motion.div>
 
-                <motion.p className="mobile-fade-up text-center text-xs text-white/25 mt-4"
+                <motion.p className="text-center text-xs text-white/25 mt-4"
                      animate={inView ? { } : { }} transition={{ delay: 0.7 }}>
                     Showing {sorted.length} of {ALL_LANGUAGES.length} languages.
                     All plans include real-time translation. Voice tier determines quality and expressiveness.

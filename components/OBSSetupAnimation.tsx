@@ -60,9 +60,9 @@ export default function OBSSetupAnimation() {
   const isDetected = phase >= 10;
 
   return (
-    <div className="mobile-fade-up flex flex-col items-center w-full max-w-[700px]">
+    <div className="flex flex-col items-center w-full max-w-[700px]">
       {/* Tabs */}
-      <div className="mobile-fade-up flex bg-slate-100/80 md:backdrop-blur-sm p-1.5 rounded-full mb-8 ring-1 ring-slate-200 shadow-sm z-10 w-max">
+      <div className="flex bg-slate-100/80 md:backdrop-blur-sm p-1.5 rounded-full mb-8 ring-1 ring-slate-200 shadow-sm z-10 w-max">
         <button 
           onClick={() => setMode('obs')}
           className={`px-6 py-2 text-sm font-bold rounded-full transition-all ${mode === 'obs' ? 'bg-white text-slate-900 shadow-md ring-1 ring-slate-200' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
@@ -83,7 +83,7 @@ export default function OBSSetupAnimation() {
         </button>
       </div>
 
-      <div className="mobile-fade-up relative w-full aspect-video rounded-2xl shadow-2xl overflow-hidden select-none font-sans text-sm transition-colors duration-500 ring-1 ring-slate-900/5" 
+      <div className="relative w-full aspect-video rounded-2xl shadow-2xl overflow-hidden select-none font-sans text-sm transition-colors duration-500 ring-1 ring-slate-900/5" 
            style={{ backgroundColor: mode === 'obs' ? '#1e1e1e' : '#f8fafc' }}>
         
         <AnimatePresence mode="wait">
@@ -94,52 +94,52 @@ export default function OBSSetupAnimation() {
               
               exit={{ }}
               transition={{ duration: 0.3 }}
-              className="mobile-fade-up absolute inset-0 flex flex-col"
+              className="absolute inset-0 flex flex-col"
             >
               {/* OBS Header */}
-              <div className="mobile-fade-up h-8 bg-[#2d2d2d] flex items-center px-4 justify-between border-b border-[#111]">
-                <div className="mobile-fade-up flex gap-2">
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-red-500" />
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-green-500" />
+              <div className="h-8 bg-[#2d2d2d] flex items-center px-4 justify-between border-b border-[#111]">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
-                <div className="mobile-fade-up text-gray-400 text-xs font-semibold">OBS Studio 30.0.0 (64-bit, windows) - Profile: Untitled</div>
-                <div className="mobile-fade-up w-12" />
+                <div className="text-gray-400 text-xs font-semibold">OBS Studio 30.0.0 (64-bit, windows) - Profile: Untitled</div>
+                <div className="w-12" />
               </div>
 
               {/* OBS Main Content */}
-              <div className="mobile-fade-up flex h-[calc(100%-2rem)]">
+              <div className="flex h-[calc(100%-2rem)]">
                 {/* Main Viewport */}
-                <div className="mobile-fade-up flex-1 p-4 flex flex-col gap-4">
-                  <div className="mobile-fade-up flex-1 bg-black border border-[#111] relative flex items-center justify-center overflow-hidden">
+                <div className="flex-1 p-4 flex flex-col gap-4">
+                  <div className="flex-1 bg-black border border-[#111] relative flex items-center justify-center overflow-hidden">
                      {/* Fake pastor video feed */}
-                     <img src="/photos/exbabel_live_translation_concept_1780070697205.webp" className="mobile-fade-up w-full h-full object-cover opacity-50 blur-[2px]" alt="feed" loading="lazy" />
+                     <img src="/photos/exbabel_live_translation_concept_1780070697205.webp" className="w-full h-full object-cover opacity-50 blur-[2px]" alt="feed" loading="lazy" />
                      {isStreaming && (
-                       <div className="mobile-fade-up absolute top-4 right-4 px-3 py-1 bg-red-600 text-white font-bold text-xs rounded-sm flex items-center gap-2 animate-pulse">
-                         <div className="mobile-fade-up w-2 h-2 bg-white rounded-full" />
+                       <div className="absolute top-4 right-4 px-3 py-1 bg-red-600 text-white font-bold text-xs rounded-sm flex items-center gap-2 animate-pulse">
+                         <div className="w-2 h-2 bg-white rounded-full" />
                          LIVE
                        </div>
                      )}
                   </div>
                   
                   {/* Bottom Docks (Audio Mixer, Scenes, Controls) */}
-                  <div className="mobile-fade-up h-40 flex gap-4">
-                    <div className="mobile-fade-up w-1/4 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
-                       <div className="mobile-fade-up text-gray-400 text-xs font-bold mb-1">Scenes</div>
-                       <div className="mobile-fade-up bg-primary/20 text-white px-2 py-1 text-xs">Scene 1</div>
+                  <div className="h-40 flex gap-4">
+                    <div className="w-1/4 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
+                       <div className="text-gray-400 text-xs font-bold mb-1">Scenes</div>
+                       <div className="bg-primary/20 text-white px-2 py-1 text-xs">Scene 1</div>
                     </div>
-                    <div className="mobile-fade-up w-1/4 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
-                       <div className="mobile-fade-up text-gray-400 text-xs font-bold mb-1">Sources</div>
-                       <div className="mobile-fade-up text-white px-2 py-1 text-xs">Video Capture Device</div>
+                    <div className="w-1/4 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
+                       <div className="text-gray-400 text-xs font-bold mb-1">Sources</div>
+                       <div className="text-white px-2 py-1 text-xs">Video Capture Device</div>
                     </div>
-                    <div className="mobile-fade-up flex-1 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
-                       <div className="mobile-fade-up text-gray-400 text-xs font-bold mb-1">Controls</div>
+                    <div className="flex-1 bg-[#252525] border border-[#111] p-2 flex flex-col gap-1">
+                       <div className="text-gray-400 text-xs font-bold mb-1">Controls</div>
                        <div className={`px-2 py-1.5 text-center text-xs font-bold border transition-colors ${isStreaming ? 'bg-red-600/20 text-red-400 border-red-500/50' : 'bg-[#333] text-gray-200 border-[#444]'}`}>
                          {isStreaming ? 'Stop Streaming' : 'Start Streaming'}
                        </div>
-                       <div className="mobile-fade-up px-2 py-1.5 text-center text-xs text-gray-300 bg-[#333] border border-[#444]">Start Recording</div>
+                       <div className="px-2 py-1.5 text-center text-xs text-gray-300 bg-[#333] border border-[#444]">Start Recording</div>
                        <div className={`px-2 py-1.5 text-center text-xs text-gray-300 border transition-colors ${phase === 1 || phase === 2 ? 'bg-primary/20 border-primary' : 'bg-[#333] border-[#444]'}`}>Settings</div>
-                       <div className="mobile-fade-up px-2 py-1.5 text-center text-xs text-gray-300 bg-[#333] border border-[#444]">Exit</div>
+                       <div className="px-2 py-1.5 text-center text-xs text-gray-300 bg-[#333] border border-[#444]">Exit</div>
                     </div>
                   </div>
                 </div>
@@ -152,33 +152,33 @@ export default function OBSSetupAnimation() {
                     initial={{ scale: 0.95 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0.95 }}
-                    className="mobile-fade-up absolute inset-0 bg-black/50 flex items-center justify-center z-20"
+                    className="absolute inset-0 bg-black/50 flex items-center justify-center z-20"
                   >
-                    <div className="mobile-fade-up w-[500px] h-[350px] bg-[#2d2d2d] border border-[#111] shadow-2xl flex flex-col">
-                      <div className="mobile-fade-up h-8 bg-[#333] flex items-center px-3 text-xs text-gray-200 border-b border-[#111]">
+                    <div className="w-[500px] h-[350px] bg-[#2d2d2d] border border-[#111] shadow-2xl flex flex-col">
+                      <div className="h-8 bg-[#333] flex items-center px-3 text-xs text-gray-200 border-b border-[#111]">
                         Settings
                       </div>
-                      <div className="mobile-fade-up flex flex-1 overflow-hidden">
+                      <div className="flex flex-1 overflow-hidden">
                         {/* Sidebar */}
-                        <div className="mobile-fade-up w-32 bg-[#252525] border-r border-[#111] py-2 flex flex-col gap-1">
-                          <div className="mobile-fade-up px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">General</div>
+                        <div className="w-32 bg-[#252525] border-r border-[#111] py-2 flex flex-col gap-1">
+                          <div className="px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">General</div>
                           <div className={`px-4 py-1.5 text-xs transition-colors ${isStreamTabOpen ? 'bg-primary/20 text-white border-l-2 border-primary' : 'text-gray-400 hover:bg-[#333]'}`}>Stream</div>
-                          <div className="mobile-fade-up px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Output</div>
-                          <div className="mobile-fade-up px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Audio</div>
-                          <div className="mobile-fade-up px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Video</div>
+                          <div className="px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Output</div>
+                          <div className="px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Audio</div>
+                          <div className="px-4 py-1.5 text-xs text-gray-400 hover:bg-[#333]">Video</div>
                         </div>
                         
                         {/* Modal Content */}
-                        <div className="mobile-fade-up flex-1 p-6 bg-[#2d2d2d]">
+                        <div className="flex-1 p-6 bg-[#2d2d2d]">
                           {isStreamTabOpen ? (
-                            <motion.div   className="mobile-fade-up space-y-4">
-                              <div className="mobile-fade-up flex items-center gap-4">
-                                <div className="mobile-fade-up w-20 text-right text-xs text-gray-300">Service</div>
-                                <div className="mobile-fade-up flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200">Custom...</div>
+                            <motion.div   className="space-y-4">
+                              <div className="flex items-center gap-4">
+                                <div className="w-20 text-right text-xs text-gray-300">Service</div>
+                                <div className="flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200">Custom...</div>
                               </div>
-                              <div className="mobile-fade-up flex items-center gap-4">
-                                <div className="mobile-fade-up w-20 text-right text-xs text-gray-300">Server</div>
-                                <div className="mobile-fade-up flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200 flex items-center">
+                              <div className="flex items-center gap-4">
+                                <div className="w-20 text-right text-xs text-gray-300">Server</div>
+                                <div className="flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200 flex items-center">
                                   {showServerUrl && (
                                     <motion.span
                                       initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -188,12 +188,12 @@ export default function OBSSetupAnimation() {
                                       rtmp://live.exbabel.com/app
                                     </motion.span>
                                   )}
-                                  {showServerUrl && phase < 5 && <span className="mobile-fade-up w-0.5 h-3 bg-white animate-pulse ml-0.5" />}
+                                  {showServerUrl && phase < 5 && <span className="w-0.5 h-3 bg-white animate-pulse ml-0.5" />}
                                 </div>
                               </div>
-                              <div className="mobile-fade-up flex items-center gap-4">
-                                <div className="mobile-fade-up w-20 text-right text-xs text-gray-300">Stream Key</div>
-                                <div className="mobile-fade-up flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200 flex items-center">
+                              <div className="flex items-center gap-4">
+                                <div className="w-20 text-right text-xs text-gray-300">Stream Key</div>
+                                <div className="flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200 flex items-center">
                                   {showStreamKey && (
                                     <motion.span
                                       initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -203,24 +203,24 @@ export default function OBSSetupAnimation() {
                                       ••••••••••••••••••••
                                     </motion.span>
                                   )}
-                                  {showStreamKey && phase < 7 && <span className="mobile-fade-up w-0.5 h-3 bg-white animate-pulse ml-0.5" />}
+                                  {showStreamKey && phase < 7 && <span className="w-0.5 h-3 bg-white animate-pulse ml-0.5" />}
                                 </div>
                               </div>
-                              <div className="mobile-fade-up pl-24 mt-2">
-                                <span className="mobile-fade-up text-[10px] text-gray-500">Use authentication</span>
+                              <div className="pl-24 mt-2">
+                                <span className="text-[10px] text-gray-500">Use authentication</span>
                               </div>
                             </motion.div>
                           ) : (
-                            <div className="mobile-fade-up text-gray-500 text-xs">Select a category on the left</div>
+                            <div className="text-gray-500 text-xs">Select a category on the left</div>
                           )}
                         </div>
                       </div>
                       
                       {/* Modal Footer */}
-                      <div className="mobile-fade-up h-12 border-t border-[#111] bg-[#252525] flex justify-end items-center px-4 gap-2">
+                      <div className="h-12 border-t border-[#111] bg-[#252525] flex justify-end items-center px-4 gap-2">
                         <div className={`px-4 py-1 text-xs bg-[#444] text-gray-200 border border-[#555] rounded-sm transition-colors ${phase === 7 ? 'bg-primary border-primary' : ''}`}>OK</div>
-                        <div className="mobile-fade-up px-4 py-1 text-xs bg-[#444] text-gray-200 border border-[#555] rounded-sm">Cancel</div>
-                        <div className="mobile-fade-up px-4 py-1 text-xs bg-[#444] text-gray-500 border border-[#444] rounded-sm">Apply</div>
+                        <div className="px-4 py-1 text-xs bg-[#444] text-gray-200 border border-[#555] rounded-sm">Cancel</div>
+                        <div className="px-4 py-1 text-xs bg-[#444] text-gray-500 border border-[#444] rounded-sm">Apply</div>
                       </div>
                     </div>
                   </motion.div>
@@ -234,27 +234,27 @@ export default function OBSSetupAnimation() {
               
               exit={{ }}
               transition={{ duration: 0.3 }}
-              className="mobile-fade-up absolute inset-0 flex flex-col bg-[#f8fafc]"
+              className="absolute inset-0 flex flex-col bg-[#f8fafc]"
             >
               {/* Exbabel Dashboard Header */}
-              <div className="mobile-fade-up h-14 bg-white border-b border-slate-200 flex items-center px-6">
-                <div className="mobile-fade-up flex gap-2">
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-slate-200" />
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-slate-200" />
-                  <div className="mobile-fade-up w-3 h-3 rounded-full bg-slate-200" />
+              <div className="h-14 bg-white border-b border-slate-200 flex items-center px-6">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
+                  <div className="w-3 h-3 rounded-full bg-slate-200" />
                 </div>
-                <div className="mobile-fade-up mx-auto font-bold text-primary tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Exbabel Live</div>
+                <div className="mx-auto font-bold text-primary tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Exbabel Live</div>
               </div>
               
               {/* Main Workspace */}
-              <div className="mobile-fade-up flex-1 p-8 flex flex-col items-center pt-16">
-                <div className="mobile-fade-up w-full max-w-[450px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 relative">
+              <div className="flex-1 p-8 flex flex-col items-center pt-16">
+                <div className="w-full max-w-[450px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 relative">
                   
-                  <h3 className="mobile-fade-up text-lg font-bold text-slate-800 mb-1" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Universal Stream Setup</h3>
-                  <p className="mobile-fade-up text-slate-500 text-xs mb-5">Paste a live stream URL from {mode === 'youtube' ? 'YouTube' : 'any compatible platform'}.</p>
+                  <h3 className="text-lg font-bold text-slate-800 mb-1" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>Universal Stream Setup</h3>
+                  <p className="text-slate-500 text-xs mb-5">Paste a live stream URL from {mode === 'youtube' ? 'YouTube' : 'any compatible platform'}.</p>
                   
-                  <div className="mobile-fade-up flex gap-2">
-                    <div className="mobile-fade-up flex-1 h-10 bg-slate-50 border border-slate-200 rounded-lg px-3 flex items-center text-slate-700 relative overflow-hidden text-xs">
+                  <div className="flex gap-2">
+                    <div className="flex-1 h-10 bg-slate-50 border border-slate-200 rounded-lg px-3 flex items-center text-slate-700 relative overflow-hidden text-xs">
                       {showTyping && (
                         <motion.span
                           initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -264,8 +264,8 @@ export default function OBSSetupAnimation() {
                           {urlString}
                         </motion.span>
                       )}
-                      {showTyping && phase < 6 && <span className="mobile-fade-up w-0.5 h-4 bg-slate-400 animate-pulse ml-0.5" />}
-                      {!showTyping && <span className="mobile-fade-up text-slate-400">https://...</span>}
+                      {showTyping && phase < 6 && <span className="w-0.5 h-4 bg-slate-400 animate-pulse ml-0.5" />}
+                      {!showTyping && <span className="text-slate-400">https://...</span>}
                     </div>
                     <div className={`h-10 px-4 rounded-lg flex items-center justify-center font-bold text-white transition-colors text-xs shadow-sm ${phase === 7 ? 'bg-primary/80' : 'bg-primary'}`}>
                       Connect
@@ -277,28 +277,28 @@ export default function OBSSetupAnimation() {
                       <motion.div 
                         initial={{ y: 10, height: 0 }}
                         animate={{ y: 0, height: 'auto' }}
-                        className="mobile-fade-up mt-6 border rounded-xl overflow-hidden"
+                        className="mt-6 border rounded-xl overflow-hidden"
                       >
                         {isConnecting ? (
-                          <div className="mobile-fade-up p-6 flex flex-col items-center justify-center gap-3 bg-slate-50 border-slate-200 text-slate-500 h-[170px]">
-                            <div className="mobile-fade-up w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                            <div className="mobile-fade-up text-xs font-semibold">Analyzing stream format with yt-dlp...</div>
+                          <div className="p-6 flex flex-col items-center justify-center gap-3 bg-slate-50 border-slate-200 text-slate-500 h-[170px]">
+                            <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                            <div className="text-xs font-semibold">Analyzing stream format with yt-dlp...</div>
                           </div>
                         ) : (
-                          <div className="mobile-fade-up bg-white border-green-200 relative overflow-hidden flex flex-col h-[170px]">
-                            <div className="mobile-fade-up h-[110px] bg-black relative">
-                              <img src="/photos/exbabel_live_translation_concept_1780070697205.webp" className="mobile-fade-up w-full h-full object-cover opacity-60 blur-sm" />
-                              <div className="mobile-fade-up absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-sm animate-pulse">LIVE</div>
+                          <div className="bg-white border-green-200 relative overflow-hidden flex flex-col h-[170px]">
+                            <div className="h-[110px] bg-black relative">
+                              <img src="/photos/exbabel_live_translation_concept_1780070697205.webp" className="w-full h-full object-cover opacity-60 blur-sm" />
+                              <div className="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-sm animate-pulse">LIVE</div>
                             </div>
-                            <div className="mobile-fade-up flex-1 flex items-center justify-between bg-green-50/50 px-4">
+                            <div className="flex-1 flex items-center justify-between bg-green-50/50 px-4">
                                <div>
-                                 <div className="mobile-fade-up text-sm font-bold text-green-700 flex items-center gap-1.5">
-                                   <div className="mobile-fade-up w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                 <div className="text-sm font-bold text-green-700 flex items-center gap-1.5">
+                                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                    Stream Detected
                                  </div>
-                                 <div className="mobile-fade-up text-[10px] text-green-700/70 mt-0.5">Ready for translation</div>
+                                 <div className="text-[10px] text-green-700/70 mt-0.5">Ready for translation</div>
                                </div>
-                               <div className="mobile-fade-up px-4 py-1.5 bg-green-600 hover:bg-green-700 text-white font-bold text-xs rounded-lg shadow-sm">
+                               <div className="px-4 py-1.5 bg-green-600 hover:bg-green-700 text-white font-bold text-xs rounded-lg shadow-sm">
                                  Go Live
                                </div>
                             </div>
@@ -315,7 +315,7 @@ export default function OBSSetupAnimation() {
         
         {/* Animated Cursor */}
         <motion.div 
-          className="mobile-fade-up absolute w-5 h-5 z-50 pointer-events-none drop-shadow-md"
+          className="absolute w-5 h-5 z-50 pointer-events-none drop-shadow-md"
           animate={{ x: cursorState.x, y: cursorState.y }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
         >

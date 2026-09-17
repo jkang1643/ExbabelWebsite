@@ -22,10 +22,10 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
     }, [inView, feature.videoSrc]);
 
     return (
-        <div ref={ref} className="mobile-fade-up bg-white rounded-2xl shadow-lg overflow-hidden border border-[#EAD6FF]/60">
+        <div ref={ref} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-[#EAD6FF]/60">
             <div className={`relative w-full ${feature.videoBg || "bg-white"}`} style={{ minHeight: feature.animationComponent ? '300px' : 'auto', maxHeight: '60vh' }}>
                 {feature.animationComponent ? (
-                    <div className="mobile-fade-up absolute inset-0 w-full h-full">
+                    <div className="absolute inset-0 w-full h-full">
                         {feature.animationComponent}
                     </div>
                 ) : (
@@ -35,27 +35,27 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
                         loop
                         playsInline
                         preload="none"
-                        className="mobile-fade-up w-full h-full object-contain"
+                        className="w-full h-full object-contain"
                         style={{ maxHeight: '60vh' }}
                     />
                 )}
             </div>
-            <div className="mobile-fade-up p-6" style={{ borderLeft: `5px solid ${feature.accentColor}` }}>
-                <div className="mobile-fade-up flex flex-wrap items-center gap-2 mb-3">
+            <div className="p-6" style={{ borderLeft: `5px solid ${feature.accentColor}` }}>
+                <div className="flex flex-wrap items-center gap-2 mb-3">
                     {feature.statusSymbol && (
-                        <span className="mobile-fade-up text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-300">
+                        <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-300">
                             {feature.statusSymbol}
                         </span>
                     )}
                     {feature.badge && (
-                        <span className="mobile-fade-up text-xs font-bold px-2.5 py-0.5 rounded-lg text-white" style={{ backgroundColor: feature.accentColor }}>
+                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-lg text-white" style={{ backgroundColor: feature.accentColor }}>
                             {feature.badge}
                         </span>
                     )}
                 </div>
-                <h3 className="mobile-fade-up text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="mobile-fade-up text-sm leading-relaxed text-slate-600 mb-4">{feature.description}</p>
-                <a href="/lab-test" className="mobile-fade-up inline-flex items-center gap-1.5 text-sm font-bold transition-all" style={{ color: feature.accentColor }}>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600 mb-4">{feature.description}</p>
+                <a href="/lab-test" className="inline-flex items-center gap-1.5 text-sm font-bold transition-all" style={{ color: feature.accentColor }}>
                     View performance report →
                 </a>
             </div>
@@ -109,14 +109,14 @@ function SecurityAnimation() {
     }, []);
 
     return (
-        <div className="mobile-fade-up absolute inset-0 w-full h-full bg-[#FCFCFD] flex items-center justify-center overflow-hidden">
-            <div className="mobile-fade-up absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 w-full h-full bg-[#FCFCFD] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
             
-            <div className="mobile-fade-up relative z-10 flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
+            <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
                 
                 {/* Title */}
-                <div className="mobile-fade-up flex items-center gap-2 sm:gap-3 text-2xl sm:text-4xl font-bold text-[#0B1220] tracking-tight mb-6 sm:mb-8">
-                    <svg className="mobile-fade-up w-6 h-6 sm:w-8 sm:h-8 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                <div className="flex items-center gap-2 sm:gap-3 text-2xl sm:text-4xl font-bold text-[#0B1220] tracking-tight mb-6 sm:mb-8">
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                     Enterprise Security
@@ -127,15 +127,15 @@ function SecurityAnimation() {
                     initial={{ scale: 0.8, }}
                     animate={{ scale: 1, }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mobile-fade-up relative z-10 mb-6 sm:mb-8"
+                    className="relative z-10 mb-6 sm:mb-8"
                 >
-                    <div className="mobile-fade-up w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-indigo-200 flex items-center justify-center bg-indigo-50/50 md:backdrop-blur-md relative shadow-[0_8px_32px_rgba(79,70,229,0.15)]">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-indigo-200 flex items-center justify-center bg-indigo-50/50 md:backdrop-blur-md relative shadow-[0_8px_32px_rgba(79,70,229,0.15)]">
                         <motion.div
                             animate={{ top: ['0%', '100%', '0%'] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                            className="mobile-fade-up absolute left-0 right-0 h-0.5 bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-20"
+                            className="absolute left-0 right-0 h-0.5 bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-20"
                         />
-                        <svg className="mobile-fade-up w-10 h-10 sm:w-14 sm:h-14 text-indigo-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-10 h-10 sm:w-14 sm:h-14 text-indigo-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         {[0, 1, 2].map((i) => (
@@ -144,9 +144,9 @@ function SecurityAnimation() {
                                 initial={{ rotate: i * 120 }}
                                 animate={{ rotate: i * 120 + 360 }}
                                 transition={{ duration: 4 + i, repeat: Infinity, ease: "linear" }}
-                                className="mobile-fade-up absolute inset-[-14px] sm:inset-[-18px] rounded-full border border-dashed border-indigo-200"
+                                className="absolute inset-[-14px] sm:inset-[-18px] rounded-full border border-dashed border-indigo-200"
                             >
-                                <div className="mobile-fade-up w-2 h-2 bg-indigo-500 rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
+                                <div className="w-2 h-2 bg-indigo-500 rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
                             </motion.div>
                         ))}
                     </div>
@@ -158,7 +158,7 @@ function SecurityAnimation() {
                     initial={display === "99.99" ? { scale: 1.05 } : { scale: 1 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="mobile-fade-up text-[4rem] sm:text-[6rem] lg:text-[7.5rem] font-black tracking-tighter text-[#3B82F6] leading-none"
+                    className="text-[4rem] sm:text-[6rem] lg:text-[7.5rem] font-black tracking-tighter text-[#3B82F6] leading-none"
                     style={{ letterSpacing: '-0.04em' }}
                 >
                     {display}%
@@ -270,27 +270,27 @@ export default function FeatureShowcase() {
     return (
         <>
             {/* DESKTOP: Scrollytelling (lg and above) */}
-            <div className="mobile-fade-up hidden lg:block">
-                <div ref={containerRef} className="mobile-fade-up relative h-[500vh]">
-                    <div className="mobile-fade-up sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white">
-                        <section className="mobile-fade-up w-full py-12 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
-                            <div className="mobile-fade-up max-w-6xl mx-auto">
+            <div className="hidden lg:block">
+                <div ref={containerRef} className="relative h-[500vh]">
+                    <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white">
+                        <section className="w-full py-12 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
+                            <div className="max-w-6xl mx-auto">
                                 
                                 {/* Section Header */}
-                                <div className="mobile-fade-up text-center mb-12">
-                                    <div className="mobile-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+                                <div className="text-center mb-12">
+                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                                         Platform Capabilities
                                     </div>
-                                    <h2 className="mobile-fade-up text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-tight">
+                                    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-tight">
                                         Built for Continuous Speech at Scale
                                     </h2>
                                 </div>
 
-                                <div className="mobile-fade-up grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                                     
                                     {/* LEFT: Text Info */}
-                                    <div className="mobile-fade-up space-y-6">
-                                        <div className="mobile-fade-up relative">
+                                    <div className="space-y-6">
+                                        <div className="relative">
                                             <AnimatePresence mode="wait">
                                                 <motion.div
                                                     key={active.id}
@@ -298,13 +298,13 @@ export default function FeatureShowcase() {
                                                     animate={{ y: 0 }}
                                                     exit={{ y: prefersReduced ? 0 : -20 }}
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
-                                                    className="mobile-fade-up space-y-4"
+                                                    className="space-y-4"
                                                 >
                                                     {/* Badge */}
-                                                    <div className="mobile-fade-up flex items-center gap-2">
+                                                    <div className="flex items-center gap-2">
                                                         {active.badge && (
                                                             <span
-                                                                className="mobile-fade-up text-xs font-semibold px-3 py-1 rounded-full text-white"
+                                                                className="text-xs font-semibold px-3 py-1 rounded-full text-white"
                                                                 style={{ backgroundColor: active.accentColor }}
                                                             >
                                                                 {active.badge}
@@ -312,33 +312,33 @@ export default function FeatureShowcase() {
                                                         )}
                                                     </div>
 
-                                                    <h3 className="mobile-fade-up text-2xl sm:text-3xl font-extrabold text-[#0B1220] leading-snug">
+                                                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1220] leading-snug">
                                                         {active.title}
                                                     </h3>
-                                                    <p className="mobile-fade-up text-base text-slate-600 leading-relaxed max-w-lg">
+                                                    <p className="text-base text-slate-600 leading-relaxed max-w-lg">
                                                         {active.description}
                                                     </p>
                                                 </motion.div>
                                             </AnimatePresence>
 
-                                            <div className="mobile-fade-up pt-4">
+                                            <div className="pt-4">
                                                 <a
                                                     href="/lab-test"
-                                                    className="mobile-fade-up inline-flex items-center gap-2 text-sm font-bold transition-all group/link"
+                                                    className="inline-flex items-center gap-2 text-sm font-bold transition-all group/link"
                                                     style={{ color: active.accentColor }}
                                                 >
                                                     <span>View performance report</span>
-                                                    <span className="mobile-fade-up group-hover/link:translate-x-1 transition-transform">→</span>
+                                                    <span className="group-hover/link:translate-x-1 transition-transform">→</span>
                                                 </a>
                                             </div>
 
                                             {/* Progress Indicator */}
-                                            <div className="mobile-fade-up mt-8 flex items-center gap-2">
+                                            <div className="mt-8 flex items-center gap-2">
                                                 {FEATURES.map((_, idx) => (
                                                     <button
                                                         key={idx}
                                                         onClick={() => handleStepChange(idx)}
-                                                        className="mobile-fade-up h-1.5 rounded-full transition-all duration-300 focus:outline-none"
+                                                        className="h-1.5 rounded-full transition-all duration-300 focus:outline-none"
                                                         style={{
                                                             width: idx === activeIdx ? "36px" : "10px",
                                                             backgroundColor: idx === activeIdx ? active.accentColor : "#CBD5E1",
@@ -351,15 +351,15 @@ export default function FeatureShowcase() {
                                     </div>
 
                                     {/* RIGHT: Video Stage */}
-                                    <div className="mobile-fade-up relative w-full aspect-[4/3]">
+                                    <div className="relative w-full aspect-[4/3]">
                                         {/* Progress Counter */}
-                                        <div className="mobile-fade-up absolute -top-8 left-0 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        <div className="absolute -top-8 left-0 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                                             Capability {String(activeIdx + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
                                         </div>
 
                                         {/* Blob Background */}
                                         <div
-                                            className="mobile-fade-up showcase-blob absolute -inset-32 rounded-[60px] transition-all duration-700 ease-out pointer-events-none"
+                                            className="showcase-blob absolute -inset-32 rounded-[60px] transition-all duration-700 ease-out pointer-events-none"
                                             style={{
                                                 background: `radial-gradient(ellipse at 50% 40%, ${active.accentColor}40 0%, ${active.accentColor}20 35%, transparent 75%)`,
                                             }}
@@ -370,7 +370,7 @@ export default function FeatureShowcase() {
                                             
                                             {/* Custom Animation Overlay */}
                                             <div 
-                                                className="mobile-fade-up absolute inset-0 transition-opacity duration-700 ease-out z-30 bg-white"
+                                                className="absolute inset-0 transition-opacity duration-700 ease-out z-30 bg-white"
                                                 style={{ opacity: active.animationComponent ? 1 : 0, pointerEvents: active.animationComponent ? 'auto' : 'none' }}
                                             >
                                                 {active.animationComponent}
@@ -383,7 +383,7 @@ export default function FeatureShowcase() {
                                                 loop
                                                 playsInline
                                                 preload="metadata"
-                                                className="mobile-fade-up absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
+                                                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
                                                 style={{
                                                     opacity: activeVideo === "A" ? 1 : 0,
                                                     zIndex: activeVideo === "A" ? 20 : 10,
@@ -396,7 +396,7 @@ export default function FeatureShowcase() {
                                                 loop
                                                 playsInline
                                                 preload="metadata"
-                                                className="mobile-fade-up absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
+                                                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
                                                 style={{
                                                     opacity: activeVideo === "B" ? 1 : 0,
                                                     zIndex: activeVideo === "B" ? 20 : 10,
@@ -413,18 +413,18 @@ export default function FeatureShowcase() {
             </div>
 
             {/* MOBILE: Simple Vertical List */}
-            <section className="mobile-fade-up block lg:hidden py-12 px-6 relative overflow-hidden bg-slate-50">
-                <div className="mobile-fade-up relative z-10 max-w-2xl mx-auto space-y-8">
-                    <div className="mobile-fade-up text-center mb-8 space-y-2">
-                        <div className="mobile-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
+            <section className="block lg:hidden py-12 px-6 relative overflow-hidden bg-slate-50">
+                <div className="relative z-10 max-w-2xl mx-auto space-y-8">
+                    <div className="text-center mb-8 space-y-2">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                             Platform Capabilities
                         </div>
-                        <h2 className="mobile-fade-up text-2xl font-extrabold text-[#0B1220]">
+                        <h2 className="text-2xl font-extrabold text-[#0B1220]">
                             Built for Continuous Speech at Scale
                         </h2>
                     </div>
 
-                    <div className="mobile-fade-up space-y-6">
+                    <div className="space-y-6">
                         {FEATURES.map((feature) => (
                             <MobileFeatureCard key={feature.id} feature={feature} />
                         ))}

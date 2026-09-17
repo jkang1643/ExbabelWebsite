@@ -50,24 +50,24 @@ export default function HowItWorksUseCases() {
   };
 
   return (
-    <section className="mobile-fade-up py-20 bg-slate-900 text-white relative overflow-hidden">
-      <div className="mobile-fade-up layout-spine max-w-6xl mx-auto px-4">
+    <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+      <div className="layout-spine max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="mobile-fade-up text-center mb-16 max-w-3xl mx-auto">
-          <span className="mobile-fade-up text-xs font-black uppercase text-blue-400 tracking-widest block mb-2">Tailored Workflows</span>
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="text-xs font-black uppercase text-blue-400 tracking-widest block mb-2">Tailored Workflows</span>
           <h2
-            className="mobile-fade-up text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
+            className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
           >
             How Exbabel Adapts to Your Setting
           </h2>
-          <p className="mobile-fade-up text-slate-300 text-base md:text-lg font-medium">
+          <p className="text-slate-300 text-base md:text-lg font-medium">
             Explore how Exbabel fits your specific event environment and operational needs.
           </p>
         </div>
 
         {/* Tab Buttons */}
-        <div className="mobile-fade-up flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           {(["churches", "conferences", "education", "government"] as const).map((key) => {
             const labels = {
               churches: "Churches & Ministries",
@@ -94,7 +94,7 @@ export default function HowItWorksUseCases() {
         </div>
 
         {/* Tab Content Box */}
-        <div className="mobile-fade-up bg-slate-950 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -102,29 +102,29 @@ export default function HowItWorksUseCases() {
               animate={{ y: 0 }}
               exit={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              className="mobile-fade-up grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
-              <div className="mobile-fade-up lg:col-span-7 space-y-6">
-                <span className="mobile-fade-up inline-block px-3 py-1 bg-primary/20 text-blue-300 text-xs font-bold rounded-full">
+              <div className="lg:col-span-7 space-y-6">
+                <span className="inline-block px-3 py-1 bg-primary/20 text-blue-300 text-xs font-bold rounded-full">
                   {useCases[activeTab].badge}
                 </span>
-                <h3 className="mobile-fade-up text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+                <h3 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                   {useCases[activeTab].title}
                 </h3>
-                <ul className="mobile-fade-up space-y-3 text-slate-300 text-sm md:text-base font-medium">
+                <ul className="space-y-3 text-slate-300 text-sm md:text-base font-medium">
                   {useCases[activeTab].points.map((pt, i) => (
-                    <li key={i} className="mobile-fade-up flex items-start gap-3">
-                      <span className="mobile-fade-up w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
                       <span>{pt}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mobile-fade-up lg:col-span-5 bg-slate-900 rounded-2xl p-6 border border-slate-800 italic text-slate-300 text-sm leading-relaxed relative">
-                <span className="mobile-fade-up text-4xl text-primary opacity-30 font-serif leading-none block mb-2">&ldquo;</span>
-                <p className="mobile-fade-up mb-4">{useCases[activeTab].quote}</p>
-                <div className="mobile-fade-up text-xs font-bold text-white not-italic">— Verified Exbabel Customer</div>
+              <div className="lg:col-span-5 bg-slate-900 rounded-2xl p-6 border border-slate-800 italic text-slate-300 text-sm leading-relaxed relative">
+                <span className="text-4xl text-primary opacity-30 font-serif leading-none block mb-2">&ldquo;</span>
+                <p className="mb-4">{useCases[activeTab].quote}</p>
+                <div className="text-xs font-bold text-white not-italic">— Verified Exbabel Customer</div>
               </div>
             </motion.div>
           </AnimatePresence>
