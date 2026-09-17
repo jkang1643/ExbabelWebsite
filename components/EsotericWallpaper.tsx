@@ -6,7 +6,7 @@ export default function EsotericWallpaper() {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen z-0 flex items-center justify-center opacity-90">
       <motion.div
-        initial={{ .8 }}
+        initial={{ opacity: 0.8 }}
         animate={{ 
           opacity: [0.8, 1, 0.8],
           filter: [
