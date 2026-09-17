@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValue, useSpring, useTransform } from "framer-motion";
 import HeroAuroraBackground from "./HeroAuroraBackground";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
@@ -21,6 +21,92 @@ export default function GlassmorphicHero() {
   const [spanishPartialText, setSpanishPartialText] = useState("");
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
+
+  // Fluid Top Bounce & Elastic Parallax System (macOS/iOS rubber-banding + Windows/trackpad top-cushion)
+  const { scrollY } = useScroll();
+  const rawBounce = useMotionValue(0);
+
+  // Heavily damped physics spring for organic, buttery return
+  const springBounce = useSpring(rawBounce, {
+    stiffness: 160,
+    damping: 24,
+    mass: 0.7,
+  });
+
+  useEffect(() => {
+    let decayTimer: ReturnType<typeof setTimeout>;
+
+    const handleWheel = (e: WheelEvent) => {
+      // When at the very top of the page and scrolling upward
+      if (window.scrollY <= 1 && e.deltaY < 0) {
+        const current = rawBounce.get();
+        // Logarithmic resistance curve (feels like stretching premium elastic material)
+        const resistance = Math.max(0.12, 1 - current / 110);
+        const next = Math.min(85, current + Math.abs(e.deltaY) * 0.22 * resistance);
+        rawBounce.set(next);
+
+        clearTimeout(decayTimer);
+        decayTimer = setTimeout(() => {
+          rawBounce.set(0);
+        }, 50);
+      }
+    };
+
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      if (window.scrollY <= 1) {
+        touchStartY = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (window.scrollY <= 1) {
+        const delta = e.touches[0].clientY - touchStartY;
+        if (delta > 0) {
+          rawBounce.set(Math.min(95, delta * 0.32));
+        }
+      }
+    };
+
+    const handleTouchEnd = () => {
+      rawBounce.set(0);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+      clearTimeout(decayTimer);
+    };
+  }, [rawBounce]);
+
+  // Handle native negative scrollY on Safari/macOS rubber-banding
+  const nativeOverscroll = useTransform(scrollY, (y) => (y < 0 ? Math.abs(y) : 0));
+  
+  // Unified displacement signal
+  const totalBounce = useTransform(
+    [springBounce, nativeOverscroll],
+    ([synth, nat]: number[]) => Math.min(100, Math.max(synth, nat))
+  );
+
+  // Background expands elastically from top origin
+  const bgScale = useTransform(totalBounce, [0, 100], [1, 1.06]);
+  // Background parallax displacement
+  const bgY = useTransform(
+    [totalBounce, scrollY],
+    ([bounce, y]: number[]) => (y >= 0 ? y * 0.16 : bounce * 0.45)
+  );
+
+  // Foreground headline & CTAs cushion down with gentle resistance
+  const fgY = useTransform(totalBounce, [0, 100], [0, 18]);
+  // LiveTranslationGraphic card cushions with deeper resistance for rich 3D depth
+  const graphicY = useTransform(totalBounce, [0, 100], [0, 10]);
 
   // Rotating Text Slogans
   const flipWords = [
@@ -128,21 +214,32 @@ export default function GlassmorphicHero() {
   }, [startTranscription]);
 
   return (
-    <section className="relative min-h-screen bg-base-paper flex flex-col">
-      {/* Dot Grid Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none" 
+    <section className="relative min-h-screen bg-base-paper flex flex-col overflow-hidden">
+      {/* Dot Grid Pattern with Elastic Parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none origin-top" 
         style={{ 
           backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
           backgroundSize: "24px 24px",
           maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)"
+          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
+          scale: bgScale,
+          y: bgY
         }} 
       />
 
-      <HeroAuroraBackground />
+      {/* Hero Aurora Background with Fluid Elastic Scale */}
+      <motion.div 
+        className="absolute inset-0 z-0 pointer-events-none origin-top"
+        style={{ scale: bgScale, y: bgY }}
+      >
+        <HeroAuroraBackground />
+      </motion.div>
 
-      <div className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0">
+      <motion.div 
+        className="relative z-10 pt-[120px] pb-8 flex flex-col items-center flex-shrink-0"
+        style={{ y: fgY }}
+      >
         <div className="layout-spine text-center flex flex-col items-center gap-8">
 
           {/* Headline Group */}
@@ -232,11 +329,12 @@ export default function GlassmorphicHero() {
             <TrustedPartners />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Embedded LiveTranslationGraphic Animation */}
       <motion.div
         className="w-full flex-grow relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both"
+        style={{ y: graphicY }}
       >
         <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
           <LiveTranslationGraphic />
