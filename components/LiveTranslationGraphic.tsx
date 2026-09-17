@@ -11,47 +11,40 @@ export default function LiveTranslationGraphic() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
 
-  // Background transcription typewriter effect (paused when video is active)
+  // Background transcription typewriter effect (clean cycle, paused when video is active)
   useEffect(() => {
     if (isPlaying) return;
 
     let currentChars = 0;
-    const interval = setInterval(() => {
-      if (currentChars < targetText.length) {
-        currentChars += Math.floor(Math.random() * 2) + 1; // 1 to 2 chars per tick for natural variance
-        if (currentChars > targetText.length) currentChars = targetText.length;
-        setVisibleChars(currentChars);
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          setVisibleChars(0);
-        }, 4000); // Wait 4 seconds before looping
-      }
-    }, 45); // Roughly conversational speed
-    
-    return () => clearInterval(interval);
-  }, [visibleChars === 0, isPlaying]);
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
 
-  // Video autoplay trigger with graceful fallback for audio restrictions
-  useEffect(() => {
-    if (isPlaying && videoRef.current) {
-      videoRef.current.currentTime = 0;
-      setIsPaused(false);
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay with sound restricted by browser -> fall back to muted
-          if (videoRef.current) {
-            videoRef.current.muted = true;
-            setIsMuted(true);
-            videoRef.current.play();
-          }
-        });
-      }
-    }
+    const startTyping = () => {
+      currentChars = 0;
+      setVisibleChars(0);
+      intervalId = setInterval(() => {
+        if (currentChars < targetText.length) {
+          currentChars += Math.floor(Math.random() * 2) + 1;
+          if (currentChars > targetText.length) currentChars = targetText.length;
+          setVisibleChars(currentChars);
+        } else {
+          if (intervalId) clearInterval(intervalId);
+          timeoutId = setTimeout(() => {
+            startTyping();
+          }, 4000);
+        }
+      }, 45);
+    };
+
+    startTyping();
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [isPlaying]);
 
   // Handle keyboard shortcuts (Escape to close video)
@@ -68,21 +61,53 @@ export default function LiveTranslationGraphic() {
   const handlePlay = () => {
     setIsPlaying(true);
     setIsPaused(false);
+
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = "0%";
+    }
+
+    if (videoRef.current) {
+      if (videoRef.current.currentTime !== 0) {
+        videoRef.current.currentTime = 0;
+      }
+      videoRef.current.muted = isMuted;
+      // Direct invocation within click event maintains synchronous user gesture permissions
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Autoplay with audio restricted, falling back to muted:", err);
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            setIsMuted(true);
+            videoRef.current.play().catch(() => {});
+          }
+        });
+      }
+    }
   };
 
-  const handleClose = () => {
+  const handleClose = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = "0%";
+    }
     setIsPlaying(false);
-    setProgress(0);
     setIsPaused(false);
   };
 
   const handleVideoEnd = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = "0%";
+    }
     setIsPlaying(false);
-    setProgress(0);
     setIsPaused(false);
   };
 
@@ -105,11 +130,13 @@ export default function LiveTranslationGraphic() {
     setIsMuted(nextMuted);
   };
 
+  // High-performance direct DOM update without triggering React re-renders
   const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || !progressBarRef.current) return;
     const { currentTime, duration } = videoRef.current;
     if (duration) {
-      setProgress((currentTime / duration) * 100);
+      const pct = (currentTime / duration) * 100;
+      progressBarRef.current.style.width = `${pct}%`;
     }
   };
 
@@ -215,13 +242,13 @@ export default function LiveTranslationGraphic() {
         >
             {/* HTML5 Video Element */}
             <video
-            ref={videoRef}
-            src="/photos/yes_minor_edit_the_iphone_need (2).mp4"
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover object-center transform-gpu"
-            onEnded={handleVideoEnd}
-            onTimeUpdate={handleTimeUpdate}
+              ref={videoRef}
+              src="/photos/hero-watch-animation.mp4"
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover object-center"
+              onEnded={handleVideoEnd}
+              onTimeUpdate={handleTimeUpdate}
             />
 
               {/* Center Pause Indicator Overlay */}
@@ -283,8 +310,8 @@ export default function LiveTranslationGraphic() {
               {/* Sleek Bottom Progress Bar */}
               <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20 z-50 pointer-events-none">
                 <div 
-                  className="h-full bg-gradient-to-r from-[#F43F5E] via-[#f59e0b] to-[#10b981] transition-all duration-100 ease-linear shadow-[0_0_8px_rgba(244,63,94,0.6)]"
-                  style={{ width: `${progress}%` }}
+                  ref={progressBarRef}
+                  className="h-full w-0 bg-gradient-to-r from-[#F43F5E] via-[#f59e0b] to-[#10b981] shadow-[0_0_8px_rgba(244,63,94,0.6)]"
                 />
               </div>
         </motion.div>

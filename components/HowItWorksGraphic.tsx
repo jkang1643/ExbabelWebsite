@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 30 },
@@ -148,8 +148,24 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
 }
 
 export default function HowItWorksGraphic() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReduced = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 75%", "end 75%"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 250,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const activePathLength = prefersReduced ? 1 : smoothProgress;
+
   return (
-    <div className="relative w-full py-10 mt-10">
+    <div ref={containerRef} className="relative w-full py-10 mt-10">
       {/* Background Sweeping SVG Path (Wavy Timeline) */}
       <div className="absolute inset-0 flex justify-center overflow-visible pointer-events-none z-0">
         <svg 
@@ -170,26 +186,44 @@ export default function HowItWorksGraphic() {
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
-          
+
+          {/* Subtle static background path to preview timeline track */}
+          <path
+            d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
+            stroke="url(#timelineGrad)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            opacity="0.12"
+          />
+
+          {/* Sweeping Wide Aura (draws with scroll) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
             strokeWidth="80"
             strokeLinecap="round"
-            opacity="0.15"
-            initial={{ pathLength: 0, }}
-            whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            opacity="0.16"
+            style={{ pathLength: activePathLength }}
           />
+
+          {/* Soft Glow Trail (draws with scroll) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
-            strokeWidth="4"
+            strokeWidth="10"
             strokeLinecap="round"
-            opacity="0.4"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            opacity="0.3"
+            style={{ pathLength: activePathLength }}
+          />
+
+          {/* Thin Curvy Line (Crisp, drawn dynamically as you scroll) */}
+          <motion.path
+            d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
+            stroke="url(#timelineGrad)"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            opacity="0.85"
+            style={{ pathLength: activePathLength }}
           />
         </svg>
       </div>
@@ -203,3 +237,4 @@ export default function HowItWorksGraphic() {
     </div>
   );
 }
+
