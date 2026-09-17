@@ -220,7 +220,7 @@ export default function LiveTranslationGraphic() {
                 </svg>
 
                 {/* Tooltip hint on hover */}
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 backdrop-blur-md text-white text-xs font-semibold rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 md:backdrop-blur-md text-white text-xs font-semibold rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
                   Watch Animation
                 </span>
               </motion.button>
@@ -261,7 +261,7 @@ export default function LiveTranslationGraphic() {
                     className="absolute inset-0 bg-black/40 flex items-center justify-center z-45 cursor-pointer"
                     onClick={togglePlayPause}
                   >
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl transition-transform hover:scale-110">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 hover:bg-white/35 md:backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl transition-transform hover:scale-110">
                       <svg className="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -278,7 +278,7 @@ export default function LiveTranslationGraphic() {
                 {/* Play/Pause Toggle */}
                 <button
                   onClick={togglePlayPause}
-                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
+                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white md:backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
                   aria-label={isPaused ? "Resume video" : "Pause video"}
                   title={isPaused ? "Play" : "Pause"}
                 >
@@ -296,7 +296,7 @@ export default function LiveTranslationGraphic() {
                 {/* Mute/Unmute Toggle */}
                 <button
                   onClick={toggleMute}
-                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
+                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white md:backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
                   aria-label={isMuted ? "Unmute audio" : "Mute audio"}
                   title={isMuted ? "Unmute" : "Mute"}
                 >
@@ -315,7 +315,7 @@ export default function LiveTranslationGraphic() {
                 {/* Close Button */}
                 <button
                   onClick={handleClose}
-                  className="flex items-center gap-1.5 px-3 py-1.5 md:py-2 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95 text-xs md:text-sm font-medium"
+                  className="flex items-center gap-1.5 px-3 py-1.5 md:py-2 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white md:backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95 text-xs md:text-sm font-medium"
                   aria-label="Close video and return to graphic"
                   title="Close (Esc)"
                 >

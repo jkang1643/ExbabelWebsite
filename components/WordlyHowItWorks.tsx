@@ -193,7 +193,7 @@ export default function WordlyHowItWorks() {
             <motion.div
               key={step.number}
               initial={{ y: 30 }}
-              whileInView={{ y: 0 }} viewport={{ once: true }}
+              whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
               transition={{ duration: 0.7 }}
               className="bg-white border-2 border-slate-100 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden"
             >
@@ -318,7 +318,7 @@ export default function WordlyHowItWorks() {
             {whyChooseList.map((item) => (
               <div
                 key={item}
-                className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center gap-3 font-bold text-white text-sm"
+                className="bg-white/10 md:backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center gap-3 font-bold text-white text-sm"
               >
                 <div className="w-6 h-6 rounded-full bg-emerald-400 text-slate-900 flex items-center justify-center shrink-0 font-black text-xs">
                   ✓

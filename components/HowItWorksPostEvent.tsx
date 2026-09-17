@@ -49,7 +49,7 @@ export default function HowItWorksPostEvent() {
             <motion.div
               key={item.title}
               initial={{ y: 20 }}
-              whileInView={{ y: 0 }} viewport={{ once: true }}
+              whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all"
             >

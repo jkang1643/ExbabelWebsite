@@ -134,7 +134,7 @@ export default function Pricing() {
                 style={{ cursor: "pointer" }}
               >
                 <div
-                  className="bg-white backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
+                  className="bg-white md:backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
                   style={{
                     border: isActive ? `2px solid ${plan.accentColor}` : "2px solid transparent",
                     boxShadow: isActive
@@ -281,7 +281,7 @@ export default function Pricing() {
 
         {/* Custom Plan CTA */}
         <div className="text-center">
-          <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
+          <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 md:backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
             <div className="p-8 text-center">
               <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
               <p className="text-base-content/70 mb-4">For organizations with specific requirements, our team will design a tailored deployment.</p>

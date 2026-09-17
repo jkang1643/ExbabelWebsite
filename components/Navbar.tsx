@@ -93,8 +93,8 @@ export default function Navbar() {
       <nav
         className={`relative w-full transition-all duration-300 ${
           scrolled 
-            ? "py-3 bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" 
-            : "py-4 bg-white/80 backdrop-blur-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
+            ? "py-3 bg-white/95 md:backdrop-blur-md shadow-sm border-b border-black/5" 
+            : "py-4 bg-white/80 md:backdrop-blur-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
         }`}
       >
         <div 
@@ -364,7 +364,7 @@ export default function Navbar() {
               animate={{ height: "auto" }}
               exit={{ height: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden"
+              className="lg:hidden bg-white/98 md:backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden"
             >
               <div className="px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
                 <div className="space-y-1">

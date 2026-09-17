@@ -18,7 +18,7 @@ export default function HowItWorksHero() {
           initial={{ y: -10 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider mb-6"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 md:backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
           <span>Real-Time Speech-to-Speech Architecture</span>
@@ -51,7 +51,7 @@ export default function HowItWorksHero() {
           initial={{ y: 30 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative"
+          className="bg-white/5 md:backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {/* Step 1: Input */}

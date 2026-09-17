@@ -74,7 +74,7 @@ export default function EditorialCollageThumbnail({
 
             {/* Floating Editorial Glass Card 1: Language Switcher (Top Right / Seam Breaker) */}
             <div
-              className={`absolute top-3 sm:top-4 right-3 sm:right-4 z-20 backdrop-blur-xl bg-slate-950/75 border border-white/20 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-2xl transition-all duration-300 group-hover/thumbnail:-translate-y-1 ${
+              className={`absolute top-3 sm:top-4 right-3 sm:right-4 z-20 md:backdrop-blur-xl bg-slate-950/75 border border-white/20 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-2xl transition-all duration-300 group-hover/thumbnail:-translate-y-1 ${
                 isCompact ? "scale-90 origin-top-right" : ""
               }`}
               style={{
@@ -112,7 +112,7 @@ export default function EditorialCollageThumbnail({
 
             {/* Floating Editorial Glass Card 2: Live Listener Pill (Bottom Left / Seam Breaker) */}
             <div
-              className={`absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-20 backdrop-blur-xl bg-slate-950/80 border border-white/20 rounded-full px-3.5 py-1.5 shadow-2xl flex items-center gap-2.5 transition-all duration-300 group-hover/thumbnail:translate-x-1 ${
+              className={`absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-20 md:backdrop-blur-xl bg-slate-950/80 border border-white/20 rounded-full px-3.5 py-1.5 shadow-2xl flex items-center gap-2.5 transition-all duration-300 group-hover/thumbnail:translate-x-1 ${
                 isCompact ? "scale-85 origin-bottom-left" : ""
               }`}
             >
@@ -150,7 +150,7 @@ export default function EditorialCollageThumbnail({
 
             {/* Center Bridging Glass Pill (Pipeline / Engine Indicator) */}
             <div
-              className={`absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-auto z-20 backdrop-blur-xl bg-slate-950/85 border border-purple-400/30 rounded-2xl px-4 py-2.5 shadow-2xl transition-all duration-300 group-hover/thumbnail:-translate-y-1 ${
+              className={`absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-auto z-20 md:backdrop-blur-xl bg-slate-950/85 border border-purple-400/30 rounded-2xl px-4 py-2.5 shadow-2xl transition-all duration-300 group-hover/thumbnail:-translate-y-1 ${
                 isCompact ? "scale-90 origin-bottom-left" : ""
               }`}
               style={{
@@ -181,7 +181,7 @@ export default function EditorialCollageThumbnail({
             </div>
 
             {/* Top Metric Pill */}
-            <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 backdrop-blur-md bg-white/10 border border-white/25 rounded-full px-3 py-1 shadow-lg text-[11px] font-semibold text-white/95">
+            <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 md:backdrop-blur-md bg-white/10 border border-white/25 rounded-full px-3 py-1 shadow-lg text-[11px] font-semibold text-white/95">
               {editorialPill.metricText || "180+ Languages · 0.98s Latency"}
             </div>
           </div>

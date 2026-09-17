@@ -129,7 +129,7 @@ function SecurityAnimation() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative z-10 mb-6 sm:mb-8"
                 >
-                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-indigo-200 flex items-center justify-center bg-indigo-50/50 backdrop-blur-md relative shadow-[0_8px_32px_rgba(79,70,229,0.15)]">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-indigo-200 flex items-center justify-center bg-indigo-50/50 md:backdrop-blur-md relative shadow-[0_8px_32px_rgba(79,70,229,0.15)]">
                         <motion.div
                             animate={{ top: ['0%', '100%', '0%'] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}

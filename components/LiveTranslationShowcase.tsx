@@ -188,14 +188,14 @@ export default function LiveTranslationShowcase() {
               </AnimatePresence>
 
               {/* Video Player Chrome */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
+              <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/40 md:backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
                 <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-red-500 animate-pulse' : 'bg-gray-500'}`} />
                 <span className="text-xs font-semibold tracking-wider text-white">
                   {isPlaying ? 'LIVE' : 'READY'}
                 </span>
               </div>
               
-              <div className="absolute top-4 right-4 hidden md:flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
+              <div className="absolute top-4 right-4 hidden md:flex items-center gap-2 bg-black/40 md:backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 z-10">
                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-300">
                   <polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                 </svg>
@@ -207,11 +207,11 @@ export default function LiveTranslationShowcase() {
                 {!isPlaying && (
                   <motion.div 
                     exit={{ scale: 1.5 }}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 cursor-pointer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 md:backdrop-blur-[2px] z-20 cursor-pointer"
                     onClick={() => setIsPlaying(true)}
                   >
                     <motion.div 
-                      className={`w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md border transition-colors
+                      className={`w-20 h-20 rounded-full flex items-center justify-center md:backdrop-blur-md border transition-colors
                         ${isClicking ? 'bg-emerald-500/40 border-emerald-400' : 'bg-black/50 border-white/20'}`}
                       animate={isClicking ? { scale: 0.9 } : { scale: 1 }}
                     >
@@ -235,7 +235,7 @@ export default function LiveTranslationShowcase() {
                       transition={{ duration: 0.4 }}
                       className="text-center w-full flex justify-center"
                     >
-                      <div className="bg-black/80 backdrop-blur-md border border-white/10 px-6 py-3 rounded-xl inline-block max-w-[90%] shadow-2xl">
+                      <div className="bg-black/80 md:backdrop-blur-md border border-white/10 px-6 py-3 rounded-xl inline-block max-w-[90%] shadow-2xl">
                          <p className="text-lg md:text-2xl font-semibold text-white drop-shadow-md tracking-wide">
                            {currentLine.target}
                          </p>

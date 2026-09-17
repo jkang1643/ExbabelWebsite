@@ -37,7 +37,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
                     
                     
                     exit={{ }}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 md:p-12 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 md:p-12 md:backdrop-blur-sm"
                     onClick={onClose}
                 >
                     <motion.div

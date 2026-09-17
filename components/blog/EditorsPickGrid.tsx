@@ -35,7 +35,7 @@ export default function EditorsPickGrid({ posts }: EditorsPickGridProps) {
               className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden aspect-[1.62/1] bg-gradient-to-tr from-[#2E1065] via-[#581C87] to-[#7E22CE] p-6 flex flex-col justify-between shadow-md group-hover:shadow-2xl transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">
+                <span className="px-3 py-1 rounded-full bg-white/20 md:backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">
                   Analysis
                 </span>
                 <span className="text-purple-200 text-xs font-mono">0.98s</span>
@@ -45,7 +45,7 @@ export default function EditorsPickGrid({ posts }: EditorsPickGridProps) {
               <motion.div
                 animate={{ y: [-6, 6, -6], rotate: [-1, 1, -1] }}
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                className="self-center my-auto bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-3 border border-white/60"
+                className="self-center my-auto bg-white/95 md:backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-3 border border-white/60"
               >
                 <span className="text-base text-purple-600">✦</span>
                 <span className="text-xs font-bold text-slate-900">AI Speech Engine</span>
@@ -90,7 +90,7 @@ export default function EditorsPickGrid({ posts }: EditorsPickGridProps) {
               <motion.div
                 animate={{ y: [-6, 6, -6], rotate: [1, -1, 1] }}
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="self-center my-auto bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-3 border border-white/60"
+                className="self-center my-auto bg-white/95 md:backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-3 border border-white/60"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span className="text-xs font-bold text-slate-900">18 Listeners · Spanish</span>
@@ -125,7 +125,7 @@ export default function EditorsPickGrid({ posts }: EditorsPickGridProps) {
               className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden aspect-[1.62/1] bg-gradient-to-tr from-[#EA580C] via-[#F97316] to-[#FB923C] p-6 flex flex-col justify-between shadow-md group-hover:shadow-2xl transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">
+                <span className="px-3 py-1 rounded-full bg-white/20 md:backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">
                   Benchmark
                 </span>
                 <span className="text-orange-100 text-xs font-mono">IEEE 829</span>

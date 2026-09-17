@@ -72,7 +72,7 @@ export default function FeaturedStoryHero({ post }: FeaturedStoryHeroProps) {
                 <motion.div
                   animate={{ y: [-8, 6, -8], rotate: [-1, 1, -1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-6 right-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full border border-black/10 shadow-xl flex items-center gap-2.5 z-10"
+                  className="absolute top-6 right-6 bg-white/95 md:backdrop-blur-md px-4 py-2.5 rounded-full border border-black/10 shadow-xl flex items-center gap-2.5 z-10"
                 >
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />

@@ -71,7 +71,7 @@ export default function CTA() {
 
         {/* Status Metrics Box */}
         <div className="w-full max-w-4xl mx-auto pt-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-xl shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6 rounded-3xl bg-white/80 md:backdrop-blur-md border border-slate-200 shadow-xl shadow-2xl relative overflow-hidden">
             <div className="relative z-10 space-y-1">
               <div className="text-4xl md:text-5xl font-black text-slate-800 font-mono">1.013s</div>
               <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-widest">Time to First Caption</div>

@@ -15,7 +15,7 @@ export default function BlogSubNav() {
   const isAllActive = pathname === "/blog" || pathname === "/blog/";
 
   return (
-    <div className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
+    <div className="w-full bg-white/95 md:backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-14 sm:h-15 flex items-center justify-between gap-3 sm:gap-6">
         
         {/* Left: Publication Branding */}

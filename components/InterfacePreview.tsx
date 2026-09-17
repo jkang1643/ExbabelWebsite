@@ -434,7 +434,7 @@ export default function InterfacePreview() {
             <motion.div 
               variants={containerVariants}
               initial="hidden"
-              whileInView="visible" viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" }}
+              whileInView="visible" viewport={{ once: true, margin: "2000px" }}
               className="flex flex-col items-center md:items-start w-full"
             >
               <motion.div variants={itemVariants} className="relative mb-8">
@@ -456,7 +456,7 @@ export default function InterfacePreview() {
               <motion.button 
                 variants={itemVariants}
                 onClick={() => setIsModalOpen(true)}
-                className="group relative px-8 py-4 bg-white/70 backdrop-blur-md border border-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden pointer-events-auto"
+                className="group relative px-8 py-4 bg-white/70 md:backdrop-blur-md border border-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden pointer-events-auto"
               >
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FFD6E5]/40 via-[#EAD6FF]/40 to-[#D6F5FF]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative z-10 text-[#0B1220] font-semibold text-lg flex items-center gap-2">
@@ -476,7 +476,7 @@ export default function InterfacePreview() {
           {/* Column 1 (Scrolls Up) */}
           <div className="flex flex-col gap-4 animate-scroll-up pt-4">
             {[...COL1, ...COL1].map((lang, i) => (
-              <div key={`col1-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
+              <div key={`col1-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
                   <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
@@ -495,7 +495,7 @@ export default function InterfacePreview() {
           {/* Column 2 (Scrolls Down) */}
           <div className="flex flex-col gap-4 animate-scroll-down pt-4">
             {[...COL2, ...COL2].map((lang, i) => (
-              <div key={`col2-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
+              <div key={`col2-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
                   <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
@@ -521,7 +521,7 @@ export default function InterfacePreview() {
             animate={{ scale: 1 }}
             exit={{ scale: 1.02 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] bg-[#100924]/95 backdrop-blur-2xl flex flex-col pt-16 px-6 sm:px-12 pb-12 overflow-hidden pointer-events-auto"
+            className="fixed inset-0 z-[100] bg-[#100924]/95 md:backdrop-blur-2xl flex flex-col pt-16 px-6 sm:px-12 pb-12 overflow-hidden pointer-events-auto"
           >
             <div className="max-w-7xl w-full mx-auto flex-1 flex flex-col h-full">
                 <div className="flex justify-between items-center mb-6 shrink-0">

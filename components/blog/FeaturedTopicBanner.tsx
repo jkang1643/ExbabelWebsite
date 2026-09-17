@@ -33,7 +33,7 @@ export default function FeaturedTopicBanner() {
             <motion.div
               animate={{ y: [-6, 6, -6] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 w-full max-w-md aspect-[1.3/1] rounded-[28px] bg-white/40 backdrop-blur-md border border-white/70 p-6 flex flex-col justify-between shadow-xl"
+              className="relative z-10 w-full max-w-md aspect-[1.3/1] rounded-[28px] bg-white/40 md:backdrop-blur-md border border-white/70 p-6 flex flex-col justify-between shadow-xl"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 text-slate-800 text-xs font-semibold shadow-xs">

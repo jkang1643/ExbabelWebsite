@@ -69,7 +69,7 @@ const TierCard = ({ tier, index, inView }: { tier: VoiceTier; index: number; inV
             transition={{ duration: 0.5, delay }}
             className="relative group"
         >
-            <div className="relative bg-white/[0.06] backdrop-blur-sm rounded-2xl border border-white/10 
+            <div className="relative bg-white/[0.06] md:backdrop-blur-sm rounded-2xl border border-white/10 
                       p-6 hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300 h-full">
                 {/* Accent line */}
                 <div

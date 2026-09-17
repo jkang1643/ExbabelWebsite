@@ -33,7 +33,7 @@ export default function CookiesPopup() {
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6"
         >
-          <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl p-5 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="max-w-4xl mx-auto bg-white/95 md:backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl p-5 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             {/* Cookie icon */}
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <span className="text-xl" role="img" aria-label="cookie">🍪</span>

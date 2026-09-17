@@ -62,7 +62,7 @@ export default function OBSSetupAnimation() {
   return (
     <div className="flex flex-col items-center w-full max-w-[700px]">
       {/* Tabs */}
-      <div className="flex bg-slate-100/80 backdrop-blur-sm p-1.5 rounded-full mb-8 ring-1 ring-slate-200 shadow-sm z-10 w-max">
+      <div className="flex bg-slate-100/80 md:backdrop-blur-sm p-1.5 rounded-full mb-8 ring-1 ring-slate-200 shadow-sm z-10 w-max">
         <button 
           onClick={() => setMode('obs')}
           className={`px-6 py-2 text-sm font-bold rounded-full transition-all ${mode === 'obs' ? 'bg-white text-slate-900 shadow-md ring-1 ring-slate-200' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}

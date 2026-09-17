@@ -149,7 +149,7 @@ const EXTRA_PLATFORMS = [
 const staggerContainer = {
   initial: { },
   whileInView: { },
-  viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" },
+  viewport: { once: true, margin: "2000px" },
   transition: { staggerChildren: 0.1 }
 };
 
@@ -167,7 +167,7 @@ export default function SupportedPlatformsSection() {
     <section className="py-24 px-6 relative z-10 bg-white overflow-hidden">
       <DecorativeWisp className="absolute top-0 right-1/4 w-[600px] h-[600px] -z-10 opacity-30 rotate-45" colorPrimary="#EAD6FF" colorSecondary="#D6F5FF" delay={1} />
       
-      <motion.div className="max-w-5xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" }} variants={staggerContainer}>
+      <motion.div className="max-w-5xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "2000px" }} variants={staggerContainer}>
         <div className="text-center mb-16 space-y-4">
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             Universal Link Ingestion
@@ -177,7 +177,7 @@ export default function SupportedPlatformsSection() {
           </motion.p>
         </div>
 
-        <motion.div variants={fadeInUp} className="bg-slate-50/50 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-slate-900/5 transition-all">
+        <motion.div variants={fadeInUp} className="bg-slate-50/50 md:backdrop-blur-xl p-8 md:p-12 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-slate-900/5 transition-all">
           
           {/* Popular Platforms Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">

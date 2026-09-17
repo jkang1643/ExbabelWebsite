@@ -9,7 +9,9 @@ export default function HeroAuroraBackground() {
       {/* 
         We use an SVG to draw smooth, flowing ribbons that frame the text.
       */}
-      <svg className="absolute w-full h-full opacity-90" preserveAspectRatio="none" viewBox="0 0 100 100">
+      {/* Mobile-only fallback background for performance */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#E5CBFF]/40 via-[#C6F0FF]/40 to-[#FFD6E5]/40 md:hidden z-[-1]" />
+      <svg className="absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E5CBFF" stopOpacity="0.95" />

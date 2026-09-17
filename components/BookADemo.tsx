@@ -79,7 +79,7 @@ export default function BookADemo() {
           <motion.h2 
             className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-[#1d1c1d]"
             initial={{ y: 20 }}
-            whileInView={{ y: 0 }} viewport={{ once: true }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
             See Exbabel in Action
@@ -87,7 +87,7 @@ export default function BookADemo() {
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto font-medium"
             initial={{ y: 20 }}
-            whileInView={{ y: 0 }} viewport={{ once: true }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
             transition={{ delay: 0.1 }}
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
@@ -100,7 +100,7 @@ export default function BookADemo() {
           <motion.div 
             className="flex flex-wrap justify-center gap-6 mb-12 text-sm font-semibold text-gray-700"
             
-             viewport={{ once: true }}
+             viewport={{ once: true, margin: "2000px" }}
             transition={{ delay: 0.2 }}
           >
             {[

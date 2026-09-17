@@ -18,7 +18,7 @@ export default function LargeProductCTA() {
 
           <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
             {/* Pill Eyebrow */}
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-semibold tracking-wide uppercase mb-6 border border-white/30 shadow-sm">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 md:backdrop-blur-md text-white text-xs font-semibold tracking-wide uppercase mb-6 border border-white/30 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               Live Translation Platform
             </span>
@@ -45,7 +45,7 @@ export default function LargeProductCTA() {
               </a>
               <Link
                 href="/demo"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold text-sm transition-all border border-white/40 backdrop-blur-md"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold text-sm transition-all border border-white/40 md:backdrop-blur-md"
               >
                 Schedule Consultation
               </Link>

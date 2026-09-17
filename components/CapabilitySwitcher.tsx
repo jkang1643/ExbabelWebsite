@@ -123,7 +123,7 @@ export default function CapabilitySwitcher() {
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-2">Live Audio Stream</h3>
                         <p className="text-slate-400 text-sm mb-6">Stereo • 48kHz • 24ms Latency</p>
-                        <div className="flex gap-2 bg-slate-800/50 p-1.5 rounded-lg backdrop-blur-md">
+                        <div className="flex gap-2 bg-slate-800/50 p-1.5 rounded-lg md:backdrop-blur-md">
                             <div className="px-4 py-1.5 bg-green-500/20 text-green-400 text-xs font-bold rounded">Connected</div>
                             <div className="px-4 py-1.5 text-slate-300 text-xs font-bold">buffer: 0.02s</div>
                         </div>

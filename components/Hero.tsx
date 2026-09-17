@@ -99,7 +99,7 @@ export default function Hero() {
           >
             {/* Stats Card - Top Left */}
             <motion.div
-              className="absolute top-0 left-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
+              className="absolute top-0 left-0 bg-white/70 md:backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
               initial={{ y: -20 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -120,7 +120,7 @@ export default function Hero() {
 
             {/* Accuracy Card - Top Right */}
             <motion.div
-              className="absolute top-12 right-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
+              className="absolute top-12 right-0 bg-white/70 md:backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
               initial={{ y: -20 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -141,7 +141,7 @@ export default function Hero() {
 
             {/* Main Chat Card - Center */}
             <motion.div
-              className="absolute top-32 left-8 bg-white/80 backdrop-blur-xl shadow-aurora-card border border-aurora-default rounded-aurora-xl w-80"
+              className="absolute top-32 left-8 bg-white/80 md:backdrop-blur-xl shadow-aurora-card border border-aurora-default rounded-aurora-xl w-80"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -171,7 +171,7 @@ export default function Hero() {
 
             {/* Performance Card - Bottom Left */}
             <motion.div
-              className="absolute bottom-0 left-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-56"
+              className="absolute bottom-0 left-0 bg-white/70 md:backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-56"
               initial={{ y: 20 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
@@ -197,7 +197,7 @@ export default function Hero() {
 
             {/* User Count Card - Bottom Right */}
             <motion.div
-              className="absolute bottom-12 right-4 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-44"
+              className="absolute bottom-12 right-4 bg-white/70 md:backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-44"
               initial={{ y: 20 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}

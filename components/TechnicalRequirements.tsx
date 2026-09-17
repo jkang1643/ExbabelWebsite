@@ -62,7 +62,7 @@ export default function TechnicalRequirements() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     {requirements.map((req, index) => (
                         <div key={index}>
-                            <div className="bg-white/60 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
+                            <div className="bg-white/60 md:backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-[#5a5d80]/20 hover:border-[#5a5d80]/40 rounded-3xl">
                                 <div className="p-6">
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary">
@@ -87,7 +87,7 @@ export default function TechnicalRequirements() {
                 </div>
 
                 {/* Setup Guide CTA */}
-                <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 rounded-3xl">
+                <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 md:backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 rounded-3xl">
                     <div className="p-8 flex flex-col items-center text-center">
                         <h3 className="text-2xl font-bold text-base-content mb-2">
                             Need Help Setting Up?
