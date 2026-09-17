@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import GlassmorphicHero from "@/components/GlassmorphicHero";
 import FAQSchema from "@/components/schema/FAQSchema";
@@ -9,18 +10,18 @@ import { HOME_FAQ_DATA, PRODUCTS } from "@/lib/schema";
 import ChurchTranslationIntro from "@/components/ChurchTranslationIntro";
 import HowItWorks from "@/components/HowItWorks";
 import FeatureShowcase from "@/components/FeatureShowcase";
-import InterfacePreview from "@/components/InterfacePreview";
-import WhyChurchesChoose from "@/components/WhyChurchesChoose";
-import VideoLibrarySection from "@/components/VideoLibrarySection";
-import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
-import ImpactStats from "@/components/ImpactStats";
-import FAQ from "@/components/FAQ";
-import AsSeenOn from "@/components/AsSeenOn";
-import TechnicalRequirements from "@/components/TechnicalRequirements";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-import CookiesPopup from "@/components/CookiesPopup";
+const InterfacePreview = dynamic(() => import("@/components/InterfacePreview"));
+const WhyChurchesChoose = dynamic(() => import("@/components/WhyChurchesChoose"));
+const VideoLibrarySection = dynamic(() => import("@/components/VideoLibrarySection"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Pricing = dynamic(() => import("@/components/Pricing"));
+const ImpactStats = dynamic(() => import("@/components/ImpactStats"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const AsSeenOn = dynamic(() => import("@/components/AsSeenOn"));
+const TechnicalRequirements = dynamic(() => import("@/components/TechnicalRequirements"));
+const CTA = dynamic(() => import("@/components/CTA"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"));
 
 
 export const metadata = {

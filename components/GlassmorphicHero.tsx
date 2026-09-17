@@ -147,18 +147,12 @@ export default function GlassmorphicHero() {
 
           {/* Headline Group */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center gap-8 max-w-[960px] mx-auto"
+            className="flex flex-col items-center gap-8 max-w-[960px] mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700"
           >
             {/* Top Banner with Subtle Live Status Indicator */}
             <motion.a
               href="/live"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-slate-200 text-[#1d1c1d] shadow-sm hover:shadow-md hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-slate-200 text-[#1d1c1d] shadow-sm hover:shadow-md hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98] animate-in fade-in slide-in-from-top-2 duration-700 delay-200 fill-mode-both"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
               <span className="text-sm font-semibold tracking-tight">Now Available — Live Video Translation for Global Congregations</span>
@@ -213,10 +207,7 @@ export default function GlassmorphicHero() {
 
           {/* Restored Classic Premium CTA Row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 fill-mode-both"
           >
             <Link
               href="/demo"
@@ -236,10 +227,7 @@ export default function GlassmorphicHero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="w-full"
+            className="w-full animate-in fade-in duration-1000 delay-500 fill-mode-both"
           >
             <TrustedPartners />
           </motion.div>
@@ -248,10 +236,7 @@ export default function GlassmorphicHero() {
 
       {/* Embedded LiveTranslationGraphic Animation */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full flex-grow relative"
+        className="w-full flex-grow relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both"
       >
         <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
           <LiveTranslationGraphic />
