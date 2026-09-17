@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 30 },
@@ -151,19 +151,6 @@ export default function HowItWorksGraphic() {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReduced = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 75%", "end 75%"],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 250,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const activePathLength = prefersReduced ? 1 : smoothProgress;
-
   return (
     <div ref={containerRef} className="relative w-full py-10 mt-10">
       {/* Background Sweeping SVG Path (Wavy Timeline) */}
@@ -181,8 +168,18 @@ export default function HowItWorksGraphic() {
               <stop offset="66%" stopColor="#34D399" stopOpacity="0.8" />
               <stop offset="100%" stopColor="#A78BFA" stopOpacity="0.8" />
             </linearGradient>
+            <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.1" />
+              <stop offset="45%" stopColor="#ffffff" stopOpacity="0.95" />
+              <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#818CF8" stopOpacity="0.1" />
+            </linearGradient>
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="30" result="blur" />
+              <feGaussianBlur stdDeviation="20" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="auraGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="40" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
@@ -191,40 +188,75 @@ export default function HowItWorksGraphic() {
           <path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
-            strokeWidth="3"
+            strokeWidth="3.5"
             strokeLinecap="round"
             opacity="0.12"
           />
 
-          {/* Sweeping Wide Aura (draws with scroll) */}
+          {/* Sweeping Wide Ambient Aura (Smooth entrance drawing) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
-            strokeWidth="80"
+            strokeWidth="60"
             strokeLinecap="round"
-            opacity="0.16"
-            style={{ pathLength: activePathLength }}
+            opacity="0.12"
+            filter="url(#auraGlow)"
+            initial={{ pathLength: prefersReduced ? 1 : 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {/* Soft Glow Trail (draws with scroll) */}
+          {/* Soft Glow Trail (Smooth entrance drawing) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
-            strokeWidth="10"
+            strokeWidth="12"
             strokeLinecap="round"
-            opacity="0.3"
-            style={{ pathLength: activePathLength }}
+            opacity="0.32"
+            filter="url(#glow)"
+            initial={{ pathLength: prefersReduced ? 1 : 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {/* Thin Curvy Line (Crisp, drawn dynamically as you scroll) */}
+          {/* Thin Curvy Line (Crisp foreground line drawn with silky ease) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
             strokeWidth="3.5"
             strokeLinecap="round"
             opacity="0.85"
-            style={{ pathLength: activePathLength }}
+            initial={{ pathLength: prefersReduced ? 1 : 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
           />
+
+          {/* Continuous Flowing Energy Stream (Living high-tech pulse down the drawn curve) */}
+          {!prefersReduced && (
+            <motion.path
+              d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
+              stroke="url(#pulseGrad)"
+              strokeWidth="5.5"
+              strokeLinecap="round"
+              filter="url(#glow)"
+              initial={{ pathOffset: 0, pathLength: 0.18, opacity: 0 }}
+              whileInView={{ opacity: 0.95 }}
+              viewport={{ once: true, amount: 0.15 }}
+              animate={{ pathOffset: [0, 1] }}
+              transition={{
+                pathOffset: {
+                  duration: 3.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 0.4
+                },
+                opacity: { duration: 0.8, delay: 1.4 }
+              }}
+            />
+          )}
         </svg>
       </div>
 
