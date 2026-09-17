@@ -16,7 +16,7 @@ export default function BlogCategoryFilter({
   counts = {},
 }: BlogCategoryFilterProps) {
   return (
-    <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+    <div className="mobile-fade-up flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
       {categories.map((cat) => {
         const isActive = activeCategory.toLowerCase() === cat.toLowerCase();
         const count = counts[cat];

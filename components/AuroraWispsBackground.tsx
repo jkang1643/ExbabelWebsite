@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function AuroraWispsBackground() {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-white">
-      <svg className="absolute w-full h-full opacity-60" preserveAspectRatio="none" viewBox="0 0 100 100">
+    <div className="mobile-fade-up fixed inset-0 overflow-hidden pointer-events-none z-0 bg-white">
+      <svg className="mobile-fade-up absolute w-full h-full opacity-60" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           {/* Pink to Blue Gradient */}
           <linearGradient id="wispGrad1" x1="0%" y1="0%" x2="100%" y2="100%">

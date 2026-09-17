@@ -286,7 +286,7 @@ export default function InterfacePreview() {
   };
 
   return (
-    <section className="section-pad bg-transparent relative overflow-hidden min-h-[850px] md:h-screen py-16 md:py-0 flex items-center justify-center">
+    <section className="mobile-fade-up section-pad bg-transparent relative overflow-hidden min-h-[850px] md:h-screen py-16 md:py-0 flex items-center justify-center">
       
       {/* CSS overrides for SVG Map and scroll animations */}
       <style dangerouslySetInnerHTML={{__html: `
@@ -311,13 +311,13 @@ export default function InterfacePreview() {
       `}} />
 
       {/* Aurora Background with Winding Ribbons */}
-      <div className="absolute inset-0 z-0 opacity-80 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block"></div>
-          <div className="absolute top-[10%] right-[-10%] w-[60vw] h-[60vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '4s' }}></div>
+      <div className="mobile-fade-up absolute inset-0 z-0 opacity-80 overflow-hidden pointer-events-none">
+          <div className="mobile-fade-up absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_6s_ease-in-out_infinite] hidden lg:block"></div>
+          <div className="mobile-fade-up absolute top-[10%] right-[-10%] w-[60vw] h-[60vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_8s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '2s' }}></div>
+          <div className="mobile-fade-up absolute bottom-[-10%] left-[10%] w-[70vw] h-[70vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[120px] animate-[pulse_7s_ease-in-out_infinite] hidden lg:block" style={{ animationDelay: '4s' }}></div>
 
           {/* Winding Ribbons (from Hero) */}
-          <svg className="absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <svg className="mobile-fade-up absolute w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
             <defs>
               <linearGradient id="ribbonGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#EAD6FF" stopOpacity="0.9" />
@@ -406,20 +406,20 @@ export default function InterfacePreview() {
       </div>
 
       {/* Top and Bottom Gradient Blends for Seamless Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#F8F9FA] to-transparent pointer-events-none z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent pointer-events-none z-20" />
+      <div className="mobile-fade-up absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#F8F9FA] to-transparent pointer-events-none z-20" />
+      <div className="mobile-fade-up absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent pointer-events-none z-20" />
 
       <motion.div 
         initial={{ scale: 0.95 }}
         whileInView={{ scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-        className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
+        className="mobile-fade-up absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/world-map.svg"
           alt="World map illustration"
-          className="w-[90%] max-w-[1400px] h-auto opacity-[0.08]"
+          className="mobile-fade-up w-[90%] max-w-[1400px] h-auto opacity-[0.08]"
           loading="lazy"
           width={950}
           height={620}
@@ -427,41 +427,41 @@ export default function InterfacePreview() {
         />
       </motion.div>
 
-      <div className="relative z-30 flex flex-col md:flex-row w-full max-w-[1400px] mx-auto px-6 md:px-12 h-auto md:h-full items-center">
+      <div className="mobile-fade-up relative z-30 flex flex-col md:flex-row w-full max-w-[1400px] mx-auto px-6 md:px-12 h-auto md:h-full items-center">
         
         {/* Left Side: Central Content */}
-        <div className="w-full md:w-[60%] flex flex-col items-center md:items-start text-center md:text-left md:pr-16">
+        <div className="mobile-fade-up w-full md:w-[60%] flex flex-col items-center md:items-start text-center md:text-left md:pr-16">
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col items-center md:items-start w-full"
+              className="mobile-fade-up flex flex-col items-center md:items-start w-full"
             >
-              <motion.div variants={itemVariants} className="relative mb-8">
-                  <div className="w-20 h-20 bg-[#0B1220] rounded-full flex items-center justify-center text-white text-xl font-bold shadow-[0_0_40px_rgba(11,18,32,0.2)] relative z-10">
+              <motion.div variants={itemVariants} className="mobile-fade-up relative mb-8">
+                  <div className="mobile-fade-up w-20 h-20 bg-[#0B1220] rounded-full flex items-center justify-center text-white text-xl font-bold shadow-[0_0_40px_rgba(11,18,32,0.2)] relative z-10">
                       EN
                   </div>
                   {/* Pulsing rings */}
-                  <div className="absolute inset-0 border-2 border-[#0B1220] rounded-full animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
-                  <div className="absolute inset-[-10px] border border-[#0B1220] rounded-full animate-ping opacity-10" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
+                  <div className="mobile-fade-up absolute inset-0 border-2 border-[#0B1220] rounded-full animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
+                  <div className="mobile-fade-up absolute inset-[-10px] border border-[#0B1220] rounded-full animate-ping opacity-10" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
               </motion.div>
               
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-[#0B1220] tracking-tight mb-6 max-w-lg">
+              <motion.h2 variants={itemVariants} className="mobile-fade-up text-4xl md:text-6xl font-bold text-[#0B1220] tracking-tight mb-6 max-w-lg">
                   One message.<br/>Every language.
               </motion.h2>
-              <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">
+              <motion.p variants={itemVariants} className="mobile-fade-up text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">
                   Exbabel translates your content into 196 languages and dialects as it&apos;s happening, so everyone can follow along.
               </motion.p>
 
               <motion.button 
                 variants={itemVariants}
                 onClick={() => setIsModalOpen(true)}
-                className="group relative px-8 py-4 bg-white/70 md:backdrop-blur-md border border-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden pointer-events-auto"
+                className="mobile-fade-up group relative px-8 py-4 bg-white/70 md:backdrop-blur-md border border-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden pointer-events-auto"
               >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FFD6E5]/40 via-[#EAD6FF]/40 to-[#D6F5FF]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative z-10 text-[#0B1220] font-semibold text-lg flex items-center gap-2">
+                  <div className="mobile-fade-up absolute inset-0 bg-gradient-to-r from-[#FFD6E5]/40 via-[#EAD6FF]/40 to-[#D6F5FF]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="mobile-fade-up relative z-10 text-[#0B1220] font-semibold text-lg flex items-center gap-2">
                       Browse 196 Languages
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                      <svg className="mobile-fade-up w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                   </span>
               </motion.button>
             </motion.div>
@@ -471,42 +471,42 @@ export default function InterfacePreview() {
           initial={{ x: 40 }}
           whileInView={{ x: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-start gap-6 justify-end pr-4 pointer-events-none select-none"
+          className="mobile-fade-up hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-start gap-6 justify-end pr-4 pointer-events-none select-none"
         >
           {/* Column 1 (Scrolls Up) */}
-          <div className="flex flex-col gap-4 animate-scroll-up pt-4">
+          <div className="mobile-fade-up flex flex-col gap-4 animate-scroll-up pt-4">
             {[...COL1, ...COL1].map((lang, i) => (
-              <div key={`col1-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
-                  <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
+              <div key={`col1-${i}`} className="mobile-fade-up flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
+                  <div className="mobile-fade-up w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={`https://flagcdn.com/${lang.country}.svg`} 
                         alt={`${lang.name} flag`} 
-                        className="w-full h-full object-cover" 
+                        className="mobile-fade-up w-full h-full object-cover" 
                         loading="lazy" 
                         decoding="async"
                       />
                   </div>
-                  <span className="font-semibold text-sm tracking-wide">{lang.name}</span>
+                  <span className="mobile-fade-up font-semibold text-sm tracking-wide">{lang.name}</span>
               </div>
             ))}
           </div>
 
           {/* Column 2 (Scrolls Down) */}
-          <div className="flex flex-col gap-4 animate-scroll-down pt-4">
+          <div className="mobile-fade-up flex flex-col gap-4 animate-scroll-down pt-4">
             {[...COL2, ...COL2].map((lang, i) => (
-              <div key={`col2-${i}`} className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
-                  <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
+              <div key={`col2-${i}`} className="mobile-fade-up flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 md:backdrop-blur-md border border-white/80 shadow-[0_4px_15px_rgba(0,0,0,0.05)] text-[#0B1220] flex-shrink-0">
+                  <div className="mobile-fade-up w-6 h-6 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 bg-gray-100/10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={`https://flagcdn.com/${lang.country}.svg`} 
                         alt={`${lang.name} flag`} 
-                        className="w-full h-full object-cover" 
+                        className="mobile-fade-up w-full h-full object-cover" 
                         loading="lazy" 
                         decoding="async"
                       />
                   </div>
-                  <span className="font-semibold text-sm tracking-wide">{lang.name}</span>
+                  <span className="mobile-fade-up font-semibold text-sm tracking-wide">{lang.name}</span>
               </div>
             ))}
           </div>
@@ -521,24 +521,24 @@ export default function InterfacePreview() {
             animate={{ scale: 1 }}
             exit={{ scale: 1.02 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] bg-[#100924]/95 md:backdrop-blur-2xl flex flex-col pt-16 px-6 sm:px-12 pb-12 overflow-hidden pointer-events-auto"
+            className="mobile-fade-up fixed inset-0 z-[100] bg-[#100924]/95 md:backdrop-blur-2xl flex flex-col pt-16 px-6 sm:px-12 pb-12 overflow-hidden pointer-events-auto"
           >
-            <div className="max-w-7xl w-full mx-auto flex-1 flex flex-col h-full">
-                <div className="flex justify-between items-center mb-6 shrink-0">
+            <div className="mobile-fade-up max-w-7xl w-full mx-auto flex-1 flex flex-col h-full">
+                <div className="mobile-fade-up flex justify-between items-center mb-6 shrink-0">
                     <div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">196 Supported Languages</h2>
-                        <p className="text-gray-400">Real-time captions across all 196 languages. Voice translation for 90.</p>
+                        <h2 className="mobile-fade-up text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">196 Supported Languages</h2>
+                        <p className="mobile-fade-up text-gray-400">Real-time captions across all 196 languages. Voice translation for 90.</p>
                     </div>
                     <button 
                       onClick={() => setIsModalOpen(false)}
-                      className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors text-white border border-white/10 cursor-pointer"
+                      className="mobile-fade-up p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors text-white border border-white/10 cursor-pointer"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <svg className="mobile-fade-up w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap gap-2 mb-6 shrink-0">
+                <div className="mobile-fade-up flex flex-wrap gap-2 mb-6 shrink-0">
                     {FILTERS.map(f => (
                         <button
                             key={f.key}
@@ -552,24 +552,24 @@ export default function InterfacePreview() {
                         >
                             <span>{f.icon}</span>
                             <span>{f.label}</span>
-                            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white/10">{f.count}</span>
+                            <span className="mobile-fade-up text-xs font-bold px-2 py-0.5 rounded-full bg-white/10">{f.count}</span>
                         </button>
                     ))}
                 </div>
                 
-                <div className="relative mb-6 max-w-md shrink-0">
+                <div className="mobile-fade-up relative mb-6 max-w-md shrink-0">
                     <input 
                       type="text" 
                       placeholder="Search languages..." 
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      className="w-full px-6 py-4 rounded-full bg-[#1A1137] text-white border border-white/10 focus:outline-none focus:border-[#EAD6FF] focus:ring-1 focus:ring-[#EAD6FF] placeholder-gray-500 transition-all shadow-inner" 
+                      className="mobile-fade-up w-full px-6 py-4 rounded-full bg-[#1A1137] text-white border border-white/10 focus:outline-none focus:border-[#EAD6FF] focus:ring-1 focus:ring-[#EAD6FF] placeholder-gray-500 transition-all shadow-inner" 
                     />
-                    <svg className="w-5 h-5 absolute right-6 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <svg className="mobile-fade-up w-5 h-5 absolute right-6 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
 
                 {/* Languages Grid */}
-                <div className="flex-1 overflow-y-auto pr-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 content-start pb-12 custom-scrollbar">
+                <div className="mobile-fade-up flex-1 overflow-y-auto pr-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 content-start pb-12 custom-scrollbar">
                     <style dangerouslySetInnerHTML={{__html: `
                       .custom-scrollbar::-webkit-scrollbar { width: 8px; }
                       .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
@@ -577,19 +577,19 @@ export default function InterfacePreview() {
                       .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
                     `}} />
                     {filteredLanguages.map((lang, index) => (
-                        <div key={`${lang.code}-${index}`} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-white transition-all cursor-pointer group select-none hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                            <div className="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 bg-white/10">
+                        <div key={`${lang.code}-${index}`} className="mobile-fade-up flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-white transition-all cursor-pointer group select-none hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                            <div className="mobile-fade-up w-7 h-7 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 bg-white/10">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img 
                                   src={`https://flagcdn.com/${lang.country}.svg`} 
                                   alt={`${lang.name} flag`} 
-                                  className="w-full h-full object-cover" 
+                                  className="mobile-fade-up w-full h-full object-cover" 
                                   loading="lazy" 
                                   decoding="async"
                                 />
                             </div>
-                            <div className="flex-1 min-w-0">
-                                <span className="font-medium text-sm tracking-wide truncate block" title={lang.name}>{lang.name}</span>
+                            <div className="mobile-fade-up flex-1 min-w-0">
+                                <span className="mobile-fade-up font-medium text-sm tracking-wide truncate block" title={lang.name}>{lang.name}</span>
                                 <span className={`text-[9px] font-bold ${lang.support === 'voice' ? 'text-emerald-400' : 'text-purple-400'}`}>
                                     {lang.support === 'voice' ? '🗣 Voice + Captions' : '📝 Captions'}
                                 </span>
@@ -597,14 +597,14 @@ export default function InterfacePreview() {
                         </div>
                     ))}
                     {filteredLanguages.length === 0 && (
-                        <div className="col-span-full py-12 text-center text-gray-500">
+                        <div className="mobile-fade-up col-span-full py-12 text-center text-gray-500">
                           No languages found matching &quot;{search}&quot;.
                         </div>
                     )}
                 </div>
 
                 {/* Footer count */}
-                <div className="shrink-0 pt-4 text-center text-xs text-white/30">
+                <div className="mobile-fade-up shrink-0 pt-4 text-center text-xs text-white/30">
                     Showing {filteredLanguages.length} of {ALL_LANGUAGES.length} languages.
                     {filter === "all" && ` ${VOICE_LANGUAGES.length} with voice + captions · ${CAPTION_LANGUAGES.length} captions only.`}
                 </div>

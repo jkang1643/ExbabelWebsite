@@ -79,18 +79,18 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
         {...fadeUp(0.1)}
       >
         <div 
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 shadow-lg text-white font-black text-xl"
+          className="mobile-fade-up inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 shadow-lg text-white font-black text-xl"
           style={{ background: step.accentFrom, boxShadow: `0 8px 20px ${step.accentFrom}60` }}
         >
           {step.number}
         </div>
-        <h3 className="text-2xl md:text-3xl font-extrabold text-[#0B1220] mb-3">{step.title}</h3>
-        <p className="text-base text-slate-600 max-w-sm leading-relaxed">{step.description}</p>
+        <h3 className="mobile-fade-up text-2xl md:text-3xl font-extrabold text-[#0B1220] mb-3">{step.title}</h3>
+        <p className="mobile-fade-up text-base text-slate-600 max-w-sm leading-relaxed">{step.description}</p>
       </motion.div>
 
       {/* Card Side */}
       <motion.div 
-        className="w-full md:w-1/2 relative flex justify-center md:justify-start"
+        className="mobile-fade-up w-full md:w-1/2 relative flex justify-center md:justify-start"
         initial={{ y: 40, scale: 0.95 }}
         whileInView={{ y: 0, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
@@ -100,7 +100,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="relative rounded-3xl overflow-hidden cursor-default w-full aspect-[4/3] max-w-md"
+          className="mobile-fade-up relative rounded-3xl overflow-hidden cursor-default w-full aspect-[4/3] max-w-md"
           style={{
             transform: isHovered && !prefersReduced && !isTouch
               ? `translate3d(0,-8px,0) scale(1.04) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
@@ -118,12 +118,12 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
           }}
         >
           {/* Inner Image */}
-          <div className="absolute inset-1.5 rounded-[20px] overflow-hidden bg-slate-50">
+          <div className="mobile-fade-up absolute inset-1.5 rounded-[20px] overflow-hidden bg-slate-50">
              <Image
               src={step.image}
               alt={step.title}
               fill
-              className="object-cover transition-transform duration-700 ease-out"
+              className="mobile-fade-up object-cover transition-transform duration-700 ease-out"
               style={{
                 transform: isHovered ? 'scale(1.05)' : 'scale(1)'
               }}
@@ -134,7 +134,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
           {/* Dynamic glare effect based on mouse position */}
           {!prefersReduced && !isTouch && isHovered && (
             <div
-              className="absolute inset-0 pointer-events-none rounded-3xl"
+              className="mobile-fade-up absolute inset-0 pointer-events-none rounded-3xl"
               style={{
                 background: `radial-gradient(circle at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.4) 0%, transparent 60%)`,
                 transition: "opacity 0.4s ease",
@@ -169,11 +169,11 @@ export default function HowItWorksGraphic() {
   const activePathLength = prefersReduced ? 1 : smoothProgress;
 
   return (
-    <div ref={containerRef} className="relative w-full py-10 mt-10">
+    <div ref={containerRef} className="mobile-fade-up relative w-full py-10 mt-10">
       {/* Background Sweeping SVG Path (Wavy Timeline) */}
-      <div className="absolute inset-0 flex justify-center overflow-visible pointer-events-none z-0">
+      <div className="mobile-fade-up absolute inset-0 flex justify-center overflow-visible pointer-events-none z-0">
         <svg 
-          className="w-full max-w-[1000px] h-full" 
+          className="mobile-fade-up w-full max-w-[1000px] h-full" 
           viewBox="0 0 1000 1600" 
           preserveAspectRatio="none"
           fill="none"
@@ -263,7 +263,7 @@ export default function HowItWorksGraphic() {
       </div>
 
       {/* Steps Container */}
-      <div className="flex flex-col gap-24 md:gap-32 relative z-10 w-full">
+      <div className="mobile-fade-up flex flex-col gap-24 md:gap-32 relative z-10 w-full">
         {STEPS.map((step, idx) => (
           <InteractiveStepCard key={step.number} step={step} index={idx} />
         ))}

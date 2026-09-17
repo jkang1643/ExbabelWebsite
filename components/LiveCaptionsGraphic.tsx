@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function LiveCaptionsGraphic() {
   return (
-    <div className="relative z-10 w-full h-[400px] flex items-center justify-center overflow-hidden rounded-[24px]">
+    <div className="mobile-fade-up relative z-10 w-full h-[400px] flex items-center justify-center overflow-hidden rounded-[24px]">
       <style dangerouslySetInnerHTML={{__html: `
         .lc-aurora-bg {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -61,18 +61,18 @@ export default function LiveCaptionsGraphic() {
             100% { width: 100%; }
         }
       `}} />
-      <div className="lc-aurora-bg"></div>
+      <div className="mobile-fade-up lc-aurora-bg"></div>
       
-      <div className="lc-video-box flex flex-col items-center justify-center">
-          <div className="lc-waveform">
-              <div className="lc-bar"></div>
-              <div className="lc-bar"></div>
-              <div className="lc-bar"></div>
-              <div className="lc-bar"></div>
-              <div className="lc-bar"></div>
+      <div className="mobile-fade-up lc-video-box flex flex-col items-center justify-center">
+          <div className="mobile-fade-up lc-waveform">
+              <div className="mobile-fade-up lc-bar"></div>
+              <div className="mobile-fade-up lc-bar"></div>
+              <div className="mobile-fade-up lc-bar"></div>
+              <div className="mobile-fade-up lc-bar"></div>
+              <div className="mobile-fade-up lc-bar"></div>
           </div>
-          <div className="lc-caption-bar">
-              <span className="lc-text-reveal">Bienvenidos a nuestra iglesia</span>
+          <div className="mobile-fade-up lc-caption-bar">
+              <span className="mobile-fade-up lc-text-reveal">Bienvenidos a nuestra iglesia</span>
           </div>
       </div>
     </div>

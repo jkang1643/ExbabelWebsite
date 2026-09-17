@@ -112,16 +112,16 @@ export default function VideoLibrarySection() {
     const activeVideo = VIDEO_DATA.find(v => v.id === modalVideoId);
 
     return (
-        <section className="relative py-24 bg-white overflow-hidden font-sans border-t border-gray-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-fade-up relative py-24 bg-white overflow-hidden font-sans border-t border-gray-100">
+            <div className="mobile-fade-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header & Tabs */}
-                <div className="flex flex-col items-center mb-12 md:mb-16">
-                    <div className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50/50 px-3 py-1 mb-6">
-                        <span className="text-sm font-semibold tracking-tight text-blue-600">
+                <div className="mobile-fade-up flex flex-col items-center mb-12 md:mb-16">
+                    <div className="mobile-fade-up inline-flex items-center rounded-full border border-blue-100 bg-blue-50/50 px-3 py-1 mb-6">
+                        <span className="mobile-fade-up text-sm font-semibold tracking-tight text-blue-600">
                             Video Library
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-8 text-center max-w-3xl">
+                    <h2 className="mobile-fade-up text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-8 text-center max-w-3xl">
                         See Exbabel in Action
                     </h2>
 
@@ -129,7 +129,7 @@ export default function VideoLibrarySection() {
                 </div>
 
                 {/* Gallery */}
-                <div className="flex flex-nowrap gap-3 md:gap-4 h-[450px] md:h-[500px] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 scrollbar-hide">
+                <div className="mobile-fade-up flex flex-nowrap gap-3 md:gap-4 h-[450px] md:h-[500px] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 scrollbar-hide">
                     {currentVideos.map((video) => {
                         const isActive = activeCardId === video.id;
 
@@ -218,7 +218,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                 <img
                     src={video.posterImage}
                     alt={video.title}
-                    className="w-full h-full object-cover"
+                    className="mobile-fade-up w-full h-full object-cover"
                     loading="lazy"
                     width={800}
                     height={450}
@@ -230,10 +230,10 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                 {video.previewVideoSrc ? (
                     video.previewVideoSrc.includes("youtube.com") ? (
                         isActive && !prefersReducedMotion ? (
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[200%] md:h-[200%] pointer-events-none flex items-center justify-center">
+                            <div className="mobile-fade-up absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[200%] md:h-[200%] pointer-events-none flex items-center justify-center">
                                 <iframe
                                     src={video.previewVideoSrc}
-                                    className="w-full h-full border-0 pointer-events-none max-w-none scale-[1.3]"
+                                    className="mobile-fade-up w-full h-full border-0 pointer-events-none max-w-none scale-[1.3]"
                                     style={{ aspectRatio: "16/9", minWidth: "100%", minHeight: "100%" }}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     tabIndex={-1}
@@ -244,7 +244,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                         <video
                             ref={videoRef}
                             src={video.previewVideoSrc}
-                            className="w-full h-full object-cover"
+                            className="mobile-fade-up w-full h-full object-cover"
                             playsInline
                             muted
                             loop
@@ -265,7 +265,7 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
             />
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left z-10">
+            <div className="mobile-fade-up absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left z-10">
                 <AnimatePresence mode="popLayout">
                     {isActive ? (
                         <motion.div
@@ -274,23 +274,23 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                             animate={{ y: 0 }}
                             exit={{ y: 10 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
-                            className="flex w-full items-end justify-between gap-4"
+                            className="mobile-fade-up flex w-full items-end justify-between gap-4"
                         >
-                            <div className="max-w-[85%] pr-4 drop-shadow-md">
-                                <p className="text-white/80 font-medium text-xs md:text-sm mb-1.5 md:mb-2 tracking-wide uppercase">{video.duration && `${video.duration} • `}{video.category}</p>
-                                <h3 className="text-xl md:text-3xl font-bold text-white leading-tight mb-1.5 md:mb-2">
+                            <div className="mobile-fade-up max-w-[85%] pr-4 drop-shadow-md">
+                                <p className="mobile-fade-up text-white/80 font-medium text-xs md:text-sm mb-1.5 md:mb-2 tracking-wide uppercase">{video.duration && `${video.duration} • `}{video.category}</p>
+                                <h3 className="mobile-fade-up text-xl md:text-3xl font-bold text-white leading-tight mb-1.5 md:mb-2">
                                     {video.title}
                                 </h3>
                                 {video.subtitle && (
-                                    <p className="text-white/90 text-sm md:text-base line-clamp-2">
+                                    <p className="mobile-fade-up text-white/90 text-sm md:text-base line-clamp-2">
                                         {video.subtitle}
                                     </p>
                                 )}
                             </div>
 
                             {/* Play Button */}
-                            <div className="bg-white/95 group-hover:bg-white text-blue-600 rounded-full p-3 md:p-4 flex-shrink-0 shadow-xl shadow-black/30 transition-all transform group-hover:scale-110 mb-1 md:mb-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6">
+                            <div className="mobile-fade-up bg-white/95 group-hover:bg-white text-blue-600 rounded-full p-3 md:p-4 flex-shrink-0 shadow-xl shadow-black/30 transition-all transform group-hover:scale-110 mb-1 md:mb-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="mobile-fade-up w-5 h-5 md:w-6 md:h-6">
                                     <path d="M5.5 3.5L19.5 12L5.5 20.5V3.5Z" />
                                 </svg>
                             </div>
@@ -298,9 +298,9 @@ function VideoCard({ video, isActive, onMouseEnter, onFocus, onClick }: VideoCar
                     ) : (
                         <motion.div
                             layoutId={`content-${video.id}`}
-                            className="w-full flex items-end justify-start h-full drop-shadow-md"
+                            className="mobile-fade-up w-full flex items-end justify-start h-full drop-shadow-md"
                         >
-                            <h3 className="text-white font-semibold text-base md:text-lg leading-snug line-clamp-2 md:whitespace-normal">
+                            <h3 className="mobile-fade-up text-white font-semibold text-base md:text-lg leading-snug line-clamp-2 md:whitespace-normal">
                                 {video.title}
                             </h3>
                         </motion.div>

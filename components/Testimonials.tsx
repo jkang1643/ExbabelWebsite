@@ -32,38 +32,38 @@ export default function Testimonials() {
     ];
 
     return (
-        <section className="py-24 md:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+        <section className="mobile-fade-up py-24 md:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
             {/* Static background blobs */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-40"
+            <div className="mobile-fade-up absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="mobile-fade-up absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-40"
                     style={{ background: 'radial-gradient(circle, #7C3AED40 0%, #7C3AED20 50%, transparent 70%)' }} />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-35"
+                <div className="mobile-fade-up absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-35"
                     style={{ background: 'radial-gradient(circle, #2563EB35 0%, #2563EB18 50%, transparent 70%)' }} />
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="mobile-fade-up container mx-auto px-6 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <div className="text-eyebrow mb-4 tracking-widest text-primary/80">
+                <div className="mobile-fade-up text-center mb-16">
+                    <div className="mobile-fade-up text-eyebrow mb-4 tracking-widest text-primary/80">
                         VOICES FROM OUR COMMUNITY
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
+                    <h2 className="mobile-fade-up text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
                         Trusted by Church Leaders Nationwide
                     </h2>
                     Pastors and ministry leaders share how Exbabel has transformed their congregations.
                 </div>
 
                 {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <div className="mobile-fade-up grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {testimonials.map((testimonial, index) => (
-                        <div key={index} className="group">
-                            <div className="h-full p-8 bg-white rounded-2xl border-0 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.16),0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col ring-1 ring-slate-900/5 hover:ring-slate-900/10">
+                        <div key={index} className="mobile-fade-up group">
+                            <div className="mobile-fade-up h-full p-8 bg-white rounded-2xl border-0 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.16),0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col ring-1 ring-slate-900/5 hover:ring-slate-900/10">
                                 {/* Star Rating */}
-                                <div className="flex gap-1 mb-4">
+                                <div className="mobile-fade-up flex gap-1 mb-4">
                                     {[...Array(testimonial.rating)].map((_, i) => (
                                         <svg
                                             key={i}
-                                            className="w-5 h-5 text-yellow-400 fill-current drop-shadow-md"
+                                            className="mobile-fade-up w-5 h-5 text-yellow-400 fill-current drop-shadow-md"
                                             viewBox="0 0 20 20"
                                         >
                                             <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
@@ -72,29 +72,29 @@ export default function Testimonials() {
                                 </div>
 
                                 {/* Quote */}
-                                <blockquote className="text-base text-slate-600 leading-relaxed mb-6 flex-grow">
+                                <blockquote className="mobile-fade-up text-base text-slate-600 leading-relaxed mb-6 flex-grow">
                                     &quot;{testimonial.quote}&quot;
                                 </blockquote>
 
                                 {/* Author Info */}
-                                <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
+                                <div className="mobile-fade-up flex items-center gap-4 pt-4 border-t border-slate-100">
                                     {/* Avatar with initials */}
                                     <div className={`w-12 h-12 rounded-full ${testimonial.color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-[0_4px_14px_0_rgba(0,0,0,0.25)]`}>
                                         {testimonial.initials}
                                     </div>
 
-                                    <div className="flex-1 min-w-0">
+                                    <div className="mobile-fade-up flex-1 min-w-0">
                                         {testimonial.name && (
-                                            <div className="font-bold text-slate-900 text-sm">
+                                            <div className="mobile-fade-up font-bold text-slate-900 text-sm">
                                                 {testimonial.name}
                                             </div>
                                         )}
                                         {testimonial.title && (
-                                            <div className="text-xs text-slate-500">
+                                            <div className="mobile-fade-up text-xs text-slate-500">
                                                 {testimonial.title}
                                             </div>
                                         )}
-                                        <div className="text-xs text-primary font-medium">
+                                        <div className="mobile-fade-up text-xs text-primary font-medium">
                                             {testimonial.organization}
                                         </div>
                                     </div>
@@ -105,13 +105,13 @@ export default function Testimonials() {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="text-center mt-16">
-                    <p className="text-base-content/70 mb-4">
+                <div className="mobile-fade-up text-center mt-16">
+                    <p className="mobile-fade-up text-base-content/70 mb-4">
                         Join these leaders in breaking down language barriers
                     </p>
                     <a
                         href="#pricing"
-                        className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
+                        className="mobile-fade-up inline-block px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
                     >
                         Get Started
                     </a>

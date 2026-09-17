@@ -15,19 +15,19 @@ export default function BlogSubNav() {
   const isAllActive = pathname === "/blog" || pathname === "/blog/";
 
   return (
-    <div className="w-full bg-white/95 md:backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-14 sm:h-15 flex items-center justify-between gap-3 sm:gap-6">
+    <div className="mobile-fade-up w-full bg-white/95 md:backdrop-blur-md border-b border-slate-200 sticky top-16 sm:top-20 z-40 transition-all shadow-xs">
+      <div className="mobile-fade-up max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-14 sm:h-15 flex items-center justify-between gap-3 sm:gap-6">
         
         {/* Left: Publication Branding */}
-        <div className="flex items-center gap-2.5 flex-shrink-0">
+        <div className="mobile-fade-up flex items-center gap-2.5 flex-shrink-0">
           <Link
             href="/blog"
-            className="flex items-center gap-2 group font-bold text-base sm:text-lg text-slate-900 tracking-tight hover:text-primary transition-colors"
+            className="mobile-fade-up flex items-center gap-2 group font-bold text-base sm:text-lg text-slate-900 tracking-tight hover:text-primary transition-colors"
           >
             <motion.span whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>
               Exbabel Insights
             </motion.span>
-            <span className="hidden sm:inline-block text-[9px] uppercase font-mono tracking-widest px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
+            <span className="mobile-fade-up hidden sm:inline-block text-[9px] uppercase font-mono tracking-widest px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
               Publication
             </span>
           </Link>
@@ -35,14 +35,14 @@ export default function BlogSubNav() {
 
         {/* Center: Topic Categories (Desktop & Tablet) - justify-start guarantees All Articles is never clipped */}
         <nav
-          className="hidden md:flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-1 relative flex-1 min-w-0 justify-start 2xl:justify-center px-2"
+          className="mobile-fade-up hidden md:flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-1 relative flex-1 min-w-0 justify-start 2xl:justify-center px-2"
           aria-label="Publication Topics"
         >
           {/* "All Articles" Tab - Guaranteed visible, never clipped */}
           <Link
             href="/blog"
             onClick={() => setClickedTab("all")}
-            className="relative text-[11px] xl:text-xs font-semibold tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
+            className="mobile-fade-up relative text-[11px] xl:text-xs font-semibold tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
           >
             <motion.div
               whileHover={{ scale: 1.06, y: -1 }}
@@ -55,7 +55,7 @@ export default function BlogSubNav() {
               {isAllActive && (
                 <motion.span
                   layoutId="activeSubNavPill"
-                  className="absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
+                  className="mobile-fade-up absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
                   transition={{ type: "spring", stiffness: 450, damping: 32 }}
                 />
               )}
@@ -73,7 +73,7 @@ export default function BlogSubNav() {
                 key={cat.slug}
                 href={href}
                 onClick={() => setClickedTab(cat.slug)}
-                className="relative text-[11px] xl:text-xs tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
+                className="mobile-fade-up relative text-[11px] xl:text-xs tracking-wide transition-colors whitespace-nowrap z-10 block flex-shrink-0"
               >
                 <motion.div
                   whileHover={{ scale: 1.06, y: -1 }}
@@ -88,7 +88,7 @@ export default function BlogSubNav() {
                   {isActive && (
                     <motion.span
                       layoutId="activeSubNavPill"
-                      className="absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
+                      className="mobile-fade-up absolute inset-0 rounded-full bg-slate-950 shadow-sm -z-10"
                       transition={{ type: "spring", stiffness: 450, damping: 32 }}
                     />
                   )}
@@ -100,27 +100,27 @@ export default function BlogSubNav() {
         </nav>
 
         {/* Right: Quick CTA & Search Button */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <div className="relative">
+        <div className="mobile-fade-up flex items-center gap-2 flex-shrink-0">
+          <div className="mobile-fade-up relative">
             {isSearchOpen ? (
               <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
-                className="flex items-center gap-1.5"
+                className="mobile-fade-up flex items-center gap-1.5"
               >
                 <input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-32 sm:w-44 text-xs px-3 py-1 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900 shadow-inner"
+                  className="mobile-fade-up w-32 sm:w-44 text-xs px-3 py-1 rounded-full border border-slate-300 focus:outline-none focus:border-slate-900 shadow-inner"
                   autoFocus
                   onBlur={() => !searchQuery && setIsSearchOpen(false)}
                 />
                 <button
                   type="button"
                   onClick={() => setIsSearchOpen(false)}
-                  className="text-slate-400 hover:text-slate-700 text-xs p-1"
+                  className="mobile-fade-up text-slate-400 hover:text-slate-700 text-xs p-1"
                   aria-label="Close search"
                 >
                   ✕
@@ -132,11 +132,11 @@ export default function BlogSubNav() {
                 whileTap={{ scale: 0.88 }}
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
+                className="mobile-fade-up p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
                 aria-label="Search articles"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="mobile-fade-up w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -159,7 +159,7 @@ export default function BlogSubNav() {
             href="https://app.exbabel.com/translate/checkout?plan=starter"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-xs"
+            className="mobile-fade-up hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors shadow-xs"
           >
             Start Free
           </motion.a>
@@ -168,7 +168,7 @@ export default function BlogSubNav() {
       </div>
 
       {/* Mobile Topic Scroller (sub-row on mobile viewports) */}
-      <div className="md:hidden border-t border-slate-100 px-4 py-2 overflow-x-auto no-scrollbar flex items-center gap-1.5">
+      <div className="mobile-fade-up md:hidden border-t border-slate-100 px-4 py-2 overflow-x-auto no-scrollbar flex items-center gap-1.5">
         <Link
           href="/blog"
           className={`text-[11px] whitespace-nowrap px-3 py-1 rounded-full font-medium transition-colors flex-shrink-0 ${

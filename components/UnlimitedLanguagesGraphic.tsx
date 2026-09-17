@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function UnlimitedLanguagesGraphic() {
   return (
-    <div className="relative z-10 w-full h-[400px] flex items-center justify-center overflow-hidden rounded-[24px]">
+    <div className="mobile-fade-up relative z-10 w-full h-[400px] flex items-center justify-center overflow-hidden rounded-[24px]">
       <style dangerouslySetInnerHTML={{__html: `
         .ul-aurora-bg {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -68,16 +68,16 @@ export default function UnlimitedLanguagesGraphic() {
             100% { transform: scale(2.5); ; }
         }
       `}} />
-      <div className="ul-aurora-bg"></div>
+      <div className="mobile-fade-up ul-aurora-bg"></div>
       
-      <div className="relative w-full h-full flex items-center justify-center">
-          <div className="ul-orb-lang ul-lang-es">ES</div>
-          <div className="ul-orb-lang ul-lang-ko">KO</div>
-          <div className="ul-orb-lang ul-lang-pt">PT</div>
-          <div className="ul-orb-lang ul-lang-fr">FR</div>
+      <div className="mobile-fade-up relative w-full h-full flex items-center justify-center">
+          <div className="mobile-fade-up ul-orb-lang ul-lang-es">ES</div>
+          <div className="mobile-fade-up ul-orb-lang ul-lang-ko">KO</div>
+          <div className="mobile-fade-up ul-orb-lang ul-lang-pt">PT</div>
+          <div className="mobile-fade-up ul-orb-lang ul-lang-fr">FR</div>
           
-          <div className="ul-orb-center">
-              <div className="ul-pulse-ring"></div>
+          <div className="mobile-fade-up ul-orb-center">
+              <div className="mobile-fade-up ul-pulse-ring"></div>
               EN
           </div>
       </div>

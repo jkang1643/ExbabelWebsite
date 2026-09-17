@@ -1,17 +1,19 @@
 
-/* Desktop: Instant render (matches current behavior) */
-:root {
-  --reveal-opacity: 0;
-  --reveal-y: 30px;
-}
-
-/* Mobile: Restores the smooth fade-up from commit c1eb118 */
 @media (max-width: 767px) {
-  :root {
-    --reveal-opacity: 0;
-    --reveal-y: 30px;
+  .mobile-fade-up {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  }
+  .mobile-fade-up.is-in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 }
+
+
+
+
 
 @tailwind base;
 @tailwind components;

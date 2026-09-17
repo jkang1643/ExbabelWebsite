@@ -423,16 +423,16 @@ export default function EsotericGeneratorImage({ seed, imageUrl, isAnimated = fa
   }, [isMounted, coxeterPaths, coxeterVertices, ringCircles, globalScale, globalRotation, isAnimated, imageUrl, loading, imgElement, vectorizedPaths, scrollY]);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center opacity-90 mix-blend-screen pointer-events-none relative">
+    <div className="mobile-fade-up absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center opacity-90 mix-blend-screen pointer-events-none relative">
       {isMounted && (
         <>
           <canvas
             ref={canvasRef}
             width={2000}
             height={2000}
-            className="w-full h-full max-w-[2000px] aspect-square object-cover"
+            className="mobile-fade-up w-full h-full max-w-[2000px] aspect-square object-cover"
           />
-          <div className="absolute bottom-6 right-6 font-mono text-[10px] text-yellow-300/30 tracking-[0.2em] select-none pointer-events-auto">
+          <div className="mobile-fade-up absolute bottom-6 right-6 font-mono text-[10px] text-yellow-300/30 tracking-[0.2em] select-none pointer-events-auto">
             [ PROJECT 212 // ROOM 212 ]
           </div>
         </>

@@ -77,28 +77,28 @@ export default function Pricing() {
   const isYearly = billingInterval === "yearly";
 
   return (
-    <section id="pricing" className="py-20 px-6 bg-base-100 relative overflow-hidden">
+    <section id="pricing" className="mobile-fade-up py-20 px-6 bg-base-100 relative overflow-hidden">
       {/* Background blobs — static */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
+      <div className="mobile-fade-up absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="mobile-fade-up absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
           style={{ background: 'radial-gradient(circle, #7C3AED35 0%, #7C3AED18 50%, transparent 70%)' }} />
-        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
+        <div className="mobile-fade-up absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
           style={{ background: 'radial-gradient(circle, #2563EB30 0%, #2563EB15 50%, transparent 70%)' }} />
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="mobile-fade-up container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+        <div className="mobile-fade-up text-center mb-10">
+          <h2 className="mobile-fade-up text-4xl md:text-5xl font-bold mb-4 text-base-content">
             Select Your Plan
           </h2>
-          <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
+          <p className="mobile-fade-up text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
             Real-time AI translation for churches and organizations of every size.
           </p>
 
 
           {/* Monthly / Annual Toggle */}
-          <div className="inline-flex bg-base-200 rounded-full p-1 gap-0">
+          <div className="mobile-fade-up inline-flex bg-base-200 rounded-full p-1 gap-0">
             <button
               onClick={() => setBillingInterval("monthly")}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${billingInterval === "monthly"
@@ -116,7 +116,7 @@ export default function Pricing() {
                 }`}
             >
               Annual
-              <span className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+              <span className="mobile-fade-up bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
                 20% OFF
               </span>
             </button>
@@ -124,7 +124,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="mobile-fade-up grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {plans.map((plan, index) => {
             const isActive = selectedPlan === plan.name.toLowerCase();
             return (
@@ -134,7 +134,7 @@ export default function Pricing() {
                 style={{ cursor: "pointer" }}
               >
                 <div
-                  className="bg-white md:backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
+                  className="mobile-fade-up bg-white md:backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
                   style={{
                     border: isActive ? `2px solid ${plan.accentColor}` : "2px solid transparent",
                     boxShadow: isActive
@@ -145,14 +145,14 @@ export default function Pricing() {
                 >
                   {/* Popular Badge */}
                   {plan.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.4)] whitespace-nowrap z-10">
+                    <div className="mobile-fade-up absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.4)] whitespace-nowrap z-10">
                       Recommended
                     </div>
                   )}
 
                   {/* Free Trial Badge */}
                   {plan.badge && !plan.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
+                    <div className="mobile-fade-up absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
                       {plan.badge}
                     </div>
                   )}
@@ -172,31 +172,31 @@ export default function Pricing() {
                     </div>
                   )}
 
-                  <div className="p-8 pt-10 flex flex-col h-full">
+                  <div className="mobile-fade-up p-8 pt-10 flex flex-col h-full">
                     {/* Plan Name & Description */}
                     <div style={{ minHeight: "8rem" }}>
-                      <h3 className="text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
-                      <p className="text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
+                      <h3 className="mobile-fade-up text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
+                      <p className="mobile-fade-up text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
                     </div>
 
                     {/* Pricing */}
-                    <div className="text-center mb-5 flex flex-col justify-center" style={{ minHeight: 130 }}>
+                    <div className="mobile-fade-up text-center mb-5 flex flex-col justify-center" style={{ minHeight: 130 }}>
                       {isYearly ? (
                         <>
                           {plan.name === "Starter" && (
-                            <div className="text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
+                            <div className="mobile-fade-up text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
                               Free for 30 Days
                             </div>
                           )}
-                          {plan.name !== "Starter" && <div className="h-5 mb-1" aria-hidden="true" />}
-                          <div className="text-5xl font-extrabold text-base-content leading-none">
+                          {plan.name !== "Starter" && <div className="mobile-fade-up h-5 mb-1" aria-hidden="true" />}
+                          <div className="mobile-fade-up text-5xl font-extrabold text-base-content leading-none">
                             ${plan.annualPrice.toLocaleString()}
-                            <span className="text-lg font-medium text-base-content/70">/yr</span>
+                            <span className="mobile-fade-up text-lg font-medium text-base-content/70">/yr</span>
                           </div>
-                          <div className="text-sm text-base-content/50 mt-1">
+                          <div className="mobile-fade-up text-sm text-base-content/50 mt-1">
                             ~${Math.round(plan.annualPrice / 12)}/mo
                           </div>
-                          <div className="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 self-center">
+                          <div className="mobile-fade-up inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 self-center">
                             Save ${plan.monthlyPrice * 12 - plan.annualPrice}/year
                           </div>
                         </>
@@ -204,23 +204,23 @@ export default function Pricing() {
                         <>
                           {plan.name === "Starter" ? (
                             <>
-                              <div className="text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
+                              <div className="mobile-fade-up text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
                                 Free for 30 Days
                               </div>
-                              <div className="text-5xl font-extrabold text-base-content leading-none">$0</div>
-                              <div className="text-sm font-semibold text-base-content/70 mt-1.5">
+                              <div className="mobile-fade-up text-5xl font-extrabold text-base-content leading-none">$0</div>
+                              <div className="mobile-fade-up text-sm font-semibold text-base-content/70 mt-1.5">
                                 then ${plan.monthlyPrice}/mo
                               </div>
                             </>
                           ) : (
                             <>
-                              <div className="h-5" aria-hidden="true" />
+                              <div className="mobile-fade-up h-5" aria-hidden="true" />
                               <div
-                                className="text-5xl font-extrabold text-base-content leading-none"
+                                className="mobile-fade-up text-5xl font-extrabold text-base-content leading-none"
                                 style={plan.name === "Unlimited" ? { paddingTop: "2rem", paddingBottom: "2rem" } : {}}
                               >
                                 ${plan.monthlyPrice}
-                                <span className="text-lg font-medium text-base-content/70">/mo</span>
+                                <span className="mobile-fade-up text-lg font-medium text-base-content/70">/mo</span>
                               </div>
                             </>
                           )}
@@ -229,24 +229,24 @@ export default function Pricing() {
                     </div>
 
                     {/* Divider */}
-                    <div className="w-full h-px bg-base-content/10 mb-5"></div>
+                    <div className="mobile-fade-up w-full h-px bg-base-content/10 mb-5"></div>
 
                     {/* Features */}
-                    <ul className="space-y-2 mb-6 flex-grow">
+                    <ul className="mobile-fade-up space-y-2 mb-6 flex-grow">
                       {plan.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2.5 text-sm text-base-content/80">
-                          <span className="text-sm flex-shrink-0 text-primary font-semibold">✓</span>
-                          <span className="leading-relaxed">{feature.text}</span>
+                        <li key={idx} className="mobile-fade-up flex items-center gap-2.5 text-sm text-base-content/80">
+                          <span className="mobile-fade-up text-sm flex-shrink-0 text-primary font-semibold">✓</span>
+                          <span className="mobile-fade-up leading-relaxed">{feature.text}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* CTA Button */}
-                    <div className="mt-auto text-center">
+                    <div className="mobile-fade-up mt-auto text-center">
                       <a
                         href={plan.signupUrl(billingInterval)}
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-block w-full py-3 rounded-xl font-bold border-none text-center transition-all"
+                        className="mobile-fade-up inline-block w-full py-3 rounded-xl font-bold border-none text-center transition-all"
                         style={{
                           background: isActive
                             ? `linear-gradient(135deg, ${plan.accentColor}, ${plan.accentColor}cc)`
@@ -266,26 +266,26 @@ export default function Pricing() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="flex justify-center gap-8 flex-wrap mb-6">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">✓</span>
-            <span className="text-sm text-base-content/70">Secure payment via Stripe</span>
+        <div className="mobile-fade-up flex justify-center gap-8 flex-wrap mb-6">
+          <div className="mobile-fade-up flex items-center gap-2">
+            <span className="mobile-fade-up text-sm text-base-content/70">✓</span>
+            <span className="mobile-fade-up text-sm text-base-content/70">Secure payment via Stripe</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">Cancel anytime</span>
+          <div className="mobile-fade-up flex items-center gap-2">
+            <span className="mobile-fade-up text-sm text-base-content/70">Cancel anytime</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">30-day trial on Starter</span>
+          <div className="mobile-fade-up flex items-center gap-2">
+            <span className="mobile-fade-up text-sm text-base-content/70">30-day trial on Starter</span>
           </div>
         </div>
 
         {/* Custom Plan CTA */}
-        <div className="text-center">
-          <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 md:backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
-            <div className="p-8 text-center">
-              <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
-              <p className="text-base-content/70 mb-4">For organizations with specific requirements, our team will design a tailored deployment.</p>
-              <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all">Contact Us</a>
+        <div className="mobile-fade-up text-center">
+          <div className="mobile-fade-up bg-gradient-to-br from-[#5a5d80]/5 to-white/70 md:backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
+            <div className="mobile-fade-up p-8 text-center">
+              <h3 className="mobile-fade-up text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
+              <p className="mobile-fade-up text-base-content/70 mb-4">For organizations with specific requirements, our team will design a tailored deployment.</p>
+              <a href="mailto:support@exbabel.com" className="mobile-fade-up inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all">Contact Us</a>
             </div>
           </div>
         </div>

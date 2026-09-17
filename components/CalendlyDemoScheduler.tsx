@@ -45,7 +45,7 @@ export default function CalendlyDemoScheduler({
   }, []);
 
   return (
-    <div className="w-full h-full min-h-[650px] rounded-2xl overflow-hidden bg-white">
+    <div className="mobile-fade-up w-full h-full min-h-[650px] rounded-2xl overflow-hidden bg-white">
       <iframe
         src={iframeSrc}
         width="100%"

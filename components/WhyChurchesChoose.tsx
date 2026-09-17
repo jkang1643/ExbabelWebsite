@@ -35,12 +35,12 @@ const BENEFITS: BenefitCard[] = [
         { src: "/avatars/avatar-4.webp", flag: "🇫🇷", z: 2, x: 6 },
       ];
       return (
-        <div className="flex items-center justify-center h-full">
-          <div className="flex items-center">
+        <div className="mobile-fade-up flex items-center justify-center h-full">
+          <div className="mobile-fade-up flex items-center">
             {avatars.map((a, i) => (
               <div
                 key={i}
-                className="relative -ml-4 first:ml-0"
+                className="mobile-fade-up relative -ml-4 first:ml-0"
                 style={{
                   zIndex: a.z,
                   transform: active ? `translateX(${a.x}px) scale(1.08)` : "translateX(0) scale(1)",
@@ -51,10 +51,10 @@ const BENEFITS: BenefitCard[] = [
                 <img
                   src={a.src}
                   alt="User avatar"
-                  className="w-[68px] h-[68px] rounded-full object-cover border-[3px] border-white shadow-lg shadow-slate-200/80"
+                  className="mobile-fade-up w-[68px] h-[68px] rounded-full object-cover border-[3px] border-white shadow-lg shadow-slate-200/80"
                 />
                 <div
-                  className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xs"
+                  className="mobile-fade-up absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xs"
                   style={{
                     opacity: active ? 1 : 0,
                     transform: active ? "scale(1)" : "scale(0.5)",
@@ -78,41 +78,41 @@ const BENEFITS: BenefitCard[] = [
     accentFrom: "#38BDF8",
     accentTo: "#0EA5E9",
     icon: (active) => (
-      <div className="text-left space-y-2 h-full flex flex-col justify-center">
+      <div className="mobile-fade-up text-left space-y-2 h-full flex flex-col justify-center">
         {/* Speaker header */}
-        <div className="flex items-center gap-2" style={{ opacity: active ? 1 : 0.6, transition: t(0) }}>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-red-400 border-2 border-white shadow-sm" />
-          <span className="text-slate-600 text-xs font-semibold">
-            Pastor · <span className="text-red-500 font-bold">Live</span>
+        <div className="mobile-fade-up flex items-center gap-2" style={{ opacity: active ? 1 : 0.6, transition: t(0) }}>
+          <div className="mobile-fade-up w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-red-400 border-2 border-white shadow-sm" />
+          <span className="mobile-fade-up text-slate-600 text-xs font-semibold">
+            Pastor · <span className="mobile-fade-up text-red-500 font-bold">Live</span>
           </span>
-          <span className="relative flex h-2 w-2 ml-0.5">
-            <span className="animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-40" />
-            <span className="relative rounded-full h-2 w-2 bg-red-500" />
+          <span className="mobile-fade-up relative flex h-2 w-2 ml-0.5">
+            <span className="mobile-fade-up animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-40" />
+            <span className="mobile-fade-up relative rounded-full h-2 w-2 bg-red-500" />
           </span>
         </div>
         {/* English caption */}
         <div
-          className="bg-slate-100 rounded-2xl rounded-tl-md px-4 py-2.5 text-slate-800 text-xs leading-relaxed border border-slate-200/60"
+          className="mobile-fade-up bg-slate-100 rounded-2xl rounded-tl-md px-4 py-2.5 text-slate-800 text-xs leading-relaxed border border-slate-200/60"
           style={{ opacity: active ? 1 : 0.5, transform: active ? "translateX(0)" : "translateX(-6px)", transition: t(0.08) }}
         >
           &ldquo;The Lord is my shepherd, I shall not want...&rdquo;
         </div>
         {/* Spanish translation */}
         <div
-          className="bg-sky-50 rounded-2xl rounded-tl-md px-4 py-2.5 text-sky-700 text-xs leading-relaxed border border-sky-200/60"
+          className="mobile-fade-up bg-sky-50 rounded-2xl rounded-tl-md px-4 py-2.5 text-sky-700 text-xs leading-relaxed border border-sky-200/60"
           style={{ opacity: active ? 1 : 0.3, transform: active ? "translateX(0)" : "translateX(-6px)", transition: t(0.18) }}
         >
           &ldquo;El Señor es mi pastor, nada me falta...&rdquo;
         </div>
         {/* Typing indicator */}
-        <div className="flex items-center gap-1.5 pl-1" style={{ opacity: active ? 1 : 0.25, transition: t(0.28) }}>
-          <div className="flex items-center gap-[3px] bg-slate-100 rounded-full px-3 py-1.5 border border-slate-200">
+        <div className="mobile-fade-up flex items-center gap-1.5 pl-1" style={{ opacity: active ? 1 : 0.25, transition: t(0.28) }}>
+          <div className="mobile-fade-up flex items-center gap-[3px] bg-slate-100 rounded-full px-3 py-1.5 border border-slate-200">
             {[0, 1, 2].map((d) => (
-              <div key={d} className="w-[5px] h-[5px] rounded-full bg-slate-400"
+              <div key={d} className="mobile-fade-up w-[5px] h-[5px] rounded-full bg-slate-400"
                 style={{ animation: active ? `bentoTyping 1.2s ease-in-out ${d * 0.15}s infinite` : "none" }} />
             ))}
           </div>
-          <span className="text-slate-400 text-[10px] font-medium">translating...</span>
+          <span className="mobile-fade-up text-slate-400 text-[10px] font-medium">translating...</span>
         </div>
       </div>
     ),
@@ -134,7 +134,7 @@ const BENEFITS: BenefitCard[] = [
         { x: 62, y: 84, label: "🇫🇷", r: 8 },
       ];
       return (
-        <svg viewBox="0 0 80 95" className="w-full h-full">
+        <svg viewBox="0 0 80 95" className="mobile-fade-up w-full h-full">
           {nodes.map((n, i) => (
             <line key={`l${i}`} x1="40" y1="48" x2={n.x} y2={n.y}
               stroke="#34D399" strokeWidth="0.8"
@@ -171,20 +171,20 @@ const BENEFITS: BenefitCard[] = [
       const bars = [55, 40, 65, 35, 50, 72, 42, 55, 80, 38, 50, 62, 70, 45, 78, 55, 65, 90, 52, 45];
       const hi = 17;
       return (
-        <div className="w-full h-full flex flex-col justify-between">
+        <div className="mobile-fade-up w-full h-full flex flex-col justify-between">
           {/* Header */}
-          <div className="flex items-center justify-between mb-2" style={{ opacity: active ? 1 : 0.5, transition: t(0) }}>
-            <span className="text-slate-600 text-[11px] font-bold tracking-wide">Viewers by Language</span>
-            <div className="flex items-center bg-slate-100 rounded-md text-[9px] font-bold text-slate-400 border border-slate-200">
+          <div className="mobile-fade-up flex items-center justify-between mb-2" style={{ opacity: active ? 1 : 0.5, transition: t(0) }}>
+            <span className="mobile-fade-up text-slate-600 text-[11px] font-bold tracking-wide">Viewers by Language</span>
+            <div className="mobile-fade-up flex items-center bg-slate-100 rounded-md text-[9px] font-bold text-slate-400 border border-slate-200">
               {["D", "W", "M", "Y"].map((p) => (
                 <span key={p} className={`px-2 py-0.5 rounded-md ${p === "M" ? "bg-sky-100 text-sky-600" : ""}`}>{p}</span>
               ))}
             </div>
           </div>
           {/* Bars */}
-          <div className="flex items-end gap-[3px] flex-1 pb-1">
+          <div className="mobile-fade-up flex items-end gap-[3px] flex-1 pb-1">
             {bars.map((h, i) => (
-              <div key={i} className="flex-1 rounded-t-sm min-w-0"
+              <div key={i} className="mobile-fade-up flex-1 rounded-t-sm min-w-0"
                 style={{
                   height: active ? `${h}%` : `${h * 0.35}%`,
                   backgroundColor: i === hi ? "#38BDF8" : (Math.abs(i - hi) <= 1) ? "rgba(56,189,248,0.35)" : "rgba(100,116,139,0.15)",
@@ -193,9 +193,9 @@ const BENEFITS: BenefitCard[] = [
             ))}
           </div>
           {/* Stats */}
-          <div className="flex items-center justify-between mt-1.5" style={{ opacity: active ? 1 : 0.35, transition: t(0.3) }}>
-            <span className="text-slate-400 text-[9px]">↑ 34% growth</span>
-            <span className="text-sky-600 text-[9px] font-bold">2.4K avg/week</span>
+          <div className="mobile-fade-up flex items-center justify-between mt-1.5" style={{ opacity: active ? 1 : 0.35, transition: t(0.3) }}>
+            <span className="mobile-fade-up text-slate-400 text-[9px]">↑ 34% growth</span>
+            <span className="mobile-fade-up text-sky-600 text-[9px] font-bold">2.4K avg/week</span>
           </div>
         </div>
       );
@@ -217,11 +217,11 @@ const BENEFITS: BenefitCard[] = [
         { label: "Broadcast", indent: 18 },
       ];
       return (
-        <div className="relative h-full flex flex-col justify-center">
-          <div className="absolute left-[14px] top-3 bottom-3 w-px bg-slate-200" />
-          <div className="space-y-2">
+        <div className="mobile-fade-up relative h-full flex flex-col justify-center">
+          <div className="mobile-fade-up absolute left-[14px] top-3 bottom-3 w-px bg-slate-200" />
+          <div className="mobile-fade-up space-y-2">
             {steps.map((step, i) => (
-              <div key={step.label} className="relative flex items-center"
+              <div key={step.label} className="mobile-fade-up relative flex items-center"
                 style={{
                   paddingLeft: `${10 + step.indent}px`,
                   opacity: active ? 1 : 0.4,
@@ -229,15 +229,15 @@ const BENEFITS: BenefitCard[] = [
                   transition: t(0.05 + i * 0.07),
                 }}
               >
-                <div className="absolute left-[11px] w-[7px] h-[7px] rounded-full border-2 border-orange-400"
+                <div className="mobile-fade-up absolute left-[11px] w-[7px] h-[7px] rounded-full border-2 border-orange-400"
                   style={{ backgroundColor: active ? "#FB923C" : "white", transition: t(0.05 + i * 0.07) }} />
-                <span className="inline-block bg-slate-100 border border-slate-200 rounded-lg px-3.5 py-2 text-slate-700 text-[11px] font-semibold whitespace-nowrap">
+                <span className="mobile-fade-up inline-block bg-slate-100 border border-slate-200 rounded-lg px-3.5 py-2 text-slate-700 text-[11px] font-semibold whitespace-nowrap">
                   {step.label}
                 </span>
               </div>
             ))}
           </div>
-          <div className="absolute left-[11px] bottom-1 w-[7px] h-[7px] rounded-full bg-green-500"
+          <div className="mobile-fade-up absolute left-[11px] bottom-1 w-[7px] h-[7px] rounded-full bg-green-500"
             style={{ opacity: active ? 1 : 0.3, transform: active ? "scale(1)" : "scale(0.6)", transition: t(0.45) }} />
         </div>
       );
@@ -261,8 +261,8 @@ const BENEFITS: BenefitCard[] = [
       ];
       let offset = 0;
       return (
-        <div className="flex items-center justify-center gap-5 h-full">
-          <svg viewBox="0 0 80 80" className="w-24 h-24 flex-shrink-0">
+        <div className="mobile-fade-up flex items-center justify-center gap-5 h-full">
+          <svg viewBox="0 0 80 80" className="mobile-fade-up w-24 h-24 flex-shrink-0">
             <circle cx="40" cy="40" r={r} fill="none" stroke="rgba(0,0,0,0.04)" strokeWidth="8" />
             {segments.map((seg, i) => {
               const dashLen = seg.pct * c;
@@ -281,13 +281,13 @@ const BENEFITS: BenefitCard[] = [
             <text x="40" y="48" textAnchor="middle" fill="#7C3AED" fontSize="5.5" fontWeight="500"
               style={{ opacity: active ? 0.6 : 0.25, transition: t(0.2) }}>automated</text>
           </svg>
-          <div className="space-y-2 flex-1 min-w-0">
+          <div className="mobile-fade-up space-y-2 flex-1 min-w-0">
             {segments.map((seg, i) => (
-              <div key={i} className="flex items-center gap-2.5"
+              <div key={i} className="mobile-fade-up flex items-center gap-2.5"
                 style={{ opacity: active ? 1 : 0.35, transform: active ? "translateX(0)" : "translateX(6px)", transition: t(0.12 + i * 0.05) }}>
-                <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
-                <span className="text-slate-700 text-[10px] font-semibold truncate">{seg.label}</span>
-                <span className="text-slate-400 text-[10px] font-medium ml-auto">{Math.round(seg.pct * 100)}%</span>
+                <div className="mobile-fade-up w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
+                <span className="mobile-fade-up text-slate-700 text-[10px] font-semibold truncate">{seg.label}</span>
+                <span className="mobile-fade-up text-slate-400 text-[10px] font-medium ml-auto">{Math.round(seg.pct * 100)}%</span>
               </div>
             ))}
           </div>
@@ -312,7 +312,7 @@ const BENEFITS: BenefitCard[] = [
         { x: 72, y: 16, r: 7, label: "AR", color: "#FFF1F2" },
       ];
       return (
-        <svg viewBox="0 0 80 85" className="w-full h-full">
+        <svg viewBox="0 0 80 85" className="mobile-fade-up w-full h-full">
           {bubbles.slice(1).map((b, i) => (
             <line key={`cl${i}`} x1={bubbles[0].x} y1={bubbles[0].y} x2={b.x} y2={b.y}
               stroke="#EC4899" strokeWidth="0.5"
@@ -347,7 +347,7 @@ const BENEFITS: BenefitCard[] = [
       const pts = "8,58 16,54 24,50 32,45 40,38 48,32 56,22 64,17 72,12";
       const area = pts + " 72,68 8,68";
       return (
-        <svg viewBox="0 0 80 75" className="w-full h-full">
+        <svg viewBox="0 0 80 75" className="mobile-fade-up w-full h-full">
           {[20, 35, 50, 65].map((y, i) => (
             <line key={i} x1="6" y1={y} x2="74" y2={y} stroke="rgba(0,0,0,0.05)" strokeWidth="0.5"
               style={{ opacity: active ? 1 : 0.5, transition: t(0.03 * i) }} />
@@ -426,14 +426,14 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
       initial={{ y: 30, scale: 0.95, }}
       whileInView={{ y: 0, scale: 1, }} viewport={{ once: true, margin: "-100px" }}
       transition={{ delay: index * 0.1, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-      className="h-full"
+      className="mobile-fade-up h-full"
     >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative rounded-2xl overflow-hidden cursor-default h-full"
+        className="mobile-fade-up relative rounded-2xl overflow-hidden cursor-default h-full"
         style={{
           transform: isHovered && !prefersReduced && !isTouch
             ? `translate3d(0,-8px,0) scale(1.04) perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
@@ -452,23 +452,23 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
         }}
       >
         {isHovered && !prefersReduced && !isTouch && (
-          <div className="absolute inset-0 pointer-events-none z-0"
+          <div className="mobile-fade-up absolute inset-0 pointer-events-none z-0"
             style={{ background: `radial-gradient(circle 250px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}50, transparent)` }} />
         )}
 
-        <div className="relative z-10">
+        <div className="mobile-fade-up relative z-10">
           {/* Graphic panel */}
-          <div className="rounded-xl bg-gradient-to-b from-slate-50/80 to-slate-100/40 border border-slate-100 mx-1.5 mt-1.5 p-4 overflow-hidden h-[180px]">
+          <div className="mobile-fade-up rounded-xl bg-gradient-to-b from-slate-50/80 to-slate-100/40 border border-slate-100 mx-1.5 mt-1.5 p-4 overflow-hidden h-[180px]">
             {card.icon(isHovered)}
           </div>
 
           {/* Text */}
-          <div className="px-5 pt-4 pb-5">
-            <h3 className="text-lg font-extrabold text-slate-900 mb-1.5 leading-snug"
+          <div className="mobile-fade-up px-5 pt-4 pb-5">
+            <h3 className="mobile-fade-up text-lg font-extrabold text-slate-900 mb-1.5 leading-snug"
               style={{ fontFamily: "var(--font-sora), sans-serif" }}>
               {card.title}
             </h3>
-            <p className="text-slate-500 text-[13px] leading-relaxed font-medium">
+            <p className="mobile-fade-up text-slate-500 text-[13px] leading-relaxed font-medium">
               {card.description}
             </p>
           </div>
@@ -483,34 +483,34 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
  * ═══════════════════════════════════════════════ */
 export default function WhyChurchesChoose() {
   return (
-    <section id="why-churches-choose" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="why-churches-choose" className="mobile-fade-up relative py-24 md:py-32 overflow-hidden">
       <style>{`@keyframes bentoTyping { 0%,100% { .3; transform: translateY(0); } 50% { .8; transform: translateY(-2px); } }`}</style>
 
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-section-soft opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[200px] hidden lg:block"
+      <div className="mobile-fade-up absolute inset-0 pointer-events-none">
+        <div className="mobile-fade-up absolute inset-0 bg-section-soft opacity-40" />
+        <div className="mobile-fade-up absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[200px] hidden lg:block"
           style={{ background: "radial-gradient(ellipse, rgba(234,214,255,0.12), rgba(214,245,255,0.08), transparent)" }} />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
-        <motion.div className="text-center mb-14 md:mb-16"
+      <div className="mobile-fade-up relative z-10 max-w-6xl mx-auto px-6 md:px-8">
+        <motion.div className="mobile-fade-up text-center mb-14 md:mb-16"
           initial={{ y: 24, }}
           whileInView={{ y: 0, }} viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold tracking-[0.18em] uppercase mb-7">
+          <div className="mobile-fade-up inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold tracking-[0.18em] uppercase mb-7">
             For Churches & Ministries
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] mb-5 text-base-content"
+          <h2 className="mobile-fade-up text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] mb-5 text-base-content"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Why Leading Churches Choose{" "}
-            <span className="text-primary">Exbabel</span>
+            <span className="mobile-fade-up text-primary">Exbabel</span>
           </h2>
-          <p className="text-base-content/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-medium">
+          <p className="mobile-fade-up text-base-content/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-medium">
             A single platform for every language in your congregation — replacing interpreters, equipment, and coordination.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <div className="mobile-fade-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {BENEFITS.map((card, i) => (
             <div key={card.title}>
               <BentoCard card={card} index={i} />

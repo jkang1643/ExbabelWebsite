@@ -23,7 +23,7 @@ export const AuroraButton: React.FC<AuroraButtonProps> = ({
 
     // The "Aurora Glow" effect via pseudo-element (simulated with a span since we can't easily do ::before in inline styles comfortably without custom CSS classes, but an absolute span works great)
     const glowEffect = (
-        <span className="absolute inset-[-40%] -z-10 rounded-[inherit] bg-[radial-gradient(circle,var(--color-aurora-pink)_0%,var(--color-aurora-mint)_40%,transparent_70%)] opacity-0 blur-aurora-md transition-opacity duration-300 group-hover:opacity-60 pointer-events-none" />
+        <span className="mobile-fade-up absolute inset-[-40%] -z-10 rounded-[inherit] bg-[radial-gradient(circle,var(--color-aurora-pink)_0%,var(--color-aurora-mint)_40%,transparent_70%)] opacity-0 blur-aurora-md transition-opacity duration-300 group-hover:opacity-60 pointer-events-none" />
     );
 
     return (
@@ -35,7 +35,7 @@ export const AuroraButton: React.FC<AuroraButtonProps> = ({
             {variant === 'primary' && glowEffect}
 
             {/* Content */}
-            <span className="relative z-10 flex items-center justify-center gap-2">
+            <span className="mobile-fade-up relative z-10 flex items-center justify-center gap-2">
                 {children}
             </span>
         </button>
