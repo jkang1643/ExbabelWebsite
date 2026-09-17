@@ -8,8 +8,8 @@
 /* Mobile: Restores the smooth fade-up from commit c1eb118 */
 @media (max-width: 767px) {
   :root {
-    --reveal-opacity: 0;
-    --reveal-y: 30px;
+    --reveal-opacity: 1;
+    --reveal-y: 0px;
   }
 }
 
