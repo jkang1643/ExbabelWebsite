@@ -11,7 +11,7 @@ export default function BeforeDuringAfterGraphic() {
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.h2
             initial={{ y: 20 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -20,7 +20,7 @@ export default function BeforeDuringAfterGraphic() {
           </motion.h2>
           <motion.p
             initial={{ y: 20 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-base md:text-lg text-slate-600 font-medium"
           >
@@ -54,7 +54,7 @@ export default function BeforeDuringAfterGraphic() {
           {/* CARD 1: BEFORE */}
           <motion.div
             initial={{ y: 30 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
             transition={{ duration: 0.6 }}
             className="bg-white border-2 border-slate-100 rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-shadow relative"
           >
@@ -107,7 +107,7 @@ export default function BeforeDuringAfterGraphic() {
           {/* CARD 2: DURING */}
           <motion.div
             initial={{ y: 30 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-white border-2 border-slate-100 rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-shadow relative"
           >
@@ -167,7 +167,7 @@ export default function BeforeDuringAfterGraphic() {
           {/* CARD 3: AFTER */}
           <motion.div
             initial={{ y: 30 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white border-2 border-slate-100 rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-shadow relative"
           >
@@ -224,7 +224,7 @@ export default function BeforeDuringAfterGraphic() {
         {/* Enterprise Compliance Banner */}
         <motion.div
           initial={{ y: 20 }}
-          whileInView={{ y: 0 }} viewport={{ once: true, margin: "2000px" }}
+          whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="bg-slate-50 border border-slate-200/80 rounded-2xl py-4 px-6 text-center shadow-sm"
         >
