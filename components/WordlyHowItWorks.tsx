@@ -193,7 +193,7 @@ export default function WordlyHowItWorks() {
             <motion.div
               key={step.number}
               initial={{ y: 30 }}
-              whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "100px" : "-100px" }}
+              whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "-50px" : "-100px" }}
               transition={{ duration: 0.7 }}
               className="bg-white border-2 border-slate-100 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden"
             >
