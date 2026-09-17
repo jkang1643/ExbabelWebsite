@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     type: "website", locale: "en_US", url: "https://www.exbabel.com", siteName: "Exbabel",
     title: "Church Translation System & Live AI Translation | Exbabel",
     description: "Real-time church translation for sermons, services and livestreams. Deliver AI-translated speech and live captions to listeners in multiple languages on any device.",
-    images: [{ url: "/photos/exbabel_live_translation_concept_1780070697205.webp", width: 1200, height: 630, alt: "Exbabel - Real-time AI Translation Platform" }],
+    images: [{ url: "/exbabel-og-preview.png", width: 1200, height: 630, alt: "Exbabel - Real-time AI Translation Platform" }],
   },
   twitter: {
     card: "summary_large_image", site: "@exbabel", creator: "@exbabel",
     title: "Church Translation System & Live AI Translation | Exbabel",
     description: "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. 180+ languages.",
-    images: ["/photos/exbabel_live_translation_concept_1780070697205.webp"],
+    images: ["/exbabel-og-preview.png"],
   },
   robots: {
     index: true, follow: true,
