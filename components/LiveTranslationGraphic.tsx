@@ -111,11 +111,11 @@ export default function LiveTranslationGraphic() {
     setIsPaused(false);
   };
 
-  const togglePlayPause = () => {
+  const togglePlayPause = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (!videoRef.current) return;
     if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPaused(false);
+      videoRef.current.play().then(() => setIsPaused(false)).catch(() => {});
     } else {
       videoRef.current.pause();
       setIsPaused(true);
@@ -233,12 +233,10 @@ export default function LiveTranslationGraphic() {
             initial={false}
             animate={{ 
                 opacity: isPlaying ? 1 : 0, 
-                scale: isPlaying ? 1 : 0.99,
                 pointerEvents: isPlaying ? "auto" : "none" 
             }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center cursor-pointer shadow-2xl border border-white/10"
-            onClick={togglePlayPause}
+            className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center shadow-2xl border border-white/10"
         >
             {/* HTML5 Video Element */}
             <video
@@ -246,7 +244,9 @@ export default function LiveTranslationGraphic() {
               src="/photos/hero-watch-animation.mp4"
               playsInline
               preload="auto"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center select-none pointer-events-none"
+              onPlay={() => setIsPaused(false)}
+              onPause={() => setIsPaused(true)}
               onEnded={handleVideoEnd}
               onTimeUpdate={handleTimeUpdate}
             />
@@ -255,12 +255,13 @@ export default function LiveTranslationGraphic() {
               <AnimatePresence>
                 {isPaused && (
                   <motion.div
-                    initial={{ scale: 0.7 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0.7 }}
-                    className="absolute inset-0 bg-black/40 flex items-center justify-center z-45 pointer-events-none"
+                    initial={{ scale: 0.7, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.7, opacity: 0 }}
+                    className="absolute inset-0 bg-black/40 flex items-center justify-center z-45 cursor-pointer"
+                    onClick={togglePlayPause}
                   >
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl transition-transform hover:scale-110">
                       <svg className="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -274,6 +275,24 @@ export default function LiveTranslationGraphic() {
                 className="absolute top-3 md:top-5 right-3 md:right-5 z-50 flex items-center gap-2"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Play/Pause Toggle */}
+                <button
+                  onClick={togglePlayPause}
+                  className="p-2 md:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md transition-all border border-white/20 shadow-lg hover:scale-105 active:scale-95"
+                  aria-label={isPaused ? "Resume video" : "Pause video"}
+                  title={isPaused ? "Play" : "Pause"}
+                >
+                  {isPaused ? (
+                    <svg className="w-4 h-4 md:w-5 md:h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                    </svg>
+                  )}
+                </button>
+
                 {/* Mute/Unmute Toggle */}
                 <button
                   onClick={toggleMute}
