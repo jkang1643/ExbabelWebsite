@@ -178,7 +178,7 @@ export default function HowItWorksGraphic() {
             strokeLinecap="round"
             opacity="0.15"
             initial={{ pathLength: 0, }}
-            whileInView={{ pathLength: 1, .15 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+            whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
             transition={{ duration: 2, ease: "easeInOut" }}
           />
           <motion.path

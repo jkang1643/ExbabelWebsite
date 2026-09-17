@@ -411,7 +411,7 @@ export default function InterfacePreview() {
 
       <motion.div 
         initial={{ scale: 0.95 }}
-        whileInView={{ .85, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+        whileInView={{ scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
       >

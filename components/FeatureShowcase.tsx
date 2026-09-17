@@ -110,7 +110,7 @@ function SecurityAnimation() {
 
     return (
         <div className="absolute inset-0 w-full h-full bg-[#FCFCFD] flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px', .4 }} />
+            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
             
             <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
                 
