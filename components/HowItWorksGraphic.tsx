@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
   initial: { y: 30 },
@@ -151,6 +151,23 @@ export default function HowItWorksGraphic() {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReduced = useReducedMotion();
 
+  // Smooth scroll sync: tracks progress as user scrolls through the 4 steps
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 65%", "end 60%"],
+  });
+
+  // Heavily overdamped spring (damping ratio ~2.1):
+  // Eliminates mouse-wheel bouncing/recoil completely and provides a cushioned, less-sensitive glide
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 45,
+    damping: 25,
+    mass: 0.8,
+    restDelta: 0.0005,
+  });
+
+  const activePathLength = prefersReduced ? 1 : smoothProgress;
+
   return (
     <div ref={containerRef} className="relative w-full py-10 mt-10">
       {/* Background Sweeping SVG Path (Wavy Timeline) */}
@@ -193,7 +210,7 @@ export default function HowItWorksGraphic() {
             opacity="0.12"
           />
 
-          {/* Sweeping Wide Ambient Aura (Smooth entrance drawing) */}
+          {/* Sweeping Wide Ambient Aura (Smoothly syncs with scroll) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
@@ -201,13 +218,10 @@ export default function HowItWorksGraphic() {
             strokeLinecap="round"
             opacity="0.12"
             filter="url(#auraGlow)"
-            initial={{ pathLength: prefersReduced ? 1 : 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{ pathLength: activePathLength }}
           />
 
-          {/* Soft Glow Trail (Smooth entrance drawing) */}
+          {/* Soft Glow Trail (Smoothly syncs with scroll) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
@@ -215,26 +229,20 @@ export default function HowItWorksGraphic() {
             strokeLinecap="round"
             opacity="0.32"
             filter="url(#glow)"
-            initial={{ pathLength: prefersReduced ? 1 : 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{ pathLength: activePathLength }}
           />
 
-          {/* Thin Curvy Line (Crisp foreground line drawn with silky ease) */}
+          {/* Thin Curvy Line (Crisp foreground line, zero-bounce gentle scroll sync) */}
           <motion.path
             d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
             stroke="url(#timelineGrad)"
             strokeWidth="3.5"
             strokeLinecap="round"
             opacity="0.85"
-            initial={{ pathLength: prefersReduced ? 1 : 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{ pathLength: activePathLength }}
           />
 
-          {/* Continuous Flowing Energy Stream (Living high-tech pulse down the drawn curve) */}
+          {/* Continuous Flowing Energy Stream (Living pulse along the line) */}
           {!prefersReduced && (
             <motion.path
               d="M 500,0 C 700,200 800,400 500,600 C 200,800 100,1000 500,1200 C 800,1400 600,1500 500,1600"
@@ -242,18 +250,12 @@ export default function HowItWorksGraphic() {
               strokeWidth="5.5"
               strokeLinecap="round"
               filter="url(#glow)"
-              initial={{ pathOffset: 0, pathLength: 0.18, opacity: 0 }}
-              whileInView={{ opacity: 0.95 }}
-              viewport={{ once: true, amount: 0.15 }}
+              initial={{ pathOffset: 0, pathLength: 0.16 }}
               animate={{ pathOffset: [0, 1] }}
               transition={{
-                pathOffset: {
-                  duration: 3.6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  repeatDelay: 0.4
-                },
-                opacity: { duration: 0.8, delay: 1.4 }
+                duration: 3.8,
+                repeat: Infinity,
+                ease: "linear"
               }}
             />
           )}
