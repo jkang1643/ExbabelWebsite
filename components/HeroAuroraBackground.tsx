@@ -12,14 +12,14 @@ export default function HeroAuroraBackground() {
       <svg className="absolute w-full h-full opacity-90" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#EAD6FF" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#D6F5FF" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#FFF7D1" stopOpacity="0.0" />
+            <stop offset="0%" stopColor="#E5CBFF" stopOpacity="0.95" />
+            <stop offset="50%" stopColor="#C6F0FF" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#FFF7D1" stopOpacity="0.05" />
           </linearGradient>
           <linearGradient id="heroGradRight" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#D6F5FF" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#EAD6FF" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#FFD6E5" stopOpacity="0.0" />
+            <stop offset="0%" stopColor="#C6F0FF" stopOpacity="0.95" />
+            <stop offset="50%" stopColor="#E5CBFF" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#FFD6E5" stopOpacity="0.05" />
           </linearGradient>
           <filter id="ribbonGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -134,9 +134,10 @@ export default function HeroAuroraBackground() {
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      {/* Massive subtle background glows to tie it all together */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#EAD6FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block" />
-      <div className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] bg-[#D6F5FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-40 pointer-events-none hidden lg:block" />
+      {/* Enhanced optical glows (~10% coverage & saturation increase for even coverage) */}
+      <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] bg-[#E5CBFF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
+      <div className="absolute top-[10%] right-[-10%] w-[55vw] h-[55vw] bg-[#C6F0FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-[-5%] left-[20%] w-[45vw] h-[35vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[130px] opacity-[0.25] pointer-events-none hidden lg:block" />
     </div>
   );
 }
