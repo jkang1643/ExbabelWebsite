@@ -171,7 +171,7 @@ export default function HowItWorksGraphic() {
   return (
     <div ref={containerRef} className="relative w-full py-10 mt-10">
       {/* Background Sweeping SVG Path (Wavy Timeline) */}
-      <div className="absolute inset-0 flex justify-center overflow-visible pointer-events-none z-0">
+      <div className="absolute inset-0 hidden md:flex justify-center overflow-visible pointer-events-none z-0">
         <svg 
           className="w-full max-w-[1000px] h-full" 
           viewBox="0 0 1000 1600" 
