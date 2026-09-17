@@ -60,12 +60,12 @@ export default function UnlimitedLanguagesGraphic() {
             border-radius: 50%;
             border: 2px solid #0B1220;
             animation: ul-pulse 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-            opacity: 0;
+            ;
         }
         
         @keyframes ul-pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(2.5); opacity: 0; }
+            0% { transform: scale(1); .3; }
+            100% { transform: scale(2.5); ; }
         }
       `}} />
       <div className="ul-aurora-bg"></div>

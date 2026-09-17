@@ -48,8 +48,8 @@ export default function HowItWorksPostEvent() {
           {deliverables.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all"
             >

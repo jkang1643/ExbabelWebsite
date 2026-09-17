@@ -23,15 +23,15 @@ const steps = [
 ];
 
 const staggerContainer = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
+  initial: { },
+  whileInView: { },
   viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" },
   transition: { staggerChildren: 0.15 }
 };
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 30 },
+  whileInView: { y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6, ease: "easeOut" }
 };

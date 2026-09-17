@@ -64,8 +64,8 @@ const TierCard = ({ tier, index, inView }: { tier: VoiceTier; index: number; inV
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ y: 30 }}
+            animate={inView ? { y: 0 } : { y: 30 }}
             transition={{ duration: 0.5, delay }}
             className="relative group"
         >
@@ -126,8 +126,8 @@ export default function VoicesShowcase() {
                 {/* Section Header */}
                 <motion.div
                     className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ y: 20 }}
+                    animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6 }}
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-4 border border-white/10">
@@ -152,8 +152,8 @@ export default function VoicesShowcase() {
                 {/* Bottom note */}
                 <motion.p
                     className="text-center text-sm text-white/40 mt-12 max-w-xl mx-auto"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    
+                    animate={inView ? { } : { }}
                     transition={{ delay: 1 }}
                 >
                     Voice availability varies by language. All listed countries receive translation support.

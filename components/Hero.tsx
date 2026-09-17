@@ -15,15 +15,15 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: -30 }}
+            animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "circOut" }}
             className="text-left"
           >
             <motion.div
               className="text-eyebrow mb-4 tracking-widest"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
               REAL-TIME AI TRANSLATION
@@ -31,8 +31,8 @@ export default function Hero() {
 
             <motion.h1
               className="text-h1 mb-6 text-base-ink"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Translate your conversations into{" "}
@@ -44,8 +44,8 @@ export default function Hero() {
 
             <motion.p
               className="text-body mb-8 max-w-lg text-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              
+              
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Break down language barriers with AI-powered translation that understands context, culture, and nuance.
@@ -53,8 +53,8 @@ export default function Hero() {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="contents" onClick={() => window.location.href = appRoutes.demo}>
@@ -71,8 +71,8 @@ export default function Hero() {
 
             <motion.div
               className="mt-8 text-sm text-base-muted flex items-center gap-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              
+              
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <span className="flex items-center gap-2">
@@ -93,15 +93,15 @@ export default function Hero() {
           {/* Right: Floating Cards */}
           <motion.div
             className="relative h-[600px] hidden lg:block"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: 30 }}
+            animate={{ x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Stats Card - Top Left */}
             <motion.div
               className="absolute top-0 left-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               whileHover={{ scale: 1.05, y: -5, boxShadow: "var(--shadow-aurora-hover)" }}
             >
@@ -121,8 +121,8 @@ export default function Hero() {
             {/* Accuracy Card - Top Right */}
             <motion.div
               className="absolute top-12 right-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-48"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
               whileHover={{ scale: 1.05, y: -5, boxShadow: "var(--shadow-aurora-hover)" }}
             >
@@ -142,8 +142,8 @@ export default function Hero() {
             {/* Main Chat Card - Center */}
             <motion.div
               className="absolute top-32 left-8 bg-white/80 backdrop-blur-xl shadow-aurora-card border border-aurora-default rounded-aurora-xl w-80"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
               whileHover={{ y: -5, boxShadow: "var(--shadow-aurora-hover)" }}
             >
@@ -172,8 +172,8 @@ export default function Hero() {
             {/* Performance Card - Bottom Left */}
             <motion.div
               className="absolute bottom-0 left-0 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-56"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
               whileHover={{ scale: 1.05, y: 5, boxShadow: "var(--shadow-aurora-hover)" }}
             >
@@ -198,8 +198,8 @@ export default function Hero() {
             {/* User Count Card - Bottom Right */}
             <motion.div
               className="absolute bottom-12 right-4 bg-white/70 backdrop-blur-xl shadow-aurora-card border border-aurora-subtle rounded-aurora-xl w-44"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
               whileHover={{ scale: 1.05, boxShadow: "var(--shadow-aurora-hover)" }}
             >

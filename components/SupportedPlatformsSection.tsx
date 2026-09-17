@@ -147,15 +147,15 @@ const EXTRA_PLATFORMS = [
 ];
 
 const staggerContainer = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
+  initial: { },
+  whileInView: { },
   viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" },
   transition: { staggerChildren: 0.1 }
 };
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 30 },
+  whileInView: { y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6, ease: "easeOut" }
 };
@@ -217,9 +217,9 @@ export default function SupportedPlatformsSection() {
             <AnimatePresence>
               {showAll && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={{ height: 0, }}
+                  animate={{ height: 'auto', }}
+                  exit={{ height: 0, }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
                   className="overflow-hidden mt-6"
                 >

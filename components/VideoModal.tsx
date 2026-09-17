@@ -34,16 +34,16 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, descripti
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    
+                    
+                    exit={{ }}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 md:p-12 backdrop-blur-sm"
                     onClick={onClose}
                 >
                     <motion.div
-                        initial={{ scale: 0.95, opacity: 0, y: 20 }}
-                        animate={{ scale: 1, opacity: 1, y: 0 }}
-                        exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                        initial={{ scale: 0.95, y: 20 }}
+                        animate={{ scale: 1, y: 0 }}
+                        exit={{ scale: 0.95, y: 20 }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         className="relative w-full max-w-5xl rounded-2xl md:rounded-3xl bg-gray-900 shadow-2xl overflow-hidden flex flex-col"
                         onClick={(e) => e.stopPropagation()}

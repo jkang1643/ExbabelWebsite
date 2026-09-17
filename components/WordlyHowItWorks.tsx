@@ -145,8 +145,8 @@ export default function WordlyHowItWorks() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center relative overflow-hidden">
         <div className="layout-spine max-w-4xl mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: -10 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6"
           >
@@ -154,8 +154,8 @@ export default function WordlyHowItWorks() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-white"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -164,8 +164,8 @@ export default function WordlyHowItWorks() {
           </motion.h1>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-3xl font-bold text-primary mb-6"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -174,8 +174,8 @@ export default function WordlyHowItWorks() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -192,8 +192,8 @@ export default function WordlyHowItWorks() {
           return (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ y: 30 }}
+              whileInView={{ y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               className="bg-white border-2 border-slate-100 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden"
             >

@@ -104,8 +104,8 @@ export default function BlogSubNav() {
           <div className="relative">
             {isSearchOpen ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
                 className="flex items-center gap-1.5"
               >
                 <input

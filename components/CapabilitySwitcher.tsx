@@ -168,8 +168,8 @@ export default function CapabilitySwitcher() {
             <div className="layout-spine relative z-10">
                 <motion.div
                     className="text-center mb-16 md:mb-24 max-w-[800px] mx-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ y: 20 }}
+                    whileInView={{ y: 0 }}
                     transition={{ duration: 0.8 }}
                    
                 >
@@ -211,9 +211,9 @@ export default function CapabilitySwitcher() {
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeFeature}
-                                initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: -20, scale: 0.98 }}
+                                initial={{ y: 20, scale: 0.98 }}
+                                animate={{ y: 0, scale: 1 }}
+                                exit={{ y: -20, scale: 0.98 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
                                 className="absolute inset-0"
                             >

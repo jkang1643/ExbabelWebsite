@@ -46,9 +46,9 @@ const CountryCard = ({ country, index }: { country: CountryData; index: number }
     return (
         <motion.div
             layout
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            initial={{ y: 30 }}
+            animate={{ y: 0 }}
+            exit={{ scale: 0.9 }}
             transition={{ duration: 0.4, delay: Math.min(index * 0.02, 0.6) }}
             className="group relative cursor-pointer"
             onClick={() => setFlipped(!flipped)}
@@ -66,9 +66,9 @@ const CountryCard = ({ country, index }: { country: CountryData; index: number }
                         /* ── Front ── */
                         <motion.div
                             key="front"
-                            initial={{ rotateY: 90, opacity: 0 }}
-                            animate={{ rotateY: 0, opacity: 1 }}
-                            exit={{ rotateY: -90, opacity: 0 }}
+                            initial={{ rotateY: 90, }}
+                            animate={{ rotateY: 0, }}
+                            exit={{ rotateY: -90, }}
                             transition={{ duration: 0.3 }}
                             className="p-5 flex flex-col items-center text-center h-full justify-center"
                         >
@@ -103,9 +103,9 @@ const CountryCard = ({ country, index }: { country: CountryData; index: number }
                         /* ── Back ── */
                         <motion.div
                             key="back"
-                            initial={{ rotateY: -90, opacity: 0 }}
-                            animate={{ rotateY: 0, opacity: 1 }}
-                            exit={{ rotateY: 90, opacity: 0 }}
+                            initial={{ rotateY: -90, }}
+                            animate={{ rotateY: 0, }}
+                            exit={{ rotateY: 90, }}
                             transition={{ duration: 0.3 }}
                             className="p-5 flex flex-col h-full justify-between"
                         >
@@ -170,8 +170,8 @@ export default function CountriesShowcase() {
                 {/* Section Header */}
                 <motion.div
                     className="text-center mb-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ y: 20 }}
+                    animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6 }}
                 >
                     <span className="text-eyebrow mb-4 block">COUNTRIES SHOWCASE</span>
@@ -189,8 +189,8 @@ export default function CountriesShowcase() {
                 {/* Continent Filter Tabs */}
                 <motion.div
                     className="flex flex-wrap justify-center gap-2 mb-12"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    initial={{ y: 10 }}
+                    animate={inView ? { y: 0 } : { y: 10 }}
                     transition={{ duration: 0.5, delay: 0.15 }}
                 >
                     {tabs.map((tab) => {
@@ -235,8 +235,8 @@ export default function CountriesShowcase() {
                 {/* Count bar */}
                 <motion.p
                     className="text-center text-sm text-base-muted mt-8"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    
+                    animate={inView ? { } : { }}
                     transition={{ delay: 0.5 }}
                 >
                     Showing <span className="font-bold text-base-ink">{filteredCountries.length}</span>{" "}

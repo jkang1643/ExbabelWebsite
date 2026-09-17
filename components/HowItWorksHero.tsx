@@ -15,8 +15,8 @@ export default function HowItWorksHero() {
       <div className="layout-spine max-w-5xl mx-auto px-4 relative z-10 text-center">
         {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: -10 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider mb-6"
         >
@@ -26,8 +26,8 @@ export default function HowItWorksHero() {
 
         {/* Main Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-white"
           style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -37,8 +37,8 @@ export default function HowItWorksHero() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium mb-12"
           style={{ fontFamily: "var(--font-sora), sans-serif" }}
@@ -48,8 +48,8 @@ export default function HowItWorksHero() {
 
         {/* Live Architecture Interactive Flow Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative"
         >

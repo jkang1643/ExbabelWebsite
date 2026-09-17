@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 30 },
+  whileInView: { y: 0 },
   viewport: { once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" },
   transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
 });
@@ -91,8 +91,8 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
       {/* Card Side */}
       <motion.div 
         className="w-full md:w-1/2 relative flex justify-center md:justify-start"
-        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+        initial={{ y: 40, scale: 0.95 }}
+        whileInView={{ y: 0, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
@@ -138,8 +138,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
               style={{
                 background: `radial-gradient(circle at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.4) 0%, transparent 60%)`,
                 transition: "opacity 0.4s ease",
-                opacity: 1,
-              }}
+                }}
             />
           )}
         </div>
@@ -178,8 +177,8 @@ export default function HowItWorksGraphic() {
             strokeWidth="80"
             strokeLinecap="round"
             opacity="0.15"
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.15 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+            initial={{ pathLength: 0, }}
+            whileInView={{ pathLength: 1, .15 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
             transition={{ duration: 2, ease: "easeInOut" }}
           />
           <motion.path

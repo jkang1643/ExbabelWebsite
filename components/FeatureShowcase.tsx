@@ -110,7 +110,7 @@ function SecurityAnimation() {
 
     return (
         <div className="absolute inset-0 w-full h-full bg-[#FCFCFD] flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px', opacity: 0.4 }} />
+            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '32px 32px', .4 }} />
             
             <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
                 
@@ -124,8 +124,8 @@ function SecurityAnimation() {
 
                 {/* Animated Shield */}
                 <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                    initial={{ scale: 0.8, }}
+                    animate={{ scale: 1, }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative z-10 mb-6 sm:mb-8"
                 >
@@ -294,9 +294,9 @@ export default function FeatureShowcase() {
                                             <AnimatePresence mode="wait">
                                                 <motion.div
                                                     key={active.id}
-                                                    initial={{ opacity: 0, y: prefersReduced ? 0 : 20 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: prefersReduced ? 0 : -20 }}
+                                                    initial={{ y: prefersReduced ? 0 : 20 }}
+                                                    animate={{ y: 0 }}
+                                                    exit={{ y: prefersReduced ? 0 : -20 }}
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
                                                     className="space-y-4"
                                                 >

@@ -90,7 +90,7 @@ export default function LiveTranslationShowcase() {
       {/* Fake Mouse Cursor */}
       <motion.div
         className="absolute z-50 pointer-events-none drop-shadow-xl"
-        initial={{ top: '80%', left: '80%', opacity: 0 }}
+        initial={{ top: '80%', left: '80%', }}
         animate={{ 
           top: mousePos.y, 
           left: mousePos.x, 
@@ -164,9 +164,9 @@ export default function LiveTranslationShowcase() {
               <AnimatePresence>
                 {isPlaying && (
                   <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    
+                    
+                    exit={{ }}
                     className="absolute bottom-1/4 left-1/2 -translate-x-1/2 flex items-end gap-1 mb-10 opacity-60"
                   >
                     {[...Array(5)].map((_, i) => (
@@ -206,7 +206,7 @@ export default function LiveTranslationShowcase() {
               <AnimatePresence>
                 {!isPlaying && (
                   <motion.div 
-                    exit={{ opacity: 0, scale: 1.5 }}
+                    exit={{ scale: 1.5 }}
                     className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 cursor-pointer"
                     onClick={() => setIsPlaying(true)}
                   >
@@ -229,9 +229,9 @@ export default function LiveTranslationShowcase() {
                   {isPlaying && currentLine && (
                     <motion.div
                       key={currentIndex}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
+                      initial={{ y: 15 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: -10 }}
                       transition={{ duration: 0.4 }}
                       className="text-center w-full flex justify-center"
                     >
@@ -297,8 +297,8 @@ export default function LiveTranslationShowcase() {
                 {log.map((entry, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    initial={{ x: 20, scale: 0.95 }}
+                    animate={{ x: 0, scale: 1 }}
                     className="group"
                   >
                     <p className="text-xs text-gray-500 mb-1 leading-relaxed transition-colors group-hover:text-gray-400">{entry.source}</p>
@@ -310,8 +310,8 @@ export default function LiveTranslationShowcase() {
               {/* Typing indicator */}
               {isPlaying && currentLine && (
                 <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  
+                  
                   className="flex items-center gap-1.5 mt-2 p-2"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-gray-600 animate-bounce" style={{ animationDelay: "0ms" }} />

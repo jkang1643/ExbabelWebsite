@@ -268,9 +268,8 @@ export default function InterfacePreview() {
 
   // Framer Motion staggered variants
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { },
     visible: {
-      opacity: 1,
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.1,
@@ -279,9 +278,8 @@ export default function InterfacePreview() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { y: 30 },
     visible: { 
-      opacity: 1, 
       y: 0, 
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
     }
@@ -412,8 +410,8 @@ export default function InterfacePreview() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent pointer-events-none z-20" />
 
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 0.85, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+        initial={{ scale: 0.95 }}
+        whileInView={{ .85, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none md:ml-[-10%] ml-0"
       >
@@ -470,8 +468,8 @@ export default function InterfacePreview() {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
+          initial={{ x: 40 }}
+          whileInView={{ x: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="hidden md:flex w-[40%] h-full relative overflow-hidden mask-vertical-fade items-start gap-6 justify-end pr-4 pointer-events-none select-none"
         >
@@ -519,9 +517,9 @@ export default function InterfacePreview() {
       <AnimatePresence>
         {isModalOpen && (
           <motion.div 
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.02 }}
+            initial={{ scale: 1.02 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 1.02 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] bg-[#100924]/95 backdrop-blur-2xl flex flex-col pt-16 px-6 sm:px-12 pb-12 overflow-hidden pointer-events-auto"
           >

@@ -78,16 +78,16 @@ export default function BookADemo() {
         <div className="text-center mb-12">
           <motion.h2 
             className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-[#1d1c1d]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }} viewport={{ once: true }}
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
             See Exbabel in Action
           </motion.h2>
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto font-medium"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
@@ -99,8 +99,8 @@ export default function BookADemo() {
         {!isSubmitted && !isScheduled && (
           <motion.div 
             className="flex flex-wrap justify-center gap-6 mb-12 text-sm font-semibold text-gray-700"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            
+             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
             {[
@@ -127,9 +127,9 @@ export default function BookADemo() {
               <motion.form 
                 key="form"
                 onSubmit={handleSubmit}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
+                initial={{ x: -20 }}
+                animate={{ x: 0 }}
+                exit={{ x: 20 }}
                 className="space-y-6"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -199,9 +199,9 @@ export default function BookADemo() {
             {isSubmitted && !isScheduled && (
               <motion.div 
                 key="calendly"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.95 }}
                 className="w-full"
               >
                 <div className="text-center mb-6">
@@ -219,8 +219,8 @@ export default function BookADemo() {
             {isScheduled && (
               <motion.div 
                 key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
                 className="text-center py-16"
               >
                 <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">

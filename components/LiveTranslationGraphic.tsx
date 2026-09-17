@@ -168,9 +168,9 @@ export default function LiveTranslationGraphic() {
         <AnimatePresence>
           {!isPlaying && (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
               transition={{ duration: 0.25 }}
               className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30"
             >
@@ -228,9 +228,9 @@ export default function LiveTranslationGraphic() {
               <AnimatePresence>
                 {isPaused && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.7 }}
+                    initial={{ scale: 0.7 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0.7 }}
                     className="absolute inset-0 bg-black/40 flex items-center justify-center z-45 pointer-events-none"
                   >
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-2xl">
@@ -293,8 +293,8 @@ export default function LiveTranslationGraphic() {
         <div className={`right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <motion.div 
             className="absolute top-0 left-0 w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-top-left phone-mockup-transform shrink-0"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: 30, }}
+            animate={{ y: 0, }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             

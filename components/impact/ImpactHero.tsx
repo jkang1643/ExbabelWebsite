@@ -46,8 +46,8 @@ const StatCard = ({ value, suffix, label, sublabel, delay, inView, accentColor, 
     return (
         <motion.div
             className="relative flex flex-col items-center text-center px-6 py-8 md:py-12"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            initial={{ y: 40 }}
+            animate={inView ? { y: 0 } : { y: 40 }}
             transition={{ duration: 0.7, delay, ease: "easeOut" }}
         >
             {/* Number */}
@@ -92,8 +92,8 @@ export default function ImpactHero() {
                 {/* Eyebrow */}
                 <motion.div
                     className="text-center mb-4"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    initial={{ y: 10 }}
+                    animate={inView ? { y: 0 } : { y: 10 }}
                     transition={{ duration: 0.6 }}
                 >
                     <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wide">
@@ -105,8 +105,8 @@ export default function ImpactHero() {
                 
                 <motion.h1
                     className="text-center text-4xl md:text-6xl font-extrabold text-base-ink tracking-tight leading-[1.1] mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ y: 20 }}
+                    animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
                     Languages and AI Voices Supported by Exbabel
@@ -115,8 +115,8 @@ export default function ImpactHero() {
                 {/* Subtitle */}
                 <motion.p
                     className="text-center text-lg md:text-xl text-base-muted max-w-3xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ y: 20 }}
+                    animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     Exbabel supports{" "}

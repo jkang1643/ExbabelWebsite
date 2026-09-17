@@ -18,8 +18,8 @@ export default function LegalSection() {
       <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
         {/* Section eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 0.6 }}
          
           className="text-center mb-12"
@@ -39,8 +39,8 @@ export default function LegalSection() {
         <div className="space-y-4">
           {/* Privacy Policy */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 10 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 0.5 }}
            
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
@@ -79,9 +79,9 @@ export default function LegalSection() {
             <AnimatePresence initial={false}>
               {expanded === "privacy" && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={{ height: 0, }}
+                  animate={{ height: "auto", }}
+                  exit={{ height: 0, }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
@@ -152,8 +152,8 @@ export default function LegalSection() {
 
           {/* Terms of Service */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 10 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
            
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
@@ -191,9 +191,9 @@ export default function LegalSection() {
             <AnimatePresence initial={false}>
               {expanded === "terms" && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={{ height: 0, }}
+                  animate={{ height: "auto", }}
+                  exit={{ height: 0, }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >

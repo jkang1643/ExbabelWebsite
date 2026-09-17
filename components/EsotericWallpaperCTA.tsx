@@ -6,7 +6,7 @@ export default function EsotericWallpaperCTA() {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen z-0 flex items-center justify-center opacity-90">
       <motion.div
-        initial={{ opacity: 0.3 }}
+        initial={{ .3 }}
         animate={{ 
           opacity: [0.3, 0.9, 0.3],
           filter: [

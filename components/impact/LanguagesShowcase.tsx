@@ -193,8 +193,8 @@ const LanguageCard = ({ lang, index, inView, dimmed }: {
     const cfg = PLAN_CONFIG[lang.plan];
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
+            animate={inView ? { y: 0 } : { y: 20 }}
             transition={{ duration: 0.3, delay: Math.min(index * 0.01, 0.4) }}
             className={`relative rounded-xl border p-3 transition-all duration-300
                 ${dimmed
@@ -302,8 +302,8 @@ export default function LanguagesShowcase() {
 
                 {/* Header */}
                 <motion.div className="text-center mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ y: 20 }}
+                    animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.6 }}>
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-5 border border-white/10">
                         🗣 LANGUAGES WITH VOICE
@@ -318,7 +318,7 @@ export default function LanguagesShowcase() {
 
                 {/* Engine counts bar */}
                 <motion.div className="flex flex-wrap justify-center gap-2 mb-10"
-                    initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                     animate={inView ? { } : { }}
                     transition={{ delay: 0.1 }}>
                     {(Object.entries(AUTH_COUNTS) as [TierName, number][]).map(([tier, count]) => (
                         <span key={tier} className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${ENGINE_BADGE[tier]}`}>
@@ -328,8 +328,8 @@ export default function LanguagesShowcase() {
                 </motion.div>
 
                 {/* Plan selector */}
-                <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                <motion.div className="mb-10" initial={{ y: 12 }}
+                    animate={inView ? { y: 0 } : { y: 12 }}
                     transition={{ delay: 0.15 }}>
                     <p className="text-center text-[10px] text-white/35 uppercase tracking-widest mb-3 font-bold">Filter by your plan</p>
                     <div className="flex flex-wrap justify-center gap-3">
@@ -339,7 +339,7 @@ export default function LanguagesShowcase() {
                         <PlanCard planKey="Unlimited" count={counts.Unlimited} isActive={activePlan === "Unlimited"} onClick={() => setActivePlan("Unlimited")} />
                     </div>
                     {activePlan !== "All" && (
-                        <motion.div key={activePlan} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+                        <motion.div key={activePlan} initial={{ y: 6 }} animate={{ y: 0 }}
                             className="text-center mt-5 flex flex-col items-center gap-2">
                             <p className="text-sm text-white/60 max-w-lg mx-auto">
                                 <span className="font-bold text-white">{PLAN_CONFIG[activePlan].icon} {activePlan}:</span>{" "}
@@ -358,7 +358,7 @@ export default function LanguagesShowcase() {
 
                 {/* Search */}
                 <motion.div className="flex justify-center mb-7"
-                    initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : { opacity: 0 }} transition={{ delay: 0.2 }}>
+                     animate={inView ? { } : { }} transition={{ delay: 0.2 }}>
                     <input type="text" placeholder="Search language..."
                         value={search} onChange={e => setSearch(e.target.value)}
                         className="w-full sm:w-72 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 transition-colors" />
@@ -378,7 +378,7 @@ export default function LanguagesShowcase() {
 
                 {/* Plan legend */}
                 <motion.div className="flex flex-wrap justify-center gap-4 mt-10"
-                    initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : { opacity: 0 }} transition={{ delay: 0.6 }}>
+                     animate={inView ? { } : { }} transition={{ delay: 0.6 }}>
                     {(["Starter", "Pro", "Unlimited"] as PlanTier[]).map(p => {
                         const cfg = PLAN_CONFIG[p];
                         return (
@@ -393,7 +393,7 @@ export default function LanguagesShowcase() {
                 </motion.div>
 
                 <motion.p className="text-center text-xs text-white/25 mt-4"
-                    initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : { opacity: 0 }} transition={{ delay: 0.7 }}>
+                     animate={inView ? { } : { }} transition={{ delay: 0.7 }}>
                     Showing {sorted.length} of {ALL_LANGUAGES.length} languages.
                     All plans include real-time translation. Voice tier determines quality and expressiveness.
                 </motion.p>

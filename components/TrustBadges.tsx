@@ -47,16 +47,16 @@ export default function TrustBadges() {
             <div className="container mx-auto px-4">
                 <motion.div
                     className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ y: 20 }}
+                    whileInView={{ y: 0 }}
                     transition={{ duration: 0.6 }}
                    
                 >
                     {badges.map((badge, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ scale: 0.9 }}
+                            whileInView={{ scale: 1 }}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
                            
                             className="flex items-center gap-3 group"
@@ -79,8 +79,8 @@ export default function TrustBadges() {
                 {/* Payment Methods */}
                 <motion.div
                     className="mt-12 text-center"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    
+                    
                     transition={{ duration: 0.6, delay: 0.4 }}
                    
                 >

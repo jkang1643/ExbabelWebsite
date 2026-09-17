@@ -90,9 +90,9 @@ export default function OBSSetupAnimation() {
           {mode === 'obs' ? (
             <motion.div 
               key="obs"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              
+              
+              exit={{ }}
               transition={{ duration: 0.3 }}
               className="absolute inset-0 flex flex-col"
             >
@@ -149,9 +149,9 @@ export default function OBSSetupAnimation() {
               <AnimatePresence>
                 {isModalOpen && (
                   <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    initial={{ scale: 0.95 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0.95 }}
                     className="absolute inset-0 bg-black/50 flex items-center justify-center z-20"
                   >
                     <div className="w-[500px] h-[350px] bg-[#2d2d2d] border border-[#111] shadow-2xl flex flex-col">
@@ -171,7 +171,7 @@ export default function OBSSetupAnimation() {
                         {/* Modal Content */}
                         <div className="flex-1 p-6 bg-[#2d2d2d]">
                           {isStreamTabOpen ? (
-                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
+                            <motion.div   className="space-y-4">
                               <div className="flex items-center gap-4">
                                 <div className="w-20 text-right text-xs text-gray-300">Service</div>
                                 <div className="flex-1 bg-[#1e1e1e] border border-[#444] px-2 py-1 text-xs text-gray-200">Custom...</div>
@@ -230,9 +230,9 @@ export default function OBSSetupAnimation() {
           ) : (
             <motion.div 
               key="dashboard"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              
+              
+              exit={{ }}
               transition={{ duration: 0.3 }}
               className="absolute inset-0 flex flex-col bg-[#f8fafc]"
             >
@@ -275,8 +275,8 @@ export default function OBSSetupAnimation() {
                   <AnimatePresence>
                     {(isConnecting || isDetected) && (
                       <motion.div 
-                        initial={{ opacity: 0, y: 10, height: 0 }}
-                        animate={{ opacity: 1, y: 0, height: 'auto' }}
+                        initial={{ y: 10, height: 0 }}
+                        animate={{ y: 0, height: 'auto' }}
                         className="mt-6 border rounded-xl overflow-hidden"
                       >
                         {isConnecting ? (

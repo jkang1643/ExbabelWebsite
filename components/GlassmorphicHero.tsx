@@ -179,9 +179,9 @@ export default function GlassmorphicHero() {
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={flipIndex}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
+                      initial={{ y: 20, }}
+                      animate={{ y: 0, }}
+                      exit={{ y: -20, }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       className="whitespace-nowrap"
                     >

@@ -42,8 +42,8 @@ const StatItem = ({ value, suffix = "", prefix = "", description, statusSymbol, 
     return (
         <motion.div
             className="flex flex-col space-y-3 bg-[#F8F9FA] p-8 rounded-3xl border border-[#EAD6FF]/80 shadow-sm text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ y: 30 }}
+            animate={inView ? { y: 0 } : { y: 30 }}
             transition={{ duration: 0.6, delay: delay, ease: "easeOut" }}
         >
             <div className="inline-block mx-auto">

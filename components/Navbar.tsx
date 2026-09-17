@@ -135,9 +135,9 @@ export default function Navbar() {
                 <AnimatePresence>
                   {isProductsOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      initial={{ y: 8, scale: 0.96 }}
+                      animate={{ y: 0, scale: 1 }}
+                      exit={{ y: 8, scale: 0.96 }}
                       transition={{ duration: 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
@@ -186,9 +186,9 @@ export default function Navbar() {
                 <AnimatePresence>
                   {isSolutionsOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      initial={{ y: 8, scale: 0.96 }}
+                      animate={{ y: 0, scale: 1 }}
+                      exit={{ y: 8, scale: 0.96 }}
                       transition={{ duration: 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-52 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
@@ -224,9 +224,9 @@ export default function Navbar() {
                 <AnimatePresence>
                   {isResourcesOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      initial={{ y: 8, scale: 0.96 }}
+                      animate={{ y: 0, scale: 1 }}
+                      exit={{ y: 8, scale: 0.96 }}
                       transition={{ duration: 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-56 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
@@ -317,9 +317,9 @@ export default function Navbar() {
               <AnimatePresence>
                 {isLanguageOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                    initial={{ y: 8, scale: 0.96 }}
+                    animate={{ y: 0, scale: 1 }}
+                    exit={{ y: 8, scale: 0.96 }}
                     transition={{ duration: 0.15 }}
                     className="absolute top-full right-0 mt-1 w-36 bg-white border border-gray-100 rounded-xl shadow-lg py-2 z-50 origin-top-right"
                   >
@@ -360,9 +360,9 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ height: 0 }}
+              animate={{ height: "auto" }}
+              exit={{ height: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
               className="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden"
             >
