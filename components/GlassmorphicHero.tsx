@@ -237,7 +237,7 @@ export default function GlassmorphicHero() {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 pt-20 sm:pt-24 md:pt-[120px] pb-10 sm:pb-12 md:pb-8 flex flex-col items-center flex-shrink-0"
+        className="relative z-10 pt-20 sm:pt-24 md:pt-[92px] pb-10 sm:pb-12 md:pb-3 flex flex-col items-center flex-shrink-0"
         style={{ y: fgY }}
       >
         <div className="layout-spine text-center flex flex-col items-center gap-6 md:gap-8 px-4 sm:px-6 md:px-12">
@@ -337,10 +337,10 @@ export default function GlassmorphicHero() {
 
       {/* Embedded LiveTranslationGraphic Animation (visible further down the page when scrolling) */}
       <motion.div
-        className="w-full relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-12"
+        className="w-full relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-4"
         style={{ y: graphicY }}
       >
-        <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
+        <div className="mt-8 md:mt-4 border-t border-white/10 shadow-2xl">
           <LiveTranslationGraphic />
         </div>
       </motion.div>
