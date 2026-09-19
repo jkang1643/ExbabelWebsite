@@ -143,13 +143,13 @@ export default function LiveTranslationGraphic() {
   const visibleText = targetText.substring(0, visibleChars);
 
   return (
-    <div className="w-full flex items-center justify-center pb-12 md:pb-20 px-4 md:px-8 overflow-hidden">
+    <div className="w-full flex items-center justify-center pb-8 sm:pb-12 md:pb-20 px-3 sm:px-6 md:px-8 overflow-hidden">
       
-      {/* Contained Tech Graphic Card */}
-      <div className="relative w-full max-w-[1100px] h-[280px] sm:h-[340px] md:h-[450px] bg-[#1a1a2e] rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex items-center border border-white/10">
+      {/* Contained Tech Graphic Card (Resized on mobile like Wix card layout) */}
+      <div className="relative w-full max-w-[1100px] h-[250px] sm:h-[340px] md:h-[450px] bg-[#1a1a2e] rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] shadow-[0_24px_50px_rgba(0,0,0,0.3)] flex items-center border border-white/10 overflow-hidden sm:overflow-visible">
         
         {/* Background Image (Desaturated Pastor) */}
-        <div className="absolute inset-0 overflow-hidden rounded-[2rem] md:rounded-[3rem]">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl sm:rounded-[2rem] md:rounded-[3rem]">
           <motion.img 
             src="/photos/pastor-showcase.webp" 
             alt="Pastor Preaching"
@@ -191,7 +191,7 @@ export default function LiveTranslationGraphic() {
           </div>
         </div>
 
-        {/* Pink/Red Play Button (Bottom Left, overlapping edge) */}
+        {/* Pink/Red Play Button (Bottom Left, contained cleanly on mobile) */}
         <AnimatePresence>
           {!isPlaying && (
             <motion.div 
@@ -199,7 +199,7 @@ export default function LiveTranslationGraphic() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.25 }}
-              className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 z-30"
+              className="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 md:-bottom-8 md:-left-8 z-30"
             >
               {/* Subtle ambient pulse ring */}
               <div 
@@ -211,11 +211,11 @@ export default function LiveTranslationGraphic() {
                 onClick={handlePlay}
                 aria-label="Play whiteboard video demonstration"
                 title="Play Video Demonstration"
-                className="relative group w-24 h-24 md:w-32 md:h-32 bg-[#F43F5E] hover:bg-[#e11d48] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.45)] cursor-pointer border-4 border-white transition-colors"
+                className="relative group w-14 h-14 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-[#F43F5E] hover:bg-[#e11d48] rounded-full flex items-center justify-center shadow-[0_16px_32px_rgba(244,63,94,0.45)] cursor-pointer border-2 sm:border-4 border-white transition-colors"
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.94 }}
               >
-                <svg className="w-10 h-10 md:w-14 md:h-14 text-white ml-2 md:ml-3 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 text-white ml-1 md:ml-3 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M5 3v18l15-9L5 3z" />
                 </svg>
 
@@ -236,7 +236,7 @@ export default function LiveTranslationGraphic() {
                 pointerEvents: isPlaying ? "auto" : "none" 
             }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="absolute inset-0 z-40 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center shadow-2xl border border-white/10"
+            className="absolute inset-0 z-40 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-black flex items-center justify-center shadow-2xl border border-white/10"
         >
             {/* HTML5 Video Element */}
             <video
@@ -336,7 +336,7 @@ export default function LiveTranslationGraphic() {
         </motion.div>
 
         {/* Phone Mockup (Right Side) */}
-        <div className={`right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[134px] h-[291px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className={`right-0 sm:right-4 md:right-[10%] top-1/2 -translate-y-1/2 z-20 w-[115px] h-[250px] sm:w-[166px] sm:h-[360px] md:w-[221px] md:h-[480px] lg:w-[254px] lg:h-[550px] rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] phone-container-clip transition-opacity duration-300 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <motion.div 
             className="absolute top-0 left-0 w-[320px] h-[693px] md:w-[375px] md:h-[812px] bg-[#141527] rounded-[40px] md:rounded-[48px] border-[10px] md:border-[12px] border-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden flex flex-col origin-top-left phone-mockup-transform shrink-0"
             initial={{ y: 30, }}

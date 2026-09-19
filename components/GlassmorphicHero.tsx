@@ -335,9 +335,9 @@ export default function GlassmorphicHero() {
         </div>
       </motion.div>
 
-      {/* Embedded LiveTranslationGraphic Animation (hidden on mobile, shown on desktop) */}
+      {/* Embedded LiveTranslationGraphic Animation (visible further down the page when scrolling) */}
       <motion.div
-        className="hidden md:block w-full flex-grow relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both"
+        className="w-full relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-12"
         style={{ y: graphicY }}
       >
         <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
