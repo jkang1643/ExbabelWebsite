@@ -13,17 +13,25 @@ export default function HeroAuroraBackground() {
       <div 
         className="absolute inset-0 md:hidden z-[-1]" 
         style={{
-          background: "linear-gradient(180deg, #ffffff 0%, #ffffff 12%, #e0f2fe 28%, #bae6fd 48%, #7dd3fc 70%, #38bdf8 88%, #60a5fa 100%)"
+          background: "linear-gradient(180deg, #ffffff 0%, #ffffff 12%, #e0f2fe 28%, #bae6fd 46%, #38bdf8 68%, #60a5fa 78%, #bae6fd 90%, #ffffff 100%)"
         }}
       />
       {/* Additional vibrant saturated glow wash across the middle and lower hero */}
       <div 
         className="absolute inset-0 md:hidden z-[-1] pointer-events-none opacity-70"
         style={{
-          background: "radial-gradient(ellipse 90% 65% at 50% 85%, #38bdf8 0%, #818cf8 45%, transparent 80%)"
+          background: "radial-gradient(ellipse 90% 55% at 50% 70%, #38bdf8 0%, #818cf8 40%, transparent 75%)"
         }}
       />
-      <svg className="absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <svg 
+        className="absolute w-full h-full opacity-90 hidden md:block" 
+        preserveAspectRatio="none" 
+        viewBox="0 0 100 100"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.35) 80%, transparent 92%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.35) 80%, transparent 92%)"
+        }}
+      >
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E5CBFF" stopOpacity="0.95" />
@@ -39,8 +47,18 @@ export default function HeroAuroraBackground() {
             <feGaussianBlur stdDeviation="3.5" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
+                  <mask id="ribbonBottomFade" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+            <linearGradient id="ribbonMaskGrad" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+              <stop offset="60%" stopColor="#ffffff" stopOpacity="1" />
+              <stop offset="80%" stopColor="#ffffff" stopOpacity="0.4" />
+              <stop offset="92%" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+            <rect x="-50" y="-50" width="200" height="200" fill="url(#ribbonMaskGrad)" />
+          </mask>
         </defs>
 
+        <g mask="url(#ribbonBottomFade)">
         {/* Left Ribbon Main */}
         <motion.path
           d="M -10,0 C 25,35 30,70 -10,110"
@@ -108,6 +126,7 @@ export default function HeroAuroraBackground() {
           }}
           transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
         />
+        </g>
       </svg>
 
       {/* Floating 3D Orbs (Glassy Spheres) */}
@@ -151,7 +170,7 @@ export default function HeroAuroraBackground() {
       {/* Enhanced optical glows (~10% coverage & saturation increase for even coverage) */}
       <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] bg-[#E5CBFF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
       <div className="absolute top-[10%] right-[-10%] w-[55vw] h-[55vw] bg-[#C6F0FF] rounded-full mix-blend-multiply filter blur-[140px] opacity-45 pointer-events-none hidden lg:block" />
-      <div className="absolute bottom-[-5%] left-[20%] w-[45vw] h-[35vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[130px] opacity-[0.25] pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-[8%] left-[20%] w-[45vw] h-[30vw] bg-[#FFD6E5] rounded-full mix-blend-multiply filter blur-[130px] opacity-[0.20] pointer-events-none hidden lg:block" />
     </div>
   );
 }

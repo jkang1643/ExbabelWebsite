@@ -337,7 +337,7 @@ export default function GlassmorphicHero() {
 
       {/* Embedded LiveTranslationGraphic Animation (visible further down the page when scrolling) */}
       <motion.div
-        className="w-full relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-4"
+        className="w-full relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-4"
         style={{ y: graphicY }}
       >
         <div className="mt-8 md:mt-4 border-t border-white/10 shadow-2xl">
@@ -345,6 +345,14 @@ export default function GlassmorphicHero() {
         </div>
       </motion.div>
 
+      {/* Seamless Bottom Gradient Fade to Pure White: dissolves hero background shade, dot grid, and ambient tones into pure white before next section */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-36 sm:h-44 md:h-52 pointer-events-none z-[5]" 
+        style={{
+          background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0.92) 88%, #ffffff 100%)"
+        }}
+        aria-hidden="true" 
+      />
     </section>
   );
 }
