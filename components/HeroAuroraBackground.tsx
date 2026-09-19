@@ -9,8 +9,12 @@ export default function HeroAuroraBackground() {
       {/* 
         We use an SVG to draw smooth, flowing ribbons that frame the text.
       */}
-      {/* Mobile-only fallback background for performance */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#E5CBFF]/40 via-[#C6F0FF]/40 to-[#FFD6E5]/40 md:hidden z-[-1]" />
+      {/* Mobile-only fallback background: fades to pure white near the top like Wix */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 via-25% to-[#C6F0FF]/35 md:hidden z-[-1]" />
+      {/* Additional top white fade veil to guarantee seamless transition under navbar */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-white via-white/95 to-transparent pointer-events-none md:hidden z-0" />
+      {/* Soft pastel ambient glow positioned at bottom half on mobile */}
+      <div className="absolute -bottom-10 left-[-10%] right-[-10%] h-64 bg-gradient-to-t from-[#C6F0FF]/40 via-[#E5CBFF]/20 to-transparent filter blur-2xl pointer-events-none md:hidden z-[-1]" />
       <svg className="absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">

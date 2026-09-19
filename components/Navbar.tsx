@@ -93,15 +93,15 @@ export default function Navbar() {
       <nav
         className={`relative w-full transition-all duration-300 ${
           scrolled 
-            ? "py-3 bg-white/95 md:backdrop-blur-md shadow-sm border-b border-black/5" 
-            : "py-4 bg-white/80 md:backdrop-blur-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
+            ? "py-3 bg-white border-b border-gray-200 shadow-sm lg:bg-white/95 lg:backdrop-blur-md lg:border-black/5" 
+            : "py-3 bg-white border-b border-gray-200 shadow-sm lg:py-4 lg:bg-transparent lg:border-b-0 lg:shadow-none"
         }`}
       >
         <div 
           className={`absolute top-[-100px] left-0 right-0 bottom-0 transition-all duration-300 pointer-events-none z-[-1] ${
             scrolled 
-              ? "bg-white shadow-sm border-b border-black/5" 
-              : "bg-white shadow-sm border-b border-black/5 lg:bg-transparent lg:border-b-0 lg:shadow-none"
+              ? "bg-white shadow-sm border-b border-gray-200 lg:border-black/5" 
+              : "bg-white shadow-sm border-b border-gray-200 lg:bg-transparent lg:border-b-0 lg:shadow-none"
           }`}
         />
         <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
