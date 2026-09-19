@@ -41,7 +41,7 @@ export default function FAQ() {
 
       <div className="w-full max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.015em] mb-3 bg-gradient-to-r from-info via-primary to-accent bg-clip-text text-transparent" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">

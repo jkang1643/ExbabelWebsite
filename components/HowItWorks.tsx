@@ -179,7 +179,7 @@ export default function HowItWorks() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
             How It Works
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Operational in Under Two Minutes
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">

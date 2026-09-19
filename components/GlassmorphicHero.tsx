@@ -264,7 +264,7 @@ export default function GlassmorphicHero() {
             </motion.a>
 
             <p
-              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
+              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-[0.02em] flex flex-wrap justify-center gap-x-3 mb-2"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <span className="text-base-ink/80">Every voice.</span>
@@ -291,7 +291,7 @@ export default function GlassmorphicHero() {
                 </span>
               </span>
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-[0.012em] text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Real-Time AI Translation for Churches and Live Events
             </h1>
 

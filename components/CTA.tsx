@@ -23,7 +23,7 @@ export default function CTA() {
 
         {/* Headline */}
         <h2
-          className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] text-base-ink"
+          className="text-4xl md:text-6xl font-black tracking-[0.012em] leading-[1.1] text-base-ink"
           style={{ fontFamily: 'var(--font-sora), sans-serif' }}
         >
           The Future of Multilingual <br /> Communication Starts Here

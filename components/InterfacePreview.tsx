@@ -526,7 +526,7 @@ export default function InterfacePreview() {
             <div className="max-w-7xl w-full mx-auto flex-1 flex flex-col h-full">
                 <div className="flex justify-between items-center mb-6 shrink-0">
                     <div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">196 Supported Languages</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-[0.015em] mb-2" style={{ fontFamily: "var(--font-sora), sans-serif" }}>196 Supported Languages</h2>
                         <p className="text-gray-400">Real-time captions across all 196 languages. Voice translation for 90.</p>
                     </div>
                     <button 

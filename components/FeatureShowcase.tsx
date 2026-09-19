@@ -281,7 +281,7 @@ export default function FeatureShowcase() {
                                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                                         Platform Capabilities
                                     </div>
-                                    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-tight">
+                                    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                                         Built for Continuous Speech at Scale
                                     </h2>
                                 </div>
@@ -419,7 +419,7 @@ export default function FeatureShowcase() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                             Platform Capabilities
                         </div>
-                        <h2 className="text-2xl font-extrabold text-[#0B1220]">
+                        <h2 className="text-2xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                             Built for Continuous Speech at Scale
                         </h2>
                     </div>

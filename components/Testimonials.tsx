@@ -47,7 +47,7 @@ export default function Testimonials() {
                     <div className="text-eyebrow mb-4 tracking-widest text-primary/80">
                         VOICES FROM OUR COMMUNITY
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content tracking-[0.015em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                         Trusted by Church Leaders Nationwide
                     </h2>
                     Pastors and ministry leaders share how Exbabel has transformed their congregations.

@@ -500,7 +500,7 @@ export default function WhyChurchesChoose() {
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold tracking-[0.18em] uppercase mb-7">
             For Churches & Ministries
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] mb-5 text-base-content"
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-[0.01em] mb-5 text-base-content"
             style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Why Leading Churches Choose{" "}
             <span className="text-primary">Exbabel</span>

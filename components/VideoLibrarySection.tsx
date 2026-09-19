@@ -121,7 +121,7 @@ export default function VideoLibrarySection() {
                             Video Library
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-8 text-center max-w-3xl">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-[0.015em] mb-8 text-center max-w-3xl" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                         See Exbabel in Action
                     </h2>
 

@@ -51,7 +51,7 @@ export default function TechnicalRequirements() {
         <section className="py-20 px-4 bg-base-200">
             <div className="container mx-auto max-w-7xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content tracking-[0.015em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                         What You Need to Get Started
                     </h2>
                     <p className="text-lg text-base-content max-w-2xl mx-auto">

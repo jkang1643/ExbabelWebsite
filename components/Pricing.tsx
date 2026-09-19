@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { appRoutes } from "@/lib/config";
+import { capturePostHogEvent } from "@/lib/posthog-client";
 
 export default function Pricing() {
   const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
@@ -89,7 +90,7 @@ export default function Pricing() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-base-content tracking-[0.015em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
             Select Your Plan
           </h2>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
@@ -130,7 +131,14 @@ export default function Pricing() {
             return (
               <div
                 key={index}
-                onClick={() => setSelectedPlan(plan.name.toLowerCase())}
+                onClick={() => {
+                  setSelectedPlan(plan.name.toLowerCase());
+                  capturePostHogEvent("pricing_plan_selected", {
+                    plan_name: plan.name.toLowerCase(),
+                    billing_interval: billingInterval,
+                    is_recommended: plan.highlighted,
+                  });
+                }}
                 style={{ cursor: "pointer" }}
               >
                 <div
@@ -245,7 +253,14 @@ export default function Pricing() {
                     <div className="mt-auto text-center">
                       <a
                         href={plan.signupUrl(billingInterval)}
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          capturePostHogEvent("checkout_started", {
+                            plan_name: plan.name.toLowerCase(),
+                            billing_interval: billingInterval,
+                            is_recommended: plan.highlighted,
+                          });
+                        }}
                         className="inline-block w-full py-3 rounded-xl font-bold border-none text-center transition-all"
                         style={{
                           background: isActive

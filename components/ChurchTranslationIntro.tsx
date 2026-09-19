@@ -97,7 +97,7 @@ export default function ChurchTranslationIntro() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-4xl"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[0.01em] leading-tight mb-6" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
             A Church Translation System Built for Live Services
           </h2>
           
