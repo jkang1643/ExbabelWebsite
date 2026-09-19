@@ -9,12 +9,20 @@ export default function HeroAuroraBackground() {
       {/* 
         We use an SVG to draw smooth, flowing ribbons that frame the text.
       */}
-      {/* Mobile-only fallback background: fades to pure white near the top like Wix */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 via-25% to-[#C6F0FF]/35 md:hidden z-[-1]" />
-      {/* Additional top white fade veil to guarantee seamless transition under navbar */}
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-white via-white/95 to-transparent pointer-events-none md:hidden z-0" />
-      {/* Soft pastel ambient glow positioned at bottom half on mobile */}
-      <div className="absolute -bottom-10 left-[-10%] right-[-10%] h-64 bg-gradient-to-t from-[#C6F0FF]/40 via-[#E5CBFF]/20 to-transparent filter blur-2xl pointer-events-none md:hidden z-[-1]" />
+      {/* Mobile-only saturated aurora background: fades from pure white near the top to vivid saturated sky-blue/cyan lower down like Wix */}
+      <div 
+        className="absolute inset-0 md:hidden z-[-1]" 
+        style={{
+          background: "linear-gradient(180deg, #ffffff 0%, #ffffff 12%, #e0f2fe 28%, #bae6fd 48%, #7dd3fc 70%, #38bdf8 88%, #60a5fa 100%)"
+        }}
+      />
+      {/* Additional vibrant saturated glow wash across the middle and lower hero */}
+      <div 
+        className="absolute inset-0 md:hidden z-[-1] pointer-events-none opacity-70"
+        style={{
+          background: "radial-gradient(ellipse 90% 65% at 50% 85%, #38bdf8 0%, #818cf8 45%, transparent 80%)"
+        }}
+      />
       <svg className="absolute w-full h-full opacity-90 hidden md:block" preserveAspectRatio="none" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="heroGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">

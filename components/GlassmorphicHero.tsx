@@ -237,14 +237,14 @@ export default function GlassmorphicHero() {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 pt-[76px] sm:pt-[96px] md:pt-[120px] pb-6 sm:pb-8 flex flex-col items-center flex-shrink-0"
+        className="relative z-10 pt-20 sm:pt-24 md:pt-[120px] pb-10 sm:pb-12 md:pb-8 flex flex-col items-center flex-shrink-0"
         style={{ y: fgY }}
       >
-        <div className="layout-spine text-center flex flex-col items-center gap-3.5 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-12">
+        <div className="layout-spine text-center flex flex-col items-center gap-6 md:gap-8 px-4 sm:px-6 md:px-12">
 
           {/* Headline Group */}
           <motion.div
-            className="flex flex-col items-center gap-3 sm:gap-6 md:gap-8 max-w-[960px] mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700"
+            className="flex flex-col items-center gap-6 md:gap-8 max-w-[960px] mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700"
           >
             {/* Top Banner with Subtle Live Status Indicator */}
             <motion.a
@@ -264,7 +264,7 @@ export default function GlassmorphicHero() {
             </motion.a>
 
             <p
-              className="text-lg sm:text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-2 sm:gap-x-3 mb-1 sm:mb-2"
+              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <span className="text-base-ink/80">Every voice.</span>
@@ -291,12 +291,12 @@ export default function GlassmorphicHero() {
                 </span>
               </span>
             </p>
-            <h1 className="text-[1.65rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.2] sm:leading-[1.15] tracking-tight text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-tight text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Real-Time AI Translation for Churches and Live Events
             </h1>
 
             <p
-              className="text-[13px] sm:text-base md:text-xl text-base-muted leading-relaxed max-w-[90vw] sm:max-w-[760px] mx-auto font-medium"
+              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               Exbabel is a real-time church translation system for sermons, worship services, livestreams, conferences, and live events. Translate speech into natural AI audio and live captions so every listener can follow in their language from any device.
@@ -307,11 +307,11 @@ export default function GlassmorphicHero() {
 
           {/* Restored Classic Premium CTA Row */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-6 w-full max-w-xs sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 fill-mode-both"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 fill-mode-both"
           >
             <Link
               href="/demo"
-              className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-base-ink text-white font-bold text-sm sm:text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group text-center"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group text-center"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
@@ -319,7 +319,7 @@ export default function GlassmorphicHero() {
             </Link>
             <a
               href="#pricing"
-              className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-full text-[#1d1c1d] font-bold text-sm sm:text-lg bg-white border border-slate-200/90 sm:border-transparent shadow-sm sm:shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
+              className="w-full sm:w-auto px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white border border-slate-200/90 sm:border-transparent shadow-sm sm:shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
             >
               <span className="hidden md:inline">Explore Capabilities</span>
@@ -335,9 +335,9 @@ export default function GlassmorphicHero() {
         </div>
       </motion.div>
 
-      {/* Embedded LiveTranslationGraphic Animation */}
+      {/* Embedded LiveTranslationGraphic Animation (hidden on mobile, shown on desktop) */}
       <motion.div
-        className="w-full flex-grow relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both"
+        className="hidden md:block w-full flex-grow relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both"
         style={{ y: graphicY }}
       >
         <div className="mt-8 md:mt-12 border-t border-white/10 shadow-2xl">
