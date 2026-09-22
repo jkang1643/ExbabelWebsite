@@ -121,6 +121,67 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "church-interpreter-vs-ai-translation",
+    title: "Church Interpreter vs. AI Translation: What Churches Should Use for Live Services",
+    seoTitle:
+      "Church Interpreter vs. AI Translation: What Churches Should Use",
+    metaDescription:
+      "Compare human church interpreters vs. AI translation for live services. Discover differences in cost, accuracy, equipment, smartphone access, and hybrid setups.",
+    excerpt:
+      "Explore the differences between human church interpreters and real-time AI translation for live services, covering cost, equipment, accuracy, and when to use a hybrid approach.",
+    author: "Exbabel Research",
+    datePublished: "2026-09-21",
+    dateModified: "2026-09-21",
+    category: "Church Translation",
+    categorySlug: "church-translation",
+    featuredImage: "/photos/blog/church-interpreter-vs-ai-translation-hero.jpg",
+    featuredImageAlt:
+      "Church Interpreter vs. AI Translation editorial overview showing a female interpreter with headset and display screen reading One Church. Many Languages. Same Gospel.",
+    keywords: [
+      "church interpreter",
+      "church interpreter vs ai translation",
+      "AI translation for churches",
+      "church translation system",
+      "sermon translation",
+      "church translation equipment",
+      "live church translation",
+      "simultaneous church interpretation",
+      "church translation app",
+      "Spanish church translation",
+    ],
+    canonicalUrl: "/blog/church-interpreter-vs-ai-translation",
+    wordCount: 2400,
+    readTime: "10 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#0A192F] via-[#102A4C] to-[#0A192F]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "Hybrid Translation",
+      metricText: "Human Nuance · AI Scale",
+    },
+    relatedPosts: ["church-translation-system", "on-demand-interpretation-services"],
+    isTopArticle: true,
+    isEditorsPick: true,
+    cta: {
+      primary: {
+        text: "Start a Free Trial",
+        href: "https://app.exbabel.com/live/checkout",
+      },
+      secondary: {
+        text: "See Exbabel Live in Action",
+        href: "/live",
+      },
+    },
+  },
+  {
     slug: "church-translation-system",
     title: "AI Church Translation System for Live Services",
     seoTitle:
@@ -166,7 +227,7 @@ export const BLOG_POSTS: BlogPost[] = [
       statusText: "Translation Live",
       metricText: "18 listeners · Español",
     },
-    relatedPosts: ["on-demand-interpretation-services"],
+    relatedPosts: ["church-interpreter-vs-ai-translation", "on-demand-interpretation-services"],
     isFeatured: true,
     isTopArticle: true,
     cta: {
@@ -195,9 +256,9 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: "2026-09-16",
     category: "AI Translation",
     categorySlug: "ai-translation",
-    featuredImage: "/photos/blog/on-demand-interpretation-services-hero.jpg",
+    featuredImage: "/photos/blog/on-demand-interpretation-services-hero.png",
     featuredImageAlt:
-      "Conference audience using AI-powered on-demand interpretation on smartphones and wireless earbuds",
+      "AI is replacing $200/hr human interpreters: On-demand translation for conferences, churches, and live events showing interpreter in booth",
     keywords: [
       "on-demand interpretation services",
       "AI interpretation",
@@ -223,7 +284,7 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "180+ Languages · 0.98s Latency",
       pipelineSteps: ["Audio", "STT", "Translate", "TTS"],
     },
-    relatedPosts: ["church-translation-system"],
+    relatedPosts: ["church-interpreter-vs-ai-translation", "church-translation-system"],
     isTopArticle: true,
     isEditorsPick: true,
     cta: {

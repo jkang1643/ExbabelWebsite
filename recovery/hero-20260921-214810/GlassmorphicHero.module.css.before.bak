@@ -1,0 +1,49 @@
+{'name': 'write_to_file', 'args': {'CodeContent': 'import json
+import sys
+
+transcript_path = '/mnt/c/Users/boyge/.gemini/antigravity-ide/brain/4333a9a6-8ad3-4d12-88dc-549e200c763c/.system_generated/logs/transcript_full.jsonl'
+
+found_tsx = False
+found_css = False
+
+try:
+    with open(transcript_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        for i in range(len(lines)-1, -1, -1):
+            line = lines[i].strip()
+            if not line: continue
+            try:
+                obj = json.loads(line)
+                if obj.get('type') == 'TOOL_CALL_RESPONSE':
+                    content = obj.get('content', '')
+                    if 'taglineWords' in content and 'GlassmorphicHero' in content and not found_tsx:
+                        # Extract everything after "Output:\
+"
+                        if 'Output:\
+' in content:
+                            content = content.split('Output:\
+', 1)[1]
+                        # Remove trailing spaces
+                        content = content.strip()
+                        if len(content) > 500:
+                            with open('/mnt/c/Users/boyge/.gemini/antigravity-ide/brain/4333a9a6-8ad3-4d12-88dc-549e200c763c/scratch/recovered_hero_py.tsx', 'w', encoding='utf-8') as out:
+                                out.write(content)
+                            print('Recovered TSX from Python!')
+                            found_tsx = True
+
+                    if '.churchViewport' in content and not found_css:
+                        if 'Output:\
+' in content:
+                            content = content.split('Output:\
+', 1)[1]
+                        content = content.strip()
+                        if len(content) > 500:
+                            with open('/mnt/c/Users/boyge/.gemini/antigravity-ide/brain/4333a9a6-8ad3-4d12-88dc-549e200c763c/scratch/recovered_css_py.css', 'w', encoding='utf-8') as out:
+                                out.write(content)
+                            print('Recovered CSS from Python!')
+                            found_css = True
+            except json.JSONDecodeError:
+                pass
+except Exception as e:
+    print('Error:', e)
+', 'Description': 'Python recovery script', 'Overwrite': True, 'TargetFile': 'C:\Users\boyge\.gemini\antigravity-ide\brain\4333a9a6-8ad3-4d12-88dc-549e200c763c\scratch\recover.py', 'toolAction': 'Editing file', 'toolSummary': 'Create python script'}}

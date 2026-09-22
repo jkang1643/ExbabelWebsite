@@ -42,7 +42,9 @@ export default function Home() {
 
         <ChurchTranslationIntro />
         <HowItWorks />
-        <FeatureShowcase />
+        <div id="capabilities" className="scroll-mt-24">
+          <FeatureShowcase />
+        </div>
         <InterfacePreview />
         <WhyChurchesChoose />
         <VideoLibrarySection />

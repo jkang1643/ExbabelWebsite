@@ -1,0 +1,228 @@
+import { useState, useEffect, CSSProperties, useRef } from 'react';
+import styles from './GlassmorphicHero.module.css';
+import { useReducedMotion } from 'framer-motion';
+import ExbabelTranslateSVG from './svg/ExbabelTranslateSVG';
+import ExbabelLiveSVG from './svg/ExbabelLiveSVG';
+import ExbabelEventsSVG from './svg/ExbabelEventsSVG';
+
+const taglineWords = ["Sermons", "Worship", "Livestreams", "Conferences", "Live Events"];
+
+const scenes = [
+  {
+    title: "Exbabel Translate",
+    color: "#ace5fa",
+    accent: "#3457e5",
+    language: "Spanish",
+    source: "Hello, welcome to xBible.",
+    translation: "Hola, bienvenidos a xBible.",
+    component: ExbabelTranslateSVG
+  },
+  {
+    title: "Exbabel Live",
+    color: "#d5c4fa",
+    accent: "#6b21a8",
+    language: "Portuguese",
+    source: "Today we will read from John 3:16.",
+    translation: "Hoje vamos ler de João 3:16.",
+    component: ExbabelLiveSVG
+  },
+  {
+    title: "Exbabel Events",
+    color: "#bdebd5",
+    accent: "#059669",
+    language: "Korean",
+    source: "Thank you for joining our global service.",
+    translation: "저희 글로벌 예배에 참석해 주셔서 감사합니다.",
+    component: ExbabelEventsSVG
+  }
+];
+
+export default function GlassmorphicHero() {
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [inView, setInView] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const scene = scenes[active];
+
+  // iPhone typing animation
+  const [iphoneText, setIphoneText] = useState("");
+  const fullText = "Juan 3:16 dice: «Todo aquel que cree en él no se perderá, sino que tendrá vida eterna.»";
+
+  useEffect(() => {
+    setIphoneText("");
+    let i = 0;
+    const interval = setInterval(() => {
+      setIphoneText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(interval);
+    }, 40);
+    return () => clearInterval(interval);
+  }, [active]);
+
+  useEffect(() => {
+    const updateVisibility = () => setVisible(!document.hidden);
+    updateVisibility();
+    document.addEventListener("visibilitychange", updateVisibility);
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.15 });
+    if (carouselRef.current) observer.observe(carouselRef.current);
+    return () => {
+      document.removeEventListener("visibilitychange", updateVisibility);
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!playing) return;
+    const timer = window.setInterval(() => setActive(current => (current + 1) % scenes.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [playing, active]);
+
+  useEffect(() => {
+    if (reduceMotion !== false || !visible) return;
+    const timer = window.setInterval(() => setTaglineIndex(current => (current + 1) % taglineWords.length), 3000);
+    return () => window.clearInterval(timer);
+  }, [reduceMotion, visible]);
+
+  const select = (index: number) => {
+    setActive((index + scenes.length) % scenes.length);
+    setPaused(true);
+  };
+
+  return (
+    <section className={styles.hero} aria-labelledby="hero-title" style={{ "--scene-color": scene.color, "--scene-accent": scene.accent } as CSSProperties}>
+      <div className={styles.ambient} aria-hidden="true">
+        {scenes.map((item, index) => <div key={item.title} className={styles.colorWash} style={{ background: item.color, opacity: index === active ? 1 : 0 }} />)}
+      </div>
+
+      <div className={styles.container}>
+        <div className={styles.textContent}>
+          <div className={styles.tagline}>
+            <span className={styles.liveDot} /> AI translation for{" "}
+            <div className={styles.taglineScroller} aria-hidden="true">
+              {taglineWords.map((word, index) => <span key={word} className={styles.taglineWord} style={{ transform: \`translateY(\${100 * (index - taglineIndex)}%)\`, opacity: index === taglineIndex ? 1 : 0 }}>{word}</span>)}
+            </div>
+            <span className={styles.srOnly}>{taglineWords[taglineIndex]}</span>
+          </div>
+          <h1 className={styles.title} id="hero-title">
+            The language bridge<br />for every congregation.
+          </h1>
+          <p className={styles.description}>
+            Exbabel provides real-time AI translation for churches and events. High-accuracy audio and subtitles so every listener can follow along seamlessly on their phone.
+          </p>
+          <div className={styles.actions}>
+            <a href="/demo" className={styles.primaryButton}>Schedule a Consultation</a>
+            <a href="#pricing" className={styles.secondaryButton}>Get Started</a>
+          </div>
+        </div>
+
+        <div
+          ref={carouselRef}
+          className={styles.carousel}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Product interfaces"
+          onMouseEnter={() => { if (!paused) setPlaying(false); }}
+          onMouseLeave={() => { if (!paused) setPlaying(true); }}
+        >
+          <div className={styles.sourceCard} aria-hidden="true">
+            <div className={styles.cardEyebrow}><span className={styles.liveDot} /> Live translation</div>
+            <div className={styles.language}>English <span>&#8594;</span> {scene.language}</div>
+            <p className={styles.sourceText}>{scene.source}</p>
+            <p className={styles.translatedText} key={active}>{scene.translation}</p>
+          </div>
+
+          {/* Floating Listener View - mobile phone frame */}
+          <div className="absolute z-10 hidden md:flex flex-col items-start p-4 bg-[#0f172a] rounded-[24px] border-[6px] border-[#1e293b] shadow-2xl transition-all duration-1000 ease-in-out" 
+               style={{ 
+                 top: '15%', left: 'max(4%, calc(50% - 620px))', width: '200px', height: '380px',
+                 transform: \`rotate(-4deg) translateY(\${active * 10}px)\`,
+               }}>
+            <div className="flex justify-between w-full items-center mb-6">
+              <div className="text-[9px] font-bold text-[#94a3b8] px-2 py-0.5 rounded bg-[#1e293b]">2UU6SV</div>
+              <div className="flex items-center gap-1 text-[8px] font-bold text-[#10b981] bg-[#064e3b] px-2 py-0.5 rounded-full">
+                <div className="w-1.5 h-1.5 bg-[#10b981] rounded-full animate-pulse" />
+                ACTIVE
+              </div>
+            </div>
+            <div className="flex-1" />
+            <div className="text-[12px] font-semibold text-[#10b981] leading-relaxed min-h-[80px]">
+              {iphoneText}
+              <span className="inline-block w-0.5 h-3 ml-0.5 bg-[#10b981] animate-pulse align-middle" />
+            </div>
+            <div className="w-full mt-4 flex items-center gap-2 bg-[#1e293b] p-2 rounded-lg">
+              <div className="flex gap-0.5">
+                <div className="w-0.5 h-2 bg-[#10b981] animate-pulse" />
+                <div className="w-0.5 h-3 bg-[#10b981] animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <div className="w-0.5 h-1.5 bg-[#10b981] animate-pulse" style={{ animationDelay: '0.4s' }} />
+              </div>
+              <span className="text-[8px] font-medium text-[#94a3b8]">Streaming Translated Audio...</span>
+            </div>
+          </div>
+
+          <div className={styles.audioCard} aria-hidden="true">
+            <div className={styles.cardEyebrow}><span className={styles.musicNote}>&#9835;</span> Exbabel Translate</div>
+            <div className={styles.waveform}>
+              {Array.from({ length: 15 }).map((_, i) => (
+                <div key={i} className={styles.bar} style={{ height: \`\${Math.random() * 80 + 20}%\`, animationDelay: \`\${i * 0.1}s\` }} />
+              ))}
+            </div>
+            <div className={styles.languageBadge}><span className={styles.liveDot} /> {scene.language}</div>
+            <div className={styles.liveLabel}>Live</div>
+          </div>
+
+          <div className={styles.stage}>
+            <AnimatePresence initial={false} mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, scale: 0.95, rotateY: 10 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                exit={{ opacity: 0, scale: 1.05, rotateY: -10 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={styles.slide}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <div className={styles.artwork} style={{ transform: \`rotateY(\${active * 5 - 5}deg) rotateX(\${active * 2}deg)\` }}>
+                  <scene.component />
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className={styles.controls}>
+            <button className={styles.arrowButton} onClick={() => select(active - 1)} aria-label="Previous scene">
+              &#8592;
+            </button>
+            <div className={styles.sceneButtons} aria-label="Choose a scene">
+              {scenes.map((item, index) =>
+                <button
+                  key={item.title}
+                  className={styles.sceneButton}
+                  onClick={() => select(index)}
+                  aria-pressed={index === active}
+                  aria-label={item.title}
+                >
+                  <span className={styles.indicator} style={{ background: index === active ? scene.accent : undefined }} />
+                  {item.title}
+                </button>
+              )}
+            </div>
+            <button className={styles.arrowButton} onClick={() => select(active + 1)} aria-label="Next scene">
+              &#8594;
+            </button>
+          </div>
+        </div>
+        <p className={styles.illustrationNote}>Exbabel product interfaces</p>
+        <span className={styles.srOnly} aria-live={playing ? "off" : "polite"} aria-atomic="true">{scene.title}, scene {active + 1} of {scenes.length}</span>
+      </div>
+    </section>
+  );
+}
+`;
+
+fs.writeFileSync('components/GlassmorphicHero.tsx', content);
+console.log("Written full reconstructed GlassmorphicHero.tsx");
+', 'Description': 'Write full hero', 'Overwrite': True, 'TargetFile': 'C:\Users\boyge\.gemini\antigravity-ide\brain\4333a9a6-8ad3-4d12-88dc-549e200c763c\scratch\write_full_hero.js', 'toolAction': 'Editing file', 'toolSummary': 'Create full hero write script'}}

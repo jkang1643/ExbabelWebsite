@@ -1,0 +1,1 @@
+Recovered hero from the verified conversation implementation and development CSS cache. Restored copies use the .bak extension so Next.js and TypeScript do not compile backups. Before copies preserve the overwritten files.

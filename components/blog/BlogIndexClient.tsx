@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
 import EditorialCollageThumbnail from "./EditorialCollageThumbnail";
 import BlogCategoryFilter from "./BlogCategoryFilter";
+import { capturePostHogEvent } from "@/lib/posthog-client";
 
 interface BlogIndexClientProps {
   posts: BlogPost[];
@@ -39,6 +40,14 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
   // Featured post (always primary article when "All" is active, or first filtered)
   const featuredPost = filteredPosts[0];
   const remainingPosts = filteredPosts.slice(1);
+
+  const handleCategorySelect = (category: string) => {
+    setActiveCategory(category);
+    capturePostHogEvent("blog_category_selected", {
+      category,
+      result_count: categoryCounts[category] ?? 0,
+    });
+  };
 
   return (
     <div className="w-full">
@@ -82,7 +91,7 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
             <BlogCategoryFilter
               categories={categories}
               activeCategory={activeCategory}
-              onSelectCategory={setActiveCategory}
+              onSelectCategory={handleCategorySelect}
               counts={categoryCounts}
             />
           </div>
@@ -230,7 +239,7 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
           <div className="text-center py-24 bg-slate-50 rounded-3xl border border-slate-200/60 mb-16">
             <p className="text-slate-500 font-medium mb-2">No publications found in this category.</p>
             <button
-              onClick={() => setActiveCategory("All")}
+              onClick={() => handleCategorySelect("All")}
               className="text-xs font-bold text-primary hover:underline"
             >
               Reset to all publications

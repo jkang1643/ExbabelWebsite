@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { capturePostHogEvent, capturePostHogException } from "@/lib/posthog-client";
 import CalendlyDemoScheduler from "./CalendlyDemoScheduler";
 
 type FormState = {
@@ -43,6 +44,12 @@ export default function BookADemo() {
     setIsSubmitting(false);
     setIsSubmitted(true);
 
+    capturePostHogEvent("demo_form_submitted", {
+      role: formState.role,
+      church_size: formState.churchSize,
+      has_phone_number: Boolean(formState.phoneNumber.trim()),
+    });
+
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
     if (baseUrl) {
       fetch(`${baseUrl}/api/demo-request`, {
@@ -52,6 +59,7 @@ export default function BookADemo() {
         },
         body: JSON.stringify(formState),
       }).catch((err) => {
+        capturePostHogException(err);
         console.warn("Lead API unreachable:", err);
       });
     }
@@ -59,6 +67,11 @@ export default function BookADemo() {
 
   const handleEventScheduled = () => {
     setIsScheduled(true);
+    capturePostHogEvent("demo_scheduled", {
+      role: formState.role,
+      church_size: formState.churchSize,
+    });
+
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.exbabel.com";
     if (baseUrl) {
       fetch(`${baseUrl}/api/demo-request`, {
@@ -66,6 +79,7 @@ export default function BookADemo() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: formState.email, status: "scheduled" }),
       }).catch((e) => {
+        capturePostHogException(e);
         console.warn("Failed to tag lead on API:", e);
       });
     }

@@ -1,358 +1,193 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useMotionValue, useSpring, useTransform } from "framer-motion";
-import HeroAuroraBackground from "./HeroAuroraBackground";
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { appRoutes } from "@/lib/config";
-import LiveTranslationGraphic from "./LiveTranslationGraphic";
-import TrustedPartners from "./TrustedPartners";
+import styles from "./GlassmorphicHero.module.css";
+import ExbabelTranslateSVG from "./svg/ExbabelTranslateSVG";
+import ExbabelLiveSVG from "./svg/ExbabelLiveSVG";
+import ExbabelEventsSVG from "./svg/ExbabelEventsSVG";
 
-interface TranslationPair {
-  english: string;
-  spanish: string;
+const scenes: readonly {
+  title: string; graphic: ReactNode; alt: string; color: string; accent: string;
+  language: string; translation: string; source: string;
+}[] = [
+  {
+    title: "Exbabel Translate", graphic: <ExbabelTranslateSVG />,
+    alt: "Exbabel Translate host dashboard with session sharing and broadcasting controls.",
+    color: "#ace5fa", accent: "#254bd9", language: "Español",
+    translation: "Cada voz importa.", source: "Every voice matters.",
+  },
+  {
+    title: "Exbabel Live", graphic: <ExbabelLiveSVG />,
+    alt: "Exbabel Live streaming interface with real-time subtitles and speaker video.",
+    color: "#d5c4fa", accent: "#6740c8", language: "Français",
+    translation: "Bienvenue à tous.", source: "Everyone is welcome.",
+  },
+  {
+    title: "Exbabel Events", graphic: <ExbabelEventsSVG />,
+    alt: "Exbabel Events dashboard with event management and translation tools.",
+    color: "#bdebd5", accent: "#087650", language: "Español",
+    translation: "Cada voz importa.", source: "Every voice matters.",
+  },
+];
+const taglineWords = ["One service.", "Every language.", "Understood.", "Connected."] as const;
+const churches = ["Houston Apostolic Church", "Lighthouse Pentecostal Church", "Lighthouse Church", "1st Baptist Church of Houston"] as const;
+
+function Arrow({ back = false }: { back?: boolean }) {
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className={back ? styles.backArrow : undefined}>
+    <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>;
+}
+
+function Waveform() {
+  return <div className={styles.waveform} aria-hidden="true">
+    {[12, 20, 13, 30, 43, 24, 37, 50, 31, 18, 38, 55, 34, 24, 43, 28, 15, 31, 45, 22, 13, 20, 10].map((height, i) =>
+      <i key={i} style={{ height, animationDelay: `${i * -0.09}s` }} />
+    )}
+  </div>;
 }
 
 export default function GlassmorphicHero() {
-  const [phase, setPhase] = useState<'listening' | 'transcribing' | 'complete'>('listening');
-  const [transcript, setTranscript] = useState("");
-  const [partialText, setPartialText] = useState("");
-  const [spanishTranscript, setSpanishTranscript] = useState("");
-  const [spanishPartialText, setSpanishPartialText] = useState("");
-  const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [translatedLines, setTranslatedLines] = useState<TranslationPair[]>([]);
-
-  // Fluid Top Bounce & Elastic Parallax System (macOS/iOS rubber-banding + Windows/trackpad top-cushion)
-  const { scrollY } = useScroll();
-  const rawBounce = useMotionValue(0);
-
-  // Heavily damped physics spring for organic, buttery return
-  const springBounce = useSpring(rawBounce, {
-    stiffness: 160,
-    damping: 24,
-    mass: 0.7,
-  });
+  const [active, setActive] = useState(0);
+  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [inView, setInView] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const scene = scenes[active];
+  const playing = reduceMotion === false && !paused && !hovered && !focused && visible && inView;
 
   useEffect(() => {
-    let decayTimer: ReturnType<typeof setTimeout>;
-
-    const handleWheel = (e: WheelEvent) => {
-      // When at the very top of the page and scrolling upward
-      if (window.scrollY <= 1 && e.deltaY < 0) {
-        const current = rawBounce.get();
-        // Logarithmic resistance curve (feels like stretching premium elastic material)
-        const resistance = Math.max(0.12, 1 - current / 110);
-        const next = Math.min(85, current + Math.abs(e.deltaY) * 0.22 * resistance);
-        rawBounce.set(next);
-
-        clearTimeout(decayTimer);
-        decayTimer = setTimeout(() => {
-          rawBounce.set(0);
-        }, 50);
-      }
-    };
-
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      if (window.scrollY <= 1) {
-        touchStartY = e.touches[0].clientY;
-      }
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (window.scrollY <= 1) {
-        const delta = e.touches[0].clientY - touchStartY;
-        if (delta > 0) {
-          rawBounce.set(Math.min(95, delta * 0.32));
-        }
-      }
-    };
-
-    const handleTouchEnd = () => {
-      rawBounce.set(0);
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
-
+    const updateVisibility = () => setVisible(!document.hidden);
+    updateVisibility();
+    document.addEventListener("visibilitychange", updateVisibility);
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.15 });
+    if (carouselRef.current) observer.observe(carouselRef.current);
     return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
-      clearTimeout(decayTimer);
+      document.removeEventListener("visibilitychange", updateVisibility);
+      observer.disconnect();
     };
-  }, [rawBounce]);
-
-  // Handle native negative scrollY on Safari/macOS rubber-banding
-  const nativeOverscroll = useTransform(scrollY, (y) => (y < 0 ? Math.abs(y) : 0));
-  
-  // Unified displacement signal
-  const totalBounce = useTransform(
-    [springBounce, nativeOverscroll],
-    ([synth, nat]: number[]) => Math.min(100, Math.max(synth, nat))
-  );
-
-  // Background expands elastically from top origin
-  const bgScale = useTransform(totalBounce, [0, 100], [1, 1.06]);
-  // Background parallax displacement
-  const bgY = useTransform(
-    [totalBounce, scrollY],
-    ([bounce, y]: number[]) => (y >= 0 ? y * 0.16 : bounce * 0.45)
-  );
-
-  // Foreground headline & CTAs cushion down with gentle resistance
-  const fgY = useTransform(totalBounce, [0, 100], [0, 18]);
-  // LiveTranslationGraphic card cushions with deeper resistance for rich 3D depth
-  const graphicY = useTransform(totalBounce, [0, 100], [0, 10]);
-
-  // Rotating Text Slogans
-  const flipWords = [
-    "Every language.",
-    "One service.",
-    "Understood.",
-    "Connected."
-  ];
-  const [flipIndex, setFlipIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFlipIndex((prev) => (prev + 1) % flipWords.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [flipWords.length]);
-
-  const startTranscription = useCallback(() => {
-    const lines = [
-      {
-        english: "When we walk through the fire, God is still faithful.",
-        spanish: "Cuando caminamos por el fuego, Dios sigue siendo fiel."
-      },
-      {
-        english: "Even when the storm surrounds us, His presence remains.",
-        spanish: "Incluso cuando la tormenta nos rodea, Su presencia permanece."
-      },
-      {
-        english: "Do not be afraid — your breakthrough is near.",
-        spanish: "No tengas miedo: tu avance está cerca."
-      }
-    ];
-
-    let lineIdx = 0;
-
-    const processLine = () => {
-      if (lineIdx >= lines.length) {
-        lineIdx = 0;
-        setTimeout(processLine, 1500);
-        return;
-      }
-
-      const currentLine = lines[lineIdx];
-      const englishWords = currentLine.english.split(" ");
-      const spanishWords = currentLine.spanish.split(" ");
-      let wordIdx = 0;
-
-      const transcribeWords = () => {
-        if (wordIdx < englishWords.length) {
-          const currentEnglishWords = englishWords.slice(0, wordIdx + 1).join(" ");
-          const nextEnglishWord = englishWords[wordIdx + 1];
-
-          if (nextEnglishWord) {
-            const partialLength = Math.min(3, Math.floor(nextEnglishWord.length / 2));
-            setPartialText(currentEnglishWords + " " + nextEnglishWord.substring(0, partialLength) + "...");
-          } else {
-            setPartialText("");
-          }
-
-          setTranscript(currentEnglishWords);
-
-          setTimeout(() => {
-            if (wordIdx < spanishWords.length) {
-              const currentSpanishWords = spanishWords.slice(0, wordIdx + 1).join(" ");
-              const nextSpanishWord = spanishWords[wordIdx + 1];
-
-              if (nextSpanishWord) {
-                const partialLength = Math.min(3, Math.floor(nextSpanishWord.length / 2));
-                setSpanishPartialText(currentSpanishWords + " " + nextSpanishWord.substring(0, partialLength) + "...");
-              } else {
-                setSpanishPartialText("");
-              }
-
-              setSpanishTranscript(currentSpanishWords);
-            }
-          }, 300);
-
-          wordIdx++;
-          setTimeout(transcribeWords, 220);
-        } else {
-          setTimeout(() => {
-            lineIdx++;
-            setTranscript("");
-            setPartialText("");
-            setSpanishTranscript("");
-            setSpanishPartialText("");
-            setTimeout(processLine, 800);
-          }, 600);
-        }
-      };
-
-      transcribeWords();
-    };
-
-    processLine();
   }, []);
 
   useEffect(() => {
-    const listeningTimer = setTimeout(() => {
-      setPhase('transcribing');
-      startTranscription();
-    }, 1500);
+    if (!playing) return;
+    const timer = window.setInterval(() => setActive(current => (current + 1) % scenes.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [playing, active]);
 
-    return () => clearTimeout(listeningTimer);
-  }, [startTranscription]);
+  useEffect(() => {
+    if (reduceMotion !== false || !visible) return;
+    const timer = window.setInterval(() => setTaglineIndex(current => (current + 1) % taglineWords.length), 3000);
+    return () => window.clearInterval(timer);
+  }, [reduceMotion, visible]);
+
+  const select = (index: number) => {
+    setActive((index + scenes.length) % scenes.length);
+    setPaused(true);
+  };
 
   return (
-    <section className="relative min-h-screen bg-white md:bg-base-paper flex flex-col overflow-hidden">
-      {/* Dot Grid Pattern with Elastic Parallax (hidden on mobile for clean white Wix canvas) */}
-      <motion.div 
-        className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none origin-top hidden md:block" 
-        style={{ 
-          backgroundImage: "radial-gradient(circle at center, #0B1220 1px, transparent 1px)", 
-          backgroundSize: "24px 24px",
-          maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-          scale: bgScale,
-          y: bgY
-        }} 
-      />
-
-      {/* Hero Aurora Background with Fluid Elastic Scale */}
-      <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none origin-top"
-        style={{ scale: bgScale, y: bgY }}
-      >
-        <HeroAuroraBackground />
-      </motion.div>
-
-      <motion.div 
-        className="relative z-10 pt-20 sm:pt-24 md:pt-[92px] pb-10 sm:pb-12 md:pb-3 flex flex-col items-center flex-shrink-0"
-        style={{ y: fgY }}
-      >
-        <div className="layout-spine text-center flex flex-col items-center gap-6 md:gap-8 px-4 sm:px-6 md:px-12">
-
-          {/* Headline Group */}
-          <motion.div
-            className="flex flex-col items-center gap-6 md:gap-8 max-w-[960px] mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700"
-          >
-            {/* Top Banner with Subtle Live Status Indicator */}
-            <motion.a
-              href="/live"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-6 sm:py-2.5 rounded-full bg-white border border-slate-200 text-[#1d1c1d] shadow-sm hover:shadow-md hover:bg-white/90 transition-all group hover:scale-[1.02] active:scale-[0.98] animate-in fade-in slide-in-from-top-2 duration-700 delay-200 fill-mode-both max-w-[92vw] sm:max-w-none"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-tight whitespace-nowrap">
-                <span className="hidden sm:inline">Now Available — Live Video Translation for Global Congregations</span>
-                <span className="sm:hidden">Now Available: Live Video Translation</span>
-              </span>
-              <span className="text-xs sm:text-sm text-base-muted mx-0.5 sm:mx-1 flex-shrink-0">·</span>
-              <span className="text-xs sm:text-sm font-medium whitespace-nowrap flex-shrink-0">Learn more</span>
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.a>
-
-            <p
-              className="text-2xl md:text-3xl font-bold text-primary/80 leading-[1.15] tracking-tight flex flex-wrap justify-center gap-x-3 mb-2"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <span className="text-base-ink/80">Every voice.</span>
-              <span className="text-primary inline-grid text-left">
-                {flipWords.map((word, index) => (
-                  <span key={index} className="col-start-1 row-start-1 invisible pointer-events-none select-none whitespace-nowrap" aria-hidden="true">
-                    {word}
-                  </span>
-                ))}
-                
-                <span className="col-start-1 row-start-1 flex justify-start">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={flipIndex}
-                      initial={{ y: 20, }}
-                      animate={{ y: 0, }}
-                      exit={{ y: -20, }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="whitespace-nowrap"
-                    >
-                      {flipWords[flipIndex]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
-              </span>
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-ink leading-[1.15] tracking-[0.012em] text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-              Real-Time AI Translation for Churches and Live Events
-            </h1>
-
-            <p
-              className="text-lg md:text-xl text-base-muted leading-relaxed max-w-[760px] mx-auto font-medium"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              Exbabel is a real-time church translation system for sermons, worship services, livestreams, conferences, and live events. Translate speech into natural AI audio and live captions so every listener can follow in their language from any device.
-            </p>
-          </motion.div>
-
-
-
-          {/* Restored Classic Premium CTA Row */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 fill-mode-both"
-          >
-            <Link
-              href="/demo"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-base-ink text-white font-bold text-lg hover:bg-base-ink/90 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg relative overflow-hidden group text-center"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
-              Schedule a Consultation
-            </Link>
-            <a
-              href="#pricing"
-              className="w-full sm:w-auto px-8 py-4 rounded-full text-[#1d1c1d] font-bold text-lg bg-white border border-slate-200/90 sm:border-transparent shadow-sm sm:shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
-              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-            >
-              <span className="hidden md:inline">Explore Capabilities</span>
-              <span className="md:hidden">Get Started</span>
-            </a>
-          </motion.div>
-
-          <motion.div
-            className="w-full animate-in fade-in duration-1000 delay-500 fill-mode-both"
-          >
-            <TrustedPartners />
-          </motion.div>
+    <section className={styles.hero} aria-labelledby="hero-title" style={{ "--scene-color": scene.color, "--scene-accent": scene.accent } as CSSProperties}>
+      <div className={styles.ambient} aria-hidden="true">
+        {scenes.map((item, index) => <div key={item.title} className={styles.colorWash} style={{ background: item.color, opacity: index === active ? 1 : 0 }} />)}
+      </div>
+      <div className={styles.copy}>
+        <p className={styles.tagline}>
+          <span>Every voice.</span>{" "}
+          <span className={styles.rotatingWords} aria-hidden="true">
+            {taglineWords.map(word => <span key={word} className={styles.wordSizer}>{word}</span>)}
+            <AnimatePresence initial={false} mode="wait">
+              <motion.span key={reduceMotion ? "static" : taglineIndex} className={styles.rotatingWord}
+                initial={{ y: "100%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}>
+                {taglineWords[reduceMotion ? 0 : taglineIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+          <span className={styles.srOnly}>One service.</span>
+        </p>
+        <h1 id="hero-title" className={styles.title}>
+          <span>Real-Time AI Translation</span>{" "}<span>for Churches and Live Events</span>
+        </h1>
+        <p className={styles.description}>
+          Exbabel is a real-time church translation system for sermons, worship services, livestreams, conferences, and live events. Translate speech into natural AI audio and live captions so every listener can follow in their language from any device.
+        </p>
+        <div className={styles.actions}>
+          <Link href="/demo" className={styles.primary}>Schedule a Consultation <Arrow /></Link>
+          <a href="#capabilities" className={styles.secondary}>Explore Capabilities <Arrow /></a>
         </div>
-      </motion.div>
-
-      {/* Embedded LiveTranslationGraphic Animation (visible further down the page when scrolling) */}
-      <motion.div
-        className="w-full relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both mt-10 sm:mt-12 md:mt-4"
-        style={{ y: graphicY }}
-      >
-        <div className="mt-8 md:mt-4 border-t border-white/10 shadow-2xl">
-          <LiveTranslationGraphic />
+        <div className={styles.trust}>
+          <p>Trusted by top churches</p>
+          <div className={styles.churchViewport}>
+            <div className={styles.churchTrack}>
+              {[0, 1].map(copy => (
+                <div key={copy} className={styles.churchGroup} aria-hidden={copy === 1 ? true : undefined}>
+                  {churches.map(church => <span key={church}><i aria-hidden="true" />{church}</span>)}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Seamless Bottom Gradient Fade to Pure White: dissolves hero background shade, dot grid, and ambient tones into pure white before next section */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-36 sm:h-44 md:h-52 pointer-events-none z-[5]" 
-        style={{
-          background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0.92) 88%, #ffffff 100%)"
+      <div ref={carouselRef} className={styles.carousel} role="region" aria-roledescription="carousel" aria-label="Exbabel in action"
+        onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+        onFocusCapture={() => setFocused(true)}
+        onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
+        onKeyDown={event => {
+          if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+            event.preventDefault();
+            select(active + (event.key === "ArrowRight" ? 1 : -1));
+          }
         }}
-        aria-hidden="true" 
-      />
+        onTouchStart={event => { touchStart.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }}
+        onTouchEnd={event => {
+          const start = touchStart.current;
+          touchStart.current = null;
+          if (!start) return;
+          const dx = event.changedTouches[0].clientX - start.x;
+          const dy = event.changedTouches[0].clientY - start.y;
+          if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) select(active + (dx < 0 ? 1 : -1));
+        }}>
+        <div className={styles.stage}>
+          {scenes.map((item, index) => {
+            const offset = (index - active + scenes.length) % scenes.length;
+            const position = offset === 0 ? "center" : offset === 1 ? "right" : "left";
+            return <div key={item.title} className={styles.slide} data-position={position} role="group" aria-roledescription="slide"
+              aria-label={`${index + 1} of ${scenes.length}: ${item.title}`} aria-hidden={index !== active}>
+              <div className={styles.artwork}>{item.graphic}</div>
+            </div>;
+          })}
+          <div className={styles.audioCard} aria-hidden="true">
+            <div className={styles.cardEyebrow}><span className={styles.audioIcon}>♪</span> {scene.title}</div>
+            <Waveform />
+            <div className={styles.cardFooter}><span className={styles.liveDot} /> {scene.language} <span>Live</span></div>
+          </div>
+        </div>
+        <div className={styles.controls}>
+          <button className={styles.arrowButton} type="button" onClick={() => select(active - 1)} aria-label="Previous scene"><Arrow back /></button>
+          <div className={styles.sceneButtons} aria-label="Choose a scene">
+            {scenes.map((item, index) =>
+              <button key={item.title} type="button" aria-pressed={index === active} onClick={() => select(index)} className={index === active ? styles.selectedScene : undefined}>
+                <span className={styles.sceneDot} /><span>{item.title}</span>
+              </button>
+            )}
+          </div>
+          <button className={styles.arrowButton} type="button" onClick={() => select(active + 1)} aria-label="Next scene"><Arrow /></button>
+          {!reduceMotion && <button className={styles.pauseButton} type="button" onClick={() => setPaused(current => !current)}
+            aria-label={paused ? "Start automatic slideshow" : "Pause automatic slideshow"} aria-pressed={paused}>
+            {paused ? <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" fill="currentColor" /></svg>
+              : <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4v12M13 4v12" stroke="currentColor" strokeWidth="2.5" /></svg>}
+          </button>}
+        </div>
+        <p className={styles.illustrationNote}>Exbabel product interfaces</p>
+        <span className={styles.srOnly} aria-live={playing ? "off" : "polite"} aria-atomic="true">{scene.title}, scene {active + 1} of {scenes.length}</span>
+      </div>
     </section>
   );
 }

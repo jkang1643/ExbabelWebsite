@@ -220,7 +220,16 @@ export default function OnDemandInterpretationArticle() {
 
           {/* ── Featured Image ────────────────────────────────────────── */}
           <figure className="max-w-4xl mx-auto px-6 mb-12">
-            <EditorialCollageThumbnail post={post} variant="hero" />
+            <div className="overflow-hidden rounded-2xl md:rounded-3xl shadow-xl border border-slate-200/80 bg-slate-50">
+              <img
+                src={post.featuredImage}
+                alt={post.featuredImageAlt}
+                width={1200}
+                height={675}
+                className="w-full h-auto object-cover"
+                loading="eager"
+              />
+            </div>
             <figcaption className="text-center text-xs text-slate-500 mt-3">
               {post.featuredImageAlt}
             </figcaption>
@@ -480,6 +489,23 @@ export default function OnDemandInterpretationArticle() {
                 nuanced. Both have strengths, and the right choice depends on the
                 context.
               </p>
+
+              {/* Field Guide Graphic Diagram */}
+              <figure className="my-10 not-prose">
+                <div className="overflow-hidden rounded-2xl shadow-xl border border-slate-200 bg-white">
+                  <img
+                    src="/photos/blog/church-translation-interpreters-vs-ai-field-guide.png"
+                    alt="Exbabel field guide comparing church translation interpreters vs AI: nuance vs scale"
+                    width={1024}
+                    height={576}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption className="text-center text-xs text-slate-500 mt-3 font-medium">
+                  The real trade-off is nuance vs. scale — human interpreters optimize for judgment while AI translation optimizes for reach.
+                </figcaption>
+              </figure>
               <p>
                 Human interpreters bring deep cultural understanding and the ability
                 to navigate ambiguity. In a sensitive medical consultation where a

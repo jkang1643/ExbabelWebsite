@@ -16,6 +16,7 @@ import DecorativeWisp from '@/components/DecorativeWisp';
 import IntegrationsSection from '@/components/IntegrationsSection';
 import SupportedPlatformsSection from '@/components/SupportedPlatformsSection';
 import GettingStartedSection from '@/components/GettingStartedSection';
+import { capturePostHogEvent } from '@/lib/posthog-client';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -67,7 +68,15 @@ export default function LiveTranslationPage() {
             <a href="/demo" className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
               Schedule a Demo
             </a>
-            <a href={appRoutes.pricingLive} className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <a
+              href={appRoutes.pricingLive}
+              onClick={() => capturePostHogEvent('live_checkout_started', {
+                billing_interval: 'monthly',
+                placement: 'hero',
+              })}
+              className="px-10 py-4 rounded-md text-primary font-bold text-lg bg-white border-2 border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all text-center"
+              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+            >
               Start Free Trial
             </a>
           </motion.div>
@@ -432,6 +441,10 @@ export default function LiveTranslationPage() {
               {/* CTA */}
               <a
                 href={checkoutUrl}
+                onClick={() => capturePostHogEvent('live_checkout_started', {
+                  billing_interval: billingInterval,
+                  placement: 'pricing',
+                })}
                 className="block w-full text-center px-10 py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20"
                 style={{ fontFamily: 'var(--font-sora), sans-serif' }}
               >
@@ -506,7 +519,15 @@ export default function LiveTranslationPage() {
             Turn every livestream, sermon, conference, and event into a multilingual experience with real-time speech-to-speech translation, AI voiceovers, and live captions. Welcome more people. Reach more communities. Extend your ministry beyond language barriers.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-            <a href={checkoutUrl} className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+            <a
+              href={checkoutUrl}
+              onClick={() => capturePostHogEvent('live_checkout_started', {
+                billing_interval: billingInterval,
+                placement: 'final_cta',
+              })}
+              className="px-10 py-4 rounded-md bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 text-center"
+              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+            >
               Start 30-Day Free Trial
             </a>
             <a href="/demo" className="px-10 py-4 rounded-md text-slate-900 font-bold text-lg bg-white border-2 border-transparent hover:bg-slate-50 transition-all transform hover:-translate-y-0.5 shadow-lg text-center" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>

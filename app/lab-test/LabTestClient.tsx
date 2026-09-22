@@ -6,9 +6,17 @@ import Image from "next/image";
 import LatencyPipelineGraphic from "@/components/svg/LatencyPipelineGraphic";
 import ContinuousSpeechGraphic from "@/components/svg/ContinuousSpeechGraphic";
 import SignalProcessingGraphic from "@/components/svg/SignalProcessingGraphic";
+import { capturePostHogEvent } from "@/lib/posthog-client";
 
 export default function LabTestClient() {
   const [activeTab, setActiveTab] = useState<string>("executive");
+
+  const handleReportDownload = (resourceType: string, placement: string) => {
+    capturePostHogEvent("report_downloaded", {
+      resource_type: resourceType,
+      placement,
+    });
+  };
 
   const tabs = [
     { id: "executive", label: "Executive summary" },
@@ -122,6 +130,7 @@ export default function LabTestClient() {
             <a
               href="/docs/exbabel_vs_wordly_lab_report.pdf"
               download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+              onClick={() => handleReportDownload("pdf", "header")}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-[#394dfe] font-extrabold text-xs sm:text-sm whitespace-nowrap flex-shrink-0 shadow-sm hover:bg-slate-50 transition-all group"
             >
               <svg className="w-4 h-4 flex-shrink-0 text-[#394dfe]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -574,6 +583,7 @@ export default function LabTestClient() {
                           <a
                             href={f.link}
                             download={f.filename}
+                            onClick={() => handleReportDownload(f.format, "resource_table")}
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#394dfe] text-white font-bold text-xs hover:bg-[#394dfe]/90 transition-colors shadow-sm"
                           >
                             <span>Download</span>
@@ -607,6 +617,7 @@ export default function LabTestClient() {
               <a
                 href="/docs/exbabel_vs_wordly_lab_report.pdf"
                 download="Exbabel_vs_Wordly_Lab_Report_2026.pdf"
+                onClick={() => handleReportDownload("pdf", "footer_cta")}
                 className="px-6 py-3.5 rounded-full bg-[#394dfe] hover:bg-[#394dfe]/90 text-white font-bold text-sm transition-all shadow-lg shadow-[#394dfe]/30 hover:scale-[1.02]"
               >
                 Download PDF Report (.PDF)
@@ -614,6 +625,7 @@ export default function LabTestClient() {
               <a
                 href="/docs/exbabel_vs_wordly_lab_report.md"
                 download="Exbabel_vs_Wordly_Lab_Report_2026.md"
+                onClick={() => handleReportDownload("markdown", "footer_cta")}
                 className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all"
               >
                 Download .MD
