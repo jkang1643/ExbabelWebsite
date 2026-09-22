@@ -78,7 +78,7 @@
   .audioCard { right: 3%; width: 190px; padding: 15px; }
 }
 @media (max-width: 700px) {
-  .hero { padding-top: 97px; padding-bottom: 27px; }
+  .hero { padding-top: 97px; padding-bottom: 60px; }
   .copy { padding: 0 20px; }
   .tagline { font-size: 15px; margin-bottom: 17px; }
   .title { font-size: clamp(31px, 7.4vw, 48px); line-height: 1.17; letter-spacing: -.05em; max-width: 540px; }
@@ -90,7 +90,7 @@
   .trust { flex-direction: column; gap: 10px; margin-top: 23px; font-size: 10px; }
   .churchViewport { width: 100%; flex: auto; }
   .churchGroup { gap: 28px; padding-right: 28px; }
-  .ambient { inset: 280px -45% 0; }
+  .ambient { inset: 280px -45% 60px; }
   .colorWash { filter: blur(45px); }
   .carousel { margin-top: 32px; }
   .slide { width: 92vw; }
