@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import MobileScrollProvider from "@/components/MobileScrollProvider";
+import PostHogProvider from "@/components/PostHogProvider";
 import { Sora } from "next/font/google";
 import "./globals.css";
 
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
         <MobileScrollProvider />
+        <PostHogProvider />
         {/* Global JSON-LD schemas */}
         <OrganizationSchema />
         <WebsiteSchema />
