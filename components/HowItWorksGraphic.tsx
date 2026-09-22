@@ -16,29 +16,29 @@ const STEPS = [
     number: "01",
     title: "Launch a Live Session",
     description: "Create a translation session from any browser. Select your language and begin speaking — no equipment or installation required.",
-    image: "/images/step1-launch.jpg",
+    image: "/images/step1-launch-new.jpg",
     accentFrom: "#38BDF8", // Sky blue
   },
   {
     number: "02",
     title: "Configure Target Languages",
     description: "Choose from over 200 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
-    image: "/images/step2-configure.jpg",
-    accentFrom: "#818CF8", // Indigo
+    image: "/images/step2-configure-new.jpg",
+    accentFrom: "#A855F7", // Vibrant Purple
   },
   {
     number: "03",
     title: "Share Access Instantly",
     description: "Attendees join via QR code or web link on any device — phone, tablet, or laptop. No app download required.",
-    image: "/images/step3-share.jpg",
+    image: "/images/step3-share-new.jpg",
     accentFrom: "#34D399", // Emerald
   },
   {
     number: "04",
     title: "Listen and Read in Real Time",
     description: "Translated speech audio streams in approximately two seconds. Multilingual captions appear in approximately one second. Speak naturally — without pausing.",
-    image: "/images/step4-listen.jpg",
-    accentFrom: "#A78BFA", // Purple
+    image: "/images/step4-listen-new.jpg",
+    accentFrom: "#F43F5E", // Ruby Red
   },
 ];
 
@@ -68,11 +68,19 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
   const normY = mouse.h ? (mouse.y - mouse.h / 2) / (mouse.h / 2) : 0;
   const tiltX = isHovered && !prefersReduced && !isTouch ? normY * -4 : 0;
   const tiltY = isHovered && !prefersReduced && !isTouch ? normX * 4 : 0;
+  const imgParallaxX = isHovered && !prefersReduced && !isTouch ? normX * -15 : 0;
+  const imgParallaxY = isHovered && !prefersReduced && !isTouch ? normY * -15 : 0;
 
   const isEven = index % 2 === 0;
 
   return (
-    <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-20 w-full relative z-10 px-4`}>
+    <motion.div 
+      initial={{ opacity: 0.35 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ margin: "-25%", amount: "some" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-20 w-full relative z-10 px-4`}
+    >
       {/* Text Side */}
       <motion.div 
         className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} items-center text-center`}
@@ -123,9 +131,12 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
               src={step.image}
               alt={step.title}
               fill
-              className="object-cover transition-transform duration-700 ease-out"
+              className="object-cover"
               style={{
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)'
+                transform: isHovered 
+                  ? `scale(1.08) translate3d(${imgParallaxX}px, ${imgParallaxY}px, 0)` 
+                  : 'scale(1) translate3d(0, 0, 0)',
+                transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1)'
               }}
               sizes="(max-width: 640px) 100vw, 50vw"
             />
@@ -143,7 +154,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
           )}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -181,15 +192,15 @@ export default function HowItWorksGraphic() {
           <defs>
             <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.8" />
-              <stop offset="33%" stopColor="#818CF8" stopOpacity="0.8" />
+              <stop offset="33%" stopColor="#A855F7" stopOpacity="0.8" />
               <stop offset="66%" stopColor="#34D399" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#A78BFA" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#F43F5E" stopOpacity="0.8" />
             </linearGradient>
             <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.1" />
               <stop offset="45%" stopColor="#ffffff" stopOpacity="0.95" />
               <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#818CF8" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#F43F5E" stopOpacity="0.1" />
             </linearGradient>
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="20" result="blur" />

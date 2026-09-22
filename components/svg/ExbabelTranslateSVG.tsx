@@ -25,7 +25,26 @@ const TypewriterText = ({ x, y, fontFamily, fontSize, fontWeight, fill, text, de
 };
 
 export default function ExbabelTranslateSVG() {
-  const [loopKey, setLoopKey] = useState(0);
+    const [loopKey, setLoopKey] = useState(0);
+
+  const messages = [
+    [
+      { text: "Bienvenidos a", delay: 1.5, y: 196 },
+      { text: "la iglesia.", delay: 2.0, y: 214 }
+    ],
+    [
+      { text: "Que Dios los", delay: 1.5, y: 196 },
+      { text: "bendiga a todos.", delay: 2.0, y: 214 }
+    ],
+    [
+      { text: "Esta ma\u00F1ana de", delay: 1.5, y: 196 },
+      { text: "domingo predico", delay: 2.1, y: 214 },
+      { text: "sobre Jes\u00FAs.", delay: 2.7, y: 232 }
+    ]
+  ];
+
+  const currentMessage = messages[loopKey % messages.length];
+
   useEffect(() => {
     const timer = setInterval(() => setLoopKey(k => k + 1), 6000);
     return () => clearInterval(timer);
@@ -35,6 +54,8 @@ export default function ExbabelTranslateSVG() {
     <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
       {/* Main Host Dashboard Card */}
       <svg
+        translate="no"
+        className="notranslate"
         viewBox="0 0 720 460"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -227,13 +248,12 @@ export default function ExbabelTranslateSVG() {
             }
           `}} />
           <g key={loopKey}>
-            <TypewriterText x="20" y="160" fontFamily="var(--font-sora), sans-serif" fontSize="11" fill="#94a3b8" text="Hola, bienvenidos a Exbabel." delayOffset={0.5} />
-    
-            <TypewriterText x="20" y="196" fontFamily="var(--font-sora), sans-serif" fontSize="12" fontWeight="700" fill="#10b981" text="Juan 3:16 dice: «Todo" delayOffset={1.5} />
-            <TypewriterText x="20" y="214" fontFamily="var(--font-sora), sans-serif" fontSize="12" fontWeight="700" fill="#10b981" text="aquel que cree en él no" delayOffset={2.1} />
-            <TypewriterText x="20" y="232" fontFamily="var(--font-sora), sans-serif" fontSize="12" fontWeight="700" fill="#10b981" text="se perderá, sino que" delayOffset={2.7} />
-            <TypewriterText x="20" y="250" fontFamily="var(--font-sora), sans-serif" fontSize="12" fontWeight="700" fill="#10b981" text="tendrá vida eterna.»" delayOffset={3.3} />
-          </g>
+              <TypewriterText x="20" y="160" fontFamily="var(--font-sora), sans-serif" fontSize="11" fill="#94a3b8" text="Live Translation:" delayOffset={0.5} />
+      
+              {currentMessage.map((line, i) => (
+                <TypewriterText key={i} x="20" y={line.y} fontFamily="var(--font-sora), sans-serif" fontSize="12" fontWeight="700" fill="#10b981" text={line.text} delayOffset={line.delay} />
+              ))}
+            </g>
   
           {/* Bottom bar */}
         <rect x="8" y="356" width="184" height="36" rx="10" fill="#111827" />
