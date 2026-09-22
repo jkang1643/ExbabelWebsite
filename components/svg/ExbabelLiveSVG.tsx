@@ -35,7 +35,6 @@ export default function ExbabelLiveSVG() {
     <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
       {/* Main Live Streaming Card */}
       <svg
-        translate="no"
         className="notranslate"
         viewBox="0 0 720 460"
         fill="none"

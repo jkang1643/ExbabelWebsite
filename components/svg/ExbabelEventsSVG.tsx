@@ -7,7 +7,6 @@ export default function ExbabelEventsSVG() {
     <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
       {/* Main Events Dashboard Card */}
       <svg
-        translate="no"
         className="notranslate"
         viewBox="0 0 720 460"
         fill="none"
