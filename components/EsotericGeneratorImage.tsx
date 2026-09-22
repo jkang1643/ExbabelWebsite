@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { useImageVectorizer } from "@/hooks/useImageVectorizer";
 import { useScroll } from "framer-motion";
