@@ -1,0 +1,482 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 24,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 22 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 0 has 22 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S01\"> is a timeline element that contains nested <div id=\"S01-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S01",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S01\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S02\"> is a timeline element that contains nested <div id=\"S02-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S02",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S02\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S03\"> is a timeline element that contains nested <div id=\"S03-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S03",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S03\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S04\"> is a timeline element that contains nested <div id=\"S04-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S04",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S04\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S05\"> is a timeline element that contains nested <div id=\"S05-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S05",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S05\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S06\"> is a timeline element that contains nested <div id=\"S06-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S06",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S06\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S07\"> is a timeline element that contains nested <div id=\"S07-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S07",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S07\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S08\"> is a timeline element that contains nested <div id=\"S08-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S08",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S08\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S09\"> is a timeline element that contains nested <div id=\"S09-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S09",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S09\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S10\"> is a timeline element that contains nested <div id=\"S10-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S10",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S10\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S11\"> is a timeline element that contains nested <div id=\"S11-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S11",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S11\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S12\"> is a timeline element that contains nested <div id=\"S12-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S12",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S12\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S13\"> is a timeline element that contains nested <div id=\"S13-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S13",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S13\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S14\"> is a timeline element that contains nested <div id=\"S14-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S14",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S14\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S15\"> is a timeline element that contains nested <div id=\"S15-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S15",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S15\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S16\"> is a timeline element that contains nested <div id=\"S16-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S16",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S16\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S17\"> is a timeline element that contains nested <div id=\"S17-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S17",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S17\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S18\"> is a timeline element that contains nested <div id=\"S18-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S18",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S18\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S19\"> is a timeline element that contains nested <div id=\"S19-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S19",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S19\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S20\"> is a timeline element that contains nested <div id=\"S20-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S20",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S20\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S21\"> is a timeline element that contains nested <div id=\"S21-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S21",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S21\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"S22\"> is a timeline element that contains nested <div id=\"S22-visual\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#S22",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"S22\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 151,
+    "samples": [
+      1.8,
+      10.8,
+      16.3,
+      27.3,
+      32.5,
+      35.25,
+      38.3,
+      46.3,
+      53.3,
+      58.3,
+      66.8,
+      74.8,
+      83.5,
+      86.8,
+      92.3,
+      99.3,
+      109.3,
+      115.3,
+      119.3,
+      127.3,
+      132.3,
+      142.3
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "specPath": "/home/jkang1643/projects/exbabel/video-production/exbabel-storyboard/index.motion.json",
+    "samples": 300
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.8,
+      35.25,
+      66.8,
+      99.3,
+      142.3
+    ],
+    "checked": 33,
+    "passed": 33
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.62",
+    "updateAvailable": false
+  }
+}

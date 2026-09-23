@@ -1,0 +1,72 @@
+{
+  "duration": 123800,
+  "scenes": 22,
+  "stockMedia": 0,
+  "cameras": [
+    {
+      "scene": "S04",
+      "time": 21.784872727272727,
+      "targetErrorPx": 2.5421149729252077e-13,
+      "repeatable": true,
+      "transform": "matrix(2.2, 0, 0, 2.2, -1056, -264.4)"
+    },
+    {
+      "scene": "S05",
+      "time": 25.955093333333334,
+      "targetErrorPx": 5.684341886080802e-14,
+      "repeatable": true,
+      "transform": "matrix(1.65, 0, 0, 1.65, -901, -393.3)"
+    },
+    {
+      "scene": "S08",
+      "time": 38.88852000000001,
+      "targetErrorPx": 2.2737367544323206e-13,
+      "repeatable": true,
+      "transform": "matrix(1.65, 0, 0, 1.65, -902.55, -538)"
+    },
+    {
+      "scene": "S09",
+      "time": 44.041599999999995,
+      "targetErrorPx": 0,
+      "repeatable": true,
+      "transform": "matrix(1.9, 0, 0, 1.9, -1206.5, -281)"
+    },
+    {
+      "scene": "S14",
+      "time": 71.50660363636364,
+      "targetErrorPx": 0,
+      "repeatable": true,
+      "transform": "matrix(1.75, 0, 0, 1.75, -706.75, -590.25)"
+    },
+    {
+      "scene": "S15",
+      "time": 77.15340571428571,
+      "targetErrorPx": 5.684341886080802e-14,
+      "repeatable": true,
+      "transform": "matrix(1.65, 0, 0, 1.65, -838.5, -352.2)"
+    },
+    {
+      "scene": "S17",
+      "time": 90.74480666666668,
+      "targetErrorPx": 1.1368683772161603e-13,
+      "repeatable": true,
+      "transform": "matrix(1.65, 0, 0, 1.65, -354.05, -554.2)"
+    },
+    {
+      "scene": "S17",
+      "time": 92.17132333333333,
+      "targetErrorPx": 1.1368683772161603e-13,
+      "repeatable": true,
+      "transform": "matrix(1.8, 0, 0, 1.8, -777.8, -632.8)"
+    },
+    {
+      "scene": "S17",
+      "time": 93.59784,
+      "targetErrorPx": 0,
+      "repeatable": true,
+      "transform": "matrix(2, 0, 0, 2, -880, -212)"
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

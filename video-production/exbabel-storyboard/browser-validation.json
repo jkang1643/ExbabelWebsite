@@ -1,0 +1,560 @@
+{
+  "ok": true,
+  "scenes": 22,
+  "reverseSeeks": 22,
+  "scriptWords": 325,
+  "durationMs": 151000,
+  "errors": [],
+  "samples": [
+    {
+      "id": "S01",
+      "timeMs": 1800,
+      "state": {
+        "visible": [
+          "S01"
+        ],
+        "text": "Every voice. One congregation.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 248.390625,
+          "w": 1651.1875,
+          "h": 112
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 475.1875,
+          "w": 1420.796875,
+          "h": 421.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S02",
+      "timeMs": 10800,
+      "state": {
+        "visible": [
+          "S02"
+        ],
+        "text": "A place for every family.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S03",
+      "timeMs": 16300,
+      "state": {
+        "visible": [
+          "S03"
+        ],
+        "text": "The message should reach everyone.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S04",
+      "timeMs": 27300,
+      "state": {
+        "visible": [
+          "S04"
+        ],
+        "text": "Scan the service QR code.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S05",
+      "timeMs": 32500,
+      "state": {
+        "visible": [
+          "S05"
+        ],
+        "text": "Choose your language. Listen.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S06",
+      "timeMs": 35250,
+      "state": {
+        "visible": [
+          "S06"
+        ],
+        "text": "That's it.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 248.390625,
+          "w": 1651.1875,
+          "h": 112
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 475.1875,
+          "w": 1420.796875,
+          "h": 421.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S07",
+      "timeMs": 38300,
+      "state": {
+        "visible": [
+          "S07"
+        ],
+        "text": "Keep preaching.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S08",
+      "timeMs": 46300,
+      "state": {
+        "visible": [
+          "S08"
+        ],
+        "text": "Hear the message.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S09",
+      "timeMs": 53300,
+      "state": {
+        "visible": [
+          "S09"
+        ],
+        "text": "Read along, too.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S10",
+      "timeMs": 58300,
+      "state": {
+        "visible": [
+          "S10"
+        ],
+        "text": "One service. Together.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S11",
+      "timeMs": 66800,
+      "state": {
+        "visible": [
+          "S11"
+        ],
+        "text": "Together. And understood.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S12",
+      "timeMs": 74800,
+      "state": {
+        "visible": [
+          "S12"
+        ],
+        "text": "Make room for more languages.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S13",
+      "timeMs": 83500,
+      "state": {
+        "visible": [
+          "S13"
+        ],
+        "text": "In the room. Online.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 248.390625,
+          "w": 1651.1875,
+          "h": 112
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 475.1875,
+          "w": 1420.796875,
+          "h": 421.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S14",
+      "timeMs": 86800,
+      "state": {
+        "visible": [
+          "S14"
+        ],
+        "text": "Bring your livestream along.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S15",
+      "timeMs": 92300,
+      "state": {
+        "visible": [
+          "S15"
+        ],
+        "text": "Across cities. Across borders.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S16",
+      "timeMs": 99300,
+      "state": {
+        "visible": [
+          "S16"
+        ],
+        "text": "Fits into Sunday morning.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S17",
+      "timeMs": 109300,
+      "state": {
+        "visible": [
+          "S17"
+        ],
+        "text": "Connect. Start. Share.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S18",
+      "timeMs": 115300,
+      "state": {
+        "visible": [
+          "S18"
+        ],
+        "text": "Their phone. Their language.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S19",
+      "timeMs": 119300,
+      "state": {
+        "visible": [
+          "S19"
+        ],
+        "text": "Try it during a service.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 248.390625,
+          "w": 1651.1875,
+          "h": 112
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 475.1875,
+          "w": 1420.796875,
+          "h": 421.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S20",
+      "timeMs": 127300,
+      "state": {
+        "visible": [
+          "S20"
+        ],
+        "text": "Start your 30-day free trial.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S21",
+      "timeMs": 132300,
+      "state": {
+        "visible": [
+          "S21"
+        ],
+        "text": "Let's walk through your setup.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 172.796875,
+          "w": 1651.1875,
+          "h": 96.3125
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 399.59375,
+          "w": 1420.796875,
+          "h": 529.1875
+        },
+        "fits": true
+      }
+    },
+    {
+      "id": "S22",
+      "timeMs": 142300,
+      "state": {
+        "visible": [
+          "S22"
+        ],
+        "text": "One congregation. Understood.",
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "rect": {
+          "x": 134.390625,
+          "y": 248.390625,
+          "w": 1651.1875,
+          "h": 112
+        },
+        "hero": {
+          "x": 249.59375,
+          "y": 475.1875,
+          "w": 1420.796875,
+          "h": 421.1875
+        },
+        "fits": true
+      }
+    }
+  ]
+}

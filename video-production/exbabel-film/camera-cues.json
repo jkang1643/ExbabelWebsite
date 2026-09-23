@@ -1,0 +1,11 @@
+[
+  {"scene":"S04","atMs":1200,"target":[880,262],"focal":[880,312],"scale":2.2,"holdMs":1500,"pullBack":true,"subject":"Service QR code"},
+  {"scene":"S05","atMs":500,"target":[1340,502],"focal":[1310,435],"scale":1.65,"holdMs":900,"pullBack":false,"subject":"Translation language selector"},
+  {"scene":"S08","atMs":1300,"target":[1347,620],"focal":[1320,485],"scale":1.65,"holdMs":1800,"pullBack":true,"subject":"Translated audio control"},
+  {"scene":"S09","atMs":900,"target":[1335,340],"focal":[1330,365],"scale":1.9,"holdMs":1900,"pullBack":false,"subject":"Translated caption text"},
+  {"scene":"S14","atMs":1100,"target":[1021,543],"focal":[1080,360],"scale":1.75,"holdMs":1300,"pullBack":true,"subject":"Start Broadcasting button"},
+  {"scene":"S15","atMs":1100,"target":[1290,468],"focal":[1290,420],"scale":1.65,"holdMs":1800,"pullBack":true,"subject":"Remote listener language selector"},
+  {"scene":"S17","atMs":600,"target":[657,548],"focal":[730,350],"scale":1.65,"holdMs":350,"pullBack":true,"subject":"Audio configuration"},
+  {"scene":"S17","atMs":2150,"target":[1021,546],"focal":[1060,350],"scale":1.8,"holdMs":350,"pullBack":true,"subject":"Start Broadcasting button"},
+  {"scene":"S17","atMs":3700,"target":[880,262],"focal":[880,312],"scale":2,"holdMs":450,"pullBack":true,"subject":"Share QR code"}
+]

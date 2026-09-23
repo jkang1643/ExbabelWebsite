@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reference-led storyboard production data",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "canvas",
+    "durationMs",
+    "voiceover",
+    "tokens",
+    "scenes",
+    "transitions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "canvas": {
+      "type": "object",
+      "required": [
+        "width",
+        "height",
+        "fps"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "durationMs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "voiceover": {
+      "type": "object"
+    },
+    "tokens": {
+      "type": "object"
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/scene"
+      }
+    },
+    "transitions": {
+      "type": "array"
+    }
+  },
+  "$defs": {
+    "nonnegative": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pose": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "scale",
+        "rotation",
+        "opacity",
+        "blur"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "scale": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "blur": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "voiceover",
+        "headline",
+        "layout",
+        "tool",
+        "startMs",
+        "endMs",
+        "durationMs",
+        "layers",
+        "beats",
+        "transition",
+        "assets"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^S[0-9]{2}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "voiceover": {
+          "type": "string",
+          "minLength": 1
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layout": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "startMs": {
+          "$ref": "#/$defs/nonnegative"
+        },
+        "endMs": {
+          "$ref": "#/$defs/nonnegative"
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "transition": {
+          "type": "string"
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "role",
+              "boxPct",
+              "z",
+              "initial"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "boxPct": {
+                "type": "array",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "z": {
+                "type": "integer"
+              },
+              "initial": {
+                "$ref": "#/$defs/pose"
+              }
+            }
+          }
+        },
+        "beats": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "atMs",
+              "durationMs",
+              "action",
+              "ease"
+            ],
+            "properties": {
+              "atMs": {
+                "$ref": "#/$defs/nonnegative"
+              },
+              "durationMs": {
+                "$ref": "#/$defs/nonnegative"
+              },
+              "action": {
+                "type": "string"
+              },
+              "ease": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

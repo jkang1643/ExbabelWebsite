@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exbabel | Storyboard studio</title>
+<style>
+@font-face{font-family:Sora;src:url(assets/Sora.ttf);font-weight:100 800}
+*{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#0b1220;font-family:Sora,system-ui,sans-serif}
+header{background:#0b1220;color:white;padding:26px 34px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+header h1{font-size:22px;letter-spacing:-.7px;margin:3px 0}header p{font-size:11px;letter-spacing:2px;color:#b5c7f0;margin:0 0 8px}
+.tags{display:flex;gap:8px}.tags span{border:1px solid #526075;border-radius:20px;padding:8px 12px;font-size:11px}
+main{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1700px;margin:auto}
+nav{padding:22px 14px;background:white;border-right:1px solid #dee4ef;max-height:calc(100vh - 105px);overflow:auto;position:sticky;top:0}
+nav button{width:100%;border:0;background:transparent;cursor:pointer;display:grid;grid-template-columns:32px 1fr;text-align:left;gap:8px;padding:12px 10px;border-radius:10px;font:inherit;color:#475569;margin:3px 0;font-size:11px}
+nav button.active{background:#edf0ff;color:#263ae4}nav button b{font-weight:600}nav button small{display:block;font-size:10px;margin-top:4px;color:#6b7280}
+article{padding:25px 30px 60px;min-width:0}
+.notice{font-size:12px;color:#526075;line-height:1.65;margin:0 0 18px}
+#stage{aspect-ratio:16/9;width:100%;background:#fcfcfd;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 18px 60px #23315316}
+iframe{width:1920px;height:1080px;border:0;transform-origin:top left;position:absolute;top:0;left:0}
+.transport{display:flex;align-items:center;gap:15px;margin:20px 0}
+.transport button{background:#394dfe;color:white;border:0;border-radius:9px;padding:11px 18px;font:inherit;font-size:12px;cursor:pointer}
+.transport input{flex:1;accent-color:#394dfe;min-width:20px}.transport output{font-size:12px;min-width:115px}
+#reduced{font-size:11px;color:#526075}.meta{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:26px}.meta h2{font-size:23px;letter-spacing:-.6px;margin:0}.tool{font-size:11px;border:1px solid #c5cde0;border-radius:20px;padding:7px 12px;white-space:nowrap}
+.panels{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:18px}
+.panel{background:white;border:1px solid #e3e7f0;border-radius:13px;padding:23px;min-width:0}
+.panel h3{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#64748b;margin:0 0 15px}
+#voiceover{font-size:15px;line-height:1.8;margin:0}#reference{font-size:11px;line-height:1.7;color:#64748b;margin-top:20px}
+#beats{margin:0;padding:0;list-style:none}#beats li{font-size:11px;line-height:1.6;border-bottom:1px solid #edf0f5;padding:8px 0}#beats time{font-weight:650;color:#394dfe;margin-right:7px}
+.resources{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}.resources a{font-size:11px;color:#263ae4}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #6f8cff;outline-offset:3px}
+@media(max-width:850px){main{grid-template-columns:1fr}nav{position:static;display:flex;max-height:100px;overflow:auto;border-right:0}nav button{min-width:180px}article{padding:18px}.panels{grid-template-columns:1fr}.tags{display:none}header{padding:22px}.meta h2{font-size:18px}}
+</style></head><body>
+<header><div><p>EXBABEL / PRODUCTION RESOURCES</p><h1>One congregation. Understood.</h1></div><div class="tags"><span>22 SCENES</span><span>02:31 DRAFT</span><span>ANIME.JS + HYPERFRAMES</span></div></header>
+<main><nav id="scenes" aria-label="Storyboard scenes"></nav><article>
+<p class="notice"><strong>Animated schematic storyboard.</strong> Your narration is verbatim. Timing is estimated; UI and human shots are placeholders. This preview demonstrates composition and entrance/hold/exit motion, not the finished film. Audio has not been produced.</p>
+<div id="stage"><iframe id="composition" src="index.html" title="Animated Exbabel storyboard composition"></iframe></div>
+<div class="transport"><button id="play" type="button">Play</button><input id="seek" aria-label="Timeline position" type="range" min="0" max="150966" step="33" value="1200"><output id="time">00:01 / 02:31</output><button id="next" type="button">Next</button></div>
+<label id="reduced"><input type="checkbox" id="static"> Static scene review (reduced motion)</label>
+<div class="meta"><h2 id="title"></h2><span class="tool" id="tool"></span></div>
+<div class="panels"><section class="panel"><h3>Voiceover · supplied script</h3><p id="voiceover"></p><p id="reference"></p></section><section class="panel"><h3>Production motion beats</h3><ol id="beats"></ol></section></div>
+<div class="resources"><a href="MASTER_VIDEO_PRODUCTION_BLUEPRINT.md">Full production blueprint</a><a href="REFERENCE_ANALYSIS.md">Reference forensics</a><a href="storyboard.json" download>Storyboard JSON</a><a href="skill/SKILL.md">Reusable skill</a><a href="HIGGSFIELD_PROMPTS.md">Higgsfield prompts</a><a href="VALIDATION.md">Validation and limits</a></div>
+</article></main>
+<script id="data" type="application/json">__STORY_JSON__</script>
+<script>
+'use strict';
+const D=JSON.parse(document.getElementById('data').textContent);
+const frame=document.getElementById('composition'),range=document.getElementById('seek'),play=document.getElementById('play'),staticMode=document.getElementById('static');
+let current=1200,running=false,previous=0,active=-1,ready=false;
+const end=D.durationMs-1000/D.canvas.fps;
+range.max=Math.floor(end);
+const fmt=n=>{let s=Math.floor(n/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+const nav=document.getElementById('scenes');
+for(const [i,s] of D.scenes.entries()){
+ const b=document.createElement('button');b.type='button';b.dataset.index=i;
+ const n=document.createElement('b');n.textContent=s.id;
+ const text=document.createElement('span');text.textContent=s.title;
+ const small=document.createElement('small');small.textContent=fmt(s.startMs)+' · '+s.durationMs/1000+'s';
+ text.appendChild(small);b.append(n,text);b.onclick=()=>{stop();seek(s.startMs+1200)};nav.appendChild(b);
+}
+function resize(){frame.style.transform='scale('+document.getElementById('stage').clientWidth/1920+')'}
+new ResizeObserver(resize).observe(document.getElementById('stage'));
+function stop(){running=false;play.textContent='Play'}
+function seek(ms){
+ current=Math.max(0,Math.min(end,ms));
+ const idx=D.scenes.findIndex(s=>current>=s.startMs&&current<s.endMs);
+ const s=D.scenes[idx];
+ if(!s||!ready)return;
+ const t=staticMode.checked?s.startMs+Math.min(1600,s.durationMs/2):current;
+ frame.contentWindow.storyboardTimeline.seek(t,true);
+ for(const clip of frame.contentDocument.querySelectorAll('.clip'))clip.style.visibility=clip.id===s.id?'visible':'hidden';
+ range.value=Math.round(current);document.getElementById('time').textContent=fmt(current)+' / '+fmt(D.durationMs);
+ if(active!==idx){
+  active=idx;
+  [...nav.children].forEach((b,i)=>{b.classList.toggle('active',i===idx);b.setAttribute('aria-current',i===idx?'step':'false')});
+  document.getElementById('title').textContent=s.id+' — '+s.title;
+  document.getElementById('tool').textContent=s.tool;
+  document.getElementById('voiceover').textContent=s.voiceover;
+  document.getElementById('reference').textContent=s.reference;
+  const list=document.getElementById('beats');list.replaceChildren();
+  for(const beat of s.beats){const li=document.createElement('li'),t=document.createElement('time');t.textContent=(beat.atMs/1000).toFixed(2)+'s';li.append(t,document.createTextNode(beat.action));list.append(li)}
+ }
+}
+window.storyboardSeek=seek;
+frame.onload=()=>{ready=!!frame.contentWindow.storyboardTimeline;resize();seek(current)};
+range.oninput=()=>{stop();seek(+range.value)};
+play.onclick=()=>{if(staticMode.checked)staticMode.checked=false;if(running)stop();else{if(current>=end)seek(0);running=true;previous=0;play.textContent='Pause';requestAnimationFrame(tick)}};
+function tick(now){if(!running)return;if(previous)seek(current+now-previous);previous=now;if(current>=end)stop();else requestAnimationFrame(tick)}
+document.getElementById('next').onclick=()=>{stop();seek(D.scenes[Math.min(active+1,D.scenes.length-1)].startMs+1200)};
+staticMode.checked=matchMedia('(prefers-reduced-motion: reduce)').matches;
+staticMode.onchange=()=>{stop();seek(current)};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+</script></body></html>
+

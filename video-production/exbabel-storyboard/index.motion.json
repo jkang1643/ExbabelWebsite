@@ -1,0 +1,8 @@
+{
+  "duration": 151,
+  "assertions": [
+    {"kind": "appearsBy", "selector": "#S01-headline", "bySec": 0.7},
+    {"kind": "appearsBy", "selector": "#S22-headline", "bySec": 141.2},
+    {"kind": "staysInFrame", "selector": "#S12-hero"}
+  ]
+}

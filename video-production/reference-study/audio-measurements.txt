@@ -1,0 +1,46 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/mnt/c/Users/boyge/Downloads/ScreenRecording_09-22-2026 14-32-39_1.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 1
+    compatible_brands: isommp41mp42
+    creation_time   : 2026-09-22T19:32:39.000000Z
+  Duration: 00:00:38.14, start: 0.000000, bitrate: 10625 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuvj420p(pc, bt709, progressive), 1290x2796, 10517 kb/s, 44.05 fps, 59.94 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2026-09-22T19:32:39.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+    Side data:
+      displaymatrix: rotation of 90.00 degrees
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 125 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-22T19:32:39.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[Parsed_volumedetect_0 @ 0x652bba984940] n_samples: 0
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 1
+    compatible_brands: isommp41mp42
+    encoder         : Lavf60.16.100
+  Stream #0:0(und): Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-22T19:32:39.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.31.102 pcm_s16le
+size=       0kB time=00:00:00.09 bitrate=   0.0kbits/s speed= 223x    
+[out#0/null @ 0x652bba8e6000] video:0kB audio:6540kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+size=N/A time=00:00:38.03 bitrate=N/A speed= 169x    
+[Parsed_volumedetect_0 @ 0x652bba902040] n_samples: 3348352
+[Parsed_volumedetect_0 @ 0x652bba902040] mean_volume: -18.1 dB
+[Parsed_volumedetect_0 @ 0x652bba902040] max_volume: -3.0 dB
+[Parsed_volumedetect_0 @ 0x652bba902040] histogram_3db: 102
+[Parsed_volumedetect_0 @ 0x652bba902040] histogram_4db: 157
+[Parsed_volumedetect_0 @ 0x652bba902040] histogram_5db: 520
+[Parsed_volumedetect_0 @ 0x652bba902040] histogram_6db: 1177
+[Parsed_volumedetect_0 @ 0x652bba902040] histogram_7db: 4768
