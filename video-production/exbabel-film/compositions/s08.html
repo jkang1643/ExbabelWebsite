@@ -1,0 +1,96 @@
+<template id="S08">
+  <div data-layout-allow-overlap="true" data-composition-id="S08" data-width="1920" data-height="1080">
+    <div class="s08-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: row; gap: 80px;">
+      <div class="s08-text-col" style="display: flex; flex-direction: column;">
+        <h1 class="s08-text" style="font-size: 80px; font-weight: 700;">Hear the sermon<br><span class="accent">in your own language.</span></h1>
+        <p class="s08-sub" style="font-size: 32px; color: #4b5563; margin-top: 20px;">Live translated audio plays through the listener’s headphones.</p>
+      </div>
+      <div class="s08-camera" style="position: relative; width: 400px; height: 800px; display: flex; align-items: center; justify-content: center;">
+        <div class="product phone s08-phone" style="width:335px; height:670px;">
+          <svg viewBox="0 0 390 844" width="100%" height="100%" class="notranslate" style="border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            <rect x="0" y="0" width="390" height="844" rx="40" fill="#1a1a2e" />
+            <text x="195" y="180" font-family="var(--font-sora), sans-serif" font-size="20" font-weight="500" fill="#9ca3af" text-anchor="middle">Listening in</text>
+            <text x="195" y="240" font-family="var(--font-sora), sans-serif" font-size="48" font-weight="700" fill="#ffffff" text-anchor="middle">Español</text>
+            <circle cx="195" cy="450" r="100" fill="none" stroke="#4338ca" stroke-width="4" opacity="0.3" />
+            <circle cx="195" cy="450" r="80" fill="#4338ca" />
+            <path d="M185 435v30l25-15z" fill="#fff" />
+            <text x="195" y="650" font-family="var(--font-sora), sans-serif" font-size="16" fill="#9ca3af" text-anchor="middle">Live Translation Active</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s08-text-col");
+tl.to(".s08-text-col .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Match S07 Whip Pan Right (camera moved left, objects flew left)
+// This scene must fly in from the right (x: 2000)
+tl.set(".s08-text", { y: 20, opacity: 0 });
+tl.set(".s08-sub", { y: 20, opacity: 0 });
+tl.set(".s08-container", { x: 2000 });
+tl.set(".s08-phone", { y: 60, scale: 0.9 });
+
+tl.to(".s08-container", { x: 0, duration: 1.0, ease: "power3.out" }, 0.0);
+tl.to(".s08-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+tl.to(".s08-sub", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.6);
+tl.to(".s08-phone", { y: 0, scale: 1, duration: 1, ease: "back.out(1.2)" }, 0.8);
+
+// Drift
+tl.to(".s08-phone", { y: -10, duration: 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.8);
+
+// SPATIAL EXIT: Whip Pan Left (objects fly right off screen)
+tl.to(".s08-container", { x: -2000, opacity: 0, duration: 0.8, ease: "power3.in" }, 5.2);
+
+window.__timelines["S08"] = tl;
+})();
+</script>
+  </div>
+</template>

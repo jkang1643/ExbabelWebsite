@@ -1,0 +1,77 @@
+<template id="S22">
+  <div data-layout-allow-overlap="true" data-composition-id="S22" data-width="1920" data-height="1080">
+    <div class="s22-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s22-text" style="font-size: 80px; font-weight: 700; text-align: center;">Give your church<br><span class="final-word" style="color:#4338ca;">one voice.</span><br><span style="font-size: 40px; color: #4b5563; font-weight: 500; margin-top: 20px; display: block;">So language never keeps someone from the message.</span></h1>
+      <div class="s22-url" style="margin-top: 40px; font-size: 32px; font-weight: 600; color: #4b5563;">Exbabel.com</div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s22-text");
+tl.to(".s22-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Gentle push up from S21
+tl.set(".s22-container", { y: 50, opacity: 0 });
+tl.set(".s22-text", { y: 20 });
+tl.set(".final-word", { y: 20, opacity: 0 });
+tl.set(".s22-url", { opacity: 0 });
+
+tl.to(".s22-container", { y: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 0.0);
+tl.to(".s22-text", { y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+tl.to(".final-word", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.8);
+tl.to(".s22-url", { opacity: 1, duration: 1.0, ease: "power2.inOut" }, 1.8);
+
+// Drift
+tl.to(".s22-container", { scale: 1.03, duration: 3.0, ease: "none" }, 1.0);
+
+window.__timelines["S22"] = tl;
+})();
+</script>
+  </div>
+</template>

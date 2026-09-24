@@ -1,0 +1,108 @@
+<template id="S12">
+  <div data-layout-allow-overlap="true" data-composition-id="S12" data-width="1920" data-height="1080">
+    <div class="s12-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+      <div class="s12-text-col" style="position: absolute; left: 180px; top: 400px; display: flex; flex-direction: column;">
+        <h1 class="s12-text" style="font-size: 80px; font-weight: 700;">Go beyond<br><span class="accent">one language.</span></h1>
+        <p class="s12-sub" style="font-size: 32px; color: #4b5563; margin-top: 20px;">Make the languages your community needs available in the same service.</p>
+      </div>
+      
+      <div class="s12-camera" style="position: absolute; width: 1920px; height: 1080px;">
+        <div class="s12-lang l1 primary" style="position:absolute; left:955px; top:270px; width:280px; height:120px; background:#4338ca; color:white; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow: 0 20px 40px -10px rgba(67,56,202,0.3);">
+          <div style="font-size:32px; font-weight:600;">Español</div>
+          <div style="font-size:18px; opacity:0.8;">Spanish</div>
+        </div>
+        <div class="s12-lang l2" style="position:absolute; left:1360px; top:370px; width:280px; height:120px; background:#fff; color:#1a1a2e; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);">
+          <div style="font-size:32px; font-weight:600;">Português</div>
+          <div style="font-size:18px; opacity:0.6;">Portuguese</div>
+        </div>
+        <div class="s12-lang l3" style="position:absolute; left:960px; top:520px; width:280px; height:120px; background:#fff; color:#1a1a2e; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);">
+          <div style="font-size:32px; font-weight:600;">Français</div>
+          <div style="font-size:18px; opacity:0.6;">French</div>
+        </div>
+        <div class="s12-lang l4" style="position:absolute; left:1350px; top:640px; width:280px; height:120px; background:#fff; color:#1a1a2e; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);">
+          <div style="font-size:32px; font-weight:600;">한국어</div>
+          <div style="font-size:18px; opacity:0.6;">Korean</div>
+        </div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s12-text-col");
+tl.to(".s12-text-col .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Match S11 Whip Pan Left (fly in from Left)
+tl.set(".s12-container", { x: -2000, opacity: 0 });
+tl.set(".s12-text", { y: 20 });
+tl.set(".s12-sub", { y: 20 });
+tl.set(".s12-lang", { opacity: 0, scale: 0.8 });
+tl.set(".s12-camera", { scale: 1.8, x: -300, y: 150 }); // Focused tightly on Español
+
+tl.to(".s12-container", { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.0);
+tl.to(".l1", { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.2)" }, 0.2);
+
+tl.to(".s12-camera", { scale: 1, x: 0, y: 0, duration: 1.5, ease: "power3.inOut" }, 1.5);
+tl.to(".s12-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 1.5);
+tl.to(".s12-sub", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 1.7);
+
+tl.to(".l2", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.0);
+tl.to(".l3", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.4);
+tl.to(".l4", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.8);
+
+// Drift
+tl.to(".s12-camera", { scale: 1.05, duration: 2.5, ease: "none" }, 3.0);
+
+// SPATIAL EXIT: Whip Pan Right (objects fly left)
+tl.to(".s12-container", { x: -2000, opacity: 0, duration: 0.8, ease: "power3.in" }, 5.2);
+
+window.__timelines["S12"] = tl;
+})();
+</script>
+  </div>
+</template>

@@ -1,0 +1,111 @@
+<template id="S06">
+  <div data-layout-allow-overlap="true" data-composition-id="S06" data-width="1920" data-height="1080" style="position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent;">
+    
+    <style>
+      .s06-camera {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transform-origin: center center;
+      }
+      .s06-text-wrapper {
+        font-family: var(--font-sora), sans-serif;
+        font-size: 90px;
+        font-weight: 700;
+        text-align: center;
+        color: #0b1220;
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+        perspective: 800px;
+      }
+      .s06-word {
+        display: inline-block;
+        opacity: 0;
+      }
+      .s06-accent {
+        color: #394dfe;
+      }
+      .s06-checkmark-svg {
+        margin-bottom: 10px;
+      }
+      .s06-check-path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+      }
+    </style>
+
+    <div class="s06-camera">
+      <!-- Checkmark SVG -->
+      <svg class="s06-checkmark-svg" viewBox="0 0 100 100" width="140" height="140" fill="none" stroke="#4338ca" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+        <path class="s06-check-path" pathLength="100" d="M20 55 L40 75 L80 25" />
+      </svg>
+      
+      <!-- Text -->
+      <div class="s06-text-wrapper">
+        <span class="s06-word">That's</span>
+        <span class="s06-word s06-accent">pretty</span>
+        <span class="s06-word s06-accent">much</span>
+        <span class="s06-word s06-accent">it.</span>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      // STATE A: ARRIVAL - INITIAL STATES
+      gsap.set(".s06-camera", { scale: 1.08 });
+      gsap.set(".s06-word", { y: 50, opacity: 0, rotationX: -60, transformOrigin: "50% 100%" });
+      gsap.set(".s06-check-path", { strokeDashoffset: 100 });
+
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["S06"] = tl;
+
+      const DURATION = 2.1; // Duration from S06 timeline
+
+      // STATE C: CAMERA DEVELOPMENT
+      // Continuous slow pullback to reveal space (stops before handoff)
+      tl.to(".s06-camera", { scale: 1.0, duration: DURATION - 0.6, ease: "none" }, 0);
+
+      // STATE B: DEVELOPMENT
+      // Words fly in one at a time, synced with audio pacing
+      tl.to(".s06-word", { 
+        y: 0, 
+        opacity: 1, 
+        rotationX: 0, 
+        duration: 0.6, 
+        ease: "back.out(1.5)", 
+        stagger: 0.15 
+      }, 0.1);
+
+      // Checkmark drawn out smoothly just as "pretty much it" lands
+      tl.to(".s06-check-path", { 
+        strokeDashoffset: 0, 
+        duration: 0.5, 
+        ease: "power2.out" 
+      }, 0.5);
+
+      // Subtly pop the whole checkmark icon after drawing
+      tl.fromTo(".s06-checkmark-svg", 
+        { scale: 1 }, 
+        { scale: 1.15, duration: 0.2, yoyo: true, repeat: 1, ease: "power1.inOut" }, 
+        0.8
+      );
+
+      // STATE D: HANDOFF
+      // Quick spatial exit: camera pushes heavily in and elements fade
+      tl.to(".s06-camera", { 
+        scale: 3.0, 
+        y: -100,
+        opacity: 0, 
+        duration: 0.6, 
+        ease: "power3.in" 
+      }, DURATION - 0.6);
+
+    </script>
+  </div>
+</template>

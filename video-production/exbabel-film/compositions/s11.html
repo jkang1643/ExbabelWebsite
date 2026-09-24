@@ -1,0 +1,86 @@
+<template id="S11">
+  <div data-layout-allow-overlap="true" data-composition-id="S11" data-width="1920" data-height="1080">
+    <div class="s11-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s11-text" style="font-size: 80px; font-weight: 700; text-align: center;">Stay with their family.<br>Worship with everyone.<br><span class="accent" style="font-size: 60px;">And understand the whole message.</span></h1>
+      
+      <div class="s11-pills" style="display: flex; gap: 20px; margin-top: 60px;">
+        <div class="pill p1" style="padding: 16px 32px; background: #f3f4f6; border-radius: 40px; font-size: 24px; font-weight: 500;">Same family</div>
+        <div class="pill p2" style="padding: 16px 32px; background: #f3f4f6; border-radius: 40px; font-size: 24px; font-weight: 500;">Same service</div>
+        <div class="pill p3" style="padding: 16px 32px; background: #4338ca; color: white; border-radius: 40px; font-size: 24px; font-weight: 500;">The whole message</div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s11-text");
+tl.to(".s11-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Match S10 Whip Pan UP (fly in from top)
+tl.set(".s11-container", { y: -1500, opacity: 0 });
+tl.set(".s11-text", { y: 20 });
+tl.set(".pill", { y: 30 });
+
+tl.to(".s11-container", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.0);
+tl.to(".s11-text", { y: 0, duration: 0.8, ease: "power3.out" }, 0.4);
+
+tl.to(".p1", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 1.2);
+tl.to(".p2", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 1.8);
+tl.to(".p3", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.4);
+
+// Drift
+tl.to(".s11-container", { scale: 1.05, duration: 2.0, ease: "none" }, 2.4);
+
+// SPATIAL EXIT: Whip Pan Left (objects fly right off screen)
+tl.to(".s11-container", { x: 2000, opacity: 0, duration: 0.8, ease: "power3.in" }, 5.2);
+
+window.__timelines["S11"] = tl;
+})();
+</script>
+  </div>
+</template>

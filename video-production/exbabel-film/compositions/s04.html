@@ -1,0 +1,115 @@
+<template id="S04">
+  <div data-layout-allow-overlap="true" data-composition-id="S04" data-width="1920" data-height="1080">
+    <div class="s04-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s04-text" style="font-size: 80px; font-weight: 700; text-align: center; margin-bottom: 60px;">One scan gets them connected.<br><span style="font-size: 32px; color: #4b5563; font-weight: 500; margin-top: 20px; display: block;">Scan the service QR code from their phone.</span></h1>
+      <div class="s04-camera" style="position: absolute; width: 1920px; height: 1080px; display: flex; align-items: center; justify-content: center;">
+        <div class="product phone s04-phone" style="width: 380px; height: 760px; background: #000; border-radius: 40px; padding: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 4px solid #333;">
+          <div style="width: 100%; height: 100%; background: #1a1a2e; border-radius: 30px; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+            <!-- Camera viewfinder UI -->
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #2d3748, #1a202c);">
+              <!-- scanning reticle -->
+              <div style="width: 250px; height: 250px; position: relative; border-radius: 20px;">
+                <!-- corner brackets -->
+                <div style="position: absolute; top: -2px; left: -2px; width: 40px; height: 40px; border-top: 4px solid rgba(255,255,255,0.8); border-left: 4px solid rgba(255,255,255,0.8); border-top-left-radius: 20px;"></div>
+                <div style="position: absolute; top: -2px; right: -2px; width: 40px; height: 40px; border-top: 4px solid rgba(255,255,255,0.8); border-right: 4px solid rgba(255,255,255,0.8); border-top-right-radius: 20px;"></div>
+                <div style="position: absolute; bottom: -2px; left: -2px; width: 40px; height: 40px; border-bottom: 4px solid rgba(255,255,255,0.8); border-left: 4px solid rgba(255,255,255,0.8); border-bottom-left-radius: 20px;"></div>
+                <div style="position: absolute; bottom: -2px; right: -2px; width: 40px; height: 40px; border-bottom: 4px solid rgba(255,255,255,0.8); border-right: 4px solid rgba(255,255,255,0.8); border-bottom-right-radius: 20px;"></div>
+                <!-- scanning line -->
+                <div class="s04-scanline" style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #394dfe; box-shadow: 0 0 15px #394dfe, 0 0 30px #394dfe;"></div>
+              </div>
+              <div style="position: absolute; bottom: 80px; font-family: var(--font-sora), sans-serif; color: rgba(255,255,255,0.7); font-size: 16px;">Point at the service QR code</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s04-focus-tag" style="position: absolute; bottom: 80px; font-size: 24px; font-weight: 500; color: #4b5563;">Scan the service QR code</div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s04-text");
+tl.to(".s04-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// tl.set(".s04-text", { y: 20, opacity: 0 });
+tl.set(".s04-phone", { y: 800, opacity: 0, scale: 0.9 });
+tl.set(".s04-focus-tag", { y: 20, opacity: 0 });
+
+// Text fades in
+// tl.to(".s04-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.2);
+
+// Text exits before new UI appears to prevent overlap
+tl.to(".s04-text", { y: -30, opacity: 0, duration: 0.6, ease: "power3.in" }, 1.8);
+
+// Phone pulls up into view
+tl.to(".s04-phone", { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "back.out(1.2)" }, 2.0);
+
+// Scanning line animates
+tl.fromTo(".s04-scanline", { y: 0 }, { y: 247, duration: 1.2, repeat: 10, yoyo: true, ease: "sine.inOut" }, 2.2);
+
+// Instructions appear below phone
+tl.to(".s04-focus-tag", { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 2.5);
+
+// Continuous drift on camera
+tl.to(".s04-camera", { scale: 1.1, duration: 2.2, ease: "none" }, 3.0);
+
+// SPATIAL EXIT: Massive Push Through the phone screen
+tl.to(".s04-camera", { 
+    scale: 8, 
+    y: 300,
+    opacity: 0,
+    duration: 1.2, 
+    ease: "power3.in" 
+}, 5.2);
+tl.to(".s04-focus-tag", { scale: 3, opacity: 0, duration: 1.0, ease: "power3.in" }, 5.2);
+
+window.__timelines["S04"] = tl;
+})();
+</script>
+  </div>
+</template>
