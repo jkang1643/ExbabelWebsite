@@ -6,9 +6,10 @@ import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { importCsv } from './csv.js';
+import { importCsv, importNames } from './csv.js';
 import { DemoRecordSchema, publicConfig } from './schema.js';
 import { spliceNarration, VoiceReviewRequired } from './voice.js';
+import { DemoStore } from './store.js';
 
 const exec=promisify(execFile),root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 test('acceptance CSV normalizes two churches and public configs differ without private fields',()=>{
@@ -24,6 +25,20 @@ test('acceptance CSV normalizes two churches and public configs differ without p
 test('CSV rejects invalid rows and URL script schemes',()=>{
   const data=importCsv('church_name,website\nExample Church,javascript:alert(1)\nValid Church,example.org\n');
   assert.equal(data.valid.length,1);assert.equal(data.errors.length,1);
+});
+test('pasted names use the same normalized prospect schema',()=>{
+  const result=importNames(' First Pentecostal Church \r\n\nLiving Hope Church\nX\n');
+  assert.deepEqual(result.valid.map(x=>x.prospect.churchName),['First Pentecostal Church','Living Hope Church']);
+  assert.deepEqual(result.errors.map(x=>x.row),[4]);
+});
+test('church lookup reuses a CSV-created demo for a later name-only import',async()=>{
+  const dir=await mkdtemp(join(tmpdir(),'exbabel-store-test-'));
+  try{
+    const store=new DemoStore(join(dir,'demos.sqlite'));
+    const record=DemoRecordSchema.parse({id:'b7288a37-0961-4f69-bb0b-96483456b990',publicToken:'original-ABC123',prospect:{churchName:'Living Hope Church',firstName:'Jason',city:'Lexington Park'},status:'pending'});
+    store.put(record,'prospect:living hope church||jason|lexington park||');
+    assert.equal(store.getByChurch('living hope church')?.publicToken,'original-ABC123');
+  }finally{await rm(dir,{recursive:true,force:true})}
 });
 test('narration splice preserves fixed timing and original samples outside the slot',async()=>{
   const dir=await mkdtemp(join(tmpdir(),'exbabel-audio-test-'));

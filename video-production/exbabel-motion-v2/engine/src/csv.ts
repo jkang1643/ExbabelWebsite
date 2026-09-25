@@ -42,3 +42,14 @@ export function importCsv(csv:string):{valid:ReturnType<typeof normalizeRow>[];e
   rows.forEach((row,i)=>{try{valid.push(normalizeRow(row))}catch(e){errors.push({row:i+2,message:e instanceof Error?e.message:'Invalid row'})}});
   return {valid,errors};
 }
+export function importNames(input:string):{valid:ReturnType<typeof normalizeRow>[];errors:{row:number;message:string}[]} {
+  const lines=input.replace(/\r\n?/g,'\n').split('\n');
+  if(lines.length>5000)throw Error('Name list exceeds 5,000 lines');
+  const valid:ReturnType<typeof normalizeRow>[]=[],errors:{row:number;message:string}[]=[];
+  lines.forEach((line,i)=>{
+    if(!line.trim())return;
+    try{valid.push(normalizeRow({church_name:line}))}
+    catch(e){errors.push({row:i+1,message:e instanceof Error?e.message:'Invalid church name'})}
+  });
+  return {valid,errors};
+}

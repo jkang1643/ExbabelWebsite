@@ -34,6 +34,12 @@ export class DemoStore {
     const row=this.db.prepare('SELECT record_json FROM demos WHERE identity_key=?').get(key) as {record_json:string}|undefined;
     return row?DemoRecordSchema.parse(JSON.parse(row.record_json)):undefined;
   }
+  getByChurch(name:string):DemoRecord|undefined{
+    const row=this.db.prepare(`SELECT record_json FROM demos
+      WHERE lower(json_extract(record_json,'$.prospect.churchName'))=lower(?)
+      ORDER BY created_at ASC LIMIT 1`).get(name.trim()) as {record_json:string}|undefined;
+    return row?DemoRecordSchema.parse(JSON.parse(row.record_json)):undefined;
+  }
   put(record:DemoRecord,identityKey:string):void{
     const validated=DemoRecordSchema.parse(record),now=new Date().toISOString();
     this.db.prepare(`INSERT INTO demos(id,public_token,identity_key,salesforce_id,record_json,status,created_at,updated_at)
@@ -46,7 +52,7 @@ export class DemoStore {
     this.db.prepare('UPDATE demos SET record_json=?,status=?,updated_at=? WHERE id=?')
       .run(JSON.stringify(r),r.status,new Date().toISOString(),r.id);
   }
-  list(limit=500):{record:DemoRecord;stats:Record<string,unknown>}[]{
+  list(limit=5000):{record:DemoRecord;stats:Record<string,unknown>}[]{
     return (this.db.prepare('SELECT record_json,status,view_count,play_count,completed_count,last_viewed_at FROM demos ORDER BY created_at DESC LIMIT ?').all(limit) as Record<string,unknown>[])
       .map(r=>({record:DemoRecordSchema.parse(JSON.parse(String(r.record_json))),stats:{viewCount:r.view_count,playCount:r.play_count,completedCount:r.completed_count,lastViewedAt:r.last_viewed_at}}));
   }
