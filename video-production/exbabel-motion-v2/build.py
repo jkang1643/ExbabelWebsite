@@ -63,13 +63,7 @@ shutil.copyfile(P/'node_modules/gsap/dist/gsap.min.js',P/'assets/gsap.min.js')
 protected=''
 for sid in ['S01','S19']:
     protected+=re.search(r'<div[^>]*id="'+sid+r'"[^>]*data-composition-src="[^"]+"[^>]*></div>',page).group(0)
-    shutil.copyfile(OLD/'compositions'/f'{sid.lower()}.html',P/'compositions'/f'{sid.lower()}.html')
-    if sid=='S19':
-        target=P/'compositions/s19.html'
-        source=target.read_text()
-        source,n=re.subn(r'x:\s*\(\)\s*=>\s*-container.offsetWidth\s*\+\s*300', 'x: () => 1720 - 960 - (container.offsetLeft + container.offsetWidth - 960) * 1.25', source)
-        assert n==1, 'Expected original S19 camera endpoint'
-        target.write_text(source)
+    # Both subcompositions are canonical local sources; do not rewrite S19.
 html='''<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Exbabel — motion rebuild</title><style>'''+css+'''</style><script src="assets/gsap.min.js"></script></head><body><div id="film" data-composition-id="exbabel-motion-v2" data-width="1920" data-height="1080" data-duration="123.8"><div class="white-space"></div><div id="world" data-layout-allow-overflow="true">'''+''.join(out)+'''<div id="bridge" aria-label="Exbabel translation signal"><svg viewBox="0 0 100 100"><path d="M34 20h19L39 80H20zM62 20h19L67 80H48z" fill="white"/></svg></div></div><audio id="narration" src="assets/narration.wav" data-start="0" data-duration="123.8" data-track-index="10"></audio></div><script id="production-data" type="application/json">'''+json.dumps(data).replace('</',r'<\/')+'''</script><script>'''+script+'''</script></body></html>'''
 html=html.replace('<div class="white-space"></div>','<div class="backdrop"></div><div class="white-space"></div>')
 html=html.replace('<audio id="narration"',protected+'<audio id="narration"')

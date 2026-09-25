@@ -46,13 +46,16 @@
       const DURATION = 6.244;
 
       // 1. DYNAMIC TRACKED TYPOGRAPHY (First 2.5s)
-      const text = "Hey First Pentecostal Church,";
+      const publicConfig = window.__EXBABEL_PUBLIC_CONFIG__ || {};
+      const churchNameText = publicConfig.content?.introChurchName || "First Pentecostal Church";
+      const text = publicConfig.content?.introGreeting || "Hey First Pentecostal Church,";
+      const safeChar = c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c] || c);
       const container = document.getElementById("s01-text-container");
 
       container.innerHTML = text.split("").map(c => 
         c === " " 
           ? `<span class="s01-char" style="opacity: 0; display: inline-block; width: 35px;">&nbsp;</span>` 
-          : `<span class="s01-char" style="opacity: 0; display: inline-block;">${c}</span>`
+          : `<span class="s01-char" style="opacity: 0; display: inline-block;">${safeChar(c)}</span>`
       ).join("");
 
       const chars = document.querySelectorAll(".s01-char");
@@ -76,13 +79,13 @@
         ease: "power2.inOut"
       }, 0.0);
 
-      // Add a brand accent color to "First Pentecostal Church"
-      setTimeout(() => {
-         // "First" is 4 to 8
-         // "Pentecostal" is 10 to 20
-         // "Church" is 22 to 27
-         for(let i=4; i<=27; i++) { if(chars[i] && chars[i].innerText !== " ") chars[i].style.color = "#394dfe"; }
-      }, 0);
+      // Accent follows the configured name without changing any tween timing.
+      const accentStart = text.indexOf(churchNameText);
+      if (accentStart >= 0) {
+        for(let i=accentStart; i<accentStart+churchNameText.length; i++) {
+          if(chars[i] && chars[i].innerText !== " ") chars[i].style.color = "#394dfe";
+        }
+      }
 
       // Camera flies past the text at 2.5s to reveal the logo
       tl.to(".s01-camera", { 
@@ -94,12 +97,15 @@
 
 
       // 2. CHURCH LOGO REVEAL (Starts at 3.5s)
-      const churchNameText = "FIRST PENTECOSTAL CHURCH";
       const churchNameContainer = document.querySelector(".s01-church-name");
+      const name = churchNameText.toLocaleUpperCase();
+      // Preserve the reveal and camera path; long names use smaller type.
+      const fitSize = Math.min(50, Math.max(21, Math.floor((1700 / Math.max(1,name.length) - 10) / .68)));
+      churchNameContainer.style.fontSize = `${fitSize}px`;
       const glow = `<div data-hf-id="hf-c0qw" class="s01-glow"></div>`;
-      const spans = churchNameText.split("").map(c => {
+      const spans = name.split("").map(c => {
         if (c === " ") return `<span style="width: 20px;"></span>`;
-        return `<span class="s01-letter" style="opacity: 0; display: inline-block;">${c}</span>`;
+        return `<span class="s01-letter" style="opacity: 0; display: inline-block;">${safeChar(c)}</span>`;
       }).join("");
       churchNameContainer.innerHTML = glow + spans;
 
