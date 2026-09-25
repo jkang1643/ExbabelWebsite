@@ -16,10 +16,10 @@ test('acceptance CSV normalizes two churches and public configs differ without p
   assert.deepEqual(result.errors,[]);assert.equal(result.valid.length,2);
   assert.equal(result.valid[0].prospect.phone,'713-555-1234');
   assert.equal(result.valid[1].prospect.city,'Lexington Park');
-  const config=result.valid.map((v,i)=>publicConfig(DemoRecordSchema.parse({id:`b7288a37-0961-4f69-bb0b-96483456b99${i}`,publicToken:`token-${i}-ABC123`,prospect:v.prospect,status:'pending'}),'http://localhost:3020'));
-  assert.notEqual(config[0].content.introChurchName,config[1].content.introChurchName);
+  const config=result.valid.map((v,i)=>publicConfig(DemoRecordSchema.parse({id:`b7288a37-0961-4f69-bb0b-96483456b99${i}`,publicToken:`token-${i}-ABC123`,prospect:v.prospect,status:'pending'})));
+  assert.notEqual(config[0].churchName,config[1].churchName);
   assert.equal(JSON.stringify(config).includes('713-555-1234'),false);
-  assert.equal(config[0].voice.segmentEndMs,6650);
+  assert.deepEqual(Object.keys(config[0]),['churchName']);
 });
 test('CSV rejects invalid rows and URL script schemes',()=>{
   const data=importCsv('church_name,website\nExample Church,javascript:alert(1)\nValid Church,example.org\n');

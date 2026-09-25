@@ -5,7 +5,7 @@ import { dirname, extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DemoStore } from './store.js';
 import { importCsv, normalizeRow } from './csv.js';
-import { DemoRecordSchema, PublicContentSchema, publicConfig, type DemoRecord } from './schema.js';
+import { DemoRecordSchema, publicConfig, type DemoRecord } from './schema.js';
 import { generatePersonalizedPhrase, spliceNarration, VoiceReviewRequired, VoiceUnavailable } from './voice.js';
 import { readSalesforceProspect, syncDemo, syncViewed } from './salesforce.js';
 import { exportMp4 } from './export.js';
@@ -80,13 +80,11 @@ async function generate(record:DemoRecord,force=false){
   }catch(e){record.status=e instanceof VoiceReviewRequired?'voice_review_required':e instanceof VoiceUnavailable?'voice_unavailable':'failed';record.error=e instanceof Error?e.message:'Generation failed';store.update(record)}
 }
 function playerHtml(record:DemoRecord){
-  const p=publicConfig(record,baseUrl),title=escapeHtml(p.content.introChurchName),url=escapeHtml(p.cta.url),label=escapeHtml(p.cta.label);
-  const pageTitle=record.prospect.firstName?`${escapeHtml(record.prospect.firstName)}, see Exbabel at ${title}`:`See Exbabel at ${title}`;
-  const location=p.content.locationText?`<p>${escapeHtml(p.content.locationText)}</p>`:'';
+  const p=publicConfig(record),title=escapeHtml(p.churchName),url='https://exbabel.com/',label='See Exbabel in Your Church';
   const pending=record.status!=='ready'?`<div class="notice">Personalized narration is ${escapeHtml(record.status.replaceAll('_',' '))}. The demo is available with the original narration while audio is prepared.</div>`:'';
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} · Exbabel demo</title><style>
     *{box-sizing:border-box}body{margin:0;background:#f5f7fc;color:#141c2c;font:16px system-ui,sans-serif}.shell{max-width:1320px;margin:auto;padding:clamp(16px,3vw,40px)}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}header b{font-size:22px;letter-spacing:-.04em}.brand{color:#394dfe}.player-wrap{aspect-ratio:16/9;background:#fff;box-shadow:0 18px 70px #1722441c;border-radius:16px;overflow:hidden}.player-wrap hyperframes-player{display:block;width:100%;height:100%}.below{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:24px}.below h1{font-size:clamp(22px,3vw,36px);margin:0}.cta{background:#394dfe;color:#fff;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:650}.notice{background:#fff4d9;padding:12px 16px;border-radius:8px;margin-bottom:18px}
-  </style><script src="/assets/hyperframes-player.global.js" defer></script></head><body><main class="shell"><header><b><span class="brand">Exbabel</span> / Personalized demo</b></header>${pending}<div class="player-wrap"><hyperframes-player id="film" src="/d/${record.publicToken}/composition" controls width="1920" height="1080"></hyperframes-player></div><div class="below"><div><h1>${pageTitle}</h1>${location}</div><a class="cta" href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></div></main><script>
+  </style><script src="/assets/hyperframes-player.global.js" defer></script></head><body><main class="shell"><header><b><span class="brand">Exbabel</span> / Personalized demo</b></header>${pending}<div class="player-wrap"><hyperframes-player id="film" src="/d/${record.publicToken}/composition" controls width="1920" height="1080"></hyperframes-player></div><div class="below"><h1>See Exbabel at ${title}</h1><a class="cta" href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></div></main><script>
   const id=${safeJson(record.publicToken)},player=document.getElementById('film'),sent=new Set();
   function event(name){if(sent.has(name))return;sent.add(name);navigator.sendBeacon('/api/d/'+id+'/events',new Blob([JSON.stringify({event:name})],{type:'application/json'}))}
   const milestones=[[.25,'demo_25_percent'],[.5,'demo_50_percent'],[.75,'demo_75_percent']];
@@ -133,7 +131,7 @@ async function route(req:IncomingMessage,res:ServerResponse){
       for(const item of result.valid){
         const key=identity(item),old=store.getByIdentity(key);
         if(old){rows.push({churchName:old.prospect.churchName,url:`${baseUrl}/d/${old.publicToken}`,status:old.status,existing:true});continue}
-        const r=DemoRecordSchema.parse({id:randomUUID(),publicToken:randomBytes(9).toString('base64url'),salesforceId:item.salesforceId,prospect:item.prospect,pronunciation:item.pronunciation?{churchName:item.pronunciation}:undefined,cta:item.ctaUrl?{label:'See Exbabel in Your Church',url:item.ctaUrl}:undefined,status:'pending'});
+        const r=DemoRecordSchema.parse({id:randomUUID(),publicToken:randomBytes(9).toString('base64url'),salesforceId:item.salesforceId,prospect:item.prospect,pronunciation:item.pronunciation?{churchName:item.pronunciation}:undefined,status:'pending'});
         store.put(r,key);store.event(r,'demo_created');enqueue(r);rows.push({churchName:r.prospect.churchName,url:`${baseUrl}/d/${r.publicToken}`,status:r.status});
       }
       json(res,200,{rows,errors:result.errors});return;
@@ -156,19 +154,16 @@ async function route(req:IncomingMessage,res:ServerResponse){
       if(action[2]==='export-mp4'){
         const dir=join(dataRoot,'exports');await mkdir(dir,{recursive:true});
         const path=join(dir,`${r.publicToken}.mp4`);
-        await exportMp4(r,root,path,baseUrl);
+        await exportMp4(r,root,path);
         json(res,200,{path});return;
       }
       json(res,200,{status:r.status});return;
     }
-    const config=path.match(/^\/admin\/api\/demos\/([A-Za-z0-9_-]{10,32})\/config$/);
-    if(config&&method==='POST'){
-      const r=store.get(config[1]);if(!r){respond(res,404,'Not found');return}
-      const change=JSON.parse(await readBody(req,20_000)) as Record<string,unknown>;
-      if(change.contentOverrides)r.contentOverrides=PublicContentSchema.partial().parse(change.contentOverrides);
-      if(change.pronunciation)r.pronunciation=DemoRecordSchema.shape.pronunciation.unwrap().parse(change.pronunciation);
-      if(change.cta)r.cta=DemoRecordSchema.shape.cta.unwrap().parse(change.cta);
-      store.update(r);json(res,200,{config:publicConfig(r,baseUrl),voiceRegenerationNeeded:!!change.pronunciation});return;
+    const pronunciation=path.match(/^\/admin\/api\/demos\/([A-Za-z0-9_-]{10,32})\/pronunciation$/);
+    if(pronunciation&&method==='POST'){
+      const r=store.get(pronunciation[1]);if(!r){respond(res,404,'Not found');return}
+      r.pronunciation=DemoRecordSchema.shape.pronunciation.unwrap().parse(JSON.parse(await readBody(req,1000)));
+      store.update(r);json(res,200,{voiceRegenerationNeeded:true});return;
     }
     respond(res,404,'Not found');return;
   }
@@ -178,13 +173,13 @@ async function route(req:IncomingMessage,res:ServerResponse){
     const sub=m[2]||'';
     if(!sub&&method==='GET'){store.event(r,'demo_opened');if(r.salesforceId)void syncViewed(r).catch(()=>{});respond(res,200,playerHtml(r),'text/html; charset=utf-8');return}
     if(sub==='composition'&&method==='GET'){
-      const config=publicConfig(r,baseUrl),source=await readFile(join(root,'index.html'),'utf8');
+      const config=publicConfig(r),source=await readFile(join(root,'index.html'),'utf8');
       const html=source.replace('<head>',`<head><script>window.__EXBABEL_PUBLIC_CONFIG__=${safeJson(config)};</script>`)
         .replace('src="assets/narration.wav"',`src="/d/${r.publicToken}/audio"`);
       respond(res,200,html,'text/html; charset=utf-8');return;
     }
     if(sub==='audio'&&method==='GET'){await file(res,r.audioPath&&r.status==='ready'?r.audioPath:join(root,'assets/narration.wav'));return}
-    if(sub==='config'&&method==='GET'){json(res,200,publicConfig(r,baseUrl));return}
+    if(sub==='config'&&method==='GET'){json(res,200,publicConfig(r));return}
     if((sub.startsWith('assets/')||sub.startsWith('compositions/'))&&method==='GET'){
       const target=resolve(root,sub);if(!target.startsWith(root+sep)){respond(res,403,'Forbidden');return}await file(res,target);return;
     }

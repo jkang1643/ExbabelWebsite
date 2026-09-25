@@ -17,13 +17,13 @@ The root Next.js app is a statically exported marketing site. It has no server A
 
 ## V1 configurable fields
 
-Visual: S01 typed greeting and resting church name; an optional small location label only if it fits the existing composition; existing static scene headlines and product UI stay fixed. CTA URL and label may vary at the web-page level without changing the animation. First name, city/state, size, phone, website, email, and Salesforce ID belong in validated prospect metadata, not automatically on every frame.
+Visual: the **only** prospect-derived visual field in V1 is `churchName`. The public composition JSON is exactly `{ "churchName": "..." }`. S01 derives its typed “Hey [Church Name],” and resting name from that value; the S01 subcomposition spans both opening S01/S02 beats. All later scene headlines, product UI, CTA text, and CTA URL stay fixed. First name, city/state, size, phone, website, email, and Salesforce ID remain validated prospect metadata for administration and future expansion.
 
-Audio: replace a fixed interval near 4.7–6.678 seconds with a generated church-name phrase such as “at First Pentecostal Church.” Preserve every sample outside that interval and leave the remaining HyperFrames scene timing intact. The interval is short, so names that cannot fit naturally must be marked `voice_review_required`; never stretch the whole narration. A pronunciation override affects only audio, not displayed spelling.
+Audio: replace a fixed interval at 4.700–6.650 seconds with a generated church-name phrase such as “at First Pentecostal Church.” Preserve every sample outside that interval and leave the remaining HyperFrames scene timing intact. The interval is short, so names that cannot fit naturally must be marked `voice_review_required`; never stretch the whole narration. A pronunciation override affects only audio, not displayed spelling.
 
 ## Implementation order
 
-1. Define Zod prospect/default/override schemas and safe public-config projection.
+1. Define Zod prospect schema and a strict church-name-only public-config projection.
 2. Refactor only S01's hard-coded display strings to read the validated browser config; keep its GSAP timings, ease, camera path and scene boundaries.
 3. Add CSV normalization, row validation and random URL-token generation. Keep import idempotent by Salesforce ID or normalized email/church key.
 4. Add a cached ElevenLabs segment service and FFmpeg splice with fixed sample count, loudness matching, silence handling and pronunciation overrides.

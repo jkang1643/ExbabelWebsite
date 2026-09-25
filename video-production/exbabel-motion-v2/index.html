@@ -778,8 +778,6 @@ document.fonts.ready.then(()=>{
   const graphic=document.createElement('div');graphic.className='graphic-stage';
   const fit=document.createElement('div');fit.className='graphic-fit';graphic.appendChild(fit);
   const heading=visual.querySelector('h1'),copyParent=heading.parentElement;
-  const sceneCopy=window.__EXBABEL_PUBLIC_CONFIG__?.content?.customSceneText?.[s.id];
-  if(sceneCopy&&['S04','S12'].includes(s.id))heading.textContent=sceneCopy;
   let support=custom?copyParent.querySelector(':scope > .marketing-support'):copyParent.querySelector('p');
   if(!support&&heading.classList.contains('top-title'))support=visual.querySelector('.marketing-support');
   if(support&&support.querySelector('.url,.cta-button'))support=null;

@@ -16,7 +16,7 @@ export function normalizeWebsite(raw:string):string|undefined {
   if(!['http:','https:'].includes(u.protocol)||!u.hostname.includes('.'))throw Error('invalid website URL');
   u.hash='';return u.toString();
 }
-export function normalizeRow(raw:Record<string,string>):{prospect:Prospect;salesforceId?:string;pronunciation?:string;ctaUrl?:string} {
+export function normalizeRow(raw:Record<string,string>):{prospect:Prospect;salesforceId?:string;pronunciation?:string} {
   const r=cols(raw),loc=r.location||'';
   const match=loc.match(/^(.+?)[, ]+([A-Za-z]{2})$/);
   const sizeRaw=r.size||r.church_size||'';
@@ -33,7 +33,7 @@ export function normalizeRow(raw:Record<string,string>):{prospect:Prospect;sales
   });
   const salesforceId=r.salesforce_id||r.salesforceid||undefined;
   if(salesforceId&&!/^(00Q|003)[A-Za-z0-9]{12}([A-Za-z0-9]{3})?$/.test(salesforceId))throw Error('invalid Salesforce Lead/Contact ID');
-  return {prospect,salesforceId,pronunciation:r.pronunciation_church_name||undefined,ctaUrl:normalizeWebsite(r.cta_url||'')};
+  return {prospect,salesforceId,pronunciation:r.pronunciation_church_name||undefined};
 }
 export function importCsv(csv:string):{valid:ReturnType<typeof normalizeRow>[];errors:{row:number;message:string}[]} {
   const rows=parse(csv,{columns:true,skip_empty_lines:true,bom:true,relax_quotes:false,max_record_size:10000}) as Record<string,string>[];

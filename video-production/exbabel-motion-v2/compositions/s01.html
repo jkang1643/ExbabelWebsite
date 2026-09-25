@@ -47,8 +47,8 @@
 
       // 1. DYNAMIC TRACKED TYPOGRAPHY (First 2.5s)
       const publicConfig = window.__EXBABEL_PUBLIC_CONFIG__ || {};
-      const churchNameText = publicConfig.content?.introChurchName || "First Pentecostal Church";
-      const text = publicConfig.content?.introGreeting || "Hey First Pentecostal Church,";
+      const churchNameText = publicConfig.churchName || "First Pentecostal Church";
+      const text = `Hey ${churchNameText},`;
       const safeChar = c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c] || c);
       const container = document.getElementById("s01-text-container");
 
