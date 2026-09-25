@@ -1,0 +1,116 @@
+<template id="S01">
+  <div data-hf-id="hf-rdn0" data-layout-allow-overlap="true" data-composition-id="S01" data-width="1920" data-height="1080" style="position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent;">
+    
+    <style>
+      .s01-church-name {
+        position: absolute;
+        font-family: var(--font-sora), sans-serif;
+        font-size: 50px;
+        font-weight: 800;
+        color: #1a1a2e;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      .s01-glow {
+        position: absolute;
+        width: 140%;
+        height: 140%;
+        background: radial-gradient(circle, rgba(57,77,254,0.15) 0%, rgba(57,77,254,0) 70%);
+        filter: blur(20px);
+        z-index: -1;
+      }
+    </style>
+
+    <!-- Camera container that tracks horizontal movement and pushes in (scale) -->
+    <!-- padding-left: 45% pushes the text starting position to the center of the screen -->
+    <div data-hf-id="hf-ja3h" class="s01-camera" data-layout-allow-overflow="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; padding-left: 45%; transform-origin: center center;">
+      <div data-hf-id="hf-i3w1" id="s01-text-container" data-layout-allow-overflow="true" style="display: inline-block; white-space: nowrap; font-size: 130px; font-weight: 600; color: #0b1220; letter-spacing: -4px;">
+        <!-- Javascript will inject spanned characters here -->
+      </div>
+    </div>
+
+    <!-- The final resting church logo -->
+    <div data-hf-id="hf-yjnw" class="s01-church-name">
+      <!-- Injected by JS -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["S01"] = tl;
+
+      const DURATION = 6.244;
+
+      // 1. DYNAMIC TRACKED TYPOGRAPHY (First 2.5s)
+      const text = "Hey First Pentecostal Church,";
+      const container = document.getElementById("s01-text-container");
+
+      container.innerHTML = text.split("").map(c => 
+        c === " " 
+          ? `<span class="s01-char" style="opacity: 0; display: inline-block; width: 35px;">&nbsp;</span>` 
+          : `<span class="s01-char" style="opacity: 0; display: inline-block;">${c}</span>`
+      ).join("");
+
+      const chars = document.querySelectorAll(".s01-char");
+
+      const TYPING_DURATION = 2.0;
+
+      tl.to(chars, {
+        opacity: 1,
+        duration: 0.05,
+        stagger: {
+          amount: TYPING_DURATION,
+          ease: "power2.inOut"
+        }
+      }, 0.0);
+
+      tl.to(".s01-camera", {
+        x: () => -container.offsetWidth + 300,
+        scale: 1.25, // Cinematic push-in
+        y: -15, // Subtle upward drift for spatial depth
+        duration: TYPING_DURATION,
+        ease: "power2.inOut"
+      }, 0.0);
+
+      // Add a brand accent color to "First Pentecostal Church"
+      setTimeout(() => {
+         // "First" is 4 to 8
+         // "Pentecostal" is 10 to 20
+         // "Church" is 22 to 27
+         for(let i=4; i<=27; i++) { if(chars[i] && chars[i].innerText !== " ") chars[i].style.color = "#394dfe"; }
+      }, 0);
+
+      // Camera flies past the text at 2.5s to reveal the logo
+      tl.to(".s01-camera", { 
+        scale: 5, 
+        opacity: 0, 
+        duration: 1.0, 
+        ease: "power4.inOut" 
+      }, 2.5);
+
+
+      // 2. CHURCH LOGO REVEAL (Starts at 3.5s)
+      const churchNameText = "FIRST PENTECOSTAL CHURCH";
+      const churchNameContainer = document.querySelector(".s01-church-name");
+      const glow = `<div data-hf-id="hf-c0qw" class="s01-glow"></div>`;
+      const spans = churchNameText.split("").map(c => {
+        if (c === " ") return `<span style="width: 20px;"></span>`;
+        return `<span class="s01-letter" style="opacity: 0; display: inline-block;">${c}</span>`;
+      }).join("");
+      churchNameContainer.innerHTML = glow + spans;
+
+      tl.set(".s01-church-name", { scale: 0.8, opacity: 0 });
+      tl.set(".s01-letter", { opacity: 0, y: 40, rotationX: -45 });
+
+      tl.to(".s01-church-name", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 3.5);
+      tl.to(".s01-letter", { opacity: 1, y: 0, rotationX: 0, duration: 0.5, stagger: 0.02, ease: "back.out(2)" }, 3.5);
+      
+      tl.to(".s01-church-name", { scale: 1.1, duration: DURATION - 3.5, ease: "none" }, 4.0);
+
+    </script>
+  </div>
+</template>

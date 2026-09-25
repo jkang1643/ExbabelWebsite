@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
   camera-scan-gate -- HyperFrames video primitive (ui-props / interaction / demonstrate)
 
@@ -52,16 +52,13 @@
   window.__hyperframes.getVariables(), which owns declared defaults merged
   with per-instance host overrides after mounting.
 -->
-<html
-  lang="en"
-  data-composition-variables='[
-    { "id": "scanColor", "type": "string", "role": "style", "label": "Scan color", "description": "Any CSS color value used by the scan line and recognition glow.", "default": "var(--brand)" },
-    { "id": "targetLabel", "type": "string", "role": "content", "label": "Target label", "description": "Confirmation label revealed at recognition lock. Blank hides the line.", "default": "Verified" },
-    { "id": "sweepSpeed", "type": "number", "role": "timing", "label": "Sweep speed", "description": "Speed multiplier for the scan sweep phase only.", "default": 1, "min": 0.8, "max": 1.6, "step": 0.1, "unit": "x" }
-  ]'
->
+<html lang="en" data-composition-variables="[
+    { &quot;id&quot;: &quot;scanColor&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Scan color&quot;, &quot;description&quot;: &quot;Any CSS color value used by the scan line and recognition glow.&quot;, &quot;default&quot;: &quot;var(--brand)&quot; },
+    { &quot;id&quot;: &quot;targetLabel&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Target label&quot;, &quot;description&quot;: &quot;Confirmation label revealed at recognition lock. Blank hides the line.&quot;, &quot;default&quot;: &quot;Verified&quot; },
+    { &quot;id&quot;: &quot;sweepSpeed&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Sweep speed&quot;, &quot;description&quot;: &quot;Speed multiplier for the scan sweep phase only.&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0.8, &quot;max&quot;: 1.6, &quot;step&quot;: 0.1, &quot;unit&quot;: &quot;x&quot; }
+  ]">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Camera Scan Gate</title>
     <!-- Metadata only. The loader reads variable declarations from this html
          element, while the mount runtime discards everything outside the
@@ -69,13 +66,7 @@
   </head>
   <body>
     <template>
-      <div
-        id="root"
-        data-composition-id="camera-scan-gate"
-        data-start="0"
-        data-duration="4"
-        data-fps="30"
-      >
+      <div data-hf-id="hf-2mqy" id="root" data-composition-id="camera-scan-gate" data-start="0" data-duration="4" data-fps="30">
         <style>
           *,
           *::before,
@@ -311,34 +302,28 @@
           }
         </style>
 
-        <div
-          id="camera-scan-gate-clip"
-          class="csg-clip clip"
-          data-start="0"
-          data-duration="4"
-          data-track-index="0"
-        >
-          <div class="csg-stage" role="img" aria-label="Camera recognition scanner">
-            <div class="csg-frame">
-              <div class="csg-grid" aria-hidden="true"></div>
+        <div data-hf-id="hf-kgbu" id="camera-scan-gate-clip" class="csg-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div data-hf-id="hf-5s11" class="csg-stage" role="img" aria-label="Camera recognition scanner">
+            <div data-hf-id="hf-hm55" class="csg-frame">
+              <div data-hf-id="hf-ufq3" class="csg-grid" aria-hidden="true"></div>
             </div>
-            <div class="csg-ambient" aria-hidden="true"></div>
-            <div class="csg-target" aria-hidden="true"></div>
-            <div class="csg-scan-window" aria-hidden="true">
-              <div class="csg-sweep">
-                <div class="csg-scan-line"></div>
+            <div data-hf-id="hf-7gbl" class="csg-ambient" aria-hidden="true"></div>
+            <div data-hf-id="hf-tb00" class="csg-target" aria-hidden="true"></div>
+            <div data-hf-id="hf-ima5" class="csg-scan-window" aria-hidden="true">
+              <div data-hf-id="hf-7s76" class="csg-sweep">
+                <div data-hf-id="hf-qnj8" class="csg-scan-line"></div>
               </div>
             </div>
-            <div class="csg-corner-layer" aria-hidden="true">
-              <span class="csg-corner csg-corner-tl"></span>
-              <span class="csg-corner csg-corner-tr"></span>
-              <span class="csg-corner csg-corner-br"></span>
-              <span class="csg-corner csg-corner-bl"></span>
+            <div data-hf-id="hf-1h0w" class="csg-corner-layer" aria-hidden="true">
+              <span data-hf-id="hf-9z4i" class="csg-corner csg-corner-tl"></span>
+              <span data-hf-id="hf-dxck" class="csg-corner csg-corner-tr"></span>
+              <span data-hf-id="hf-i3pq" class="csg-corner csg-corner-br"></span>
+              <span data-hf-id="hf-2ic8" class="csg-corner csg-corner-bl"></span>
             </div>
-            <div class="csg-confirmation">
-              <span class="csg-pulse" aria-hidden="true"></span>
-              <span class="csg-check" aria-hidden="true"></span>
-              <span class="csg-label"></span>
+            <div data-hf-id="hf-gh61" class="csg-confirmation">
+              <span data-hf-id="hf-cmqf" class="csg-pulse" aria-hidden="true"></span>
+              <span data-hf-id="hf-1dl8" class="csg-check" aria-hidden="true"></span>
+              <span data-hf-id="hf-x8wr" class="csg-label"></span>
             </div>
           </div>
         </div>

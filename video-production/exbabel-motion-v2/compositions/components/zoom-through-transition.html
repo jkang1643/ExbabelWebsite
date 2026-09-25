@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
   Zoom Through Transition - a scene push that wipes the incoming scene through
   the outgoing one while the outgoing one drifts back and blurs.
@@ -30,24 +30,19 @@
   Envelope: the push starts at 0.35s (clamped to fit shorter durations), runs
   0.9s, then holds the incoming scene for whatever is left.
 -->
-<html
-  lang="en"
-  data-composition-id="zoom-through-transition"
-  data-composition-duration="3"
-  data-composition-variables='[
-    { "id": "from-label", "type": "string", "role": "content", "label": "Outgoing label", "description": "Caption on the outgoing scene, the one on screen when the transition starts.", "default": "Before" },
-    { "id": "to-label", "type": "string", "role": "content", "label": "Incoming label", "description": "Caption on the incoming scene, the one the timeline wipes into frame.", "default": "Zoom Through Transition" },
-    { "id": "depth", "type": "enum", "role": "motion", "label": "Depth", "description": "Multiplies how far both scenes travel and how hard the outgoing one blurs, so the push covers a shorter or longer run in the same time.", "default": "standard", "options": [{ "value": "close", "label": "Close" }, { "value": "standard", "label": "Standard" }, { "value": "far", "label": "Far" }] },
-    { "id": "accent", "type": "enum", "role": "style", "label": "Accent", "description": "Theme token for the ring marking the incoming scene. Blue rides --accent, green --brand, violet --accent-2; each falls back to a neutral hairline.", "default": "blue", "options": [{ "value": "blue", "label": "Blue" }, { "value": "green", "label": "Green" }, { "value": "violet", "label": "Violet" }] }
-  ]'
->
+<html lang="en" data-composition-id="zoom-through-transition" data-composition-duration="3" data-composition-variables="[
+    { &quot;id&quot;: &quot;from-label&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Outgoing label&quot;, &quot;description&quot;: &quot;Caption on the outgoing scene, the one on screen when the transition starts.&quot;, &quot;default&quot;: &quot;Before&quot; },
+    { &quot;id&quot;: &quot;to-label&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Incoming label&quot;, &quot;description&quot;: &quot;Caption on the incoming scene, the one the timeline wipes into frame.&quot;, &quot;default&quot;: &quot;Zoom Through Transition&quot; },
+    { &quot;id&quot;: &quot;depth&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Depth&quot;, &quot;description&quot;: &quot;Multiplies how far both scenes travel and how hard the outgoing one blurs, so the push covers a shorter or longer run in the same time.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;close&quot;, &quot;label&quot;: &quot;Close&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;far&quot;, &quot;label&quot;: &quot;Far&quot; }] },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Theme token for the ring marking the incoming scene. Blue rides --accent, green --brand, violet --accent-2; each falls back to a neutral hairline.&quot;, &quot;default&quot;: &quot;blue&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] }
+  ]">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Zoom Through Transition</title>
   </head>
   <body>
     <template>
-      <div id="root" data-composition-id="zoom-through-transition" data-duration="3" data-fps="30">
+      <div data-hf-id="hf-xtgp" id="root" data-composition-id="zoom-through-transition" data-duration="3" data-fps="30">
         <style>
           *,
           *::before,
@@ -149,12 +144,12 @@
           }
         </style>
 
-        <div class="hf-catalog-zoom-through-transition">
-          >
-          <div class="scene from">Before</div>
-          <div class="scene to">Zoom Through Transition</div>
-          <div class="fx"></div>
-          <div class="rgb"></div>
+        <div data-hf-id="hf-zgum" class="hf-catalog-zoom-through-transition">
+          &gt;
+          <div data-hf-id="hf-sd7n" class="scene from">Before</div>
+          <div data-hf-id="hf-s5nc" class="scene to">Zoom Through Transition</div>
+          <div data-hf-id="hf-qecq" class="fx"></div>
+          <div data-hf-id="hf-ek8p" class="rgb"></div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>

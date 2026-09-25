@@ -1,0 +1,126 @@
+{
+  "S03": {
+    "lines": [
+      "They’re here for the service.",
+      "But missing parts of the message."
+    ],
+    "accent": 1
+  },
+  "S04": {
+    "lines": [
+      "One scan gets them connected."
+    ],
+    "accentPhrase": "One scan",
+    "support": "Scan the service QR code from their phone."
+  },
+  "S05": {
+    "lines": [
+      "Choose a language."
+    ]
+  },
+  "S07": {
+    "lines": [
+      "Your pastor keeps preaching."
+    ]
+  },
+  "S08": {
+    "lines": [
+      "Hear the sermon",
+      "in your own language."
+    ],
+    "accent": 1,
+    "support": "Live translated audio plays through the listener’s headphones."
+  },
+  "S09": {
+    "lines": [
+      "Listen — or read along."
+    ],
+    "accentPhrase": "read along.",
+    "support": "Live translated captions appear right on their phone."
+  },
+  "S10": {
+    "lines": [
+      "No separate service required."
+    ],
+    "accentPhrase": "No separate service",
+    "support": "A Spanish-speaking family can stay in the same service and follow in their language."
+  },
+  "S11": {
+    "lines": [
+      "Stay with their family."
+    ]
+  },
+  "S12": {
+    "lines": [
+      "Go beyond one language."
+    ],
+    "accentPhrase": "one language.",
+    "support": "Make the languages your community needs available in the same service."
+  },
+  "S13": {
+    "lines": [
+      "The same translation",
+      "works online."
+    ],
+    "accent": 1,
+    "support": "Bring multilingual access to your livestream, too."
+  },
+  "S14": {
+    "lines": [
+      "Translate your sermon online."
+    ]
+  },
+  "S15": {
+    "lines": [
+      "Let viewers choose their language."
+    ]
+  },
+  "S16": {
+    "lines": [
+      "Built around the setup",
+      "you already use."
+    ],
+    "accent": 1,
+    "support": "Connect your church audio without rebuilding your Sunday workflow."
+  },
+  "S17": {
+    "lines": [
+      "Connect your audio.",
+      "Start translation.",
+      "Share the QR code."
+    ],
+    "accent": 2
+  },
+  "S18": {
+    "lines": [
+      "Listeners join from",
+      "their own phones."
+    ],
+    "accent": 1,
+    "support": "Choose a language and follow along."
+  },
+  "S20": {
+    "lines": [
+      "30-day free trial."
+    ],
+    "accentPhrase": "free trial.",
+    "support": "Try Exbabel in your next service.",
+    "cta": "Start at Exbabel.com"
+  },
+  "S21": {
+    "lines": [
+      "Want help with",
+      "your setup?"
+    ],
+    "accent": 1,
+    "support": "Schedule a quick call and we’ll walk through it with your team."
+  },
+  "S22": {
+    "lines": [
+      "Give your church",
+      "one voice."
+    ],
+    "accent": 1,
+    "support": "So language never keeps someone from the message."
+  }
+}
