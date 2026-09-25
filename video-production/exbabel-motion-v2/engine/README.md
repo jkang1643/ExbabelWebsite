@@ -19,6 +19,7 @@ npm start
 Open `http://localhost:3020/admin/demos`, sign in, and import `sample-churches.csv`. Import returns one random, non-sequential `/d/<token>` URL per valid row. The player page works without ElevenLabs credentials for visual review and clearly labels the original narration fallback; **a personalized spoken name requires the designated voice ID and API key**. Configure those variables, then use “Regenerate voice.” The generated phrase is “at [Church Name]” because the master says “... congregation at your church” in the reserved 4.700–6.650-second slot. Names that exceed the slot by more than 10% move to `voice_review_required` rather than drifting the remaining 117 seconds of animation.
 
 Use `DEMO_DATA_DIR` on durable storage; the SQLite database and generated audio live there. Run behind HTTPS and an authenticated reverse proxy as appropriate. Set `DEMO_BASE_URL` to the actual public origin. The static marketing site is untouched; `demo.exbabel.com` should reverse-proxy to this service. `ADMIN_SECRET` and `ADMIN_PASSWORD` must be different, long random values. Public configuration omits email, phone, size, and Salesforce ID. Disabled links return 404.
+The service binds to `127.0.0.1` by default; set `HOST=0.0.0.0` only when your deployment network requires it and the host is protected by a proxy/firewall.
 
 ## Content and endpoints
 

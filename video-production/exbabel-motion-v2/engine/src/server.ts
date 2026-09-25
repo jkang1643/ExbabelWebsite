@@ -18,6 +18,7 @@ const secret=process.env.ADMIN_SECRET||'';
 const password=process.env.ADMIN_PASSWORD||'';
 const sfWebhookToken=process.env.SALESFORCE_WEBHOOK_TOKEN||'';
 const port=Number(process.env.PORT||3020);
+const host=process.env.HOST||'127.0.0.1';
 const buckets=new Map<string,{count:number;until:number}>();
 function limited(req:IncomingMessage,kind:string,limit:number){
   const key=`${kind}:${req.socket.remoteAddress||'unknown'}`,now=Date.now(),old=buckets.get(key);
@@ -198,8 +199,8 @@ async function route(req:IncomingMessage,res:ServerResponse){
   }
   respond(res,404,'Not found');
 }
-createServer((req,res)=>{void route(req,res).catch(e=>{console.error(e);if(!res.headersSent)json(res,500,{error:e instanceof Error?e.message:'Internal error'})})}).listen(port,()=>{
-  console.log(`Exbabel demos listening on ${port}`);
+createServer((req,res)=>{void route(req,res).catch(e=>{console.error(e);if(!res.headersSent)json(res,500,{error:e instanceof Error?e.message:'Internal error'})})}).listen(port,host,()=>{
+  console.log(`Exbabel demos listening on ${host}:${port}`);
   if(process.env.ELEVENLABS_API_KEY&&process.env.ELEVENLABS_VOICE_ID)
     for(const {record} of store.list(5000))if(['pending','generating','voice_unavailable'].includes(record.status))enqueue(record);
 });
