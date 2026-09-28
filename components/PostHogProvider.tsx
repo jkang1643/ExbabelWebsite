@@ -2,7 +2,10 @@
 
 import { useEffect } from "react";
 import posthog from "posthog-js";
-import { isPostHogConfigured } from "@/lib/posthog-client";
+import {
+  dropDevelopmentExceptions,
+  isPostHogConfigured,
+} from "@/lib/posthog-client";
 
 export default function PostHogProvider() {
   useEffect(() => {
@@ -11,6 +14,7 @@ export default function PostHogProvider() {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
       api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST!,
       capture_pageview: true,
+      before_send: dropDevelopmentExceptions,
     });
   }, []);
 
