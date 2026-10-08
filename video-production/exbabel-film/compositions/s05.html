@@ -1,0 +1,113 @@
+<template id="S05">
+  <div data-layout-allow-overlap="true" data-composition-id="S05" data-width="1920" data-height="1080">
+    <div class="s05-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s05-text" style="font-size: 80px; font-weight: 700; text-align: center; margin-bottom: 60px;">Choose a language.<br><span class="accent">Start listening.</span></h1>
+      <div class="s05-camera" style="position: absolute; width: 1920px; height: 1080px; display: flex; align-items: center; justify-content: center;">
+        <div class="product join s05-join" style="width:520px; height:641.33px; position:relative;">
+          <svg viewBox="0 0 390 481" width="100%" height="100%" class="notranslate" style="border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            <rect x="0" y="0" width="390" height="481" rx="30" fill="#ffffff" />
+            <rect x="0" y="0" width="390" height="60" fill="#1a1a2e" />
+            <text x="24" y="36" font-family="var(--font-sora), sans-serif" font-size="18" font-weight="600" fill="#ffffff">Exbabel</text>
+            <circle cx="350" cy="30" r="16" fill="#2d2d44" />
+            <text x="350" y="34" font-family="var(--font-sora), sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">?</text>
+            <text x="24" y="110" font-family="var(--font-sora), sans-serif" font-size="28" font-weight="700" fill="#1a1a2e">Join Session</text>
+            <text x="24" y="134" font-family="var(--font-sora), sans-serif" font-size="14" fill="#6b7280">Enter the code from the screen</text>
+            <rect x="24" y="160" width="342" height="56" rx="12" fill="#f3f4f6" stroke="#e5e7eb" />
+            <text x="40" y="194" font-family="var(--font-sora), sans-serif" font-size="20" font-weight="600" fill="#1a1a2e" letter-spacing="8">2UU6SV</text>
+            <text x="24" y="250" font-family="var(--font-sora), sans-serif" font-size="14" font-weight="600" fill="#374151">Select Your Language</text>
+            <rect x="24" y="270" width="342" height="56" rx="12" fill="#ffffff" stroke="#e5e7eb" />
+            <text x="40" y="304" font-family="var(--font-sora), sans-serif" font-size="16" font-weight="500" fill="#1a1a2e">Español</text>
+            <rect class="s05-btn" x="24" y="350" width="342" height="56" rx="28" fill="#4338ca" />
+            <text x="195" y="384" font-family="var(--font-sora), sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">Join Translation</text>
+          </svg>
+          <svg class="s05-pointer" width="40" height="40" viewBox="0 0 24 24" style="position:absolute; left:250px; top:350px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L5.5 3.21z" fill="#000" stroke="#FFF" stroke-width="1.5"/></svg>
+          <div class="s05-ring" style="position:absolute; left:245px; top:345px; width:20px; height:20px; border:3px solid #000; border-radius:50%; opacity:0; pointer-events:none;"></div>
+        </div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s05-text");
+tl.to(".s05-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// tl.set(".s05-text", { y: 20, opacity: 0 });
+// SPATIAL ENTRANCE: Match S04 push through by flying in from massive scale
+tl.set(".s05-join", { opacity: 0, scale: 4, y: 300 });
+tl.set(".s05-pointer", { opacity: 0, x: 80, y: 80 });
+
+// Text appears
+// tl.to(".s05-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.2);
+
+// Text fades out
+tl.to(".s05-text", { y: -20, opacity: 0, duration: 0.6, ease: "power3.in" }, 1.4);
+
+// Phone appears
+tl.to(".s05-join", { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out" }, 1.7);
+
+// Move pointer in
+tl.to(".s05-pointer", { opacity: 1, duration: 0.3 }, 2.5);
+tl.to(".s05-pointer", { x: 0, y: 0, duration: 0.8, ease: "power3.out" }, 2.5);
+
+// Simulate Click
+tl.to(".s05-ring", { scale: 3, opacity: 0, duration: 0.5, ease: "power2.out" }, 3.3);
+tl.to(".s05-pointer", { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }, 3.3);
+tl.to(".s05-btn", { fill: "#3730a3", duration: 0.1, yoyo: true, repeat: 1 }, 3.3);
+
+// Push in slightly (morph/swap to S06)
+tl.to(".s05-camera", { scale: 1.5, y: -40, duration: 1.2, ease: "power3.inOut" }, 3.8);
+
+// SPATIAL EXIT: Phone drops down out of frame
+tl.to(".s05-camera", { y: 1500, scale: 1.2, opacity: 0, duration: 1.0, ease: "power3.in" }, 5.2);
+
+window.__timelines["S05"] = tl;
+})();
+</script>
+  </div>
+</template>

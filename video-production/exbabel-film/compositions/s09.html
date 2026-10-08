@@ -1,0 +1,103 @@
+<template id="S09">
+  <div data-layout-allow-overlap="true" data-composition-id="S09" data-width="1920" data-height="1080">
+    <div class="s09-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: row; gap: 80px;">
+      <div class="s09-text-col" style="display: flex; flex-direction: column;">
+        <h1 class="s09-text" style="font-size: 80px; font-weight: 700;">Listen — or<br><span class="accent">read along.</span></h1>
+        <p class="s09-sub" style="font-size: 32px; color: #4b5563; margin-top: 20px;">Live translated captions appear right on their phone.</p>
+      </div>
+      <div class="s09-camera" style="position: relative; width: 400px; height: 800px; display: flex; align-items: center; justify-content: center;">
+        <div class="product phone s09-phone" style="width:350px; height:700px;">
+          <svg viewBox="0 0 390 844" width="100%" height="100%" class="notranslate" style="border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            <rect x="0" y="0" width="390" height="844" rx="40" fill="#ffffff" />
+            <rect x="0" y="0" width="390" height="120" fill="#1a1a2e" />
+            <text x="195" y="80" font-family="var(--font-sora), sans-serif" font-size="24" font-weight="600" fill="#ffffff" text-anchor="middle">Live Captions</text>
+            
+            <g class="s09-caption c1" opacity="0"><rect x="20" y="160" width="350" height="60" rx="8" fill="#f3f4f6" /><text x="40" y="196" font-family="var(--font-sora), sans-serif" font-size="18" fill="#1f2937">Bienvenidos a todos.</text></g>
+            <g class="s09-caption c2" opacity="0"><rect x="20" y="240" width="350" height="60" rx="8" fill="#f3f4f6" /><text x="40" y="276" font-family="var(--font-sora), sans-serif" font-size="18" fill="#1f2937">Estamos muy contentos de verlos.</text></g>
+            <g class="s09-caption c3" opacity="0"><rect x="20" y="320" width="350" height="60" rx="8" fill="#4338ca" /><text x="40" y="356" font-family="var(--font-sora), sans-serif" font-size="18" font-weight="500" fill="#ffffff">El mensaje de hoy es sobre la gracia.</text></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s09-text-col");
+tl.to(".s09-text-col .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+tl.set(".s09-text", { y: 20, opacity: 0 });
+tl.set(".s09-sub", { y: 20, opacity: 0 });
+tl.set(".s09-phone", { y: 40, opacity: 0 });
+// SPATIAL ENTRANCE: Match S08 Whip Pan Left (fly in from Right)
+tl.set(".s09-container", { x: 2000 });
+
+tl.to(".s09-container", { x: 0, duration: 0.8, ease: "power3.out" }, 0.0);
+tl.to(".s09-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+tl.to(".s09-sub", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.6);
+tl.to(".s09-phone", { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, 0.8);
+
+// Push in on the captions
+tl.to(".s09-camera", { scale: 1.6, x: -100, y: 150, duration: 1.2, ease: "power3.inOut" }, 1.4);
+tl.to(".s09-text-col", { opacity: 0, x: -50, duration: 0.8 }, 1.4);
+
+tl.to(".c1", { opacity: 1, y: -10, duration: 0.4 }, 2.2);
+tl.to(".c2", { opacity: 1, y: -10, duration: 0.4 }, 2.8);
+tl.to(".c3", { opacity: 1, y: -10, duration: 0.4 }, 3.4);
+
+// Drift
+tl.to(".s09-camera", { scale: 1.65, duration: 2.0, ease: "none" }, 2.6);
+
+// SPATIAL EXIT: Push Through the phone screen
+tl.to(".s09-camera", { scale: 10, opacity: 0, duration: 1.0, ease: "power3.in" }, 5.8);
+
+window.__timelines["S09"] = tl;
+})();
+</script>
+  </div>
+</template>

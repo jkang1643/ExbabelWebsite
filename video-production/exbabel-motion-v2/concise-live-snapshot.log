@@ -1,0 +1,11 @@
+◆  Capturing 4 frames at [70s, 71.5s, 73.5s, 75s] from exbabel-motion-v2
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)")
+
+   Fonts: 2 loaded
+
+◇  4 snapshots saved to /home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/review/concise-live
+   review/concise-live/frame-00-at-70s.png
+   review/concise-live/frame-01-at-71.5s.png
+   review/concise-live/frame-02-at-73.5s.png
+   review/concise-live/frame-03-at-75s.png
+   contact-sheet.jpg (grid view for AI review)

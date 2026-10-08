@@ -1,0 +1,26 @@
+◆  Capturing 16 frames at [4s, 12s, 21s, 28s, 32.7s, 42s, 48s, 54s, 68s, 78s, 88s, 95s, 111s, 128s, 136s, 149s] from exbabel-film
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)")
+
+   Fonts: 2 loaded
+   Note: added an end-of-timeline frame at 146.47s. Short beats between your --at times may still be skipped — pass them explicitly.
+
+◇  17 snapshots saved to snapshots/
+   snapshots/frame-00-at-4s.png
+   snapshots/frame-01-at-12s.png
+   snapshots/frame-02-at-21s.png
+   snapshots/frame-03-at-28s.png
+   snapshots/frame-04-at-32.7s.png
+   snapshots/frame-05-at-42s.png
+   snapshots/frame-06-at-48s.png
+   snapshots/frame-07-at-54s.png
+   snapshots/frame-08-at-68s.png
+   snapshots/frame-09-at-78s.png
+   snapshots/frame-10-at-88s.png
+   snapshots/frame-11-at-95s.png
+   snapshots/frame-12-at-111s.png
+   snapshots/frame-13-at-128s.png
+   snapshots/frame-14-at-136s.png
+   snapshots/frame-15-at-149s.png
+   snapshots/frame-16-at-146.47s.png
+   contact-sheet-1..2.jpg (grid view for AI review)
+   --describe: GEMINI_API_KEY not set, skipping

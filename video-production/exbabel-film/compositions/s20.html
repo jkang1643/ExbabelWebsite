@@ -1,0 +1,89 @@
+<template id="S20">
+  <div data-layout-allow-overlap="true" data-composition-id="S20" data-width="1920" data-height="1080">
+    <div class="s20-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <div class="s20-top-block" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="s20-trial-number" style="font-size: 160px; font-weight: 800; color: #1a1a2e; line-height: 1;">30</div>
+        <div class="s20-trial-caption" style="font-size: 24px; font-weight: 600; color: #4338ca; margin-bottom: 40px;">-day free trial.</div>
+      </div>
+      
+      <div class="s20-bottom-block" style="display: flex; flex-direction: column; align-items: center;">
+        <h1 class="s20-text" style="font-size: 80px; font-weight: 700; text-align: center;">Try Exbabel in<br><span class="accent">your next service.</span></h1>
+        <p class="s20-cta" style="margin-top: 40px;"><span style="padding: 16px 40px; background: #1a1a2e; color: white; border-radius: 40px; font-size: 24px; font-weight: 600;">Start at Exbabel.com</span></p>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s20-text");
+tl.to(".s20-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 1.2);
+
+
+// SPATIAL ENTRANCE: Match S19 Whip Pan Left (fly in from left)
+tl.set(".s20-container", { x: -2000, opacity: 0 });
+tl.set(".s20-top-block", { y: 150 });
+tl.set(".s20-trial-number", { scale: 0.5 });
+tl.set(".s20-trial-caption", { y: -20, opacity: 0 });
+// tl.set(".s20-text", { y: 20, opacity: 0 });
+tl.set(".s20-cta", { y: 20, opacity: 0 });
+
+tl.to(".s20-container", { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.0);
+tl.to(".s20-trial-number", { scale: 1, duration: 0.8, ease: "back.out(1.5)" }, 0.2);
+tl.to(".s20-trial-caption", { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.6);
+
+tl.to(".s20-top-block", { y: 0, duration: 0.8, ease: "power3.out" }, 1.2);
+// tl.to(".s20-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 1.2);
+tl.to(".s20-cta", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 1.6);
+
+// SPATIAL EXIT: Push Through the 30
+tl.to(".s20-container", { scale: 10, opacity: 0, duration: 1.0, ease: "power3.in" }, 5.5);
+
+window.__timelines["S20"] = tl;
+})();
+</script>
+  </div>
+</template>

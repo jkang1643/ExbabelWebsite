@@ -1,0 +1,18 @@
+{
+  "name": "exbabel-storyboard-resources",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "node scripts/verify.cjs",
+    "check:hyperframes": "hyperframes check . --samples 22",
+    "preview": "python3 -m http.server 8768 --bind 127.0.0.1"
+  },
+  "dependencies": {
+    "animejs": "4.5.0"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.62",
+    "playwright-core": "1.58.2"
+  }
+}

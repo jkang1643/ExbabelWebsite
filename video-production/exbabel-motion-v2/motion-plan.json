@@ -1,0 +1,983 @@
+[
+  {
+    "id": "S03",
+    "start": 10.988,
+    "end": 20.166,
+    "focalObject": "They’re here for the service. But missing parts of the message.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 10.988,
+        "end": 13.338,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 13.338,
+        "end": 14.468,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 14.468,
+        "end": 15.268,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 15.268,
+        "end": 20.166,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S04",
+    "start": 20.166,
+    "end": 24.756,
+    "focalObject": "One scan gets them connected.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 20.166,
+        "end": 21.4053,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 21.4053,
+        "end": 22.2315,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 22.2315,
+        "end": 23.0118,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 23.0118,
+        "end": 24.756,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S05",
+    "start": 24.756,
+    "end": 27.7,
+    "focalObject": "Choose a language.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 24.756,
+        "end": 25.55088,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 25.55088,
+        "end": 26.0808,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 26.0808,
+        "end": 26.58128,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 26.58128,
+        "end": 27.7,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S06",
+    "start": 27.7,
+    "end": 29.8,
+    "focalObject": "That's pretty much it.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 27.7,
+        "end": 28.267,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 28.267,
+        "end": 28.645,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 28.645,
+        "end": 29.002,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 29.002,
+        "end": 29.8,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S07",
+    "start": 29.8,
+    "end": 37.289,
+    "focalObject": "Your pastor keeps preaching.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 29.8,
+        "end": 31.82203,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 31.82203,
+        "end": 32.90115,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 32.90115,
+        "end": 33.70115,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 33.70115,
+        "end": 37.289,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S08",
+    "start": 37.289,
+    "end": 42.756,
+    "focalObject": "Hear the sermon in your own language.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 37.289,
+        "end": 38.76509,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 38.76509,
+        "end": 39.682449999999996,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 39.682449999999996,
+        "end": 40.48244999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 40.48244999999999,
+        "end": 42.756,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false,
+    "handoff": {
+      "to": "S09",
+      "survivingObject": "product phone",
+      "type": "hero-object-extraction",
+      "overlapStart": 42.336,
+      "nextTextStart": 42.576,
+      "end": 45.17399999999999,
+      "leaves": "Outgoing headline travels upward; surrounding interface clears under the extracted object.",
+      "enters": "Next tracked headline, then its product surface behind the surviving object.",
+      "camera": "One pull-back parks the extracted object below the tracked text; a push resolves it into the next product.",
+      "sharedProperty": "Same source artwork and screen position at takeover; retained rounded silhouette."
+    }
+  },
+  {
+    "id": "S09",
+    "start": 42.756,
+    "end": 46.656,
+    "focalObject": "Listen — or read along.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 42.756,
+        "end": 43.809,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 43.809,
+        "end": 44.510999999999996,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 44.510999999999996,
+        "end": 45.17399999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 45.17399999999999,
+        "end": 46.656,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S10",
+    "start": 46.656,
+    "end": 53.066,
+    "focalObject": "No separate service required.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 46.656,
+        "end": 48.3867,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 48.3867,
+        "end": 49.37949999999999,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 49.37949999999999,
+        "end": 50.17949999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 50.17949999999999,
+        "end": 53.066,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S11",
+    "start": 53.066,
+    "end": 59.833,
+    "focalObject": "Stay with their family.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 53.066,
+        "end": 54.89309,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 54.89309,
+        "end": 55.914449999999995,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 55.914449999999995,
+        "end": 56.71444999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 56.71444999999999,
+        "end": 59.833,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S12",
+    "start": 59.833,
+    "end": 67.1,
+    "focalObject": "Go beyond one language.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 59.833,
+        "end": 61.79509,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 61.79509,
+        "end": 62.856449999999995,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 62.856449999999995,
+        "end": 63.65644999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 63.65644999999999,
+        "end": 67.1,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S13",
+    "start": 67.1,
+    "end": 69.544,
+    "focalObject": "The same translation works online.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 67.1,
+        "end": 67.75988,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 67.75988,
+        "end": 68.1998,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 68.1998,
+        "end": 68.61528,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 68.61528,
+        "end": 69.544,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S14",
+    "start": 69.544,
+    "end": 75.5,
+    "focalObject": "Translate your sermon online.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 69.544,
+        "end": 71.15212,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 71.15212,
+        "end": 72.1086,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 72.1086,
+        "end": 72.90859999999999,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 72.90859999999999,
+        "end": 75.5,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S15",
+    "start": 75.5,
+    "end": 81.822,
+    "focalObject": "Let viewers choose their language.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 75.5,
+        "end": 77.20694,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 77.20694,
+        "end": 78.1927,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 78.1927,
+        "end": 78.9927,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 78.9927,
+        "end": 81.822,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S16",
+    "start": 81.822,
+    "end": 89.522,
+    "focalObject": "Built around the setup you already use.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 81.822,
+        "end": 83.901,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 83.901,
+        "end": 84.997,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 84.997,
+        "end": 85.797,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 85.797,
+        "end": 89.522,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S17",
+    "start": 89.522,
+    "end": 95.044,
+    "focalObject": "Connect your audio. Start translation. Share the QR code.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 89.522,
+        "end": 91.01294,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 91.01294,
+        "end": 91.9347,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 91.9347,
+        "end": 92.7347,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 92.7347,
+        "end": 95.044,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S18",
+    "start": 95.044,
+    "end": 98.622,
+    "focalObject": "Listeners join from their own phones.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 95.044,
+        "end": 96.01006,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 96.01006,
+        "end": 96.6541,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 96.6541,
+        "end": 97.26236,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 97.26236,
+        "end": 98.622,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S20",
+    "start": 104.2,
+    "end": 108.656,
+    "focalObject": "30-day free trial.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 104.2,
+        "end": 105.40312,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 105.40312,
+        "end": 106.2052,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 106.2052,
+        "end": 106.96272,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 106.96272,
+        "end": 108.656,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S21",
+    "start": 108.656,
+    "end": 115.356,
+    "focalObject": "Want help with your setup?",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 108.656,
+        "end": 110.465,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 110.465,
+        "end": 111.48100000000001,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 111.48100000000001,
+        "end": 112.281,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 112.281,
+        "end": 115.356,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  },
+  {
+    "id": "S22",
+    "start": 115.356,
+    "end": 123.8,
+    "focalObject": "Give your church one voice.",
+    "rules": [
+      "viewport-change",
+      "anchored-layout-expand",
+      "control-target-sync",
+      "discrete-text-sequence"
+    ],
+    "states": [
+      {
+        "phase": "A — cursor-follow typography",
+        "start": 115.356,
+        "end": 117.63588,
+        "action": "Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18."
+      },
+      {
+        "phase": "B — complete readable statement",
+        "start": 117.63588,
+        "end": 118.76588000000001,
+        "action": "Dolly back to the full statement inside a 1500px safe width; supporting copy appears."
+      },
+      {
+        "phase": "C — anchored product reveal",
+        "start": 118.76588000000001,
+        "end": 119.56588,
+        "action": "The same headline moves upward once while the original graphic is unmasked below."
+      },
+      {
+        "phase": "D — product development",
+        "start": 119.56588,
+        "end": 123.8,
+        "action": "UI actions develop under a 2.2% push. The full headline stays on screen."
+      }
+    ],
+    "camera": {
+      "cursorTarget": 1152,
+      "measuredWidth": true,
+      "typeScale": [
+        1,
+        1.18
+      ],
+      "productScale": [
+        1,
+        1.022
+      ]
+    },
+    "protected": false
+  }
+]

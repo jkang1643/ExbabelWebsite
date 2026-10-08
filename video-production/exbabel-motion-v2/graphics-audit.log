@@ -1,0 +1,26 @@
+browser ready
+loaded
+fonts ready {
+  status: 'loaded',
+  fonts: [ [ 'Sora', 'loaded' ], [ 'Noto', 'loaded' ] ]
+}
+inspect S03
+inspect S04
+inspect S05
+inspect S06
+inspect S07
+inspect S08
+inspect S09
+inspect S10
+inspect S11
+inspect S12
+inspect S13
+inspect S14
+inspect S15
+inspect S16
+inspect S17
+inspect S18
+inspect S20
+inspect S21
+inspect S22
+{"ok":true,"errors":[],"checks":[{"scene":"S03","seek":false},{"scene":"S04","seek":true},{"scene":"S05","seek":false},{"scene":"S06","seek":false},{"scene":"S07","seek":true},{"scene":"S08","seek":true},{"scene":"S09","seek":true},{"scene":"S10","seek":false},{"scene":"S11","seek":true},{"scene":"S12","seek":true},{"scene":"S13","seek":true},{"scene":"S14","seek":true},{"scene":"S15","seek":true},{"scene":"S16","seek":true},{"scene":"S17","seek":true},{"scene":"S18","seek":true},{"scene":"S20","seek":true},{"scene":"S21","seek":true},{"scene":"S22","seek":true}],"lockHashes":{"s01":{"unchanged":true,"authorizedCameraCorrectionOnly":false,"sha256":"2accb7fe7ae7891c223e41abbccd5e89a9109d3a140bacd25cdae30e4f605665"},"s19":{"unchanged":false,"authorizedCameraCorrectionOnly":true,"sha256":"68b01a9a55e3b01444b5e5961ea07381cda9050d2b92b190c9a2d8ddfbaa1c65"}}}

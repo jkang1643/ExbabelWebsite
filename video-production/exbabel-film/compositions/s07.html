@@ -1,0 +1,149 @@
+<template id="S07">
+  <div data-layout-allow-overlap="true" data-composition-id="S07" data-width="1920" data-height="1080">
+    <div class="s07-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s07-text" style="font-size: 60px; font-weight: 700; position:absolute; top: 100px; text-align: center;">Your pastor keeps preaching.<br><span class="accent">Exbabel translates in real time.</span><br><span style="font-size: 32px; color: #4b5563; font-weight: 500; margin-top: 20px; display: block;">Your church audio flows through Exbabel to the congregation.</span></h1>
+      
+      <div class="s07-camera" style="position: absolute; width: 1920px; height: 1080px; display: flex; align-items: center; justify-content: center;">
+        
+        <div class="s07-pastor-graphic" style="position: absolute; top: 380px; display: flex; justify-content: center; width: 800px; height: 400px;">
+          <!-- Podium -->
+          <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 180px; height: 220px; background: #1e293b; border-radius: 8px 8px 0 0; z-index: 10; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), inset 0 10px 0 0 #334155;">
+            <!-- Mic -->
+            <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); width: 4px; height: 30px; background: #64748b;"></div>
+            <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); width: 14px; height: 20px; background: #94a3b8; border-radius: 8px;"></div>
+          </div>
+          
+          <!-- Pastor Body -->
+          <div class="s07-pastor-body" style="position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; z-index: 5;">
+            <!-- Head -->
+            <div class="s07-head" style="width: 70px; height: 80px; background: #fcd34d; border-radius: 40px; position: relative;">
+               <!-- Hair -->
+               <div style="position: absolute; top: -8px; left: -5px; width: 80px; height: 35px; background: #0f172a; border-radius: 40px 40px 0 0;"></div>
+            </div>
+            <!-- Torso -->
+            <div style="width: 130px; height: 140px; background: #334155; border-radius: 60px 60px 0 0; margin-top: -5px; position: relative; overflow: hidden;">
+              <!-- Collar & Tie -->
+              <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background: #ffffff; clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+              <div style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 10px; height: 70px; background: #e11d48; clip-path: polygon(20% 0, 80% 0, 100% 80%, 50% 100%, 0 80%);"></div>
+            </div>
+            
+            <!-- Left Arm Gesture -->
+            <div class="s07-arm" style="position: absolute; top: 110px; left: -10px; width: 30px; height: 90px; background: #334155; border-radius: 15px; transform-origin: top center; transform: rotate(30deg);"></div>
+            <div class="s07-arm" style="position: absolute; top: 110px; right: -10px; width: 30px; height: 90px; background: #334155; border-radius: 15px; transform-origin: top center; transform: rotate(-30deg);"></div>
+          </div>
+
+          <!-- Preaching Waves -->
+          <div class="s07-waves" style="position: absolute; left: 50%; top: 120px; display: flex; align-items: center; gap: 10px; transform: translateX(80px);">
+            <div class="sw" style="width: 8px; height: 20px; background: #94a3b8; border-radius: 4px; transform-origin: bottom center;"></div>
+            <div class="sw" style="width: 8px; height: 40px; background: #94a3b8; border-radius: 4px; transform-origin: bottom center;"></div>
+            <div class="sw" style="width: 8px; height: 60px; background: #94a3b8; border-radius: 4px; transform-origin: bottom center;"></div>
+            <div class="sw" style="width: 8px; height: 30px; background: #94a3b8; border-radius: 4px; transform-origin: bottom center;"></div>
+          </div>
+
+          <!-- Magic Exbabel Node -->
+          <div class="s07-exbabel" style="position: absolute; left: 50%; top: 80px; transform: translateX(200px); display: flex; flex-direction: column; align-items: center; gap: 10px;">
+             <div style="width: 80px; height: 80px; background: #4338ca; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(67,56,202,0.4);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"></path><path d="M4 14l6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="M22 22l-5-10-5 10"></path><path d="M14 18h6"></path></svg>
+             </div>
+             <!-- Translation Bubbles sprouting out -->
+             <div style="position: absolute; left: 100px; top: -60px; font-size: 20px; font-weight: 700; color: #4338ca; background: #e0e7ff; padding: 10px 20px; border-radius: 20px; white-space: nowrap; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" class="s07-tb tb1">Español</div>
+             <div style="position: absolute; left: 120px; top: 10px; font-size: 20px; font-weight: 700; color: #059669; background: #d1fae5; padding: 10px 20px; border-radius: 20px; white-space: nowrap; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" class="s07-tb tb2">Français</div>
+             <div style="position: absolute; left: 100px; top: 80px; font-size: 20px; font-weight: 700; color: #ea580c; background: #ffedd5; padding: 10px 20px; border-radius: 20px; white-space: nowrap; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" class="s07-tb tb3">한국어</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s07-text");
+tl.to(".s07-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// tl.set(".s07-text", { y: -20, opacity: 0 });
+tl.set(".s07-pastor-graphic", { y: 100, opacity: 0, scale: 0.9 });
+tl.set(".s07-exbabel", { scale: 0, opacity: 0 });
+tl.set(".s07-tb", { scale: 0, opacity: 0, x: -20 });
+tl.set(".s07-camera", { scale: 1, x: 0, opacity: 1 });
+
+// tl.to(".s07-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.2);
+
+// Pastor enters
+tl.to(".s07-pastor-graphic", { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "back.out(1.2)" }, 0.5);
+
+// Pastor's arms animate subtly (preaching gesture)
+tl.to(".s07-arm", { rotation: "+=15", duration: 1.5, yoyo: true, repeat: 10, ease: "sine.inOut" }, 1.0);
+tl.to(".s07-head", { rotation: 5, duration: 2.0, yoyo: true, repeat: 10, ease: "sine.inOut" }, 1.0);
+
+// Sound waves start playing
+tl.fromTo(".sw", 
+    { scaleY: 0.2 }, 
+    { scaleY: 1.2, duration: 0.4, stagger: { amount: 0.4, from: "center", yoyo: true, repeat: 10 }, ease: "sine.inOut" }, 
+1.5);
+
+// Exbabel translation node pops in
+tl.to(".s07-exbabel", { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.5)" }, 2.5);
+
+// Translation bubbles pop out from Exbabel
+tl.to(".tb1", { scale: 1, opacity: 1, x: 0, duration: 0.6, ease: "back.out(1.2)" }, 3.0);
+tl.to(".tb2", { scale: 1, opacity: 1, x: 0, duration: 0.6, ease: "back.out(1.2)" }, 3.2);
+tl.to(".tb3", { scale: 1, opacity: 1, x: 0, duration: 0.6, ease: "back.out(1.2)" }, 3.4);
+
+// Subtle continuous zoom on the whole camera
+tl.to(".s07-camera", { scale: 1.1, duration: 4.5, ease: "none" }, 3.5);
+
+// SPATIAL EXIT: Whip Pan Right (camera moves left -> objects move left off screen)
+tl.to(".s07-camera", { x: -2000, opacity: 0, duration: 1.0, ease: "power3.in" }, 8.0);
+tl.to(".s07-text", { x: -500, opacity: 0, duration: 0.8, ease: "power3.in" }, 8.0);
+
+window.__timelines["S07"] = tl;
+})();
+</script>
+  </div>
+</template>

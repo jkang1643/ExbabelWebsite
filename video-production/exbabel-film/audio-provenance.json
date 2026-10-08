@@ -1,0 +1,20 @@
+{
+  "provider": "ElevenLabs MCP",
+  "model": "eleven_multilingual_v2",
+  "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+  "voiceName": "Roger - Laid-Back, Casual, Resonant",
+  "flowId": "QyX8BeXmZrC2HhaihAyv",
+  "nodeId": "S0shwEFZ3nMFuRq8ZqJ2",
+  "selectedGenerationId": "0vV3Ceb5ZU05fJOj2uay",
+  "selectedTake": "assets/voice-takes/1.mp3",
+  "originalDurationSeconds": 110.38766439909297,
+  "playbackRate": 0.9,
+  "pitchPreserved": true,
+  "leadSeconds": 0.3,
+  "deliveryDurationSeconds": 123.8,
+  "measuredIntegratedLufs": -16.73,
+  "measuredTruePeakDb": -1.5,
+  "personalization": "Generic master: Hey there / your church",
+  "alignment": "Local faster-whisper base.en word recognition; approved script copy preserved",
+  "alternateTakes": ["assets/voice-takes/2.mp3", "assets/voice-takes/3.mp3", "assets/voice-takes/4.mp3"]
+}

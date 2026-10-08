@@ -1,0 +1,75 @@
+<template id="S13">
+  <div data-layout-allow-overlap="true" data-composition-id="S13" data-width="1920" data-height="1080">
+    <div class="s13-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s13-text" style="font-size: 80px; font-weight: 700; text-align: center;">The same translation<br><span class="accent">works online.</span><br><span style="font-size: 40px; color: #4b5563; font-weight: 500; margin-top: 20px; display: block;">Bring multilingual access to your livestream, too.</span></h1>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s13-text");
+tl.to(".s13-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.4);
+
+
+// SPATIAL ENTRANCE: Match S12 Whip Pan Right (fly in from right)
+tl.set(".s13-container", { x: 2000, opacity: 0 });
+tl.set(".s13-text", { y: 20 });
+
+tl.to(".s13-container", { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.0);
+// tl.to(".s13-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+
+// Drift
+tl.to(".s13-container", { scale: 1.1, duration: 3.5, ease: "none" }, 0.5);
+
+// SPATIAL EXIT: Push Through
+tl.to(".s13-text", { scale: 15, opacity: 0, duration: 1.0, ease: "power3.in" }, 4.0);
+
+window.__timelines["S13"] = tl;
+})();
+</script>
+  </div>
+</template>

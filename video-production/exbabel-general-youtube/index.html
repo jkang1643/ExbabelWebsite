@@ -1,0 +1,945 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Exbabel — motion rebuild</title><style>@font-face{font-family:Sora;src:url('assets/Sora.ttf')}@font-face{font-family:Noto;src:url('assets/NotoSansKR-subset.ttf')}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f4f7ff}body{font-family:Sora,Noto,sans-serif;color:#0b1220;--font-sora:Sora}#film{width:100%;height:100%;position:relative;overflow:hidden}.backdrop{position:absolute;inset:0;background:radial-gradient(ellipse at 85% 65%,#dceaff 0,transparent 55%),radial-gradient(ellipse at 8% 15%,#e9e6ff 0,transparent 45%),#f7f9ff}.brand{position:absolute;left:100px;top:62px;font-size:35px;font-weight:750;letter-spacing:-1.5px;z-index:50;display:flex;align-items:center;gap:15px}.brand i{width:13px;height:28px;display:block;background:#394dfe;border-radius:5px;transform:skew(-15deg)}.brand b{font-weight:750}.edition{position:absolute;right:100px;top:75px;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:#536079;z-index:50}.scene{position:absolute;inset:0;overflow:hidden}.visual{position:absolute;inset:0}.eyebrow{position:absolute;left:100px;top:185px;color:#394dfe;font-size:20px;letter-spacing:3px;text-transform:uppercase;font-weight:650}.copy{position:absolute;left:100px;top:260px;width:690px;z-index:5}.copy h1{font-size:86px;line-height:1.09;letter-spacing:-5px;margin:0;font-weight:600}.copy p{font-size:28px;line-height:1.55;letter-spacing:-.5px;max-width:580px;margin:32px 0 0;color:#536079}.accent{color:#394dfe}.mini{font-size:20px;letter-spacing:1px;text-transform:uppercase;color:#536079}.center-copy{position:absolute;left:130px;right:130px;top:260px;text-align:center}.center-copy h1{font-size:112px;line-height:1.09;letter-spacing:-6px;font-weight:600;margin:0}.center-copy p{font-size:32px;color:#536079;margin-top:34px}.center-copy .url{font-size:46px;color:#394dfe;letter-spacing:-2px}.masthead .center-copy{top:320px}.product{position:absolute;transform-origin:0 0;will-change:transform;filter:drop-shadow(0 25px 32px #203d7820)}.product>svg{width:100%;height:100%;display:block}.product text{font-family:Sora,sans-serif}.camera{position:absolute;inset:0;transform-origin:0 0;will-change:transform}.stage{position:absolute;inset:155px 0 120px;overflow:hidden}.dashboard-stage{position:absolute;left:80px;right:80px;top:278px;height:645px;border-radius:30px;overflow:hidden;background:#edf1fd;border:1px solid #d5def4}.dashboard-stage .camera{inset:0}.top-title{position:absolute;left:100px;top:170px;margin:0;font-size:65px;letter-spacing:-3px;line-height:1.15;font-weight:600}.focus-tag{position:absolute;bottom:140px;left:100px;font-size:24px;color:#394dfe}.pointer{position:absolute;width:36px;height:44px;z-index:20;opacity:0;filter:drop-shadow(0 3px 3px #16274b44)}.ring{position:absolute;width:60px;height:60px;border:3px solid #394dfe;border-radius:50%;opacity:0;transform-origin:center;z-index:19}.photo{position:absolute;left:820px;top:194px;width:1000px;height:710px;overflow:hidden;border-radius:32px;box-shadow:0 24px 64px #20344c22}.photo img{width:100%;height:100%;object-fit:cover}.photo.wide{left:100px;top:302px;width:1720px;height:610px}.photo.wide img{object-position:center 56%}.photo-label{position:absolute;left:38px;bottom:32px;padding:17px 23px;border-radius:14px;background:#fff;color:#142238;font-size:23px}.phrase{position:absolute;left:880px;width:860px;padding:31px 38px;font-size:37px;line-height:1.25;letter-spacing:-1px;background:white;border-radius:20px;box-shadow:0 18px 45px #34458010}.phrase small{display:block;font-size:19px;color:#536079;margin-bottom:15px}.pill{padding:20px 34px;background:#fff;border:1px solid #dfe5f3;border-radius:100px;font-size:29px;white-space:nowrap;box-shadow:0 12px 25px #324ea00b}.pills{position:absolute;left:100px;right:100px;display:flex;justify-content:center;gap:20px}.checkmark{width:96px;height:96px;border-radius:50%;background:#e5f8ee;display:grid;place-items:center;color:#087754;font-size:50px;margin:0 auto 35px}.audio-wave{display:flex;gap:11px;align-items:center;justify-content:center;height:125px}.audio-wave i{width:9px;height:80px;display:block;border-radius:8px;background:#394dfe;transform-origin:center}.wave-zone{position:absolute;left:100px;top:700px;width:600px}.path-line{position:absolute;height:3px;background:#b5c1ff;transform-origin:left center}.node{position:absolute;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #dce3f1;border-radius:26px;box-shadow:0 25px 60px #344a7417;font-size:34px;letter-spacing:-1px;flex-direction:column;gap:18px}.node small{font-size:20px;color:#536079;letter-spacing:0}.node.ex{background:#394dfe;color:white}.node.ex small{color:#eef0ff}.node .symbol{font-size:58px}.language{position:absolute;padding:24px 35px;border-radius:20px;background:white;border:1px solid #dbe3f4;box-shadow:0 20px 40px #415ba017;min-width:260px;font-size:32px}.language small{display:block;font-size:17px;margin-top:9px;color:#59647a}.language.primary{background:#394dfe;color:white}.language.primary small{color:#e7ebff}.callout{position:absolute;padding:20px 26px;border-radius:16px;background:#fff;font-size:24px;color:#233259;border:1px solid #dce2f3}.cta-button{display:inline-block;background:#394dfe;color:#fff;padding:25px 50px;border-radius:19px;font-size:33px;font-weight:600;letter-spacing:-1px}.trial-number{position:absolute;left:100px;top:255px;font-size:295px;font-weight:600;letter-spacing:-25px;color:#394dfe;line-height:1}.trial-caption{position:absolute;left:117px;top:625px;font-size:36px;letter-spacing:-1px}.call-card{position:absolute;left:850px;top:245px;width:920px;height:590px;border:1px solid #d6def0;border-radius:32px;background:white;padding:55px;box-shadow:0 28px 60px #2b408514}.call-card h2{font-size:40px;font-weight:600;letter-spacing:-2px;margin:0 0 32px}.call-card .row{font-size:28px;padding:24px 0;border-top:1px solid #e4e9f3;display:flex;gap:20px}.call-card .row span{color:#394dfe}.caption{position:absolute;bottom:40px;left:180px;right:180px;display:flex;justify-content:center;z-index:70;text-align:center}.caption span{max-width:1500px;padding:12px 24px;border-radius:12px;background:#0b1220;color:white;font-size:27px;line-height:1.4}.progress{position:absolute;bottom:0;left:0;width:1920px;height:4px;background:#394dfe;transform-origin:left;z-index:80}.screen-note{font-size:17px;color:#536079;position:absolute;right:100px;bottom:145px}.divider{position:absolute;background:#ccd6eb;height:1px;left:100px;right:100px;top:140px}.final-word{display:block;color:#394dfe}.small-logo{font-size:47px;font-weight:700;letter-spacing:-2px}.footer-url{position:absolute;left:100px;bottom:155px;font-size:25px;color:#394dfe}
+
+.welcome-stack{position:absolute;left:930px;top:250px;display:flex;flex-direction:column;gap:28px}.welcome-word{font-size:67px;letter-spacing:-3px;padding:10px 30px;border-left:4px solid #394dfe}.welcome-word:nth-child(2){color:#394dfe}.welcome-word:nth-child(3){color:#536079}.welcome-word:nth-child(4){color:#62728f}
+
+.trial-copy{left:850px;top:305px;width:900px}.trial-copy h1{font-size:100px}
+
+#world{position:absolute;inset:0;overflow:hidden;opacity:0}
+.white-space{position:absolute;inset:0;background:#fff;opacity:0}
+#world .scene{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;opacity:0}
+#world .shot-camera{position:absolute;inset:0;transform-origin:50% 65%}
+#world .type-plane{position:absolute;left:0;top:0;transform-origin:0 0;z-index:4}
+#world .type-plane h1{position:static;margin:0;width:max-content;max-width:none;white-space:pre;font-size:108px;line-height:1.2;letter-spacing:-4px;font-weight:600}
+#world .type-plane .final-word{display:inline;color:#394dfe}
+#world .type-char{display:inline-block;white-space:pre}
+#world .type-line{display:inline-block;white-space:pre;transform-origin:0 0}
+#world .support-plane{position:absolute;left:220px;top:590px;width:1480px;font-size:30px;line-height:1.42;letter-spacing:-.5px;color:#536079;text-align:center;text-wrap:balance;transform-origin:50% 0;z-index:4;margin:0}
+#world .graphic-stage{position:absolute;inset:0;transform-origin:50% 65%;z-index:2}
+#world .graphic-fit{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+#world .visual,#world .stage,#world .dashboard-stage{overflow:visible}
+#world .stage,#world .dashboard-stage{background:none;border:none;box-shadow:none}
+#world .product{filter:drop-shadow(0 15px 28px #15203a16)}
+#world .focus-tag,#world .footer-url,#world .wave-zone,#world .ring{display:none}
+#world .ui-overlay{font-family:Sora,sans-serif;position:absolute;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 14px 25px #13284414;overflow:hidden;z-index:10}
+#world .option{padding:12px 20px;font-size:20px;line-height:1.2;color:#1a1a2e}
+#world .option.selected{background:#eff0ff;color:#394dfe}
+#world .scan-sweep{position:absolute;left:360px;top:165px;width:155px;height:3px;background:#394dfe;transform-origin:left}
+#world .url{font-size:46px;color:#394dfe;letter-spacing:-2px;display:block;text-align:center}
+#bridge{display:none}
+
+#world .custom-art{position:absolute;left:460px;top:300px;width:1000px;height:540px;transform-origin:50% 50%;font-family:Sora,sans-serif}
+#world .custom-art svg text{font-family:Sora,sans-serif}
+#world .story-card{position:absolute;left:100px;top:15px;width:800px;height:510px;padding:36px 42px;border:2px solid #e1e6f1;border-radius:30px;background:#fff;box-shadow:0 18px 42px #2137630c;color:#111827;box-sizing:border-box}
+#world .story-card h2,#world .setup-title h2{font-size:32px;line-height:1.2;letter-spacing:-1.2px;font-weight:600;margin:0}
+#world .story-kicker{font-size:14px;font-weight:600;letter-spacing:1.8px;color:#65718a;margin-bottom:13px;display:flex;align-items:center;gap:9px}
+#world .live-dot{width:7px;height:7px;border-radius:50%;background:#12a07b;margin-left:auto}
+#world .language-picker{width:660px;left:170px;padding:28px 35px}
+#world .language-picker h2{margin-bottom:22px}
+#world .language-option{height:72px;display:flex;align-items:center;gap:18px;padding:8px 20px;border:1px solid #e3e7f0;border-radius:13px;margin-top:10px;font-size:25px;background:#fff}
+#world .language-option b{display:grid;place-items:center;width:42px;height:42px;background:#f4f6fb;border-radius:10px;font-size:15px;letter-spacing:1px;color:#68748a}
+#world .selection-check{font-style:normal;margin-left:auto;color:#394dfe}
+#world .listen-control{height:61px;margin-top:18px;background:#394dfe;border-radius:14px;color:white;display:flex;align-items:center;justify-content:center;gap:20px;font-size:22px;transform-origin:center}
+#world .listen-control svg{width:29px;height:29px}
+#world .tap-ring{position:absolute;width:34px;height:34px;border:3px solid #394dfe;border-radius:50%;pointer-events:none}
+#world .language-tap{left:420px;top:251px}
+#world .story-icon{width:65px;height:65px;background:#edf0ff;border-radius:19px;display:grid;place-items:center;color:#394dfe;flex-shrink:0}
+#world .story-icon svg{width:36px;height:36px}
+#world .sermon-card{left:50px;width:900px;padding:36px 40px}
+#world .sermon-head{display:flex;align-items:center;gap:20px;padding-bottom:24px;border-bottom:1px solid #e5eaf3}
+#world .sermon-head h2{font-size:26px}.sermon-head .story-kicker{margin-bottom:7px}
+#world .listening-status{margin-left:auto;font-size:16px;color:#19846d;background:#eef9f4;border-radius:20px;padding:10px 15px}
+#world .sermon-line{padding:28px 0 0;height:126px}
+#world .sermon-line label,#world .remote-language label{font-size:13px;font-weight:600;letter-spacing:1.8px;color:#6c7890}
+#world .sermon-line p{font-size:32px;letter-spacing:-.8px;line-height:1.4;white-space:nowrap;margin:12px 0 0;min-height:45px}
+#world .translated-line p{color:#394dfe}
+#world .translation-flow{height:47px;display:flex;align-items:center;gap:18px;transform-origin:center;color:#394dfe}
+#world .translation-flow span{height:1px;background:#dce2f5;flex:1}
+#world .translation-flow svg{width:60px;height:40px}
+#world .remote-player{left:65px;top:5px;width:870px;height:530px;padding:0;overflow:hidden}
+#world .remote-bar{height:59px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:#f9faff;border-bottom:1px solid #e5e9f2;color:#64728b;font-size:17px}
+#world .remote-bar b{background:#eef8f3;color:#168268;border-radius:9px;padding:6px 12px;font-size:12px;letter-spacing:1px}
+#world .browser-dots{display:flex;gap:7px}.browser-dots i{width:8px;height:8px;border-radius:50%;background:#d4dcec}
+#world .remote-location{display:flex;align-items:center;gap:11px;position:absolute;left:30px;top:78px;color:#637189;font-size:17px}
+#world .remote-location svg{width:26px;height:26px;color:#394dfe}
+#world .remote-program{position:absolute;left:30px;top:126px;width:405px;height:300px}
+#world .remote-program svg{height:100%;width:100%}
+#world .remote-language{position:absolute;left:480px;top:146px;right:30px}
+#world .remote-option{height:61px;border:1px solid #e3e8f2;border-radius:11px;margin-top:13px;padding:17px 20px;font-size:21px;background:white}
+#world .remote-selected span{float:right}
+#world .remote-caption{position:absolute;bottom:26px;left:30px;right:30px;height:54px;border-radius:12px;background:#f0f3ff;color:#394dfe;text-align:center;padding:15px;font-size:21px}
+#world .remote-tap{left:685px;top:279px}
+#world .setup-shell{position:absolute;left:80px;top:15px;width:840px;height:510px;border:2px solid #dfe4ee;border-radius:32px;background:#fff;box-shadow:0 20px 35px #182b4210;overflow:hidden}
+#world .setup-pane{position:absolute;inset:0;padding:44px 52px;background:#fff}
+#world .setup-title{display:flex;align-items:center;gap:24px;margin-bottom:30px}
+#world .setup-title>span{color:#1458ff;width:52px;height:52px;display:block}
+#world .setup-title svg{width:100%;height:100%}
+#world .setup-title h2{font-size:34px}
+#world .setup-pane ul{list-style:none;padding:0;margin:0}
+#world .setup-pane li{display:flex;align-items:center;gap:19px;padding:13px 0;font-size:25px;letter-spacing:-.5px}
+#world .setup-pane li b{border-radius:50%;background:#1458ff;color:white;width:26px;height:26px;font-size:19px;text-align:center;line-height:26px;flex-shrink:0}
+#world .livestream-art{position:absolute;left:77px;top:0;width:846px;height:540px;filter:drop-shadow(0 15px 22px #14204416)}
+#world .livestream-art>svg{width:100%;height:100%;display:block}
+</style><script src="assets/gsap.min.js"></script></head><body><div data-hf-id="hf-ak0w" id="film" data-composition-id="exbabel-motion-v2" data-width="1920" data-height="1080" data-duration="123.8"><div data-hf-id="hf-j1s6" class="backdrop"></div><div data-hf-id="hf-0i6i" class="white-space"></div><div data-hf-id="hf-5hx4" id="world" data-layout-allow-overflow="true"><section data-hf-id="hf-fm9o" id="S03" class="scene" data-scene-index="0"><div data-hf-id="hf-r4id" class="visual"><div data-hf-id="hf-r8s7" class="copy"><h1 data-hf-id="hf-6igk">They’re here for the service.<br data-hf-id="hf-x5px"><span data-hf-id="hf-3ip9" class="accent">But missing parts of the message.</span></h1></div><div data-hf-id="hf-6jj0" class="phrase fragment f0" style="top:260px"><small data-hf-id="hf-f141">THE SERMON</small>“Welcome to our service.”</div><div data-hf-id="hf-o41w" class="phrase fragment f1" style="top:430px"><small data-hf-id="hf-yymn">WHAT THEY CATCH</small>Welcome ... our ...</div><div data-hf-id="hf-edmk" class="phrase fragment f2" style="top:600px">But what if that’s only part of what they understand?</div></div></section><section data-hf-id="hf-tf3d" id="S04" class="scene" data-scene-index="1"><div data-hf-id="hf-rite" class="visual"><h1 data-hf-id="hf-ffvj" class="top-title"><span data-hf-id="hf-qdva" class="accent">One scan</span> gets them connected.</h1><p data-hf-id="hf-rza0" class="marketing-support">Scan the service QR code from their phone.</p><div data-hf-id="hf-0l65" class="dashboard-stage"><div data-hf-id="hf-g4sl" class="camera"><div data-hf-id="hf-gnnd" class="product host" id="S04-product" style="left:440px;top:24px;width:880px;height:562.2222222222222px"><svg data-hf-id="hf-pgy0" class="notranslate" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-kaf5" width="720" height="460" rx="16" fill="#ffffff" />
+        <rect data-hf-id="hf-jndp" x="0.5" y="0.5" width="719" height="459" rx="15.5" stroke="#e5e7eb" stroke-opacity="0.6" />
+
+        
+        <rect data-hf-id="hf-fmqp" width="4" height="460" rx="2" fill="url(#S04-translateAccent)" />
+        <defs data-hf-id="hf-mh0t">
+          <lineargradient data-hf-id="hf-7f6z" id="S04-translateAccent" x1="0" y1="0" x2="0" y2="460">
+            <stop data-hf-id="hf-7exk" stop-color="#818cf8" />
+            <stop data-hf-id="hf-29et" offset="1" stop-color="#4338ca" />
+          </lineargradient>
+        </defs>
+
+        
+        <rect data-hf-id="hf-zw8m" x="4" width="716" height="52" fill="#fafbfc" />
+        <line data-hf-id="hf-19f4" x1="4" y1="52" x2="720" y2="52" stroke="#e5e7eb" stroke-opacity="0.5" />
+        <text data-hf-id="hf-n03x" x="28" y="33" font-family="var(--font-sora), sans-serif" font-size="15" font-weight="600" fill="#1a1a2e">Live Translation — Host</text>
+        <circle data-hf-id="hf-12zb" cx="688" cy="28" r="12" fill="#f3f4f6" />
+        
+
+        
+        <text data-hf-id="hf-gy82" x="360" y="82" font-family="var(--font-sora), sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Session Code:</text>
+        <text data-hf-id="hf-fwgu" x="360" y="118" font-family="var(--font-sora), sans-serif" font-size="36" font-weight="800" fill="#4338ca" text-anchor="middle" letter-spacing="6">2UU6SV</text>
+
+        
+        <rect data-hf-id="hf-zid5" x="295" y="130" width="130" height="130" rx="8" fill="#f8f9fa" stroke="#e5e7eb" />
+        
+        <rect data-hf-id="hf-zpsz" x="303" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-9chu" x="307" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-39sk" x="311" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-m9j4" x="393" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-dbj5" x="397" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-2r4w" x="401" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-tvhr" x="303" y="228" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-202w" x="307" y="232" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-qa0q" x="311" y="236" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-za8h" x="335" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-fnf8" x="347" y="138" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-233j" x="359" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-qkje" x="371" y="146" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-g9ou" x="383" y="146" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-tzkl" x="335" y="154" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-krxx" x="359" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-25oo" x="383" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-q16q" x="347" y="170" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-bw0j" x="371" y="170" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-wpfy" x="335" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-itsj" x="359" y="186" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-sa7p" x="383" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-9ehu" x="347" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-9p7t" x="371" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-hlg6" x="335" y="218" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-k3ue" x="359" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-emyz" x="383" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-thwu" x="347" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-g84i" x="371" y="234" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-05bg" x="393" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+
+        <text data-hf-id="hf-8rv7" x="360" y="278" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Listeners can scan this code to join</text>
+
+        
+        <rect data-hf-id="hf-vfp0" x="275" y="290" width="170" height="36" rx="8" fill="#4338ca" />
+        <text data-hf-id="hf-ef3x" x="360" y="313" font-family="var(--font-sora), sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Share with listeners</text>
+
+        
+        <line data-hf-id="hf-n2i6" x1="28" y1="340" x2="692" y2="340" stroke="#f3f4f6" stroke-width="1.5" />
+
+        
+        <circle data-hf-id="hf-hy1r" cx="38" cy="360" r="4" fill="#087f5b" />
+        <text data-hf-id="hf-booe" x="48" y="364" font-family="var(--font-sora), sans-serif" font-size="11" fill="#087f5b" font-weight="500">Connected</text>
+
+        
+        <text data-hf-id="hf-1pfp" x="28" y="386" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#1a1a2e">Configuration</text>
+        <text data-hf-id="hf-0ol5" x="28" y="405" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280">Speaking Language</text>
+        <rect data-hf-id="hf-1oqj" x="28" y="412" width="300" height="34" rx="8" fill="#f3f4f6" stroke="#e5e7eb" />
+        <text data-hf-id="hf-v8pa" x="48" y="434" font-family="var(--font-sora), sans-serif" font-size="12" fill="#374151">Auto-detect</text>
+        
+
+        
+        <rect data-hf-id="hf-3fla" x="380" y="406" width="190" height="42" rx="10" fill="#c92a32" />
+        <text data-hf-id="hf-gtuq" x="475" y="432" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Start Broadcasting</text>
+
+        
+        <rect data-hf-id="hf-8dqs" x="590" y="412" width="100" height="30" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" />
+        <text data-hf-id="hf-2xq7" x="640" y="431" font-family="var(--font-sora), sans-serif" font-size="10" font-weight="500" fill="#c92a32" text-anchor="middle">End Session</text>
+      </svg></div></div></div><div data-hf-id="hf-ltwq" class="focus-tag">Scan the service QR code</div></div></section><section data-hf-id="hf-h322" id="S05" class="scene" data-scene-index="2"><div data-hf-id="hf-ticj" class="visual"><div data-hf-id="hf-quh6" class="copy"><h1 data-hf-id="hf-ubth">Choose a language.</h1></div><div data-hf-id="hf-tan6" class="stage"><div data-hf-id="hf-g80p" class="camera"><div data-hf-id="hf-nvsq" class="product join" id="S05-product" style="left:1080px;top:0px;width:520px;height:641.3333333333334px"><svg data-hf-id="hf-qdoc" viewBox="0 0 300 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect data-hf-id="hf-z4zq" width="300" height="370" rx="18" fill="#ecfdf5" />
+        <rect data-hf-id="hf-2m8c" width="300" height="370" rx="18" fill="url(#S05-mintGradT)" opacity="0.4" />
+        <defs data-hf-id="hf-vl9d">
+          <lineargradient data-hf-id="hf-vtad" id="S05-mintGradT" x1="0" y1="0" x2="300" y2="370">
+            <stop data-hf-id="hf-mhv8" stop-color="#d1fae5" />
+            <stop data-hf-id="hf-j3hy" offset="1" stop-color="#a7f3d0" />
+          </lineargradient>
+        </defs>
+
+        <rect data-hf-id="hf-za6x" x="20" y="30" width="260" height="320" rx="14" fill="#ffffff" fill-opacity="0.88" stroke="#d1fae5" />
+
+        
+        <text data-hf-id="hf-s6hg" x="150" y="98" font-family="var(--font-sora), sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Join a Session</text>
+        <text data-hf-id="hf-hmcu" x="150" y="114" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Enter the code shown by your host</text>
+
+        <text data-hf-id="hf-04n4" x="40" y="140" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">SESSION CODE</text>
+        <rect data-hf-id="hf-b624" x="36" y="146" width="228" height="40" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-9jqj" x="150" y="173" font-family="var(--font-sora), sans-serif" font-size="20" font-weight="800" fill="#1a1a2e" text-anchor="middle" letter-spacing="10">2UU6SV</text>
+
+        <text data-hf-id="hf-l236" x="40" y="206" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">YOUR NAME</text>
+        <text data-hf-id="hf-pv31" x="115" y="206" font-family="var(--font-sora), sans-serif" font-size="8" fill="#64748b">(optional)</text>
+        <rect data-hf-id="hf-7qo9" x="36" y="212" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-byh0" x="52" y="234" font-family="var(--font-sora), sans-serif" font-size="11" fill="#64748b">Anonymous</text>
+
+        <text data-hf-id="hf-3u2x" x="40" y="266" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">TRANSLATION LANGUAGE</text>
+        <rect data-hf-id="hf-ew4v" x="36" y="272" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-sp9u" x="52" y="294" font-family="var(--font-sora), sans-serif" font-size="11" fill="#374151">Spanish (Latin America)</text>
+        
+
+        <rect data-hf-id="hf-yc5s" x="36" y="316" width="228" height="40" rx="12" fill="#087f5b" />
+        <text data-hf-id="hf-mn5k" x="150" y="341" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Join Session</text>
+      </svg></div><div data-hf-id="hf-qanl" class="pointer" style="left:1340px;top:502px"><svg data-hf-id="hf-q9ns" viewBox="0 0 36 44"><path data-hf-id="hf-s8fz" d="M3 2L30 23L18 25L13 39Z" fill="#0b1220" stroke="white" stroke-width="2.5" /></svg></div><div data-hf-id="hf-v8mv" class="ring" style="left:1312px;top:474px"></div></div></div></div></section><section data-hf-id="hf-sexb" id="S06" class="scene" data-scene-index="3"><div data-hf-id="hf-twnk" class="visual"><div data-hf-id="hf-uzl7" class="center-copy"><div data-hf-id="hf-uw8w" class="checkmark">✓</div><h1 data-hf-id="hf-uadh">That's <span data-hf-id="hf-o3ft" class="accent">pretty much it.</span></h1></div></div></section><section data-hf-id="hf-4yxm" id="S07" class="scene" data-scene-index="4"><div data-hf-id="hf-spqh" class="visual"><h1 data-hf-id="hf-jtwk" class="top-title">Your pastor keeps preaching.</h1><div data-hf-id="hf-lepd" class="path-line beat" style="left:470px;top:570px;width:970px"></div><div data-hf-id="hf-2k5z" class="node beat" style="left:100px;top:415px;width:440px;height:300px">Church audio<small data-hf-id="hf-axxl">Your existing setup</small></div><div data-hf-id="hf-5mto" class="node beat ex" style="left:710px;top:415px;width:500px;height:300px">Exbabel<small data-hf-id="hf-461x">Live translation</small></div><div data-hf-id="hf-9mse" class="node beat" style="left:1380px;top:415px;width:440px;height:300px">Your congregation<small data-hf-id="hf-yjr9">Their own phones</small></div><div data-hf-id="hf-ka82" class="wave-zone" style="left:715px;top:745px;width:490px"><div data-hf-id="hf-rxvg" class="audio-wave"><i data-hf-id="hf-gcjn" style="height:30px"></i><i data-hf-id="hf-lhip" style="height:54px"></i><i data-hf-id="hf-h7z9" style="height:83px"></i><i data-hf-id="hf-bc3k" style="height:110px"></i><i data-hf-id="hf-w0s9" style="height:65px"></i><i data-hf-id="hf-af38" style="height:95px"></i><i data-hf-id="hf-nspb" style="height:45px"></i><i data-hf-id="hf-wkpu" style="height:75px"></i><i data-hf-id="hf-845m" style="height:112px"></i><i data-hf-id="hf-a2wc" style="height:60px"></i><i data-hf-id="hf-0inm" style="height:40px"></i><i data-hf-id="hf-kqwj" style="height:85px"></i><i data-hf-id="hf-et63" style="height:108px"></i><i data-hf-id="hf-he1v" style="height:56px"></i><i data-hf-id="hf-nyru" style="height:31px"></i></div></div></div></section><section data-hf-id="hf-alfh" id="S08" class="scene" data-scene-index="5"><div data-hf-id="hf-t41i" class="visual"><div data-hf-id="hf-qg65" class="copy"><h1 data-hf-id="hf-pbt7">Hear the sermon<br data-hf-id="hf-rsrt"><span data-hf-id="hf-7fe7" class="accent">in your own language.</span></h1><p data-hf-id="hf-bu4p" class="marketing-support">Live translated audio plays through the listener’s headphones.</p></div><div data-hf-id="hf-xa86" class="stage"><div data-hf-id="hf-hexs" class="camera"><div data-hf-id="hf-sk75" class="product phone" id="S08-product" style="left:1180px;top:5px;width:335px;height:670px"><svg data-hf-id="hf-p4jp" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-bz4x" width="200" height="400" rx="20" fill="#0a1628" stroke="#1e293b" stroke-width="2" />
+
+        
+        <rect data-hf-id="hf-gczu" x="12" y="12" width="48" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-fvwo" x="36" y="26" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="600" fill="#e2e8f0" text-anchor="middle">2UU6SV</text>
+
+        <rect data-hf-id="hf-9ebl" x="64" y="12" width="28" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-iueo" x="78" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">S2S</text>
+
+        <rect data-hf-id="hf-mwa7" x="96" y="12" width="70" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-kz7p" x="131" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Spanish...</text>
+
+        
+        <circle data-hf-id="hf-qzkn" cx="174" cy="22" r="3" fill="#10b981" />
+        <text data-hf-id="hf-wxnc" x="174" y="40" font-family="var(--font-sora), sans-serif" font-size="6" fill="#10b981" text-anchor="middle">ACTIVE</text>
+
+        
+        <rect data-hf-id="hf-zt6j" x="8" y="50" width="184" height="300" rx="10" fill="#0f172a" />
+
+        
+          
+          <g data-hf-id="hf-ffdc" class="live-captions">
+      <text data-hf-id="hf-cadj" x="20" y="150" fill="#b8c4d9" font-size="10">Live Translation:</text>
+      <text data-hf-id="hf-auca" class="caption-line" x="20" y="180" fill="#5ce0b2" font-size="12" font-weight="600">Bienvenidos a</text>
+      <text data-hf-id="hf-s2dn" class="caption-line" x="20" y="203" fill="#5ce0b2" font-size="12" font-weight="600">nuestro servicio.</text>
+      <text data-hf-id="hf-08wq" class="caption-line" x="20" y="244" fill="#e2e8f0" font-size="11">Nos alegra estar</text>
+      <text data-hf-id="hf-6x3n" class="caption-line" x="20" y="265" fill="#e2e8f0" font-size="11">juntos hoy.</text>
+    </g>
+  
+          
+        <rect data-hf-id="hf-notj" x="8" y="356" width="184" height="36" rx="10" fill="#111827" />
+        <rect data-hf-id="hf-c971" x="16" y="364" width="4" height="16" rx="2" fill="#10b981" opacity="0.5" />
+        <rect data-hf-id="hf-z8dn" x="22" y="368" width="4" height="8" rx="2" fill="#10b981" opacity="0.7" />
+        <rect data-hf-id="hf-605k" x="28" y="362" width="4" height="20" rx="2" fill="#10b981" />
+        <rect data-hf-id="hf-nvok" x="34" y="366" width="4" height="12" rx="2" fill="#10b981" opacity="0.6" />
+        <text data-hf-id="hf-qrj1" x="46" y="377" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8">Streaming Translated Audio</text>
+
+        <rect data-hf-id="hf-y8om" x="130" y="365" width="54" height="18" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-qeli" x="157" y="378" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Multi Voice</text>
+      </svg></div></div></div><div data-hf-id="hf-lp5i" class="wave-zone"><div data-hf-id="hf-9v3o" class="audio-wave"><i data-hf-id="hf-j7r7" style="height:30px"></i><i data-hf-id="hf-bzz9" style="height:54px"></i><i data-hf-id="hf-4lbt" style="height:83px"></i><i data-hf-id="hf-o7i0" style="height:110px"></i><i data-hf-id="hf-8f65" style="height:65px"></i><i data-hf-id="hf-cknw" style="height:95px"></i><i data-hf-id="hf-qckv" style="height:45px"></i><i data-hf-id="hf-rt1i" style="height:75px"></i><i data-hf-id="hf-ltxq" style="height:112px"></i><i data-hf-id="hf-0ptw" style="height:60px"></i><i data-hf-id="hf-x2k6" style="height:40px"></i><i data-hf-id="hf-br0z" style="height:85px"></i><i data-hf-id="hf-q9e3" style="height:108px"></i><i data-hf-id="hf-6q8z" style="height:56px"></i><i data-hf-id="hf-vvym" style="height:31px"></i></div></div></div></section><section data-hf-id="hf-zmcn" id="S09" class="scene" data-scene-index="6"><div data-hf-id="hf-oqo7" class="visual"><div data-hf-id="hf-t8bc" class="copy"><h1 data-hf-id="hf-f4px">Listen — or <span data-hf-id="hf-uucw" class="accent">read along.</span></h1><p data-hf-id="hf-7jiq" class="marketing-support">Live translated captions appear right on their phone.</p></div><div data-hf-id="hf-xoj7" class="stage"><div data-hf-id="hf-h0mr" class="camera"><div data-hf-id="hf-owae" class="product phone" id="S09-product" style="left:1160px;top:0px;width:350px;height:700px"><svg data-hf-id="hf-g789" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-7dth" width="200" height="400" rx="20" fill="#0a1628" stroke="#1e293b" stroke-width="2" />
+
+        
+        <rect data-hf-id="hf-drwu" x="12" y="12" width="48" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-t5mo" x="36" y="26" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="600" fill="#e2e8f0" text-anchor="middle">2UU6SV</text>
+
+        <rect data-hf-id="hf-j4d1" x="64" y="12" width="28" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-9snc" x="78" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">S2S</text>
+
+        <rect data-hf-id="hf-wl5b" x="96" y="12" width="70" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-487t" x="131" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Spanish...</text>
+
+        
+        <circle data-hf-id="hf-q8wn" cx="174" cy="22" r="3" fill="#10b981" />
+        <text data-hf-id="hf-hrqo" x="174" y="40" font-family="var(--font-sora), sans-serif" font-size="6" fill="#10b981" text-anchor="middle">ACTIVE</text>
+
+        
+        <rect data-hf-id="hf-36ez" x="8" y="50" width="184" height="300" rx="10" fill="#0f172a" />
+
+        
+          
+          <g data-hf-id="hf-r3hk" class="live-captions">
+      <text data-hf-id="hf-g5nr" x="20" y="150" fill="#b8c4d9" font-size="10">Live Translation:</text>
+      <text data-hf-id="hf-gyf2" class="caption-line" x="20" y="180" fill="#5ce0b2" font-size="12" font-weight="600">Bienvenidos a</text>
+      <text data-hf-id="hf-ciuj" class="caption-line" x="20" y="203" fill="#5ce0b2" font-size="12" font-weight="600">nuestro servicio.</text>
+      <text data-hf-id="hf-foe6" class="caption-line" x="20" y="244" fill="#e2e8f0" font-size="11">Nos alegra estar</text>
+      <text data-hf-id="hf-v9mb" class="caption-line" x="20" y="265" fill="#e2e8f0" font-size="11">juntos hoy.</text>
+    </g>
+  
+          
+        <rect data-hf-id="hf-6ww7" x="8" y="356" width="184" height="36" rx="10" fill="#111827" />
+        <rect data-hf-id="hf-8v5t" x="16" y="364" width="4" height="16" rx="2" fill="#10b981" opacity="0.5" />
+        <rect data-hf-id="hf-czd7" x="22" y="368" width="4" height="8" rx="2" fill="#10b981" opacity="0.7" />
+        <rect data-hf-id="hf-8hxc" x="28" y="362" width="4" height="20" rx="2" fill="#10b981" />
+        <rect data-hf-id="hf-ejto" x="34" y="366" width="4" height="12" rx="2" fill="#10b981" opacity="0.6" />
+        <text data-hf-id="hf-m581" x="46" y="377" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8">Streaming Translated Audio</text>
+
+        <rect data-hf-id="hf-h1ay" x="130" y="365" width="54" height="18" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-xdd6" x="157" y="378" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Multi Voice</text>
+      </svg></div></div></div></div></section><section data-hf-id="hf-51et" id="S10" class="scene" data-scene-index="7"><div data-hf-id="hf-p4z8" class="visual"><div data-hf-id="hf-ula6" class="center-copy"><h1 data-hf-id="hf-mjw1"><span data-hf-id="hf-usha" class="accent">No separate service</span> required.</h1><p data-hf-id="hf-d3io" class="marketing-support">A Spanish-speaking family can stay in the same service and follow in their language.</p></div><div data-hf-id="hf-0f64" class="pills" style="top:740px"><div data-hf-id="hf-jgc3" class="pill beat">Same sermon</div><div data-hf-id="hf-fau1" class="pill beat">Same congregation</div><div data-hf-id="hf-75y9" class="pill beat">Their language</div></div></div></section><section data-hf-id="hf-b1lm" id="S11" class="scene" data-scene-index="8"><div data-hf-id="hf-rwjo" class="visual"><div data-hf-id="hf-u6z5" class="center-copy"><h1 data-hf-id="hf-jamq">Stay with their family.</h1></div><div data-hf-id="hf-2o39" class="pills" style="top:770px"><div data-hf-id="hf-y6nr" class="pill beat">Same family</div><div data-hf-id="hf-f142" class="pill beat">Same service</div><div data-hf-id="hf-3lwa" class="pill beat">The whole message</div></div></div></section><section data-hf-id="hf-kdsd" id="S12" class="scene" data-scene-index="9"><div data-hf-id="hf-ri8n" class="visual"><div data-hf-id="hf-su0b" class="copy"><h1 data-hf-id="hf-m2kk">Go beyond <span data-hf-id="hf-pqct" class="accent">one language.</span></h1><p data-hf-id="hf-py9g" class="marketing-support">Make the languages your community needs available in the same service.</p></div><div data-hf-id="hf-c324" class="language beat primary" style="left:955px;top:270px">Español<small data-hf-id="hf-2gfo">Spanish</small></div><div data-hf-id="hf-24bo" class="language beat" style="left:1360px;top:370px">Português<small data-hf-id="hf-5v71">Portuguese</small></div><div data-hf-id="hf-td1a" class="language beat" style="left:960px;top:520px">Français<small data-hf-id="hf-3cf8">French</small></div><div data-hf-id="hf-nlqf" class="language beat" style="left:1350px;top:640px">한국어<small data-hf-id="hf-rjps">Korean</small></div></div></section><section data-hf-id="hf-b27i" id="S13" class="scene" data-scene-index="10"><div data-hf-id="hf-r3xm" class="visual"><div data-hf-id="hf-tso4" class="center-copy"><h1 data-hf-id="hf-4kax">The same translation<br data-hf-id="hf-szow"><span data-hf-id="hf-4dmw" class="accent">works online.</span></h1><p data-hf-id="hf-k9ty" class="marketing-support">Bring multilingual access to your livestream, too.</p></div></div></section><section data-hf-id="hf-2984" id="S14" class="scene" data-scene-index="11"><div data-hf-id="hf-qpml" class="visual"><h1 data-hf-id="hf-bvqh" class="top-title">Translate your sermon online.</h1><div data-hf-id="hf-1a01" class="dashboard-stage"><div data-hf-id="hf-f13m" class="camera"><div data-hf-id="hf-51od" class="product full" id="S14-product" style="left:440px;top:24px;width:880px;height:562.2222222222222px"><svg data-hf-id="hf-f9ta" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-ef9x" width="720" height="460" rx="16" fill="#ffffff" />
+        <rect data-hf-id="hf-9nap" x="0.5" y="0.5" width="719" height="459" rx="15.5" stroke="#e5e7eb" stroke-opacity="0.6" />
+
+        
+        <rect data-hf-id="hf-hgt8" width="4" height="460" rx="2" fill="url(#S14-translateAccent)" />
+        <defs data-hf-id="hf-ws6g">
+          <lineargradient data-hf-id="hf-4fsc" id="S14-translateAccent" x1="0" y1="0" x2="0" y2="460">
+            <stop data-hf-id="hf-usa8" stop-color="#818cf8" />
+            <stop data-hf-id="hf-6ge1" offset="1" stop-color="#4338ca" />
+          </lineargradient>
+        </defs>
+
+        
+        <rect data-hf-id="hf-790a" x="4" width="716" height="52" fill="#fafbfc" />
+        <line data-hf-id="hf-jfew" x1="4" y1="52" x2="720" y2="52" stroke="#e5e7eb" stroke-opacity="0.5" />
+        <text data-hf-id="hf-0i2p" x="28" y="33" font-family="var(--font-sora), sans-serif" font-size="15" font-weight="600" fill="#1a1a2e">Live Translation — Host</text>
+        <circle data-hf-id="hf-9aon" cx="688" cy="28" r="12" fill="#f3f4f6" />
+        <svg data-hf-id="hf-bnbv" x="681" y="21" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-gdu9" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c-5 5-5 13 0 18 5-5 5-13 0-18Z" /></svg>
+
+        
+        <text data-hf-id="hf-02hy" x="360" y="82" font-family="var(--font-sora), sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Session Code:</text>
+        <text data-hf-id="hf-la0y" x="360" y="118" font-family="var(--font-sora), sans-serif" font-size="36" font-weight="800" fill="#4338ca" text-anchor="middle" letter-spacing="6">2UU6SV</text>
+
+        
+        <rect data-hf-id="hf-06fh" x="295" y="130" width="130" height="130" rx="8" fill="#f8f9fa" stroke="#e5e7eb" />
+        
+        <rect data-hf-id="hf-1owz" x="303" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-cxd2" x="307" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-s31o" x="311" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-t9rs" x="393" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-35x1" x="397" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-1bko" x="401" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-9ihb" x="303" y="228" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-ysbk" x="307" y="232" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-i6se" x="311" y="236" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-qqdh" x="335" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-wn70" x="347" y="138" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-o767" x="359" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-ruhq" x="371" y="146" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-tv6a" x="383" y="146" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-zxqh" x="335" y="154" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-c1wp" x="359" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-4t6o" x="383" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-j3l2" x="347" y="170" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-qmgj" x="371" y="170" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-zzyq" x="335" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-9tir" x="359" y="186" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-ldk9" x="383" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-c2h2" x="347" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-veu5" x="371" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-qunu" x="335" y="218" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-tt5m" x="359" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-sduz" x="383" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-sxrm" x="347" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-9892" x="371" y="234" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-5ldw" x="393" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+
+        <text data-hf-id="hf-1enn" x="360" y="278" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Listeners can scan this code to join</text>
+
+        
+        <rect data-hf-id="hf-l3d8" x="275" y="290" width="170" height="36" rx="8" fill="#4338ca" />
+        <svg data-hf-id="hf-7py8" x="286" y="301" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-qy6p" d="M12 16V3m-5 5 5-5 5 5M5 13v7h14v-7" /></svg><svg data-hf-id="hf-mmmg" x="425" y="302" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-zit5" d="m6 9 6 6 6-6" /></svg><text data-hf-id="hf-2kup" x="360" y="313" font-family="var(--font-sora), sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Share with listeners</text>
+
+        
+        <line data-hf-id="hf-1d2q" x1="28" y1="340" x2="692" y2="340" stroke="#f3f4f6" stroke-width="1.5" />
+
+        
+        <circle data-hf-id="hf-dq8v" cx="38" cy="360" r="4" fill="#087f5b" />
+        <text data-hf-id="hf-to6q" x="48" y="364" font-family="var(--font-sora), sans-serif" font-size="11" fill="#087f5b" font-weight="500">Connected</text>
+
+        
+        <text data-hf-id="hf-nmu1" x="28" y="386" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#1a1a2e">Configuration</text>
+        <text data-hf-id="hf-1dn1" x="28" y="405" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280">Speaking Language</text>
+        <rect data-hf-id="hf-qx4r" x="28" y="412" width="300" height="34" rx="8" fill="#f3f4f6" stroke="#e5e7eb" />
+        <text data-hf-id="hf-vb2q" x="48" y="434" font-family="var(--font-sora), sans-serif" font-size="12" fill="#374151">Auto-detect</text>
+        <svg data-hf-id="hf-rhas" x="306" y="422" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-ai8d" d="m6 9 6 6 6-6" /></svg>
+
+        
+        <rect data-hf-id="hf-wlgy" x="380" y="406" width="190" height="42" rx="10" fill="#c92a32" />
+        <svg data-hf-id="hf-mga8" x="391" y="421" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-c8hv" d="M9 5a3 3 0 0 1 6 0v7a3 3 0 0 1-6 0V5Zm-3 6v1a6 6 0 0 0 12 0v-1M12 18v4m-4 0h8" /></svg><text data-hf-id="hf-0dfq" x="475" y="432" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Start Broadcasting</text>
+
+        
+        <rect data-hf-id="hf-l6zw" x="590" y="412" width="100" height="30" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" />
+        <svg data-hf-id="hf-n5yp" x="596" y="422" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-8wf3" d="M6 6h12v12H6Z" /></svg><text data-hf-id="hf-0oqn" x="640" y="431" font-family="var(--font-sora), sans-serif" font-size="10" font-weight="500" fill="#c92a32" text-anchor="middle">End Session</text>
+      </svg></div></div></div><div data-hf-id="hf-6z62" class="focus-tag">Connect your livestream audio</div></div></section><section data-hf-id="hf-b86y" id="S15" class="scene" data-scene-index="12"><div data-hf-id="hf-thrs" class="visual"><div data-hf-id="hf-sfpa" class="copy"><h1 data-hf-id="hf-ibss">Let viewers choose their language.</h1></div><div data-hf-id="hf-y2u8" class="stage"><div data-hf-id="hf-emsl" class="camera"><div data-hf-id="hf-rw50" class="product join" id="S15-product" style="left:1060px;top:25px;width:460px;height:567.3333333333334px"><svg data-hf-id="hf-dtmc" viewBox="0 0 300 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect data-hf-id="hf-q9ze" width="300" height="370" rx="18" fill="#ecfdf5" />
+        <rect data-hf-id="hf-xlcf" width="300" height="370" rx="18" fill="url(#S15-mintGradT)" opacity="0.4" />
+        <defs data-hf-id="hf-wdvf">
+          <lineargradient data-hf-id="hf-rugm" id="S15-mintGradT" x1="0" y1="0" x2="300" y2="370">
+            <stop data-hf-id="hf-d158" stop-color="#d1fae5" />
+            <stop data-hf-id="hf-xty2" offset="1" stop-color="#a7f3d0" />
+          </lineargradient>
+        </defs>
+
+        <rect data-hf-id="hf-xfzh" x="20" y="30" width="260" height="320" rx="14" fill="#ffffff" fill-opacity="0.88" stroke="#d1fae5" />
+
+        
+        <text data-hf-id="hf-0rfw" x="150" y="98" font-family="var(--font-sora), sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Join a Session</text>
+        <text data-hf-id="hf-304y" x="150" y="114" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Enter the code shown by your host</text>
+
+        <text data-hf-id="hf-60s8" x="40" y="140" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">SESSION CODE</text>
+        <rect data-hf-id="hf-nojo" x="36" y="146" width="228" height="40" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-5wjv" x="150" y="173" font-family="var(--font-sora), sans-serif" font-size="20" font-weight="800" fill="#1a1a2e" text-anchor="middle" letter-spacing="10">2UU6SV</text>
+
+        <text data-hf-id="hf-72fq" x="40" y="206" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">YOUR NAME</text>
+        <text data-hf-id="hf-4p0x" x="115" y="206" font-family="var(--font-sora), sans-serif" font-size="8" fill="#64748b">(optional)</text>
+        <rect data-hf-id="hf-ze7x" x="36" y="212" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-2u0s" x="52" y="234" font-family="var(--font-sora), sans-serif" font-size="11" fill="#64748b">Anonymous</text>
+
+        <text data-hf-id="hf-kt19" x="40" y="266" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">TRANSLATION LANGUAGE</text>
+        <rect data-hf-id="hf-mixb" x="36" y="272" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-tgae" x="52" y="294" font-family="var(--font-sora), sans-serif" font-size="11" fill="#374151">Spanish (Latin America)</text>
+        
+
+        <rect data-hf-id="hf-o7ag" x="36" y="316" width="228" height="40" rx="12" fill="#087f5b" />
+        <text data-hf-id="hf-m9ao" x="150" y="341" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Join Session</text>
+      </svg></div></div></div><div data-hf-id="hf-efzx" class="pills" style="top:820px"><div data-hf-id="hf-y2k7" class="pill beat">Live audio</div><div data-hf-id="hf-qlqk" class="pill beat">Translated captions</div></div></div></section><section data-hf-id="hf-53k4" id="S16" class="scene" data-scene-index="13"><div data-hf-id="hf-t3gr" class="visual"><h1 data-hf-id="hf-into" class="top-title">Built around the setup<br data-hf-id="hf-sldv"><span data-hf-id="hf-b54h" class="accent">you already use.</span></h1><p data-hf-id="hf-srkk" class="marketing-support">Connect your church audio without rebuilding your Sunday workflow.</p><div data-hf-id="hf-8vj9" class="path-line beat" style="left:470px;top:570px;width:970px"></div><div data-hf-id="hf-2qon" class="node beat" style="left:100px;top:415px;width:440px;height:300px">Church audio<small data-hf-id="hf-foe5">Your existing setup</small></div><div data-hf-id="hf-jtgk" class="node beat ex" style="left:710px;top:415px;width:500px;height:300px">Exbabel<small data-hf-id="hf-boxl">Live translation</small></div><div data-hf-id="hf-zp1e" class="node beat" style="left:1380px;top:415px;width:440px;height:300px">Your congregation<small data-hf-id="hf-y1uh">Their own phones</small></div><div data-hf-id="hf-nvy9" class="pills" style="top:815px"><div data-hf-id="hf-l6vv" class="pill beat">Connect the audio setup you already use</div></div></div></section><section data-hf-id="hf-xrls" id="S17" class="scene" data-scene-index="14"><div data-hf-id="hf-sp5q" class="visual"><h1 data-hf-id="hf-jrw2" class="top-title">Connect your audio.<br data-hf-id="hf-qluq">Start translation.<br data-hf-id="hf-q7jp"><span data-hf-id="hf-wvx1" class="accent">Share the QR code.</span></h1><div data-hf-id="hf-2gx4" class="dashboard-stage"><div data-hf-id="hf-ftpo" class="camera"><div data-hf-id="hf-2ens" class="product full" id="S17-product" style="left:440px;top:24px;width:880px;height:562.2222222222222px"><svg data-hf-id="hf-y1rm" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-fm70" width="720" height="460" rx="16" fill="#ffffff" />
+        <rect data-hf-id="hf-au7s" x="0.5" y="0.5" width="719" height="459" rx="15.5" stroke="#e5e7eb" stroke-opacity="0.6" />
+
+        
+        <rect data-hf-id="hf-f8pd" width="4" height="460" rx="2" fill="url(#S17-translateAccent)" />
+        <defs data-hf-id="hf-ueca">
+          <lineargradient data-hf-id="hf-jafv" id="S17-translateAccent" x1="0" y1="0" x2="0" y2="460">
+            <stop data-hf-id="hf-tld5" stop-color="#818cf8" />
+            <stop data-hf-id="hf-7nb4" offset="1" stop-color="#4338ca" />
+          </lineargradient>
+        </defs>
+
+        
+        <rect data-hf-id="hf-7nbb" x="4" width="716" height="52" fill="#fafbfc" />
+        <line data-hf-id="hf-i8ht" x1="4" y1="52" x2="720" y2="52" stroke="#e5e7eb" stroke-opacity="0.5" />
+        <text data-hf-id="hf-1ozs" x="28" y="33" font-family="var(--font-sora), sans-serif" font-size="15" font-weight="600" fill="#1a1a2e">Live Translation — Host</text>
+        <circle data-hf-id="hf-8wdm" cx="688" cy="28" r="12" fill="#f3f4f6" />
+        <svg data-hf-id="hf-52cb" x="681" y="21" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-krd1" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c-5 5-5 13 0 18 5-5 5-13 0-18Z" /></svg>
+
+        
+        <text data-hf-id="hf-0gsz" x="360" y="82" font-family="var(--font-sora), sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Session Code:</text>
+        <text data-hf-id="hf-lobz" x="360" y="118" font-family="var(--font-sora), sans-serif" font-size="36" font-weight="800" fill="#4338ca" text-anchor="middle" letter-spacing="6">2UU6SV</text>
+
+        
+        <rect data-hf-id="hf-1dck" x="295" y="130" width="130" height="130" rx="8" fill="#f8f9fa" stroke="#e5e7eb" />
+        
+        <rect data-hf-id="hf-1aly" x="303" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-dbo3" x="307" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-qw4l" x="311" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-s2up" x="393" y="138" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-4cu4" x="397" y="142" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-04nl" x="401" y="146" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-946a" x="303" y="228" width="24" height="24" rx="2" fill="#1a1a2e" />
+        <rect data-hf-id="hf-tjfd" x="307" y="232" width="16" height="16" rx="1" fill="#fff" />
+        <rect data-hf-id="hf-il3f" x="311" y="236" width="8" height="8" fill="#1a1a2e" />
+        
+        <rect data-hf-id="hf-rxak" x="335" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-vg9x" x="347" y="138" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-nsv6" x="359" y="138" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-s8sr" x="371" y="146" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-u9hb" x="383" y="146" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-14nk" x="335" y="154" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-d8ts" x="359" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-3m9l" x="383" y="154" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-jhw3" x="347" y="170" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-q85i" x="371" y="170" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-0e9r" x="335" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-9f7q" x="359" y="186" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-mkhc" x="383" y="186" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-cgs3" x="347" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-wlr8" x="371" y="202" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-r8yv" x="335" y="218" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+        <rect data-hf-id="hf-u7gn" x="359" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-rzjy" x="383" y="218" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-tc2n" x="347" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.5" />
+        <rect data-hf-id="hf-9mk3" x="371" y="234" width="6" height="6" fill="#1a1a2e" />
+        <rect data-hf-id="hf-4egt" x="393" y="234" width="6" height="6" fill="#1a1a2e" opacity="0.4" />
+
+        <text data-hf-id="hf-10cm" x="360" y="278" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Listeners can scan this code to join</text>
+
+        
+        <rect data-hf-id="hf-jwg5" x="275" y="290" width="170" height="36" rx="8" fill="#4338ca" />
+        <svg data-hf-id="hf-rfvc" x="286" y="301" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-3z0l" d="M12 16V3m-5 5 5-5 5 5M5 13v7h14v-7" /></svg><svg data-hf-id="hf-ddvk" x="425" y="302" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-bp5g" d="m6 9 6 6 6-6" /></svg><text data-hf-id="hf-3rrs" x="360" y="313" font-family="var(--font-sora), sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Share with listeners</text>
+
+        
+        <line data-hf-id="hf-1rdr" x1="28" y1="340" x2="692" y2="340" stroke="#f3f4f6" stroke-width="1.5" />
+
+        
+        <circle data-hf-id="hf-dbxu" cx="38" cy="360" r="4" fill="#087f5b" />
+        <text data-hf-id="hf-u2hr" x="48" y="364" font-family="var(--font-sora), sans-serif" font-size="11" fill="#087f5b" font-weight="500">Connected</text>
+
+        
+        <text data-hf-id="hf-otr4" x="28" y="386" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#1a1a2e">Configuration</text>
+        <text data-hf-id="hf-2kk4" x="28" y="405" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280">Speaking Language</text>
+        <rect data-hf-id="hf-qitq" x="28" y="412" width="300" height="34" rx="8" fill="#f3f4f6" stroke="#e5e7eb" />
+        <text data-hf-id="hf-vpdr" x="48" y="434" font-family="var(--font-sora), sans-serif" font-size="12" fill="#374151">Auto-detect</text>
+        <svg data-hf-id="hf-godo" x="306" y="422" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-bauf" d="m6 9 6 6 6-6" /></svg>
+
+        
+        <rect data-hf-id="hf-wzrz" x="380" y="406" width="190" height="42" rx="10" fill="#c92a32" />
+        <svg data-hf-id="hf-xl1k" x="391" y="421" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-sdqb" d="M9 5a3 3 0 0 1 6 0v7a3 3 0 0 1-6 0V5Zm-3 6v1a6 6 0 0 0 12 0v-1M12 18v4m-4 0h8" /></svg><text data-hf-id="hf-0rqr" x="475" y="432" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Start Broadcasting</text>
+
+        
+        <rect data-hf-id="hf-k02t" x="590" y="412" width="100" height="30" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" />
+        <svg data-hf-id="hf-x0it" x="596" y="422" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-yc2n" d="M6 6h12v12H6Z" /></svg><text data-hf-id="hf-0afm" x="640" y="431" font-family="var(--font-sora), sans-serif" font-size="10" font-weight="500" fill="#c92a32" text-anchor="middle">End Session</text>
+      </svg></div></div></div><div data-hf-id="hf-il0s" class="focus-tag">Audio → Translation → QR code</div></div></section><section data-hf-id="hf-6dpe" id="S18" class="scene" data-scene-index="15"><div data-hf-id="hf-saup" class="visual"><h1 data-hf-id="hf-tkj0" class="top-title">Listeners join from<br data-hf-id="hf-regs"><span data-hf-id="hf-93ms" class="accent">their own phones.</span></h1><p data-hf-id="hf-26kq" class="marketing-support">Choose a language and follow along.</p><div data-hf-id="hf-vap1" class="stage"><div data-hf-id="hf-ffen" class="camera"><div data-hf-id="hf-cubb" class="product phone" id="S18-a-product" style="left:520px;top:120px;width:255px;height:510px"><svg data-hf-id="hf-he5c" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-8kqk" width="200" height="400" rx="20" fill="#0a1628" stroke="#1e293b" stroke-width="2" />
+
+        
+        <rect data-hf-id="hf-e67v" x="12" y="12" width="48" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-rypl" x="36" y="26" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="600" fill="#e2e8f0" text-anchor="middle">2UU6SV</text>
+
+        <rect data-hf-id="hf-kba4" x="64" y="12" width="28" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-8lq9" x="78" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">S2S</text>
+
+        <rect data-hf-id="hf-w6ua" x="96" y="12" width="70" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-5f4w" x="131" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Spanish...</text>
+
+        
+        <circle data-hf-id="hf-pulm" cx="174" cy="22" r="3" fill="#10b981" />
+        <text data-hf-id="hf-gktl" x="174" y="40" font-family="var(--font-sora), sans-serif" font-size="6" fill="#10b981" text-anchor="middle">ACTIVE</text>
+
+        
+        <rect data-hf-id="hf-2s3y" x="8" y="50" width="184" height="300" rx="10" fill="#0f172a" />
+
+        
+          
+          <g data-hf-id="hf-pwkh" class="live-captions">
+      <text data-hf-id="hf-frcq" x="20" y="150" fill="#b8c4d9" font-size="10">Live Translation:</text>
+      <text data-hf-id="hf-hcq3" class="caption-line" x="20" y="180" fill="#5ce0b2" font-size="12" font-weight="600">Bienvenidos a</text>
+      <text data-hf-id="hf-c4ji" class="caption-line" x="20" y="203" fill="#5ce0b2" font-size="12" font-weight="600">nuestro servicio.</text>
+      <text data-hf-id="hf-g2p7" class="caption-line" x="20" y="244" fill="#e2e8f0" font-size="11">Nos alegra estar</text>
+      <text data-hf-id="hf-uvba" class="caption-line" x="20" y="265" fill="#e2e8f0" font-size="11">juntos hoy.</text>
+    </g>
+  
+          
+        <rect data-hf-id="hf-6il6" x="8" y="356" width="184" height="36" rx="10" fill="#111827" />
+        <rect data-hf-id="hf-a22w" x="16" y="364" width="4" height="16" rx="2" fill="#10b981" opacity="0.5" />
+        <rect data-hf-id="hf-cl26" x="22" y="368" width="4" height="8" rx="2" fill="#10b981" opacity="0.7" />
+        <rect data-hf-id="hf-7b09" x="28" y="362" width="4" height="20" rx="2" fill="#10b981" />
+        <rect data-hf-id="hf-dcwl" x="34" y="366" width="4" height="12" rx="2" fill="#10b981" opacity="0.6" />
+        <text data-hf-id="hf-nc54" x="46" y="377" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8">Streaming Translated Audio</text>
+
+        <rect data-hf-id="hf-hflz" x="130" y="365" width="54" height="18" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-xro7" x="157" y="378" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Multi Voice</text>
+      </svg></div><div data-hf-id="hf-wdyg" class="product join" id="S18-b-product" style="left:830px;top:145px;width:340px;height:419.33333333333337px"><svg data-hf-id="hf-cmp9" viewBox="0 0 300 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect data-hf-id="hf-qoaf" width="300" height="370" rx="18" fill="#ecfdf5" />
+        <rect data-hf-id="hf-27l3" width="300" height="370" rx="18" fill="url(#S18-b-mintGradT)" opacity="0.4" />
+        <defs data-hf-id="hf-u019">
+          <lineargradient data-hf-id="hf-1ldy" id="S18-b-mintGradT" x1="0" y1="0" x2="300" y2="370">
+            <stop data-hf-id="hf-bu85" stop-color="#d1fae5" />
+            <stop data-hf-id="hf-y893" offset="1" stop-color="#a7f3d0" />
+          </lineargradient>
+        </defs>
+
+        <rect data-hf-id="hf-ymwk" x="20" y="30" width="260" height="320" rx="14" fill="#ffffff" fill-opacity="0.88" stroke="#d1fae5" />
+
+        
+        <text data-hf-id="hf-zkit" x="150" y="98" font-family="var(--font-sora), sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Join a Session</text>
+        <text data-hf-id="hf-3efz" x="150" y="114" font-family="var(--font-sora), sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Enter the code shown by your host</text>
+
+        <text data-hf-id="hf-4tv5" x="40" y="140" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">SESSION CODE</text>
+        <rect data-hf-id="hf-mhml" x="36" y="146" width="228" height="40" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-5i8u" x="150" y="173" font-family="var(--font-sora), sans-serif" font-size="20" font-weight="800" fill="#1a1a2e" text-anchor="middle" letter-spacing="10">2UU6SV</text>
+
+        <text data-hf-id="hf-7gqr" x="40" y="206" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">YOUR NAME</text>
+        <text data-hf-id="hf-5vy0" x="115" y="206" font-family="var(--font-sora), sans-serif" font-size="8" fill="#64748b">(optional)</text>
+        <rect data-hf-id="hf-0l50" x="36" y="212" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-1n3p" x="52" y="234" font-family="var(--font-sora), sans-serif" font-size="11" fill="#64748b">Anonymous</text>
+
+        <text data-hf-id="hf-lzyc" x="40" y="266" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="700" fill="#6b7280" letter-spacing="1.5">TRANSLATION LANGUAGE</text>
+        <rect data-hf-id="hf-m4ma" x="36" y="272" width="228" height="34" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+        <text data-hf-id="hf-tulf" x="52" y="294" font-family="var(--font-sora), sans-serif" font-size="11" fill="#374151">Spanish (Latin America)</text>
+        
+
+        <rect data-hf-id="hf-n0dd" x="36" y="316" width="228" height="40" rx="12" fill="#087f5b" />
+        <text data-hf-id="hf-l2dl" x="150" y="341" font-family="var(--font-sora), sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Join Session</text>
+      </svg></div><div data-hf-id="hf-ykxp" class="product phone" id="S18-c-product" style="left:1260px;top:120px;width:255px;height:510px"><svg data-hf-id="hf-gzub" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <rect data-hf-id="hf-86fj" width="200" height="400" rx="20" fill="#0a1628" stroke="#1e293b" stroke-width="2" />
+
+        
+        <rect data-hf-id="hf-ekiw" x="12" y="12" width="48" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-sd0m" x="36" y="26" font-family="var(--font-sora), sans-serif" font-size="8" font-weight="600" fill="#e2e8f0" text-anchor="middle">2UU6SV</text>
+
+        <rect data-hf-id="hf-jwz3" x="64" y="12" width="28" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-901a" x="78" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">S2S</text>
+
+        <rect data-hf-id="hf-vsj9" x="96" y="12" width="70" height="20" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-50tv" x="131" y="26" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Spanish...</text>
+
+        
+        <circle data-hf-id="hf-pgal" cx="174" cy="22" r="3" fill="#10b981" />
+        <text data-hf-id="hf-gz4m" x="174" y="40" font-family="var(--font-sora), sans-serif" font-size="6" fill="#10b981" text-anchor="middle">ACTIVE</text>
+
+        
+        <rect data-hf-id="hf-2dsx" x="8" y="50" width="184" height="300" rx="10" fill="#0f172a" />
+
+        
+          
+          <g data-hf-id="hf-qavi" class="live-captions">
+      <text data-hf-id="hf-fd1p" x="20" y="150" fill="#b8c4d9" font-size="10">Live Translation:</text>
+      <text data-hf-id="hf-hr14" class="caption-line" x="20" y="180" fill="#5ce0b2" font-size="12" font-weight="600">Bienvenidos a</text>
+      <text data-hf-id="hf-bq8h" class="caption-line" x="20" y="203" fill="#5ce0b2" font-size="12" font-weight="600">nuestro servicio.</text>
+      <text data-hf-id="hf-gh08" class="caption-line" x="20" y="244" fill="#e2e8f0" font-size="11">Nos alegra estar</text>
+      <text data-hf-id="hf-uh09" class="caption-line" x="20" y="265" fill="#e2e8f0" font-size="11">juntos hoy.</text>
+    </g>
+  
+          
+        <rect data-hf-id="hf-64a5" x="8" y="356" width="184" height="36" rx="10" fill="#111827" />
+        <rect data-hf-id="hf-9nrv" x="16" y="364" width="4" height="16" rx="2" fill="#10b981" opacity="0.5" />
+        <rect data-hf-id="hf-c6r5" x="22" y="368" width="4" height="8" rx="2" fill="#10b981" opacity="0.7" />
+        <rect data-hf-id="hf-7pba" x="28" y="362" width="4" height="20" rx="2" fill="#10b981" />
+        <rect data-hf-id="hf-dr7m" x="34" y="366" width="4" height="12" rx="2" fill="#10b981" opacity="0.6" />
+        <text data-hf-id="hf-mxu3" x="46" y="377" font-family="var(--font-sora), sans-serif" font-size="7" fill="#94a3b8">Streaming Translated Audio</text>
+
+        <rect data-hf-id="hf-htx0" x="130" y="365" width="54" height="18" rx="6" fill="#1e293b" />
+        <text data-hf-id="hf-y5z8" x="157" y="378" font-family="var(--font-sora), sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle">Multi Voice</text>
+      </svg></div></div></div></div></section><section data-hf-id="hf-sd7i" id="S20" class="scene" data-scene-index="16"><div data-hf-id="hf-uoov" class="visual"><div data-hf-id="hf-6wg9" class="trial-number beat">30</div><div data-hf-id="hf-utaj" class="trial-caption beat">days to try Exbabel</div><div data-hf-id="hf-t95j" class="copy trial-copy"><h1 data-hf-id="hf-ydex">30-day <span data-hf-id="hf-iird" class="accent">free trial.</span></h1><p data-hf-id="hf-6wrd" class="marketing-support">Try Exbabel in your next service.</p><p data-hf-id="hf-q1an"><span data-hf-id="hf-xopm" class="cta-button">Start at Exbabel.com</span></p></div></div></section><section data-hf-id="hf-dd9q" id="S21" class="scene" data-scene-index="17"><div data-hf-id="hf-s24f" class="visual"><div data-hf-id="hf-s1e9" class="copy"><h1 data-hf-id="hf-dznz">Want help with<br data-hf-id="hf-r05r"><span data-hf-id="hf-5e6a" class="accent">your setup?</span></h1><p data-hf-id="hf-znvj" class="marketing-support">Schedule a quick call and we’ll walk through it with your team.</p></div><div data-hf-id="hf-jol7" class="call-card"><h2 data-hf-id="hf-ekmt">Your Sunday setup</h2><div data-hf-id="hf-ex9p" class="row beat"><span data-hf-id="hf-ls52">✓</span>Church audio</div><div data-hf-id="hf-labf" class="row beat"><span data-hf-id="hf-wobe">✓</span>Translation session</div><div data-hf-id="hf-ka4q" class="row beat"><span data-hf-id="hf-x2mf">✓</span>Listener access</div><div data-hf-id="hf-4fdv" class="cta-button beat" style="margin-top:25px">Schedule a quick call</div></div><div data-hf-id="hf-mbtf" class="footer-url">Exbabel.com</div></div></section><section data-hf-id="hf-qwg9" id="S22" class="scene" data-scene-index="18"><div data-hf-id="hf-sgfg" class="visual"><div data-hf-id="hf-t022" class="center-copy"><h1 data-hf-id="hf-tamq">Give your church<br data-hf-id="hf-p0mm"><span data-hf-id="hf-aajr" class="accent">one voice.</span></h1><p data-hf-id="hf-4gen" class="marketing-support">So language never keeps someone from the message.</p><p data-hf-id="hf-wo4v"><span data-hf-id="hf-idn0" class="url">Exbabel.com</span></p></div></div></section><div data-hf-id="hf-0ydb" id="bridge" aria-label="Exbabel translation signal"><svg data-hf-id="hf-fohl" viewBox="0 0 100 100"><path data-hf-id="hf-gj93" d="M34 20h19L39 80H20zM62 20h19L67 80H48z" fill="white" /></svg></div></div><div data-hf-id="hf-1479" id="S01" class="scene clip" data-start="0.0" data-duration="10.988" data-track-index="1" data-composition-id="S01" data-composition-src="./compositions/s01-general.html" data-layout-allow-overflow="true"></div><div data-hf-id="hf-83sq" id="S19" class="scene clip" data-start="98.622" data-duration="5.578" data-track-index="1" data-composition-id="S19" data-composition-src="./compositions/s19.html" data-layout-allow-overflow="true"></div><audio data-hf-id="hf-5p02" id="narration" src="assets/narration.wav" data-start="0" data-duration="123.8" data-track-index="10"></audio></div><script id="production-data" type="application/json">{"width": 1920, "height": 1080, "fps": 30, "durationMs": 123800, "scenes": [{"id": "S01", "title": "Personal greeting", "voiceover": "Hey there, just wanted to show you how you can bring multilingual services to your congregation at your church.", "headline": "Every voice. One congregation.", "layout": "title", "tool": "HF", "reference": "Reference R04\u2013R07: centered words assemble around one brand anchor.", "labels": ["Exbabel", "[Church Name]"], "transition": "T01", "wordCount": 20, "durationMs": 6244, "startMs": 0, "endMs": 6244, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S01-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S01-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S01-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S01-hero", "role": "title", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S01-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "brand appears at x50 y32; scale .9\u21921, opacity 0\u21921", "durationMs": 500, "ease": "outCubic"}, {"atMs": 550, "action": "headline first phrase rises 30px under mask", "durationMs": 500, "ease": "outCubic"}, {"atMs": 3300, "action": "second phrase replaces the greeting line", "durationMs": 420, "ease": "outCubic"}, {"atMs": 6800, "action": "church name settles below; hold", "durationMs": 400, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 8400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1800, "assets": ["official-logo", "Sora-font", "ui-title"], "captionText": "Hey [First Name], just wanted to show you how you can bring multilingual services to your congregation at [Church Name].", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 0, "originalEndMs": 9000, "originalDurationMs": 9000}, {"id": "S02", "title": "A family arrives", "voiceover": "Picture someone walking into your service this Sunday with their family.", "headline": "A place for every family.", "layout": "people", "tool": "H + HF + COMP", "reference": "Human-context adaptation; the reference itself contains no live action.", "labels": ["Sunday morning", "A family arrives"], "transition": "T02", "wordCount": 11, "durationMs": 4744, "startMs": 6244, "endMs": 10988, "camera": {"type": "physical shot per Higgsfield prompt plus flat HF overlay", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S02-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S02-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S02-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S02-hero", "role": "people", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S02-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "family footage card rises 36px and resolves", "durationMs": 480, "ease": "outCubic"}, {"atMs": 600, "action": "family advances toward entrance; camera tracks 0.4m", "durationMs": 3600, "ease": "outCubic"}, {"atMs": 4250, "action": "headline becomes fully readable; hold", "durationMs": 350, "ease": "outCubic"}], "exit": {"transitionId": "T02", "startsAtLocalMs": 4900, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1000, "assets": ["official-logo", "Sora-font", "ui-people", "H-S02"], "captionText": "Picture someone walking into your service this Sunday with their family.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 9000, "originalEndMs": 14500, "originalDurationMs": 5500}, {"id": "S03", "title": "The language barrier", "voiceover": "They want to be there. They want to hear the sermon. But English isn't their first language, so they're only catching pieces of the message.", "headline": "They\u2019re here for the service. But missing parts of the message.", "layout": "fragment", "tool": "HF", "reference": "R10\u2013R11: enlarged speech bubbles; isolate one incomplete thought.", "labels": ["Welcome to our service.", "\u2026 only pieces of the message"], "transition": "T03", "wordCount": 25, "durationMs": 9178, "startMs": 10988, "endMs": 20166, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S03-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S03-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S03-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S03-hero", "role": "fragment", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S03-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "three short English phrase strips occupy x30/50/70", "durationMs": 450, "ease": "outCubic"}, {"atMs": 1700, "action": "middle and right strips fade to .25; left remains clear", "durationMs": 420, "ease": "outCubic"}, {"atMs": 4200, "action": "camera crops toward remaining phrase; scale 1\u21921.2", "durationMs": 620, "ease": "outCubic"}, {"atMs": 6900, "action": "fragments gather into one centered message card", "durationMs": 650, "ease": "outCubic"}, {"atMs": 8200, "action": "hold problem statement without more decorative motion", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T03", "startsAtLocalMs": 10400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2800, "assets": ["official-logo", "Sora-font", "ui-fragment"], "captionText": "They want to be there. They want to hear the sermon. But English isn't their first language, so they're only catching pieces of the message.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 14500, "originalEndMs": 25500, "originalDurationMs": 11000, "marketingCopy": {"lines": ["They\u2019re here for the service.", "But missing parts of the message."], "accent": 1}}, {"id": "S04", "title": "Scan", "voiceover": "With Exbabel, they can pull out their phone, scan a QR code,", "headline": "One scan gets them connected.", "layout": "scan", "tool": "HF", "reference": "R12: small circular control grows into a purposeful UI surface.", "labels": ["Service access", "Scan to join"], "transition": "T04", "wordCount": 12, "durationMs": 4590, "startMs": 20166, "endMs": 24756, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S04-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S04-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S04-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S04-hero", "role": "scan", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S04-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "blank access pill grows into a QR presentation card", "durationMs": 600, "ease": "outCubic"}, {"atMs": 650, "action": "phone outline enters from x+90 y+60", "durationMs": 520, "ease": "outCubic"}, {"atMs": 1800, "action": "scan bracket travels downward once over QR region", "durationMs": 650, "ease": "outCubic"}, {"atMs": 3000, "action": "check resolves; hold the confirmed access state", "durationMs": 300, "ease": "outCubic"}], "exit": {"transitionId": "T04", "startsAtLocalMs": 4900, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2200, "assets": ["official-logo", "Sora-font", "ui-scan"], "captionText": "With Exbabel, they can pull out their phone, scan a QR code,", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 25500, "originalEndMs": 31000, "originalDurationMs": 5500, "marketingCopy": {"lines": ["One scan gets them connected."], "accentPhrase": "One scan", "support": "Scan the service QR code from their phone."}}, {"id": "S05", "title": "Choose and listen", "voiceover": "choose their language, and start listening.", "headline": "Choose a language.", "layout": "phone", "tool": "HF", "reference": "R15: selected row lifts from its list; R22: action-detail punch-in.", "labels": ["Espa\u00f1ol", "Listen to this service"], "transition": "T05", "wordCount": 6, "durationMs": 2944, "startMs": 24756, "endMs": 27700, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S05-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S05-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S05-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S05-hero", "role": "phone", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S05-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "phone stays in place; three language rows reveal at 70ms stagger", "durationMs": 420, "ease": "outCubic"}, {"atMs": 650, "action": "Espa\u00f1ol row rises 12px and gains blue border", "durationMs": 320, "ease": "outCubic"}, {"atMs": 1300, "action": "Listen action compresses .98\u21921; state changes to connected", "durationMs": 260, "ease": "outCubic"}, {"atMs": 1800, "action": "hold selected language and audio state", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T05", "startsAtLocalMs": 2400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1200, "assets": ["official-logo", "Sora-font", "ui-phone"], "captionText": "choose their language, and start listening.", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 31000, "originalEndMs": 34000, "originalDurationMs": 3000, "marketingCopy": {"lines": ["Choose a language."]}}, {"id": "S06", "title": "Simple payoff", "voiceover": "That's pretty much it.", "headline": "That's it.", "layout": "title", "tool": "HF", "reference": "R23: clean completion state; brief visual breath.", "labels": ["You're connected."], "transition": "T01", "wordCount": 4, "durationMs": 2100, "startMs": 27700, "endMs": 29800, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S06-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S06-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S06-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S06-hero", "role": "title", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S06-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "status check draws, then short payoff rises 24px", "durationMs": 450, "ease": "outCubic"}, {"atMs": 500, "action": "hold clean completion", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 1900, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2000, "assets": ["official-logo", "Sora-font", "ui-title"], "captionText": "That's pretty much it.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 34000, "originalEndMs": 36500, "originalDurationMs": 2500}, {"id": "S07", "title": "Pastor continues", "voiceover": "Your pastor keeps preaching like normal. Exbabel listens to the service and translates it while they're speaking.", "headline": "Your pastor keeps preaching.", "layout": "signal", "tool": "HF", "reference": "R16\u2013R18: persistent status chip explains work without a busy dashboard.", "labels": ["Service audio", "Exbabel", "Translated audio"], "transition": "T06", "wordCount": 17, "durationMs": 7489, "startMs": 29800, "endMs": 37289, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S07-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S07-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S07-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S07-hero", "role": "signal", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S07-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "speaker, Exbabel and listener nodes enter left to right", "durationMs": 600, "ease": "outCubic"}, {"atMs": 1300, "action": "input path draws left\u2192center", "durationMs": 800, "ease": "outCubic"}, {"atMs": 2500, "action": "output path draws center\u2192right while input continues", "durationMs": 900, "ease": "outCubic"}, {"atMs": 4200, "action": "deterministic wave cycle repeats finite times", "durationMs": 2300, "ease": "outCubic"}, {"atMs": 6800, "action": "hold all connected nodes", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T06", "startsAtLocalMs": 7400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1200, "assets": ["official-logo", "Sora-font", "ui-signal"], "captionText": "Your pastor keeps preaching like normal. Exbabel listens to the service and translates it while they're speaking.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 36500, "originalEndMs": 44500, "originalDurationMs": 8000, "marketingCopy": {"lines": ["Your pastor keeps preaching."]}}, {"id": "S08", "title": "Listen in your language", "voiceover": "The person in the congregation hears the sermon through their headphones in their own language.", "headline": "Hear the sermon in your own language.", "layout": "listener", "tool": "H + HF + COMP", "reference": "Human-benefit insert; retain the same visual anchor and light field.", "labels": ["Translated audio", "Espa\u00f1ol"], "transition": "T02", "wordCount": 15, "durationMs": 5467, "startMs": 37289, "endMs": 42756, "camera": {"type": "physical shot per Higgsfield prompt plus flat HF overlay", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S08-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S08-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S08-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S08-hero", "role": "listener", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S08-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "listener footage resolves inside rounded card at x62 y55", "durationMs": 480, "ease": "outCubic"}, {"atMs": 700, "action": "listener settles earbud, then follows sermon; no lip sync", "durationMs": 4300, "ease": "outCubic"}, {"atMs": 5200, "action": "translated audio label gains emphasis, then holds", "durationMs": 350, "ease": "outCubic"}], "exit": {"transitionId": "T02", "startsAtLocalMs": 6400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1450, "assets": ["official-logo", "Sora-font", "ui-listener", "H-S08"], "captionText": "The person in the congregation hears the sermon through their headphones in their own language.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 44500, "originalEndMs": 51500, "originalDurationMs": 7000, "marketingCopy": {"lines": ["Hear the sermon", "in your own language."], "accent": 1, "support": "Live translated audio plays through the listener\u2019s headphones."}}, {"id": "S09", "title": "Read captions", "voiceover": "They can also read translated captions right on their phone.", "headline": "Listen \u2014 or read along.", "layout": "captions", "tool": "HF", "reference": "R10\u2013R11: close-up text reveal inside bubbles with uninterrupted reading hold.", "labels": ["Welcome to our service.", "Bienvenidos a nuestro servicio."], "transition": "T07", "wordCount": 10, "durationMs": 3900, "startMs": 42756, "endMs": 46656, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S09-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S09-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S09-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S09-hero", "role": "captions", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S09-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "phone enters at scale .96, centered x65 y56", "durationMs": 450, "ease": "outCubic"}, {"atMs": 650, "action": "first translated phrase reveals as one semantic chunk", "durationMs": 500, "ease": "outCubic"}, {"atMs": 2200, "action": "second line appears; existing line translates upward 38px", "durationMs": 450, "ease": "outCubic"}, {"atMs": 3100, "action": "hold complete caption for reading", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T07", "startsAtLocalMs": 4400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1900, "assets": ["official-logo", "Sora-font", "ui-captions"], "captionText": "They can also read translated captions right on their phone.", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 51500, "originalEndMs": 56500, "originalDurationMs": 5000, "marketingCopy": {"lines": ["Listen \u2014 or read along."], "accentPhrase": "read along.", "support": "Live translated captions appear right on their phone."}}, {"id": "S10", "title": "One shared service", "voiceover": "So if you have a Spanish-speaking family visiting your church, you don't have to create another service for them.", "headline": "No separate service required.", "layout": "together", "tool": "HF", "reference": "R05\u2013R08: type reflows while its semantic anchor remains.", "labels": ["[Church Name]", "One congregation"], "transition": "T01", "wordCount": 19, "durationMs": 6410, "startMs": 46656, "endMs": 53066, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S10-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S10-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S10-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S10-hero", "role": "together", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S10-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "one church outline is drawn behind the family", "durationMs": 550, "ease": "outCubic"}, {"atMs": 1600, "action": "family rows move into a shared seating group", "durationMs": 650, "ease": "outCubic"}, {"atMs": 3800, "action": "headline changes from one service to together", "durationMs": 420, "ease": "outCubic"}, {"atMs": 5500, "action": "hold whole congregation and church-name label", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 7900, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 3000, "assets": ["official-logo", "Sora-font", "ui-together"], "captionText": "So if you have a Spanish-speaking family visiting [Church Name], you don't have to create another service for them.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 56500, "originalEndMs": 65000, "originalDurationMs": 8500, "marketingCopy": {"lines": ["No separate service required."], "accentPhrase": "No separate service", "support": "A Spanish-speaking family can stay in the same service and follow in their language."}}, {"id": "S11", "title": "Belonging", "voiceover": "They can sit with their family, worship with the same congregation, and actually understand what's being said.", "headline": "Stay with their family.", "layout": "people", "tool": "H + HF + COMP", "reference": "Return to the arrival family after the product proof.", "labels": ["Same family", "Same congregation"], "transition": "T02", "wordCount": 17, "durationMs": 6767, "startMs": 53066, "endMs": 59833, "camera": {"type": "physical shot per Higgsfield prompt plus flat HF overlay", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S11-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S11-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S11-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S11-hero", "role": "people", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S11-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "reuse same family identities and wardrobe, seated together", "durationMs": 480, "ease": "outCubic"}, {"atMs": 800, "action": "0.25m slow lateral move; family attends naturally", "durationMs": 4900, "ease": "outCubic"}, {"atMs": 6100, "action": "hold headline and family in shared environment", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T02", "startsAtLocalMs": 7400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1900, "assets": ["official-logo", "Sora-font", "ui-people", "H-S11"], "captionText": "They can sit with their family, worship with the same congregation, and actually understand what's being said.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 65000, "originalEndMs": 73000, "originalDurationMs": 8000, "marketingCopy": {"lines": ["Stay with their family."]}}, {"id": "S12", "title": "More languages", "voiceover": "And you're not limited to Spanish. You can make other languages available depending on the people you're trying to reach.", "headline": "Go beyond one language.", "layout": "languages", "tool": "HF", "reference": "R02\u2013R03: center anchor expands to a controlled constellation.", "labels": ["Espa\u00f1ol", "\ud55c\uad6d\uc5b4", "Portugu\u00eas", "Fran\u00e7ais"], "transition": "T06", "wordCount": 20, "durationMs": 7267, "startMs": 59833, "endMs": 67100, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S12-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S12-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S12-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S12-hero", "role": "languages", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S12-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "Exbabel anchor enters center", "durationMs": 450, "ease": "outCubic"}, {"atMs": 1200, "action": "Spanish card arrives upper left", "durationMs": 420, "ease": "outCubic"}, {"atMs": 2700, "action": "Korean and Portuguese cards arrive, 90ms stagger", "durationMs": 500, "ease": "outCubic"}, {"atMs": 4800, "action": "French card completes four-node field", "durationMs": 450, "ease": "outCubic"}, {"atMs": 6300, "action": "hold all labels with no numeric coverage claim", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T06", "startsAtLocalMs": 8400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2700, "assets": ["official-logo", "Sora-font", "ui-languages"], "captionText": "And you're not limited to Spanish. You can make other languages available depending on the people you're trying to reach.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 73000, "originalEndMs": 82000, "originalDurationMs": 9000, "marketingCopy": {"lines": ["Go beyond one language."], "accentPhrase": "one language.", "support": "Make the languages your community needs available in the same service."}}, {"id": "S13", "title": "Online handoff", "voiceover": "The same thing works online.", "headline": "The same translation works online.", "layout": "title", "tool": "HF", "reference": "R24\u2013R27: fixed sentence with one changing phrase.", "labels": ["Online, too."], "transition": "T01", "wordCount": 5, "durationMs": 2444, "startMs": 67100, "endMs": 69544, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S13-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S13-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S13-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S13-hero", "role": "title", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S13-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "In the room holds then slides upward 28px", "durationMs": 380, "ease": "outCubic"}, {"atMs": 700, "action": "Online phrase rises into same baseline", "durationMs": 420, "ease": "outCubic"}, {"atMs": 1500, "action": "hold the online promise", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 2400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1500, "assets": ["official-logo", "Sora-font", "ui-title"], "captionText": "The same thing works online.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 82000, "originalEndMs": 85000, "originalDurationMs": 3000, "marketingCopy": {"lines": ["The same translation", "works online."], "accent": 1, "support": "Bring multilingual access to your livestream, too."}}, {"id": "S14", "title": "Livestream input", "voiceover": "If you're already livestreaming your services, Exbabel can translate the livestream too.", "headline": "Translate your sermon online.", "layout": "livestream", "tool": "HF", "reference": "R14: simplified browser rises into frame, then context recedes.", "labels": ["Service livestream", "Translated audio + captions"], "transition": "T06", "wordCount": 12, "durationMs": 5956, "startMs": 69544, "endMs": 75500, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S14-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S14-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S14-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S14-hero", "role": "livestream", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S14-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "browser surface rises y80\u21920, scale .96\u21921", "durationMs": 620, "ease": "outCubic"}, {"atMs": 900, "action": "neutral sermon-video placeholder resolves in browser", "durationMs": 350, "ease": "outCubic"}, {"atMs": 1800, "action": "translation layer docks under video", "durationMs": 500, "ease": "outCubic"}, {"atMs": 3300, "action": "caption chunk becomes readable; hold", "durationMs": 450, "ease": "outCubic"}], "exit": {"transitionId": "T06", "startsAtLocalMs": 4900, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1750, "assets": ["official-logo", "Sora-font", "ui-livestream"], "captionText": "If you're already livestreaming your services, Exbabel can translate the livestream too.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 85000, "originalEndMs": 90500, "originalDurationMs": 5500, "marketingCopy": {"lines": ["Translate your sermon online."]}}, {"id": "S15", "title": "Remote listener", "voiceover": "Someone watching from another city or another country can choose their language and follow along.", "headline": "Let viewers choose their language.", "layout": "remote", "tool": "HF", "reference": "R15: relevant card expands; background remains subordinate.", "labels": ["Choose a language", "Follow along"], "transition": "T05", "wordCount": 15, "durationMs": 6322, "startMs": 75500, "endMs": 81822, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S15-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S15-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S15-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S15-hero", "role": "remote", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S15-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "two location cards enter at x32/68 y55", "durationMs": 550, "ease": "outCubic"}, {"atMs": 1300, "action": "left card shrinks to .82 while right language selector enlarges", "durationMs": 620, "ease": "outCubic"}, {"atMs": 2800, "action": "language selection check resolves", "durationMs": 300, "ease": "outCubic"}, {"atMs": 4400, "action": "both viewer cards return to equal weight; hold", "durationMs": 500, "ease": "outCubic"}], "exit": {"transitionId": "T05", "startsAtLocalMs": 6400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2100, "assets": ["official-logo", "Sora-font", "ui-remote"], "captionText": "Someone watching from another city or another country can choose their language and follow along.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 90500, "originalEndMs": 97500, "originalDurationMs": 7000, "marketingCopy": {"lines": ["Let viewers choose their language."]}}, {"id": "S16", "title": "Existing audio setup", "voiceover": "We designed it to work with the audio setup churches already use, so your team doesn't have to completely rethink Sunday morning.", "headline": "Built around the setup you already use.", "layout": "signal", "tool": "HF", "reference": "R17\u2013R20: show the causal process instead of every setting.", "labels": ["Church audio", "Exbabel session", "Congregation"], "transition": "T06", "wordCount": 22, "durationMs": 7700, "startMs": 81822, "endMs": 89522, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S16-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S16-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S16-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S16-hero", "role": "signal", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S16-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "three large hardware-to-listener blocks enter", "durationMs": 550, "ease": "outCubic"}, {"atMs": 1800, "action": "existing audio cable path draws", "durationMs": 700, "ease": "outCubic"}, {"atMs": 3800, "action": "Exbabel session state changes to ready", "durationMs": 320, "ease": "outCubic"}, {"atMs": 5600, "action": "connection line reaches listener phone", "durationMs": 700, "ease": "outCubic"}, {"atMs": 7600, "action": "hold stable operational diagram; no unsupported connector promises", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T06", "startsAtLocalMs": 9400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 2400, "assets": ["official-logo", "Sora-font", "ui-signal"], "captionText": "We designed it to work with the audio setup churches already use, so your team doesn't have to completely rethink Sunday morning.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 97500, "originalEndMs": 107500, "originalDurationMs": 10000, "marketingCopy": {"lines": ["Built around the setup", "you already use."], "accent": 1, "support": "Connect your church audio without rebuilding your Sunday workflow."}}, {"id": "S17", "title": "Connect, start, share", "voiceover": "Connect your audio. Start the translation. Put the QR code on the screen.", "headline": "Connect your audio. Start translation. Share the QR code.", "layout": "steps", "tool": "HF", "reference": "R24\u2013R27: three phrase substitutions land on spoken verbs.", "labels": ["Connect audio", "Start translation", "Display QR code"], "transition": "T07", "wordCount": 13, "durationMs": 5522, "startMs": 89522, "endMs": 95044, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S17-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S17-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S17-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S17-hero", "role": "steps", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S17-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "Connect audio step reveals", "durationMs": 380, "ease": "outCubic"}, {"atMs": 1800, "action": "Start translation step reveals", "durationMs": 380, "ease": "outCubic"}, {"atMs": 3500, "action": "Display QR code step reveals", "durationMs": 380, "ease": "outCubic"}, {"atMs": 4600, "action": "hold three completed steps", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T07", "startsAtLocalMs": 5400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1400, "assets": ["official-logo", "Sora-font", "ui-steps"], "captionText": "Connect your audio. Start the translation. Put the QR code on the screen.", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 107500, "originalEndMs": 113500, "originalDurationMs": 6000, "marketingCopy": {"lines": ["Connect your audio.", "Start translation.", "Share the QR code."], "accent": 2}}, {"id": "S18", "title": "The listener takes over", "voiceover": "Your congregation handles the rest from their phones.", "headline": "Listeners join from their own phones.", "layout": "phones", "tool": "HF", "reference": "R02: one object multiplies into a small organized field.", "labels": ["Scan", "Choose", "Listen"], "transition": "T03", "wordCount": 8, "durationMs": 3578, "startMs": 95044, "endMs": 98622, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S18-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S18-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S18-headline", "role": "headline", "boxPct": [7, 14, 86, 18], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S18-hero", "role": "phones", "boxPct": [13, 35, 74, 51], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S18-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "one phone anchors center", "durationMs": 420, "ease": "outCubic"}, {"atMs": 750, "action": "two copies fan outward to x28/72, 90ms stagger", "durationMs": 620, "ease": "outCubic"}, {"atMs": 2100, "action": "three action labels appear below", "durationMs": 420, "ease": "outCubic"}, {"atMs": 2800, "action": "hold", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T03", "startsAtLocalMs": 3400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 1200, "assets": ["official-logo", "Sora-font", "ui-phones"], "captionText": "Your congregation handles the rest from their phones.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 113500, "originalEndMs": 117500, "originalDurationMs": 4000, "marketingCopy": {"lines": ["Listeners join from", "their own phones."], "accent": 1, "support": "Choose a language and follow along."}}, {"id": "S19", "title": "Invitation", "voiceover": "If this sounds useful for your church, I'd love for you to actually try it during a service.", "headline": "Try it during a service.", "layout": "title", "tool": "HF", "reference": "R23 completion hold becomes an invitation; new CTA, not observed ending.", "labels": ["[Church Name]"], "transition": "T01", "wordCount": 18, "durationMs": 5578, "startMs": 98622, "endMs": 104200, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S19-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S19-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S19-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S19-hero", "role": "title", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S19-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "church name appears as a small label", "durationMs": 450, "ease": "outCubic"}, {"atMs": 1300, "action": "invitation headline resolves in two lines", "durationMs": 550, "ease": "outCubic"}, {"atMs": 3900, "action": "quiet hold with only brand anchor", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 7400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 4100, "assets": ["official-logo", "Sora-font", "ui-title"], "captionText": "If this sounds useful for [Church Name], I'd love for you to actually try it during a service.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 117500, "originalEndMs": 125500, "originalDurationMs": 8000}, {"id": "S20", "title": "Trial CTA", "voiceover": "You can start with a 30-day free trial at Exbabel.com.", "headline": "30-day free trial.", "layout": "cta", "tool": "HF", "reference": "R22: focused action close-up, then settle for reading.", "labels": ["Exbabel.com", "30-day free trial"], "transition": "T05", "wordCount": 10, "durationMs": 4456, "startMs": 104200, "endMs": 108656, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S20-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S20-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S20-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S20-hero", "role": "cta", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S20-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "trial headline reveals", "durationMs": 420, "ease": "outCubic"}, {"atMs": 800, "action": "Exbabel.com button grows .96\u21921", "durationMs": 380, "ease": "outCubic"}, {"atMs": 1500, "action": "hold offer and URL; no moving text", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T05", "startsAtLocalMs": 4400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 3500, "assets": ["official-logo", "Sora-font", "ui-cta"], "captionText": "You can start with a 30-day free trial at Exbabel.com.", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 125500, "originalEndMs": 130500, "originalDurationMs": 5000, "marketingCopy": {"lines": ["30-day free trial."], "accentPhrase": "free trial.", "support": "Try Exbabel in your next service.", "cta": "Start at Exbabel.com"}}, {"id": "S21", "title": "Setup call", "voiceover": "And if you'd rather have us walk through your setup with you first, you can schedule a quick call with our team.", "headline": "Want help with your setup?", "layout": "cta", "tool": "HF", "reference": "R15: selected action becomes a clear card, with no competing UI.", "labels": ["Schedule a quick call", "Exbabel team"], "transition": "T01", "wordCount": 22, "durationMs": 6700, "startMs": 108656, "endMs": 115356, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S21-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S21-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S21-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S21-hero", "role": "cta", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S21-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "call card replaces trial card on same anchor", "durationMs": 420, "ease": "outCubic"}, {"atMs": 1700, "action": "three illustrative setup topics appear", "durationMs": 500, "ease": "outCubic"}, {"atMs": 4200, "action": "call action remains still with URL", "durationMs": 0, "ease": "outCubic"}], "exit": {"transitionId": "T01", "startsAtLocalMs": 9400, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 5800, "assets": ["official-logo", "Sora-font", "ui-cta"], "captionText": "And if you'd rather have us walk through your setup with you first, you can schedule a quick call with our team.", "audioCues": [{"atMs": 650, "type": "soft-interface-tick", "status": "proposed; omit under a key consonant"}], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 130500, "originalEndMs": 140500, "originalDurationMs": 10000, "marketingCopy": {"lines": ["Want help with", "your setup?"], "accent": 1, "support": "Schedule a quick call and we\u2019ll walk through it with your team."}}, {"id": "S22", "title": "Emotional close", "voiceover": "That way, the next person who walks into your church doesn't have to speak the same language as your pastor to understand the message.", "headline": "Give your church one voice.", "layout": "close", "tool": "HF", "reference": "Original resolution built from R23's clean payoff; reference recording has no captured final CTA.", "labels": ["Exbabel", "Exbabel.com"], "transition": "HOLD", "wordCount": 24, "durationMs": 8444, "startMs": 115356, "endMs": 123800, "camera": {"type": "digital composition reframe, no physical lens", "defaultScale": [1, 1.025], "perspectivePx": 0, "rotationDegrees": 0, "note": "Reference UI is predominantly front-on; do not add default 3D tilt."}, "layers": [{"id": "S22-bg", "role": "background", "boxPct": [0, 0, 100, 100], "z": 0, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S22-brand", "role": "brand anchor", "boxPct": [5, 6, 22, 5], "z": 5, "initial": {"x": 0, "y": 0, "scale": 1, "rotation": 0, "opacity": 1, "blur": 0}}, {"id": "S22-headline", "role": "headline", "boxPct": [8, 18, 84, 22], "z": 4, "initial": {"x": 0, "y": 30, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S22-hero", "role": "close", "boxPct": [10, 43, 80, 39], "z": 2, "initial": {"x": 0, "y": 60, "scale": 0.96, "rotation": 0, "opacity": 0, "blur": 0}}, {"id": "S22-detail", "role": "supporting labels", "boxPct": [12, 86, 76, 6], "z": 4, "initial": {"x": 0, "y": 20, "scale": 1, "rotation": 0, "opacity": 0, "blur": 0}}], "beats": [{"atMs": 0, "action": "family/church motif resolves behind headline", "durationMs": 600, "ease": "outCubic"}, {"atMs": 2500, "action": "One congregation phrase appears", "durationMs": 450, "ease": "outCubic"}, {"atMs": 4800, "action": "Understood replaces secondary line", "durationMs": 450, "ease": "outCubic"}, {"atMs": 6500, "action": "logo and Exbabel.com settle; hold through final frame", "durationMs": 400, "ease": "outCubic"}], "exit": {"transitionId": "HOLD", "startsAtLocalMs": null, "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."}, "readHoldMs": 3600, "assets": ["official-logo", "Sora-font", "ui-close"], "captionText": "That way, the next person who walks into [Church Name] doesn't have to speak the same language as your pastor to understand the message.", "audioCues": [], "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.", "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media", "originalStartMs": 140500, "originalEndMs": 151000, "originalDurationMs": 10500, "marketingCopy": {"lines": ["Give your church", "one voice."], "accent": 1, "support": "So language never keeps someone from the message."}}], "cameraCues": [{"scene": "S04", "atMs": 1200, "target": [880, 262], "focal": [880, 312], "scale": 2.2, "holdMs": 1500, "pullBack": true, "subject": "Service QR code"}, {"scene": "S05", "atMs": 500, "target": [1340, 502], "focal": [1310, 435], "scale": 1.65, "holdMs": 900, "pullBack": false, "subject": "Translation language selector"}, {"scene": "S08", "atMs": 1300, "target": [1347, 620], "focal": [1320, 485], "scale": 1.65, "holdMs": 1800, "pullBack": true, "subject": "Translated audio control"}, {"scene": "S09", "atMs": 900, "target": [1335, 340], "focal": [1330, 365], "scale": 1.9, "holdMs": 1900, "pullBack": false, "subject": "Translated caption text"}, {"scene": "S14", "atMs": 1100, "target": [1021, 543], "focal": [1080, 360], "scale": 1.75, "holdMs": 1300, "pullBack": true, "subject": "Start Broadcasting button"}, {"scene": "S15", "atMs": 1100, "target": [1290, 468], "focal": [1290, 420], "scale": 1.65, "holdMs": 1800, "pullBack": true, "subject": "Remote listener language selector"}, {"scene": "S17", "atMs": 600, "target": [657, 548], "focal": [730, 350], "scale": 1.65, "holdMs": 350, "pullBack": true, "subject": "Audio configuration"}, {"scene": "S17", "atMs": 2150, "target": [1021, 546], "focal": [1060, 350], "scale": 1.8, "holdMs": 350, "pullBack": true, "subject": "Start Broadcasting button"}, {"scene": "S17", "atMs": 3700, "target": [880, 262], "focal": [880, 312], "scale": 2, "holdMs": 450, "pullBack": true, "subject": "Share QR code"}], "cameraGuide": "../exbabel-storyboard/templates/product-focus-camera.md", "sourceAssets": ["host", "full", "join", "phone"], "voice": "ElevenLabs Roger \u2014 eleven_multilingual_v2"}</script><script>window.liveStreamSVG="<svg viewBox=\"0 0 720 460\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:100%\">\n        \n        \n\n        \n        <rect width=\"720\" height=\"460\" rx=\"16\" fill=\"#0f172a\" />\n        <rect x=\"0.5\" y=\"0.5\" width=\"719\" height=\"459\" rx=\"15.5\" stroke=\"#1e293b\" />\n\n        \n        <rect width=\"720\" height=\"48\" rx=\"16\" fill=\"#111827\" />\n        <rect y=\"16\" width=\"720\" height=\"32\" fill=\"#111827\" />\n        <line x1=\"0\" y1=\"48\" x2=\"720\" y2=\"48\" stroke=\"#1e293b\" />\n\n        \n        <rect x=\"20\" y=\"12\" width=\"26\" height=\"26\" rx=\"6\" fill=\"#10b981\" />\n        \n        <text x=\"56\" y=\"30\" font-family=\"var(--font-sora), sans-serif\" font-size=\"14\" font-weight=\"700\" fill=\"#ffffff\">Exbabel</text>\n\n        \n        <text x=\"600\" y=\"30\" font-family=\"var(--font-sora), sans-serif\" font-size=\"11\" fill=\"#94a3b8\">Sign In</text>\n        <rect x=\"650\" y=\"14\" width=\"56\" height=\"26\" rx=\"6\" fill=\"#10b981\" />\n        <text x=\"678\" y=\"31\" font-family=\"var(--font-sora), sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">Sign Up</text>\n\n        \n        <rect x=\"20\" y=\"60\" width=\"460\" height=\"340\" rx=\"12\" fill=\"#1a2332\" />\n\n        \n        <rect x=\"20\" y=\"60\" width=\"460\" height=\"340\" rx=\"12\" fill=\"url(#livestream-videoGrad)\" opacity=\"0.3\" />\n        <defs>\n          <linearGradient id=\"livestream-videoGrad\" x1=\"250\" y1=\"60\" x2=\"250\" y2=\"400\">\n            <stop stop-color=\"#0f172a\" stop-opacity=\"0\" />\n            <stop offset=\"1\" stop-color=\"#0f172a\" />\n          </linearGradient>\n        </defs>\n\n        \n        <rect x=\"36\" y=\"74\" width=\"52\" height=\"22\" rx=\"6\" fill=\"#1e293b\" fill-opacity=\"0.9\" />\n        <circle cx=\"48\" cy=\"85\" r=\"3\" fill=\"#ef4444\" />\n        <text x=\"58\" y=\"89\" font-family=\"var(--font-sora), sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\">LIVE</text>\n\n        \n        <rect x=\"380\" y=\"74\" width=\"88\" height=\"22\" rx=\"6\" fill=\"#1e293b\" fill-opacity=\"0.9\" />\n        <text x=\"392\" y=\"89\" font-family=\"var(--font-sora), sans-serif\" font-size=\"9\" fill=\"#94a3b8\">Main Auditorium</text>\n\n        \n        <ellipse cx=\"250\" cy=\"200\" rx=\"90\" ry=\"110\" fill=\"#263248\" />\n        \n        <g class=\"anim-head\" style=\"transform-origin: 250px 180px\">\n          \n          <rect x=\"228\" y=\"110\" width=\"44\" height=\"40\" rx=\"15\" fill=\"#5D4037\" />\n          \n          \n          <circle cx=\"225\" cy=\"135\" r=\"6\" fill=\"#E6B08F\" />\n          <circle cx=\"275\" cy=\"135\" r=\"6\" fill=\"#E6B08F\" />\n          \n          \n          <path d=\"M 230 115 C 230 90, 270 90, 270 115 L 270 145 C 270 160, 230 160, 230 145 Z\" fill=\"#F5CBA7\" />\n          \n          \n          <path d=\"M 225 120 C 230 95, 260 95, 275 115 C 265 105, 245 105, 225 120 Z\" fill=\"#4E342E\" />\n          <path d=\"M 235 100 C 245 90, 265 100, 275 120 C 265 105, 250 100, 235 100 Z\" fill=\"#4E342E\" />\n          \n          \n          <path d=\"M 237 122 Q 242 120 246 122\" fill=\"none\" stroke=\"#4E342E\" stroke-width=\"1.5\" stroke-linecap=\"round\" />\n          <path d=\"M 254 122 Q 258 120 263 122\" fill=\"none\" stroke=\"#4E342E\" stroke-width=\"1.5\" stroke-linecap=\"round\" />\n          <circle cx=\"242\" cy=\"130\" r=\"2.5\" fill=\"#1e293b\" />\n          <circle cx=\"258\" cy=\"130\" r=\"2.5\" fill=\"#1e293b\" />\n          \n          \n          <path d=\"M 250 135 L 250 142 L 253 142\" fill=\"none\" stroke=\"#D39871\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n          \n          \n          <ellipse class=\"anim-mouth\" cx=\"250\" cy=\"150\" rx=\"5\" ry=\"2\" fill=\"#5D4037\" />\n          \n          \n          <rect x=\"242\" y=\"155\" width=\"16\" height=\"15\" fill=\"#E6B08F\" />\n          \n          <rect x=\"242\" y=\"155\" width=\"16\" height=\"4\" fill=\"#D39871\" opacity=\"0.6\" />\n        </g>\n        \n        \n        <path d=\"M 220 170 C 235 160, 265 160, 280 170 L 305 260 L 195 260 Z\" fill=\"#1e293b\" />\n        \n        \n        <rect x=\"244\" y=\"166\" width=\"12\" height=\"6\" fill=\"#f8fafc\" />\n        \n        \n        <path d=\"M 238 172 C 242 195, 258 195, 262 172\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n        <line x1=\"250\" y1=\"188\" x2=\"250\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"2\" stroke-linecap=\"round\" />\n        <line x1=\"246\" y1=\"192\" x2=\"254\" y2=\"192\" stroke=\"#cbd5e1\" stroke-width=\"2\" stroke-linecap=\"round\" />\n        \n        \n        <g class=\"anim-arm-left\" style=\"transform-origin: 215px 185px\">\n          \n          <path d=\"M 215 175 C 205 185, 175 220, 165 210 L 175 195 C 190 180, 205 170, 220 170 Z\" fill=\"#1e293b\" />\n          \n          <circle cx=\"165\" cy=\"205\" r=\"8\" fill=\"#F5CBA7\" />\n        </g>\n        \n        \n        <g class=\"anim-arm-right\" style=\"transform-origin: 285px 185px\">\n          \n          <path d=\"M 285 175 C 295 185, 325 220, 335 210 L 325 195 C 310 180, 295 170, 280 170 Z\" fill=\"#1e293b\" />\n          \n          <circle cx=\"335\" cy=\"205\" r=\"8\" fill=\"#F5CBA7\" />\n        </g>\n\n        \n        <rect x=\"200\" y=\"245\" width=\"100\" height=\"50\" fill=\"#8D6E63\" />\n        <rect x=\"210\" y=\"255\" width=\"80\" height=\"35\" fill=\"#795548\" />\n        \n        \n        <path d=\"M 180 240 L 320 240 L 310 248 L 190 248 Z\" fill=\"#A1887F\" />\n        \n        \n        <path d=\"M 220 242 Q 235 238 250 242 L 250 245 Q 235 241 220 245 Z\" fill=\"#f8fafc\" />\n        <path d=\"M 250 242 Q 265 238 280 242 L 280 245 Q 265 241 250 245 Z\" fill=\"#f8fafc\" />\n        <line x1=\"250\" y1=\"242\" x2=\"250\" y2=\"245\" stroke=\"#94a3b8\" stroke-width=\"1\" />\n        \n        \n        <path d=\"M 290 230 L 300 230 L 298 245 L 292 245 Z\" fill=\"#e0f2fe\" opacity=\"0.6\" />\n        <rect x=\"294\" y=\"245\" width=\"2\" height=\"5\" fill=\"#bae6fd\" opacity=\"0.8\" />\n        <ellipse cx=\"295\" cy=\"250\" rx=\"6\" ry=\"1.5\" fill=\"#bae6fd\" opacity=\"0.8\" />\n        <line x1=\"292\" y1=\"235\" x2=\"298\" y2=\"235\" stroke=\"#38bdf8\" stroke-width=\"0.5\" opacity=\"0.5\" />\n        \n        \n        <rect class=\"anim-wave-1\" x=\"242\" y=\"265\" width=\"4\" height=\"10\" rx=\"2\" fill=\"#10b981\" opacity=\"0.8\" style=\"transform-origin: center 270px\" />\n        <rect class=\"anim-wave-2\" x=\"250\" y=\"261\" width=\"4\" height=\"16\" rx=\"2\" fill=\"#10b981\" style=\"transform-origin: center 269px\" />\n        <rect class=\"anim-wave-3\" x=\"258\" y=\"265\" width=\"4\" height=\"10\" rx=\"2\" fill=\"#10b981\" opacity=\"0.8\" style=\"transform-origin: center 270px\" />        \n        <rect x=\"80\" y=\"320\" width=\"340\" height=\"60\" rx=\"10\" fill=\"#000000\" fill-opacity=\"0.75\" />\n        <g key=0>\n          <text class=\"live-caption\" text-anchor=\"middle\" x=\"250\" y=\"347\" fill=\"#ffffff\" font-size=\"14\" font-family=\"var(--font-sora), sans-serif\">Y as&#237; miramos al futuro</text>\n          <text class=\"live-caption\" text-anchor=\"middle\" x=\"250\" y=\"368\" fill=\"#ffffff\" font-size=\"14\" font-family=\"var(--font-sora), sans-serif\">con esperanza.</text>\n        </g>\n\n        \n        <rect x=\"20\" y=\"400\" width=\"460\" height=\"50\" rx=\"0\" fill=\"#111827\" />\n        <rect x=\"20\" y=\"440\" width=\"460\" height=\"10\" rx=\"5\" fill=\"#111827\" />\n\n        \n        <text x=\"36\" y=\"422\" font-family=\"var(--font-sora), sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#ffffff\">Exbabel Live</text>\n        <rect x=\"120\" y=\"411\" width=\"52\" height=\"18\" rx=\"9\" fill=\"#064e3b\" />\n        <text x=\"146\" y=\"424\" font-family=\"var(--font-sora), sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#10b981\" text-anchor=\"middle\">ONLINE</text>\n\n        \n        <rect x=\"290\" y=\"407\" width=\"180\" height=\"28\" rx=\"8\" fill=\"#1e293b\" />\n        <text x=\"300\" y=\"417\" font-family=\"var(--font-sora), sans-serif\" font-size=\"7\" fill=\"#64748b\" letter-spacing=\"1\">AI VOICEOVER & SUBTITLES</text>\n        <text x=\"308\" y=\"430\" font-family=\"var(--font-sora), sans-serif\" font-size=\"10\" fill=\"#e2e8f0\">Espa&#241;ol (Spanish)</text>\n        \n\n        \n        <rect x=\"496\" y=\"60\" width=\"208\" height=\"340\" rx=\"12\" fill=\"#111827\" stroke=\"#1e293b\" />\n\n        \n        <rect x=\"496\" y=\"60\" width=\"208\" height=\"40\" rx=\"12\" fill=\"#1a2332\" />\n        <rect x=\"496\" y=\"88\" width=\"208\" height=\"12\" fill=\"#1a2332\" />\n        <text x=\"516\" y=\"86\" font-family=\"var(--font-sora), sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#e2e8f0\">Subtitle Log</text>\n\n        \n        <circle class=\"anim-pulse\" cx=\"632\" cy=\"80\" r=\"4\" fill=\"#10b981\" />\n        <text x=\"696\" y=\"84\" text-anchor=\"end\" font-family=\"var(--font-sora), sans-serif\" font-size=\"8\" font-weight=\"500\" fill=\"#10b981\">CONNECTED</text>\n\n        \n        <circle cx=\"510\" cy=\"120\" r=\"2\" fill=\"#475569\" />\n        <circle cx=\"518\" cy=\"120\" r=\"2\" fill=\"#475569\" />\n        <circle cx=\"526\" cy=\"120\" r=\"2\" fill=\"#475569\" />\n\n        \n        <rect x=\"496\" y=\"400\" width=\"208\" height=\"50\" rx=\"0\" fill=\"#0f172a\" />\n        <rect x=\"496\" y=\"440\" width=\"208\" height=\"10\" rx=\"5\" fill=\"#0f172a\" />\n      <rect class=\"live-language-highlight\" x=\"289\" y=\"406\" width=\"182\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"#7282ff\" stroke-width=\"2\"/></svg>";
+/* Story-specific vector artwork. No independent clocks; motion is registered on the master GSAP timeline. */
+window.storyGraphics=(()=>{
+ const blue='#394dfe',ink='#111827',pale='#edf0ff';
+ const svg=body=>`<svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;height:100%"><g font-family="Sora,sans-serif">${body}</g></svg>`;
+ const icon=(name)=>({
+  mic:'<rect x="17" y="5" width="14" height="25" rx="7"/><path d="M10 23v3a14 14 0 0028 0v-3M24 40v7M16 47h16"/>',
+  browser:'<rect x="4" y="7" width="40" height="29" rx="4"/><path d="M4 15h40M18 37l-3 8h18l-3-8"/><circle cx="10" cy="11" r="1"/>',
+  phone:'<rect x="12" y="3" width="24" height="44" rx="5"/><path d="M20 8h8"/><circle cx="24" cy="41" r="1"/>',
+  headphones:'<path d="M7 28v-7a17 17 0 0134 0v7"/><rect x="5" y="24" width="9" height="18" rx="4"/><rect x="34" y="24" width="9" height="18" rx="4"/>',
+  globe:'<circle cx="24" cy="24" r="20"/><ellipse cx="24" cy="24" rx="9" ry="20"/><path d="M5 24h38M9 12h30M9 36h30"/>',
+  check:'<path d="M9 25l10 10L40 12"/>'
+ }[name]);
+ const iconHTML=(name)=>`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${icon(name)}</svg>`;
+ const person=(x,y,size,shirt,hair,skin,child=false)=>`<g transform="translate(${x} ${y}) scale(${size})">
+  <path d="M-38 143l-5 62h29l17-60M6 145l12 60h28l-8-67" fill="#253049"/>
+  <path d="M-47 78Q-27 57 0 60Q30 58 49 80L54 148Q0 166-54 148Z" fill="${shirt}"/>
+  <path d="M-43 83Q-63 117-59 144Q-55 155-45 148L-23 113M43 83Q59 109 59 136Q55 149 43 145L25 112" fill="${shirt}" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
+  <rect x="-10" y="43" width="20" height="25" rx="7" fill="${skin}"/>
+  <ellipse cy="17" rx="30" ry="35" fill="${hair}"/>
+  <ellipse cy="25" rx="27" ry="33" fill="${skin}"/>
+  <path d="M-29 20Q-29-19 4-18Q34-14 29 22Q15 10 7-2Q-5 17-29 20" fill="${hair}"/>
+  <path d="M-11 41Q0 49 11 41" stroke="#936454" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="-10" cy="26" r="2" fill="#293144"/><circle cx="10" cy="26" r="2" fill="#293144"/>
+  ${child?'':'<path d="M-49 134Q-25 126-17 140M46 137Q28 125 18 139" stroke="'+skin+'" stroke-width="14" stroke-linecap="round"/>'}
+ </g>`;
+ const familyCore=()=>`<g class="family-core">
+  <ellipse cx="500" cy="482" rx="222" ry="16" fill="#dfe5f1" opacity=".65"/>
+  <rect x="265" y="366" width="470" height="31" rx="12" fill="#adbcea"/><path d="M291 393v84M709 393v84" stroke="#a7b6dd" stroke-width="17"/>
+  ${person(364,218,1.08,'#394dfe','#3c2b28','#dca986')}
+  ${person(621,214,1.08,'#c2cbef','#312d35','#e9bd9f')}
+  ${person(499,298,.75,'#f5bf72','#4c3730','#e8b795',true)}
+  <rect x="312" y="336" width="57" height="88" rx="10" fill="#16233b" transform="rotate(-9 340 380)"/>
+  <rect x="319" y="345" width="43" height="65" rx="5" fill="#f5f7ff" transform="rotate(-9 340 380)"/>
+  <path d="M328 367l7 5 12-17" stroke="#394dfe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M326 348Q320 325 335 315M615 236v-9a25 25 0 0150 0v15" stroke="#24385c" stroke-width="4" stroke-linecap="round"/>
+  <rect x="609" y="234" width="10" height="21" rx="5" fill="#24385c"/><rect x="661" y="234" width="10" height="21" rx="5" fill="#24385c"/>
+ </g>`;
+ const family=(wide)=>svg(`
+  <path d="M225 180V140Q500-38 775 140V180" stroke="#e7ebf5" stroke-width="7"/>
+  <path d="M490 65v74M463 87h54" stroke="#d5ddf1" stroke-width="8" stroke-linecap="round"/>
+  <g class="congregation-context" opacity="${wide?1:0}">
+   <path d="M60 312h168M772 312h168M84 395h145M771 395h145" stroke="#d6def1" stroke-width="18" stroke-linecap="round"/>
+   ${person(142,181,.72,'#d9dff0','#4b4140','#d0a17e')}${person(859,181,.72,'#c4cfee','#3c3131','#e6b897')}
+   ${person(82,323,.65,'#bdcbee','#36364a','#c19072')}${person(920,323,.65,'#d2dbee','#5e4640','#ecc5a7')}
+  </g>
+  ${familyCore()}
+  <g class="family-caption"><rect x="355" y="121" width="290" height="63" rx="20" fill="white" stroke="#d9e0ef"/><path d="M478 184l21 21 21-21" fill="white"/>
+  <circle cx="385" cy="152" r="13" fill="#e7ecff"/><path d="M380 151l4 5 7-9" stroke="${blue}" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="411" y="159" font-size="23" fill="${ink}">${wide?'The same service':'Español · En vivo'}</text></g>`);
+ const card=(inner,cls='')=>`<div class="story-card ${cls}">${inner}</div>`;
+ const language=()=>card(`<div class="story-kicker">SUNDAY SERVICE <span class="live-dot"></span> LIVE</div><h2>Choose your language</h2><div class="language-option"><b>EN</b><span>English</span></div><div class="language-option selected-option"><b>ES</b><span>Español</span><i class="selection-check">✓</i></div><div class="language-option"><b>PT</b><span>Português</span></div><div class="listen-control"><span class="listen-label">Start listening</span>${iconHTML('headphones')}</div><div class="tap-ring language-tap"></div>`,'language-picker');
+ const sermon=()=>card(`<div class="sermon-head"><span class="story-icon">${iconHTML('mic')}</span><div><div class="story-kicker">LIVE SERMON</div><h2>Your pastor is speaking</h2></div><span class="listening-status">Listening</span></div><div class="sermon-line source-line"><label>ENGLISH · SERVICE AUDIO</label><p class="source-sentence">Welcome to our service.</p></div><div class="translation-flow"><span></span><svg viewBox="0 0 60 40"><path d="M8 20h42M38 8l12 12-12 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span></div><div class="sermon-line translated-line"><label>ESPAÑOL · LIVE TRANSLATION</label><p class="translated-sentence">Bienvenidos a nuestro servicio.</p></div>`,'sermon-card');
+ const confirm=()=>svg(`<circle cx="500" cy="270" r="87" fill="#eef1ff"/><circle class="confirm-ring" cx="500" cy="270" r="74" stroke="${blue}" stroke-width="5" pathLength="1" stroke-dasharray="1"/><path class="confirm-check" d="M458 269l29 30 58-66" stroke="${blue}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>`);
+ const remote=()=>card(`<div class="remote-bar"><div class="browser-dots"><i></i><i></i><i></i></div><span>Sunday service</span><b>LIVE</b></div><div class="remote-location">${iconHTML('globe')}<span>Watching from Madrid, Spain</span></div><div class="remote-program"><svg viewBox="0 0 310 260"><rect width="310" height="260" rx="20" fill="#eff2ff"/><path d="M155 24v60M132 44h46" stroke="#b9c7ee" stroke-width="5" stroke-linecap="round"/><circle cx="155" cy="104" r="28" fill="#e5b995"/><path d="M125 101q0-48 40-32q25 11 19 36q-27-6-39-23q-5 16-20 19" fill="#413237"/><path d="M106 147q47-35 99 0l12 85H91z" fill="#394dfe"/><rect x="111" y="200" width="90" height="52" rx="8" fill="#ccd6ee"/><path d="M144 204v-22q0-14 11-14" stroke="#263653" stroke-width="4" fill="none"/></svg></div><div class="remote-language"><label>LISTEN IN</label><div class="remote-option">English</div><div class="remote-option remote-selected">Español <span>✓</span></div><div class="remote-option">Português</div></div><div class="remote-caption">Bienvenidos a nuestro servicio.</div><div class="tap-ring remote-tap"></div>`,'remote-player');
+ const setup=()=>`<div class="setup-shell">${[
+  ['mic','Audio Input',['Connect from your sound system','Hardware audio interface, OR','Dante network audio, OR','Built-in microphone']],
+  ['browser','Computer & Browser',['Any computer (Windows, Mac, Linux)','Chrome browser (recommended)','Stable internet connection (5+ Mbps)']],
+  ['phone','User Devices',['iOS (iPhone, iPad)','Android phones & tablets','Laptops & computers','No special hardware needed']]
+ ].map(([i,title,items],n)=>`<div class="setup-pane setup-${n}"><div class="setup-title"><span>${iconHTML(i)}</span><h2>${title}</h2></div><ul>${items.map(t=>`<li><b>✓</b>${t}</li>`).join('')}</ul></div>`).join('')}</div>`;
+ const joining=()=>svg(`
+ <ellipse cx="516" cy="519" rx="210" ry="15" fill="#e7ebf3"/>
+ <path d="M666 540C646 484 635 451 645 412L659 280Q665 257 681 264Q697 270 692 295L690 327Q714 302 727 316Q738 331 721 350Q745 338 754 357Q761 371 743 390Q766 390 768 408Q770 427 746 451L721 494L731 540Z" fill="#edc2a4" stroke="#cf9e83" stroke-width="2"/>
+ <g class="join-phone"><rect x="345" y="15" width="302" height="500" rx="43" fill="#182238"/><rect x="357" y="28" width="278" height="475" rx="32" fill="#fff"/><rect x="443" y="36" width="107" height="18" rx="9" fill="#182238"/>
+ <text x="496" y="103" font-size="22" fill="${ink}" font-weight="700" text-anchor="middle">Exbabel</text><text x="496" y="139" font-size="16" fill="#67748b" text-anchor="middle">Join this service</text>
+ <rect x="382" y="161" width="228" height="51" rx="11" fill="#f3f5fb"/><text x="496" y="194" font-size="23" letter-spacing="5" fill="#25344c" text-anchor="middle">2UU6SV</text>
+ <text x="384" y="245" font-size="12" letter-spacing="1.5" fill="#67748b">YOUR LANGUAGE</text>
+ <rect class="join-language-bg" x="382" y="259" width="228" height="61" rx="12" fill="#f4f6fd" stroke="#dde4f3"/><text x="402" y="296" font-size="22" fill="${ink}">Español</text><path class="join-tick" d="M571 289l8 8 14-18" stroke="${blue}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+ <g class="join-button"><rect x="382" y="348" width="228" height="59" rx="14" fill="${blue}"/><text class="join-button-label" x="496" y="385" font-size="19" fill="white" text-anchor="middle">Join service</text></g>
+ <g class="join-audio-state"><circle cx="402" cy="447" r="5" fill="#159d78"/><text x="419" y="453" font-size="15" fill="#16745e">Listening in Español</text></g>
+ </g><g class="joining-thumb"><path d="M697 454Q665 438 631 414L568 372Q550 359 540 373Q530 389 548 402L600 448Q621 482 661 491" fill="#efc5a8" stroke="#cf9e83" stroke-width="2" stroke-linecap="round"/><path d="M550 371q-5 12 7 17" stroke="#fff1e7" stroke-width="7" stroke-linecap="round"/></g>`);
+ const trial=()=>svg(`<g class="trial-calendar"><rect x="195" y="25" width="610" height="490" rx="32" fill="white" stroke="#dce3f1" stroke-width="2"/><path d="M195 126h610" stroke="#e3e8f2" stroke-width="2"/><path d="M345 10v46M655 10v46" stroke="${blue}" stroke-width="12" stroke-linecap="round"/><text x="500" y="94" text-anchor="middle" font-size="25" fill="#536079">Your free trial</text><circle cx="500" cy="278" r="112" stroke="#edf0ff" stroke-width="5"/><circle class="trial-progress" cx="500" cy="278" r="112" stroke="${blue}" stroke-width="5" pathLength="1" stroke-dasharray="1" transform="rotate(-90 500 278)"/><text class="trial-counter" x="500" y="308" text-anchor="middle" font-size="115" font-weight="600" letter-spacing="-7" fill="${blue}">30</text><text x="500" y="352" text-anchor="middle" font-size="24" fill="#536079">days</text><g class="trial-action"><rect x="278" y="422" width="444" height="63" rx="16" fill="${blue}"/><text x="500" y="462" text-anchor="middle" font-size="24" font-weight="600" fill="white">Start at Exbabel.com</text></g></g>`);
+ const factories={S05:language,S06:confirm,S07:sermon,S10:()=>family(false),S11:()=>family(true),S14:()=>`<div class="livestream-art">${window.liveStreamSVG}</div>`,S15:remote,S16:setup,S18:joining,S20:trial};
+ function install(visual,id){
+  if(!factories[id])return false;
+  for(const child of [...visual.children])if(!child.matches('.copy,.center-copy,h1,.marketing-support'))child.remove();
+  visual.querySelectorAll('.checkmark,.cta-button').forEach(e=>e.remove());
+  const art=document.createElement('div');art.className='custom-art story-'+id;art.dataset.graphic=id;art.innerHTML=factories[id]();visual.appendChild(art);return true;
+ }
+ function animate(scene,s,motion,type,states,press,productAt,end,revealAt){
+  const id=s.id,span=Math.max(.25,end-productAt-.22),at=f=>productAt+span*f,q=sel=>scene.querySelector(sel),qa=sel=>[...scene.querySelectorAll(sel)];
+  if(id==='S05'){
+   qa('.language-option').forEach((el,j)=>motion(el,{y:15,opacity:0},{y:0,opacity:1},revealAt+.12+j*.10,.25));
+   motion(q('.selected-option'),{backgroundColor:'#fff',color:ink},{backgroundColor:'#eef0ff',color:blue},at(.15),.2);
+   motion(q('.selection-check'),{opacity:0,scale:.7},{opacity:1,scale:1},at(.23),.2);
+   motion(q('.language-tap'),{scale:.7,opacity:0},{scale:1,opacity:1},at(.08),.12);motion(q('.language-tap'),{scale:1,opacity:1},{scale:1.3,opacity:0},at(.25),.25);
+   press(q('.listen-control'),at(.50));states(q('.listen-label'),[{t:0,text:'Start listening'},{t:at(.7),text:'Listening live'}]);
+  }
+  if(id==='S06'){
+   motion(q('.confirm-ring'),{strokeDashoffset:1},{strokeDashoffset:0},s.startMs/1000+.08,.5);
+   motion(q('.confirm-check'),{strokeDashoffset:1},{strokeDashoffset:0},s.startMs/1000+.36,.55);
+  }
+  if(id==='S07'){
+   type(q('.source-sentence'),'Welcome to our service.',at(0),span*.35);
+   motion(q('.translation-flow'),{scaleX:0,opacity:0},{scaleX:1,opacity:1},at(.25),span*.2);
+   motion(q('.translated-line'),{y:18,opacity:0},{y:0,opacity:1},at(.38),.35);
+   type(q('.translated-sentence'),'Bienvenidos a nuestro servicio.',at(.42),span*.45);
+   states(q('.listening-status'),[{t:0,text:'Listening'},{t:at(.48),text:'Translating live'}]);
+  }
+  if(id==='S10'||id==='S11'){
+   motion(q('.family-caption'),{y:20,opacity:0},{y:0,opacity:1},at(.25),.5);
+   if(id==='S11')motion(q('.congregation-context'),{opacity:0,scale:.94},{opacity:1,scale:1},at(.18),span*.65);
+   motion(q('.family-core'),{y:8},{y:0},productAt,span,'none');
+  }
+  if(id==='S14'){
+   qa('.anim-head').forEach(el=>motion(el,{y:0},{y:-2},productAt,span,'none'));
+   const lines=qa('.live-caption');lines.forEach((el,j)=>type(el,el.textContent,at(.1+j*.30),span*.3));
+   motion(q('.live-language-highlight'),{opacity:0},{opacity:1},at(.50),.25);
+  }
+  if(id==='S15'){
+   motion(q('.remote-location'),{x:-24,opacity:0},{x:0,opacity:1},revealAt+.1,.45);
+   motion(q('.remote-selected'),{backgroundColor:'#fff',color:ink},{backgroundColor:'#eef0ff',color:blue},at(.22),.3);
+   motion(q('.remote-selected span'),{opacity:0},{opacity:1},at(.4),.2);
+   type(q('.remote-caption'),'Bienvenidos a nuestro servicio.',at(.42),span*.5);
+   motion(q('.remote-tap'),{scale:.8,opacity:0},{scale:1,opacity:1},at(.15),.15);motion(q('.remote-tap'),{scale:1,opacity:1},{scale:1.3,opacity:0},at(.35),.25);
+  }
+  if(id==='S16'){
+   qa('.setup-pane').forEach((el,j)=>{
+    const st=productAt+j*span/3;
+    motion(el,{opacity:0,y:0},{opacity:1,y:0},st,.001);
+    [...el.querySelectorAll('li')].forEach((li,k)=>motion(li,{x:15,opacity:0},{x:0,opacity:1},st+.2+k*.12,.25));
+    if(j<2)motion(el,{opacity:1},{opacity:0},st+span/3,.001);
+   });
+  }
+  if(id==='S18'){
+   motion(q('.joining-thumb'),{x:38,y:30},{x:0,y:0},at(.06),span*.32);
+   motion(q('.join-language-bg'),{fill:'#f4f6fd'},{fill:'#e9edff'},at(.24),.2);
+   motion(q('.join-tick'),{opacity:0},{opacity:1},at(.30),.2);
+   press(q('.join-button'),at(.48));states(q('.join-button-label'),[{t:0,text:'Join service'},{t:at(.7),text:'Connected ✓'}]);
+   motion(q('.join-audio-state'),{opacity:0,y:10},{opacity:1,y:0},at(.71),.25);
+  }
+  if(id==='S20'){
+   states(q('.trial-counter'),Array.from({length:30},(_,i)=>({t:i?at(i/29*.55):0,text:String(i+1)})));
+   motion(q('.trial-progress'),{strokeDashoffset:1},{strokeDashoffset:0},productAt,span*.6,'power2.out');
+   motion(q('.trial-action'),{y:18,opacity:0},{y:0,opacity:1},at(.35),.35);press(q('.trial-action'),at(.74));
+  }
+ }
+ return {install,animate,ids:Object.keys(factories)};
+})();
+
+'use strict';
+const production=JSON.parse(document.getElementById('production-data').textContent);
+const locked=new Set(['S01','S02','S19']);
+const $=s=>document.querySelector(s),all=s=>Array.from(document.querySelectorAll(s));
+window.motionPlan=[];
+document.fonts.ready.then(()=>{
+ const tl=gsap.timeline({paused:true,defaults:{ease:'power2.inOut'}});
+ const textStates=[],shots=[],seed=new Map();
+ const clamp=x=>Math.max(0,Math.min(1,x)),smooth=x=>{x=clamp(x);return x*x*(3-2*x)},mix=(a,b,p)=>a+(b-a)*p;
+ function motion(target,from,to,at,duration,ease='power2.inOut'){
+  const els=(typeof target==='string'?all(target):Array.isArray(target)?target:[target]).filter(Boolean);
+  for(const el of els){const base=seed.get(el)||{};for(const [k,v] of Object.entries(from))if(!(k in base))base[k]=v;seed.set(el,base);}
+  if(els.length)tl.fromTo(els,from,{...to,duration,ease,immediateRender:false},at);
+ }
+ function type(el,text,at,duration){if(el){el.textContent=text;textStates.push({el,text,at,duration});}}
+ function states(el,values){if(el)textStates.push({el,values});}
+ function findText(scene,needle){return [...scene.querySelectorAll('svg text')].find(e=>e.textContent.includes(needle));}
+ function press(el,at){if(!el)return;motion(el,{scale:1},{scale:.97},at,.12);motion(el,{scale:.97},{scale:1},at+.12,.2);}
+ for(const s of production.scenes){
+  if(locked.has(s.id))continue;
+  const scene=$('#'+s.id),visual=scene.querySelector('.visual'),st=s.startMs/1000,d=s.durationMs/1000,end=s.endMs/1000;
+  const custom=window.storyGraphics.install(visual,s.id),payoff=s.id==='S06';
+  // Preserve the established text choreography. Artwork must fit through
+  // framing and shared transitions, never by accelerating the headline.
+  const typing=Math.min(2.35,d*.27),settle=Math.min(.48,d*.10),read=Math.min(.65,d*.08),travel=Math.min(.8,d*.17);
+  const revealAt=st+typing+settle+read,productAt=revealAt+travel;
+  const camera=document.createElement('div');camera.className='shot-camera';
+  const plane=document.createElement('div');plane.className='type-plane';
+  const graphic=document.createElement('div');graphic.className='graphic-stage';
+  const fit=document.createElement('div');fit.className='graphic-fit';graphic.appendChild(fit);
+  const heading=visual.querySelector('h1'),copyParent=heading.parentElement;
+  let support=custom?copyParent.querySelector(':scope > .marketing-support'):copyParent.querySelector('p');
+  if(!support&&heading.classList.contains('top-title'))support=visual.querySelector('.marketing-support');
+  if(support&&support.querySelector('.url,.cta-button'))support=null;
+  if(support){support.className='support-plane';camera.appendChild(support);}
+  // Original UI/QR/phone artwork survives as DOM; only its camera wrapper changes.
+  for(const el of [...visual.querySelectorAll('.checkmark,.url')]){
+   el.style.cssText+=el.classList.contains('checkmark')?';position:absolute;left:912px;top:430px;width:96px;height:96px;margin:0':';position:absolute;left:780px;top:430px;width:360px;margin:0';fit.appendChild(el);
+  }
+  const cta=copyParent.querySelector('.cta-button');if(cta){cta.style.cssText+=';position:absolute;left:1050px;top:610px';fit.appendChild(cta);}
+  plane.appendChild(heading);
+  for(const child of [...visual.children]){
+   if(['copy','center-copy','wave-zone','focus-tag','footer-url','marketing-support'].some(c=>child.classList.contains(c)))continue;
+   fit.appendChild(child);
+  }
+  camera.append(plane,graphic);visual.replaceWith(camera);
+  const shapeNodes=custom?[fit.querySelector('.custom-art')]:[...fit.querySelectorAll('.phrase,.node,.path-line,.pills,.language,.call-card,.trial-number,.trial-caption,.checkmark,.url,.cta-button,.product')].filter(e=>!e.parentElement.closest('.product'));
+  const bounds={left:Infinity,top:Infinity,right:-Infinity,bottom:-Infinity};
+  for(const el of shapeNodes){const r=el.getBoundingClientRect();if(!r.width||!r.height)continue;bounds.left=Math.min(bounds.left,r.left);bounds.top=Math.min(bounds.top,r.top);bounds.right=Math.max(bounds.right,r.right);bounds.bottom=Math.max(bounds.bottom,r.bottom);}
+  const hasGraphic=Number.isFinite(bounds.left),w=bounds.right-bounds.left,h=bounds.bottom-bounds.top;
+  if(hasGraphic){const scale=Math.min(1440/w,560/h,1.12);gsap.set(fit,{x:960-(bounds.left+bounds.right)*.5*scale,y:698-(bounds.top+bounds.bottom)*.5*scale,scale});}
+  if(custom&&!payoff)gsap.set(fit,{x:960-960*1.35,y:540-570*1.35,scale:1.35});
+  if(payoff)gsap.set(fit,{x:0,y:-240,scale:1});
+  // Each character is stationary on one spatial plane; only the parent camera tracks.
+  const lineParts=heading.innerHTML.split(/<br\b[^>]*>/i);
+  heading.innerHTML=lineParts.map(part=>`<span class="type-line">${part}</span>`).join(' ');
+  const walker=document.createTreeWalker(heading,NodeFilter.SHOW_TEXT),textNodes=[];
+  while(walker.nextNode())textNodes.push(walker.currentNode);
+  const chars=[];
+  for(const node of textNodes){const frag=document.createDocumentFragment();for(const c of node.textContent){const span=document.createElement('span');span.className='type-char';span.textContent=c;frag.appendChild(span);chars.push(span);}node.replaceWith(frag);}
+  const raw=heading.textContent.trim(),first=Math.max(1,raw.indexOf(' ')),widths=[0];
+  const origin=heading.getBoundingClientRect().left;
+  chars.forEach(el=>widths.push(el.getBoundingClientRect().right-origin));
+  const lines=[...heading.querySelectorAll('.type-line')].map(el=>({el,x:el.offsetLeft,w:el.getBoundingClientRect().width}));
+  const fullWidth=heading.getBoundingClientRect().width,maxLineWidth=Math.max(...lines.map(l=>l.w)),fitScale=Math.min(.85,1480/maxLineWidth);
+  shots.push({scene,camera,plane,heading,support,graphic,fit,st,end,d,typing,settle,read,travel,revealAt,productAt,chars,widths,first,fullWidth,maxLineWidth,lines,fitScale,hasGraphic,payoff,custom});
+  motion(camera,{scale:1,x:0,y:0},{scale:1.022,x:0,y:-3},productAt,Math.max(.1,end-productAt-.2),'none');
+  if(hasGraphic&&!payoff){
+   motion(graphic,{y:90,clipPath:'inset(100% 0% 0% 0%)'},{y:0,clipPath:'inset(0% 0% 0% 0%)'},revealAt,travel,'power2.inOut');
+   motion(graphic,{scale:1},{scale:1.025},productAt,Math.max(.1,end-productAt-.2),'none');
+  }
+  const span=Math.max(.2,end-productAt-.25),action=f=>productAt+span*f;
+  if(custom)window.storyGraphics.animate(scene,s,motion,type,states,press,productAt,end,revealAt);
+  if(!custom){
+  if(['S04','S14','S17'].includes(s.id)){
+   type(findText(scene,'2UU6SV'),'2UU6SV',revealAt+travel*.5,Math.min(.8,span*.3));
+   const sweep=document.createElement('div');sweep.className='scan-sweep';scene.querySelector('.product').appendChild(sweep);
+   motion(sweep,{y:0,scaleX:0},{y:0,scaleX:1},action(.04),.15);
+   motion(sweep,{y:0},{y:150},action(.12),span*.48,'none');motion(sweep,{scaleX:1},{scaleX:0},action(.66),.18);
+   const broadcast=findText(scene,'Start Broadcasting');press(broadcast,action(.4));
+   if(s.id!=='S04')states(broadcast,[{t:0,text:'Start Broadcasting'},{t:action(.48),text:'Broadcasting live'}]);
+   states(findText(scene,'Connected'),[{t:0,text:'Connected'},{t:action(.72),text:'Audio connected'}]);
+  }
+  if(['S05','S15'].includes(s.id)){
+   const product=scene.querySelector('.product'),menu=document.createElement('div');menu.className='ui-overlay';menu.style.cssText='left:58px;top:385px;width:360px';
+   menu.innerHTML='<div class="option">English</div><div class="option selected">Spanish (Latin America)</div><div class="option">Portuguese</div>';product.appendChild(menu);
+   motion(menu,{clipPath:'inset(0% 0% 100% 0%)',y:-12},{clipPath:'inset(0% 0% 0% 0%)',y:0},action(0),span*.25);
+   motion(menu,{clipPath:'inset(0% 0% 0% 0%)',y:0},{clipPath:'inset(0% 0% 100% 0%)',y:-12},action(.42),span*.16);
+   states(findText(scene,'Spanish (Latin America)'),[{t:0,text:'Choose your language'},{t:action(.45),text:s.id==='S05'?'Spanish (Latin America)':'Portuguese'}]);
+   const join=findText(scene,'Join Session');press(join,action(.68));states(join,[{t:0,text:'Join Session'},{t:action(.81),text:'Connected ✓'}]);
+  }
+  if(s.id==='S03'){
+   [...scene.querySelectorAll('.phrase')].forEach((el,j)=>{
+    const copy=[...el.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').trim();
+    for(const n of [...el.childNodes])if(n.nodeType===3)n.remove();
+    const content=document.createElement('span');content.className='message-content';el.appendChild(content);type(content,copy,action(j*.27),span*.25);
+    motion(el,{y:20,opacity:0},{y:0,opacity:1},revealAt+travel*.5+j*.28,.4);
+   });
+  }
+  if(['S07','S16'].includes(s.id)){
+   motion(scene.querySelector('.path-line'),{scaleX:0},{scaleX:1},productAt,span*.7,'none');
+   [...scene.querySelectorAll('.node')].forEach((el,j)=>motion(el,{y:22,opacity:0},{y:0,opacity:1},revealAt+travel*.5+j*span*.22,.4));
+  }
+  if(['S08','S09','S18'].includes(s.id)){
+   [...scene.querySelectorAll('.caption-line')].forEach((el,j)=>type(el,el.textContent,action((j%4)*.22),span*.24));
+   states(findText(scene,'Streaming Translated Audio'),[{t:0,text:'Connecting audio'},{t:action(.15),text:'Streaming Translated Audio'}]);
+  }
+  if(['S10','S11','S12','S18','S21'].includes(s.id)){
+   const list=[...scene.querySelectorAll('.pill,.language,.row')];list.forEach((el,j)=>motion(el,{y:26,opacity:0},{y:0,opacity:1},revealAt+travel*.6+j*span*.7/Math.max(1,list.length),.45));
+  }
+  if(s.id==='S20'){
+   motion(scene.querySelector('.trial-number'),{scale:.94},{scale:1},productAt,span*.8,'none');
+   motion(scene.querySelector('.cta-button'),{y:22,opacity:0},{y:0,opacity:1},action(.45),.5);
+  }
+  }
+  window.motionPlan.push({id:s.id,start:st,end,focalObject:raw,rules:['viewport-change','anchored-layout-expand','control-target-sync','discrete-text-sequence'],
+   states:[{phase:'A — cursor-follow typography',start:st,end:st+typing,action:'Type characters on a single plane; camera tracks measured cursor width and pushes 1.00 to 1.18.'},{phase:'B — complete readable statement',start:st+typing,end:revealAt,action:'Dolly back to the full statement inside a 1500px safe width; supporting copy appears.'},{phase:'C — anchored product reveal',start:revealAt,end:productAt,action:'The same headline moves upward once while the original graphic is unmasked below.'},{phase:'D — product development',start:productAt,end,action:'UI actions develop under a 2.2% push. The full headline stays on screen.'}],camera:{cursorTarget:1152,measuredWidth:true,typeScale:[1,1.18],productScale:[1,1.022]},protected:false});
+ }
+ // Extraction overlays preserve the outgoing object across the narration boundary.
+ // They are clones of existing artwork, with identical geometry at takeover.
+ const bridges=[];
+ for(let i=0;i<shots.length-1;i++){
+  const a=shots[i],b=shots[i+1];if(Math.abs(a.end-b.st)>.001)continue;
+  // Only identical listener surfaces have an extraction handoff. Unrelated
+  // graphics terminate with their shot and can never leak into another scene.
+  if(!(a.scene.id==='S08'&&b.scene.id==='S09'))continue;
+  const source=a.fit.querySelector('.product,.phrase,.node.ex,.language.primary,.pill,.checkmark,.trial-number,.call-card,.url');
+  if(!source)continue;
+  const start=a.end-.42,finish=b.productAt;
+  const rawRect=source.getBoundingClientRect(),baseW=source.offsetWidth,baseH=source.offsetHeight;
+  const progress=clamp((start-a.productAt)/Math.max(.1,a.end-a.productAt-.2));
+  const sourceScale=(1+.022*progress)*(1+.025*progress);
+  const rect={left:960+(rawRect.left-960)*sourceScale,top:702+(rawRect.top-702)*sourceScale-3*progress,width:rawRect.width*sourceScale,height:rawRect.height*sourceScale};
+  if(!baseW||!baseH)continue;
+  const holder=document.createElement('div');holder.className='continuity-object';holder.dataset.from=a.scene.id;holder.dataset.to=b.scene.id;
+  holder.style.cssText=`position:absolute;left:0;top:0;width:${baseW}px;height:${baseH}px;transform-origin:0 0;z-index:8;opacity:0;pointer-events:none`;
+  const clone=source.cloneNode(true);clone.removeAttribute('id');clone.style.cssText+=';left:0;top:0;position:absolute;width:100%;height:100%;transform:none';
+  clone.querySelectorAll('[id]').forEach((e,j)=>e.id=`handoff-${i}-${j}`);
+  holder.appendChild(clone);$('#world').appendChild(holder);
+  const parked=Math.min(310/baseW,190/baseH),target=b.fit.querySelector('.product,.phrase,.node.ex,.language.primary,.pill,.checkmark,.trial-number,.call-card,.url');
+  const dest=target?target.getBoundingClientRect():{left:810,top:650,width:300,height:150};
+  const br={a,b,source,target,holder,clone,start,finish,baseW,baseH,rect,parked,dest,samePhone:source.classList.contains('phone')&&target?.classList.contains('phone'),sourceText:[...source.querySelectorAll('text,.message-content')],cloneText:[...clone.querySelectorAll('text,.message-content')]};
+  bridges.push(br);a.outBridge=br;b.inBridge=br;
+  const plan=window.motionPlan.find(p=>p.id===a.scene.id);
+  plan.handoff={to:b.scene.id,survivingObject:source.className.baseVal||source.className,type:source.classList.contains('phone')?'hero-object-extraction':'shape-match / focal-point-replacement',overlapStart:start,nextTextStart:b.st-.18,end:finish,leaves:'Outgoing headline travels upward; surrounding interface clears under the extracted object.',enters:'Next tracked headline, then its product surface behind the surviving object.',camera:'One pull-back parks the extracted object below the tracked text; a push resolves it into the next product.',sharedProperty:'Same source artwork and screen position at takeover; retained rounded silhouette.'};
+ }
+ const clock={t:0};
+ function renderState(){
+  const t=clock.t,show=t>=10.988&&!(t>=98.622&&t<104.2);
+  $('#world').style.opacity=show?'1':'0';$('.white-space').style.opacity=show?'1':'0';
+  for(const s of shots){
+   const active=t>=s.st-(s.inBridge?.18:0)&&t<s.end;s.scene.style.opacity=active?'1':'0';
+   const p=clamp((t-s.st)/s.typing),count=mix(s.first,s.chars.length,p),index=Math.min(s.chars.length-1,Math.floor(count));
+   const cursor=mix(s.widths[index],s.widths[Math.min(index+1,s.chars.length)],count-index);
+   const dolly=mix(1,1.18,smooth(p)),anchor=mix(960+s.widths[s.first]/2,1152,smooth(p));
+   const settle=smooth((t-s.st-s.typing)/s.settle),handoff=s.hasGraphic&&!s.payoff?smooth((t-s.revealAt)/s.travel):0;
+   const sc=mix(dolly,s.fitScale,settle)*mix(1,.74,handoff)*(s.payoff?mix(1,1.075,clamp((t-s.productAt)/(s.end-s.productAt))):1);
+   const centered=(1920-s.maxLineWidth*sc)/2;
+   const exit=s.outBridge?smooth((t-s.outBridge.start)/.42):0;
+   const totalHeight=129.6*s.lines.length;
+   const readY=480-totalHeight*s.fitScale/2;
+   const x=mix(anchor-cursor*dolly,centered,settle),y=s.payoff?mix(480,530,settle):mix(mix(422,readY,settle),80,handoff)-exit*330;
+   s.plane.style.transform=`translate(${x}px,${y}px) scale(${sc})`;
+   s.plane.style.clipPath=s.custom&&!s.payoff?`inset(0% 0% ${100*handoff}% 0%)`:'none';
+   // Establish separate baselines before lines move horizontally into alignment.
+   // This avoids letters crossing one another during the one-line → multiline settle.
+   const lineDrop=clamp(settle*3),lineAlign=smooth((settle-1/3)/(2/3));
+   s.lines.forEach((line,i)=>line.el.style.transform=`translate(${((s.maxLineWidth-line.w)/2-line.x)*lineAlign}px,${i*129.6*lineDrop}px)`);
+   s.chars.forEach((el,i)=>el.style.opacity=i<count?'1':'0');
+   s.graphic.style.opacity=s.outBridge&&t>=s.outBridge.start?'0':'1';
+   if(s.inBridge?.samePhone)s.inBridge.target.style.opacity=t<s.inBridge.finish?'0':'1';
+   if(s.support){s.support.style.opacity=String(settle*(s.custom&&!s.payoff?1-handoff:1));const readTop=readY+totalHeight*s.fitScale+24,finalTop=80+totalHeight*s.fitScale*.74+22;s.support.style.transform=`translateY(${mix(readTop,finalTop,handoff)-590-exit*330}px) scale(${mix(1,.92,handoff)})`;}
+  }
+  for(const item of textStates){let value='';if(item.values){value=item.values[0].text;for(const v of item.values)if(t>=v.t)value=v.text;}else value=item.text.slice(0,Math.floor(clamp((t-item.at)/item.duration)*item.text.length));item.el.textContent=value;}
+  for(const b of bridges){
+   const on=t>=b.start&&t<b.finish;b.holder.style.opacity=on?'1':'0';if(!on)continue;
+   const pull=smooth((t-b.start)/.72),resolve=smooth((t-b.b.revealAt)/b.b.travel);
+   const sourceScale=b.rect.width/b.baseW;
+   const parkedX=960-b.baseW*b.parked/2,parkedY=823-b.baseH*b.parked/2;
+   const matched=b.source.classList.contains('product')&&!!b.b.fit.querySelector('.product');
+   const targetScale=matched?Math.min(b.dest.width/b.baseW,b.dest.height/b.baseH):b.parked*.12;
+   const sx=mix(mix(sourceScale,b.parked,pull),targetScale,resolve);
+   const tx=mix(mix(b.rect.left,parkedX,pull),matched?b.dest.left+(b.dest.width-b.baseW*targetScale)/2:960-b.baseW*targetScale/2,resolve);
+   const ty=mix(mix(b.rect.top,parkedY,pull),matched?b.dest.top+(b.dest.height-b.baseH*targetScale)/2:823-b.baseH*targetScale/2,resolve);
+   b.holder.style.transform=`translate(${tx}px,${ty}px) scale(${sx})`;
+   // At resolve, the next real UI is uncovered beneath the persistent silhouette.
+   b.holder.style.clipPath=b.samePhone?'inset(0%)':`inset(0% ${100*smooth((resolve-.72)/.28)}% 0% 0%)`;
+   b.sourceText.forEach((el,i)=>{if(b.cloneText[i])b.cloneText[i].textContent=el.textContent;});
+  }
+ }
+ tl.fromTo(clock,{t:0},{t:123.8,duration:123.8,ease:'none',onUpdate:renderState},0);
+ for(const [el,vars] of seed)gsap.set(el,vars);
+ renderState();tl.seek(0,false);
+ window.__timelines=window.__timelines||{};window.__timelines['exbabel-motion-v2']=tl;window.motionTimeline=tl;
+});
+</script></body></html>

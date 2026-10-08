@@ -1,0 +1,98 @@
+<template id="S21">
+  <div data-layout-allow-overlap="true" data-composition-id="S21" data-width="1920" data-height="1080">
+    <div class="s21-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: row; gap: 100px;">
+      <div class="s21-text-col" style="display: flex; flex-direction: column;">
+        <h1 class="s21-text" style="font-size: 80px; font-weight: 700;">Want help with<br><span class="accent">your setup?</span></h1>
+        <p class="s21-sub" style="font-size: 32px; color: #4b5563; margin-top: 20px;">Schedule a quick call and we’ll walk through it with your team.</p>
+      </div>
+      
+      <div class="s21-card" style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); width: 400px;">
+        <h2 style="font-size: 24px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px;">Your Sunday setup</h2>
+        <div class="s21-row r1" style="display: flex; align-items: center; gap: 12px; font-size: 20px; color: #4b5563; margin-bottom: 12px;"><span style="color:#059669;">✓</span> Church audio</div>
+        <div class="s21-row r2" style="display: flex; align-items: center; gap: 12px; font-size: 20px; color: #4b5563; margin-bottom: 12px;"><span style="color:#059669;">✓</span> Translation session</div>
+        <div class="s21-row r3" style="display: flex; align-items: center; gap: 12px; font-size: 20px; color: #4b5563; margin-bottom: 30px;"><span style="color:#059669;">✓</span> Listener access</div>
+        <div class="s21-btn" style="text-align: center; padding: 16px; background: #4338ca; color: white; border-radius: 12px; font-weight: 600; font-size: 18px;">Schedule a quick call</div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s21-text-col");
+tl.to(".s21-text-col .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Gentle push from the S20 scale-through
+tl.set(".s21-container", { scale: 1.1, y: 30, opacity: 0 });
+tl.set(".s21-text", { y: 20 });
+tl.set(".s21-sub", { y: 20 });
+tl.set(".s21-card", { x: 50, opacity: 0 });
+tl.set(".s21-row", { x: 20, opacity: 0 });
+tl.set(".s21-btn", { y: 20, opacity: 0 });
+
+tl.to(".s21-container", { scale: 1, y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }, 0.0);
+tl.to(".s21-text", { y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+tl.to(".s21-sub", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+
+tl.to(".s21-card", { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.8);
+
+tl.to(".r1", { x: 0, opacity: 1, duration: 0.4 }, 1.4);
+tl.to(".r2", { x: 0, opacity: 1, duration: 0.4 }, 1.7);
+tl.to(".r3", { x: 0, opacity: 1, duration: 0.4 }, 2.0);
+tl.to(".s21-btn", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.2)" }, 2.5);
+
+// Drift
+tl.to(".s21-container", { scale: 1.03, duration: 3.5, ease: "none" }, 1.2);
+
+// SPATIAL EXIT: Gentle push up
+tl.to(".s21-container", { y: -100, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 6.2);
+
+window.__timelines["S21"] = tl;
+})();
+</script>
+  </div>
+</template>

@@ -1,0 +1,1819 @@
+{
+  "durationMs": 123800,
+  "audioRate": 0.9,
+  "leadMs": 300,
+  "scenes": [
+    {
+      "id": "S01",
+      "startMs": 0,
+      "endMs": 6244,
+      "words": [
+        {
+          "word": "Hey",
+          "startMs": 300,
+          "endMs": 456
+        },
+        {
+          "word": "there,",
+          "startMs": 456,
+          "endMs": 700
+        },
+        {
+          "word": "just",
+          "startMs": 700,
+          "endMs": 1033
+        },
+        {
+          "word": "wanted",
+          "startMs": 1033,
+          "endMs": 1256
+        },
+        {
+          "word": "to",
+          "startMs": 1256,
+          "endMs": 1433
+        },
+        {
+          "word": "show",
+          "startMs": 1433,
+          "endMs": 1656
+        },
+        {
+          "word": "you",
+          "startMs": 1656,
+          "endMs": 1811
+        },
+        {
+          "word": "how",
+          "startMs": 1811,
+          "endMs": 1989
+        },
+        {
+          "word": "you",
+          "startMs": 1989,
+          "endMs": 2167
+        },
+        {
+          "word": "can",
+          "startMs": 2167,
+          "endMs": 2300
+        },
+        {
+          "word": "bring",
+          "startMs": 2300,
+          "endMs": 2522
+        },
+        {
+          "word": "multilingual",
+          "startMs": 2522,
+          "endMs": 3233
+        },
+        {
+          "word": "services",
+          "startMs": 3233,
+          "endMs": 3811
+        },
+        {
+          "word": "to",
+          "startMs": 3811,
+          "endMs": 4189
+        },
+        {
+          "word": "your",
+          "startMs": 4189,
+          "endMs": 4344
+        },
+        {
+          "word": "congregation",
+          "startMs": 4344,
+          "endMs": 4700
+        },
+        {
+          "word": "at",
+          "startMs": 4700,
+          "endMs": 5344
+        },
+        {
+          "word": "your",
+          "startMs": 5344,
+          "endMs": 5500
+        },
+        {
+          "word": "church.",
+          "startMs": 5500,
+          "endMs": 5811
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "startMs": 6244,
+      "endMs": 10988,
+      "words": [
+        {
+          "word": "Picture",
+          "startMs": 6678,
+          "endMs": 7256
+        },
+        {
+          "word": "someone",
+          "startMs": 7256,
+          "endMs": 7656
+        },
+        {
+          "word": "walking",
+          "startMs": 7656,
+          "endMs": 8056
+        },
+        {
+          "word": "into",
+          "startMs": 8056,
+          "endMs": 8389
+        },
+        {
+          "word": "your",
+          "startMs": 8389,
+          "endMs": 8589
+        },
+        {
+          "word": "service",
+          "startMs": 8589,
+          "endMs": 8989
+        },
+        {
+          "word": "this",
+          "startMs": 8989,
+          "endMs": 9256
+        },
+        {
+          "word": "Sunday",
+          "startMs": 9256,
+          "endMs": 9589
+        },
+        {
+          "word": "with",
+          "startMs": 9589,
+          "endMs": 9944
+        },
+        {
+          "word": "their",
+          "startMs": 9944,
+          "endMs": 10144
+        },
+        {
+          "word": "family.",
+          "startMs": 10144,
+          "endMs": 10633
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "startMs": 10988,
+      "endMs": 20166,
+      "words": [
+        {
+          "word": "They",
+          "startMs": 11344,
+          "endMs": 11633
+        },
+        {
+          "word": "want",
+          "startMs": 11633,
+          "endMs": 11856
+        },
+        {
+          "word": "to",
+          "startMs": 11856,
+          "endMs": 11989
+        },
+        {
+          "word": "be",
+          "startMs": 11989,
+          "endMs": 12144
+        },
+        {
+          "word": "there.",
+          "startMs": 12144,
+          "endMs": 12389
+        },
+        {
+          "word": "They",
+          "startMs": 12878,
+          "endMs": 12944
+        },
+        {
+          "word": "want",
+          "startMs": 12944,
+          "endMs": 13144
+        },
+        {
+          "word": "to",
+          "startMs": 13144,
+          "endMs": 13300
+        },
+        {
+          "word": "hear",
+          "startMs": 13300,
+          "endMs": 13456
+        },
+        {
+          "word": "the",
+          "startMs": 13456,
+          "endMs": 13633
+        },
+        {
+          "word": "sermon.",
+          "startMs": 13633,
+          "endMs": 13900
+        },
+        {
+          "word": "But",
+          "startMs": 15144,
+          "endMs": 15389
+        },
+        {
+          "word": "English",
+          "startMs": 15389,
+          "endMs": 15656
+        },
+        {
+          "word": "isn't",
+          "startMs": 15656,
+          "endMs": 16122
+        },
+        {
+          "word": "their",
+          "startMs": 16122,
+          "endMs": 16256
+        },
+        {
+          "word": "first",
+          "startMs": 16256,
+          "endMs": 16678
+        },
+        {
+          "word": "language,",
+          "startMs": 16678,
+          "endMs": 17122
+        },
+        {
+          "word": "so",
+          "startMs": 17122,
+          "endMs": 17700
+        },
+        {
+          "word": "they're",
+          "startMs": 17700,
+          "endMs": 17922
+        },
+        {
+          "word": "only",
+          "startMs": 17922,
+          "endMs": 18100
+        },
+        {
+          "word": "catching",
+          "startMs": 18100,
+          "endMs": 18456
+        },
+        {
+          "word": "pieces",
+          "startMs": 18456,
+          "endMs": 18944
+        },
+        {
+          "word": "of",
+          "startMs": 18944,
+          "endMs": 19256
+        },
+        {
+          "word": "the",
+          "startMs": 19256,
+          "endMs": 19367
+        },
+        {
+          "word": "message.",
+          "startMs": 19367,
+          "endMs": 19722
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "startMs": 20166,
+      "endMs": 24756,
+      "words": [
+        {
+          "word": "With",
+          "startMs": 20611,
+          "endMs": 21167
+        },
+        {
+          "word": "Exbabel,",
+          "startMs": 21167,
+          "endMs": 21589
+        },
+        {
+          "word": "they",
+          "startMs": 21967,
+          "endMs": 22056
+        },
+        {
+          "word": "can",
+          "startMs": 22056,
+          "endMs": 22211
+        },
+        {
+          "word": "pull",
+          "startMs": 22211,
+          "endMs": 22433
+        },
+        {
+          "word": "out",
+          "startMs": 22433,
+          "endMs": 22611
+        },
+        {
+          "word": "their",
+          "startMs": 22611,
+          "endMs": 22789
+        },
+        {
+          "word": "phone,",
+          "startMs": 22789,
+          "endMs": 23078
+        },
+        {
+          "word": "scan",
+          "startMs": 23433,
+          "endMs": 23611
+        },
+        {
+          "word": "a",
+          "startMs": 23611,
+          "endMs": 23811
+        },
+        {
+          "word": "QR",
+          "startMs": 23811,
+          "endMs": 24056
+        },
+        {
+          "word": "code,",
+          "startMs": 24056,
+          "endMs": 24633
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "startMs": 24756,
+      "endMs": 27700,
+      "words": [
+        {
+          "word": "choose",
+          "startMs": 24878,
+          "endMs": 25033
+        },
+        {
+          "word": "their",
+          "startMs": 25033,
+          "endMs": 25278
+        },
+        {
+          "word": "language,",
+          "startMs": 25278,
+          "endMs": 25633
+        },
+        {
+          "word": "and",
+          "startMs": 26144,
+          "endMs": 26456
+        },
+        {
+          "word": "start",
+          "startMs": 26456,
+          "endMs": 26767
+        },
+        {
+          "word": "listening.",
+          "startMs": 26767,
+          "endMs": 27167
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "startMs": 27700,
+      "endMs": 29800,
+      "words": [
+        {
+          "word": "That's",
+          "startMs": 28233,
+          "endMs": 28811
+        },
+        {
+          "word": "pretty",
+          "startMs": 28811,
+          "endMs": 28989
+        },
+        {
+          "word": "much",
+          "startMs": 28989,
+          "endMs": 29278
+        },
+        {
+          "word": "it.",
+          "startMs": 29278,
+          "endMs": 29567
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "startMs": 29800,
+      "endMs": 37289,
+      "words": [
+        {
+          "word": "Your",
+          "startMs": 30033,
+          "endMs": 30122
+        },
+        {
+          "word": "pastor",
+          "startMs": 30122,
+          "endMs": 30389
+        },
+        {
+          "word": "keeps",
+          "startMs": 30389,
+          "endMs": 30811
+        },
+        {
+          "word": "preaching",
+          "startMs": 30811,
+          "endMs": 31211
+        },
+        {
+          "word": "like",
+          "startMs": 31211,
+          "endMs": 31656
+        },
+        {
+          "word": "normal.",
+          "startMs": 31656,
+          "endMs": 31967
+        },
+        {
+          "word": "Exbabel",
+          "startMs": 33144,
+          "endMs": 33722
+        },
+        {
+          "word": "listens",
+          "startMs": 33722,
+          "endMs": 34100
+        },
+        {
+          "word": "to",
+          "startMs": 34100,
+          "endMs": 34456
+        },
+        {
+          "word": "the",
+          "startMs": 34456,
+          "endMs": 34567
+        },
+        {
+          "word": "service",
+          "startMs": 34567,
+          "endMs": 34922
+        },
+        {
+          "word": "and",
+          "startMs": 34922,
+          "endMs": 35167
+        },
+        {
+          "word": "translates",
+          "startMs": 35167,
+          "endMs": 35611
+        },
+        {
+          "word": "it",
+          "startMs": 35611,
+          "endMs": 36033
+        },
+        {
+          "word": "while",
+          "startMs": 36033,
+          "endMs": 36211
+        },
+        {
+          "word": "they're",
+          "startMs": 36211,
+          "endMs": 36411
+        },
+        {
+          "word": "speaking.",
+          "startMs": 36411,
+          "endMs": 36722
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "startMs": 37289,
+      "endMs": 42756,
+      "words": [
+        {
+          "word": "The",
+          "startMs": 37856,
+          "endMs": 38011
+        },
+        {
+          "word": "person",
+          "startMs": 38011,
+          "endMs": 38300
+        },
+        {
+          "word": "in",
+          "startMs": 38300,
+          "endMs": 38478
+        },
+        {
+          "word": "the",
+          "startMs": 38478,
+          "endMs": 38589
+        },
+        {
+          "word": "congregation",
+          "startMs": 38589,
+          "endMs": 38944
+        },
+        {
+          "word": "hears",
+          "startMs": 38944,
+          "endMs": 39544
+        },
+        {
+          "word": "the",
+          "startMs": 39544,
+          "endMs": 39833
+        },
+        {
+          "word": "sermon",
+          "startMs": 39833,
+          "endMs": 40078
+        },
+        {
+          "word": "through",
+          "startMs": 40078,
+          "endMs": 40433
+        },
+        {
+          "word": "their",
+          "startMs": 40433,
+          "endMs": 40700
+        },
+        {
+          "word": "headphones",
+          "startMs": 40700,
+          "endMs": 41033
+        },
+        {
+          "word": "in",
+          "startMs": 41033,
+          "endMs": 41567
+        },
+        {
+          "word": "their",
+          "startMs": 41567,
+          "endMs": 41722
+        },
+        {
+          "word": "own",
+          "startMs": 41722,
+          "endMs": 41900
+        },
+        {
+          "word": "language.",
+          "startMs": 41900,
+          "endMs": 42322
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "startMs": 42756,
+      "endMs": 46656,
+      "words": [
+        {
+          "word": "They",
+          "startMs": 43189,
+          "endMs": 43411
+        },
+        {
+          "word": "can",
+          "startMs": 43411,
+          "endMs": 43544
+        },
+        {
+          "word": "also",
+          "startMs": 43544,
+          "endMs": 43767
+        },
+        {
+          "word": "read",
+          "startMs": 43767,
+          "endMs": 44078
+        },
+        {
+          "word": "translated",
+          "startMs": 44078,
+          "endMs": 44611
+        },
+        {
+          "word": "captions",
+          "startMs": 44611,
+          "endMs": 45367
+        },
+        {
+          "word": "right",
+          "startMs": 45367,
+          "endMs": 45633
+        },
+        {
+          "word": "on",
+          "startMs": 45633,
+          "endMs": 45833
+        },
+        {
+          "word": "their",
+          "startMs": 45833,
+          "endMs": 45967
+        },
+        {
+          "word": "phone.",
+          "startMs": 45967,
+          "endMs": 46344
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "startMs": 46656,
+      "endMs": 53066,
+      "words": [
+        {
+          "word": "So",
+          "startMs": 46967,
+          "endMs": 47167
+        },
+        {
+          "word": "if",
+          "startMs": 47167,
+          "endMs": 47322
+        },
+        {
+          "word": "you",
+          "startMs": 47322,
+          "endMs": 47433
+        },
+        {
+          "word": "have",
+          "startMs": 47433,
+          "endMs": 47589
+        },
+        {
+          "word": "a",
+          "startMs": 47589,
+          "endMs": 47678
+        },
+        {
+          "word": "Spanish-speaking",
+          "startMs": 47678,
+          "endMs": 48389
+        },
+        {
+          "word": "family",
+          "startMs": 48389,
+          "endMs": 48967
+        },
+        {
+          "word": "visiting",
+          "startMs": 48967,
+          "endMs": 49322
+        },
+        {
+          "word": "your",
+          "startMs": 49322,
+          "endMs": 49656
+        },
+        {
+          "word": "church,",
+          "startMs": 49656,
+          "endMs": 49944
+        },
+        {
+          "word": "you",
+          "startMs": 50544,
+          "endMs": 50789
+        },
+        {
+          "word": "don't",
+          "startMs": 50789,
+          "endMs": 51033
+        },
+        {
+          "word": "have",
+          "startMs": 51033,
+          "endMs": 51167
+        },
+        {
+          "word": "to",
+          "startMs": 51167,
+          "endMs": 51300
+        },
+        {
+          "word": "create",
+          "startMs": 51300,
+          "endMs": 51589
+        },
+        {
+          "word": "another",
+          "startMs": 51589,
+          "endMs": 51789
+        },
+        {
+          "word": "service",
+          "startMs": 51789,
+          "endMs": 52389
+        },
+        {
+          "word": "for",
+          "startMs": 52389,
+          "endMs": 52633
+        },
+        {
+          "word": "them.",
+          "startMs": 52633,
+          "endMs": 52833
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "startMs": 53066,
+      "endMs": 59833,
+      "words": [
+        {
+          "word": "They",
+          "startMs": 53300,
+          "endMs": 53611
+        },
+        {
+          "word": "can",
+          "startMs": 53611,
+          "endMs": 53767
+        },
+        {
+          "word": "sit",
+          "startMs": 53767,
+          "endMs": 54011
+        },
+        {
+          "word": "with",
+          "startMs": 54011,
+          "endMs": 54189
+        },
+        {
+          "word": "their",
+          "startMs": 54189,
+          "endMs": 54367
+        },
+        {
+          "word": "family,",
+          "startMs": 54367,
+          "endMs": 54789
+        },
+        {
+          "word": "worship",
+          "startMs": 55256,
+          "endMs": 55322
+        },
+        {
+          "word": "with",
+          "startMs": 55322,
+          "endMs": 55633
+        },
+        {
+          "word": "the",
+          "startMs": 55633,
+          "endMs": 55767
+        },
+        {
+          "word": "same",
+          "startMs": 55767,
+          "endMs": 55989
+        },
+        {
+          "word": "congregation,",
+          "startMs": 55989,
+          "endMs": 56389
+        },
+        {
+          "word": "and",
+          "startMs": 57344,
+          "endMs": 57589
+        },
+        {
+          "word": "actually",
+          "startMs": 57589,
+          "endMs": 57989
+        },
+        {
+          "word": "understand",
+          "startMs": 57989,
+          "endMs": 58322
+        },
+        {
+          "word": "what's",
+          "startMs": 58322,
+          "endMs": 58922
+        },
+        {
+          "word": "being",
+          "startMs": 58922,
+          "endMs": 59144
+        },
+        {
+          "word": "said.",
+          "startMs": 59144,
+          "endMs": 59544
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "startMs": 59833,
+      "endMs": 67100,
+      "words": [
+        {
+          "word": "And",
+          "startMs": 60122,
+          "endMs": 60389
+        },
+        {
+          "word": "you're",
+          "startMs": 60389,
+          "endMs": 60589
+        },
+        {
+          "word": "not",
+          "startMs": 60589,
+          "endMs": 60789
+        },
+        {
+          "word": "limited",
+          "startMs": 60789,
+          "endMs": 61144
+        },
+        {
+          "word": "to",
+          "startMs": 61144,
+          "endMs": 61456
+        },
+        {
+          "word": "Spanish.",
+          "startMs": 61456,
+          "endMs": 61744
+        },
+        {
+          "word": "You",
+          "startMs": 61744,
+          "endMs": 62700
+        },
+        {
+          "word": "can",
+          "startMs": 62700,
+          "endMs": 62878
+        },
+        {
+          "word": "make",
+          "startMs": 62878,
+          "endMs": 63056
+        },
+        {
+          "word": "other",
+          "startMs": 63056,
+          "endMs": 63322
+        },
+        {
+          "word": "languages",
+          "startMs": 63322,
+          "endMs": 63767
+        },
+        {
+          "word": "available",
+          "startMs": 63767,
+          "endMs": 64167
+        },
+        {
+          "word": "depending",
+          "startMs": 64167,
+          "endMs": 64744
+        },
+        {
+          "word": "on",
+          "startMs": 64744,
+          "endMs": 65100
+        },
+        {
+          "word": "the",
+          "startMs": 65100,
+          "endMs": 65233
+        },
+        {
+          "word": "people",
+          "startMs": 65233,
+          "endMs": 65544
+        },
+        {
+          "word": "you're",
+          "startMs": 65544,
+          "endMs": 65744
+        },
+        {
+          "word": "trying",
+          "startMs": 65744,
+          "endMs": 66056
+        },
+        {
+          "word": "to",
+          "startMs": 66056,
+          "endMs": 66189
+        },
+        {
+          "word": "reach.",
+          "startMs": 66189,
+          "endMs": 66433
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "startMs": 67100,
+      "endMs": 69544,
+      "words": [
+        {
+          "word": "The",
+          "startMs": 67767,
+          "endMs": 67967
+        },
+        {
+          "word": "same",
+          "startMs": 67967,
+          "endMs": 68167
+        },
+        {
+          "word": "thing",
+          "startMs": 68167,
+          "endMs": 68411
+        },
+        {
+          "word": "works",
+          "startMs": 68411,
+          "endMs": 68656
+        },
+        {
+          "word": "online.",
+          "startMs": 68656,
+          "endMs": 69011
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "startMs": 69544,
+      "endMs": 75500,
+      "words": [
+        {
+          "word": "If",
+          "startMs": 70078,
+          "endMs": 70211
+        },
+        {
+          "word": "you're",
+          "startMs": 70211,
+          "endMs": 70433
+        },
+        {
+          "word": "already",
+          "startMs": 70433,
+          "endMs": 70744
+        },
+        {
+          "word": "livestreaming",
+          "startMs": 70744,
+          "endMs": 71411
+        },
+        {
+          "word": "your",
+          "startMs": 71411,
+          "endMs": 71722
+        },
+        {
+          "word": "services,",
+          "startMs": 71722,
+          "endMs": 72189
+        },
+        {
+          "word": "Exbabel",
+          "startMs": 72967,
+          "endMs": 73522
+        },
+        {
+          "word": "can",
+          "startMs": 73522,
+          "endMs": 73811
+        },
+        {
+          "word": "translate",
+          "startMs": 73811,
+          "endMs": 74233
+        },
+        {
+          "word": "the",
+          "startMs": 74233,
+          "endMs": 74522
+        },
+        {
+          "word": "livestream",
+          "startMs": 74522,
+          "endMs": 75011
+        },
+        {
+          "word": "too.",
+          "startMs": 75011,
+          "endMs": 75500
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "startMs": 75500,
+      "endMs": 81822,
+      "words": [
+        {
+          "word": "Someone",
+          "startMs": 75500,
+          "endMs": 76456
+        },
+        {
+          "word": "watching",
+          "startMs": 76456,
+          "endMs": 76900
+        },
+        {
+          "word": "from",
+          "startMs": 76900,
+          "endMs": 77211
+        },
+        {
+          "word": "another",
+          "startMs": 77211,
+          "endMs": 77500
+        },
+        {
+          "word": "city",
+          "startMs": 77500,
+          "endMs": 77944
+        },
+        {
+          "word": "or",
+          "startMs": 77944,
+          "endMs": 78278
+        },
+        {
+          "word": "another",
+          "startMs": 78278,
+          "endMs": 78500
+        },
+        {
+          "word": "country",
+          "startMs": 78500,
+          "endMs": 78967
+        },
+        {
+          "word": "can",
+          "startMs": 78967,
+          "endMs": 79389
+        },
+        {
+          "word": "choose",
+          "startMs": 79389,
+          "endMs": 79589
+        },
+        {
+          "word": "their",
+          "startMs": 79589,
+          "endMs": 79856
+        },
+        {
+          "word": "language",
+          "startMs": 79856,
+          "endMs": 80256
+        },
+        {
+          "word": "and",
+          "startMs": 80256,
+          "endMs": 80500
+        },
+        {
+          "word": "follow",
+          "startMs": 80500,
+          "endMs": 80878
+        },
+        {
+          "word": "along.",
+          "startMs": 80878,
+          "endMs": 81322
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "startMs": 81822,
+      "endMs": 89522,
+      "words": [
+        {
+          "word": "We",
+          "startMs": 82322,
+          "endMs": 82722
+        },
+        {
+          "word": "designed",
+          "startMs": 82722,
+          "endMs": 83033
+        },
+        {
+          "word": "it",
+          "startMs": 83033,
+          "endMs": 83344
+        },
+        {
+          "word": "to",
+          "startMs": 83344,
+          "endMs": 83478
+        },
+        {
+          "word": "work",
+          "startMs": 83478,
+          "endMs": 83656
+        },
+        {
+          "word": "with",
+          "startMs": 83656,
+          "endMs": 83900
+        },
+        {
+          "word": "the",
+          "startMs": 83900,
+          "endMs": 84033
+        },
+        {
+          "word": "audio",
+          "startMs": 84033,
+          "endMs": 84256
+        },
+        {
+          "word": "setup",
+          "startMs": 84256,
+          "endMs": 84700
+        },
+        {
+          "word": "churches",
+          "startMs": 84700,
+          "endMs": 85011
+        },
+        {
+          "word": "already",
+          "startMs": 85011,
+          "endMs": 85567
+        },
+        {
+          "word": "use,",
+          "startMs": 85567,
+          "endMs": 86056
+        },
+        {
+          "word": "so",
+          "startMs": 86322,
+          "endMs": 86367
+        },
+        {
+          "word": "your",
+          "startMs": 86367,
+          "endMs": 86500
+        },
+        {
+          "word": "team",
+          "startMs": 86500,
+          "endMs": 86789
+        },
+        {
+          "word": "doesn't",
+          "startMs": 86789,
+          "endMs": 87144
+        },
+        {
+          "word": "have",
+          "startMs": 87144,
+          "endMs": 87278
+        },
+        {
+          "word": "to",
+          "startMs": 87278,
+          "endMs": 87389
+        },
+        {
+          "word": "completely",
+          "startMs": 87389,
+          "endMs": 87789
+        },
+        {
+          "word": "rethink",
+          "startMs": 87789,
+          "endMs": 88411
+        },
+        {
+          "word": "Sunday",
+          "startMs": 88411,
+          "endMs": 88767
+        },
+        {
+          "word": "morning.",
+          "startMs": 88767,
+          "endMs": 89233
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "startMs": 89522,
+      "endMs": 95044,
+      "words": [
+        {
+          "word": "Connect",
+          "startMs": 89811,
+          "endMs": 90056
+        },
+        {
+          "word": "your",
+          "startMs": 90056,
+          "endMs": 90344
+        },
+        {
+          "word": "audio.",
+          "startMs": 90344,
+          "endMs": 90700
+        },
+        {
+          "word": "Start",
+          "startMs": 91367,
+          "endMs": 91567
+        },
+        {
+          "word": "the",
+          "startMs": 91567,
+          "endMs": 91789
+        },
+        {
+          "word": "translation.",
+          "startMs": 91789,
+          "endMs": 92167
+        },
+        {
+          "word": "Put",
+          "startMs": 92700,
+          "endMs": 93189
+        },
+        {
+          "word": "the",
+          "startMs": 93189,
+          "endMs": 93344
+        },
+        {
+          "word": "QR",
+          "startMs": 93344,
+          "endMs": 93611
+        },
+        {
+          "word": "code",
+          "startMs": 93611,
+          "endMs": 94056
+        },
+        {
+          "word": "on",
+          "startMs": 94056,
+          "endMs": 94256
+        },
+        {
+          "word": "the",
+          "startMs": 94256,
+          "endMs": 94367
+        },
+        {
+          "word": "screen.",
+          "startMs": 94367,
+          "endMs": 94678
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "startMs": 95044,
+      "endMs": 98622,
+      "words": [
+        {
+          "word": "Your",
+          "startMs": 95411,
+          "endMs": 95544
+        },
+        {
+          "word": "congregation",
+          "startMs": 95544,
+          "endMs": 96033
+        },
+        {
+          "word": "handles",
+          "startMs": 96033,
+          "endMs": 96744
+        },
+        {
+          "word": "the",
+          "startMs": 96744,
+          "endMs": 96967
+        },
+        {
+          "word": "rest",
+          "startMs": 96967,
+          "endMs": 97189
+        },
+        {
+          "word": "from",
+          "startMs": 97189,
+          "endMs": 97433
+        },
+        {
+          "word": "their",
+          "startMs": 97433,
+          "endMs": 97589
+        },
+        {
+          "word": "phones.",
+          "startMs": 97589,
+          "endMs": 98056
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "startMs": 98622,
+      "endMs": 104200,
+      "words": [
+        {
+          "word": "If",
+          "startMs": 99189,
+          "endMs": 99544
+        },
+        {
+          "word": "this",
+          "startMs": 99544,
+          "endMs": 99722
+        },
+        {
+          "word": "sounds",
+          "startMs": 99722,
+          "endMs": 99967
+        },
+        {
+          "word": "useful",
+          "startMs": 99967,
+          "endMs": 100344
+        },
+        {
+          "word": "for",
+          "startMs": 100344,
+          "endMs": 100678
+        },
+        {
+          "word": "your",
+          "startMs": 100678,
+          "endMs": 100833
+        },
+        {
+          "word": "church,",
+          "startMs": 100833,
+          "endMs": 101056
+        },
+        {
+          "word": "I'd",
+          "startMs": 101300,
+          "endMs": 101500
+        },
+        {
+          "word": "love",
+          "startMs": 101500,
+          "endMs": 101700
+        },
+        {
+          "word": "for",
+          "startMs": 101700,
+          "endMs": 101922
+        },
+        {
+          "word": "you",
+          "startMs": 101922,
+          "endMs": 102033
+        },
+        {
+          "word": "to",
+          "startMs": 102033,
+          "endMs": 102122
+        },
+        {
+          "word": "actually",
+          "startMs": 102122,
+          "endMs": 102367
+        },
+        {
+          "word": "try",
+          "startMs": 102367,
+          "endMs": 102856
+        },
+        {
+          "word": "it",
+          "startMs": 102856,
+          "endMs": 103100
+        },
+        {
+          "word": "during",
+          "startMs": 103100,
+          "endMs": 103322
+        },
+        {
+          "word": "a",
+          "startMs": 103322,
+          "endMs": 103478
+        },
+        {
+          "word": "service.",
+          "startMs": 103478,
+          "endMs": 103833
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "startMs": 104200,
+      "endMs": 108656,
+      "words": [
+        {
+          "word": "You",
+          "startMs": 104567,
+          "endMs": 104789
+        },
+        {
+          "word": "can",
+          "startMs": 104789,
+          "endMs": 104922
+        },
+        {
+          "word": "start",
+          "startMs": 104922,
+          "endMs": 105189
+        },
+        {
+          "word": "with",
+          "startMs": 105189,
+          "endMs": 105389
+        },
+        {
+          "word": "a",
+          "startMs": 105389,
+          "endMs": 105522
+        },
+        {
+          "word": "30-day",
+          "startMs": 105522,
+          "endMs": 106078
+        },
+        {
+          "word": "free",
+          "startMs": 106078,
+          "endMs": 106322
+        },
+        {
+          "word": "trial",
+          "startMs": 106322,
+          "endMs": 106789
+        },
+        {
+          "word": "at",
+          "startMs": 106789,
+          "endMs": 107122
+        },
+        {
+          "word": "Exbabel.com.",
+          "startMs": 107122,
+          "endMs": 108389
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "startMs": 108656,
+      "endMs": 115356,
+      "words": [
+        {
+          "word": "And",
+          "startMs": 108922,
+          "endMs": 109300
+        },
+        {
+          "word": "if",
+          "startMs": 109300,
+          "endMs": 109500
+        },
+        {
+          "word": "you'd",
+          "startMs": 109500,
+          "endMs": 109633
+        },
+        {
+          "word": "rather",
+          "startMs": 109633,
+          "endMs": 109811
+        },
+        {
+          "word": "have",
+          "startMs": 109811,
+          "endMs": 110122
+        },
+        {
+          "word": "us",
+          "startMs": 110122,
+          "endMs": 110278
+        },
+        {
+          "word": "walk",
+          "startMs": 110278,
+          "endMs": 110522
+        },
+        {
+          "word": "through",
+          "startMs": 110522,
+          "endMs": 110744
+        },
+        {
+          "word": "your",
+          "startMs": 110744,
+          "endMs": 110944
+        },
+        {
+          "word": "setup",
+          "startMs": 110944,
+          "endMs": 111278
+        },
+        {
+          "word": "with",
+          "startMs": 111278,
+          "endMs": 111544
+        },
+        {
+          "word": "you",
+          "startMs": 111544,
+          "endMs": 111700
+        },
+        {
+          "word": "first,",
+          "startMs": 111700,
+          "endMs": 112011
+        },
+        {
+          "word": "you",
+          "startMs": 112678,
+          "endMs": 112833
+        },
+        {
+          "word": "can",
+          "startMs": 112833,
+          "endMs": 112967
+        },
+        {
+          "word": "schedule",
+          "startMs": 112967,
+          "endMs": 113322
+        },
+        {
+          "word": "a",
+          "startMs": 113322,
+          "endMs": 113611
+        },
+        {
+          "word": "quick",
+          "startMs": 113611,
+          "endMs": 113811
+        },
+        {
+          "word": "call",
+          "startMs": 113811,
+          "endMs": 114167
+        },
+        {
+          "word": "with",
+          "startMs": 114167,
+          "endMs": 114367
+        },
+        {
+          "word": "our",
+          "startMs": 114367,
+          "endMs": 114500
+        },
+        {
+          "word": "team.",
+          "startMs": 114500,
+          "endMs": 114833
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "startMs": 115356,
+      "endMs": 123800,
+      "words": [
+        {
+          "word": "That",
+          "startMs": 115878,
+          "endMs": 116233
+        },
+        {
+          "word": "way,",
+          "startMs": 116233,
+          "endMs": 116433
+        },
+        {
+          "word": "the",
+          "startMs": 116456,
+          "endMs": 116611
+        },
+        {
+          "word": "next",
+          "startMs": 116611,
+          "endMs": 116722
+        },
+        {
+          "word": "person",
+          "startMs": 116722,
+          "endMs": 117078
+        },
+        {
+          "word": "who",
+          "startMs": 117078,
+          "endMs": 117367
+        },
+        {
+          "word": "walks",
+          "startMs": 117367,
+          "endMs": 117611
+        },
+        {
+          "word": "into",
+          "startMs": 117611,
+          "endMs": 117856
+        },
+        {
+          "word": "your",
+          "startMs": 117856,
+          "endMs": 118078
+        },
+        {
+          "word": "church",
+          "startMs": 118078,
+          "endMs": 118300
+        },
+        {
+          "word": "doesn't",
+          "startMs": 118300,
+          "endMs": 118833
+        },
+        {
+          "word": "have",
+          "startMs": 118833,
+          "endMs": 118989
+        },
+        {
+          "word": "to",
+          "startMs": 118989,
+          "endMs": 119122
+        },
+        {
+          "word": "speak",
+          "startMs": 119122,
+          "endMs": 119322
+        },
+        {
+          "word": "the",
+          "startMs": 119322,
+          "endMs": 119522
+        },
+        {
+          "word": "same",
+          "startMs": 119522,
+          "endMs": 119744
+        },
+        {
+          "word": "language",
+          "startMs": 119744,
+          "endMs": 120100
+        },
+        {
+          "word": "as",
+          "startMs": 120100,
+          "endMs": 120411
+        },
+        {
+          "word": "your",
+          "startMs": 120411,
+          "endMs": 120567
+        },
+        {
+          "word": "pastor",
+          "startMs": 120567,
+          "endMs": 120856
+        },
+        {
+          "word": "to",
+          "startMs": 120856,
+          "endMs": 121256
+        },
+        {
+          "word": "understand",
+          "startMs": 121256,
+          "endMs": 121411
+        },
+        {
+          "word": "the",
+          "startMs": 121411,
+          "endMs": 121967
+        },
+        {
+          "word": "message.",
+          "startMs": 121967,
+          "endMs": 122278
+        }
+      ]
+    }
+  ],
+  "alignmentDifferences": [
+    {
+      "script": "Spanish-speaking",
+      "recognized": "Spanish -speaking",
+      "start": 42.64,
+      "end": 43.28
+    },
+    {
+      "script": "livestreaming",
+      "recognized": "live streaming",
+      "start": 63.4,
+      "end": 64.0
+    },
+    {
+      "script": "livestream too.",
+      "recognized": "live stream to",
+      "start": 66.8,
+      "end": 67.68
+    },
+    {
+      "script": "use,",
+      "recognized": "used,",
+      "start": 76.74,
+      "end": 77.18
+    },
+    {
+      "script": "30-day",
+      "recognized": "30 -day",
+      "start": 94.7,
+      "end": 95.2
+    },
+    {
+      "script": "Exbabel.com.",
+      "recognized": "exbabel .com,",
+      "start": 96.14,
+      "end": 97.28
+    }
+  ]
+}

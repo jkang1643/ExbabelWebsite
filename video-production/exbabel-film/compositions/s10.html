@@ -1,0 +1,89 @@
+<template id="S10">
+  <div data-layout-allow-overlap="true" data-composition-id="S10" data-width="1920" data-height="1080">
+    <div class="s10-container" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 class="s10-text" style="font-size: 80px; font-weight: 700; text-align: center;">No separate service<br><span class="accent">required.</span></h1>
+      <p class="s10-sub" style="font-size: 32px; color: #4b5563; margin-top: 20px;">A Spanish-speaking family can stay in the same service and follow in their language.</p>
+      
+      <div class="s10-pills" style="display: flex; gap: 20px; margin-top: 60px;">
+        <div class="pill p1" style="padding: 16px 32px; background: #f3f4f6; border-radius: 40px; font-size: 24px; font-weight: 500;">Same sermon</div>
+        <div class="pill p2" style="padding: 16px 32px; background: #f3f4f6; border-radius: 40px; font-size: 24px; font-weight: 500;">Same congregation</div>
+        <div class="pill p3" style="padding: 16px 32px; background: #4338ca; color: white; border-radius: 40px; font-size: 24px; font-weight: 500;">Their language</div>
+      </div>
+    </div>
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s10-text");
+tl.to(".s10-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.2);
+
+
+// SPATIAL ENTRANCE: Match S09 Push Through (start massive)
+tl.set(".s10-container", { scale: 5, opacity: 0 });
+tl.set(".s10-text", { y: 20 });
+tl.set(".s10-sub", { y: 20 });
+tl.set(".pill", { y: 30 });
+
+tl.to(".s10-container", { scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, 0.0);
+// tl.to(".s10-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.2);
+tl.to(".s10-sub", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+
+tl.to(".p1", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 1.2);
+tl.to(".p2", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 1.8);
+tl.to(".p3", { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.4);
+
+// Drift
+tl.to(".s10-container", { scale: 1.05, duration: 2.0, ease: "none" }, 2.4);
+
+// SPATIAL EXIT: Whip Pan UP (fly down to transition to S11)
+tl.to(".s10-container", { y: -1500, scale: 0.8, opacity: 0, duration: 0.8, ease: "power3.in" }, 5.2);
+
+window.__timelines["S10"] = tl;
+})();
+</script>
+  </div>
+</template>

@@ -1,0 +1,4016 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationMs": 123800,
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Personal greeting",
+      "voiceover": "Hey there, just wanted to show you how you can bring multilingual services to your congregation at your church.",
+      "headline": "Every voice. One congregation.",
+      "layout": "title",
+      "tool": "HF",
+      "reference": "Reference R04–R07: centered words assemble around one brand anchor.",
+      "labels": [
+        "Exbabel",
+        "[Church Name]"
+      ],
+      "transition": "T01",
+      "wordCount": 20,
+      "durationMs": 6244,
+      "startMs": 0,
+      "endMs": 6244,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S01-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S01-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S01-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S01-hero",
+          "role": "title",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S01-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "brand appears at x50 y32; scale .9→1, opacity 0→1",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 550,
+          "action": "headline first phrase rises 30px under mask",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3300,
+          "action": "second phrase replaces the greeting line",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6800,
+          "action": "church name settles below; hold",
+          "durationMs": 400,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 8400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1800,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-title"
+      ],
+      "captionText": "Hey [First Name], just wanted to show you how you can bring multilingual services to your congregation at [Church Name].",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 0,
+      "originalEndMs": 9000,
+      "originalDurationMs": 9000
+    },
+    {
+      "id": "S02",
+      "title": "A family arrives",
+      "voiceover": "Picture someone walking into your service this Sunday with their family.",
+      "headline": "A place for every family.",
+      "layout": "people",
+      "tool": "H + HF + COMP",
+      "reference": "Human-context adaptation; the reference itself contains no live action.",
+      "labels": [
+        "Sunday morning",
+        "A family arrives"
+      ],
+      "transition": "T02",
+      "wordCount": 11,
+      "durationMs": 4744,
+      "startMs": 6244,
+      "endMs": 10988,
+      "camera": {
+        "type": "physical shot per Higgsfield prompt plus flat HF overlay",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S02-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S02-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S02-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S02-hero",
+          "role": "people",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S02-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "family footage card rises 36px and resolves",
+          "durationMs": 480,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 600,
+          "action": "family advances toward entrance; camera tracks 0.4m",
+          "durationMs": 3600,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4250,
+          "action": "headline becomes fully readable; hold",
+          "durationMs": 350,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T02",
+        "startsAtLocalMs": 4900,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1000,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-people",
+        "H-S02"
+      ],
+      "captionText": "Picture someone walking into your service this Sunday with their family.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 9000,
+      "originalEndMs": 14500,
+      "originalDurationMs": 5500
+    },
+    {
+      "id": "S03",
+      "title": "The language barrier",
+      "voiceover": "They want to be there. They want to hear the sermon. But English isn't their first language, so they're only catching pieces of the message.",
+      "headline": "They’re here for the service. But missing parts of the message.",
+      "layout": "fragment",
+      "tool": "HF",
+      "reference": "R10–R11: enlarged speech bubbles; isolate one incomplete thought.",
+      "labels": [
+        "Welcome to our service.",
+        "… only pieces of the message"
+      ],
+      "transition": "T03",
+      "wordCount": 25,
+      "durationMs": 9178,
+      "startMs": 10988,
+      "endMs": 20166,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S03-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S03-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S03-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S03-hero",
+          "role": "fragment",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S03-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "three short English phrase strips occupy x30/50/70",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1700,
+          "action": "middle and right strips fade to .25; left remains clear",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4200,
+          "action": "camera crops toward remaining phrase; scale 1→1.2",
+          "durationMs": 620,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6900,
+          "action": "fragments gather into one centered message card",
+          "durationMs": 650,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 8200,
+          "action": "hold problem statement without more decorative motion",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T03",
+        "startsAtLocalMs": 10400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2800,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-fragment"
+      ],
+      "captionText": "They want to be there. They want to hear the sermon. But English isn't their first language, so they're only catching pieces of the message.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 14500,
+      "originalEndMs": 25500,
+      "originalDurationMs": 11000,
+      "marketingCopy": {
+        "lines": [
+          "They’re here for the service.",
+          "But missing parts of the message."
+        ],
+        "accent": 1
+      }
+    },
+    {
+      "id": "S04",
+      "title": "Scan",
+      "voiceover": "With Exbabel, they can pull out their phone, scan a QR code,",
+      "headline": "One scan gets them connected.",
+      "layout": "scan",
+      "tool": "HF",
+      "reference": "R12: small circular control grows into a purposeful UI surface.",
+      "labels": [
+        "Service access",
+        "Scan to join"
+      ],
+      "transition": "T04",
+      "wordCount": 12,
+      "durationMs": 4590,
+      "startMs": 20166,
+      "endMs": 24756,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S04-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S04-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S04-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S04-hero",
+          "role": "scan",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S04-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "blank access pill grows into a QR presentation card",
+          "durationMs": 600,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 650,
+          "action": "phone outline enters from x+90 y+60",
+          "durationMs": 520,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1800,
+          "action": "scan bracket travels downward once over QR region",
+          "durationMs": 650,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3000,
+          "action": "check resolves; hold the confirmed access state",
+          "durationMs": 300,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T04",
+        "startsAtLocalMs": 4900,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2200,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-scan"
+      ],
+      "captionText": "With Exbabel, they can pull out their phone, scan a QR code,",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 25500,
+      "originalEndMs": 31000,
+      "originalDurationMs": 5500,
+      "marketingCopy": {
+        "lines": [
+          "One scan gets them connected."
+        ],
+        "accentPhrase": "One scan",
+        "support": "Scan the service QR code from their phone."
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Choose and listen",
+      "voiceover": "choose their language, and start listening.",
+      "headline": "Choose a language.",
+      "layout": "phone",
+      "tool": "HF",
+      "reference": "R15: selected row lifts from its list; R22: action-detail punch-in.",
+      "labels": [
+        "Español",
+        "Listen to this service"
+      ],
+      "transition": "T05",
+      "wordCount": 6,
+      "durationMs": 2944,
+      "startMs": 24756,
+      "endMs": 27700,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S05-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S05-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S05-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S05-hero",
+          "role": "phone",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S05-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "phone stays in place; three language rows reveal at 70ms stagger",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 650,
+          "action": "Español row rises 12px and gains blue border",
+          "durationMs": 320,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1300,
+          "action": "Listen action compresses .98→1; state changes to connected",
+          "durationMs": 260,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1800,
+          "action": "hold selected language and audio state",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T05",
+        "startsAtLocalMs": 2400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1200,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-phone"
+      ],
+      "captionText": "choose their language, and start listening.",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 31000,
+      "originalEndMs": 34000,
+      "originalDurationMs": 3000,
+      "marketingCopy": {
+        "lines": [
+          "Choose a language."
+        ]
+      }
+    },
+    {
+      "id": "S06",
+      "title": "Simple payoff",
+      "voiceover": "That's pretty much it.",
+      "headline": "That's it.",
+      "layout": "title",
+      "tool": "HF",
+      "reference": "R23: clean completion state; brief visual breath.",
+      "labels": [
+        "You're connected."
+      ],
+      "transition": "T01",
+      "wordCount": 4,
+      "durationMs": 2100,
+      "startMs": 27700,
+      "endMs": 29800,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S06-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S06-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S06-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S06-hero",
+          "role": "title",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S06-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "status check draws, then short payoff rises 24px",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 500,
+          "action": "hold clean completion",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 1900,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2000,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-title"
+      ],
+      "captionText": "That's pretty much it.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 34000,
+      "originalEndMs": 36500,
+      "originalDurationMs": 2500
+    },
+    {
+      "id": "S07",
+      "title": "Pastor continues",
+      "voiceover": "Your pastor keeps preaching like normal. Exbabel listens to the service and translates it while they're speaking.",
+      "headline": "Your pastor keeps preaching.",
+      "layout": "signal",
+      "tool": "HF",
+      "reference": "R16–R18: persistent status chip explains work without a busy dashboard.",
+      "labels": [
+        "Service audio",
+        "Exbabel",
+        "Translated audio"
+      ],
+      "transition": "T06",
+      "wordCount": 17,
+      "durationMs": 7489,
+      "startMs": 29800,
+      "endMs": 37289,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S07-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S07-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S07-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S07-hero",
+          "role": "signal",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S07-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "speaker, Exbabel and listener nodes enter left to right",
+          "durationMs": 600,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1300,
+          "action": "input path draws left→center",
+          "durationMs": 800,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2500,
+          "action": "output path draws center→right while input continues",
+          "durationMs": 900,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4200,
+          "action": "deterministic wave cycle repeats finite times",
+          "durationMs": 2300,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6800,
+          "action": "hold all connected nodes",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T06",
+        "startsAtLocalMs": 7400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1200,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-signal"
+      ],
+      "captionText": "Your pastor keeps preaching like normal. Exbabel listens to the service and translates it while they're speaking.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 36500,
+      "originalEndMs": 44500,
+      "originalDurationMs": 8000,
+      "marketingCopy": {
+        "lines": [
+          "Your pastor keeps preaching."
+        ]
+      }
+    },
+    {
+      "id": "S08",
+      "title": "Listen in your language",
+      "voiceover": "The person in the congregation hears the sermon through their headphones in their own language.",
+      "headline": "Hear the sermon in your own language.",
+      "layout": "listener",
+      "tool": "H + HF + COMP",
+      "reference": "Human-benefit insert; retain the same visual anchor and light field.",
+      "labels": [
+        "Translated audio",
+        "Español"
+      ],
+      "transition": "T02",
+      "wordCount": 15,
+      "durationMs": 5467,
+      "startMs": 37289,
+      "endMs": 42756,
+      "camera": {
+        "type": "physical shot per Higgsfield prompt plus flat HF overlay",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S08-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S08-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S08-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S08-hero",
+          "role": "listener",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S08-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "listener footage resolves inside rounded card at x62 y55",
+          "durationMs": 480,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 700,
+          "action": "listener settles earbud, then follows sermon; no lip sync",
+          "durationMs": 4300,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 5200,
+          "action": "translated audio label gains emphasis, then holds",
+          "durationMs": 350,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T02",
+        "startsAtLocalMs": 6400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1450,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-listener",
+        "H-S08"
+      ],
+      "captionText": "The person in the congregation hears the sermon through their headphones in their own language.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 44500,
+      "originalEndMs": 51500,
+      "originalDurationMs": 7000,
+      "marketingCopy": {
+        "lines": [
+          "Hear the sermon",
+          "in your own language."
+        ],
+        "accent": 1,
+        "support": "Live translated audio plays through the listener’s headphones."
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Read captions",
+      "voiceover": "They can also read translated captions right on their phone.",
+      "headline": "Listen — or read along.",
+      "layout": "captions",
+      "tool": "HF",
+      "reference": "R10–R11: close-up text reveal inside bubbles with uninterrupted reading hold.",
+      "labels": [
+        "Welcome to our service.",
+        "Bienvenidos a nuestro servicio."
+      ],
+      "transition": "T07",
+      "wordCount": 10,
+      "durationMs": 3900,
+      "startMs": 42756,
+      "endMs": 46656,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S09-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S09-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S09-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S09-hero",
+          "role": "captions",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S09-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "phone enters at scale .96, centered x65 y56",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 650,
+          "action": "first translated phrase reveals as one semantic chunk",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2200,
+          "action": "second line appears; existing line translates upward 38px",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3100,
+          "action": "hold complete caption for reading",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T07",
+        "startsAtLocalMs": 4400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1900,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-captions"
+      ],
+      "captionText": "They can also read translated captions right on their phone.",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 51500,
+      "originalEndMs": 56500,
+      "originalDurationMs": 5000,
+      "marketingCopy": {
+        "lines": [
+          "Listen — or read along."
+        ],
+        "accentPhrase": "read along.",
+        "support": "Live translated captions appear right on their phone."
+      }
+    },
+    {
+      "id": "S10",
+      "title": "One shared service",
+      "voiceover": "So if you have a Spanish-speaking family visiting your church, you don't have to create another service for them.",
+      "headline": "No separate service required.",
+      "layout": "together",
+      "tool": "HF",
+      "reference": "R05–R08: type reflows while its semantic anchor remains.",
+      "labels": [
+        "[Church Name]",
+        "One congregation"
+      ],
+      "transition": "T01",
+      "wordCount": 19,
+      "durationMs": 6410,
+      "startMs": 46656,
+      "endMs": 53066,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S10-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S10-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S10-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S10-hero",
+          "role": "together",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S10-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "one church outline is drawn behind the family",
+          "durationMs": 550,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1600,
+          "action": "family rows move into a shared seating group",
+          "durationMs": 650,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3800,
+          "action": "headline changes from one service to together",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 5500,
+          "action": "hold whole congregation and church-name label",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 7900,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 3000,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-together"
+      ],
+      "captionText": "So if you have a Spanish-speaking family visiting [Church Name], you don't have to create another service for them.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 56500,
+      "originalEndMs": 65000,
+      "originalDurationMs": 8500,
+      "marketingCopy": {
+        "lines": [
+          "No separate service required."
+        ],
+        "accentPhrase": "No separate service",
+        "support": "A Spanish-speaking family can stay in the same service and follow in their language."
+      }
+    },
+    {
+      "id": "S11",
+      "title": "Belonging",
+      "voiceover": "They can sit with their family, worship with the same congregation, and actually understand what's being said.",
+      "headline": "Stay with their family.",
+      "layout": "people",
+      "tool": "H + HF + COMP",
+      "reference": "Return to the arrival family after the product proof.",
+      "labels": [
+        "Same family",
+        "Same congregation"
+      ],
+      "transition": "T02",
+      "wordCount": 17,
+      "durationMs": 6767,
+      "startMs": 53066,
+      "endMs": 59833,
+      "camera": {
+        "type": "physical shot per Higgsfield prompt plus flat HF overlay",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S11-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S11-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S11-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S11-hero",
+          "role": "people",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S11-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "reuse same family identities and wardrobe, seated together",
+          "durationMs": 480,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 800,
+          "action": "0.25m slow lateral move; family attends naturally",
+          "durationMs": 4900,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6100,
+          "action": "hold headline and family in shared environment",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T02",
+        "startsAtLocalMs": 7400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1900,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-people",
+        "H-S11"
+      ],
+      "captionText": "They can sit with their family, worship with the same congregation, and actually understand what's being said.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 65000,
+      "originalEndMs": 73000,
+      "originalDurationMs": 8000,
+      "marketingCopy": {
+        "lines": [
+          "Stay with their family."
+        ]
+      }
+    },
+    {
+      "id": "S12",
+      "title": "More languages",
+      "voiceover": "And you're not limited to Spanish. You can make other languages available depending on the people you're trying to reach.",
+      "headline": "Go beyond one language.",
+      "layout": "languages",
+      "tool": "HF",
+      "reference": "R02–R03: center anchor expands to a controlled constellation.",
+      "labels": [
+        "Español",
+        "한국어",
+        "Português",
+        "Français"
+      ],
+      "transition": "T06",
+      "wordCount": 20,
+      "durationMs": 7267,
+      "startMs": 59833,
+      "endMs": 67100,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S12-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S12-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S12-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S12-hero",
+          "role": "languages",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S12-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "Exbabel anchor enters center",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1200,
+          "action": "Spanish card arrives upper left",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2700,
+          "action": "Korean and Portuguese cards arrive, 90ms stagger",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4800,
+          "action": "French card completes four-node field",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6300,
+          "action": "hold all labels with no numeric coverage claim",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T06",
+        "startsAtLocalMs": 8400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2700,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-languages"
+      ],
+      "captionText": "And you're not limited to Spanish. You can make other languages available depending on the people you're trying to reach.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 73000,
+      "originalEndMs": 82000,
+      "originalDurationMs": 9000,
+      "marketingCopy": {
+        "lines": [
+          "Go beyond one language."
+        ],
+        "accentPhrase": "one language.",
+        "support": "Make the languages your community needs available in the same service."
+      }
+    },
+    {
+      "id": "S13",
+      "title": "Online handoff",
+      "voiceover": "The same thing works online.",
+      "headline": "The same translation works online.",
+      "layout": "title",
+      "tool": "HF",
+      "reference": "R24–R27: fixed sentence with one changing phrase.",
+      "labels": [
+        "Online, too."
+      ],
+      "transition": "T01",
+      "wordCount": 5,
+      "durationMs": 2444,
+      "startMs": 67100,
+      "endMs": 69544,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S13-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S13-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S13-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S13-hero",
+          "role": "title",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S13-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "In the room holds then slides upward 28px",
+          "durationMs": 380,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 700,
+          "action": "Online phrase rises into same baseline",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1500,
+          "action": "hold the online promise",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 2400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1500,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-title"
+      ],
+      "captionText": "The same thing works online.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 82000,
+      "originalEndMs": 85000,
+      "originalDurationMs": 3000,
+      "marketingCopy": {
+        "lines": [
+          "The same translation",
+          "works online."
+        ],
+        "accent": 1,
+        "support": "Bring multilingual access to your livestream, too."
+      }
+    },
+    {
+      "id": "S14",
+      "title": "Livestream input",
+      "voiceover": "If you're already livestreaming your services, Exbabel can translate the livestream too.",
+      "headline": "Translate your sermon online.",
+      "layout": "livestream",
+      "tool": "HF",
+      "reference": "R14: simplified browser rises into frame, then context recedes.",
+      "labels": [
+        "Service livestream",
+        "Translated audio + captions"
+      ],
+      "transition": "T06",
+      "wordCount": 12,
+      "durationMs": 5956,
+      "startMs": 69544,
+      "endMs": 75500,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S14-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S14-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S14-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S14-hero",
+          "role": "livestream",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S14-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "browser surface rises y80→0, scale .96→1",
+          "durationMs": 620,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 900,
+          "action": "neutral sermon-video placeholder resolves in browser",
+          "durationMs": 350,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1800,
+          "action": "translation layer docks under video",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3300,
+          "action": "caption chunk becomes readable; hold",
+          "durationMs": 450,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T06",
+        "startsAtLocalMs": 4900,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1750,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-livestream"
+      ],
+      "captionText": "If you're already livestreaming your services, Exbabel can translate the livestream too.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 85000,
+      "originalEndMs": 90500,
+      "originalDurationMs": 5500,
+      "marketingCopy": {
+        "lines": [
+          "Translate your sermon online."
+        ]
+      }
+    },
+    {
+      "id": "S15",
+      "title": "Remote listener",
+      "voiceover": "Someone watching from another city or another country can choose their language and follow along.",
+      "headline": "Let viewers choose their language.",
+      "layout": "remote",
+      "tool": "HF",
+      "reference": "R15: relevant card expands; background remains subordinate.",
+      "labels": [
+        "Choose a language",
+        "Follow along"
+      ],
+      "transition": "T05",
+      "wordCount": 15,
+      "durationMs": 6322,
+      "startMs": 75500,
+      "endMs": 81822,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S15-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S15-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S15-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S15-hero",
+          "role": "remote",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S15-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "two location cards enter at x32/68 y55",
+          "durationMs": 550,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1300,
+          "action": "left card shrinks to .82 while right language selector enlarges",
+          "durationMs": 620,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2800,
+          "action": "language selection check resolves",
+          "durationMs": 300,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4400,
+          "action": "both viewer cards return to equal weight; hold",
+          "durationMs": 500,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T05",
+        "startsAtLocalMs": 6400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2100,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-remote"
+      ],
+      "captionText": "Someone watching from another city or another country can choose their language and follow along.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 90500,
+      "originalEndMs": 97500,
+      "originalDurationMs": 7000,
+      "marketingCopy": {
+        "lines": [
+          "Let viewers choose their language."
+        ]
+      }
+    },
+    {
+      "id": "S16",
+      "title": "Existing audio setup",
+      "voiceover": "We designed it to work with the audio setup churches already use, so your team doesn't have to completely rethink Sunday morning.",
+      "headline": "Built around the setup you already use.",
+      "layout": "signal",
+      "tool": "HF",
+      "reference": "R17–R20: show the causal process instead of every setting.",
+      "labels": [
+        "Church audio",
+        "Exbabel session",
+        "Congregation"
+      ],
+      "transition": "T06",
+      "wordCount": 22,
+      "durationMs": 7700,
+      "startMs": 81822,
+      "endMs": 89522,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S16-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S16-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S16-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S16-hero",
+          "role": "signal",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S16-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "three large hardware-to-listener blocks enter",
+          "durationMs": 550,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1800,
+          "action": "existing audio cable path draws",
+          "durationMs": 700,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3800,
+          "action": "Exbabel session state changes to ready",
+          "durationMs": 320,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 5600,
+          "action": "connection line reaches listener phone",
+          "durationMs": 700,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 7600,
+          "action": "hold stable operational diagram; no unsupported connector promises",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T06",
+        "startsAtLocalMs": 9400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 2400,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-signal"
+      ],
+      "captionText": "We designed it to work with the audio setup churches already use, so your team doesn't have to completely rethink Sunday morning.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 97500,
+      "originalEndMs": 107500,
+      "originalDurationMs": 10000,
+      "marketingCopy": {
+        "lines": [
+          "Built around the setup",
+          "you already use."
+        ],
+        "accent": 1,
+        "support": "Connect your church audio without rebuilding your Sunday workflow."
+      }
+    },
+    {
+      "id": "S17",
+      "title": "Connect, start, share",
+      "voiceover": "Connect your audio. Start the translation. Put the QR code on the screen.",
+      "headline": "Connect your audio. Start translation. Share the QR code.",
+      "layout": "steps",
+      "tool": "HF",
+      "reference": "R24–R27: three phrase substitutions land on spoken verbs.",
+      "labels": [
+        "Connect audio",
+        "Start translation",
+        "Display QR code"
+      ],
+      "transition": "T07",
+      "wordCount": 13,
+      "durationMs": 5522,
+      "startMs": 89522,
+      "endMs": 95044,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S17-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S17-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S17-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S17-hero",
+          "role": "steps",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S17-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "Connect audio step reveals",
+          "durationMs": 380,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1800,
+          "action": "Start translation step reveals",
+          "durationMs": 380,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3500,
+          "action": "Display QR code step reveals",
+          "durationMs": 380,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4600,
+          "action": "hold three completed steps",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T07",
+        "startsAtLocalMs": 5400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1400,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-steps"
+      ],
+      "captionText": "Connect your audio. Start the translation. Put the QR code on the screen.",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 107500,
+      "originalEndMs": 113500,
+      "originalDurationMs": 6000,
+      "marketingCopy": {
+        "lines": [
+          "Connect your audio.",
+          "Start translation.",
+          "Share the QR code."
+        ],
+        "accent": 2
+      }
+    },
+    {
+      "id": "S18",
+      "title": "The listener takes over",
+      "voiceover": "Your congregation handles the rest from their phones.",
+      "headline": "Listeners join from their own phones.",
+      "layout": "phones",
+      "tool": "HF",
+      "reference": "R02: one object multiplies into a small organized field.",
+      "labels": [
+        "Scan",
+        "Choose",
+        "Listen"
+      ],
+      "transition": "T03",
+      "wordCount": 8,
+      "durationMs": 3578,
+      "startMs": 95044,
+      "endMs": 98622,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S18-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S18-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S18-headline",
+          "role": "headline",
+          "boxPct": [
+            7,
+            14,
+            86,
+            18
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S18-hero",
+          "role": "phones",
+          "boxPct": [
+            13,
+            35,
+            74,
+            51
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S18-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "one phone anchors center",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 750,
+          "action": "two copies fan outward to x28/72, 90ms stagger",
+          "durationMs": 620,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2100,
+          "action": "three action labels appear below",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2800,
+          "action": "hold",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T03",
+        "startsAtLocalMs": 3400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 1200,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-phones"
+      ],
+      "captionText": "Your congregation handles the rest from their phones.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 113500,
+      "originalEndMs": 117500,
+      "originalDurationMs": 4000,
+      "marketingCopy": {
+        "lines": [
+          "Listeners join from",
+          "their own phones."
+        ],
+        "accent": 1,
+        "support": "Choose a language and follow along."
+      }
+    },
+    {
+      "id": "S19",
+      "title": "Invitation",
+      "voiceover": "If this sounds useful for your church, I'd love for you to actually try it during a service.",
+      "headline": "Try it during a service.",
+      "layout": "title",
+      "tool": "HF",
+      "reference": "R23 completion hold becomes an invitation; new CTA, not observed ending.",
+      "labels": [
+        "[Church Name]"
+      ],
+      "transition": "T01",
+      "wordCount": 18,
+      "durationMs": 5578,
+      "startMs": 98622,
+      "endMs": 104200,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S19-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S19-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S19-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S19-hero",
+          "role": "title",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S19-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "church name appears as a small label",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1300,
+          "action": "invitation headline resolves in two lines",
+          "durationMs": 550,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 3900,
+          "action": "quiet hold with only brand anchor",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 7400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 4100,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-title"
+      ],
+      "captionText": "If this sounds useful for [Church Name], I'd love for you to actually try it during a service.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 117500,
+      "originalEndMs": 125500,
+      "originalDurationMs": 8000
+    },
+    {
+      "id": "S20",
+      "title": "Trial CTA",
+      "voiceover": "You can start with a 30-day free trial at Exbabel.com.",
+      "headline": "30-day free trial.",
+      "layout": "cta",
+      "tool": "HF",
+      "reference": "R22: focused action close-up, then settle for reading.",
+      "labels": [
+        "Exbabel.com",
+        "30-day free trial"
+      ],
+      "transition": "T05",
+      "wordCount": 10,
+      "durationMs": 4456,
+      "startMs": 104200,
+      "endMs": 108656,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S20-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S20-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S20-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S20-hero",
+          "role": "cta",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S20-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "trial headline reveals",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 800,
+          "action": "Exbabel.com button grows .96→1",
+          "durationMs": 380,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1500,
+          "action": "hold offer and URL; no moving text",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T05",
+        "startsAtLocalMs": 4400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 3500,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-cta"
+      ],
+      "captionText": "You can start with a 30-day free trial at Exbabel.com.",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 125500,
+      "originalEndMs": 130500,
+      "originalDurationMs": 5000,
+      "marketingCopy": {
+        "lines": [
+          "30-day free trial."
+        ],
+        "accentPhrase": "free trial.",
+        "support": "Try Exbabel in your next service.",
+        "cta": "Start at Exbabel.com"
+      }
+    },
+    {
+      "id": "S21",
+      "title": "Setup call",
+      "voiceover": "And if you'd rather have us walk through your setup with you first, you can schedule a quick call with our team.",
+      "headline": "Want help with your setup?",
+      "layout": "cta",
+      "tool": "HF",
+      "reference": "R15: selected action becomes a clear card, with no competing UI.",
+      "labels": [
+        "Schedule a quick call",
+        "Exbabel team"
+      ],
+      "transition": "T01",
+      "wordCount": 22,
+      "durationMs": 6700,
+      "startMs": 108656,
+      "endMs": 115356,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S21-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S21-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S21-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S21-hero",
+          "role": "cta",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S21-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "call card replaces trial card on same anchor",
+          "durationMs": 420,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 1700,
+          "action": "three illustrative setup topics appear",
+          "durationMs": 500,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4200,
+          "action": "call action remains still with URL",
+          "durationMs": 0,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "T01",
+        "startsAtLocalMs": 9400,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 5800,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-cta"
+      ],
+      "captionText": "And if you'd rather have us walk through your setup with you first, you can schedule a quick call with our team.",
+      "audioCues": [
+        {
+          "atMs": 650,
+          "type": "soft-interface-tick",
+          "status": "proposed; omit under a key consonant"
+        }
+      ],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 130500,
+      "originalEndMs": 140500,
+      "originalDurationMs": 10000,
+      "marketingCopy": {
+        "lines": [
+          "Want help with",
+          "your setup?"
+        ],
+        "accent": 1,
+        "support": "Schedule a quick call and we’ll walk through it with your team."
+      }
+    },
+    {
+      "id": "S22",
+      "title": "Emotional close",
+      "voiceover": "That way, the next person who walks into your church doesn't have to speak the same language as your pastor to understand the message.",
+      "headline": "Give your church one voice.",
+      "layout": "close",
+      "tool": "HF",
+      "reference": "Original resolution built from R23's clean payoff; reference recording has no captured final CTA.",
+      "labels": [
+        "Exbabel",
+        "Exbabel.com"
+      ],
+      "transition": "HOLD",
+      "wordCount": 24,
+      "durationMs": 8444,
+      "startMs": 115356,
+      "endMs": 123800,
+      "camera": {
+        "type": "digital composition reframe, no physical lens",
+        "defaultScale": [
+          1,
+          1.025
+        ],
+        "perspectivePx": 0,
+        "rotationDegrees": 0,
+        "note": "Reference UI is predominantly front-on; do not add default 3D tilt."
+      },
+      "layers": [
+        {
+          "id": "S22-bg",
+          "role": "background",
+          "boxPct": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "z": 0,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S22-brand",
+          "role": "brand anchor",
+          "boxPct": [
+            5,
+            6,
+            22,
+            5
+          ],
+          "z": 5,
+          "initial": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 1,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S22-headline",
+          "role": "headline",
+          "boxPct": [
+            8,
+            18,
+            84,
+            22
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 30,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S22-hero",
+          "role": "close",
+          "boxPct": [
+            10,
+            43,
+            80,
+            39
+          ],
+          "z": 2,
+          "initial": {
+            "x": 0,
+            "y": 60,
+            "scale": 0.96,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        },
+        {
+          "id": "S22-detail",
+          "role": "supporting labels",
+          "boxPct": [
+            12,
+            86,
+            76,
+            6
+          ],
+          "z": 4,
+          "initial": {
+            "x": 0,
+            "y": 20,
+            "scale": 1,
+            "rotation": 0,
+            "opacity": 0,
+            "blur": 0
+          }
+        }
+      ],
+      "beats": [
+        {
+          "atMs": 0,
+          "action": "family/church motif resolves behind headline",
+          "durationMs": 600,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 2500,
+          "action": "One congregation phrase appears",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 4800,
+          "action": "Understood replaces secondary line",
+          "durationMs": 450,
+          "ease": "outCubic"
+        },
+        {
+          "atMs": 6500,
+          "action": "logo and Exbabel.com settle; hold through final frame",
+          "durationMs": 400,
+          "ease": "outCubic"
+        }
+      ],
+      "exit": {
+        "transitionId": "HOLD",
+        "startsAtLocalMs": null,
+        "productionRule": "Transitions are included within scene duration, not added after it. Place outgoing/incoming handles inside this window for production. Preview uses schematic end fade."
+      },
+      "readHoldMs": 3600,
+      "assets": [
+        "official-logo",
+        "Sora-font",
+        "ui-close"
+      ],
+      "captionText": "That way, the next person who walks into [Church Name] doesn't have to speak the same language as your pastor to understand the message.",
+      "audioCues": [],
+      "productionNotes": "Illustrative UI and ungenerated footage are represented by schematic drawings in the review page. Use storyboard beats for full production; the preview demonstrates entrances and holds, not every planned effect.",
+      "visualImplementation": "HTML/SVG product motion and kinetic typography only; no stock media",
+      "originalStartMs": 140500,
+      "originalEndMs": 151000,
+      "originalDurationMs": 10500,
+      "marketingCopy": {
+        "lines": [
+          "Give your church",
+          "one voice."
+        ],
+        "accent": 1,
+        "support": "So language never keeps someone from the message."
+      }
+    }
+  ],
+  "cameraCues": [
+    {
+      "scene": "S04",
+      "atMs": 1200,
+      "target": [
+        880,
+        262
+      ],
+      "focal": [
+        880,
+        312
+      ],
+      "scale": 2.2,
+      "holdMs": 1500,
+      "pullBack": true,
+      "subject": "Service QR code"
+    },
+    {
+      "scene": "S05",
+      "atMs": 500,
+      "target": [
+        1340,
+        502
+      ],
+      "focal": [
+        1310,
+        435
+      ],
+      "scale": 1.65,
+      "holdMs": 900,
+      "pullBack": false,
+      "subject": "Translation language selector"
+    },
+    {
+      "scene": "S08",
+      "atMs": 1300,
+      "target": [
+        1347,
+        620
+      ],
+      "focal": [
+        1320,
+        485
+      ],
+      "scale": 1.65,
+      "holdMs": 1800,
+      "pullBack": true,
+      "subject": "Translated audio control"
+    },
+    {
+      "scene": "S09",
+      "atMs": 900,
+      "target": [
+        1335,
+        340
+      ],
+      "focal": [
+        1330,
+        365
+      ],
+      "scale": 1.9,
+      "holdMs": 1900,
+      "pullBack": false,
+      "subject": "Translated caption text"
+    },
+    {
+      "scene": "S14",
+      "atMs": 1100,
+      "target": [
+        1021,
+        543
+      ],
+      "focal": [
+        1080,
+        360
+      ],
+      "scale": 1.75,
+      "holdMs": 1300,
+      "pullBack": true,
+      "subject": "Start Broadcasting button"
+    },
+    {
+      "scene": "S15",
+      "atMs": 1100,
+      "target": [
+        1290,
+        468
+      ],
+      "focal": [
+        1290,
+        420
+      ],
+      "scale": 1.65,
+      "holdMs": 1800,
+      "pullBack": true,
+      "subject": "Remote listener language selector"
+    },
+    {
+      "scene": "S17",
+      "atMs": 600,
+      "target": [
+        657,
+        548
+      ],
+      "focal": [
+        730,
+        350
+      ],
+      "scale": 1.65,
+      "holdMs": 350,
+      "pullBack": true,
+      "subject": "Audio configuration"
+    },
+    {
+      "scene": "S17",
+      "atMs": 2150,
+      "target": [
+        1021,
+        546
+      ],
+      "focal": [
+        1060,
+        350
+      ],
+      "scale": 1.8,
+      "holdMs": 350,
+      "pullBack": true,
+      "subject": "Start Broadcasting button"
+    },
+    {
+      "scene": "S17",
+      "atMs": 3700,
+      "target": [
+        880,
+        262
+      ],
+      "focal": [
+        880,
+        312
+      ],
+      "scale": 2,
+      "holdMs": 450,
+      "pullBack": true,
+      "subject": "Share QR code"
+    }
+  ],
+  "cameraGuide": "../exbabel-storyboard/templates/product-focus-camera.md",
+  "sourceAssets": [
+    "host",
+    "full",
+    "join",
+    "phone"
+  ],
+  "voice": "ElevenLabs Roger — eleven_multilingual_v2"
+}

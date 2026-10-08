@@ -1,0 +1,2389 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 708 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "gsap_function_value_hazard",
+        "severity": "warning",
+        "message": "Function-valued tween var for x on \".s01-camera\" measures layout at tween init, which is deterministic across cold render workers only while the measured layout never animates. Each render worker initializes tweens independently.",
+        "selector": ".s01-camera",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/compositions/s01.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Compute the value once at build time (before the timeline is registered) and pass a constant, or derive it from fixed composition coordinates."
+      },
+      {
+        "code": "gsap_function_value_hazard",
+        "severity": "warning",
+        "message": "Function-valued tween var for x on \".s19-camera\" measures layout at tween init, which is deterministic across cold render workers only while the measured layout never animates. Each render worker initializes tweens independently.",
+        "selector": ".s19-camera",
+        "dataAttributes": {},
+        "sourceFile": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/compositions/s19.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Compute the value once at build time (before the timeline is registered) and pass a constant, or derive it from fixed composition coordinates."
+      }
+    ],
+    "filesScanned": 3
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"narration\" is 123.74s but its slot (data-duration) is 123.80s — the slot is shortened to the media length when rendered. Set data-duration to ~123.74s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "exbabel-motion-v2",
+          "data-width": "1920",
+          "data-height": "1080",
+          "data-duration": "123.8",
+          "data-start": "0"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 74,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 730.88,
+          "top": 0,
+          "right": 775.42,
+          "bottom": 8.18,
+          "width": 44.54,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(1)",
+        "text": "o",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 730.88,
+          "y": 0,
+          "width": 44.54,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(4)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 775.42,
+          "top": 0,
+          "right": 819.97,
+          "bottom": 8.18,
+          "width": 44.55,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(3)",
+        "text": "o",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 775.42,
+          "y": 0,
+          "width": 44.55,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(5)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 819.97,
+          "top": 0,
+          "right": 855.49,
+          "bottom": 8.18,
+          "width": 35.52,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(4)",
+        "text": "s",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 819.97,
+          "y": 0,
+          "width": 35.52,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(6)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 855.49,
+          "top": 0,
+          "right": 895.93,
+          "bottom": 8.18,
+          "width": 40.44,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(5)",
+        "text": "e",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 855.49,
+          "y": 0,
+          "width": 40.44,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(8)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 908.35,
+          "top": 0,
+          "right": 946.58,
+          "bottom": 8.18,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(8)",
+        "text": "a",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 908.35,
+          "y": 0,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 958.99,
+          "top": 0,
+          "right": 977.59,
+          "bottom": 8.18,
+          "width": 18.6,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "l",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 958.99,
+          "y": 0,
+          "width": 18.6,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 958.99,
+          "top": 0,
+          "right": 977.59,
+          "bottom": 8.18,
+          "width": 18.6,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "l",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 958.99,
+          "y": 0,
+          "width": 18.6,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 977.59,
+          "top": 0,
+          "right": 1015.82,
+          "bottom": 8.18,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "a",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 977.59,
+          "y": 0,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 977.59,
+          "top": 0,
+          "right": 1015.82,
+          "bottom": 8.18,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "a",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 977.59,
+          "y": 0,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1015.82,
+          "top": 0,
+          "right": 1058.2,
+          "bottom": 8.18,
+          "width": 42.38,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "n",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1015.82,
+          "y": 0,
+          "width": 42.38,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1015.82,
+          "top": 0,
+          "right": 1058.2,
+          "bottom": 8.18,
+          "width": 42.38,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "text": "n",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1015.82,
+          "y": 0,
+          "width": 42.38,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1058.2,
+          "top": 0,
+          "right": 1103.01,
+          "bottom": 8.18,
+          "width": 44.81,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "text": "g",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1058.2,
+          "y": 0,
+          "width": 44.81,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1058.2,
+          "top": 0,
+          "right": 1103.01,
+          "bottom": 8.18,
+          "width": 44.81,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "text": "g",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1058.2,
+          "y": 0,
+          "width": 44.81,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1103.01,
+          "top": 0,
+          "right": 1144.78,
+          "bottom": 8.18,
+          "width": 41.77,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "text": "u",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1103.01,
+          "y": 0,
+          "width": 41.77,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.488,
+        "selector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1144.78,
+          "top": 0,
+          "right": 1183.01,
+          "bottom": 8.18,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "containerSelector": "#S05 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "text": "a",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1144.78,
+          "y": 0,
+          "width": 38.23,
+          "height": 8.18
+        },
+        "firstSeen": 27.488,
+        "lastSeen": 27.488,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(7)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(16)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(17)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(18)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(20)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(21)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(23)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 32.035,
+        "selector": "#S07 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 505.38,
+          "top": 616.16,
+          "right": 1414.63,
+          "bottom": 654.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "containerSelector": "#S07 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(24)",
+        "text": "Your church audio flows through Exbabel to the congregation.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 505.38,
+          "y": 616.16,
+          "width": 909.25,
+          "height": 38
+        },
+        "firstSeen": 32.035,
+        "lastSeen": 32.035,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(6)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(7)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(16)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(17)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(18)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(19)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 39.062,
+        "selector": "#S08 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 507.5,
+          "top": 616.16,
+          "right": 1412.48,
+          "bottom": 654.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "containerSelector": "#S08 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(20)",
+        "text": "Live translated audio plays through the listener’s headphones.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 507.5,
+          "y": 616.16,
+          "width": 904.98,
+          "height": 38
+        },
+        "firstSeen": 39.062,
+        "lastSeen": 39.062,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(12)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(16)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 55.183,
+        "selector": "#S11 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 693.02,
+          "top": 616.16,
+          "right": 1226.97,
+          "bottom": 654.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "containerSelector": "#S11 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(17)",
+        "text": "And understand the whole message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 693.02,
+          "y": 616.16,
+          "width": 533.95,
+          "height": 38
+        },
+        "firstSeen": 55.183,
+        "lastSeen": 55.183,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(1)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(2)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(3)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(5)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(6)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(7)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(8)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(11)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(13)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(14)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(15)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 84.118,
+        "selector": "#S16 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.73,
+          "top": 616.16,
+          "right": 1468.27,
+          "bottom": 654.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "containerSelector": "#S16 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(16)",
+        "text": "Connect your church audio without rebuilding your Sunday workflow.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.73,
+          "y": 616.16,
+          "width": 1016.54,
+          "height": 38
+        },
+        "firstSeen": 84.118,
+        "lastSeen": 84.118,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(1)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(2)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(3)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(5)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(6)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(7)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(8)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(9)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 117.806,
+        "selector": "#S22 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 566.53,
+          "top": 616.16,
+          "right": 1353.45,
+          "bottom": 654.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "containerSelector": "#S22 > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(3) > span:nth-of-type(1) > span:nth-of-type(10)",
+        "text": "So language never keeps someone from the message.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 566.53,
+          "y": 616.16,
+          "width": 786.92,
+          "height": 38
+        },
+        "firstSeen": 117.806,
+        "lastSeen": 117.806,
+        "occurrences": 1,
+        "heldMs": 0
+      }
+    ],
+    "duration": 123.8,
+    "samples": [
+      2.814,
+      8.441,
+      14.068,
+      19.695,
+      25.323,
+      30.95,
+      36.577,
+      42.205,
+      47.832,
+      53.459,
+      59.086,
+      64.714,
+      70.341,
+      75.968,
+      81.595,
+      87.223,
+      92.85,
+      98.477,
+      104.105,
+      109.732,
+      115.359,
+      120.986
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 74,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.814,
+      30.95,
+      59.086,
+      87.223,
+      120.986
+    ],
+    "checked": 137,
+    "passed": 137
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.66",
+    "latestVersion": "0.8.66",
+    "updateAvailable": false
+  }
+}

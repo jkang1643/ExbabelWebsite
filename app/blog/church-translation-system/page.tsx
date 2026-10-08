@@ -235,6 +235,7 @@ export default function ChurchTranslationSystemArticle() {
               </p>
 
               {/* Top CTAs */}
+              <p>Evaluating Exbabel for your congregation? Explore <Link href="/solutions/churches/">AI translation for churches</Link> for the host and listener workflow, language considerations, and a church demo.</p>
               <div className="flex flex-wrap gap-3 my-8 not-prose">
                 <a
                   href="https://app.exbabel.com/live/checkout"

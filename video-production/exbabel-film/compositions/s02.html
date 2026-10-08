@@ -1,0 +1,218 @@
+<template id="S02">
+  <div data-hf-id="hf-s02-cam-wrap" data-layout-allow-overlap="true" data-composition-id="S02" data-width="1920" data-height="1080" style="position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #ffffff;">
+    
+    <style>
+      .s02-camera {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: center center;
+      }
+      .s02-text {
+        font-family: var(--font-sora), sans-serif;
+        font-size: 80px;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: -2px;
+        color: #0b1220;
+        position: absolute;
+        top: 20%;
+        opacity: 0;
+      }
+      .s02-accent {
+        color: #394dfe;
+      }
+      .s02-family-graphic {
+        position: absolute;
+        bottom: 10%;
+        width: 800px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      
+      /* SVG Styles */
+      .fam-figure {
+        transform-origin: center bottom;
+        opacity: 0;
+      }
+      .fam-arm-left {
+        transform-origin: left bottom;
+      }
+      .fam-arm-right {
+        transform-origin: right bottom;
+      }
+      .fam-dog-tail {
+        transform-origin: left bottom;
+      }
+    </style>
+
+    <div data-hf-id="hf-cam" class="s02-camera">
+      
+      <div data-hf-id="hf-txt" class="s02-text">
+        A service every family <span class="s02-accent" data-hf-id="hf-acc">can follow.</span>
+      </div>
+
+      <div data-hf-id="hf-fam" class="s02-family-graphic">
+        <svg viewBox="0 0 800 400" width="800" height="400" fill="none" stroke="#0b1220" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Dad -->
+          <g class="fam-figure fam-dad" transform="translate(120, 50)">
+            <circle cx="60" cy="40" r="30" fill="#f8fafc" />
+            <path d="M 20 110 C 20 70, 100 70, 100 110 L 100 350 L 20 350 Z" fill="#f1f5f9" />
+            <g class="fam-arm-left">
+              <path d="M 90 100 Q 140 60 160 10" />
+              <circle cx="160" cy="10" r="12" fill="#394dfe" stroke="none" />
+            </g>
+          </g>
+          
+          <!-- Mom -->
+          <g class="fam-figure fam-mom" transform="translate(480, 70)">
+            <circle cx="60" cy="40" r="28" fill="#f8fafc" />
+            <path d="M 20 110 C 20 70, 100 70, 100 110 L 120 330 L 0 330 Z" fill="#f1f5f9" />
+            <g class="fam-arm-right">
+              <path d="M 30 100 Q -20 60 -40 10" />
+              <circle cx="-40" cy="10" r="12" fill="#394dfe" stroke="none" />
+            </g>
+          </g>
+
+          <!-- Child 1 -->
+          <g class="fam-figure fam-child1" transform="translate(280, 160)">
+            <circle cx="45" cy="40" r="22" fill="#f8fafc" />
+            <path d="M 20 90 C 20 60, 70 60, 70 90 L 70 240 L 20 240 Z" fill="#f1f5f9" />
+            <g class="fam-arm-left">
+              <path d="M 60 90 Q 100 50 110 10" />
+              <circle cx="110" cy="10" r="9" fill="#394dfe" stroke="none" />
+            </g>
+          </g>
+
+          <!-- Child 2 -->
+          <g class="fam-figure fam-child2" transform="translate(380, 180)">
+            <circle cx="40" cy="35" r="20" fill="#f8fafc" />
+            <path d="M 20 80 C 20 55, 60 55, 60 80 L 70 220 L 10 220 Z" fill="#f1f5f9" />
+          </g>
+
+          <!-- Dog -->
+          <g class="fam-figure fam-dog" transform="translate(40, 240)">
+            <path d="M 40 80 Q 20 40 60 40 Q 100 40 80 80 L 80 160 L 40 160 Z" fill="#f1f5f9" />
+            <circle cx="85" cy="30" r="18" fill="#f8fafc" />
+            <g class="fam-dog-tail">
+              <path d="M 40 120 Q 5 90 15 50" />
+            </g>
+            <path d="M 75 20 Q 70 0 85 10" stroke-width="6" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      
+      // STATE A: ARRIVAL - immediate initial states
+      gsap.set(".s02-camera", { scale: 1.05, y: 40 });
+      gsap.set(".fam-figure", { y: 60, opacity: 0 });
+      gsap.set(".s02-text", { y: -20, opacity: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s02-text");
+tl.to(".s02-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0.5);
+
+      window.__timelines["S02"] = tl;
+
+      const DURATION = 4.744; // From hyperframes timeline output for S02
+
+      // Camera slowly drifts into the scene (STATE C overlaying ARRIVAL)
+      tl.to(".s02-camera", { scale: 1.0, y: 0, duration: DURATION - 1.0, ease: "none" }, 0);
+
+      // Text reveal early on (0.5s local = 6.744s global)
+      // tl.to(".s02-text", { y: 0, opacity: 1, duration: 1.2, ease: "power2.out" }, 0.5);
+
+      // Text exits to make room for family
+      tl.to(".s02-text", { y: -80, scale: 1.3, opacity: 0, duration: 0.8, ease: "power3.in" }, 2.0);
+
+      // FAMILY ENTRANCE starts at exactly 2.756s local (9.0s global time)
+      const FAM_START = 2.756;
+      
+      // Staggered quiet reveal of family members
+      tl.to(".fam-dad, .fam-mom", { y: 0, opacity: 1, duration: 1.0, ease: "power3.out", stagger: 0.15 }, FAM_START);
+      tl.to(".fam-child1, .fam-child2", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.1 }, FAM_START + 0.3);
+      tl.to(".fam-dog", { y: 0, opacity: 1, duration: 0.7, ease: "back.out(1.2)" }, FAM_START + 0.5);
+
+      // STATE B: DEVELOPMENT
+      // Waving arms
+      tl.to(".fam-arm-left, .fam-arm-right", { 
+        rotation: 15, 
+        duration: 0.35, 
+        yoyo: true, 
+        repeat: 3, 
+        ease: "sine.inOut" 
+      }, FAM_START + 0.8);
+
+      // Dog tail wag
+      tl.to(".fam-dog-tail", { 
+        rotation: 25, 
+        duration: 0.12, 
+        yoyo: true, 
+        repeat: 10, 
+        ease: "sine.inOut" 
+      }, FAM_START + 0.6);
+
+      // STATE D: HANDOFF
+      // Camera smoothly pushes in to bridge to the next shot
+      tl.to(".s02-camera", { 
+        scale: 1.8, 
+        y: -150,
+        opacity: 0,
+        duration: 1.0, 
+        ease: "power3.in" 
+      }, DURATION - 1.0);
+    </script>
+  </div>
+</template>

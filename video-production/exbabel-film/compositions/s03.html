@@ -1,0 +1,148 @@
+<template id="S03">
+  <div data-hf-id="hf-ntd0" data-layout-allow-overlap="true" data-composition-id="S03" data-width="1920" data-height="1080" style="position: absolute; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent; perspective: 1000px;">
+    
+    <style>
+      .s03-text {
+        font-family: var(--font-sora), sans-serif;
+        font-size: 130px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: -4px;
+        line-height: 1.1;
+        color: #0b1220;
+        position: absolute;
+        opacity: 0;
+      }
+      .s03-accent {
+        color: #394dfe;
+      }
+      .s03-bubble-drift {
+        position: absolute;
+      }
+      .s03-bubble-container {
+        opacity: 0;
+        transform: translateZ(0);
+      }
+      .s03-bubble {
+        padding: 60px 80px;
+        background: #fff;
+        border: 2px solid #dfe5f3;
+        border-radius: 40px;
+        box-shadow: 0 40px 100px rgba(52, 74, 116, 0.15);
+        font-family: var(--font-sora), sans-serif;
+        font-size: 80px;
+        color: #0b1220;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .s03-word {
+        display: inline-block;
+      }
+    </style>
+
+    <div data-hf-id="hf-2mua" class="s03-text" data-layout-allow-overlap="true">
+      They’re here for the service.<br data-hf-id="hf-x5px">
+      <span data-hf-id="hf-5kik" class="s03-accent" style="font-size: 60px; display: block; margin-top: 20px; letter-spacing: -1px; font-weight: 500;">But missing parts of the message.</span>
+    </div>
+
+    <div data-hf-id="hf-rkkp" class="s03-bubble-drift">
+      <div data-hf-id="hf-1x7p" class="s03-bubble-container">
+        <div data-hf-id="hf-3dpz" class="s03-bubble" style="font-size: 50px; padding: 40px 60px;">
+          <span data-hf-id="hf-b6v8" class="s03-word">“Welcome</span>
+          <span data-hf-id="hf-e2k9" class="s03-word">to</span>
+          <span data-hf-id="hf-cy6m" class="s03-word">our</span>
+          <span data-hf-id="hf-rkxj" class="s03-word">service.”</span><br>
+          <span class="s03-word" style="font-size: 32px; color: #4b5563; margin-top: 10px; display: block; white-space: normal;">But what if that’s only part of what they understand?</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+function wrapWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  // Ensure the container is visible and doesn't interfere
+  el.style.opacity = '1'; 
+  el.style.transform = 'none';
+  // Hide parent before GSAP kicks in if needed, but the words are opacity 0 so it's fine.
+  // Actually, we need to make sure GSAP doesn't override this with initial sets.
+  gsap.set(el, { opacity: 1, y: 0, x: 0, scale: 1 });
+  
+  const wrapNode = (node) => {
+    if (node.nodeType === 3) {
+      const words = node.nodeValue.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      let hasContent = false;
+      words.forEach(w => {
+        if (!w.trim()) {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          hasContent = true;
+          const mask = document.createElement("span");
+          mask.style.cssText = "display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 15px; margin-bottom: -15px;";
+          const inner = document.createElement("span");
+          // start state:
+          inner.style.cssText = "display: inline-block; transform: translateY(45px) scale(0.98); opacity: 0;";
+          inner.className = "hf-word";
+          inner.innerText = w;
+          mask.appendChild(inner);
+          frag.appendChild(mask);
+        }
+      });
+      if (hasContent) {
+        node.parentNode.replaceChild(frag, node);
+      }
+    } else if (node.nodeType === 1) {
+      if (node.tagName.toLowerCase() !== 'br' && !node.classList.contains('hf-word')) {
+        Array.from(node.childNodes).forEach(wrapNode);
+      }
+    }
+  };
+  Array.from(el.childNodes).forEach(wrapNode);
+}
+
+wrapWords(".s03-text");
+tl.to(".s03-text .hf-word", { y: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power3.out" }, 0);
+
+      window.__timelines["S03"] = tl;
+
+      const DURATION = 9.178;
+
+      tl.fromTo(".s03-text",
+        { scale: 1.2, opacity: 0, z: 200 },
+        { scale: 1.0, opacity: 1, z: 0, duration: 1.5, ease: "power2.out" },
+        0
+      );
+      tl.to(".s03-text", { scale: 0.95, duration: 1.5, ease: "none" }, 1.5); // duration changed to 1.5 to not overlap
+
+      tl.to(".s03-text", 
+        { scale: 0.5, opacity: 0, filter: "blur(20px)", duration: 1.5, ease: "power3.in" }, 
+        3.0
+      );
+
+      tl.fromTo(".s03-bubble-container",
+        { scale: 1.5, opacity: 0, z: 500 },
+        { scale: 1.0, opacity: 1, z: 0, duration: 1.5, ease: "power4.out" },
+        4.0
+      );
+      
+      tl.to(".s03-bubble-drift", { scale: 1.05, duration: DURATION - 4.0, ease: "none" }, 4.0);
+
+      tl.to(".s03-bubble", { backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none", duration: 0.2 }, 6.5);
+      tl.to(".s03-word", { 
+        x: (i) => ((i * 341) % 800) - 400, 
+        y: (i) => ((i * 257) % 800) - 400, 
+        rotation: (i) => ((i * 123) % 90) - 45, 
+        opacity: 0, 
+        scale: 0.2, 
+        duration: 2.0, 
+        ease: "power2.in", 
+        stagger: 0.1 
+      }, 6.7);
+
+    </script>
+  </div>
+</template>
