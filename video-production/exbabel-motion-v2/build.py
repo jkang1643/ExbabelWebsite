@@ -67,6 +67,9 @@ for sid in ['S01','S19']:
 html='''<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Exbabel — motion rebuild</title><style>'''+css+'''</style><script src="assets/gsap.min.js"></script></head><body><div id="film" data-composition-id="exbabel-motion-v2" data-width="1920" data-height="1080" data-duration="123.8"><div class="white-space"></div><div id="world" data-layout-allow-overflow="true">'''+''.join(out)+'''<div id="bridge" aria-label="Exbabel translation signal"><svg viewBox="0 0 100 100"><path d="M34 20h19L39 80H20zM62 20h19L67 80H48z" fill="white"/></svg></div></div><audio id="narration" src="assets/narration.wav" data-start="0" data-duration="123.8" data-track-index="10"></audio></div><script id="production-data" type="application/json">'''+json.dumps(data).replace('</',r'<\/')+'''</script><script>'''+script+'''</script></body></html>'''
 html=html.replace('<div class="white-space"></div>','<div class="backdrop"></div><div class="white-space"></div>')
 html=html.replace('<audio id="narration"',protected+'<audio id="narration"')
+# Replace the old S02 name hold with the church-entry visual; audio timing is unchanged.
+html=re.sub(r'(<div[^>]*id="S01"[^>]*data-duration=")10.988(")',r'\g<1>6.244',html,count=1)
+html=html.replace('<audio id="narration"','<div id="S02A" class="scene clip" data-start="6.244" data-duration="4.744" data-track-index="1" data-composition-id="S02A" data-composition-src="./compositions/s02a-church-entry.html" data-width="1920" data-height="1080" data-layout-allow-overflow="true"></div>'+'<audio id="narration"',1)
 (P/'index.html').write_text(html)
 print('Preserved 22 scenes; one continuous GSAP world; 123.8s')
 if copy_pass:

@@ -1,0 +1,50 @@
+◇  onion-skin screenshot saved /home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/review/church-entry-final/door-path.png
+   11 elements · open it to verify the motion matches your target, then read the keyframes below.
+
+{
+  "project": "exbabel-motion-v2",
+  "runtime": "all",
+  "compositions": [
+    {
+      "composition": "S02A",
+      "source": "./compositions/s02a-church-entry.html",
+      "tweens": [
+        {
+          "id": "#s02a-door-left-fromTo-480-other",
+          "target": "#s02a-door-left",
+          "method": "fromTo",
+          "group": "other",
+          "start": 0.48,
+          "duration": 1.42,
+          "end": 1.9,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0.48,
+              "properties": {
+                "rotationY": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 1.9,
+              "properties": {
+                "rotationY": -108
+              }
+            }
+          ],
+          "path": null
+        }
+      ],
+      "traces": [],
+      "cssKeyframes": [],
+      "anime": []
+    }
+  ],
+  "_meta": {
+    "version": "0.8.66",
+    "latestVersion": "0.8.77",
+    "updateAvailable": true
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "scene": "S03",
+      "files": [
+        "review/S03-0.png",
+        "review/S03-25.png",
+        "review/S03-50.png",
+        "review/S03-75.png",
+        "review/S03-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S04",
+      "files": [
+        "review/S04-0.png",
+        "review/S04-25.png",
+        "review/S04-50.png",
+        "review/S04-75.png",
+        "review/S04-100.png"
+      ],
+      "reverseSeekPixelIdentical": false,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S05",
+      "files": [
+        "review/S05-0.png",
+        "review/S05-25.png",
+        "review/S05-50.png",
+        "review/S05-75.png",
+        "review/S05-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S06",
+      "files": [
+        "review/S06-0.png",
+        "review/S06-25.png",
+        "review/S06-50.png",
+        "review/S06-75.png",
+        "review/S06-100.png"
+      ],
+      "reverseSeekPixelIdentical": false,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S07",
+      "files": [
+        "review/S07-0.png",
+        "review/S07-25.png",
+        "review/S07-50.png",
+        "review/S07-75.png",
+        "review/S07-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S08",
+      "files": [
+        "review/S08-0.png",
+        "review/S08-25.png",
+        "review/S08-50.png",
+        "review/S08-75.png",
+        "review/S08-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S09",
+      "files": [
+        "review/S09-0.png",
+        "review/S09-25.png",
+        "review/S09-50.png",
+        "review/S09-75.png",
+        "review/S09-100.png"
+      ],
+      "reverseSeekPixelIdentical": false,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S10",
+      "files": [
+        "review/S10-0.png",
+        "review/S10-25.png",
+        "review/S10-50.png",
+        "review/S10-75.png",
+        "review/S10-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S11",
+      "files": [
+        "review/S11-0.png",
+        "review/S11-25.png",
+        "review/S11-50.png",
+        "review/S11-75.png",
+        "review/S11-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S12",
+      "files": [
+        "review/S12-0.png",
+        "review/S12-25.png",
+        "review/S12-50.png",
+        "review/S12-75.png",
+        "review/S12-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S13",
+      "files": [
+        "review/S13-0.png",
+        "review/S13-25.png",
+        "review/S13-50.png",
+        "review/S13-75.png",
+        "review/S13-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S14",
+      "files": [
+        "review/S14-0.png",
+        "review/S14-25.png",
+        "review/S14-50.png",
+        "review/S14-75.png",
+        "review/S14-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S15",
+      "files": [
+        "review/S15-0.png",
+        "review/S15-25.png",
+        "review/S15-50.png",
+        "review/S15-75.png",
+        "review/S15-100.png"
+      ],
+      "reverseSeekPixelIdentical": false,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S16",
+      "files": [
+        "review/S16-0.png",
+        "review/S16-25.png",
+        "review/S16-50.png",
+        "review/S16-75.png",
+        "review/S16-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S17",
+      "files": [
+        "review/S17-0.png",
+        "review/S17-25.png",
+        "review/S17-50.png",
+        "review/S17-75.png",
+        "review/S17-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S18",
+      "files": [
+        "review/S18-0.png",
+        "review/S18-25.png",
+        "review/S18-50.png",
+        "review/S18-75.png",
+        "review/S18-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S20",
+      "files": [
+        "review/S20-0.png",
+        "review/S20-25.png",
+        "review/S20-50.png",
+        "review/S20-75.png",
+        "review/S20-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S21",
+      "files": [
+        "review/S21-0.png",
+        "review/S21-25.png",
+        "review/S21-50.png",
+        "review/S21-75.png",
+        "review/S21-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    },
+    {
+      "scene": "S22",
+      "files": [
+        "review/S22-0.png",
+        "review/S22-25.png",
+        "review/S22-50.png",
+        "review/S22-75.png",
+        "review/S22-100.png"
+      ],
+      "reverseSeekPixelIdentical": true,
+      "reverseSeekDOMIdentical": true
+    }
+  ],
+  "lockHashes": {
+    "s01": {
+      "unchanged": true,
+      "authorizedCameraCorrectionOnly": false,
+      "sha256": "2accb7fe7ae7891c223e41abbccd5e89a9109d3a140bacd25cdae30e4f605665"
+    },
+    "s19": {
+      "unchanged": false,
+      "authorizedCameraCorrectionOnly": true,
+      "sha256": "68b01a9a55e3b01444b5e5961ea07381cda9050d2b92b190c9a2d8ddfbaa1c65"
+    }
+  },
+  "ok": true
+}

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "duration": 123.8,
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "audioDuration": "123.800000",
+  "decodedWithoutErrors": true,
+  "bytes": 43313999,
+  "video": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/renders/exbabel-full-revision-final.mp4"
+}

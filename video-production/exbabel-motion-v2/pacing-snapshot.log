@@ -1,0 +1,16 @@
+◆  Capturing 9 frames at [25.6s, 26.5s, 28.8s, 34s, 51s, 79.8s, 87s, 98s, 107.8s] from exbabel-motion-v2
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)")
+
+   Fonts: 2 loaded
+
+◇  9 snapshots saved to /home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/review/restored-pacing
+   review/restored-pacing/frame-00-at-25.6s.png
+   review/restored-pacing/frame-01-at-26.5s.png
+   review/restored-pacing/frame-02-at-28.8s.png
+   review/restored-pacing/frame-03-at-34s.png
+   review/restored-pacing/frame-04-at-51s.png
+   review/restored-pacing/frame-05-at-79.8s.png
+   review/restored-pacing/frame-06-at-87s.png
+   review/restored-pacing/frame-07-at-98s.png
+   review/restored-pacing/frame-08-at-107.8s.png
+   contact-sheet.jpg (grid view for AI review)

@@ -1,0 +1,73 @@
+<template id="S19">
+  <div data-hf-id="hf-nsx4" data-layout-allow-overlap="true" data-composition-id="S19" data-width="1920" data-height="1080" style="background: #f8fafc; overflow: hidden; position: absolute; inset: 0;">
+    
+    <!-- Camera container that tracks horizontal movement and pushes in (scale) -->
+    <!-- padding-left: 50% pushes the text starting position to the center of the screen -->
+    <div data-hf-id="hf-jwol" class="s19-camera" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; padding-left: 45%; transform-origin: center center;">
+      
+      <!-- The text container. Oversized, premium editorial typography -->
+      <div data-hf-id="hf-vyn5" id="s19-text-container" style="display: inline-block; white-space: nowrap; font-size: 130px; font-weight: 600; color: #0b1220; letter-spacing: -4px;">
+        <!-- Javascript will inject spanned characters here -->
+      </div>
+      
+    </div>
+
+<script>
+window.__timelines = window.__timelines || {};
+(function() {
+
+const text = "If this sounds useful for your church, try it during a real service.";
+const container = document.getElementById("s19-text-container");
+
+// Wrap each character in a span. Keep spaces but give them width.
+container.innerHTML = text.split("").map(c => 
+  c === " " 
+    ? `<span class="s19-char" style="opacity: 0; display: inline-block; width: 35px;">&nbsp;</span>` 
+    : `<span class="s19-char" style="opacity: 0; display: inline-block;">${c}</span>`
+).join("");
+
+// In Hyperframes we must wait a tick for layout to be calculated before we query offsetWidth.
+// However, since we are just returning a value to GSAP dynamically via a function or calculating it on setup,
+// inline-block elements have their widths immediately.
+
+const tl = gsap.timeline({ paused: true });
+const chars = document.querySelectorAll(".s19-char");
+
+const START_DELAY = 0.5;
+const TYPING_DURATION = 4.0; 
+
+// 1. TYPING REVEAL (Character by Character)
+// By applying "power2.inOut" to the stagger, the typing starts slow, speeds up, and slows down.
+tl.to(chars, {
+  opacity: 1,
+  duration: 0.05,
+  stagger: {
+    amount: TYPING_DURATION,
+    ease: "power2.inOut"
+  }
+}, START_DELAY);
+
+// 2. CAMERA TRACKING & SCALE
+// The camera pans X to track the typing. Using the exact same ease as the stagger
+// locks the focal point to the newly revealed letters!
+tl.to(".s19-camera", {
+  x: () => 1720 - 960 - (container.offsetLeft + container.offsetWidth - 960) * 1.25,
+  scale: 1.25, // Cinematic push-in
+  y: -15, // Subtle upward drift for spatial depth
+  duration: TYPING_DURATION,
+  ease: "power2.inOut"
+}, START_DELAY);
+
+// Add a brand accent color to the word "church" and "service" retroactively
+// "church" is indices 31 to 36
+// "service" is indices 60 to 66
+setTimeout(() => {
+   for(let i=31; i<=36; i++) { if(chars[i]) chars[i].style.color = "#394dfe"; }
+   for(let i=60; i<=66; i++) { if(chars[i]) chars[i].style.color = "#394dfe"; }
+}, 0);
+
+window.__timelines["S19"] = tl;
+})();
+</script>
+  </div>
+</template>

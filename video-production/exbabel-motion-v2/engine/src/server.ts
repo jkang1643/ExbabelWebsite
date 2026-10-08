@@ -10,6 +10,7 @@ import { generatePersonalizedPhrase, spliceNarration, VoiceReviewRequired, Voice
 import { readSalesforceProspect, syncDemo, syncViewed } from './salesforce.js';
 import { exportMp4 } from './export.js';
 
+try{process.loadEnvFile()}catch{}
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const dataRoot=resolve(process.env.DEMO_DATA_DIR||join(root,'engine/data'));
 const store=new DemoStore(join(dataRoot,'demos.sqlite'));
@@ -18,7 +19,7 @@ const secret=process.env.ADMIN_SECRET||'';
 const password=process.env.ADMIN_PASSWORD||'';
 const sfWebhookToken=process.env.SALESFORCE_WEBHOOK_TOKEN||'';
 const port=Number(process.env.PORT||3020);
-const host=process.env.HOST||'127.0.0.1';
+const host=process.env.HOST||'0.0.0.0';
 const buckets=new Map<string,{count:number;until:number}>();
 function limited(req:IncomingMessage,kind:string,limit:number){
   const key=`${kind}:${req.socket.remoteAddress||'unknown'}`,now=Date.now(),old=buckets.get(key);
@@ -43,7 +44,7 @@ function authorized(req:IncomingMessage){
   const a=Buffer.from(sig),b=Buffer.from(cookieSignature(payload));if(a.length!==b.length||!timingSafeEqual(a,b))return false;
   const expiry=Number(Buffer.from(payload,'base64url').toString());return Number.isFinite(expiry)&&expiry>Date.now();
 }
-function sameOrigin(req:IncomingMessage){const origin=req.headers.origin;return !origin||origin===baseUrl}
+function sameOrigin(req:IncomingMessage){const origin=req.headers.origin;if(!origin||origin===baseUrl)return true;try{const o=new URL(origin),b=new URL(baseUrl);return (o.hostname==='localhost'||o.hostname==='127.0.0.1')&&(b.hostname==='localhost'||b.hostname==='127.0.0.1')&&o.port===b.port;}catch{return false}}
 function identity(r:{prospect:{churchName:string;email?:string;firstName?:string;city?:string;state?:string;phone?:string};salesforceId?:string}){
   const p=r.prospect;
   return r.salesforceId?`sf:${r.salesforceId}`:`prospect:${[p.churchName,p.email,p.firstName,p.city,p.state,p.phone].map(x=>(x||'').toLowerCase()).join('|')}`;
@@ -103,7 +104,7 @@ function playerHtml(record:DemoRecord){
   document.querySelector('.cta').addEventListener('click',()=>event('cta_clicked'));
   </script></body></html>`;
 }
-function adminHtml(){return `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Exbabel demos</title><style>body{font:15px system-ui;margin:32px auto;max-width:1200px;color:#182033}input,button,textarea{font:inherit;padding:9px}button{cursor:pointer}textarea{width:100%;min-height:140px;border:1px solid #cbd5e1;border-radius:8px}section{border:1px solid #e1e7f0;border-radius:12px;padding:18px;margin:16px 0}table{border-collapse:collapse;width:100%;margin-top:22px}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:left}a{color:#394dfe}.help{color:#607086}#result li{margin:6px 0}#search{width:min(100%,420px)}#viewer{position:fixed;inset:0;background:#101829b3;display:grid;place-items:center;z-index:10}#viewer[hidden]{display:none}#viewer-card{width:min(96vw,1240px);background:#fff;padding:14px;border-radius:14px}#viewer iframe{width:100%;height:min(85vh,760px);border:0}#viewer-head{display:flex;justify-content:space-between;align-items:center}</style><h1>Personalized demos</h1><div id="auth"><input id="password" type="password" placeholder="Admin password"><button onclick="login()">Sign in</button></div><main id="main" hidden><section><h2>Paste church names</h2><p class="help">One church per line. Each name gets its own demo link. Re-importing a name reuses its existing link.</p><textarea id="names" placeholder="First Pentecostal Church&#10;Living Hope Church"></textarea><p><button onclick="pasteNames()">Create demo links</button></p></section><section><h2>Import a CSV</h2><p class="help">Use this when you also have names, locations, contact details, or Salesforce IDs.</p><input type="file" id="csv" accept=".csv,text/csv"><button onclick="upload()">Import CSV</button> <a href="/admin/api/export.csv">Download results CSV</a></section><div id="result" role="status"></div><h2>Church demo library</h2><input id="search" type="search" placeholder="Search church names" oninput="renderRows()"><span id="count" class="help"></span><table><thead><tr><th>Church</th><th>Prospect</th><th>Voice</th><th>Salesforce</th><th>Demo</th><th>Views</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table></main><div id="viewer" hidden><div id="viewer-card"><div id="viewer-head"><strong id="viewer-title"></strong><button onclick="closeViewer()">Close preview</button></div><iframe id="viewer-frame" title="Personalized demo preview" allow="autoplay; fullscreen"></iframe></div></div><script>
+function adminHtml(){return `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Exbabel demos</title><style>body{font:15px system-ui;margin:32px auto;max-width:1200px;color:#182033}input,button,textarea{font:inherit;padding:9px}button{cursor:pointer}textarea{width:100%;min-height:140px;border:1px solid #cbd5e1;border-radius:8px}section{border:1px solid #e1e7f0;border-radius:12px;padding:18px;margin:16px 0}table{border-collapse:collapse;width:100%;margin-top:22px}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:left}a{color:#394dfe}.help{color:#607086}#result li{margin:6px 0}#search{width:min(100%,420px)}#viewer{position:fixed;inset:0;background:#101829b3;display:grid;place-items:center;z-index:10}#viewer[hidden]{display:none}#viewer-card{width:min(96vw,1240px);background:#fff;padding:14px;border-radius:14px}#viewer iframe{width:100%;height:min(85vh,760px);border:0}#viewer-head{display:flex;justify-content:space-between;align-items:center}.manual-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.manual-fields label{display:flex;flex-direction:column;gap:5px;font-weight:600}.manual-fields input{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:7px;font-weight:400}.manual-fields input:focus{outline:2px solid #394dfe;outline-offset:1px}</style><h1>Personalized demos</h1><div id="auth"><input id="password" type="password" placeholder="Admin password"><button onclick="login()">Sign in</button></div><main id="main" hidden><section><h2>Add one church</h2><p class="help">Create a demo directly. Only the church name is required; the other details are for your records.</p><form id="manual-form" onsubmit="createManual(event)"><div class="manual-fields"><label>Church name <span aria-hidden="true">*</span><input name="church_name" required maxlength="160" placeholder="First Pentecostal Church"></label><label>Prospect first name<input name="first_name" maxlength="80" placeholder="John"></label><label>City<input name="city" maxlength="100" placeholder="Houston"></label><label>State<input name="state" maxlength="100" placeholder="TX"></label><label>Church size<input name="size" type="number" min="1" placeholder="1200"></label><label>Phone<input name="phone" type="tel" placeholder="7135551234"></label><label>Website<input name="website" type="text" placeholder="example.com"></label><label>Email<input name="email" type="email" placeholder="john@example.com"></label><label>Salesforce Lead/Contact ID<input name="salesforce_id" placeholder="Optional"></label></div><p><button type="submit" id="manual-submit">Create demo</button></p></form></section><section><h2>Paste church names</h2><p class="help">One church per line. Each name gets its own demo link. Re-importing a name reuses its existing link.</p><textarea id="names" placeholder="First Pentecostal Church&#10;Living Hope Church"></textarea><p><button onclick="pasteNames()">Create demo links</button></p></section><section><h2>Import a CSV</h2><p class="help">Use this when you also have names, locations, contact details, or Salesforce IDs.</p><input type="file" id="csv" accept=".csv,text/csv"><button onclick="upload()">Import CSV</button> <a href="/admin/api/export.csv">Download results CSV</a></section><div id="result" role="status"></div><h2>Church demo library</h2><input id="search" type="search" placeholder="Search church names" oninput="renderRows()"><span id="count" class="help"></span><table><thead><tr><th>Church</th><th>Prospect</th><th>Voice</th><th>Salesforce</th><th>Demo</th><th>Views</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table></main><div id="viewer" hidden><div id="viewer-card"><div id="viewer-head"><strong id="viewer-title"></strong><button onclick="closeViewer()">Close preview</button></div><iframe id="viewer-frame" title="Personalized demo preview" allow="autoplay; fullscreen"></iframe></div></div><script>
 async function login(){const r=await fetch('/admin/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:document.getElementById('password').value})});if(r.ok)load();else alert('Sign in failed')}
 let demos=[];
 async function load(){const r=await fetch('/admin/api/demos');if(!r.ok)return;document.getElementById('main').hidden=false;document.getElementById('auth').hidden=true;demos=await r.json();renderRows()}
@@ -111,6 +112,7 @@ function renderRows(){const term=document.getElementById('search').value.trim().
 function openViewer(x){document.getElementById('viewer-title').textContent=x.church;document.getElementById('viewer-frame').src=x.url;document.getElementById('viewer').hidden=false}
 function closeViewer(){document.getElementById('viewer').hidden=true;document.getElementById('viewer-frame').src='about:blank'}
 function showResult(data){const target=document.getElementById('result');target.replaceChildren();const summary=document.createElement('p');summary.textContent=data.rows.length+' demo link(s) ready. '+data.errors.length+' row error(s).';target.append(summary);const list=document.createElement('ul');for(const row of data.rows){const li=document.createElement('li'),a=document.createElement('a');a.href=row.url;a.target='_blank';a.textContent=row.churchName+' — '+row.url;li.append(a);if(row.existing)li.append(' (existing)');list.append(li)}target.append(list);if(data.errors.length){const errors=document.createElement('p');errors.textContent=data.errors.map(e=>'Line '+e.row+': '+e.message).join(' | ');target.append(errors)}}
+async function createManual(event){event.preventDefault();const form=document.getElementById('manual-form'),button=document.getElementById('manual-submit'),record=Object.fromEntries(new FormData(form));button.disabled=true;try{const response=await fetch('/admin/api/create',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(record)});const data=await response.json();if(!response.ok)throw Error(data.error||'Could not create demo');showResult(data);form.reset();await load()}catch(error){document.getElementById('result').textContent=error.message||'Could not create demo'}finally{button.disabled=false}}
 async function pasteNames(){const names=document.getElementById('names').value;if(!names.trim())return;const r=await fetch('/admin/api/import-names',{method:'POST',headers:{'content-type':'text/plain'},body:names});showResult(await r.json());load()}
 async function upload(){const f=document.getElementById('csv').files[0];if(!f)return;const r=await fetch('/admin/api/import',{method:'POST',headers:{'content-type':'text/csv'},body:await f.text()});showResult(await r.json());load()}
 load();</script>`}
@@ -120,7 +122,7 @@ async function route(req:IncomingMessage,res:ServerResponse){
   const u=new URL(req.url||'/',baseUrl),path=decodeURIComponent(u.pathname),method=req.method||'GET';
   if(path==='/health'){json(res,200,{ok:true});return}
   if(path==='/assets/hyperframes-player.global.js'){await file(res,join(root,'node_modules/hyperframes/dist/hyperframes-player.global.js'));return}
-  if(path==='/admin/demos'&&method==='GET'){respond(res,200,adminHtml(),'text/html; charset=utf-8');return}
+  if(path==='/admin/demos'&&(method==='GET'||method==='HEAD')){res.writeHead(301,{'Location':'https://demo.exbabel.com/admin/demos'});res.end();return}
   if(path==='/admin/login'&&method==='POST'){
     if(limited(req,'login',10)){respond(res,429,'Too many attempts');return}
     if(!sameOrigin(req)||!secret||!password){respond(res,403,'Forbidden');return}
@@ -151,6 +153,17 @@ async function route(req:IncomingMessage,res:ServerResponse){
       if(limited(req,'import',10)){respond(res,429,'Too many imports');return}
       const result=importNames(await readBody(req,500_000));
       json(res,200,{rows:result.valid.map(createOrReuse),errors:result.errors});return;
+    }
+    if(path==='/admin/api/create'&&method==='POST'){
+      if(limited(req,'import',10)){respond(res,429,'Too many imports');return}
+      const input=JSON.parse(await readBody(req,10_000));
+      if(!input||typeof input!=='object'||Array.isArray(input)){json(res,400,{error:'Invalid record'});return}
+      try{
+        const fields=['church_name','first_name','city','state','size','phone','website','email','salesforce_id','pronunciation_church_name'];
+        const row=Object.fromEntries(fields.map(key=>[key,String(input[key]??'')]));
+        json(res,201,{rows:[createOrReuse(normalizeRow(row))],errors:[]});
+      }catch(e){json(res,400,{error:e instanceof Error?e.message:'Invalid record'})}
+      return;
     }
     if(path==='/admin/api/salesforce/create'&&method==='POST'){
       const {salesforceId}=JSON.parse(await readBody(req,500));
@@ -187,7 +200,7 @@ async function route(req:IncomingMessage,res:ServerResponse){
   if(m){
     const r=store.get(m[1]);if(!r||r.status==='disabled'){respond(res,404,'Demo unavailable');return}
     const sub=m[2]||'';
-    if(!sub&&method==='GET'){store.event(r,'demo_opened');if(r.salesforceId)void syncViewed(r).catch(()=>{});respond(res,200,playerHtml(r),'text/html; charset=utf-8');return}
+    if(!sub&&method==='GET'){res.writeHead(301,{'Location':`https://demo.exbabel.com/d/${r.publicToken}`});res.end();return}
     if(sub==='composition'&&method==='GET'){
       const config=publicConfig(r),source=await readFile(join(root,'index.html'),'utf8');
       const html=source.replace('<head>',`<head><script>window.__EXBABEL_PUBLIC_CONFIG__=${safeJson(config)};</script>`)

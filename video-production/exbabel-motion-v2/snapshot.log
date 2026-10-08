@@ -1,0 +1,14 @@
+◆  Capturing 7 frames at [5s, 101s, 16s, 36s, 45s, 108s, 121s] from exbabel-motion-v2
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)")
+
+   Fonts: 2 loaded
+
+◇  7 snapshots saved to /home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/assembled-review
+   assembled-review/frame-00-at-5s.png
+   assembled-review/frame-01-at-101s.png
+   assembled-review/frame-02-at-16s.png
+   assembled-review/frame-03-at-36s.png
+   assembled-review/frame-04-at-45s.png
+   assembled-review/frame-05-at-108s.png
+   assembled-review/frame-06-at-121s.png
+   contact-sheet.jpg (grid view for AI review)

@@ -1,0 +1,29 @@
+{
+  "revisedScenes": [
+    "S03",
+    "S04",
+    "S05",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S20",
+    "S21",
+    "S22"
+  ],
+  "protected": [
+    "S01",
+    "S02 (within S01)",
+    "S19"
+  ],
+  "motionSha256": "e73df8d955a7ac7284cbc3998b0faf2a96546b379ebf33f3dd3bcb06f636bd99",
+  "officialBrandLine": "Give your church one voice."
+}

@@ -1,0 +1,121 @@
+{
+  "timeline": {
+    "duration": 123.8,
+    "tracks": [
+      {
+        "kind": "graphics",
+        "rows": [
+          {
+            "id": "S01",
+            "label": null,
+            "kind": "div",
+            "trackKind": "graphics",
+            "start": 0,
+            "duration": 10.988,
+            "end": 10.988,
+            "absStart": 0,
+            "absEnd": 10.988,
+            "file": "index.html",
+            "trackIndex": 1,
+            "src": "./compositions/s01-general.html",
+            "sourceFile": "./compositions/s01-general.html",
+            "volume": null,
+            "lanes": [],
+            "laneError": null,
+            "playbackRate": null,
+            "audioGroup": null,
+            "role": null,
+            "durationAuthored": true,
+            "durationSource": "authored",
+            "pendingReason": null,
+            "children": [],
+            "ref": "#S01",
+            "warnings": [],
+            "elementId": "S01",
+            "hfId": "hf-1479",
+            "index": 0,
+            "nested": false,
+            "host": null,
+            "hostRow": null
+          },
+          {
+            "id": "S19",
+            "label": null,
+            "kind": "div",
+            "trackKind": "graphics",
+            "start": 98.622,
+            "duration": 5.578,
+            "end": 104.2,
+            "absStart": 98.622,
+            "absEnd": 104.2,
+            "file": "index.html",
+            "trackIndex": 1,
+            "src": "./compositions/s19.html",
+            "sourceFile": "./compositions/s19.html",
+            "volume": null,
+            "lanes": [],
+            "laneError": null,
+            "playbackRate": null,
+            "audioGroup": null,
+            "role": null,
+            "durationAuthored": true,
+            "durationSource": "authored",
+            "pendingReason": null,
+            "children": [],
+            "ref": "#S19",
+            "warnings": [],
+            "elementId": "S19",
+            "hfId": "hf-83sq",
+            "index": 1,
+            "nested": false,
+            "host": null,
+            "hostRow": null
+          }
+        ]
+      },
+      {
+        "kind": "audio",
+        "rows": [
+          {
+            "id": "narration",
+            "label": null,
+            "kind": "audio",
+            "trackKind": "audio",
+            "start": 0,
+            "duration": 123.8,
+            "end": 123.8,
+            "absStart": 0,
+            "absEnd": 123.8,
+            "file": "index.html",
+            "trackIndex": 10,
+            "src": "assets/narration.wav",
+            "sourceFile": null,
+            "volume": null,
+            "lanes": [],
+            "laneError": null,
+            "playbackRate": null,
+            "audioGroup": null,
+            "role": null,
+            "durationAuthored": true,
+            "durationSource": "authored",
+            "pendingReason": null,
+            "children": [],
+            "ref": "#narration",
+            "warnings": [],
+            "elementId": "narration",
+            "hfId": null,
+            "index": 0,
+            "nested": false,
+            "host": null,
+            "hostRow": null
+          }
+        ]
+      }
+    ]
+  },
+  "_meta": {
+    "version": "0.8.66",
+    "latestVersion": "0.8.73",
+    "updateAvailable": true
+  }
+}

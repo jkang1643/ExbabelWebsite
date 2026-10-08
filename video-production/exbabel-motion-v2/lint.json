@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 4,
+  "infoCount": 0,
+  "findings": [
+    {
+      "code": "gsap_timeline_set_initial_hide",
+      "severity": "warning",
+      "message": "Initial hidden state for \"#world, .white-space\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+      "selector": "#world, .white-space",
+      "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes.",
+      "snippet": "tl.set(\"#world, .white-space\", { opacity: 0 }, 0)",
+      "file": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/index.html"
+    },
+    {
+      "code": "composition_file_too_large",
+      "severity": "warning",
+      "message": "This HTML composition file has 762 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+      "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently.",
+      "file": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/index.html"
+    },
+    {
+      "code": "gsap_function_value_hazard",
+      "severity": "warning",
+      "message": "Function-valued tween var for x on \".s01-camera\" measures layout at tween init, which is deterministic across cold render workers only while the measured layout never animates. Each render worker initializes tweens independently.",
+      "selector": ".s01-camera",
+      "fixHint": "Compute the value once at build time (before the timeline is registered) and pass a constant, or derive it from fixed composition coordinates.",
+      "snippet": "tl.to(\".s01-camera\", { x: () => -container.offsetWidth + 300, scale: 1.25, y: -15, duration: 2, ease: \"power2.inOut\" }, 0)",
+      "file": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/compositions/s01.html"
+    },
+    {
+      "code": "gsap_function_value_hazard",
+      "severity": "warning",
+      "message": "Function-valued tween var for x on \".s19-camera\" measures layout at tween init, which is deterministic across cold render workers only while the measured layout never animates. Each render worker initializes tweens independently.",
+      "selector": ".s19-camera",
+      "fixHint": "Compute the value once at build time (before the timeline is registered) and pass a constant, or derive it from fixed composition coordinates.",
+      "snippet": "tl.to(\".s19-camera\", { x: () => -container.offsetWidth + 300, scale: 1.25, y: -15, duration: 4, ease: \"power2.inOut\" }, 0.5)",
+      "file": "/home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/compositions/s19.html"
+    }
+  ],
+  "filesScanned": 3,
+  "_meta": {
+    "version": "0.8.66",
+    "latestVersion": "0.8.66",
+    "updateAvailable": false
+  }
+}

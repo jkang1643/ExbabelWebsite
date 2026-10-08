@@ -1,0 +1,170 @@
+◇  onion-skin screenshot saved /home/jkang1643/projects/exbabel/video-production/exbabel-motion-v2/review/church-entry-final/camera-path.png
+   11 elements · open it to verify the motion matches your target, then read the keyframes below.
+
+{
+  "project": "exbabel-motion-v2",
+  "runtime": "all",
+  "compositions": [
+    {
+      "composition": "S02A",
+      "source": "./compositions/s02a-church-entry.html",
+      "tweens": [
+        {
+          "id": "#s02a-camera-fromTo-50",
+          "target": "#s02a-camera",
+          "method": "fromTo",
+          "start": 0.05,
+          "duration": 4.48,
+          "end": 4.53,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0.05,
+              "properties": {
+                "z": -650,
+                "y": 5,
+                "rotationZ": -0.8
+              }
+            },
+            {
+              "pct": 100,
+              "time": 4.53,
+              "properties": {
+                "z": 2390,
+                "y": -95,
+                "rotationZ": 0
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 5
+            },
+            {
+              "x": 0,
+              "y": -95
+            }
+          ]
+        },
+        {
+          "id": "#s02a-camera-fromTo-3000-position",
+          "target": "#s02a-camera",
+          "method": "fromTo",
+          "group": "position",
+          "start": 3,
+          "duration": 1.45,
+          "end": 4.45,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 3,
+              "properties": {
+                "x": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 4.45,
+              "properties": {
+                "x": 380
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 380,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "target": "#s02a-camera",
+          "strokes": [
+            {
+              "id": "#s02a-camera-fromTo-50",
+              "start": 0.05,
+              "end": 4.53,
+              "keyframes": [
+                {
+                  "pct": 0,
+                  "time": 0.05,
+                  "properties": {
+                    "z": -650,
+                    "y": 5,
+                    "rotationZ": -0.8
+                  }
+                },
+                {
+                  "pct": 100,
+                  "time": 4.53,
+                  "properties": {
+                    "z": 2390,
+                    "y": -95,
+                    "rotationZ": 0
+                  }
+                }
+              ],
+              "points": [
+                {
+                  "x": 0,
+                  "y": 5
+                },
+                {
+                  "x": 0,
+                  "y": -95
+                }
+              ]
+            },
+            {
+              "id": "#s02a-camera-fromTo-3000-position",
+              "start": 3,
+              "end": 4.45,
+              "keyframes": [
+                {
+                  "pct": 0,
+                  "time": 3,
+                  "properties": {
+                    "x": 0
+                  }
+                },
+                {
+                  "pct": 100,
+                  "time": 4.45,
+                  "properties": {
+                    "x": 380
+                  }
+                }
+              ],
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "x": 380,
+                  "y": 0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "cssKeyframes": [],
+      "anime": []
+    }
+  ],
+  "_meta": {
+    "version": "0.8.66",
+    "latestVersion": "0.8.77",
+    "updateAvailable": true
+  }
+}

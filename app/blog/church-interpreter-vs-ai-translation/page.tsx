@@ -243,6 +243,7 @@ export default function ChurchInterpreterVsAiTranslationArticle() {
               </p>
 
               {/* Top Action CTAs */}
+              <p>Ready to evaluate the software for your own service? See <Link href="/solutions/churches/">Exbabel’s AI translation for churches</Link> for practical setup, listener access, and a church demo.</p>
               <div className="flex flex-wrap gap-3 my-8 not-prose">
                 <a
                   href="https://app.exbabel.com/live/checkout"

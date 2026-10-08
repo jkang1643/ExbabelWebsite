@@ -1,0 +1,119 @@
+{
+  "originalTimingFormulaRestoredExactly": true,
+  "scenes": [
+    {
+      "id": "S03",
+      "typingSeconds": 2.35,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.65
+    },
+    {
+      "id": "S04",
+      "typingSeconds": 1.2393,
+      "settleSeconds": 0.459,
+      "readSeconds": 0.36719999999999997
+    },
+    {
+      "id": "S05",
+      "typingSeconds": 0.79488,
+      "settleSeconds": 0.2944,
+      "readSeconds": 0.23552
+    },
+    {
+      "id": "S06",
+      "typingSeconds": 0.5670000000000001,
+      "settleSeconds": 0.21000000000000002,
+      "readSeconds": 0.168
+    },
+    {
+      "id": "S07",
+      "typingSeconds": 2.02203,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.59912
+    },
+    {
+      "id": "S08",
+      "typingSeconds": 1.47609,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.43735999999999997
+    },
+    {
+      "id": "S09",
+      "typingSeconds": 1.053,
+      "settleSeconds": 0.39,
+      "readSeconds": 0.312
+    },
+    {
+      "id": "S10",
+      "typingSeconds": 1.7307000000000001,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.5128
+    },
+    {
+      "id": "S11",
+      "typingSeconds": 1.8270900000000003,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.5413600000000001
+    },
+    {
+      "id": "S12",
+      "typingSeconds": 1.9620900000000003,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.58136
+    },
+    {
+      "id": "S13",
+      "typingSeconds": 0.65988,
+      "settleSeconds": 0.2444,
+      "readSeconds": 0.19552
+    },
+    {
+      "id": "S14",
+      "typingSeconds": 1.6081200000000002,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.47648
+    },
+    {
+      "id": "S15",
+      "typingSeconds": 1.7069400000000001,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.50576
+    },
+    {
+      "id": "S16",
+      "typingSeconds": 2.079,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.616
+    },
+    {
+      "id": "S17",
+      "typingSeconds": 1.4909400000000002,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.44176000000000004
+    },
+    {
+      "id": "S18",
+      "typingSeconds": 0.96606,
+      "settleSeconds": 0.3578,
+      "readSeconds": 0.28624
+    },
+    {
+      "id": "S20",
+      "typingSeconds": 1.2031200000000002,
+      "settleSeconds": 0.44560000000000005,
+      "readSeconds": 0.35648
+    },
+    {
+      "id": "S21",
+      "typingSeconds": 1.8090000000000002,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.536
+    },
+    {
+      "id": "S22",
+      "typingSeconds": 2.2798800000000004,
+      "settleSeconds": 0.48,
+      "readSeconds": 0.65
+    }
+  ]
+}

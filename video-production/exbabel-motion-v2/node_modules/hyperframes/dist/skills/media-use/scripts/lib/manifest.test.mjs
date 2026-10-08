@@ -34,6 +34,8 @@ import {
   promote,
 } from "./cache.mjs";
 
+process.env.HYPERFRAMES_MEDIA_HOME = mkdtempSync(join(tmpdir(), "mu-media-home-"));
+
 let tmp;
 
 function setup() {
@@ -98,7 +100,7 @@ function runTests() {
     setup();
     const allocated = allocateId(tmp, "lut", ".cube");
     assert.equal(allocated.localPath, ".media/luts/lut_001.cube");
-    assert.ok(existsSync(join(tmp, allocated.localPath)));
+    assert.ok(existsSync(allocated.markerPath));
     cleanup();
   });
 
@@ -155,7 +157,8 @@ function runTests() {
     setup();
     const a = allocateId(tmp, "bgm", ".wav");
     assert.equal(a.id, "bgm_001");
-    assert.ok(existsSync(join(tmp, a.localPath)), "placeholder reserved on disk");
+    assert.ok(existsSync(a.markerPath), "id reserved on disk");
+    assert.ok(!existsSync(join(tmp, a.localPath)), "no empty asset at the final name");
     // Second allocation BEFORE any manifest append (the download window) must not
     // hand back bgm_001 again, even with a different extension.
     const b = allocateId(tmp, "bgm", ".mp3");
@@ -262,7 +265,13 @@ function runTests() {
     appendRecord(tmp, makeRecord({ id: "bgm_001" }));
     appendRecord(
       tmp,
-      makeRecord({ id: "sfx_001", type: "sfx", description: "whoosh", duration: 3 }),
+      makeRecord({
+        id: "sfx_001",
+        type: "sfx",
+        path: ".media/audio/sfx/sfx_001.mp3",
+        description: "whoosh",
+        duration: 3,
+      }),
     );
     regenerateIndex(tmp);
     const content = readFileSync(join(tmp, ".media", "index.md"), "utf8");

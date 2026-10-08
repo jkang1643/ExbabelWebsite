@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { appRoutes } from "@/lib/config";
+import ChurchDemoLink from "./ChurchDemoLink";
 
 // A reusable Dropdown Item component for consistency
 function DropdownItem({ 
@@ -12,13 +13,15 @@ function DropdownItem({
   onClick, 
   title, 
   description,
-  isAnchor = false 
+  isAnchor = false,
+  current = false,
 }: { 
   href: string; 
   onClick: () => void; 
   title: React.ReactNode; 
   description?: string;
   isAnchor?: boolean;
+  current?: boolean;
 }) {
   const content = (
     <>
@@ -32,10 +35,11 @@ function DropdownItem({
   if (isAnchor) {
     return <a href={href} onClick={onClick} className={className}>{content}</a>;
   }
-  return <Link href={href} onClick={onClick} className={className}>{content}</Link>;
+  return <Link href={href} aria-current={current ? "page" : undefined} onClick={onClick} className={className}>{content}</Link>;
 }
 
-export default function Navbar() {
+export default function Navbar({ churchPage = false }: { churchPage?: boolean }) {
+  const reduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
@@ -89,7 +93,12 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50" onKeyDown={(event) => {
+      if (event.key === "Escape") {
+        event.currentTarget.querySelector<HTMLButtonElement>('button[aria-expanded="true"]')?.focus();
+        setIsProductsOpen(false); setIsSolutionsOpen(false); setIsResourcesOpen(false); setIsLanguageOpen(false); setIsMobileMenuOpen(false);
+      }
+    }}>
       <nav
         className={`relative w-full transition-all duration-300 ${
           scrolled 
@@ -126,6 +135,7 @@ export default function Navbar() {
               >
                 <button 
                   onClick={() => setIsProductsOpen((prev) => !prev)}
+                  aria-expanded={isProductsOpen}
                   className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors flex items-center gap-1.5 py-2 focus:outline-none"
                 >
                   Products
@@ -138,7 +148,7 @@ export default function Navbar() {
                       initial={{ y: 8, scale: 0.96 }}
                       animate={{ y: 0, scale: 1 }}
                       exit={{ y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.15 }}
+                      transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
                       <DropdownItem 
@@ -158,12 +168,12 @@ export default function Navbar() {
                         title="ExBabel Live Captions"
                         description="Sub-second multilingual captions"
                       />
-                      <DropdownItem 
+                      {!churchPage && <DropdownItem
                         href="#" 
                         onClick={() => setIsProductsOpen(false)}
                         title="ExBabel Events"
                         description="Coming soon"
-                      />
+                      />}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -177,6 +187,7 @@ export default function Navbar() {
               >
                 <button 
                   onClick={() => setIsSolutionsOpen((prev) => !prev)}
+                  aria-expanded={isSolutionsOpen}
                   className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors flex items-center gap-1.5 py-2 focus:outline-none"
                 >
                   Solutions
@@ -189,19 +200,20 @@ export default function Navbar() {
                       initial={{ y: 8, scale: 0.96 }}
                       animate={{ y: 0, scale: 1 }}
                       exit={{ y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.15 }}
+                      transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-52 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
                       <DropdownItem 
-                        href="/solutions/churches" 
+                        href="/solutions/churches/"
                         onClick={() => setIsSolutionsOpen(false)}
                         title="For Churches"
+                        current={churchPage}
                       />
-                      <DropdownItem 
+                      {!churchPage && <DropdownItem
                         href="/solutions/business" 
                         onClick={() => setIsSolutionsOpen(false)}
                         title="For Business"
-                      />
+                      />}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -215,6 +227,7 @@ export default function Navbar() {
               >
                 <button 
                   onClick={() => setIsResourcesOpen((prev) => !prev)}
+                  aria-expanded={isResourcesOpen}
                   className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors flex items-center gap-1.5 py-2 focus:outline-none"
                 >
                   Resources
@@ -227,7 +240,7 @@ export default function Navbar() {
                       initial={{ y: 8, scale: 0.96 }}
                       animate={{ y: 0, scale: 1 }}
                       exit={{ y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.15 }}
+                      transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-56 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
                       <DropdownItem 
@@ -274,14 +287,14 @@ export default function Navbar() {
           {/* Right Action Bar (Sign In, CTA Buttons, Language & Mobile Hamburger) */}
           <div className="flex items-center gap-2 lg:gap-3 xl:gap-4 flex-shrink-0">
             
-            <Link
+            {!churchPage && <Link
               href="https://app.exbabel.com/translate/checkout?plan=starter"
               className={`hidden sm:flex px-4 py-1.5 rounded-full text-sm font-bold transition-all items-center justify-center border-2 border-[#1d1c1d] text-[#1d1c1d] hover:bg-slate-50 whitespace-nowrap`}
             >
               Try it now
-            </Link>
+            </Link>}
 
-            <Link
+            {churchPage ? <ChurchDemoLink placement="navigation" className="inline-flex min-h-11 items-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-primary text-white whitespace-nowrap" /> : <Link
               href="/demo"
               className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg whitespace-nowrap ${
                 scrolled
@@ -290,19 +303,19 @@ export default function Navbar() {
               }`}
             >
               Schedule a Consultation
-            </Link>
+            </Link>}
 
             <a
-              href={appRoutes.signin}
+              href={churchPage ? "https://app.exbabel.com/signin" : appRoutes.signin}
               className="hidden sm:block text-sm font-bold text-[#1d1c1d] hover:text-primary transition-colors px-1 py-1 whitespace-nowrap"
             >
               Log in
             </a>
 
-            <div className="hidden lg:block w-px h-5 bg-gray-200 mx-1"></div>
+            {!churchPage && <div className="hidden lg:block w-px h-5 bg-gray-200 mx-1"></div>}
 
             {/* Minimal Language Selector with Globe Icon */}
-            <div className="hidden lg:block relative" onMouseEnter={() => setIsLanguageOpen(true)} onMouseLeave={() => setIsLanguageOpen(false)}>
+            {!churchPage && <div className="hidden lg:block relative" onMouseEnter={() => setIsLanguageOpen(true)} onMouseLeave={() => setIsLanguageOpen(false)}>
               <button 
                 onClick={() => setIsLanguageOpen((prev) => !prev)}
                 className="text-sm font-medium text-gray-500 hover:text-primary transition-colors flex items-center gap-1 py-2 focus:outline-none"
@@ -335,12 +348,14 @@ export default function Navbar() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </div>}
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle Navigation Menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
               className="lg:hidden p-2 rounded-xl text-gray-700 hover:text-primary hover:bg-slate-100/80 transition-colors focus:outline-none ml-1"
             >
               {isMobileMenuOpen ? (
@@ -360,10 +375,11 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
+              id="mobile-navigation"
               initial={{ height: 0 }}
               animate={{ height: "auto" }}
               exit={{ height: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
+              transition={{ duration: churchPage && reduceMotion ? 0 : 0.25, ease: "easeInOut" }}
               className="lg:hidden bg-white/98 md:backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden"
             >
               <div className="px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
@@ -372,13 +388,13 @@ export default function Navbar() {
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Translate</Link>
                   <Link href="/live" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Live</Link>
                   <Link href="/live" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Live Captions</Link>
-                  <Link href="#" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-500 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Events <span className="text-xs font-normal bg-gray-100 px-2 py-0.5 rounded-full ml-1">Soon</span></Link>
+                  {!churchPage && <Link href="#" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-500 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Events <span className="text-xs font-normal bg-gray-100 px-2 py-0.5 rounded-full ml-1">Soon</span></Link>}
                 </div>
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Solutions</div>
-                  <Link href="/solutions/churches" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Churches</Link>
-                  <Link href="/solutions/business" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Business</Link>
+                  <Link href="/solutions/churches/" aria-current={churchPage ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Churches</Link>
+                  {!churchPage && <Link href="/solutions/business" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Business</Link>}
                 </div>
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">
@@ -392,20 +408,20 @@ export default function Navbar() {
                 </div>
 
                 <div className="border-t border-gray-100 pt-4 space-y-3">
-                  <div className="flex justify-center pb-2">
+                  {!churchPage && <div className="flex justify-center pb-2">
                     <button className="flex items-center gap-1.5 text-sm font-bold text-gray-600 hover:text-primary bg-slate-50 px-4 py-2 rounded-xl">
                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                        English
                     </button>
-                  </div>
-                  <Link href="https://app.exbabel.com/translate/checkout?plan=starter" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 border-2 border-gray-200 text-gray-900 font-extrabold text-sm rounded-full hover:bg-slate-50 transition-all">
+                  </div>}
+                  {!churchPage && <Link href="https://app.exbabel.com/translate/checkout?plan=starter" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 border-2 border-gray-200 text-gray-900 font-extrabold text-sm rounded-full hover:bg-slate-50 transition-all">
                     Try it now
-                  </Link>
-                  <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 bg-primary text-white font-extrabold text-sm rounded-full shadow-md hover:bg-primary/90 transition-all">
+                  </Link>}
+                  {churchPage ? <ChurchDemoLink placement="navigation" className="w-full block text-center py-3 bg-primary text-white font-semibold text-sm rounded-full" /> : <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 bg-primary text-white font-extrabold text-sm rounded-full shadow-md hover:bg-primary/90 transition-all">
                     Schedule a Consultation
-                  </Link>
+                  </Link>}
                   <div className="text-center pt-2">
-                    <a href={appRoutes.signin} className="text-sm font-bold text-gray-600 hover:text-primary">Log in</a>
+                    <a href={churchPage ? "https://app.exbabel.com/signin" : appRoutes.signin} className="text-sm font-bold text-gray-600 hover:text-primary">Log in</a>
                   </div>
                 </div>
               </div>

@@ -104,6 +104,9 @@ export default function ChurchTranslationIntro() {
           <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium mb-12">
             Traditional church translation systems often require interpreters, wireless receivers, transmitters, translation booths, or dedicated translation equipment. <strong className="text-slate-800 font-bold">Exbabel delivers translated speech and captions through the devices attendees already carry</strong>, allowing churches to translate sermons and services without distributing specialized hardware.
           </p>
+          <a href="/solutions/churches/" className="inline-flex min-h-11 items-center rounded-full border border-primary px-6 py-3 font-semibold text-primary underline-offset-4 hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+            Explore AI translation for churches →
+          </a>
         </motion.div>
 
         <motion.div 
