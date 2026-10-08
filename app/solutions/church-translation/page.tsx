@@ -923,30 +923,24 @@ export default function ChurchTranslationPage() {
           </div>
         </section>
 
-        {/* Social proof — static HTML for crawlers */}
-        <section className={styles.socialProof + " " + styles.wrap} aria-labelledby="churches-title">
-          <h2 id="churches-title">Churches already using Exbabel</h2>
-          <ul className={styles.churchList}>
-            <li>
-              <strong>Houston Apostolic Church</strong>
-              <span>Houston, TX — Spanish &amp; English services</span>
-            </li>
-            <li>
-              <strong>Lighthouse Pentecostal Church</strong>
-              <span>Serving multilingual congregation every Sunday</span>
-            </li>
-            <li>
-              <strong>Lighthouse Church</strong>
-              <span>Live AI translation for weekly services</span>
-            </li>
-            <li>
-              <strong>1st Baptist Church of Houston</strong>
-              <span>Houston, TX — multilingual outreach</span>
-            </li>
-          </ul>
-          <p className={styles.socialProofNote}>
-            These churches use Exbabel for live service translation. Names shown with permission.
-          </p>
+        {/* Social proof — Single Testimonial */}
+        <section className={styles.socialProofSingle + " " + styles.wrap} aria-labelledby="testimonial-title">
+          <blockquote className={styles.testimonialQuote}>
+            <p>
+              “We were searching for a way to serve our community and expand access for those who speak other languages. We chose Exbabel because of their <strong>church-focused approach, excellent translation quality, and the affordability that makes live multicultural services possible.</strong>”
+            </p>
+            <footer>
+              <div className={styles.testimonialLogoWrap}>
+                <Image
+                  src="/photos/church/the-international-church-logo.png"
+                  alt="The International Church of Metro Detroit"
+                  width={250}
+                  height={118}
+                  className={styles.testimonialLogo}
+                />
+              </div>
+            </footer>
+          </blockquote>
         </section>
 
         <section
