@@ -105,10 +105,10 @@ export default function ImpactStats() {
                         inView={inView}
                     />
                     <StatItem
-                        value={100}
+                        value={180}
                         suffix="+"
-                        statusSymbol="100+ Languages"
-                        description="Multilingual speech-to-speech translation languages supported"
+                        statusSymbol="90+ Voice · 180+ Captions"
+                        description="90+ spoken voice languages and 180+ real-time caption languages supported"
                         delay={0.3}
                         inView={inView}
                     />

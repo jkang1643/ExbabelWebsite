@@ -396,39 +396,79 @@ function WorkflowGraphic({ stage }: { stage: number }) {
               <strong>Exbabel</strong>
               <span>Host setup</span>
             </div>
-            <span className={s.uiLabel}>Example language selection</span>
+            <span className={s.uiLabel}>90+ Voice &amp; 180+ Caption Languages</span>
             <div className={s.selectedLanguages}>
               <span>English</span>
               <span>Spanish</span>
-              <span>French</span>
+              <span>Korean</span>
+              <span>+90 More</span>
             </div>
             <Waveform />
             <strong className={s.sessionAction}>Start broadcasting</strong>
           </div>
-          <p>Select supported languages for this service.</p>
+          <p>Select supported languages (90+ voice, 180+ caption languages).</p>
         </>
       )}
       {stage === 2 && (
         <>
           <div className={s.accessIllustration}>
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
-            >
-              <path d="m19 30-3 3a9 9 0 0 1-13-13l8-8a9 9 0 0 1 13 0m5 6 3-3a9 9 0 0 1 13 13l-8 8a9 9 0 0 1-13 0M16 24h16" />
-            </svg>
-            <strong>Your session access</strong>
-            <span>QR code · Access link · Session code</span>
+            <div className={s.qrCodeCard}>
+              <svg
+                width="120"
+                height="120"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Live session joining QR code"
+                role="img"
+              >
+                {/* Background */}
+                <rect width="100" height="100" rx="8" fill="#ffffff" />
+                {/* Top-left finder */}
+                <rect x="8" y="8" width="26" height="26" rx="4" stroke="#101828" strokeWidth="3" fill="none" />
+                <rect x="14" y="14" width="14" height="14" rx="2" fill="#101828" />
+                {/* Top-right finder */}
+                <rect x="66" y="8" width="26" height="26" rx="4" stroke="#101828" strokeWidth="3" fill="none" />
+                <rect x="72" y="14" width="14" height="14" rx="2" fill="#101828" />
+                {/* Bottom-left finder */}
+                <rect x="8" y="66" width="26" height="26" rx="4" stroke="#101828" strokeWidth="3" fill="none" />
+                <rect x="14" y="72" width="14" height="14" rx="2" fill="#101828" />
+                {/* Timing lines */}
+                <line x1="38" y1="20" x2="62" y2="20" stroke="#101828" strokeWidth="3" strokeDasharray="3 3" />
+                <line x1="20" y1="38" x2="20" y2="62" stroke="#101828" strokeWidth="3" strokeDasharray="3 3" />
+                {/* Data modules */}
+                <rect x="40" y="8" width="6" height="6" rx="1" fill="#101828" />
+                <rect x="52" y="8" width="8" height="6" rx="1" fill="#101828" />
+                <rect x="44" y="26" width="6" height="6" rx="1" fill="#101828" />
+                <rect x="56" y="26" width="6" height="6" rx="1" fill="#101828" />
+                {/* Center data pattern with brand blue accents */}
+                <rect x="36" y="36" width="10" height="10" rx="2" fill="#394dfe" />
+                <rect x="54" y="36" width="10" height="8" rx="2" fill="#101828" />
+                <rect x="42" y="52" width="12" height="6" rx="1" fill="#101828" />
+                <rect x="60" y="48" width="6" height="12" rx="1" fill="#394dfe" />
+                <rect x="70" y="40" width="8" height="6" rx="1" fill="#101828" />
+                <rect x="82" y="40" width="8" height="8" rx="1" fill="#101828" />
+                <rect x="74" y="52" width="6" height="10" rx="1" fill="#101828" />
+                <rect x="86" y="56" width="6" height="6" rx="1" fill="#101828" />
+                {/* Bottom-right data pattern */}
+                <rect x="38" y="72" width="8" height="8" rx="1.5" fill="#101828" />
+                <rect x="52" y="70" width="10" height="6" rx="1" fill="#101828" />
+                <rect x="42" y="84" width="6" height="6" rx="1" fill="#101828" />
+                <rect x="54" y="82" width="8" height="8" rx="1.5" fill="#101828" />
+                <rect x="68" y="70" width="8" height="8" rx="1.5" fill="#101828" />
+                <rect x="82" y="70" width="8" height="6" rx="1" fill="#101828" />
+                <rect x="72" y="82" width="10" height="8" rx="1.5" fill="#101828" />
+                <rect x="86" y="80" width="6" height="10" rx="1" fill="#394dfe" />
+              </svg>
+              <div className={s.qrBadge}>Scan with Camera</div>
+            </div>
+            <strong>Session QR Code</strong>
+            <span>app.exbabel.com/join · Code: <strong>2UU6SV</strong></span>
             <div className={s.accessLine}>
-              Share with your congregation <span aria-hidden="true">↗</span>
+              Share on slides, bulletins &amp; entrances <span aria-hidden="true">↗</span>
             </div>
           </div>
-          <p>Put joining instructions where people can find them.</p>
+          <p>Display on your sanctuary screens or print on Sunday bulletins.</p>
         </>
       )}
       {stage === 3 && (
@@ -464,7 +504,7 @@ const steps = [
   {
     title: "Set up the session",
     role: "Host",
-    text: "Open church broadcasting, select the supported languages for your service, and start broadcasting. Join from a second device to check the audio or captions your attendees will receive.",
+    text: "Open church broadcasting, select supported languages for your service (choose from 90+ spoken voice languages and 180+ live caption languages), and start broadcasting. Join from a second device to check the audio or captions your attendees will receive.",
   },
   {
     title: "Share attendee access",

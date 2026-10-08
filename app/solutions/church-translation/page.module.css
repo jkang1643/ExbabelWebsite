@@ -1700,3 +1700,55 @@
     padding: 24px 20px;
   }
 }
+
+/* Language support pills and badges */
+.heroLangBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 28px;
+}
+.heroLangBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #f0f4ff;
+  border: 1px solid #c7d7fe;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+}
+.heroLangBadge strong {
+  color: #394dfe;
+  font-weight: 700;
+}
+.heroLangIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+.outputHeadingRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 12px;
+}
+.outputHeadingRow h3 {
+  margin: 0;
+}
+.langCountBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: #eff4ff;
+  color: #394dfe;
+  border: 1px solid #d0d7e6;
+  white-space: nowrap;
+}

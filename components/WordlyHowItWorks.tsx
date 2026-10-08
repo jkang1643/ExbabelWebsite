@@ -33,7 +33,7 @@ export default function WordlyHowItWorks() {
     {
       number: "02",
       title: "AI Instantly Translates Your Speaker",
-      subhead: "Real-time simultaneous interpretation in 180+ languages.",
+      subhead: "Real-time simultaneous interpretation in 90+ voice languages and 180+ with captions.",
       body: "As soon as someone speaks, Exbabel's neural AI translation engine begins translating their speech into multiple languages simultaneously for seamless multilingual meetings and live events.",
       bulletPoints: [
         "Natural AI-generated translated voices",
@@ -54,7 +54,7 @@ export default function WordlyHowItWorks() {
           </div>
           <div className="flex items-center gap-2 text-slate-300 pt-1">
             <span className="text-base">🇪🇸 🇰🇷 🇫🇷 🇨🇳 🇵🇹</span>
-            <span className="text-[11px] font-bold text-slate-400">Streaming into 180+ languages simultaneously</span>
+            <span className="text-[11px] font-bold text-slate-400">Streaming into 90+ voices &amp; 180+ captions</span>
           </div>
         </div>
       ),

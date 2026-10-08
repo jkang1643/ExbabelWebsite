@@ -20,7 +20,7 @@ import styles from "./page.module.css";
 const title =
   "Church Translation System — AI Audio & Captions for Live Services | Exbabel";
 const description =
-  "Live AI church translation for sermons and services — translated audio and captions in 100+ languages, no app required. Book a demo.";
+  "Live AI church translation for sermons and services — 90+ voice languages and 180+ caption languages, no app required. Book a demo.";
 const canonical = "https://www.exbabel.com/solutions/church-translation/";
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -79,7 +79,7 @@ export default function ChurchTranslationPage() {
             name: "Exbabel Church Translation",
             url: canonical,
             description:
-              "Real-time AI church translation for live services — translated audio and written captions in 100+ languages. No app download required; congregants join via QR code or link.",
+              "Real-time AI church translation for live services — 90+ spoken voice languages and 180+ live caption languages. No app download required; congregants join via QR code or link.",
             applicationCategory: "ReligiousApplication",
             operatingSystem: "Web Browser (Chrome, Safari, Firefox, Edge)",
             audience: {
@@ -91,7 +91,7 @@ export default function ChurchTranslationPage() {
               url: "https://www.exbabel.com/#pricing",
               priceCurrency: "USD",
               price: "39",
-              description: "Starter plan — 6 live hours/month, 100+ languages",
+              description: "Starter plan — 6 live hours/month, 90+ voice and 180+ caption languages",
             },
             publisher: {
               "@type": "Organization",
@@ -114,6 +114,16 @@ export default function ChurchTranslationPage() {
               Help people follow your service in their language with translated
               audio and live captions on their own devices.
             </p>
+            <div className={styles.heroLangBadges}>
+              <div className={styles.heroLangBadge}>
+                <span className={styles.heroLangIcon} aria-hidden="true">🎙️</span>
+                <span><strong>90+</strong> Spoken Voice Languages</span>
+              </div>
+              <div className={styles.heroLangBadge}>
+                <span className={styles.heroLangIcon} aria-hidden="true">📝</span>
+                <span><strong>180+</strong> Live Caption Languages</span>
+              </div>
+            </div>
             <Demo placement="hero" />
             <p className={styles.heroDetail}>
               Join in a browser. Share a QR code or session code.
@@ -288,12 +298,15 @@ export default function ChurchTranslationPage() {
                 <Waveform />
                 <span>Speech → Translated voice → Headphones</span>
               </div>
-              <h3>Translated audio</h3>
+              <div className={styles.outputHeadingRow}>
+                <h3>Translated audio</h3>
+                <span className={styles.langCountBadge}>🎙️ 90+ Voice Languages</span>
+              </div>
               <p>
                 Listen while looking toward the speaker. Attendees press play
-                and use headphones so the translation does not compete with the
-                room’s sound. Check voice availability, playback volume, and the
-                experience of following with a delay during rehearsal.
+                and use headphones to hear natural, expressive AI voice translations
+                in 90+ supported spoken languages. WebRTC streaming ensures
+                low latency so translated audio stays synchronized with the live sermon.
               </p>
             </article>
             <article className={styles.captionsArticle}>
@@ -306,12 +319,15 @@ export default function ChurchTranslationPage() {
                 </p>
                 <span>Example source: “Welcome. Thank you.”</span>
               </div>
-              <h3>Written captions</h3>
+              <div className={styles.outputHeadingRow}>
+                <h3>Written captions</h3>
+                <span className={styles.langCountBadge}>📝 180+ Caption Languages</span>
+              </div>
               <p>
-                Read the spoken message on a device screen, with or without
-                listening to translated audio. Captions need a supported written
-                language and a visible screen. A language in a caption list does
-                not guarantee that a spoken voice is available for it.
+                Read the spoken message in real time on any smartphone, tablet,
+                or sanctuary display across 180+ supported languages and regional
+                dialects. High-contrast live captions give every visitor immediate,
+                word-for-word visual clarity without requiring an app download.
               </p>
             </article>
           </div>
@@ -425,8 +441,8 @@ export default function ChurchTranslationPage() {
                 <li>
                   <span className={styles.challengeIconGood} aria-hidden="true">✓</span>
                   <div>
-                    <strong>100+ Languages Simultaneously</strong>
-                    Broadcast in Spanish, Vietnamese, Korean, Mandarin, Portuguese, French, and 90+ more languages all from one speech feed.
+                    <strong>90+ Voice &amp; 180+ Caption Languages Simultaneously</strong>
+                    Broadcast spoken AI voice translations in 90+ languages and live real-time captions in 180+ languages—all simultaneously from one speech feed.
                   </div>
                 </li>
                 <li>
@@ -448,7 +464,7 @@ export default function ChurchTranslationPage() {
               <div className={styles.useCasesIntro}>
                 <h2 id="usecases-title">Church Translation Use Cases</h2>
                 <p>
-                  From Sunday morning preaching to midweek discipleship and community outreach, Exbabel adapts to every worship format and ministry gathering across your calendar.
+                  From Sunday morning preaching to midweek discipleship and community outreach, Exbabel adapts to every worship format and ministry gathering across your calendar with 90+ voice languages and 180+ caption languages.
                 </p>
                 <ul className={styles.useCasesItems}>
                   <li className={styles.useCaseItem}>
@@ -706,7 +722,8 @@ export default function ChurchTranslationPage() {
                     <li>Community Outreach Meetings</li>
                     <li>Midweek Bible Study</li>
                     <li>Volunteer Onboarding</li>
-                    <li>100+ Live Languages (Audio + Captions)</li>
+                    <li><strong>90+</strong> Spoken Voice Languages</li>
+                    <li><strong>180+</strong> Live Caption Languages</li>
                     <li>Customizable Church Glossaries</li>
                     <li>30-Day Free Trial</li>
                   </ul>
@@ -732,7 +749,7 @@ export default function ChurchTranslationPage() {
                     <li>Multiple Weekly Services</li>
                     <li>Youth &amp; Children’s Services</li>
                     <li>Ministry Staff Meetings</li>
-                    <li>Staff &amp; Leadership Training</li>
+                    <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
                     <li>Priority WebRTC Low-Latency Audio</li>
                     <li>Post-Sermon Multilingual Transcripts</li>
                     <li>AI Sermon Summaries &amp; Study Notes</li>
@@ -756,6 +773,7 @@ export default function ChurchTranslationPage() {
                   </div>
                   <ul className={styles.planFeatures}>
                     <li>Multiple Campuses &amp; Large Sanctuaries</li>
+                    <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
                     <li>Voice Cloning (Pastor Voice Match)</li>
                     <li>Conference &amp; Revival Event Support</li>
                     <li>Video Subtitles &amp; Dubbing</li>
@@ -821,10 +839,16 @@ export default function ChurchTranslationPage() {
                         <td>—</td>
                       </tr>
                       <tr>
-                        <td>100+ Languages</td>
-                        <td><span className={styles.checkIcon}>✅ Included</span></td>
-                        <td><span className={styles.checkIcon}>✅ Included</span></td>
-                        <td><span className={styles.checkIcon}>✅ Included</span></td>
+                        <td>Spoken Voice Languages (Audio)</td>
+                        <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                        <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                        <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                      </tr>
+                      <tr>
+                        <td>Live Caption Languages (Subtitles)</td>
+                        <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
+                        <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
+                        <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
                       </tr>
                       <tr>
                         <td>In Person &amp; Virtual (WebRTC)</td>

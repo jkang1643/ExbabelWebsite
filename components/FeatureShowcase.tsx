@@ -171,11 +171,11 @@ function SecurityAnimation() {
 const FEATURES: Feature[] = [
     {
         id: "voices",
-        title: "100+ Languages, One Platform",
-        description: "Speech-to-speech translation across more than 100 languages, preserving the speaker's natural cadence, tone, and emotional clarity.",
+        title: "90+ Voice Languages, 180+ with Captions",
+        description: "Speech-to-speech translation with 90+ natural voices and live real-time captions across 180+ languages, preserving the speaker's natural cadence, tone, and emotional clarity.",
         accentColor: "#394DFE",
         videoSrc: "/videos/90naturalvoices.mp4",
-        badge: "100+ Active",
+        badge: "90+ Voices · 180+ Captions",
     },
     {
         id: "languages",
