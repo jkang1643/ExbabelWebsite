@@ -347,18 +347,15 @@ export default function ChurchTranslationPage() {
             </div>
             <figure>
               <picture>
-              <Image
-                src="/photos/church/church-worship-exbabel.png"
-                alt="Church member worshiping in service with live Spanish sermon translation on Exbabel app"
-                width={1024}
-                height={576}
-                sizes="(max-width: 700px) 100vw, 60vw"
-                loading="lazy"
-              />
+                <Image
+                  src="/photos/church/church-worship-exbabel.png"
+                  alt="Church member worshiping in service with live Spanish sermon translation on Exbabel app"
+                  width={1024}
+                  height={576}
+                  sizes="(max-width: 700px) 100vw, 60vw"
+                  loading="lazy"
+                />
               </picture>
-              <figcaption>
-                Congregation member participating in worship while following live Spanish sermon translation on Exbabel.
-              </figcaption>
             </figure>
           </div>
         </section>
