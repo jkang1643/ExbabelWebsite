@@ -602,34 +602,23 @@ export default function ChurchTranslationPage() {
               </p>
               <Demo placement="sermon" />
             </div>
-            <aside className={styles.sermonNotes}>
-              <div className={styles.notesHeader}>
-                <span>Before the service</span>
-                <strong>Sermon rehearsal notes</strong>
+            <div className={styles.sermonVisual}>
+              <div className={styles.sermonImageCard}>
+                <Image
+                  src="/photos/church/church-sermon-stage.jpg"
+                  alt="Pastor delivering a sermon on a modern church stage with live translation"
+                  width={858}
+                  height={644}
+                  sizes="(max-width: 900px) 100vw, 45vw"
+                  className={styles.sermonImage}
+                  loading="lazy"
+                />
+                <div className={styles.sermonLiveBadge}>
+                  <span className={styles.liveDot} />
+                  <span>Live Sermon Translation</span>
+                </div>
               </div>
-              <ul>
-                <li>
-                  <span>Names &amp; places</span>
-                  <p>Check pronunciation and the translated wording.</p>
-                </li>
-                <li>
-                  <span>Scripture references</span>
-                  <p>
-                    Keep the book, chapter, verse, and chosen text available.
-                  </p>
-                </li>
-                <li>
-                  <span>Meaning &amp; context</span>
-                  <p>
-                    Ask a fluent reviewer about sensitive or unfamiliar terms.
-                  </p>
-                </li>
-              </ul>
-              <p className={styles.note}>
-                A rehearsal helps you judge suitability. It cannot guarantee
-                every phrase will be correct.
-              </p>
-            </aside>
+            </div>
           </div>
         </section>
 

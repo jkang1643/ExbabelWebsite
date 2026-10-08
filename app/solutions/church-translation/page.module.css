@@ -376,53 +376,58 @@
 .sermonCopy .cta {
   margin-top: 32px;
 }
-.sermonNotes {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 24px 40px -32px #65542e66;
-  padding: 32px;
-  transform: rotate(1.5deg);
-}
-.notesHeader {
+.sermonVisual {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.sermonImageCard {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -12px rgba(16, 24, 40, 0.22), 0 12px 24px -8px rgba(16, 24, 40, 0.12);
+  border: 1px solid rgba(220, 225, 235, 0.9);
+  background: #0f172a;
+  aspect-ratio: 4 / 3;
+}
+.sermonImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.sermonImageCard:hover .sermonImage {
+  transform: scale(1.025);
+}
+.sermonLiveBadge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
-  margin-bottom: 24px;
-}
-.notesHeader span {
-  color: #7c6937;
-  font-size: 12px;
-}
-.notesHeader strong {
-  font-size: 24px;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
-  color: #332b1b;
-}
-.sermonNotes ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sermonNotes li {
-  padding: 16px 0;
-  border-top: 1px solid #e9e3d5;
-}
-.sermonNotes li > span {
-  color: #665422;
-  font-size: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 7px 14px;
+  color: #fff;
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-.sermonNotes li p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-top: 4px;
-}
-.sermonNotes .note {
-  font-size: 12px;
-  line-height: 1.6;
-  margin-top: 16px;
-  color: #665422;
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  display: inline-block;
 }
 .comparison {
   padding-block: 96px;
@@ -903,12 +908,8 @@
   .sermonCopy h2 {
     font-size: 30px;
   }
-  .sermonNotes {
-    padding: 24px;
-    transform: none;
-  }
-  .notesHeader strong {
-    font-size: 24px;
+  .sermonVisual {
+    width: 100%;
   }
   .comparison {
     padding-block: 64px;
