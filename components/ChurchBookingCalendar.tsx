@@ -20,7 +20,7 @@ export default function ChurchBookingCalendar() {
 
   useEffect(() => {
     setEmbedUrl(
-      `${bookingUrl}?embed_type=Inline&embed_domain=${window.location.hostname}`,
+      `${bookingUrl}?embed_type=Inline&embed_domain=${window.location.hostname}&primary_color=394dfe`,
     );
     const onMessage = (event: MessageEvent) => {
       if (

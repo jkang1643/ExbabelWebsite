@@ -49,4 +49,9 @@ export const churchFAQs = [
     answer:
       "Book a church demo, then rehearse your intended setup before Sunday. Use your mixer or microphone, actual speakers, target languages, and attendee devices. Ask a fluent listener to check the audio and captions, and include names and scripture references from a representative sermon.",
   },
+  {
+    question: "Is Exbabel a real-time church translation system?",
+    answer:
+      "Yes. Exbabel is a real-time church translation system: the host streams speech from the church computer and listeners receive translated audio or captions in their chosen language within seconds. It is a live service, not pre-recorded translation. Because accuracy depends on audio quality and supported language pairs, rehearse your setup before Sunday.",
+  },
 ];
