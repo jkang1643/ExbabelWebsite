@@ -605,7 +605,7 @@ export default function ChurchTranslationPage() {
             <div className={styles.sermonVisual}>
               <div className={styles.sermonImageCard}>
                 <Image
-                  src="/photos/church/church-sermon-collage.jpg"
+                  src="/photos/church/exbabel_worship_composite.png"
                   alt="Pastor delivering a sermon on a modern church stage with live translation"
                   width={858}
                   height={644}
