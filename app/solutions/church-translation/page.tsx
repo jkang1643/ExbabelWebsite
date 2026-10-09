@@ -895,30 +895,7 @@ export default function ChurchTranslationPage() {
                 </div>
               </div>
 
-              {/* ── Realistic Church Production Advisory Banner ── */}
-              <aside className={styles.planningLimitations}>
-                <div className={styles.limitationsTitle}>
-                  <h3>Leave room for the real world.</h3>
-                  <p>Practical audio considerations for live church services and productions.</p>
-                </div>
-                <ul className={styles.limitationsList}>
-                  <li>
-                    <strong>📡 Connectivity</strong>
-                    <span>Hosts and attendees need internet. If it drops, check the connection and active session, then help listeners rejoin as needed.</span>
-                  </li>
-                  <li>
-                    <strong>⏱️ Input &amp; delay</strong>
-                    <span>Noisy speech can affect results. Translation delay varies with latency; it is not simultaneous with the original acoustic voice.</span>
-                  </li>
-                  <li>
-                    <strong>🌐 Language &amp; meaning</strong>
-                    <span>Output options differ and nuances vary. Prepare custom biblical glossaries, and do not assume congregational singing or music will translate reliably.</span>
-                  </li>
-                </ul>
-                <p className={styles.limitationsFooter}>
-                  Prepare a backup, such as an interpreter or translated sermon notes. Do not depend on offline translation or automatic recovery.
-                </p>
-              </aside>
+              
             </div>
           </div>
         </section>
