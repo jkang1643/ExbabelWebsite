@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     siteName: "Exbabel",
     images: [
       {
-        url: "/exbabel-og-preview.png",
-        width: 1200,
-        height: 630,
+        url: "/photos/church/exbabel_worship_composite.png",
+        width: 858,
+        height: 644,
         alt: "Exbabel live translation for multilingual congregations",
       },
     ],
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/exbabel-og-preview.png"],
+    images: ["/photos/church/exbabel_worship_composite.png"],
   },
 };
 function Demo({ placement }: { placement: string }) {

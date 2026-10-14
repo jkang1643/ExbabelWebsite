@@ -73,6 +73,7 @@ Enterprise-grade multilingual conference and event translation.
 ## Pages
 
 - Home: https://exbabel.com
+- Church Translation: https://exbabel.com/solutions/church-translation/
 - Exbabel Live: https://exbabel.com/live
 - Global Impact: https://exbabel.com/impact
 - Guides: https://exbabel.com/guides
