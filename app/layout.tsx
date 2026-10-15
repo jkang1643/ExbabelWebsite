@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import MobileScrollProvider from "@/components/MobileScrollProvider";
+import PostHogProvider from "@/components/PostHogProvider";
 import { Sora } from "next/font/google";
 import "./globals.css";
 
@@ -89,12 +90,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${sora.variable} font-sans`} suppressHydrationWarning>
-        <MobileScrollProvider />
-        {/* Global JSON-LD schemas */}
-        <OrganizationSchema />
-        <WebsiteSchema />
-        {children}
-        <Script id="hs-script-loader" strategy="lazyOnload" src="//js-na2.hs-scripts.com/245326184.js" />
+        <PostHogProvider>
+          <MobileScrollProvider />
+          {/* Global JSON-LD schemas */}
+          <OrganizationSchema />
+          <WebsiteSchema />
+          {children}
+          <Script id="hs-script-loader" strategy="lazyOnload" src="//js-na2.hs-scripts.com/245326184.js" />
+        </PostHogProvider>
       </body>
     </html>
   );

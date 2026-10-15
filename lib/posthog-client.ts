@@ -3,9 +3,12 @@ import posthog from "posthog-js";
 type EventProperties = Record<string, string | number | boolean | null | undefined>;
 
 function isPostHogConfigured() {
-  return Boolean(
-    process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
-      process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  return (
+    typeof window !== "undefined" &&
+    Boolean(
+      process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN ||
+        (posthog as { __loaded?: boolean }).__loaded
+    )
   );
 }
 
