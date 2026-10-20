@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T21:08:44Z",
+  "title": "Design System: Exbabel solutions pages",
+  "extensions": {
+    "colorMeta": {
+      "brand-blue": { "role": "primary", "displayName": "Brand blue", "canonical": "#394dfe" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#101828" },
+      "body-muted": { "role": "neutral", "displayName": "Body muted", "canonical": "#475467" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Solution hero headline." },
+      "headline": { "displayName": "Headline", "purpose": "Solution section heading." },
+      "body": { "displayName": "Body", "purpose": "Solution paragraph copy." }
+    },
+    "shadows": [
+      { "name": "solution-scene", "value": "0 22px 50px -33px #4e5fa8", "purpose": "Events and business hero illustration." },
+      { "name": "solution-panel", "value": "0 16px 30px -23px #1d3099", "purpose": "Source and listener panels inside the hero illustration." }
+    ],
+    "motion": [
+      { "name": "solution-action", "value": "background .2s, transform .2s", "purpose": "Primary action hover transition; removed for reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "solution-tablet", "value": "800px" },
+      { "name": "solution-phone", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solution primary action",
+      "kind": "button",
+      "refersTo": "solution-primary-link",
+      "description": "Blue pill link for booking a demo.",
+      "html": "<a class=\"ds-solution-action\" href=\"#\">Book a demo ↗</a>",
+      "css": ".ds-solution-action{display:inline-flex;align-items:center;justify-content:center;gap:17px;min-height:52px;padding:12px 24px;border-radius:100px;background:#394dfe;color:#fff;font:600 1rem var(--font-sora),sans-serif;text-decoration:none;transition:background .2s,transform .2s}.ds-solution-action:hover{background:#2638d9;transform:translateY(-2px)}.ds-solution-action:active{transform:translateY(0)}.ds-solution-action:focus-visible{outline:3px solid #394dfe;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-solution-action{transition:none}}"
+    },
+    {
+      "name": "Language badge",
+      "kind": "chip",
+      "refersTo": "language-badge",
+      "description": "Compact language-count label used beside the hero call to action.",
+      "html": "<span class=\"ds-language-badge\"><strong>90+</strong> spoken voice languages</span>",
+      "css": ".ds-language-badge{display:inline-flex;align-items:center;gap:4px;padding:9px 13px;border-radius:9px;background:#f1f4ff;color:#334155;font:500 .76rem var(--font-sora),sans-serif;white-space:nowrap}.ds-language-badge strong{color:#394dfe;font-size:1rem}"
+    },
+    {
+      "name": "Illustration panel",
+      "kind": "card",
+      "description": "White host or listener panel in the translation scene.",
+      "html": "<div class=\"ds-illustration-panel\"><div class=\"ds-panel-bar\"><strong>Exbabel</strong><span>HOST</span></div><div class=\"ds-panel-content\">Speech input</div></div>",
+      "css": ".ds-illustration-panel{overflow:hidden;background:#fff;border-radius:16px;box-shadow:0 16px 30px -23px #1d3099;font-family:var(--font-sora),sans-serif;color:#203054}.ds-panel-bar{display:flex;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #e7eafa;color:#697894;font-size:.62rem;letter-spacing:.08em}.ds-panel-bar strong{color:#394dfe;font-size:.9rem;letter-spacing:-.03em}.ds-panel-content{padding:22px 18px 24px;font-size:.9rem}"
+    },
+    {
+      "name": "FAQ disclosure",
+      "kind": "custom",
+      "description": "Native disclosure row used on the solution pages.",
+      "html": "<details class=\"ds-faq\"><summary>How does it work?<span aria-hidden=\"true\">+</span></summary><p>Answer text.</p></details>",
+      "css": ".ds-faq{border-bottom:1px solid #dce1e8;font-family:var(--font-sora),sans-serif}.ds-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:21px 0;color:#1d2b44;font-size:.95rem;font-weight:600;line-height:1.45;cursor:pointer;list-style:none}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary span{color:#394dfe;font-size:1.5rem}.ds-faq[open] summary span{transform:rotate(45deg)}.ds-faq summary:focus-visible{outline:3px solid #394dfe;outline-offset:5px}.ds-faq p{color:#475467;font-size:.88rem;line-height:1.75}"
+    },
+    {
+      "name": "Solution navigation link",
+      "kind": "nav",
+      "description": "Dropdown item style in the shared site navigation.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">For Events</a>",
+      "css": ".ds-nav-link{display:block;padding:10px 20px;color:#374151;background:#fff;font-size:.875rem;font-weight:500;text-decoration:none;transition:background .2s,color .2s}.ds-nav-link:hover{background:#f8fafc;color:#394dfe}.ds-nav-link:focus-visible{outline:3px solid #394dfe;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Aurora",
+    "overview": "DESIGN_SPEC.md names the broader Exbabel visual language Aurora: layered surfaces, light, and a calm shell around energetic accents. These solution pages use a restrained expression of it: white and pale blue sections, dark text, vivid blue actions, rounded diagrams, and small areas of depth. The church translation page is the direct visual precedent for the events and business pages.",
+    "keyCharacteristics": [
+      "Wide two-column hero followed by clearly separated sections.",
+      "Sora typography, blue headline emphasis, and muted body copy.",
+      "Illustrative translation diagrams with source, bridge, and listener surfaces.",
+      "Captions identify prepared examples as illustrative rather than live output."
+    ],
+    "rules": [
+      { "name": "The Accent Rule", "body": "Use vivid blue for actions and meaningful emphasis, following the church page and its extensions.", "section": "colors" },
+      { "name": "The Section Rhythm Rule", "body": "Keep generous vertical spacing, with soft background changes or fine rules to clarify transitions.", "section": "layout" }
+    ],
+    "dos": [
+      "Do follow the church page's blue accent, Sora headings, wide gutters, and source-to-listener diagram language when extending solution pages.",
+      "Do preserve the distinction between prepared illustrations and live product output in captions.",
+      "Do use visible keyboard focus treatment and responsive stacking for dense sections."
+    ],
+    "donts": [
+      "Don't treat the new pages' exact section composition as a sitewide template; the church page has its own content and layout variations.",
+      "Don't present illustrative hero scenes as measured latency evidence."
+    ]
+  }
+}

@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: "https://www.exbabel.com/solutions/church-translation/", changeFrequency: "monthly", priority: 0.9 },
+    { url: "https://www.exbabel.com/solutions/events/", changeFrequency: "monthly", priority: 0.9 },
+    { url: "https://www.exbabel.com/solutions/business/", changeFrequency: "monthly", priority: 0.9 },
     { url: "https://exbabel.com", lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: "https://exbabel.com/live", lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: "https://exbabel.com/impact", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },

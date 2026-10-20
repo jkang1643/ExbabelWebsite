@@ -121,6 +121,73 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "best-real-time-translation-apps",
+    title: "Best Real-Time Translation Apps for Live Events (2026)",
+    seoTitle: "Best Real-Time Translation Apps for Live Events (2026)",
+    metaDescription:
+      "Compare real-time translation apps for meetings, churches and live events. See audio, captions, setup, listener access and limitations.",
+    excerpt:
+      "Your phone can interpret a dinner conversation. A keynote for hundreds is another job entirely. Here is an evidence-backed buyer's comparison of real-time translation apps for meetings, churches, and live events in 2026.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-10-19",
+    dateModified: "2026-10-19",
+    category: "Live Translation",
+    categorySlug: "live-translation",
+    featuredImage: "/photos/blog/best-real-time-translation-apps-hero.png",
+    featuredImageAlt:
+      "Best Real-Time Translation Apps for Live Events (2026) editorial graphic showing event attendees listening to live speech translation on smartphones and earbuds",
+    keywords: [
+      "best real time translation app",
+      "real time translation app",
+      "simultaneous translation app",
+      "live voice translator",
+      "AI interpretation app",
+      "conference translation app",
+      "live event translation app",
+      "multilingual captions app",
+      "church translation app",
+      "glossa ai",
+      "captionkit ai",
+    ],
+    canonicalUrl: "/blog/best-real-time-translation-apps",
+    wordCount: 3630,
+    readTime: "15 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#0F172A] via-[#1E293B] to-[#0A0F1D]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "Live Event Translation",
+      metricText: "One-to-Many · Audio & Captions",
+    },
+    relatedPosts: [
+      "church-translation-system",
+      "on-demand-interpretation-services",
+      "church-interpreter-vs-ai-translation",
+    ],
+    isFeatured: true,
+    isTopArticle: true,
+    isEditorsPick: true,
+    cta: {
+      primary: {
+        text: "Start a Free Trial",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
+      },
+      secondary: {
+        text: "See How Exbabel Works",
+        href: "/how-it-works",
+      },
+    },
+  },
+
+  {
     slug: "church-interpreter-vs-ai-translation",
     title: "Church Interpreter vs. AI Translation: What Churches Should Use for Live Services",
     seoTitle:
@@ -167,13 +234,13 @@ export const BLOG_POSTS: BlogPost[] = [
       statusText: "Hybrid Translation",
       metricText: "Human Nuance · AI Scale",
     },
-    relatedPosts: ["church-translation-system", "on-demand-interpretation-services"],
+    relatedPosts: ["best-real-time-translation-apps", "church-translation-system", "on-demand-interpretation-services"],
     isTopArticle: true,
     isEditorsPick: true,
     cta: {
       primary: {
         text: "Start a Free Trial",
-        href: "https://app.exbabel.com/live/checkout",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
       },
       secondary: {
         text: "See Exbabel Live in Action",
@@ -227,13 +294,12 @@ export const BLOG_POSTS: BlogPost[] = [
       statusText: "Translation Live",
       metricText: "18 listeners · Español",
     },
-    relatedPosts: ["church-interpreter-vs-ai-translation", "on-demand-interpretation-services"],
-    isFeatured: true,
+    relatedPosts: ["best-real-time-translation-apps", "church-interpreter-vs-ai-translation", "on-demand-interpretation-services"],
     isTopArticle: true,
     cta: {
       primary: {
         text: "Start a Free Trial",
-        href: "https://app.exbabel.com/live/checkout",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
       },
       secondary: {
         text: "See Exbabel Live in Action",
@@ -284,7 +350,7 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "180+ Languages · 0.98s Latency",
       pipelineSteps: ["Audio", "STT", "Translate", "TTS"],
     },
-    relatedPosts: ["church-interpreter-vs-ai-translation", "church-translation-system"],
+    relatedPosts: ["best-real-time-translation-apps", "church-interpreter-vs-ai-translation", "church-translation-system"],
     isTopArticle: true,
     isEditorsPick: true,
     cta: {

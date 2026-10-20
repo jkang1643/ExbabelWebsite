@@ -203,17 +203,24 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                       transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
                       className="absolute top-full -left-2 mt-1 w-52 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
-                      <DropdownItem 
-                        href="/solutions/churches/"
+                      <DropdownItem
+                        href="/solutions/church-translation/"
                         onClick={() => setIsSolutionsOpen(false)}
                         title="For Churches"
-                        current={churchPage}
+                        current={pathname === "/solutions/church-translation/"}
                       />
-                      {!churchPage && <DropdownItem
-                        href="/solutions/business" 
+                      <DropdownItem
+                        href="/solutions/events/"
+                        onClick={() => setIsSolutionsOpen(false)}
+                        title="For Events"
+                        current={pathname === "/solutions/events/"}
+                      />
+                      <DropdownItem
+                        href="/solutions/business/"
                         onClick={() => setIsSolutionsOpen(false)}
                         title="For Business"
-                      />}
+                        current={pathname === "/solutions/business/"}
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -291,7 +298,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
               href="https://app.exbabel.com/translate/checkout?plan=starter"
               className={`hidden sm:flex px-4 py-1.5 rounded-full text-sm font-bold transition-all items-center justify-center border-2 border-[#1d1c1d] text-[#1d1c1d] hover:bg-slate-50 whitespace-nowrap`}
             >
-              Try it now
+              Start Free Trial
             </Link>}
 
             {churchPage ? <ChurchDemoLink placement="navigation" className="inline-flex min-h-11 items-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-primary text-white whitespace-nowrap" /> : <Link
@@ -302,7 +309,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                   : "bg-primary text-white hover:bg-primary/90 border border-transparent"
               }`}
             >
-              Schedule a Consultation
+              Book a Consultation
             </Link>}
 
             <a
@@ -393,8 +400,9 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Solutions</div>
-                  <Link href="/solutions/churches/" aria-current={churchPage ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Churches</Link>
-                  {!churchPage && <Link href="/solutions/business" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Business</Link>}
+                  <Link href="/solutions/church-translation/" aria-current={pathname === "/solutions/church-translation/" ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Churches</Link>
+                  <Link href="/solutions/events/" aria-current={pathname === "/solutions/events/" ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Events</Link>
+                  <Link href="/solutions/business/" aria-current={pathname === "/solutions/business/" ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">For Business</Link>
                 </div>
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">
@@ -415,10 +423,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                     </button>
                   </div>}
                   {!churchPage && <Link href="https://app.exbabel.com/translate/checkout?plan=starter" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 border-2 border-gray-200 text-gray-900 font-extrabold text-sm rounded-full hover:bg-slate-50 transition-all">
-                    Try it now
+                    Start Free Trial
                   </Link>}
                   {churchPage ? <ChurchDemoLink placement="navigation" className="w-full block text-center py-3 bg-primary text-white font-semibold text-sm rounded-full" /> : <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 bg-primary text-white font-extrabold text-sm rounded-full shadow-md hover:bg-primary/90 transition-all">
-                    Schedule a Consultation
+                    Book a Consultation
                   </Link>}
                   <div className="text-center pt-2">
                     <a href={churchPage ? "https://app.exbabel.com/signin" : appRoutes.signin} className="text-sm font-bold text-gray-600 hover:text-primary">Log in</a>

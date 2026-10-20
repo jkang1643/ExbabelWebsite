@@ -238,7 +238,7 @@ export default function ChurchTranslationSystemArticle() {
               <p>Evaluating Exbabel for your congregation? Explore <Link href="/solutions/churches/">AI translation for churches</Link> for the host and listener workflow, language considerations, and a church demo.</p>
               <div className="flex flex-wrap gap-3 my-8 not-prose">
                 <a
-                  href="https://app.exbabel.com/live/checkout"
+                  href="https://app.exbabel.com/translate/checkout?plan=starter"
                   className="inline-block px-6 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:bg-primary/90 transition-all hover:-translate-y-0.5 text-sm"
                 >
                   Start a Free Trial
@@ -437,7 +437,7 @@ export default function ChurchTranslationSystemArticle() {
               headline="Try Church Translation Free for 30 Days"
               description="Stream translated audio and captions to any device. No hardware, no app downloads, no interpreter scheduling."
               primaryText="Start a Free Trial"
-              primaryHref="https://app.exbabel.com/live/checkout"
+              primaryHref="https://app.exbabel.com/translate/checkout?plan=starter"
               secondaryText="See Exbabel Live in Action"
               secondaryHref="/live"
             />
@@ -577,7 +577,7 @@ export default function ChurchTranslationSystemArticle() {
                 Traditional systems may include interpreter fees, receivers, transmitters,
                 headphones, installation, and maintenance.{" "}
                 <Link href="/live">Exbabel Live</Link> is listed at{" "}
-                <a href="https://app.exbabel.com/live/checkout">
+                <a href="https://app.exbabel.com/translate/checkout?plan=starter">
                   $29 per month
                 </a>{" "}
                 plus $10 per hour per language. Other plans include different live and solo
@@ -695,7 +695,7 @@ export default function ChurchTranslationSystemArticle() {
                 infrastructure you already use.
               </p>
               <p>
-                <a href="https://app.exbabel.com/live/checkout">
+                <a href="https://app.exbabel.com/translate/checkout?plan=starter">
                   Start a Free Trial
                 </a>{" "}
                 to test a service.{" "}
@@ -711,7 +711,7 @@ export default function ChurchTranslationSystemArticle() {
               headline="See Exbabel in Action for Your Church"
               description="Stream translated audio and captions to phones, tablets, and laptops. No equipment rentals, no interpreter scheduling."
               primaryText="Start a Free Trial"
-              primaryHref="https://app.exbabel.com/live/checkout"
+              primaryHref="https://app.exbabel.com/translate/checkout?plan=starter"
               secondaryText="Talk to Our Team"
               secondaryHref="/demo"
             />

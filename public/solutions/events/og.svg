@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#e9edff"/>
+  <rect x="42" y="42" width="1116" height="546" rx="30" fill="#f8f9ff"/>
+  <text x="94" y="125" fill="#394dfe" font-family="Arial,sans-serif" font-size="35" font-weight="700">Exbabel</text>
+  <text x="94" y="245" fill="#101828" font-family="Arial,sans-serif" font-size="67" font-weight="700">Live event translation</text>
+  <text x="94" y="324" fill="#394dfe" font-family="Arial,sans-serif" font-size="67" font-weight="700">for every audience.</text>
+  <text x="95" y="390" fill="#475467" font-family="Arial,sans-serif" font-size="27">Audio and captions for live conferences and events</text>
+  <path d="M97 489h327m0 0 30-30m-30 30 30 30" fill="none" stroke="#394dfe" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="742" cy="492" r="18" fill="#394dfe"/>
+  <circle cx="826" cy="492" r="18" fill="#7a89ff"/>
+  <circle cx="910" cy="492" r="18" fill="#adb6ff"/>
+</svg>

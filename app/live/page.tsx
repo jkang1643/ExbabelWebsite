@@ -9,13 +9,12 @@ import { appRoutes } from '@/lib/config';
 
 import LiveTranslationGraphic from '@/components/LiveTranslationGraphic';
 import LiveTranslationShowcase from '@/components/LiveTranslationShowcase';
-import HowItWorksGraphic from '@/components/HowItWorksGraphic';
+import LiveHowItWorks from '@/components/LiveHowItWorks';
 import LiveCaptionsGraphic from '@/components/LiveCaptionsGraphic';
 import UnlimitedLanguagesGraphic from '@/components/UnlimitedLanguagesGraphic';
 import DecorativeWisp from '@/components/DecorativeWisp';
 import IntegrationsSection from '@/components/IntegrationsSection';
 import SupportedPlatformsSection from '@/components/SupportedPlatformsSection';
-import GettingStartedSection from '@/components/GettingStartedSection';
 import { capturePostHogEvent } from '@/lib/posthog-client';
 
 const fadeInUp = {
@@ -130,48 +129,7 @@ export default function LiveTranslationPage() {
       </section>
 
       {/* 3. How It Works */}
-      <section id="how-it-works" className="py-24 px-6 relative">
-        <motion.div className="max-w-7xl mx-auto" initial="initial" whileInView="whileInView" viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "300px" }} variants={staggerContainer}>
-          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-base-content text-center mb-16 tracking-tight" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>How Exbabel Live Video Translation Works</motion.h2>
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-12">
-              <motion.div variants={fadeInUp}>
-                <h3 className="text-2xl font-bold text-base-content mb-3" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>1. Pastor Speaks</h3>
-                <p className="text-base-content/80 text-lg">Your pastor delivers the sermon naturally in their preferred language (English, Spanish, Korean, Portuguese, etc).</p>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <h3 className="text-2xl font-bold text-base-content mb-3" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>2. Exbabel Translates in Real Time</h3>
-                <p className="text-base-content/80 text-lg mb-2">Our speech-to-speech AI translation engine processes live audio with sub-second latency generating:</p>
-                <ul className="text-base-content/80 text-lg space-y-2 list-disc list-inside ml-2 font-medium">
-                  <li>Live translated speech</li>
-                  <li>Natural AI voiceovers</li>
-                  <li>Real-time captions</li>
-                  <li>Multi-language streams</li>
-                </ul>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <h3 className="text-2xl font-bold text-base-content mb-3" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>3. Viewers Listen in Their Language</h3>
-                <p className="text-base-content/80 text-lg">Each attendee selects their preferred language. Everyone watches the same video stream while hearing translated audio and viewing synchronized captions.</p>
-              </motion.div>
-            </div>
-            
-            <motion.div 
-              className="flex justify-center relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-             
-            >
-              <DecorativeWisp className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] -z-20 rotate-90 opacity-60" colorPrimary="#EAD6FF" colorSecondary="#FFD6E5" delay={2} />
-              <HowItWorksGraphic />
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* 3.5 Getting Started */}
-      <GettingStartedSection />
+      <LiveHowItWorks />
 
       {/* 4. Benefits / Why Choose */}
       <section className="py-24 px-6 max-w-7xl mx-auto relative">

@@ -246,7 +246,7 @@ export default function ChurchInterpreterVsAiTranslationArticle() {
               <p>Ready to evaluate the software for your own service? See <Link href="/solutions/churches/">Exbabel’s AI translation for churches</Link> for practical setup, listener access, and a church demo.</p>
               <div className="flex flex-wrap gap-3 my-8 not-prose">
                 <a
-                  href="https://app.exbabel.com/live/checkout"
+                  href="https://app.exbabel.com/translate/checkout?plan=starter"
                   className="inline-block px-6 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:bg-primary/90 transition-all hover:-translate-y-0.5 text-sm"
                 >
                   Start a Free Trial
@@ -619,7 +619,7 @@ export default function ChurchInterpreterVsAiTranslationArticle() {
                 headline="Experience AI Church Translation on Your Console"
                 description="Deliver crystal-clear translated audio and live captions straight to worshippers' phones. No RF hardware, no scheduling stress."
                 primaryText="Start a Free Trial"
-                primaryHref="https://app.exbabel.com/live/checkout"
+                primaryHref="https://app.exbabel.com/translate/checkout?plan=starter"
                 secondaryText="Schedule a Consultation"
                 secondaryHref="/demo"
               />
@@ -765,7 +765,7 @@ export default function ChurchInterpreterVsAiTranslationArticle() {
               <p>
                 The ideal path often combines both: empowering your human interpreters for primary ministry while deploying
                 AI to broaden your congregation&rsquo;s reach. To test real-time smartphone translation with your church AV team,{" "}
-                <a href="https://app.exbabel.com/live/checkout">start a free trial</a>, explore{" "}
+                <a href="https://app.exbabel.com/translate/checkout?plan=starter">start a free trial</a>, explore{" "}
                 <Link href="/live">Exbabel Live</Link>, or{" "}
                 <Link href="/demo">schedule a consultation</Link> with our audio engineering team.
               </p>
@@ -776,7 +776,7 @@ export default function ChurchInterpreterVsAiTranslationArticle() {
               headline="Bring Multilingual Worship to Your Church This Sunday"
               description="Stream live translated audio and captions to smartphones, tablets, and computers with zero receiver checkouts."
               primaryText="Start a Free Trial"
-              primaryHref="https://app.exbabel.com/live/checkout"
+              primaryHref="https://app.exbabel.com/translate/checkout?plan=starter"
               secondaryText="Talk to Our Team"
               secondaryHref="/demo"
             />
