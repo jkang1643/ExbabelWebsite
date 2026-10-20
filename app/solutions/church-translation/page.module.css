@@ -1807,3 +1807,40 @@
     max-width: 200px;
   }
 }
+
+/* Church hero collage and the retained animated translation path. */
+.heroCollage { min-width: 0; margin: 0; }
+.heroCollageImage { position: relative; height: min(39vw, 560px); min-height: 485px; overflow: hidden; border-radius: 20px; background: #111c37; box-shadow: 0 23px 48px -35px #1b2b5e; isolation: isolate; }
+.heroScenePhoto { object-fit: cover; object-position: 40% center; }
+.heroSceneShade { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 27%, rgba(7, 14, 36, .13) 62%, rgba(7, 14, 36, .28)); }
+.heroSceneTag { position: absolute; z-index: 2; top: 22px; left: 22px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 13px; border-radius: 999px; background: rgba(14, 24, 50, .75); color: #fff; font-size: .62rem; font-weight: 700; letter-spacing: .08em; backdrop-filter: blur(8px); }
+.heroSceneDot { display: inline-block; width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #31d0b4; box-shadow: 0 0 0 4px rgba(49, 208, 180, .18); }
+.heroPhoneFrame { position: absolute; z-index: 3; right: 7%; bottom: -37px; width: min(39%, 250px); aspect-ratio: 472 / 1024; padding: 6px; border: 2px solid #263148; border-radius: 36px; background: #111827; box-shadow: 0 18px 45px rgba(2, 9, 26, .45), inset 0 0 0 2px #8991a0; transform: rotate(1.2deg); }
+.heroPhoneFrame img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 29px; }
+.heroCollage figcaption { margin-top: 11px; color: #687894; font-size: .68rem; line-height: 1.5; }
+.productPath { padding-block: 88px 100px; background: #f5f7ff; }
+.productPathInner { display: grid; grid-template-columns: .7fr 1.3fr; gap: 7%; align-items: center; }
+.productPathCopy { max-width: 440px; }
+.productPathCopy h2 { margin: 0 0 23px; }
+.productPathCopy p { margin: 0 0 16px; }
+.productPathLink { display: inline-flex; gap: 12px; margin-top: 11px; font-weight: 600; }
+.productPathInner > figure { min-width: 0; }
+@media (max-width: 1100px) {
+  .heroCollageImage { height: 520px; min-height: 0; }
+  .productPathInner { grid-template-columns: 1fr; gap: 33px; }
+  .productPathCopy { max-width: 65ch; }
+  .productPath { padding-block: 75px; }
+}
+@media (max-width: 700px) {
+  .heroCollageImage { height: 395px; border-radius: 15px; }
+  .heroScenePhoto { object-position: 18% center; }
+  .heroPhoneFrame { right: 5%; bottom: -27px; width: 47%; padding: 4px; border-radius: 28px; }
+  .heroPhoneFrame img { border-radius: 22px; }
+  .heroSceneTag { top: 12px; left: 12px; padding: 7px 9px; font-size: .47rem; }
+  .heroCollage figcaption { font-size: .69rem; }
+  .productPath { padding-block: 66px; }
+  .productPathCopy h2 { margin-bottom: 18px; }
+}
+
+.heroLangIcon { display: inline-grid; place-items: center; width: 18px; height: 18px; color: var(--church-blue); }
+.heroLangIcon svg { display: block; width: 18px; height: 18px; }

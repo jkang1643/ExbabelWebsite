@@ -54,6 +54,41 @@ function Demo({ placement }: { placement: string }) {
   return <ChurchDemoLink placement={placement} className={styles.cta} />;
 }
 
+function ChurchHeroCollage() {
+  return (
+    <figure className={styles.heroCollage}>
+      <div className={styles.heroCollageImage}>
+        <Image
+          className={styles.heroScenePhoto}
+          src="/photos/church/church-hero-generated.png"
+          alt="Illustrative church service with a pastor speaking and a congregation listening"
+          fill
+          priority
+          sizes="(max-width: 1100px) 100vw, 55vw"
+        />
+        <div className={styles.heroSceneShade} aria-hidden="true" />
+        <div className={styles.heroSceneTag}>
+          <span className={styles.heroSceneDot} aria-hidden="true" />
+          <strong>Exbabel</strong>
+          <span>CHURCH TRANSLATION</span>
+        </div>
+        <div className={styles.heroPhoneFrame} role="img" aria-label="Existing Exbabel listener interface showing live Spanish sermon translation">
+          <Image
+            src="/photos/church/exbabel-mobile-sermon-interface.png"
+            alt=""
+            width={472}
+            height={1024}
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+      <figcaption>
+        Generated church scene with Exbabel’s existing listener view. Sample captions shown in the interface are illustrative.
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function ChurchTranslationPage() {
   return (
     <div className={styles.page}>
@@ -116,11 +151,15 @@ export default function ChurchTranslationPage() {
             </p>
             <div className={styles.heroLangBadges}>
               <div className={styles.heroLangBadge}>
-                <span className={styles.heroLangIcon} aria-hidden="true">🎙️</span>
+                <span className={styles.heroLangIcon} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="3" width="6" height="12" rx="3" /><path d="M6 11a6 6 0 0 0 12 0M12 17v4m-4 0h8" /></svg>
+                </span>
                 <span><strong>90+</strong> Spoken Voice Languages</span>
               </div>
               <div className={styles.heroLangBadge}>
-                <span className={styles.heroLangIcon} aria-hidden="true">📝</span>
+                <span className={styles.heroLangIcon} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 10h6m-6 4h10" /></svg>
+                </span>
                 <span><strong>180+</strong> Live Caption Languages</span>
               </div>
             </div>
@@ -131,7 +170,29 @@ export default function ChurchTranslationPage() {
               No app download required.
             </p>
           </div>
-          <HeroTranslationScene />
+          <ChurchHeroCollage />
+        </section>
+
+        <section className={styles.productPath} aria-labelledby="church-path-title">
+          <div className={styles.productPathInner + " " + styles.wrap}>
+            <div className={styles.productPathCopy}>
+              <h2 id="church-path-title">One sermon. More ways to follow.</h2>
+              <p>
+                A clear microphone feed reaches the host computer. Your team
+                starts the session, and attendees open a link or scan a QR code
+                to choose an available language on their own devices.
+              </p>
+              <p>
+                This animated view connects the host, translation, and listener
+                sides of that journey. It uses prepared sample words to show
+                the experience; actual wording and timing vary by service.
+              </p>
+              <a href="#workflow-title" className={styles.productPathLink}>
+                Explore the Sunday setup <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <HeroTranslationScene />
+          </div>
         </section>
 
         <section
