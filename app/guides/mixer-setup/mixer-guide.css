@@ -1,0 +1,16 @@
+@keyframes mixer-signal-pulse {
+  0%, 100% { opacity: .45; transform: translateX(-3px); }
+  50% { opacity: 1; transform: translateX(3px); }
+}
+
+.mixer-flow-arrow {
+  animation: mixer-signal-pulse 1.4s ease-in-out infinite;
+}
+
+.mixer-flow > div:nth-child(2) .mixer-flow-arrow { animation-delay: .15s; }
+.mixer-flow > div:nth-child(3) .mixer-flow-arrow { animation-delay: .3s; }
+.mixer-flow > div:nth-child(4) .mixer-flow-arrow { animation-delay: .45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mixer-flow-arrow { animation: none; }
+}

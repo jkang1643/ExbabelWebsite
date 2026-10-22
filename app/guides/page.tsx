@@ -82,6 +82,21 @@ export default function GuidesLandingPage() {
                             </div>
                         </motion.div>
                     </Link>
+
+                    <Link
+                        href="/guides/mixer-setup"
+                        className="group bg-base-ink p-8 text-base-white transition-colors hover:bg-primary md:col-span-2 md:p-10"
+                    >
+                        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+                            <div>
+                                <h2 className="text-2xl font-bold md:text-3xl">Mixer and audio interface setup</h2>
+                                <p className="mt-3 max-w-2xl leading-relaxed text-white/80">
+                                    Choose your mixer type, connect the right XLR and USB cables, and check the input before broadcasting.
+                                </p>
+                            </div>
+                            <span className="shrink-0 font-semibold">Open interactive guide →</span>
+                        </div>
+                    </Link>
                 </div>
 
                 {/* Setup Guide Video */}
