@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import GlassmorphicHero from "@/components/GlassmorphicHero";
@@ -24,7 +25,10 @@ const Footer = dynamic(() => import("@/components/Footer"));
 const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"));
 
 
-export const metadata = {
+export const metadata: Metadata = {
+  title: {
+    absolute: "AI Church Translation System | Live Audio & Captions | Exbabel",
+  },
   alternates: { canonical: "/" },
 };
 

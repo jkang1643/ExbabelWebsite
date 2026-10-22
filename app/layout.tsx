@@ -17,7 +17,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.exbabel.com"),
   title: {
-    default: "Church Translation System & Live AI Translation | Exbabel",
+    default: "AI Church Translation System | Live Audio & Captions | Exbabel",
     template: "%s | Exbabel",
   },
   description:
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
   appleWebApp: { capable: true, statusBarStyle: "default" },
   openGraph: {
     type: "website", locale: "en_US", url: "https://www.exbabel.com", siteName: "Exbabel",
-    title: "Church Translation System & Live AI Translation | Exbabel",
+    title: "AI Church Translation System | Live Audio & Captions | Exbabel",
     description: "Real-time church translation for sermons, services and livestreams. Deliver AI-translated speech and live captions to listeners in multiple languages on any device.",
     images: [{ url: "/exbabel-og-preview.png", width: 1200, height: 630, alt: "Exbabel - Real-time AI Translation Platform" }],
   },
   twitter: {
     card: "summary_large_image", site: "@exbabel", creator: "@exbabel",
-    title: "Church Translation System & Live AI Translation | Exbabel",
+    title: "AI Church Translation System | Live Audio & Captions | Exbabel",
     description: "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. 180+ languages.",
     images: ["/exbabel-og-preview.png"],
   },

@@ -112,10 +112,10 @@ export default function GlassmorphicHero() {
           <span className={styles.srOnly}>One service.</span>
         </p>
         <h1 id="hero-title" className={styles.title}>
-          <span>Real-Time AI Translation</span>{" "}<span>for Churches and Live Events</span>
+          <span>AI Church Translation System</span>{" "}<span>for Live Sermons and Services</span>
         </h1>
         <p className={styles.description}>
-          Exbabel is a real-time church translation system for sermons, worship services, livestreams, conferences, and live events. Translate speech into 90+ natural AI voice languages and 180+ live caption languages so every listener can follow in their heart language from any device.
+          Translate sermons into multiple languages with live AI audio and captions. Your congregation listens on their phones—no special receivers or app downloads required.
         </p>
         <div className={styles.actions}>
           <Link href="/demo" className={styles.primary}>Book a Consultation <Arrow /></Link>
