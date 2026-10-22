@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LabTestClient from "./LabTestClient";
 import DatasetSchema from "@/components/schema/DatasetSchema";
@@ -13,7 +12,6 @@ export const metadata = {
 export default function LabTestPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <BreadcrumbSchema items={[{ name: "Lab Test", url: "https://www.exbabel.com/lab-test" }]} />
       <DatasetSchema name="Exbabel Real-Time Translation Latency Benchmarks" description="Empirical latency benchmarks measuring real-time AI speech-to-speech translation latency across languages." url="https://www.exbabel.com/lab-test" creator={{ name: "Exbabel", url: "https://www.exbabel.com" }} />
       <LabTestClient />

@@ -188,6 +188,71 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 
   {
+    slug: "church-translation-apps",
+    title: "Church Translation Apps vs Browser Links and Headsets",
+    seoTitle: "Church Translation Apps vs Browser Links & Headsets",
+    metaDescription:
+      "Compare church translation apps, QR-code browser systems, and listening headsets. Learn what visitors need to connect and what to test before Sunday.",
+    excerpt:
+      "A visitor scans your QR code, picks a language and hears nothing. WebKit says Safari needs a tap before audio plays. Here is what church translation apps really need to do—and why an app might not need to be an app at all.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-10-22",
+    dateModified: "2026-10-22",
+    category: "Church Translation",
+    categorySlug: "church-translation",
+    featuredImage: "/photos/blog/church-translation-apps-hero.png",
+    featuredImageAlt:
+      "Church Translation Apps vs Browser Links and Headsets comparison showing smartphone app download, browser window, radio receiver device, and wireless earbud",
+    keywords: [
+      "church translation app",
+      "church interpreter app",
+      "sermon translation app",
+      "QR code church translation",
+      "browser-based church translation",
+      "church translation on smartphones",
+      "church translation without app download",
+      "church live caption app",
+      "church translation system",
+      "church translation equipment",
+    ],
+    canonicalUrl: "/blog/church-translation-apps",
+    wordCount: 2550,
+    readTime: "11 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#0A182E] via-[#102A52] to-[#0B1A33]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "QR Browser Link · Zero Download",
+      metricText: "4-Tap Join · Audio & Captions",
+    },
+    relatedPosts: [
+      "church-translation-system",
+      "best-real-time-translation-apps",
+      "church-interpreter-vs-ai-translation",
+    ],
+    isTopArticle: true,
+    isEditorsPick: true,
+    cta: {
+      primary: {
+        text: "Start a Free Trial",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
+      },
+      secondary: {
+        text: "See Exbabel Live in Action",
+        href: "/live",
+      },
+    },
+  },
+
+  {
     slug: "church-interpreter-vs-ai-translation",
     title: "Church Interpreter vs. AI Translation: What Churches Should Use for Live Services",
     seoTitle:
