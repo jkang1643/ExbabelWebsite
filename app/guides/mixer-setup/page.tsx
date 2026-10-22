@@ -346,7 +346,7 @@ export default function MixerSetupGuide() {
                   <span className="text-xs font-bold uppercase tracking-wider text-primary">Step 2</span>
                   <h3 className="text-lg font-bold mt-1">Select your Audio Interface or USB Mixer</h3>
                   <p className="mt-2 text-sm text-base-muted leading-relaxed">
-                    Scroll down to the <strong className="text-base-ink">Input</strong> section. Under <em>Choose a device for speaking or recording</em>, select your connected interface (e.g., <span className="font-semibold text-base-ink">Focusrite Scarlett 2i2 USB</span>, <span className="font-semibold text-base-ink">Line (Behringer UMC)</span>, or your console's <span className="font-semibold text-base-ink">USB Audio</span> driver).
+                    Scroll down to the <strong className="text-base-ink">Input</strong> section. Under <em>Choose a device for speaking or recording</em>, select your connected interface (e.g., <span className="font-semibold text-base-ink">Focusrite Scarlett 2i2 USB</span>, <span className="font-semibold text-base-ink">Line (Behringer UMC)</span>, or your console&apos;s <span className="font-semibold text-base-ink">USB Audio</span> driver).
                   </p>
                 </div>
 
@@ -404,7 +404,7 @@ export default function MixerSetupGuide() {
 
                 <div className="bg-base-white p-6 border-l-4 border-primary">
                   <span className="text-xs font-bold uppercase tracking-wider text-primary">Step 2</span>
-                  <h3 className="text-lg font-bold mt-1">Select the "Input" Tab & Choose Your Device</h3>
+                  <h3 className="text-lg font-bold mt-1">Select the &quot;Input&quot; Tab &amp; Choose Your Device</h3>
                   <p className="mt-2 text-sm text-base-muted leading-relaxed">
                     In the main Sound panel, click the <strong className="text-base-ink">Input</strong> tab. In the device table under <em>Choose a device for sound input</em>, click on your audio interface or USB mixer (e.g., <span className="font-semibold text-base-ink">Focusrite Scarlett 2i2 USB</span>, <span className="font-semibold text-base-ink">USB Audio CODEC</span>, or <span className="font-semibold text-base-ink">X32 / M32 USB</span>).
                   </p>
