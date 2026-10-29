@@ -10,10 +10,10 @@
 .rotatingWords { display: inline-grid; overflow: hidden; text-align: left; color: #4550cf; vertical-align: bottom; }
 .wordSizer, .rotatingWord { grid-area: 1 / 1; white-space: nowrap; }
 .wordSizer { visibility: hidden; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-.title { max-width: 1220px; margin: 0 auto; font-size: clamp(38px, 4.5vw, 66px); line-height: 1.16; letter-spacing: -.038em; font-weight: 700; text-wrap: balance; }
+.title { max-width: 1220px; margin: 0 auto; font-size: clamp(38px, 4.5vw, 66px); line-height: 1.16; letter-spacing: -.038em; font-weight: 700; text-wrap: balance; font-kerning: normal; text-rendering: optimizeLegibility; }
 .title > span { display: block; }
-.titleLead { color: #171c28; font-weight: 750; letter-spacing: -.045em; -webkit-text-stroke: .2px currentColor; text-shadow: 0 1px 0 #ffffffb3, 0 5px 14px #14203a16; }
-.titleSupport { color: #283448; font-size: .9em; font-weight: 600; letter-spacing: -.027em; text-shadow: 0 1px 0 #ffffffa6, 0 4px 12px #14203a12; }
+.titleLead { color: #171c28; letter-spacing: -.045em; -webkit-text-stroke: .2px currentColor; text-shadow: 0 1px 0 #ffffffb3, 0 5px 14px #14203a16; }
+.titleSupport { color: #283448; letter-spacing: -.027em; text-shadow: 0 1px 0 #ffffffa6, 0 4px 12px #14203a12; }
 .description { max-width: 850px; margin: 23px auto 0; font-size: 15px; line-height: 1.85; font-weight: 500; color: #454a56; }
 .actions { display: flex; justify-content: center; align-items: center; gap: 13px; margin-top: 25px; }
 .primary, .secondary { min-height: 52px; padding: 14px 24px; display: inline-flex; justify-content: center; align-items: center; gap: 15px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background .2s, transform .2s, box-shadow .2s; }
@@ -82,7 +82,7 @@
   .tagline { font-size: 15px; margin-bottom: 17px; }
   .title { font-size: clamp(31px, 7.4vw, 48px); line-height: 1.18; letter-spacing: -.035em; max-width: 540px; }
   .title > span { display: block; }
-  .titleSupport { margin-top: .12em; font-size: .88em; }
+  .titleSupport { margin-top: .12em; }
   .description { font-size: 13px; line-height: 1.8; margin-top: 20px; max-width: 510px; }
   .actions { flex-direction: column; gap: 10px; margin-top: 23px; }
   .primary, .secondary { width: min(100%, 330px); min-height: 48px; font-size: 13px; }
