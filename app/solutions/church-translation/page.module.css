@@ -1067,7 +1067,11 @@
   padding: 24px;
   background: #fff;
   position: relative;
+  border-top-width: 4px;
 }
+.pricingCard[data-plan="starter"] { --plan-accent: #059669; --plan-tint: #ecfdf5; --plan-line: #a7f3d0; border-color: var(--plan-line); border-top-color: var(--plan-accent); }
+.pricingCard[data-plan="pro"] { --plan-accent: #3154d9; --plan-tint: #edf2ff; --plan-line: #bac8ff; border-color: var(--plan-accent); }
+.pricingCard[data-plan="unlimited"] { --plan-accent: #7c3aed; --plan-tint: #f5f0ff; --plan-line: #d8c5ff; border-color: var(--plan-line); border-top-color: var(--plan-accent); }
 .pricingCardFeatured {
   border-color: var(--church-blue);
   box-shadow: 0 0 0 1px var(--church-blue);
@@ -1088,12 +1092,22 @@
   white-space: nowrap;
 }
 .planName {
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--church-muted);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--plan-accent);
 }
+.planName span { display: flex; flex-direction: column; gap: 4px; }
+.planName small { color: var(--church-muted); font-size: 10px; font-weight: 700; letter-spacing: .09em; line-height: 1.2; }
+.planArt { width: 80px; height: 58px; flex: none; border: 1px solid var(--plan-line); border-radius: 9px; object-fit: cover; object-position: center; background: var(--plan-tint); }
+.starterHeading { color: #059669 !important; }
+.proHeading { color: #3154d9 !important; }
+.unlimitedHeading { color: #7c3aed !important; }
 .planPrice {
   font-size: 40px;
   font-weight: 700;
@@ -1128,7 +1142,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--church-blue);
+  color: var(--plan-accent);
   font-weight: 700;
 }
 .planCta {
@@ -1139,20 +1153,20 @@
   font-size: 14px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
-  background: #f4f5ff;
-  color: var(--church-blue) !important;
+  background: var(--plan-tint);
+  color: var(--plan-accent) !important;
   transition: background 0.15s;
   min-height: auto !important;
 }
 .pricingCardFeatured .planCta {
-  background: var(--church-blue);
+  background: var(--plan-accent);
   color: #fff !important;
 }
 .planCta:hover {
-  background: #e6e8ff;
+  background: var(--plan-line);
 }
 .pricingCardFeatured .planCta:hover {
-  background: #2a3dee;
+  background: #2345bf;
 }
 .pricingNote {
   font-size: 13px !important;

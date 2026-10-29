@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import DarkAuroraBackground from "../DarkAuroraBackground";
@@ -153,21 +154,21 @@ const ALL_LANGUAGES: Language[] = [
 
 // ── Plan config ────────────────────────────────────────────────────────────────
 const PLAN_CONFIG: Record<PlanTier, {
-    icon: string; color: string; bg: string; border: string; text: string; desc: string;
+    icon: string; art: string; color: string; bg: string; border: string; text: string; desc: string;
 }> = {
     Starter: {
-        icon: "✦", color: "#059669",
+        icon: "✦", art: "/plan-starter.png", color: "#059669",
         bg: "bg-emerald-500/20", border: "border-emerald-500/40", text: "text-emerald-300",
         desc: "60 Standard languages · clear, reliable AI voices",
     },
     Pro: {
-        icon: "⭐", color: "#7C3AED",
-        bg: "bg-purple-500/20", border: "border-purple-500/40", text: "text-purple-300",
+        icon: "⭐", art: "/plan-pro.jpg", color: "#3b82f6",
+        bg: "bg-blue-500/20", border: "border-blue-500/40", text: "text-blue-300",
         desc: "87 Gemini + 53 Chirp3 HD · expressive neural voices",
     },
     Unlimited: {
-        icon: "💎", color: "#DC2626",
-        bg: "bg-red-500/20", border: "border-red-500/40", text: "text-red-300",
+        icon: "💎", art: "/plan-unlimited.jpg", color: "#8b5cf6",
+        bg: "bg-purple-500/20", border: "border-purple-500/40", text: "text-purple-300",
         desc: "75 ElevenLabs + all Google tiers · world's best voice AI",
     },
 };
@@ -254,8 +255,8 @@ const PlanCard = ({ planKey, count, isActive, onClick }: {
             style={isActive ? { borderColor: cfg.color, backgroundColor: `${cfg.color}22` } : {}}
             className={`flex flex-col items-center px-5 py-4 rounded-2xl border transition-all text-center min-w-[140px]
                 ${isActive ? "shadow-lg" : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"}`}>
-            <span className="text-2xl mb-1">{cfg.icon}</span>
-            <span className="text-sm font-bold text-white">{planKey}</span>
+            <Image src={cfg.art} alt="" width={48} height={36} className="w-12 h-9 object-cover rounded-md mb-1" />
+            <span className="text-base font-bold text-white">{planKey}</span>
             <span className="text-xs mt-0.5 font-semibold" style={{ color: cfg.color }}>{count} languages</span>
             <span className="text-[10px] text-white/40 mt-1 leading-tight max-w-[130px]">
                 {cfg.desc.split("·")[0].trim()}

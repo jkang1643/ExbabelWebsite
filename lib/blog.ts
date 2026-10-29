@@ -121,6 +121,135 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "church-translation-equipment",
+    title: "Church Translation Equipment: Hardware vs AI Options",
+    seoTitle: "Church Translation Equipment: Hardware vs AI Options",
+    metaDescription:
+      "Compare church translation headsets, receivers, transmitters, and AI-based systems. Learn real setup trade-offs, recurring costs, and buying criteria.",
+    excerpt:
+      "Sunday, 9:40. A visitor hovers by the welcome desk and asks, \"Anything in Spanish?\" Here is what church translation equipment actually does, how RF receivers compare to phone-based AI, and how to model true three-year ownership costs.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-10-29",
+    dateModified: "2026-10-29",
+    category: "Church Translation",
+    categorySlug: "church-translation",
+    featuredImage: "/photos/blog/church-translation-equipment-hero.png",
+    featuredImageAlt:
+      "Church translation equipment comparison showing radio frequency bodypack receivers in charging dock, studio monitoring headphones, USB audio interface, and smartphone streaming live translation",
+    keywords: [
+      "church translation equipment",
+      "translation equipment for churches",
+      "church interpretation equipment",
+      "church translation receivers",
+      "wireless interpreter headset",
+      "church translation transmitter",
+      "USB audio interface church",
+      "church translation equipment cost",
+      "church translation system",
+      "church translation headsets",
+    ],
+    canonicalUrl: "/blog/church-translation-equipment",
+    wordCount: 3100,
+    readTime: "13 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#081528] via-[#0E2038] to-[#091424]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "Hardware vs AI Options",
+      metricText: "RF Receivers · Phone-Based AI",
+    },
+    relatedPosts: [
+      "sermon-translation-guide",
+      "church-translation-apps",
+      "church-translation-system",
+    ],
+    isFeatured: true,
+    isTopArticle: true,
+    cta: {
+      primary: {
+        text: "Start a Free Trial",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
+      },
+      secondary: {
+        text: "Church Translation Solution",
+        href: "/solutions/church-translation",
+      },
+    },
+  },
+
+  {
+    slug: "sermon-translation-guide",
+    title: "Sermon Translation: How to Translate Church Services Live",
+    seoTitle: "Sermon Translation: How to Translate Church Services Live",
+    metaDescription:
+      "Learn how to translate sermons live using a church mixer, USB audio input, multilingual captions, and listener QR codes. Includes a Sunday testing checklist.",
+    excerpt:
+      "It's 9:40 on a Sunday morning. A visitor asks where the translation headsets are. Here is how to route live sermon audio from the pulpit mic, configure real-time AI speech translation, and test the system before the doors open.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-10-29",
+    dateModified: "2026-10-29",
+    category: "Church Translation",
+    categorySlug: "church-translation",
+    featuredImage: "/photos/blog/sermon-translation-guide-hero.png",
+    featuredImageAlt:
+      "Church sermon translation guide showing a worshipper listening to live audio translation on a smartphone and wireless earbuds with floating audio waveform",
+    keywords: [
+      "sermon translation",
+      "live sermon translation",
+      "how to translate sermons",
+      "translate church service live",
+      "church audio translation",
+      "sermon translation software",
+      "Spanish sermon captions",
+      "multilingual worship services",
+      "church translation equipment",
+      "church translation system",
+    ],
+    canonicalUrl: "/blog/sermon-translation-guide",
+    wordCount: 3050,
+    readTime: "12 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#1C1427] via-[#2D1B4E] to-[#160D24]",
+      accent: "#C084FC",
+      accentBg: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+      tagColor: "bg-purple-500/15 text-purple-300 border-purple-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "Live Sermon Stream",
+      metricText: "Pulpit Mic · QR Earbud Access",
+    },
+    relatedPosts: [
+      "church-translation-equipment",
+      "church-translation-apps",
+      "church-translation-system",
+    ],
+    isFeatured: false,
+    isTopArticle: true,
+    cta: {
+      primary: {
+        text: "Start a Free Trial",
+        href: "https://app.exbabel.com/translate/checkout?plan=starter",
+      },
+      secondary: {
+        text: "Church Translation Solution",
+        href: "/solutions/church-translation",
+      },
+    },
+  },
+  {
     slug: "best-real-time-translation-apps",
     title: "Best Real-Time Translation Apps for Live Events (2026)",
     seoTitle: "Best Real-Time Translation Apps for Live Events (2026)",
@@ -172,7 +301,6 @@ export const BLOG_POSTS: BlogPost[] = [
       "on-demand-interpretation-services",
       "church-interpreter-vs-ai-translation",
     ],
-    isFeatured: true,
     isTopArticle: true,
     isEditorsPick: true,
     cta: {
@@ -417,7 +545,6 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     relatedPosts: ["best-real-time-translation-apps", "church-interpreter-vs-ai-translation", "church-translation-system"],
     isTopArticle: true,
-    isEditorsPick: true,
     cta: {
       primary: {
         text: "Start Free Trial",

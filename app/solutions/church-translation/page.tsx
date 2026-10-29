@@ -755,8 +755,8 @@ export default function ChurchTranslationPage() {
 
               {/* Full-width 3-column pricing cards */}
               <ul className={styles.pricingCards} aria-label="Exbabel packages for churches">
-                <li className={styles.pricingCard}>
-                  <span className={styles.planName}>1 — Starter</span>
+                <li className={styles.pricingCard} data-plan="starter">
+                  <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-starter.png" alt="" width={80} height={58} /><span><small>1 — PLAN</small>Starter</span></h3>
                   <strong className={styles.planPrice}>$39<span>/mo</span></strong>
                   <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
                     6 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~72 hrs/yr)</span>
@@ -782,9 +782,9 @@ export default function ChurchTranslationPage() {
                     Start free trial
                   </Link>
                 </li>
-                <li className={styles.pricingCard + " " + styles.pricingCardFeatured}>
+                <li className={styles.pricingCard + " " + styles.pricingCardFeatured} data-plan="pro">
                   <span className={styles.planBadge}>Most popular</span>
-                  <span className={styles.planName}>2 — Pro</span>
+                  <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-pro.jpg" alt="" width={80} height={58} /><span><small>2 — PLAN</small>Pro</span></h3>
                   <strong className={styles.planPrice}>$99<span>/mo</span></strong>
                   <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
                     15 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~180 hrs/yr)</span>
@@ -809,8 +809,8 @@ export default function ChurchTranslationPage() {
                     Get started
                   </Link>
                 </li>
-                <li className={styles.pricingCard}>
-                  <span className={styles.planName}>3 — Unlimited</span>
+                <li className={styles.pricingCard} data-plan="unlimited">
+                  <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-unlimited.jpg" alt="" width={80} height={58} /><span><small>3 — PLAN</small>Unlimited</span></h3>
                   <strong className={styles.planPrice}>$299<span>/mo</span></strong>
                   <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
                     36 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~432 hrs/yr)</span>
@@ -855,9 +855,9 @@ export default function ChurchTranslationPage() {
                     <thead>
                       <tr>
                         <th scope="col">Feature / Capability</th>
-                        <th scope="col">Starter</th>
-                        <th scope="col">Pro (Recommended)</th>
-                        <th scope="col">Unlimited</th>
+                        <th scope="col" className={styles.starterHeading}>Starter</th>
+                        <th scope="col" className={styles.proHeading}>Pro (Recommended)</th>
+                        <th scope="col" className={styles.unlimitedHeading}>Unlimited</th>
                       </tr>
                     </thead>
                     <tbody>
