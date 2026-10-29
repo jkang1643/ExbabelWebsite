@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
+import Image from "next/image";
+import styles from "./Pricing.module.css";
 import { appRoutes } from "@/lib/config";
 import { capturePostHogEvent } from "@/lib/posthog-client";
 
@@ -11,6 +13,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
+      art: "/plan-starter.png",
       monthlyPrice: 39,
       annualPrice: 375,
       description: "Everything you need to start translating live services",
@@ -32,6 +35,7 @@ export default function Pricing() {
     },
     {
       name: "Pro",
+      art: "/plan-pro.jpg",
       monthlyPrice: 99,
       annualPrice: 950,
       description: "More hours, more voices, faster translation",
@@ -52,6 +56,7 @@ export default function Pricing() {
     },
     {
       name: "Unlimited",
+      art: "/plan-unlimited.jpg",
       monthlyPrice: 299,
       annualPrice: 2900,
       description: "No limits. World-class voices. White-glove service.",
@@ -144,7 +149,15 @@ export default function Pricing() {
                 <div
                   className="bg-white md:backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
                   style={{
-                    border: isActive ? `2px solid ${plan.accentColor}` : "2px solid transparent",
+                    borderStyle: "solid",
+                    borderTopWidth: 2,
+                    borderRightWidth: 2,
+                    borderBottomWidth: 2,
+                    borderLeftWidth: 2,
+                    borderTopColor: plan.accentColor,
+                    borderRightColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
+                    borderBottomColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
+                    borderLeftColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
                     boxShadow: isActive
                       ? `0 8px 40px ${plan.accentColor}38, 0 2px 8px ${plan.accentColor}18`
                       : "0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08)",
@@ -183,7 +196,7 @@ export default function Pricing() {
                   <div className="p-8 pt-10 flex flex-col h-full">
                     {/* Plan Name & Description */}
                     <div style={{ minHeight: "8rem" }}>
-                      <h3 className="text-2xl font-bold text-base-content text-center mb-2">{plan.name}</h3>
+                      <h3 className="flex items-center justify-center gap-3 text-2xl font-bold text-center mb-3" style={{ color: plan.accentColor }}><Image src={plan.art} alt="" width={80} height={80} className="w-20 h-20 shrink-0 object-cover rounded-lg border" style={{ borderColor: `${plan.accentColor}55` }} /><span>{plan.name}</span></h3>
                       <p className="text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
                     </div>
 
@@ -243,7 +256,7 @@ export default function Pricing() {
                     <ul className="space-y-2 mb-6 flex-grow">
                       {plan.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center gap-2.5 text-sm text-base-content/80">
-                          <span className="text-sm flex-shrink-0 text-primary font-semibold">✓</span>
+                          <span className="text-sm flex-shrink-0 font-semibold" style={{ color: plan.accentColor }}>✓</span>
                           <span className="leading-relaxed">{feature.text}</span>
                         </li>
                       ))}
@@ -261,14 +274,8 @@ export default function Pricing() {
                             is_recommended: plan.highlighted,
                           });
                         }}
-                        className="inline-block w-full py-3 rounded-xl font-bold border-none text-center transition-all"
-                        style={{
-                          background: isActive
-                            ? `linear-gradient(135deg, ${plan.accentColor}, ${plan.accentColor}cc)`
-                            : "#e2e8f0",
-                          color: isActive ? "white" : "#64748b",
-                          boxShadow: isActive ? `0 4px 20px ${plan.accentColor}55` : "none",
-                        }}
+                        className={`${styles.planButton} inline-flex w-full items-center justify-center py-3 rounded-xl font-bold text-center`}
+                        style={{ "--plan-accent": plan.accentColor } as CSSProperties}
                       >
                         {plan.cta}
                       </a>

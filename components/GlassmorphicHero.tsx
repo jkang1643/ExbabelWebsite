@@ -112,14 +112,15 @@ export default function GlassmorphicHero() {
           <span className={styles.srOnly}>One service.</span>
         </p>
         <h1 id="hero-title" className={styles.title}>
-          <span>AI Church Translation System</span>{" "}<span>for Live Sermons and Services</span>
+          <span className={styles.titleLead}>AI Church Translation System</span>{" "}
+          <span className={styles.titleSupport}>for Live Sermons and Services</span>
         </h1>
         <p className={styles.description}>
           Translate sermons into multiple languages with live AI audio and captions. Your congregation listens on their phones—no special receivers or app downloads required.
         </p>
         <div className={styles.actions}>
-          <Link href="/demo" className={styles.primary}>Book a Consultation <Arrow /></Link>
-          <Link href="https://app.exbabel.com/translate/checkout?plan=starter" className={styles.secondary}>Start Free 30-Day Trial <Arrow /></Link>
+          <Link href="/demo" className={`${styles.primary} premium-action`}>Book a Consultation <Arrow /></Link>
+          <Link href="https://app.exbabel.com/translate/checkout?plan=starter" className={`${styles.secondary} premium-action premium-action--quiet`}>Start Free 30-Day Trial <Arrow /></Link>
         </div>
         <div className={styles.trust}>
           <p>Trusted by top churches</p>

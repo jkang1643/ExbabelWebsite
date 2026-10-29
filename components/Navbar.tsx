@@ -296,18 +296,14 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
             
             {!churchPage && <Link
               href="https://app.exbabel.com/translate/checkout?plan=starter"
-              className={`hidden sm:flex px-4 py-1.5 rounded-full text-sm font-bold transition-all items-center justify-center border-2 border-[#1d1c1d] text-[#1d1c1d] hover:bg-slate-50 whitespace-nowrap`}
+              className="premium-action premium-action--quiet hidden sm:flex min-h-10 px-4 py-1.5 rounded-full text-sm font-bold items-center justify-center whitespace-nowrap"
             >
               Start Free Trial
             </Link>}
 
             {churchPage ? <ChurchDemoLink placement="navigation" className="inline-flex min-h-11 items-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-primary text-white whitespace-nowrap" /> : <Link
               href="/demo"
-              className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg whitespace-nowrap ${
-                scrolled
-                  ? "bg-primary text-white hover:bg-primary/90"
-                  : "bg-primary text-white hover:bg-primary/90 border border-transparent"
-              }`}
+              className="premium-action inline-flex min-h-10 items-center justify-center px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap"
             >
               Book a Consultation
             </Link>}
@@ -422,10 +418,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                        English
                     </button>
                   </div>}
-                  {!churchPage && <Link href="https://app.exbabel.com/translate/checkout?plan=starter" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 border-2 border-gray-200 text-gray-900 font-extrabold text-sm rounded-full hover:bg-slate-50 transition-all">
+                  {!churchPage && <Link href="https://app.exbabel.com/translate/checkout?plan=starter" onClick={() => setIsMobileMenuOpen(false)} className="premium-action premium-action--quiet w-full block text-center py-3 font-extrabold text-sm rounded-full">
                     Start Free Trial
                   </Link>}
-                  {churchPage ? <ChurchDemoLink placement="navigation" className="w-full block text-center py-3 bg-primary text-white font-semibold text-sm rounded-full" /> : <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="w-full block text-center py-3 bg-primary text-white font-extrabold text-sm rounded-full shadow-md hover:bg-primary/90 transition-all">
+                  {churchPage ? <ChurchDemoLink placement="navigation" className="w-full block text-center py-3 bg-primary text-white font-semibold text-sm rounded-full" /> : <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="premium-action w-full block text-center py-3 font-extrabold text-sm rounded-full">
                     Book a Consultation
                   </Link>}
                   <div className="text-center pt-2">

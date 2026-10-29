@@ -41,7 +41,7 @@ export default function CTA() {
         <div className="flex flex-wrap justify-center gap-4 pt-2">
           <Link
             href="/demo"
-            className="px-10 py-4 bg-[#394dfe] hover:bg-[#394dfe]/90 text-white text-lg font-extrabold rounded-full shadow-lg shadow-[#394dfe]/30 transition-all hover:scale-[1.02] active:scale-95"
+            className="premium-action inline-flex px-10 py-4 text-lg font-extrabold rounded-full"
             style={{ fontFamily: 'var(--font-sora), sans-serif' }}
           >
             Schedule a Consultation

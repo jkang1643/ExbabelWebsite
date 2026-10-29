@@ -10,15 +10,14 @@
 .rotatingWords { display: inline-grid; overflow: hidden; text-align: left; color: #4550cf; vertical-align: bottom; }
 .wordSizer, .rotatingWord { grid-area: 1 / 1; white-space: nowrap; }
 .wordSizer { visibility: hidden; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-.title { max-width: 1200px; margin: 0 auto; font-size: clamp(38px, 4.6vw, 68px); line-height: 1.14; letter-spacing: -.052em; font-weight: 800; }
+.title { max-width: 1220px; margin: 0 auto; font-size: clamp(38px, 4.5vw, 66px); line-height: 1.16; letter-spacing: -.038em; font-weight: 700; text-wrap: balance; }
 .title > span { display: block; }
+.titleLead { color: #171c28; font-weight: 750; letter-spacing: -.045em; -webkit-text-stroke: .2px currentColor; text-shadow: 0 1px 0 #ffffffb3, 0 5px 14px #14203a16; }
+.titleSupport { color: #283448; font-size: .9em; font-weight: 600; letter-spacing: -.027em; text-shadow: 0 1px 0 #ffffffa6, 0 4px 12px #14203a12; }
 .description { max-width: 850px; margin: 23px auto 0; font-size: 15px; line-height: 1.85; font-weight: 500; color: #454a56; }
 .actions { display: flex; justify-content: center; align-items: center; gap: 13px; margin-top: 25px; }
 .primary, .secondary { min-height: 52px; padding: 14px 24px; display: inline-flex; justify-content: center; align-items: center; gap: 15px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background .2s, transform .2s, box-shadow .2s; }
-.primary { background: #111; color: #fff; border: 1px solid #111; }
-.primary:hover { background: #30313b; transform: translateY(-2px); box-shadow: 0 6px 18px #1724401a; }
-.secondary { color: #171c28; background: #ffffff8c; border: 1px solid #11182725; }
-.secondary:hover { background: #fff; transform: translateY(-2px); }
+.primary, .secondary { border: 0; }
 .actions svg, .arrowButton svg { width: 20px; height: 20px; }
 .backArrow { transform: rotate(180deg); }
 .trust { display: flex; justify-content: center; align-items: center; gap: 24px; max-width: 940px; margin: 30px auto 0; font-size: 12px; }
@@ -81,12 +80,13 @@
   .hero { padding-top: 97px; padding-bottom: 60px; }
   .copy { padding: 0 20px; }
   .tagline { font-size: 15px; margin-bottom: 17px; }
-  .title { font-size: clamp(31px, 7.4vw, 48px); line-height: 1.17; letter-spacing: -.05em; max-width: 540px; }
-  .title > span { display: inline; }
+  .title { font-size: clamp(31px, 7.4vw, 48px); line-height: 1.18; letter-spacing: -.035em; max-width: 540px; }
+  .title > span { display: block; }
+  .titleSupport { margin-top: .12em; font-size: .88em; }
   .description { font-size: 13px; line-height: 1.8; margin-top: 20px; max-width: 510px; }
   .actions { flex-direction: column; gap: 10px; margin-top: 23px; }
   .primary, .secondary { width: min(100%, 330px); min-height: 48px; font-size: 13px; }
-  .secondary { border-color: transparent; background: transparent; min-height: 42px; padding: 10px; }
+  .secondary { min-height: 48px; padding: 10px 24px; }
   .trust { flex-direction: column; gap: 10px; margin-top: 23px; font-size: 10px; }
   .churchViewport { width: 100%; flex: auto; }
   .churchGroup { gap: 28px; padding-right: 28px; }
