@@ -178,54 +178,59 @@ export const PRODUCTS = {
 
 export const HOME_FAQ_DATA: { question: string; answer: string }[] = [
   {
-    question: "How does Exbabel work?",
+    question: "How does an AI church translation system work during live services?",
     answer:
-      "Exbabel uses advanced AI to translate speech in real-time. A speaker talks into a microphone or streams video, and Exbabel instantly transcribes, translates, and delivers the translated audio or captions to listeners in their chosen language. Listeners access translations via any web browser — no app required. Simply scan a QR code or visit a link.",
+      "Exbabel captures audio directly from your church soundboard or microphone, processes speech through an incremental streaming AI pipeline, and broadcasts synchronized voiceovers and captions to congregants' smartphones in ~2 seconds. Attendees simply scan a QR code on the church bulletin or display to listen in their native language using their personal earbuds—with zero app downloads or account logins required.",
   },
   {
-    question: "How many languages are supported?",
+    question: "How do church members and event attendees listen to live translation on their phones?",
     answer:
-      "Exbabel supports translation into 180+ languages and dialects, including English, Spanish, French, Chinese (Simplified & Traditional), Arabic, Hindi, Portuguese, Russian, Japanese, Korean, German, Italian, and many more. 90+ languages include premium AI voice output, and 250+ are available for captions and text translation.",
+      "Attendees listen instantly by scanning a QR code or visiting a short web link on any iOS or Android smartphone browser. They select their language from 180+ options and hear high-definition, translated speech in real time using their standard headphones or Bluetooth earbuds. No app installation, app store login, or hardware receiver is needed.",
   },
   {
-    question: "Does Exbabel use AI?",
+    question: "How does Exbabel compare to Wordly for church and live event translation?",
     answer:
-      "Yes, Exbabel uses advanced AI models to power our translation service. We have fine-tuned these models to accurately understand context, idioms, and cultural nuances, ensuring your message stays true to its original meaning even after translation.",
+      "In independent laboratory benchmarks (EXB-LAB-2026-001), Exbabel delivered live translated speech up to 10.2× faster than Wordly during continuous speech. While Wordly buffers incoming audio until the speaker pauses (causing delays of 7 to 20+ seconds during continuous preaching), Exbabel streams translated audio incrementally in ~2.0 seconds regardless of speech duration. Exbabel also provides transparent monthly pricing rather than restrictive per-hour credit packages.",
   },
   {
-    question: "Can churches use Exbabel?",
+    question: "How much does church translation equipment cost compared to Exbabel?",
     answer:
-      "Absolutely. Exbabel was built specifically for churches and ministries. It includes an 8,000+ ministry-specific phrase bank, Bible verse recognition, a SafeStream profanity filter, and voice cloning for pastors. Churches use Exbabel to translate sermons, worship services, and livestreams into multiple languages simultaneously.",
+      "Traditional multi-channel FM or infrared church translation equipment costs between $5,000 and $15,000 upfront for transmitters, headsets, and maintenance, plus ongoing battery and sanitation costs. Exbabel replaces all dedicated hardware with a software-based system starting at $39/month with a 30-day free trial. Congregants use their existing smartphones as receivers, eliminating equipment purchases entirely.",
   },
   {
-    question: "Can conferences use Exbabel?",
+    question: "What is the audio and caption latency of Exbabel during live preaching?",
     answer:
-      "Yes. Exbabel supports enterprise-grade conference translation with real-time speech-to-speech translation, live captions, and multilingual streaming. It integrates with OBS Studio, vMix, Wirecast, and RTMP encoders, making it ideal for large conferences, UN events, and multilingual meetings.",
+      "Exbabel delivers translated captions (Time to First Caption) in approximately 1.01 seconds and synthesized live speech (Time to First Speech) in approximately 2.02 seconds from speaker speech onset. Under IEEE 829 performance testing, Exbabel's streaming architecture maintains a constant ~2-second latency even during extended continuous speaking without pausing.",
   },
   {
-    question: "Can universities use Exbabel?",
+    question: "What soundboards, video switchers, and streaming platforms does Exbabel integrate with?",
     answer:
-      "Yes. Universities can use Exbabel to translate lectures, seminars, and campus events in real-time. Students access translations on their own devices via a web browser. Exbabel supports 180+ languages, making it perfect for international student populations.",
+      "Exbabel integrates seamlessly with any standard church soundboard (Behringer X32, Allen & Heath, Yamaha, PreSonus) via standard USB or line-in audio, and supports all major live broadcasting tools including OBS Studio, vMix, Wirecast, Blackmagic ATEM, and RTMP hardware encoders. It works concurrently with YouTube Live, Facebook Live, and Church Online Platform.",
   },
   {
-    question: "Can the UN use Exbabel?",
+    question: "How does Exbabel ensure theological and biblical accuracy in sermon translations?",
     answer:
-      "Yes. Exbabel is designed for enterprise-scale deployments including UN-level multilingual meetings. It supports simultaneous translation into dozens of languages with sub-second latency, enterprise-grade reliability, and automatic failover protection.",
+      "Exbabel incorporates a specialized dictionary of over 8,000 ministry-specific terms, theological concepts, denominational vocabulary, and automated Bible verse detection. It also features SafeStream profanity filtering and optional voice cloning so the translated audio retains the original pastor's vocal warmth and cadence.",
   },
   {
-    question: "What streaming platforms are supported?",
+    question: "How many languages and live AI voiceovers are supported?",
     answer:
-      "Exbabel integrates with all major streaming workflows including OBS Studio, vMix, Wirecast, RTMP Encoders, hardware streaming appliances, and existing church streaming platforms. Setup takes minutes, not months.",
+      "Exbabel supports real-time translation into 180+ global languages and regional dialects, including Spanish, Portuguese, French, Mandarin Chinese, Cantonese, Korean, Vietnamese, Arabic, Hindi, Tagalog, Ukrainian, and Haitian Creole. More than 90 languages feature ultra-realistic natural AI speech voices, and 250+ languages are available for live on-screen captions.",
   },
   {
-    question: "How much does it cost?",
+    question: "Can Exbabel be used for conferences, business meetings, and universities?",
     answer:
-      "Exbabel offers three plans: Starter at $39/month (6 hours live, 60 premium languages), Pro at $99/month (12 hours live, 90 premium languages, 50% faster), and Unlimited at $299/month (36 hours live, world-class voices, voice cloning). All plans include a usage rate of $10/hour per language. The Starter plan includes a 30-day free trial.",
+      "Yes. Beyond houses of worship, Exbabel is deployed for international conferences, corporate webinars, university lectures, and UN-level multilateral meetings. It scales to thousands of concurrent listeners per room with enterprise-grade encryption, zero hardware bottlenecks, and custom glossary management.",
   },
   {
-    question: "How secure is Exbabel?",
+    question: "How much does Exbabel cost, and is there a free trial?",
     answer:
-      "Exbabel uses enterprise-grade security including encrypted data transmission, secure authentication, and privacy-compliant data handling. Audio and translation data are processed in real-time and not stored permanently. Our platform is built for mission-critical live events where reliability and security are paramount.",
+      "Exbabel offers three transparent plans: Starter at $39/month (6 live hours, 60 premium languages, 30-day free trial), Pro at $99/month (12 live hours, 90 premium languages, 50% faster streaming), and Unlimited at $299/month (36 live hours, ElevenLabs neural voice cloning). All plans include unlimited attendees per session and an affordable usage rate of $10/hour per language.",
+  },
+  {
+    question: "Do attendees need to download an app or create an account to listen?",
+    answer:
+      "No. Attendees never need to download an app from the App Store or Google Play, and never need to register an account or provide an email. The listener interface runs entirely inside modern mobile web browsers (Safari, Chrome, Firefox, Edge) via instant QR code access.",
   },
 ];
 

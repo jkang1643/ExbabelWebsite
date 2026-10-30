@@ -131,6 +131,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
               src={step.image}
               alt={step.title}
               fill
+              priority={index === 0}
               className="object-cover"
               style={{
                 transform: isHovered 

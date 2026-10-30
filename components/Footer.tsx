@@ -13,9 +13,21 @@ export default function Footer() {
 
   // Map specific items to their real routes
   const linkHrefs: Record<string, string> = {
+    Features: "/how-it-works",
+    Pricing: "/#pricing",
+    API: "/demo",
+    Enterprise: "/solutions/events/",
+    About: "/how-it-works",
+    Careers: "mailto:support@exbabel.com",
+    Press: "/blog",
+    Partners: "mailto:support@exbabel.com",
+    Documentation: "/guides",
+    Community: "/blog",
     Support: "mailto:support@exbabel.com",
     Privacy: "/privacy",
     Terms: "/terms",
+    Security: "/privacy",
+    Compliance: "/terms",
     Blog: "/blog",
     "Lab Benchmarks": "/lab-test",
   };
@@ -67,7 +79,7 @@ export default function Footer() {
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
              
             >
-              <h6 className="text-xs tracking-wider text-primary uppercase font-bold mb-3">{category}</h6>
+              <h4 className="text-xs tracking-wider text-primary uppercase font-bold mb-3">{category}</h4>
               <div className="flex flex-col gap-2">
                 {items.map((item) => {
                   const href = linkHrefs[item] || "#";
@@ -109,7 +121,7 @@ export default function Footer() {
              
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-xs font-bold">{social.initial}</span>
+              <span className="text-xs font-bold" aria-hidden="true">{social.initial}</span><span className="sr-only">{social.name}</span>
             </motion.a>
           ))}
         </div>

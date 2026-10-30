@@ -99,7 +99,7 @@ export default function VideoLibrarySection() {
 
     // Filter videos for the current category, limit to 4 if possible
     const currentVideos = VIDEO_DATA.filter((v) => v.category === activeCategory).slice(0, 4);
-    const [activeCardId, setActiveCardId] = useState<string | null>(null);
+    const [activeCardId, setActiveCardId] = useState<string | null>("demo-1");
     const [modalVideoId, setModalVideoId] = useState<string | null>(null);
 
     // Initialize active card when category changes
@@ -140,7 +140,13 @@ export default function VideoLibrarySection() {
                                 isActive={isActive}
                                 onMouseEnter={() => setActiveCardId(video.id)}
                                 onFocus={() => setActiveCardId(video.id)}
-                                onClick={() => setModalVideoId(video.id)}
+                                onClick={() => {
+                                    if (!isActive) {
+                                        setActiveCardId(video.id);
+                                    } else {
+                                        setModalVideoId(video.id);
+                                    }
+                                }}
                             />
                         );
                     })}

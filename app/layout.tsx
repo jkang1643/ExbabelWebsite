@@ -17,7 +17,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.exbabel.com"),
   title: {
-    default: "AI Church Translation System | Live Audio & Captions | Exbabel",
+    default: "AI Church Translation System & Live Captions | Exbabel",
     template: "%s | Exbabel",
   },
   description:
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
   appleWebApp: { capable: true, statusBarStyle: "default" },
   openGraph: {
     type: "website", locale: "en_US", url: "https://www.exbabel.com", siteName: "Exbabel",
-    title: "AI Church Translation System | Live Audio & Captions | Exbabel",
+    title: "AI Church Translation System & Live Captions | Exbabel",
     description: "Real-time church translation for sermons, services and livestreams. Deliver AI-translated speech and live captions to listeners in multiple languages on any device.",
     images: [{ url: "/exbabel-og-preview.png", width: 1200, height: 630, alt: "Exbabel - Real-time AI Translation Platform" }],
   },
   twitter: {
     card: "summary_large_image", site: "@exbabel", creator: "@exbabel",
-    title: "AI Church Translation System | Live Audio & Captions | Exbabel",
+    title: "AI Church Translation System & Live Captions | Exbabel",
     description: "The complete real-time speech-to-speech AI translation platform for churches, conferences, and live events. 180+ languages.",
     images: ["/exbabel-og-preview.png"],
   },
@@ -70,6 +70,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-theme="exbabel" suppressHydrationWarning>
       <head>
+        {/* Machine-readable AI & LLM context */}
+        <link rel="help" href="/llms.txt" type="text/markdown" title="LLM Context" />
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-R9MC0WBGBM"

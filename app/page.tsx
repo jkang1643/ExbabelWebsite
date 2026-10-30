@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import GlassmorphicHero from "@/components/GlassmorphicHero";
 import FAQSchema from "@/components/schema/FAQSchema";
 import SoftwareApplicationSchema from "@/components/schema/SoftwareApplicationSchema";
-import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import { HOME_FAQ_DATA, PRODUCTS } from "@/lib/schema";
 
 
@@ -27,9 +26,16 @@ const CookiesPopup = dynamic(() => import("@/components/CookiesPopup"));
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Church Translation System | Live Audio & Captions | Exbabel",
+    absolute: "AI Church Translation System & Live Captions | Exbabel",
   },
-  alternates: { canonical: "/" },
+  description:
+    "Real-time AI church translation for sermons and livestreams. Deliver live audio and captions to congregants in 180+ languages on any phone with ~2s latency.",
+  alternates: { canonical: "https://www.exbabel.com/" },
+  openGraph: {
+    title: "AI Church Translation System & Live Captions | Exbabel",
+    description: "Real-time AI church translation for sermons and livestreams. Deliver live audio and captions to congregants in 180+ languages on any phone with ~2s latency.",
+    url: "https://www.exbabel.com/",
+  },
 };
 
 export default function Home() {
@@ -38,7 +44,6 @@ export default function Home() {
       <FAQSchema faqs={HOME_FAQ_DATA} />
       <SoftwareApplicationSchema product={PRODUCTS.translate} />
       <SoftwareApplicationSchema product={PRODUCTS.events} />
-      <BreadcrumbSchema items={[]} />
 
       <main className="min-h-screen bg-white">
         <Navbar />
