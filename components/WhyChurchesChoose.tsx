@@ -398,62 +398,87 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0, w: 1, h: 1 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+      // Enable 3D tilt and cursor spotlight if device supports hover
+      setCanHover(window.matchMedia("(hover: hover)").matches);
     }
   }, []);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!cardRef.current || prefersReduced || isTouch) return;
+      if (!cardRef.current || prefersReduced) return;
+      if (!canHover) setCanHover(true);
       const rect = cardRef.current.getBoundingClientRect();
       setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, w: rect.width, h: rect.height });
     },
-    [prefersReduced, isTouch]
+    [prefersReduced, canHover]
   );
 
   const normX = mouse.w ? (mouse.x - mouse.w / 2) / (mouse.w / 2) : 0;
   const normY = mouse.h ? (mouse.y - mouse.h / 2) / (mouse.h / 2) : 0;
-  const tiltX = isHovered && !prefersReduced && !isTouch ? normY * -4 : 0;
-  const tiltY = isHovered && !prefersReduced && !isTouch ? normX * 4 : 0;
+  const tiltX = isHovered && !prefersReduced && canHover ? normY * -9 : 0;
+  const tiltY = isHovered && !prefersReduced && canHover ? normX * 9 : 0;
 
   return (
     <motion.div
-      initial={{ y: 30, scale: 0.95, }}
-      whileInView={{ y: 0, scale: 1, }} viewport={{ once: true, margin: "-100px" }}
+      initial={{ y: 30, scale: 0.95 }}
+      whileInView={{ y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ delay: index * 0.1, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       className="h-full"
+      style={{ perspective: 1000 }}
     >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          setMouse({ x: 0, y: 0, w: 1, h: 1 });
+        }}
         className="relative rounded-2xl overflow-hidden cursor-default h-full"
         style={{
-          transform: isHovered && !prefersReduced && !isTouch
-            ? `translate3d(0,-8px,0) scale(1.04) perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
-            : isHovered && isTouch
+          transform: isHovered && !prefersReduced && canHover
+            ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translate3d(0,-8px,0) scale3d(1.03,1.03,1.03)`
+            : isHovered && !canHover
             ? "translate3d(0,-4px,0) scale(1.02)"
-            : "translate3d(0,0,0) scale(1)",
+            : "perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0,0,0) scale3d(1,1,1)",
           transformStyle: "preserve-3d",
-          transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
+          transition: isHovered
+            ? "transform 0.08s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease"
+            : "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
           boxShadow: isHovered
-            ? `0 20px 80px ${card.accentFrom}60, 0 8px 30px ${card.accentFrom}40`
+            ? `0 24px 70px ${card.accentFrom}40, 0 8px 24px rgba(0,0,0,0.06)`
             : "0 1px 4px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.03)",
-          border: `${isHovered ? '2px' : '1px'} solid ${isHovered ? `${card.accentFrom}A0` : "rgba(0,0,0,0.06)"}`,
-          backgroundColor: isHovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.65)",
+          border: `1.5px solid ${isHovered ? `${card.accentFrom}80` : "rgba(0,0,0,0.06)"}`,
+          backgroundColor: isHovered ? "rgba(255,255,255,0.96)" : "rgba(255,255,255,0.65)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
         }}
       >
-        {isHovered && !prefersReduced && !isTouch && (
-          <div className="absolute inset-0 pointer-events-none z-0"
-            style={{ background: `radial-gradient(circle 250px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}50, transparent)` }} />
+        {/* Ambient colored spotlight glow tracking cursor */}
+        {isHovered && !prefersReduced && canHover && (
+          <div
+            className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-200"
+            style={{
+              background: `radial-gradient(circle 280px at ${mouse.x}px ${mouse.y}px, ${card.accentFrom}45, transparent 70%)`,
+            }}
+          />
+        )}
+
+        {/* Specular light sheen on top of card following cursor */}
+        {isHovered && !prefersReduced && canHover && (
+          <div
+            className="absolute inset-0 pointer-events-none z-20 rounded-2xl transition-opacity duration-200"
+            style={{
+              background: `radial-gradient(circle 220px at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.45), transparent 60%)`,
+              mixBlendMode: "overlay",
+            }}
+          />
         )}
 
         <div className="relative z-10">
@@ -478,9 +503,9 @@ function BentoCard({ card, index }: { card: BenefitCard; index: number }) {
   );
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
  * MAIN
- * ═══════════════════════════════════════════════ */
+ * ----------------------------------------------- */
 export default function WhyChurchesChoose() {
   return (
     <section id="why-churches-choose" className="relative py-24 md:py-32 overflow-hidden">

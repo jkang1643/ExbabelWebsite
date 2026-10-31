@@ -46,30 +46,31 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0, w: 1, h: 1 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+      setCanHover(window.matchMedia("(hover: hover)").matches);
     }
   }, []);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!cardRef.current || prefersReduced || isTouch) return;
+      if (!cardRef.current || prefersReduced) return;
+      if (!canHover) setCanHover(true);
       const rect = cardRef.current.getBoundingClientRect();
       setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top, w: rect.width, h: rect.height });
     },
-    [prefersReduced, isTouch]
+    [prefersReduced, canHover]
   );
 
   const normX = mouse.w ? (mouse.x - mouse.w / 2) / (mouse.w / 2) : 0;
   const normY = mouse.h ? (mouse.y - mouse.h / 2) / (mouse.h / 2) : 0;
-  const tiltX = isHovered && !prefersReduced && !isTouch ? normY * -4 : 0;
-  const tiltY = isHovered && !prefersReduced && !isTouch ? normX * 4 : 0;
-  const imgParallaxX = isHovered && !prefersReduced && !isTouch ? normX * -15 : 0;
-  const imgParallaxY = isHovered && !prefersReduced && !isTouch ? normY * -15 : 0;
+  const tiltX = isHovered && !prefersReduced && canHover ? normY * -8 : 0;
+  const tiltY = isHovered && !prefersReduced && canHover ? normX * 8 : 0;
+  const imgParallaxX = isHovered && !prefersReduced && canHover ? normX * -15 : 0;
+  const imgParallaxY = isHovered && !prefersReduced && canHover ? normY * -15 : 0;
 
   const isEven = index % 2 === 0;
 
@@ -102,21 +103,27 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
         initial={{ y: 40, scale: 0.95 }}
         whileInView={{ y: 0, scale: 1 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "200px" }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        style={{ perspective: 1000 }}
       >
         <div
           ref={cardRef}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            setMouse({ x: 0, y: 0, w: 1, h: 1 });
+          }}
           className="relative rounded-3xl overflow-hidden cursor-default w-full aspect-[4/3] max-w-md"
           style={{
-            transform: isHovered && !prefersReduced && !isTouch
-              ? `translate3d(0,-8px,0) scale(1.04) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
-              : isHovered && isTouch
+            transform: isHovered && !prefersReduced && canHover
+              ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translate3d(0,-8px,0) scale3d(1.03,1.03,1.03)`
+              : isHovered && !canHover
               ? "translate3d(0,-4px,0) scale(1.02)"
-              : "translate3d(0,0,0) scale(1)",
+              : "perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0,0,0) scale3d(1,1,1)",
             transformStyle: "preserve-3d",
-            transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
+            transition: isHovered
+              ? "transform 0.08s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease"
+              : "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease",
             boxShadow: isHovered
               ? `0 20px 60px ${step.accentFrom}35, 0 8px 24px rgba(0,0,0,0.06)`
               : "0 10px 30px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03)",
@@ -144,7 +151,7 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
           </div>
           
           {/* Dynamic glare effect based on mouse position */}
-          {!prefersReduced && !isTouch && isHovered && (
+          {!prefersReduced && canHover && isHovered && (
             <div
               className="absolute inset-0 pointer-events-none rounded-3xl"
               style={{
