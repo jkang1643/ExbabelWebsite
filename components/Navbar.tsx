@@ -169,10 +169,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                         description="Sub-second multilingual captions"
                       />
                       {!churchPage && <DropdownItem
-                        href="#" 
+                        href="/events" 
                         onClick={() => setIsProductsOpen(false)}
                         title="ExBabel Events"
-                        description="Coming soon"
+                        description="Enterprise multilingual event management"
                       />}
                     </motion.div>
                   )}
@@ -391,7 +391,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Translate</Link>
                   <Link href="/live" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Live</Link>
                   <Link href="/live" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Live Captions</Link>
-                  {!churchPage && <Link href="#" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-500 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Events <span className="text-xs font-normal bg-gray-100 px-2 py-0.5 rounded-full ml-1">Soon</span></Link>}
+                  {!churchPage && <Link href="/events" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">ExBabel Events</Link>}
                 </div>
 
                 <div className="border-t border-gray-100 pt-3 space-y-1">
