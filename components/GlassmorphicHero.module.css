@@ -13,8 +13,8 @@
 .wordSizer { visibility: hidden; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
 .title { max-width: 1220px; margin: 0 auto; font-size: clamp(38px, 4.5vw, 66px); line-height: 1.16; letter-spacing: -.038em; font-weight: 700; text-wrap: balance; font-kerning: normal; text-rendering: optimizeLegibility; }
 .title > span { display: block; }
-.titleLead { color: #0f172a; letter-spacing: -.03em; }
-.titleSupport { color: #475569; letter-spacing: -.03em; }
+.titleLead { color: #000; letter-spacing: -.03em; }
+.titleSupport { color: #000; letter-spacing: -.03em; }
 .title { font-size: 60px; font-weight: 600; line-height: 1.08; letter-spacing: -.03em; }
 .description { max-width: 680px; margin: 24px auto 0; font-size: 17px; line-height: 1.7; font-weight: 400; color: #475569; }
 .actions { display: flex; justify-content: center; align-items: center; gap: 13px; margin-top: 25px; }
