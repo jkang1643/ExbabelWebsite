@@ -45,7 +45,7 @@ export default function Home() {
       <SoftwareApplicationSchema product={PRODUCTS.translate} />
       <SoftwareApplicationSchema product={PRODUCTS.events} />
 
-      <main className="min-h-screen bg-white">
+      <main className="homepage min-h-screen bg-white">
         <Navbar />
         <GlassmorphicHero />
 

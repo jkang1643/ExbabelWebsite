@@ -571,3 +571,19 @@ body::after {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
+
+/* Homepage section titles share the main hero's Sora display scale. */
+.homepage .homepage-section-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+@media (max-width: 700px) {
+  .homepage .homepage-section-title {
+    font-size: clamp(36px, 8.5vw, 48px);
+    line-height: 1.12;
+  }
+}

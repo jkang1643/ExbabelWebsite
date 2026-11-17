@@ -16,29 +16,29 @@ const STEPS = [
     number: "01",
     title: "Launch a Live Session",
     description: "Create a translation session from any browser. Select your language and begin speaking — no equipment or installation required.",
-    image: "/images/step1-launch-new.jpg",
-    accentFrom: "#38BDF8", // Sky blue
+    image: "/images/step1-pastel.svg",
+    accentFrom: "#b8cde9", // Sky blue
   },
   {
     number: "02",
     title: "Configure Target Languages",
     description: "Choose from over 200 languages. Exbabel processes speech in parallel, delivering continuous translation without pausing or buffering.",
-    image: "/images/step2-configure-new.jpg",
-    accentFrom: "#A855F7", // Vibrant Purple
+    image: "/images/step2-pastel.svg",
+    accentFrom: "#cdc2e4", // Vibrant Purple
   },
   {
     number: "03",
     title: "Share Access Instantly",
     description: "Attendees join via QR code or web link on any device — phone, tablet, or laptop. No app download required.",
-    image: "/images/step3-share-new.jpg",
-    accentFrom: "#34D399", // Emerald
+    image: "/images/step3-pastel.svg",
+    accentFrom: "#bcd8cb", // Emerald
   },
   {
     number: "04",
     title: "Listen and Read in Real Time",
     description: "Translated speech audio streams in approximately two seconds. Multilingual captions appear in approximately one second. Speak naturally — without pausing.",
-    image: "/images/step4-listen-new.jpg",
-    accentFrom: "#F43F5E", // Ruby Red
+    image: "/images/step4-pastel.svg",
+    accentFrom: "#e5c6ce", // Ruby Red
   },
 ];
 
@@ -88,12 +88,12 @@ function InteractiveStepCard({ step, index }: { step: any, index: number }) {
         {...fadeUp(0.1)}
       >
         <div 
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 shadow-lg text-white font-black text-xl"
-          style={{ background: step.accentFrom, boxShadow: `0 8px 20px ${step.accentFrom}60` }}
+          className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 text-slate-600 font-medium text-xl"
+          style={{ background: step.accentFrom, boxShadow: "none" }}
         >
           {step.number}
         </div>
-        <h3 className="text-2xl md:text-3xl font-extrabold text-[#0B1220] mb-3">{step.title}</h3>
+        <h3 className="text-2xl md:text-3xl font-medium text-[#0B1220] mb-3">{step.title}</h3>
         <p className="text-base text-slate-600 max-w-sm leading-relaxed">{step.description}</p>
       </motion.div>
 
@@ -199,16 +199,16 @@ export default function HowItWorksGraphic() {
         >
           <defs>
             <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.8" />
-              <stop offset="33%" stopColor="#A855F7" stopOpacity="0.8" />
-              <stop offset="66%" stopColor="#34D399" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#F43F5E" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#b8cde9" stopOpacity="0.45" />
+              <stop offset="33%" stopColor="#cdc2e4" stopOpacity="0.45" />
+              <stop offset="66%" stopColor="#bcd8cb" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#e5c6ce" stopOpacity="0.45" />
             </linearGradient>
             <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.1" />
+              <stop offset="0%" stopColor="#b8cde9" stopOpacity="0.1" />
               <stop offset="45%" stopColor="#ffffff" stopOpacity="0.95" />
-              <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#F43F5E" stopOpacity="0.1" />
+              <stop offset="55%" stopColor="#b8cde9" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#e5c6ce" stopOpacity="0.1" />
             </linearGradient>
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="20" result="blur" />

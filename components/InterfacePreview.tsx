@@ -446,7 +446,7 @@ export default function InterfacePreview() {
                   <div className="absolute inset-[-10px] border border-[#0B1220] rounded-full animate-ping opacity-10" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
               </motion.div>
               
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-[#0B1220] tracking-tight mb-6 max-w-lg">
+              <motion.h2 variants={itemVariants} className="homepage-section-title text-4xl md:text-6xl font-bold text-[#0B1220] tracking-tight mb-6 max-w-lg">
                   One message.<br/>Every language.
               </motion.h2>
               <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">

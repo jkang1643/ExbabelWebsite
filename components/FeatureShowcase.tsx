@@ -53,7 +53,7 @@ function MobileFeatureCard({ feature }: { feature: Feature }) {
                         </span>
                     )}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-medium tracking-tight text-slate-900 mb-2" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>{feature.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-600 mb-4">{feature.description}</p>
                 <a href="/lab-test" className="inline-flex items-center gap-1.5 text-sm font-bold transition-all" style={{ color: feature.accentColor }}>
                     View performance report →
@@ -281,7 +281,7 @@ export default function FeatureShowcase() {
                                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                                         Platform Capabilities
                                     </div>
-                                    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+                                    <h2 className="homepage-section-title text-3xl sm:text-4xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                                         Built for Continuous Speech at Scale
                                     </h2>
                                 </div>
@@ -312,7 +312,7 @@ export default function FeatureShowcase() {
                                                         )}
                                                     </div>
 
-                                                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1220] leading-snug">
+                                                    <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-[#0B1220] leading-snug" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                                                         {active.title}
                                                     </h3>
                                                     <p className="text-base text-slate-600 leading-relaxed max-w-lg">
@@ -419,7 +419,7 @@ export default function FeatureShowcase() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase">
                             Platform Capabilities
                         </div>
-                        <h2 className="text-2xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+                        <h2 className="homepage-section-title text-2xl font-extrabold text-[#0B1220] tracking-[0.01em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
                             Built for Continuous Speech at Scale
                         </h2>
                     </div>
