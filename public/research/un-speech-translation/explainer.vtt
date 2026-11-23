@@ -1,0 +1,280 @@
+WEBVTT
+
+00:00.080 --> 00:04.160
+Could Exbabel’s flagship AI translation model beat a professional UN
+
+00:04.440 --> 00:06.520
+interpreter in a blind comparison?
+
+00:06.560 --> 00:09.040
+On the speeches in this study, it did.
+
+00:09.120 --> 00:13.040
+Exbabel uses its flagship model for its top twenty languages.
+
+00:13.120 --> 00:16.120
+Its other model covers seventy additional languages.
+
+00:16.160 --> 00:18.960
+That model scored almost exactly the same as the UN
+
+00:19.160 --> 00:20.120
+interpreters.
+
+00:20.160 --> 00:21.880
+Here’s how the comparison worked.
+
+00:21.920 --> 00:25.200
+These 180 clips came directly from recordings of the General
+
+00:25.280 --> 00:28.613
+Debate at the eightieth session of the UN General Assembly.
+
+00:28.667 --> 00:31.680
+They captured delegates from fourteen countries speaking in the assembly
+
+00:31.760 --> 00:32.533
+hall.
+
+00:32.587 --> 00:35.840
+For 55 clips, researchers matched the delegate’s words to the
+
+00:35.920 --> 00:38.520
+corresponding passage from the UN interpreter.
+
+00:38.560 --> 00:41.680
+Two AI judges read the same passage three ways, with
+
+00:41.720 --> 00:43.000
+the names removed.
+
+00:43.040 --> 00:45.960
+They compared each translation with the original speech and scored
+
+00:46.000 --> 00:47.240
+it out of a hundred.
+
+00:47.280 --> 00:48.600
+The question was simple.
+
+00:48.640 --> 00:51.120
+If you heard this translation, would you come away with
+
+00:51.160 --> 00:52.503
+the delegate’s meaning?
+
+00:52.640 --> 00:57.360
+Across the 55 matched passages, Exbabel’s flagship model averaged 91.3
+
+00:57.440 --> 01:00.747
+out of 100 for preserving the speaker’s meaning.
+
+01:00.773 --> 01:03.880
+The UN interpreters averaged 87.3.
+
+01:03.920 --> 01:09.000
+Exbabel’s other model, which serves the remaining languages, averaged 87.1.
+
+01:09.040 --> 01:12.000
+That’s four points above the interpreters for the flagship, and
+
+01:12.080 --> 01:14.240
+just two tenths of a point below for the other
+
+01:14.600 --> 01:15.000
+model.
+
+01:15.040 --> 01:17.400
+These scores describe the passages tested.
+
+01:17.440 --> 01:20.987
+A 91 doesn’t mean 91 percent of the words matched.
+
+01:21.013 --> 01:23.320
+The result also changed with the language.
+
+01:23.360 --> 01:28.000
+On the Spanish-to-English clips, Exbabel’s flagship model averaged 99 points
+
+01:28.040 --> 01:30.280
+and the interpreters averaged 92.
+
+01:30.320 --> 01:34.120
+On the Russian-to-English clips, the interpreters had a slight edge.
+
+01:34.240 --> 01:36.760
+So what made this a blind test?
+
+01:36.800 --> 01:39.400
+Three fresh AI reviewers shared the work.
+
+01:39.440 --> 01:42.240
+Two independently rated each translation.
+
+01:42.320 --> 01:44.840
+Each saw different labels and a different order.
+
+01:44.880 --> 01:47.680
+The reviewers had no access to the model identities, the
+
+01:47.760 --> 01:51.200
+answer key, previous reports, or each other’s scores.
+
+01:51.280 --> 01:56.520
+Fifty-five passages, three translations each: 165 translations.
+
+01:56.560 --> 02:00.027
+Two ratings apiece gave us 330 judgments.
+
+02:00.053 --> 02:02.640
+In a Russian-language speech, a delegate looked back at an
+
+02:02.720 --> 02:05.800
+agreement between the Soviet Union and the United States.
+
+02:05.840 --> 02:08.560
+It helped stabilize their relationship and made the Cold War
+
+02:08.640 --> 02:10.200
+a little more manageable.
+
+02:10.240 --> 02:13.360
+Both the flagship and the UN interpretation got that history
+
+02:13.440 --> 02:14.000
+across.
+
+02:14.080 --> 02:16.800
+The difference came in what the delegate wanted people to
+
+02:16.880 --> 02:17.840
+remember.
+
+02:17.920 --> 02:21.520
+The UN interpreter said the agreement introduced “the principle of
+
+02:21.640 --> 02:23.360
+indivisible security.”
+
+02:23.440 --> 02:26.080
+That means the security of one country is tied to
+
+02:26.120 --> 02:27.760
+the security of others.
+
+02:27.840 --> 02:31.600
+The flagship also kept the speaker’s emphasis: putting that principle
+
+02:31.680 --> 02:35.280
+into practice was the agreement’s most important legacy.
+
+02:35.360 --> 02:38.000
+Both AI reviewers noted that distinction.
+
+02:38.080 --> 02:40.080
+The flagship scored 100.
+
+02:40.160 --> 02:43.440
+The UN interpretation scored 95.5.
+
+02:43.520 --> 02:46.560
+The other Exbabel recording kept the point about the legacy,
+
+02:46.640 --> 02:50.000
+but cut off at “indivisible,” before the listener heard what
+
+02:50.080 --> 02:51.280
+was indivisible.
+
+02:51.360 --> 02:53.600
+It scored 93.5.
+
+02:53.680 --> 02:55.920
+Now listen to the argument in Mandarin.
+
+02:55.960 --> 02:59.360
+The delegate said that countries advance together and all suffer
+
+02:59.440 --> 03:00.560
+when divided.
+
+03:00.680 --> 03:03.200
+Even on a difficult road, they need to unite and
+
+03:03.280 --> 03:05.120
+cooperate sincerely.
+
+03:05.200 --> 03:08.160
+The UN transcript kept the difficult road and the call
+
+03:08.240 --> 03:09.200
+for unity.
+
+03:09.240 --> 03:12.240
+But it ended at “when all countries unite.”
+
+03:12.320 --> 03:15.840
+What disappeared was what those countries had to do together.
+
+03:15.920 --> 03:19.600
+The flagship supplied that missing action: “work together in good
+
+03:19.680 --> 03:20.480
+faith.”
+
+03:20.560 --> 03:22.800
+Both reviewers also caught a flaw.
+
+03:22.920 --> 03:26.720
+Its phrase “we perish” is much stronger than saying everyone
+
+03:26.800 --> 03:28.000
+suffers losses.
+
+03:28.080 --> 03:32.240
+The other Exbabel model kept sincere cooperation too, then added
+
+03:32.293 --> 03:34.840
+“we will succeed” and repeated the ending.
+
+03:34.880 --> 03:38.880
+The reviewers’ scores were 93.5 for the flagship, 82 for
+
+03:38.960 --> 03:42.880
+the other model, and 76.5 for the UN transcript.
+
+03:43.000 --> 03:46.120
+Those judgments tell us what survived in the transcripts.
+
+03:46.160 --> 03:49.360
+Checking the recordings matters before attributing a missing phrase to
+
+03:49.440 --> 03:50.533
+an interpreter.
+
+03:50.587 --> 03:54.080
+In this blind pilot, Exbabel’s flagship earned the highest average
+
+03:54.160 --> 03:56.133
+for preserving the speaker’s meaning.
+
+03:56.187 --> 03:59.627
+In one speech, that meant keeping why an agreement mattered.
+
+03:59.653 --> 04:03.733
+In the other, it meant saying what cooperation actually required.
+
+04:03.787 --> 04:06.960
+And even the highest-scoring translation could make a speaker sound
+
+04:07.040 --> 04:08.680
+more dramatic than they were.
+
+04:08.920 --> 04:12.200
+The next test puts bilingual listeners in the audience.
+
+04:12.240 --> 04:15.240
+Give them a headset, play the speech once, and ask:
+
+04:15.280 --> 04:16.640
+what did the speaker mean?
