@@ -146,6 +146,7 @@ export default function LabTestPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(researchArticleSchema) }}
       />
       <LabTestClient />
+      <aside className="mx-auto max-w-5xl px-6 py-10"><a className="font-semibold text-blue-700 underline" href="/research/un-speech-translation/">Read the second Exbabel Research study on UN speech translation quality →</a></aside>
       <Footer />
     </main>
   );

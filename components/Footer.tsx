@@ -29,7 +29,7 @@ export default function Footer() {
     Security: "/privacy",
     Compliance: "/terms",
     Blog: "/blog",
-    "Lab Benchmarks": "/lab-test",
+    "Exbabel Research": "/research/",
   };
 
   const socialLinks = [

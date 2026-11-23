@@ -256,10 +256,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                         title="How It Works"
                       />
                       <DropdownItem 
-                        href="/lab-test" 
+                        href="/research/" 
                         onClick={() => setIsResourcesOpen(false)}
                         title={<span className="text-primary">Performance Report</span>}
-                        description="Independent IEEE/ISO benchmark report"
+                        description="Translation quality and latency studies"
                       />
                       <DropdownItem 
                         href="/blog" 
@@ -404,7 +404,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                 <div className="border-t border-gray-100 pt-3 space-y-1">
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Resources</div>
                   <Link href="/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">How It Works</Link>
-                  <Link href="/lab-test" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Performance Report</Link>
+                  <Link href="/research/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Exbabel Research</Link>
                   <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Blog</Link>
                   <a href={pathname === '/' ? "#pricing" : "/#pricing"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Pricing</a>
                   <a href={pathname === '/' ? "#faq" : "/#faq"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">FAQ</a>

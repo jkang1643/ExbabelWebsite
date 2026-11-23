@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://exbabel.com/guides/broadcasting", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: "https://exbabel.com/demo", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://exbabel.com/how-it-works", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://exbabel.com/research/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://exbabel.com/research/un-speech-translation/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://exbabel.com/lab-test", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: "https://exbabel.com/blog", lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     ...categoryPages,
