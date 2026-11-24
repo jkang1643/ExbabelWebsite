@@ -1,3 +1,4 @@
+import SpeechReplay from "@/components/compare/SpeechReplay";
 import VendorFacts from "@/components/compare/VendorFacts";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -33,12 +34,14 @@ export default async function ComparisonPage({ params }: Props) {
         <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">Compare live translation features and the cost of reaching your audience in one to five languages.</p>
         <nav aria-label="Page sections" className="mt-5 flex flex-wrap gap-5 text-sm font-bold text-[#3042dd]">
           <a href="#features" className="hover:underline">Platform features</a>
+          <a href="#playback" className="hover:underline">Speech demo</a>
           <a href="#pricing" className="hover:underline">Pricing</a>
           {entry.rows.length > 0 && <a href="#timing" className="hover:underline">Timing evidence</a>}
           <a href="#all-comparisons" className="hover:underline">Other comparisons</a>
         </nav>
       </header>
       <VendorFacts slug={slug} name={entry.name} />
+      <SpeechReplay slug={slug} name={entry.name} />
       {entry.rows.length > 0 && <section id="timing" className="mt-10 scroll-mt-28 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5 sm:p-8">
         <h2 className="text-2xl font-bold tracking-tight">Timing evidence</h2>
         {entry.rows.length ? <>
