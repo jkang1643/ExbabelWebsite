@@ -265,7 +265,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                         <DropdownItem href="/lab-test/" onClick={() => setIsResourcesOpen(false)} title="Wordly vs Exbabel Latency Benchmark" />
                         <DropdownItem href="/research/un-speech-translation/" onClick={() => setIsResourcesOpen(false)} title="UN General Debate Translation Study" />
                       </div>
-                      <ComparisonMenu onNavigate={() => setIsResourcesOpen(false)} />
+                      <ComparisonMenu expandOnHover onNavigate={() => setIsResourcesOpen(false)} />
                       <DropdownItem 
                         href="/blog" 
                         onClick={() => setIsResourcesOpen(false)}

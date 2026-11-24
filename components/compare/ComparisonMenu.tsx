@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { comparisons, comparisonHref } from '@/lib/comparisons';
 
-export default function ComparisonMenu({ onNavigate }: { onNavigate: () => void }) {
+export default function ComparisonMenu({ onNavigate, expandOnHover = false }: { onNavigate: () => void; expandOnHover?: boolean }) {
   return (
     <details
       className="group/comparisons px-3"
       onPointerEnter={event => {
-        if (event.pointerType === 'mouse') event.currentTarget.open = true;
+        if (expandOnHover && event.pointerType === 'mouse') event.currentTarget.open = true;
       }}
       onPointerLeave={event => {
-        if (event.pointerType === 'mouse' && !event.currentTarget.contains(document.activeElement)) {
+        if (expandOnHover && event.pointerType === 'mouse' && !event.currentTarget.contains(document.activeElement)) {
           event.currentTarget.open = false;
         }
       }}
