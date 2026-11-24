@@ -43,20 +43,20 @@ export default function ServiceCosts({slug,name}:{slug:string;name:string}){
     scenario.rows[0][1](3),
     scenario.rows[0][0] + ' · eight live hours in three languages.',
   ];
-  const rows: Row[] = [['Exbabel Starter',fixed(59)],['Exbabel Pro',fixed(99)],['Exbabel Unlimited',fixed(299)], ...scenario.rows.map(([label,price]):Row=>[name+' · '+label,price])];
+  const rows: Row[] = [['Exbabel Starter · $39/month + $20 for two extra hours',fixed(59)],['Exbabel Pro · $99/month',fixed(99)],['Exbabel Unlimited · $299/month',fixed(299)], ...scenario.rows.map(([label,price]):Row=>[name+' · '+label,price])];
   return <div className="my-6">
     <div className="grid gap-4 md:grid-cols-2">
     <div className="rounded-3xl bg-[#293bc7] p-6 text-white sm:p-9">
-      <p className="text-sm font-semibold">Exbabel Starter · eight live hours</p>
-      <p className="my-2 text-5xl font-bold tracking-tight">$59</p>
-      <p>One language or five. Every Exbabel subscription includes unlimited simultaneous output languages within its supported catalog.</p>
+      <p className="text-sm font-semibold">Exbabel Starter</p>
+      <p className="my-2 text-5xl font-bold tracking-tight">$39<span className="text-xl">/month</span></p>
+      <p>Includes six live hours. Pro is $99/month and Unlimited is $299/month. All three plans include unlimited simultaneous supported languages.</p>
     </div>
     <div className="rounded-3xl bg-slate-100 p-6 sm:p-9">
       <p className="text-sm font-semibold">{name}</p>
       <p className="my-2 text-4xl font-bold tracking-tight">{slug === 'glossa' ? '$99' : headline}</p>
       <p>{slug === 'glossa' ? 'Standard covers eight live hours in three languages.' : detail}</p>
     </div></div>
-    <h3 className="mt-8 text-xl font-bold">Four Sundays, two hours each</h3>
+    <h3 className="mt-8 text-xl font-bold">Estimated bill for four two-hour Sundays</h3>
     <p className="my-3 text-sm text-slate-600">Estimated charges before tax, after trials, for one room. Each selected output runs for all eight hours. Exbabel Starter includes six hours for $39 plus two hours at $10 each.</p>
     <div className="overflow-x-auto"><table className="w-full min-w-[570px] text-left text-sm [&_th]:p-3 [&_td]:p-3 [&_tr]:border-b">
       <caption className="sr-only">Cost for one to five simultaneous target languages</caption>
