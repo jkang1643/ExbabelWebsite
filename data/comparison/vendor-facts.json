@@ -1,0 +1,706 @@
+{
+  "exbabel": {
+    "features": {
+      "captions": {
+        "value": "180+ live caption languages advertised. Plan pages list broader translation coverage.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      "audio": {
+        "value": "60 premium voice languages on Starter and 90 on Pro.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      "church": {
+        "value": "Designed for live church services.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      "phone": {
+        "value": "Download or share a listener QR code for browser access.",
+        "source": "https://exbabel.com/guides/broadcasting/"
+      },
+      "trial": {
+        "value": "30 days on Starter.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      "guides": {
+        "value": "Setup walkthrough and FAQs.",
+        "source": "https://exbabel.com/how-it-works/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Starter",
+        "value": "$39/month after the trial. Includes 6 live hours and 10 solo hours.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      {
+        "name": "Pro",
+        "value": "$99/month. Includes 12 live hours and 20 solo hours.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      {
+        "name": "Unlimited",
+        "value": "$299/month. Includes 36 live hours and unlimited solo hours.",
+        "source": "https://www.exbabel.com/#pricing"
+      },
+      {
+        "name": "Additional hours",
+        "value": "$10 per hour on the listed plans.",
+        "source": "https://www.exbabel.com/#pricing"
+      }
+    ]
+  },
+  "wordly": {
+    "features": {
+      "captions": {
+        "value": "Live captions. Wordly advertises 3,000+ language pairs across the platform.",
+        "source": "https://www.wordly.ai/pricing"
+      },
+      "audio": {
+        "value": "Translated audio included in the listed packages.",
+        "source": "https://www.wordly.ai/pricing"
+      },
+      "glossary": {
+        "value": "Glossaries and blocklists.",
+        "source": "https://www.wordly.ai/pricing"
+      },
+      "transcripts": {
+        "value": "Session transcripts. Some transcript features vary with package.",
+        "source": "https://www.wordly.ai/pricing"
+      },
+      "embed": {
+        "value": "Attendee translation view can be embedded in an HTML iframe.",
+        "source": "https://help.wordly.ai/iframe-integration"
+      },
+      "guides": {
+        "value": "Public knowledge base with setup instructions.",
+        "source": "https://help.wordly.ai/iframe-integration"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Annual hour packages",
+        "value": "10, 25, 50, 100, 250 or 500+ hours over a 12-month term. Wordly links to online purchase and sales quotes.",
+        "source": "https://www.wordly.ai/pricing"
+      }
+    ]
+  },
+  "captionkit": {
+    "features": {
+      "captions": {
+        "value": "200+ target languages.",
+        "source": "https://captionkit.com/languages"
+      },
+      "audio": {
+        "value": "120+ listening languages. Audio allowances vary by plan.",
+        "source": "https://captionkit.com/languages"
+      },
+      "church": {
+        "value": "Priced per church campus.",
+        "source": "https://captionkit.com/pricing"
+      },
+      "trial": {
+        "value": "4 free speaking hours, up to 2 text languages and 1 audio language. No card required.",
+        "source": "https://captionkit.com/pricing"
+      },
+      "input": {
+        "value": "100 speaker languages.",
+        "source": "https://captionkit.com/languages"
+      },
+      "phone": {
+        "value": "Browser access through a church link or QR code.",
+        "source": "https://captionkit.com/"
+      },
+      "screens": {
+        "value": "ProPresenter, OBS and vMix.",
+        "source": "https://captionkit.com/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Example text plan",
+        "value": "US$20/month before tax for 4 speaking hours and 2 text languages.",
+        "source": "https://captionkit.com/pricing"
+      },
+      {
+        "name": "Audio add-on",
+        "value": "US$2.50 per language per hour, including text.",
+        "source": "https://captionkit.com/pricing"
+      }
+    ]
+  },
+  "glossa": {
+    "features": {
+      "captions": {
+        "value": "Provider advertises 100+ translation languages.",
+        "source": "https://glossa.live/"
+      },
+      "audio": {
+        "value": "Live audio. Voice cloning listed on Advanced and Premium.",
+        "source": "https://glossa.live/"
+      },
+      "church": {
+        "value": "Church services are a listed use case.",
+        "source": "https://glossa.live/"
+      },
+      "screens": {
+        "value": "OBS and ProPresenter integrations.",
+        "source": "https://glossa.live/"
+      },
+      "trial": {
+        "value": "4 hours advertised.",
+        "source": "https://glossa.live/"
+      },
+      "embed": {
+        "value": "Embeddable live captions for church websites.",
+        "source": "https://glossa.tawk.help/article/embedding-live-captions-on-your-church-website"
+      },
+      "guides": {
+        "value": "Help center setup articles.",
+        "source": "https://glossa.tawk.help/article/embedding-live-captions-on-your-church-website"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Pay as you go",
+        "value": "$5 per language-hour.",
+        "source": "https://glossa.live/"
+      },
+      {
+        "name": "Standard",
+        "value": "$99/month for 25 translation hours. $4 per extra translation hour.",
+        "source": "https://glossa.live/"
+      },
+      {
+        "name": "Advanced",
+        "value": "$299/month for 100 translation hours. $3 per extra translation hour.",
+        "source": "https://glossa.live/"
+      },
+      {
+        "name": "Premium",
+        "value": "$499/month for 250 translation hours. $2 per extra translation hour.",
+        "source": "https://glossa.live/"
+      }
+    ]
+  },
+  "sunflower-ai": {
+    "features": {
+      "trial": {
+        "value": "One-month free trial advertised.",
+        "source": "https://sunflowerai.io/sunflower-ai-pricing"
+      },
+      "captions": {
+        "value": "84 target languages listed.",
+        "source": "https://sunflowerai.io/"
+      },
+      "input": {
+        "value": "64 input languages listed.",
+        "source": "https://sunflowerai.io/"
+      },
+      "phone": {
+        "value": "Reusable QR code opens the listener page in a phone browser.",
+        "source": "https://sunflowerai.io/"
+      },
+      "glossary": {
+        "value": "Upload scripts in advance to improve recognition of expected terms.",
+        "source": "https://sunflowerai.io/"
+      },
+      "audio": {
+        "value": "74 text-to-speech languages.",
+        "source": "https://sunflowerai.io/supported-languages"
+      },
+      "church": {
+        "value": "Church live-translation mode covers the whole service, including songs, Bible readings, prayers, and announcements, not only the sermon.",
+        "source": "https://sunflowerai.io/sermon-translation"
+      },
+      "screens": {
+        "value": "Sunflower can overlay captions on the same projector/display as ProPresenter, Proclaim, or PowerPoint content.",
+        "source": "https://sunflowerai.io/church-live-translation"
+      },
+      "transcripts": {
+        "value": "After an event, Session History can be used to download transcripts.",
+        "source": "https://sunflowerai.io/blogs/how-to-use-sunflower-ai-live-translation-for-church-and-conference-events"
+      },
+      "guides": {
+        "value": "Official tutorials cover account/browser setup, first sessions, browser audio access, ProPresenter, Proclaim, PowerPoint, and Stream Deck/Companion setup.",
+        "source": "https://sunflowerai.io/tutorials"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Single-service plan",
+        "value": "$90/month for 7.5 hours. Extra hours are listed at $40 each.",
+        "source": "https://sunflowerai.io/sunflower-ai-pricing"
+      },
+      {
+        "name": "Multiple-service plan",
+        "value": "$200/month for 30 hours.",
+        "source": "https://sunflowerai.io/sunflower-ai-pricing"
+      }
+    ]
+  },
+  "breeze-translate": {
+    "features": {
+      "captions": {
+        "value": "Nearly 200 languages advertised.",
+        "source": "https://breezetranslate.com/en/"
+      },
+      "church": {
+        "value": "Plans organized around church services.",
+        "source": "https://breezetranslate.com/en/pricing/"
+      },
+      "phone": {
+        "value": "Listeners scan a QR code and use their devices without an app.",
+        "source": "https://breezetranslate.com/en/"
+      },
+      "screens": {
+        "value": "Shared-screen captions.",
+        "source": "https://breezetranslate.com/en/pricing/"
+      },
+      "trial": {
+        "value": "Vendor invites churches to try the service for a month.",
+        "source": "https://breezetranslate.com/en/pricing/"
+      },
+      "audio": {
+        "value": "Spoken translation uses text-to-speech for many listener languages, mostly the phone’s built-in engine, with Breeze Custom voices for some languages.",
+        "source": "https://docs.breezetranslate.com/en/audio/audio-output/"
+      },
+      "input": {
+        "value": "Multi-language input automatically identifies the spoken language across 60+ input languages; a fixed input language can be selected instead.",
+        "source": "https://docs.breezetranslate.com/en/control-panel/transcription-modes/"
+      },
+      "guides": {
+        "value": "Official documentation covers quick start, listener experience, audio/mixers, big screens, presentation software, plans, and troubleshooting.",
+        "source": "https://docs.breezetranslate.com/en/"
+      },
+      "languageSwitch": {
+        "value": "Multi-language input can detect the spoken language automatically.",
+        "source": "https://docs.breezetranslate.com/en/control-panel/transcription-modes/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Captions-first",
+        "value": "US$3/week shown in the weekly USD view.",
+        "source": "https://breezetranslate.com/en/pricing/"
+      },
+      {
+        "name": "Weekly translation options",
+        "value": "US$8, $15 or $20/week in the weekly USD view. Coverage varies by plan.",
+        "source": "https://breezetranslate.com/en/pricing/"
+      }
+    ]
+  },
+  "kaleo-ai": {
+    "features": {
+      "captions": {
+        "value": "Live church translation into 150+ languages across the platform. Simultaneous selections vary by plan.",
+        "source": "https://withkaleo.com/"
+      },
+      "church": {
+        "value": "Built for church services.",
+        "source": "https://withkaleo.com/"
+      },
+      "trial": {
+        "value": "Four hours of captions and translations.",
+        "source": "https://withkaleo.com/"
+      },
+      "audio": {
+        "value": "Kaleo takes a church’s live audio feed, translates it, and broadcasts it to listeners’ mobile devices; speech translation is available through the listening mode.",
+        "source": "https://docs.withkaleo.com/en/getting-started/set-up-your-audio-input"
+      },
+      "languageSwitch": {
+        "value": "Multilingual mode automatically detects and switches among supported speaker languages in the same stream; operators select target translation languages.",
+        "source": "https://docs.withkaleo.com/en/supported-languages"
+      },
+      "phone": {
+        "value": "Attendees follow the translation on their own devices; the persistent translation link/QR code can be shared with a church.",
+        "source": "https://docs.withkaleo.com/en/getting-started/share-with-your-church"
+      },
+      "screens": {
+        "value": "Kaleo Connect integrates with ProPresenter to translate song lyrics and slide contents in real time and show them as special captions in a streaming session.",
+        "source": "https://docs.withkaleo.com/en/integrations/propresenter"
+      },
+      "glossary": {
+        "value": "Fine-tuning supports church-specific keywords and rules controlling translation tone, style, or other nuances.",
+        "source": "https://docs.withkaleo.com/en/customization/fine-tuning"
+      },
+      "transcripts": {
+        "value": "Past sessions are stored in History; users can download the original transcript or translation as .txt or SRT, and can enable a shareable full-transcript/full-translation link.",
+        "source": "https://docs.withkaleo.com/en/how-to/download-past-translations"
+      },
+      "guides": {
+        "value": "Official documentation covers setup, audio input, starting translation, church sharing, supported languages, scheduling, customization, and integrations.",
+        "source": "https://docs.withkaleo.com/en/welcome"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Starter",
+        "value": "US$24/month for 5 streaming hours and two target languages. Extra hours US$2 each.",
+        "source": "https://withkaleo.com/"
+      },
+      {
+        "name": "Pro",
+        "value": "US$49/month for 10 streaming hours and four target languages. Extra hours US$3 each.",
+        "source": "https://withkaleo.com/"
+      },
+      {
+        "name": "Unlimited",
+        "value": "US$149/month for unlimited streaming hours and 150+ target languages.",
+        "source": "https://withkaleo.com/"
+      }
+    ]
+  },
+  "oneaccord": {
+    "features": {
+      "church": {
+        "value": "Built for churches.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "transcripts": {
+        "value": "Download source and translated transcripts after sessions.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "trial": {
+        "value": "Free trial credits on request.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "captions": {
+        "value": "Live captions and translations are supported for real-time church sermon translation.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "audio": {
+        "value": "OneAccord provides both audio and text translations; written translation appears in less than a second and audio follows once the written translation is finalized.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "phone": {
+        "value": "Listeners use a phone or tablet with internet access and a browser; no app download or installation is required.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "screens": {
+        "value": "Live captions and translations can be displayed on church main screens through ProPresenter; OBS can add captions as a lower-third livestream overlay.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "humanReview": {
+        "value": "Optional Moderation mode lets a user review, approve, and amend the incoming transcript before translation, with multiple AI suggestions to speed review.",
+        "source": "https://www.oneaccord.com/"
+      },
+      "guides": {
+        "value": "The official site publishes a Church Translation Equipment Guide covering devices, headsets, smartphone options, and the platform’s usage-based model.",
+        "source": "https://www.oneaccord.com/blog/church-translation-equipment-guide"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Starting price",
+        "value": "$150/month for 5 hours. Quotes vary by languages, hours and users.",
+        "source": "https://www.oneaccord.com/"
+      }
+    ]
+  },
+  "spf-io": {
+    "features": {
+      "captions": {
+        "value": "The provider lists support for 100+ languages across its platform.",
+        "source": "https://www.spf.io/resources/frequently-asked-questions/"
+      },
+      "audio": {
+        "value": "Speech-to-speech translation in more than 70 languages.",
+        "source": "https://www.spf.io/resources/frequently-asked-questions/"
+      },
+      "guides": {
+        "value": "Public FAQ and optional instructor-led training.",
+        "source": "https://www.spf.io/resources/frequently-asked-questions/"
+      },
+      "languageSwitch": {
+        "value": "Bidirectional translation is advertised for language switching.",
+        "source": "https://www.spf.io/products/automatic-captions-and-translation/"
+      },
+      "screens": {
+        "value": "Projector view supports up to four translation languages.",
+        "source": "https://www.spf.io/products/automatic-captions-and-translation/"
+      },
+      "embed": {
+        "value": "Website, app or livestream embedding.",
+        "source": "https://www.spf.io/products/automatic-captions-and-translation/"
+      },
+      "phone": {
+        "value": "Mobile listener access.",
+        "source": "https://www.spf.io/products/automatic-captions-and-translation/"
+      },
+      "humanReview": {
+        "value": "Optional live caption editing through Supervised AI.",
+        "source": "https://www.spf.io/products/automatic-captions-and-translation/"
+      },
+      "church": {
+        "value": "Church worship services can use live captions, translations, and audio in 100+ languages for in-person, online, or hybrid services, delivered to phones, big screens, or livestreams.",
+        "source": "https://www.spf.io/solutions/religious/"
+      },
+      "transcripts": {
+        "value": "Audio Video Captions and Subtitles can generate transcripts and export captions/subtitles in formats including SRT and VTT; transcripts can be downloaded as TXT.",
+        "source": "https://www.spf.io/audio-video-captions-and-subtitles/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Quote",
+        "value": "Request a quote for the applicable setup and services.",
+        "source": "https://www.spf.io/resources/frequently-asked-questions/"
+      }
+    ]
+  },
+  "google-translate": {
+    "features": {
+      "audio": {
+        "value": "Android conversation mode speaks translated turns using the app.",
+        "source": "https://support.google.com/translate/answer/9724492"
+      },
+      "input": {
+        "value": "Users choose the two languages in Android conversation mode.",
+        "source": "https://support.google.com/translate/answer/9724492"
+      },
+      "phone": {
+        "value": "Conversation mode runs in the Google Translate app.",
+        "source": "https://support.google.com/translate/answer/9724492"
+      },
+      "guides": {
+        "value": "Google documents conversation-mode setup.",
+        "source": "https://support.google.com/translate/answer/9724492"
+      },
+      "captions": {
+        "value": "Android listing distinguishes 70 conversation languages from 8 near-real-time transcription languages.",
+        "source": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate"
+      },
+      "trial": {
+        "value": "Consumer Android app available to install.",
+        "source": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Consumer app",
+        "value": "Free to install from Google Play. This comparison covers the consumer Google Translate app.",
+        "source": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate"
+      }
+    ]
+  },
+  "polyglossia": {
+    "features": {
+      "captions": {
+        "value": "88 supported languages advertised across the platform.",
+        "source": "https://polyglossia.io/"
+      },
+      "phone": {
+        "value": "Listener QR code opens a browser view without installation.",
+        "source": "https://polyglossia.io/"
+      },
+      "audio": {
+        "value": "Live spoken translation with included translated captions.",
+        "source": "https://polyglossia.io/pricing/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Transcription",
+        "value": "$0.05/minute.",
+        "source": "https://polyglossia.io/pricing/"
+      },
+      {
+        "name": "Translation",
+        "value": "$0.10/minute for up to 15 languages at a flat rate.",
+        "source": "https://polyglossia.io/pricing/"
+      },
+      {
+        "name": "Speech translation",
+        "value": "$0.20/minute per language.",
+        "source": "https://polyglossia.io/pricing/"
+      },
+      {
+        "name": "Gateway",
+        "value": "$149 one-time per audio source.",
+        "source": "https://polyglossia.io/pricing/"
+      }
+    ]
+  },
+  "live-voice": {
+    "features": {
+      "captions": {
+        "value": "Closed captions and AI captions are offered as add-ons.",
+        "source": "https://livevoice.io/en/pricing"
+      },
+      "audio": {
+        "value": "AI voice translation is an optional add-on.",
+        "source": "https://livevoice.io/en/pricing"
+      },
+      "screens": {
+        "value": "Big Screen packages for captions.",
+        "source": "https://livevoice.io/en/pricing"
+      },
+      "guides": {
+        "value": "Public help center.",
+        "source": "https://livevoice.io/en/pricing"
+      },
+      "trial": {
+        "value": "Free signup trial advertised.",
+        "source": "https://livevoice.io/en/pricing"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Participant plans",
+        "value": "Day and subscription plans based on participant capacity. AI services are billed separately.",
+        "source": "https://livevoice.io/en/pricing"
+      },
+      {
+        "name": "AI voice translation and captions",
+        "value": "US$0.52 or €0.42 per minute per language.",
+        "source": "https://livevoice.io/en/pricing/ai"
+      },
+      {
+        "name": "Original-language closed captions",
+        "value": "US$0.21 or €0.16 per minute per language.",
+        "source": "https://livevoice.io/en/pricing/ai"
+      }
+    ]
+  },
+  "selah-translate": {
+    "features": {
+      "captions": {
+        "value": "80+ languages. Basic supports one target per session and Professional supports several.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "audio": {
+        "value": "Spoken translation. Professional lists audio in every language as beta.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "church": {
+        "value": "Professional is marketed for churches and events.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "phone": {
+        "value": "QR code and shareable listener page, plus an iPhone listener app.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "screens": {
+        "value": "Screens, projectors, OBS and vMix.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "transcripts": {
+        "value": "Session history and transcripts.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      "trial": {
+        "value": "One free hour, no card required.",
+        "source": "https://selahtranslate.com/pricing"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Basic",
+        "value": "$29/month for 20 live hours.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      {
+        "name": "Professional",
+        "value": "$49/month for 40 live hours.",
+        "source": "https://selahtranslate.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "value": "Custom pricing with unlimited hours.",
+        "source": "https://selahtranslate.com/pricing"
+      }
+    ]
+  },
+  "vonal-ai": {
+    "features": {
+      "captions": {
+        "value": "40+ translation languages advertised for hour packs.",
+        "source": "https://vonal.ai/pricing"
+      },
+      "phone": {
+        "value": "Shareable QR link and unlimited listeners listed for hour packs.",
+        "source": "https://vonal.ai/pricing"
+      },
+      "audio": {
+        "value": "Live spoken translation on personal devices.",
+        "source": "https://vonal.ai/"
+      },
+      "transcripts": {
+        "value": "Transcripts remain in the account and can be deleted.",
+        "source": "https://vonal.ai/"
+      },
+      "church": {
+        "value": "Church services are a listed use case.",
+        "source": "https://vonal.ai/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Starter",
+        "value": "$20/month for 10 hours.",
+        "source": "https://vonal.ai/pricing"
+      },
+      {
+        "name": "30-hour plan",
+        "value": "$40/month for 30 hours.",
+        "source": "https://vonal.ai/pricing"
+      },
+      {
+        "name": "250-hour plan",
+        "value": "$200/month for 250 hours.",
+        "source": "https://vonal.ai/pricing"
+      },
+      {
+        "name": "One-time packs",
+        "value": "$7.50 for 1 hour, $10 for 2 hours or $15 for 5 hours. Pack hours do not expire.",
+        "source": "https://vonal.ai/pricing"
+      }
+    ]
+  },
+  "stenomatic": {
+    "features": {
+      "captions": {
+        "value": "Provider advertises translation into 130+ languages and dialects across the platform.",
+        "source": "https://stenomatic.ai/pricing"
+      },
+      "glossary": {
+        "value": "Glossary input support on the quoted one-off event offering.",
+        "source": "https://stenomatic.ai/pricing"
+      },
+      "transcripts": {
+        "value": "Free transcripts listed on self-service.",
+        "source": "https://stenomatic.ai/pricing"
+      },
+      "audio": {
+        "value": "Live translated audio available alongside captions.",
+        "source": "https://www.stenomatic.ai/"
+      },
+      "phone": {
+        "value": "Attendees can open the transcription link on mobile devices.",
+        "source": "https://www.stenomatic.ai/"
+      },
+      "trial": {
+        "value": "Free trial signup advertised.",
+        "source": "https://www.stenomatic.ai/"
+      }
+    },
+    "pricing": [
+      {
+        "name": "Self-service",
+        "value": "From $1.25/minute, pay as you go.",
+        "source": "https://stenomatic.ai/pricing"
+      },
+      {
+        "name": "One-off events",
+        "value": "Custom quote.",
+        "source": "https://stenomatic.ai/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "value": "Volume-based pricing through sales.",
+        "source": "https://stenomatic.ai/pricing"
+      }
+    ]
+  }
+}

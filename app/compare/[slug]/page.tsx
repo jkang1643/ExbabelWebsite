@@ -1,3 +1,4 @@
+import VendorFacts from "@/components/compare/VendorFacts";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { comparisons, comparisonHref } from '@/lib/comparisons';
@@ -32,24 +33,12 @@ export default async function ComparisonPage({ params }: Props) {
         <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">Compare platform features and review the available evidence for live translated captions and audio.</p>
         <nav aria-label="Page sections" className="mt-5 flex flex-wrap gap-5 text-sm font-bold text-[#3042dd]">
           <a href="#features" className="hover:underline">Platform features</a>
+          <a href="#pricing" className="hover:underline">Pricing</a>
           <a href="#timing" className="hover:underline">Timing evidence</a>
           <a href="#all-comparisons" className="hover:underline">Other comparisons</a>
         </nav>
       </header>
-      <section id="features" className="mt-9 scroll-mt-28">
-        <h2 className="mb-3 text-2xl font-bold tracking-tight">Platform features</h2>
-        <p className="mb-4 text-sm leading-6 text-slate-600">The competitor figures come from the November 2026 comparison notes. Confirm current language coverage and plan terms with the provider.</p>
-        <div className="overflow-auto rounded-xl border border-slate-200 bg-white">
-          <table className="w-full min-w-[510px] text-left text-sm leading-6 [&_td]:px-4 [&_td]:py-4 [&_th]:px-4 [&_th]:py-4 [&_tr]:border-b [&_tr]:border-slate-200">
-            <thead className="bg-indigo-50"><tr><th scope="col">Feature</th><th scope="col">Exbabel</th><th scope="col">{entry.name}</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Pricing</th><td><Link href="/#pricing" className="text-[#3042dd] underline">Monthly and annual plans</Link></td><td>{entry.pricing}</td></tr>
-              <tr><th scope="row">Caption languages</th><td rowSpan={2}><Link href="/how-it-works/" className="text-[#3042dd] underline">See translation options and setup</Link></td><td>{entry.languages[0]}</td></tr>
-              <tr><th scope="row">Audio languages</th><td>{entry.languages[1]}</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <VendorFacts slug={slug} name={entry.name} />
       <section id="timing" className="mt-10 scroll-mt-28 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5 sm:p-8">
         <h2 className="text-2xl font-bold tracking-tight">Timing evidence</h2>
         {entry.rows.length ? <>
