@@ -1,3 +1,5 @@
+import Link from "next/link";
+import ComparisonDirectory from "@/components/compare/ComparisonDirectory";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
@@ -64,6 +66,14 @@ export default function Home() {
         <AsSeenOn />
         <TechnicalRequirements />
         <CTA />
+        <section id="comparisons" aria-labelledby="comparisons-heading" className="border-t border-slate-200 bg-slate-50 px-5 py-12 sm:px-10 sm:py-16">
+          <div className="mx-auto max-w-7xl">
+            <h2 id="comparisons-heading" className="text-3xl font-extrabold tracking-tight text-slate-900">Compare Exbabel</h2>
+            <p className="mb-5 mt-3 text-slate-600">Find a side-by-side comparison for your church or event.</p>
+            <ComparisonDirectory />
+            <Link href="/compare/" className="mt-6 inline-block text-sm font-bold text-[#3042dd] hover:underline">Browse the comparison index →</Link>
+          </div>
+        </section>
         <Footer />
         <CookiesPopup />
       </main>

@@ -1,0 +1,313 @@
+[
+  {
+    "slug": "captionkit",
+    "name": "CaptionKit",
+    "pricing": "Base license plus speaking hours and language add-ons",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 1.8,
+        "audio": 2.76
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1, 2, 3",
+        "caption": 2.1,
+        "audio": 5.62
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them, repent and be baptized... (Acts 2:38)",
+        "caption": 2.4,
+        "audio": 30.18
+      }
+    ],
+    "languages": [
+      203,
+      121
+    ]
+  },
+  {
+    "slug": "wordly",
+    "name": "Wordly",
+    "pricing": "Prepaid hours and quoted packages",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 3.267,
+        "audio": 4.4
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1 2 3",
+        "caption": 1.367,
+        "audio": 5.42
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them, repent and be baptized... (Acts 2:38)",
+        "caption": 1.287,
+        "audio": 7.22
+      }
+    ],
+    "languages": [
+      67,
+      67
+    ]
+  },
+  {
+    "slug": "sunflower-ai",
+    "name": "Sunflower AI",
+    "pricing": "Monthly tiers with hourly overage",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 4.18,
+        "audio": 9.54
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1, 2, 3",
+        "caption": 2.32,
+        "audio": 6.3
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 8.66,
+        "audio": 15.22
+      }
+    ],
+    "languages": [
+      83,
+      74
+    ]
+  },
+  {
+    "slug": "breeze-translate",
+    "name": "Breeze Translate",
+    "pricing": "Caption plans and service packages",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "One, two, three",
+        "caption": 2.27,
+        "audio": 3.98
+      },
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 2.24,
+        "audio": 3.4
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 8.29,
+        "audio": 10.54
+      }
+    ],
+    "languages": [
+      195,
+      "16 proprietary natural voices (mostly relies on phone's built-in synthetic speech engine ~72 on Android, 44 on iOS)"
+    ]
+  },
+  {
+    "slug": "kaleo-ai",
+    "name": "Kaleo AI",
+    "pricing": "Monthly tiers based on hours and languages",
+    "rows": [],
+    "languages": [
+      150,
+      "Available only inside proprietary mobile app"
+    ]
+  },
+  {
+    "slug": "glossa",
+    "name": "Glossa (Glossa AI)",
+    "pricing": "Pay-as-you-go and monthly language-hour plans",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Testing one, two, three",
+        "caption": 6.27,
+        "audio": 6.46
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 7.79,
+        "audio": 7.94
+      }
+    ],
+    "languages": [
+      100,
+      "100 (supports voice cloning)"
+    ]
+  },
+  {
+    "slug": "oneaccord",
+    "name": "OneAccord",
+    "pricing": "Monthly tiers based on speaking hours and listener seats",
+    "rows": [],
+    "languages": [
+      60,
+      "Not publicly disclosed"
+    ]
+  },
+  {
+    "slug": "spf-io",
+    "name": "spf.io",
+    "pricing": "Quoted annual plans",
+    "rows": [],
+    "languages": [
+      192,
+      70
+    ]
+  },
+  {
+    "slug": "google-translate",
+    "name": "Google Translate",
+    "pricing": "Free consumer service",
+    "rows": [],
+    "languages": [
+      "249 (text); ~70 live conversation mode",
+      "~70 live mode"
+    ]
+  },
+  {
+    "slug": "polyglossia",
+    "name": "Polyglossia",
+    "pricing": "Hardware gateway and usage credits",
+    "rows": [],
+    "languages": [
+      "15 languages flat per gateway",
+      "Up to 15 languages per gateway"
+    ]
+  },
+  {
+    "slug": "live-voice",
+    "name": "LiveVoice (LiveVoice.io)",
+    "pricing": "Participant seats and translation add-ons",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 2.2,
+        "audio": 2.28
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1, 2, 3",
+        "caption": 3.8,
+        "audio": 3.88
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said to them... (Acts 2:38)",
+        "caption": 11.0,
+        "audio": 11.22
+      },
+      {
+        "sample": "Short phrase",
+        "utterance": "Extended Scripture reading (Acts 2:38-39)",
+        "caption": 15.0,
+        "audio": 15.66
+      }
+    ],
+    "languages": [
+      50,
+      50
+    ]
+  },
+  {
+    "slug": "selah-translate",
+    "name": "Selah Translate",
+    "pricing": "Monthly subscription tiers",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 2.57,
+        "audio": 4.02
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1, 2, 3",
+        "caption": 3.33,
+        "audio": 5.18
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 14.73,
+        "audio": 16.04
+      }
+    ],
+    "languages": [
+      30,
+      30
+    ]
+  },
+  {
+    "slug": "vonal-ai",
+    "name": "Vonal (Vonal.ai)",
+    "pricing": "Monthly hours and event packages",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 1.93,
+        "audio": 5.76
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing 1, 2, 3",
+        "caption": 2.13,
+        "audio": 4.96
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 2.05,
+        "audio": 9.32
+      }
+    ],
+    "languages": [
+      40,
+      40
+    ]
+  },
+  {
+    "slug": "stenomatic",
+    "name": "Stenomatic",
+    "pricing": "Per-minute pricing and monthly tiers",
+    "rows": [
+      {
+        "sample": "Short phrase",
+        "utterance": "Hello, can you hear me?",
+        "caption": 0.84,
+        "audio": 1.14
+      },
+      {
+        "sample": "Number sequence",
+        "utterance": "Testing one, two, three",
+        "caption": 0.89,
+        "audio": 1.32
+      },
+      {
+        "sample": "Continuous speech",
+        "utterance": "Then Peter said unto them... (Acts 2:38)",
+        "caption": 1.12,
+        "audio": 23.86
+      }
+    ],
+    "languages": [
+      70,
+      70
+    ]
+  }
+]

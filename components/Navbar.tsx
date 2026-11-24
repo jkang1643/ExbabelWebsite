@@ -1,5 +1,6 @@
 "use client";
 
+import ComparisonMenu from "@/components/compare/ComparisonMenu";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -248,7 +249,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                       animate={{ y: 0, scale: 1 }}
                       exit={{ y: 8, scale: 0.96 }}
                       transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
-                      className="absolute top-full -left-2 mt-1 w-56 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
+                      className="absolute top-full -left-2 w-64 max-h-[min(80vh,38rem)] overflow-y-auto bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
                       <DropdownItem 
                         href="/how-it-works" 
@@ -258,9 +259,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                       <DropdownItem 
                         href="/research/" 
                         onClick={() => setIsResourcesOpen(false)}
-                        title={<span className="text-primary">Performance Report</span>}
+                        title="Exbabel Research"
                         description="Translation quality and latency studies"
                       />
+                      <ComparisonMenu onNavigate={() => setIsResourcesOpen(false)} />
                       <DropdownItem 
                         href="/blog" 
                         onClick={() => setIsResourcesOpen(false)}
@@ -405,6 +407,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Resources</div>
                   <Link href="/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">How It Works</Link>
                   <Link href="/research/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Exbabel Research</Link>
+                  <ComparisonMenu onNavigate={() => setIsMobileMenuOpen(false)} />
                   <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Blog</Link>
                   <a href={pathname === '/' ? "#pricing" : "/#pricing"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Pricing</a>
                   <a href={pathname === '/' ? "#faq" : "/#faq"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">FAQ</a>
