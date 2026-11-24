@@ -2,7 +2,6 @@
   {
     "slug": "captionkit",
     "name": "CaptionKit",
-    "pricing": "Base license plus speaking hours and language add-ons",
     "rows": [
       {
         "sample": "Short phrase",
@@ -22,16 +21,11 @@
         "caption": 2.4,
         "audio": 30.18
       }
-    ],
-    "languages": [
-      203,
-      121
     ]
   },
   {
     "slug": "wordly",
     "name": "Wordly",
-    "pricing": "Prepaid hours and quoted packages",
     "rows": [
       {
         "sample": "Short phrase",
@@ -51,16 +45,11 @@
         "caption": 1.287,
         "audio": 7.22
       }
-    ],
-    "languages": [
-      67,
-      67
     ]
   },
   {
     "slug": "sunflower-ai",
     "name": "Sunflower AI",
-    "pricing": "Monthly tiers with hourly overage",
     "rows": [
       {
         "sample": "Short phrase",
@@ -80,16 +69,11 @@
         "caption": 8.66,
         "audio": 15.22
       }
-    ],
-    "languages": [
-      83,
-      74
     ]
   },
   {
     "slug": "breeze-translate",
     "name": "Breeze Translate",
-    "pricing": "Caption plans and service packages",
     "rows": [
       {
         "sample": "Short phrase",
@@ -109,26 +93,16 @@
         "caption": 8.29,
         "audio": 10.54
       }
-    ],
-    "languages": [
-      195,
-      "16 proprietary natural voices (mostly relies on phone's built-in synthetic speech engine ~72 on Android, 44 on iOS)"
     ]
   },
   {
     "slug": "kaleo-ai",
     "name": "Kaleo AI",
-    "pricing": "Monthly tiers based on hours and languages",
-    "rows": [],
-    "languages": [
-      150,
-      "Available only inside proprietary mobile app"
-    ]
+    "rows": []
   },
   {
     "slug": "glossa",
     "name": "Glossa (Glossa AI)",
-    "pricing": "Pay-as-you-go and monthly language-hour plans",
     "rows": [
       {
         "sample": "Short phrase",
@@ -142,56 +116,31 @@
         "caption": 7.79,
         "audio": 7.94
       }
-    ],
-    "languages": [
-      100,
-      "100 (supports voice cloning)"
     ]
   },
   {
     "slug": "oneaccord",
     "name": "OneAccord",
-    "pricing": "Monthly tiers based on speaking hours and listener seats",
-    "rows": [],
-    "languages": [
-      60,
-      "Not publicly disclosed"
-    ]
+    "rows": []
   },
   {
     "slug": "spf-io",
     "name": "spf.io",
-    "pricing": "Quoted annual plans",
-    "rows": [],
-    "languages": [
-      192,
-      70
-    ]
+    "rows": []
   },
   {
     "slug": "google-translate",
     "name": "Google Translate",
-    "pricing": "Free consumer service",
-    "rows": [],
-    "languages": [
-      "249 (text); ~70 live conversation mode",
-      "~70 live mode"
-    ]
+    "rows": []
   },
   {
     "slug": "polyglossia",
     "name": "Polyglossia",
-    "pricing": "Hardware gateway and usage credits",
-    "rows": [],
-    "languages": [
-      "15 languages flat per gateway",
-      "Up to 15 languages per gateway"
-    ]
+    "rows": []
   },
   {
     "slug": "live-voice",
     "name": "LiveVoice (LiveVoice.io)",
-    "pricing": "Participant seats and translation add-ons",
     "rows": [
       {
         "sample": "Short phrase",
@@ -217,16 +166,11 @@
         "caption": 15.0,
         "audio": 15.66
       }
-    ],
-    "languages": [
-      50,
-      50
     ]
   },
   {
     "slug": "selah-translate",
     "name": "Selah Translate",
-    "pricing": "Monthly subscription tiers",
     "rows": [
       {
         "sample": "Short phrase",
@@ -246,16 +190,11 @@
         "caption": 14.73,
         "audio": 16.04
       }
-    ],
-    "languages": [
-      30,
-      30
     ]
   },
   {
     "slug": "vonal-ai",
     "name": "Vonal (Vonal.ai)",
-    "pricing": "Monthly hours and event packages",
     "rows": [
       {
         "sample": "Short phrase",
@@ -275,16 +214,11 @@
         "caption": 2.05,
         "audio": 9.32
       }
-    ],
-    "languages": [
-      40,
-      40
     ]
   },
   {
     "slug": "stenomatic",
     "name": "Stenomatic",
-    "pricing": "Per-minute pricing and monthly tiers",
     "rows": [
       {
         "sample": "Short phrase",
@@ -304,10 +238,6 @@
         "caption": 1.12,
         "audio": 23.86
       }
-    ],
-    "languages": [
-      70,
-      70
     ]
   }
 ]
