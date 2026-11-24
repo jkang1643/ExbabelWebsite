@@ -121,6 +121,138 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "wordly-alternatives",
+    title: "Wordly Alternatives for Churches and Conferences: An Evidence-Based Buyer Guide",
+    seoTitle: "Wordly Alternatives for Churches & Conferences (2026)",
+    metaDescription:
+      "Compare Wordly alternatives for multilingual churches and conferences. Evaluate live audio, captions, attendee access, setup, support and pricing.",
+    excerpt:
+      "Renewal season has a way of making people quietly shop around. Here is an evidence-based buyer guide comparing Wordly alternatives for churches and conferences, covering live audio, captions, ProPresenter/mixer setup, attendee access, and total cost of ownership.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-11-17",
+    dateModified: "2026-11-17",
+    category: "AI Translation",
+    categorySlug: "ai-translation",
+    featuredImage: "/photos/blog/wordly-alternatives-hero.png",
+    featuredImageAlt:
+      "Wordly Alternatives for Churches and Conferences comparison showing laptop with real-time translation UI, smartphone with attendee QR access, soundboard mixer connection, and wireless earbuds",
+    keywords: [
+      "wordly alternatives",
+      "wordly competitors",
+      "AI interpretation software comparison",
+      "conference translation platforms",
+      "church AI translation systems",
+      "Wordly alternative for churches",
+      "Wordly comparison",
+      "live event translation alternatives",
+      "church translation software",
+      "glossa ai vs wordly",
+    ],
+    canonicalUrl: "/blog/wordly-alternatives",
+    wordCount: 4300,
+    readTime: "22 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#0A162B] via-[#102445] to-[#0A1426]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "ES",
+      targetLangName: "Español",
+      statusText: "Wordly Alternatives & Comparison",
+      metricText: "Church & Event · Evidence-Based",
+    },
+    relatedPosts: [
+      "simultaneous-interpretation-guide",
+      "best-real-time-translation-apps",
+      "church-translation-apps",
+    ],
+    isFeatured: false,
+    isTopArticle: true,
+    isEditorsPick: true,
+    cta: {
+      primary: {
+        text: "Compare Church Solutions",
+        href: "/solutions/church-translation",
+      },
+      secondary: {
+        text: "See How Exbabel Works",
+        href: "/how-it-works",
+      },
+    },
+  },
+
+  {
+    slug: "simultaneous-interpretation-guide",
+    title: "Simultaneous Interpretation: How It Works, Costs and Event Setups",
+    seoTitle: "Simultaneous Interpretation: Event Planner's Guide",
+    metaDescription:
+      "Understand simultaneous interpretation, on-site and remote equipment, AI options, cost factors, and the checklist event planners need before going live.",
+    excerpt:
+      "Two interpreters share a booth and swap roughly every 30 minutes, according to the ATA. Here is how simultaneous interpretation actually works, what on-site and remote equipment costs, and how event planners can evaluate human, AI, and hybrid options.",
+    author: "Exbabel Editorial Team",
+    datePublished: "2026-11-17",
+    dateModified: "2026-11-17",
+    category: "Guides",
+    categorySlug: "guides",
+    featuredImage: "/photos/blog/simultaneous-interpretation-guide-hero.png",
+    featuredImageAlt:
+      "Simultaneous interpretation event planner guide showing stage microphone, interpreter booth console, remote RSI platforms, and attendee language headsets",
+    keywords: [
+      "simultaneous interpretation",
+      "simultaneous interpreting",
+      "remote simultaneous interpretation",
+      "RSI interpretation",
+      "simultaneous interpretation equipment",
+      "simultaneous vs consecutive interpretation",
+      "AI interpretation system",
+      "event language channels",
+      "conference interpretation",
+      "interpreter booth",
+    ],
+    canonicalUrl: "/blog/simultaneous-interpretation-guide",
+    wordCount: 3600,
+    readTime: "18 min read",
+    archetype: "editorial-ui-collage",
+    colorTheme: {
+      bgGradient: "from-[#081226] via-[#0E2244] to-[#0A162B]",
+      accent: "#38BDF8",
+      accentBg: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+      tagColor: "bg-sky-500/15 text-sky-300 border-sky-400/30",
+    },
+    editorialPill: {
+      sourceLang: "EN",
+      sourceLangName: "English",
+      targetLang: "MULT",
+      targetLangName: "Multilingual",
+      statusText: "Event Audio & RSI Pipeline",
+      metricText: "Booth & Cloud · QR Channels",
+    },
+    relatedPosts: [
+      "best-real-time-translation-apps",
+      "on-demand-interpretation-services",
+      "church-translation-equipment",
+    ],
+    isFeatured: false,
+    isTopArticle: true,
+    isEditorsPick: true,
+    cta: {
+      primary: {
+        text: "Explore Event Translation",
+        href: "/solutions/events",
+      },
+      secondary: {
+        text: "See How It Works",
+        href: "/how-it-works",
+      },
+    },
+  },
+
+  {
     slug: "church-translation-equipment",
     title: "Church Translation Equipment: Hardware vs AI Options",
     seoTitle: "Church Translation Equipment: Hardware vs AI Options",
@@ -297,9 +429,9 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "One-to-Many · Audio & Captions",
     },
     relatedPosts: [
-      "church-translation-system",
+      "simultaneous-interpretation-guide",
       "on-demand-interpretation-services",
-      "church-interpreter-vs-ai-translation",
+      "church-translation-equipment",
     ],
     isTopArticle: true,
     isEditorsPick: true,
@@ -362,9 +494,9 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "4-Tap Join · Audio & Captions",
     },
     relatedPosts: [
-      "church-translation-system",
+      "wordly-alternatives",
       "best-real-time-translation-apps",
-      "church-interpreter-vs-ai-translation",
+      "church-translation-system",
     ],
     isTopArticle: true,
     isEditorsPick: true,
@@ -543,7 +675,7 @@ export const BLOG_POSTS: BlogPost[] = [
       metricText: "180+ Languages · 0.98s Latency",
       pipelineSteps: ["Audio", "STT", "Translate", "TTS"],
     },
-    relatedPosts: ["best-real-time-translation-apps", "church-interpreter-vs-ai-translation", "church-translation-system"],
+    relatedPosts: ["simultaneous-interpretation-guide", "best-real-time-translation-apps", "church-translation-system"],
     isTopArticle: true,
     cta: {
       primary: {
