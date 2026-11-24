@@ -15,7 +15,7 @@ const scenarios: Record<string, Scenario> = {
   captionkit: {rows: [['Audio + text', n => money(12+8+8*n*2.5)], ['Text only', n => money(12+8+2*n)]], note: 'The USD calculator combines a $12 campus license and $8 for speaking time with the selected outputs. Each spoken language adds $20 for eight hours and includes its captions.'},
   'kaleo-ai': {rows: [['Starter', capped(30,2)], ['Pro', capped(49,4)], ['Unlimited', fixed(149)]], note: 'Starter includes five hours, so the example adds three $2 hours. Pro covers ten hours and four target languages. Five target languages requires Unlimited.'},
   'breeze-translate': {rows: [['Basic Sunday', n=>n<=2?'$32':'See Abundant'],['Abundant Sundays',fixed(60)],['Abundant All Week',fixed(80)]], note:'Four weekly payments in the USD weekly view. Basic is marketed for one Sunday service and a couple of languages. Both Abundant plans include unlimited languages.'},
-  'sunflower-ai': {rows:[['Basic',()=>'$110–130'],['Pro',fixed(200)]], note:'Basic includes five target languages and 7.5 hours. The extra half hour costs $20 if prorated or $40 as a whole hour. Pro includes ten target languages and 30 hours.'},
+  'sunflower-ai': {rows:[['Basic',()=>'$110–130'],['Pro',fixed(200)]], note:'Prices use the vendor’s $ currency symbol. Its church FAQ quotes Australian dollars. Basic includes five target languages and 7.5 hours. The extra half hour costs $20 if prorated or $40 as a whole hour. Pro includes ten target languages and 30 hours.'},
   'vonal-ai': {rows:[['Starter',fixed(20)],['Growth',fixed(40)],['Venue',fixed(200)]],note:'Estimate assumes the eight broadcast hours count once. Each plan lists 40+ audience languages and unlimited listeners. Monthly allowances are 10, 30 and 250 hours respectively.'},
   'selah-translate': {rows:[['Basic',capped(29,1)],['Professional',()=>'$49*']],note:'Basic serves one output per session. Professional includes 40 hours and several simultaneous languages with spoken output in beta. *Confirm the desired language count with Selah before booking.'},
   polyglossia:{rows:[['Speech usage',n=>money(480*.2*n)],['Text-only usage',fixed(48)]],note:'Speech includes translated captions. Text alone covers up to 15 languages at one rate. Add $149 once for each gateway audio source.'},
@@ -30,13 +30,32 @@ const scenarios: Record<string, Scenario> = {
 export default function ServiceCosts({slug,name}:{slug:string;name:string}){
   const scenario = scenarios[slug];
   const vendor = research[slug as keyof typeof research];
+  const featuredPrices: Record<string, [string, string]> = {
+    oneaccord: ['$150/mo', 'Five hours, up to three languages and 30 listeners per service.'],
+    'spf-io': ['From $199/mo', 'Conference pricing. Recurring church services are priced individually.'],
+    'google-translate': ['Free', 'Consumer translation on a personal device.'],
+    'kaleo-ai': ['$49', 'Pro covers eight hours in three languages.'],
+    'breeze-translate': ['$60', 'Abundant Sundays covers four Sundays with unlimited languages.'],
+    'selah-translate': ['$49', 'Professional includes several languages per session.'],
+    wordly: ['≈ $1,500', 'Upfront 10-hour package covering all languages.'],
+  };
+  const [headline, detail] = featuredPrices[slug] || [
+    scenario.rows[0][1](3),
+    scenario.rows[0][0] + ' · eight live hours in three languages.',
+  ];
   const rows: Row[] = [['Exbabel Starter',fixed(59)],['Exbabel Pro',fixed(99)],['Exbabel Unlimited',fixed(299)], ...scenario.rows.map(([label,price]):Row=>[name+' · '+label,price])];
   return <div className="my-6">
+    <div className="grid gap-4 md:grid-cols-2">
     <div className="rounded-3xl bg-[#293bc7] p-6 text-white sm:p-9">
       <p className="text-sm font-semibold">Exbabel Starter · eight live hours</p>
       <p className="my-2 text-5xl font-bold tracking-tight">$59</p>
       <p>One language or five. Every Exbabel subscription includes unlimited simultaneous output languages within its supported catalog.</p>
     </div>
+    <div className="rounded-3xl bg-slate-100 p-6 sm:p-9">
+      <p className="text-sm font-semibold">{name}</p>
+      <p className="my-2 text-4xl font-bold tracking-tight">{slug === 'glossa' ? '$99' : headline}</p>
+      <p>{slug === 'glossa' ? 'Standard covers eight live hours in three languages.' : detail}</p>
+    </div></div>
     <h3 className="mt-8 text-xl font-bold">Four Sundays, two hours each</h3>
     <p className="my-3 text-sm text-slate-600">Estimated charges before tax, after trials, for one room. Each selected output runs for all eight hours. Exbabel Starter includes six hours for $39 plus two hours at $10 each.</p>
     <div className="overflow-x-auto"><table className="w-full min-w-[570px] text-left text-sm [&_th]:p-3 [&_td]:p-3 [&_tr]:border-b">
