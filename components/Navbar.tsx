@@ -260,8 +260,11 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                         href="/research/" 
                         onClick={() => setIsResourcesOpen(false)}
                         title="Exbabel Research"
-                        description="Translation quality and latency studies"
                       />
+                      <div className="mx-4 mb-2 border-l border-indigo-100 pl-2">
+                        <DropdownItem href="/lab-test/" onClick={() => setIsResourcesOpen(false)} title="Wordly vs Exbabel Latency Benchmark" />
+                        <DropdownItem href="/research/un-speech-translation/" onClick={() => setIsResourcesOpen(false)} title="UN General Debate Translation Study" />
+                      </div>
                       <ComparisonMenu onNavigate={() => setIsResourcesOpen(false)} />
                       <DropdownItem 
                         href="/blog" 
@@ -407,6 +410,10 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 py-1">Resources</div>
                   <Link href="/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">How It Works</Link>
                   <Link href="/research/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Exbabel Research</Link>
+                  <div className="ml-3 space-y-1 border-l border-indigo-100 pl-3 text-sm font-semibold text-slate-700">
+                    <Link href="/lab-test/" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-indigo-50">Wordly vs Exbabel Latency Benchmark</Link>
+                    <Link href="/research/un-speech-translation/" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-indigo-50">UN General Debate Translation Study</Link>
+                  </div>
                   <ComparisonMenu onNavigate={() => setIsMobileMenuOpen(false)} />
                   <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Blog</Link>
                   <a href={pathname === '/' ? "#pricing" : "/#pricing"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Pricing</a>

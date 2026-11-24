@@ -3,7 +3,17 @@ import { comparisons, comparisonHref } from '@/lib/comparisons';
 
 export default function ComparisonMenu({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <details className="group/comparisons px-3">
+    <details
+      className="group/comparisons px-3"
+      onPointerEnter={event => {
+        if (event.pointerType === 'mouse') event.currentTarget.open = true;
+      }}
+      onPointerLeave={event => {
+        if (event.pointerType === 'mouse' && !event.currentTarget.contains(document.activeElement)) {
+          event.currentTarget.open = false;
+        }
+      }}
+    >
       <summary className="cursor-pointer rounded-xl px-3 py-2.5 text-sm font-bold text-slate-900 hover:bg-slate-50 hover:text-primary">
         Comparisons
       </summary>
