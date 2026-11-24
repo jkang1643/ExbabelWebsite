@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { comparisons, comparisonHref } from "@/lib/comparisons";
 
 export default function Footer() {
   const links = {
@@ -56,7 +57,7 @@ export default function Footer() {
       />
 
       <div className="p-10 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_repeat(4,minmax(0,1fr))_minmax(0,2.5fr)] gap-8">
           <motion.nav
             initial={{ y: 20 }}
             whileInView={{ y: 0 }}
@@ -102,6 +103,20 @@ export default function Footer() {
               </div>
             </motion.nav>
           ))}
+          <nav id="comparisons" aria-labelledby="footer-comparisons">
+            <h4 id="footer-comparisons" className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
+              <Link href="/compare/" className="hover:underline">Comparisons</Link>
+            </h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {comparisons.map(({ name, slug }) => (
+                <li key={slug}>
+                  <Link href={comparisonHref(slug)} className="text-sm text-slate-600 hover:text-primary hover:underline">
+                    Exbabel vs {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
 

@@ -249,7 +249,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                       animate={{ y: 0, scale: 1 }}
                       exit={{ y: 8, scale: 0.96 }}
                       transition={{ duration: churchPage && reduceMotion ? 0 : 0.15 }}
-                      className="absolute top-full -left-2 w-64 max-h-[min(80vh,38rem)] overflow-y-auto bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
+                      className="absolute top-full -left-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2.5 z-50 origin-top-left"
                     >
                       <DropdownItem 
                         href="/how-it-works" 
