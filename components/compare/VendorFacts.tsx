@@ -8,7 +8,9 @@ type Vendor = {
 };
 const facts: Record<string, Vendor> = research;
 const criteria = [
+  ['languageCatalog', 'Supported languages'],
   ['simultaneous', 'Simultaneous target languages per session'],
+  ['billingUnit', 'How translation time is billed'],
   ['captions', 'Live translated captions'],
   ['audio', 'Live translated audio'],
   ['input', 'Supported speaker languages'],
@@ -36,20 +38,20 @@ export default function VendorFacts({ slug, name }: { slug: string; name: string
   return <>
     <section id="features" className="mt-9 scroll-mt-28">
       <h2 className="mb-3 text-2xl font-bold tracking-tight">Exbabel and {name} side by side</h2>
-      <p className="mb-4 text-sm leading-6 text-slate-600">Based on provider documentation reviewed November 23, 2026. Capabilities can vary by plan, language and mode.</p>
+      <p className="mb-4 text-sm leading-6 text-slate-600">Language coverage, simultaneous limits, billing and prices were checked against provider documentation on November 25, 2026. Capabilities can vary by plan and output mode.</p>
       <div className="overflow-auto rounded-xl border border-slate-200 bg-white">
         <table className={tableClass}>
           <thead className="bg-indigo-50"><tr><th scope="col">Feature</th><th scope="col" className="rounded-t-xl border-x border-t border-indigo-300 text-indigo-700">Exbabel</th><th scope="col">{name}</th></tr></thead>
-          <tbody>{criteria.filter(([key]) => exbabel.features[key] && (key === 'simultaneous' || competitor.features[key])).map(([key, label]) => <tr key={key} className={key === "simultaneous" ? "font-semibold" : undefined}>
+          <tbody>{criteria.filter(([key]) => exbabel.features[key] && competitor.features[key]).map(([key, label]) => <tr key={key} className={["simultaneous", "billingUnit"].includes(key) ? "font-semibold" : undefined}>
             <th scope="row" className="w-1/4">{label}</th>
             <td className="w-[37.5%] border-x border-indigo-300 bg-indigo-50/40"><FactCell fact={exbabel.features[key]} /></td>
-            <td>{competitor.features[key] ? <FactCell fact={competitor.features[key]} /> : 'Per-session limit unverified'}</td>
+            <td><FactCell fact={competitor.features[key]} /></td>
           </tr>)}</tbody>
         </table>
       </div>
     </section>
     <section id="pricing" className="mt-10 scroll-mt-28">
-      <h2 className="mb-3 text-2xl font-bold tracking-tight">What eight hours of translation costs</h2>
+      <h2 className="mb-3 text-2xl font-bold tracking-tight">Pricing and usage examples</h2>
       <ServiceCosts slug={slug} name={name} />
       <p className="mb-4 text-sm leading-6 text-slate-600">Published prices and allowances are listed with their billing units. Confirm the current checkout terms for your location and usage.</p>
       <div className="grid gap-4 md:grid-cols-2">

@@ -576,12 +576,9 @@ export default function ChurchTranslationSystemArticle() {
               <p>
                 Traditional systems may include interpreter fees, receivers, transmitters,
                 headphones, installation, and maintenance.{" "}
-                <Link href="/live">Exbabel Live</Link> is listed at{" "}
-                <a href="https://app.exbabel.com/translate/checkout?plan=starter">
-                  $29 per month
-                </a>{" "}
-                plus $10 per hour per language. Other plans include different live and solo
-                hour allowances.
+                <Link href="/pricing/">Exbabel Church Starter</Link> is $39 per month with six
+                live hours and unlimited simultaneous supported languages. When overage is enabled,
+                additional usage is $10 per broadcast hour.
               </p>
               <p>
                 Compare your current interpreter and hardware costs with the number of

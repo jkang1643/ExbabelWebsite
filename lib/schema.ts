@@ -225,7 +225,7 @@ export const HOME_FAQ_DATA: { question: string; answer: string }[] = [
   {
     question: "How much does Exbabel cost, and is there a free trial?",
     answer:
-      "Exbabel offers three transparent plans: Starter at $39/month (6 live hours, 60 premium languages, 30-day free trial), Pro at $99/month (12 live hours, 90 premium languages, 50% faster streaming), and Unlimited at $299/month (36 live hours, ElevenLabs neural voice cloning). All plans include unlimited attendees per session and an affordable usage rate of $10/hour per language.",
+      "Church plans start at $39/month for six live hours on Starter, with a 30-day free trial. Pro is $99/month for 15 live hours and Unlimited is $299/month for 36 live hours. Every plan supports unlimited simultaneous languages. A live hour counts once regardless of how many languages are active, and additional usage costs $10 per broadcast hour when overage is enabled.",
   },
   {
     question: "Do attendees need to download an app or create an account to listen?",

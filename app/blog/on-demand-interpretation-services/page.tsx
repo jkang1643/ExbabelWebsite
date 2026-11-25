@@ -545,7 +545,7 @@ export default function OnDemandInterpretationArticle() {
                   <tbody>
                     {[
                       ["Hardware Required", "Booths, headsets, receivers, technician", "Smartphone the attendee already owns"],
-                      ["Cost", "$200–$400+/hr per language", "$39/mo Starter plan + $10/hr per language"],
+                      ["Cost", "$200–$400+/hr per language", "$39/mo Church Starter + $10 per extra broadcast hour when enabled"],
                       ["Languages", "1–2 per interpreter", "180+ simultaneously"],
                       ["Availability", "Advance booking with minimums", "Instant, 24/7, no scheduling"],
                       ["Setup Time", "2–4 hour tech rehearsal", "Under 5 minutes"],

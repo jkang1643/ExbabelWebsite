@@ -21,11 +21,11 @@ export default function PricingPage() {
         <ChurchLanguageAccess />
         <section className={`${styles.wrap} ${styles.pricingExplore}`} aria-labelledby="pricing-explore-title">
           <h2 id="pricing-explore-title">Compare church translation options</h2>
-          <p>Compare Exbabel’s unlimited simultaneous languages with other translation platforms. Explore church use cases and compare AI with human interpretation.</p>
+          <p>One hour in three languages uses one Exbabel broadcast hour. Providers that charge by language-hour count the same session as three language-hours.</p>
           <div className={styles.pricingExploreLinks}>
             <Link href="/solutions/church-translation/">Explore church use cases</Link>
             <Link href="/blog/church-interpreter-vs-ai-translation/">Compare AI and human interpretation</Link>
-            <Link href="/compare/">Compare translation platforms</Link>
+            <Link href="/compare/#language-hour-billing">See who charges per language-hour</Link>
           </div>
         </section>
       </main>

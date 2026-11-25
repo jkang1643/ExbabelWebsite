@@ -55,7 +55,7 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
             ))}
           </ul>
           <p className={styles.pricingNote}>
-            Additional usage billed at $10/hour per language. 30-day free trial available on Starter plan.{" "}
+            One hour in three languages uses one live hour. Additional usage is $10 per broadcast hour when overage is enabled. Starter includes a 30-day free trial.{" "}
             {surface === "church" && <Link prefetch={false} href="/pricing/">Full pricing details ↗</Link>}
           </p>
 
@@ -81,6 +81,12 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
                     <td><span className={styles.tableBadge}>Unlimited</span></td>
                     <td><span className={styles.tableBadgeFeatured}>Unlimited</span></td>
                     <td><span className={styles.tableBadge}>Unlimited</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">How live hours are counted</th>
+                    <td>Per broadcast hour</td>
+                    <td>Per broadcast hour</td>
+                    <td>Per broadcast hour</td>
                   </tr>
                   <tr>
                     <td>Live Hours / Month</td>
