@@ -1,0 +1,46 @@
+export const churchPricingPlans = [
+  {
+    id: "starter", name: "Starter", art: "/plan-starter.png", monthlyPrice: 39,
+    hours: 6, annualHours: 72, accentColor: "#10b981",
+    highlighted: false, checkout: "https://app.exbabel.com/translate/checkout?plan=starter", cta: "Start free trial",
+    features: [
+      <>1 Weekly Sunday Service</>,
+      <>Community Outreach Meetings</>,
+      <>Midweek Bible Study</>,
+      <>Volunteer Onboarding</>,
+      <><strong>90+</strong> Spoken Voice Languages</>,
+      <><strong>180+</strong> Live Caption Languages</>,
+      <>Customizable Church Glossaries</>,
+      <>30-Day Free Trial</>,
+    ],
+  },
+  {
+    id: "pro", name: "Pro", art: "/plan-pro.jpg", monthlyPrice: 99,
+    hours: 15, annualHours: 180, accentColor: "#3b82f6",
+    highlighted: true, checkout: "https://app.exbabel.com/translate/checkout?plan=pro", cta: "Get started",
+    features: [
+      <>Multiple Weekly Services</>,
+      <>Youth &amp; Children’s Services</>,
+      <>Ministry Staff Meetings</>,
+      <><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</>,
+      <>Priority WebRTC Low-Latency Audio</>,
+      <>Post-Sermon Multilingual Transcripts</>,
+      <>AI Sermon Summaries &amp; Study Notes</>,
+    ],
+  },
+  {
+    id: "unlimited", name: "Unlimited", art: "/plan-unlimited.jpg", monthlyPrice: 299,
+    hours: 36, annualHours: 432, accentColor: "#8b5cf6",
+    highlighted: false, checkout: "https://app.exbabel.com/translate/checkout?plan=unlimited", cta: "Get started",
+    features: [
+      <>Multiple Campuses &amp; Large Sanctuaries</>,
+      <><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</>,
+      <>Voice Cloning (Pastor Voice Match)</>,
+      <>Conference &amp; Revival Event Support</>,
+      <>Video Subtitles &amp; Dubbing</>,
+      <>Livestream Captions &amp; Broadcasts</>,
+      <>Dedicated AV Specialist Onboarding</>,
+      <>SSO Access Included</>,
+    ],
+  },
+];

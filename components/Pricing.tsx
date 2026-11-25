@@ -1,21 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import { churchPricingPlans } from "@/components/church/churchPricingPlans";
 import Link from "next/link";
 import styles from "@/app/solutions/church-translation/page.module.css";
 import { capturePostHogEvent } from "@/lib/posthog-client";
 
-export default function Pricing({ surface = "home" }: { surface?: "home" | "church" | "pricing" }) {
+export default function Pricing({ surface = "church" }: { surface?: "church" | "pricing" }) {
   const Title = surface === "pricing" ? "h1" : "h2";
   return (
     <section
-      id={surface === "home" ? "pricing" : undefined}
-      className={surface === "home" ? `${styles.page} ${styles.planningBand}` : styles.planningBand}
+      className={styles.planningBand}
       aria-labelledby="pricing-title"
     >
       <div className={styles.wrap}>
         <div className={styles.planningContainer}>
-          {surface === "home" ? <h2 id="pricing-title" className="sr-only">Church &amp; House of Worship Packages</h2> : <div className={styles.planningHeader}>
+          <div className={styles.planningHeader}>
             <Title id="pricing-title">
               Church &amp; House of Worship Packages
             </Title>
@@ -23,96 +23,35 @@ export default function Pricing({ surface = "home" }: { surface?: "home" | "chur
               Flexible packages designed to cover 12 months of Exbabel usage across a wide range of services, meetings, and campus types.
               You can expand your package at any time during the year as your multilingual congregation grows. Volume discounts apply to all packages.
             </p>
-          </div>}
+          </div>
 
           {/* Full-width 3-column pricing cards */}
           <ul className={styles.pricingCards} aria-label="Exbabel packages for churches">
-            <li className={styles.pricingCard} data-plan="starter">
-              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-starter.png" alt="" width={80} height={58} /><span><small>1 — PLAN</small>Starter</span></h3>
-              <strong className={styles.planPrice}>$39<span>/mo</span></strong>
-              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
-                6 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~72 hrs/yr)</span>
-              </div>
-              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
-                Sample Meeting Types:
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>1 Weekly Sunday Service</li>
-                <li>Community Outreach Meetings</li>
-                <li>Midweek Bible Study</li>
-                <li>Volunteer Onboarding</li>
-                <li><strong>90+</strong> Spoken Voice Languages</li>
-                <li><strong>180+</strong> Live Caption Languages</li>
-                <li>Customizable Church Glossaries</li>
-                <li>30-Day Free Trial</li>
-              </ul>
-              <Link
-                prefetch={false}
-                href="https://app.exbabel.com/translate/checkout?plan=starter"
-                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "starter", billing_interval: "monthly", is_recommended: false })}
-                className={styles.planCta}
-              >
-                Start free trial
-              </Link>
-            </li>
-            <li className={styles.pricingCard + " " + styles.pricingCardFeatured} data-plan="pro">
-              <span className={styles.planBadge}>Most popular</span>
-              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-pro.jpg" alt="" width={80} height={58} /><span><small>2 — PLAN</small>Pro</span></h3>
-              <strong className={styles.planPrice}>$99<span>/mo</span></strong>
-              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
-                15 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~180 hrs/yr)</span>
-              </div>
-              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
-                Sample Meeting Types:
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>Multiple Weekly Services</li>
-                <li>Youth &amp; Children’s Services</li>
-                <li>Ministry Staff Meetings</li>
-                <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
-                <li>Priority WebRTC Low-Latency Audio</li>
-                <li>Post-Sermon Multilingual Transcripts</li>
-                <li>AI Sermon Summaries &amp; Study Notes</li>
-              </ul>
-              <Link
-                prefetch={false}
-                href="https://app.exbabel.com/translate/checkout?plan=pro"
-                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "pro", billing_interval: "monthly", is_recommended: true })}
-                className={styles.planCta}
-              >
-                Get started
-              </Link>
-            </li>
-            <li className={styles.pricingCard} data-plan="unlimited">
-              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-unlimited.jpg" alt="" width={80} height={58} /><span><small>3 — PLAN</small>Unlimited</span></h3>
-              <strong className={styles.planPrice}>$299<span>/mo</span></strong>
-              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
-                36 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~432 hrs/yr)</span>
-              </div>
-              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
-                Sample Meeting Types:
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>Multiple Campuses &amp; Large Sanctuaries</li>
-                <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
-                <li>Voice Cloning (Pastor Voice Match)</li>
-                <li>Conference &amp; Revival Event Support</li>
-                <li>Video Subtitles &amp; Dubbing</li>
-                <li>Livestream Captions &amp; Broadcasts</li>
-                <li>Dedicated AV Specialist Onboarding</li>
-                <li>SSO Access Included</li>
-              </ul>
-              <Link
-                prefetch={false}
-                href="https://app.exbabel.com/translate/checkout?plan=unlimited"
-                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "unlimited", billing_interval: "monthly", is_recommended: false })}
-                className={styles.planCta}
-              >
-                Get started
-              </Link>
-            </li>
+            {churchPricingPlans.map((plan, index) => (
+              <li key={plan.id} className={`${styles.pricingCard}${plan.highlighted ? ` ${styles.pricingCardFeatured}` : ""}`} data-plan={plan.id}>
+                {plan.highlighted && <span className={styles.planBadge}>Most popular</span>}
+                <h3 className={styles.planName}>
+                  <Image className={styles.planArt} src={plan.art} alt="" width={80} height={58} />
+                  <span><small>{index + 1} — PLAN</small>{plan.name}</span>
+                </h3>
+                <strong className={styles.planPrice}>${plan.monthlyPrice}<span>/mo</span></strong>
+                <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
+                  {plan.hours} Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~{plan.annualHours} hrs/yr)</span>
+                </div>
+                <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
+                  Sample Meeting Types:
+                </div>
+                <ul className={styles.planFeatures}>
+                  {plan.features.map((feature, featureIndex) => <li key={featureIndex}>{feature}</li>)}
+                </ul>
+                <Link prefetch={false} href={plan.checkout}
+                  onClick={() => capturePostHogEvent("checkout_started", { plan_name: plan.id, billing_interval: "monthly", is_recommended: plan.highlighted })}
+                  className={styles.planCta}>
+                  {plan.cta}
+                </Link>
+              </li>
+            ))}
           </ul>
-          {surface !== "home" && <>
           <p className={styles.pricingNote}>
             Additional usage billed at $10/hour per language. 30-day free trial available on Starter plan.{" "}
             {surface === "church" && <Link prefetch={false} href="/pricing/">Full pricing details ↗</Link>}
@@ -229,7 +168,7 @@ export default function Pricing({ surface = "home" }: { surface?: "home" | "chur
               </table>
             </div>
           </div>
-          </>}
+
 
 
         </div>

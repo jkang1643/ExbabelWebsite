@@ -14,7 +14,7 @@ const InterfacePreview = dynamic(() => import("@/components/InterfacePreview"));
 const WhyChurchesChoose = dynamic(() => import("@/components/WhyChurchesChoose"));
 const VideoLibrarySection = dynamic(() => import("@/components/VideoLibrarySection"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
-const Pricing = dynamic(() => import("@/components/Pricing"));
+const Pricing = dynamic(() => import("@/components/HomePricing"));
 const ImpactStats = dynamic(() => import("@/components/ImpactStats"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const AsSeenOn = dynamic(() => import("@/components/AsSeenOn"));
