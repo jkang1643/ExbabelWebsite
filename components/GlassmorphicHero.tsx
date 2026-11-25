@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import styles from "./GlassmorphicHero.module.css";
 import ExbabelTranslateSVG from "./svg/ExbabelTranslateSVG";
@@ -9,29 +9,18 @@ import ExbabelLiveSVG from "./svg/ExbabelLiveSVG";
 import ExbabelEventsSVG from "./svg/ExbabelEventsSVG";
 
 const scenes: readonly {
-  title: string; graphic: ReactNode; alt: string; color: string; accent: string;
-  language: string; translation: string; source: string;
+  title: string; graphic: ReactNode; tone: "blue" | "violet" | "green";
 }[] = [
   {
-    title: "Exbabel Translate", graphic: <ExbabelTranslateSVG />,
-    alt: "Exbabel Translate host dashboard with session sharing and broadcasting controls.",
-    color: "#ace5fa", accent: "#254bd9", language: "Español",
-    translation: "Cada voz importa.", source: "Every voice matters.",
+    title: "Exbabel Translate", tone: "blue", graphic: <ExbabelTranslateSVG />,
   },
   {
-    title: "Exbabel Live", graphic: <ExbabelLiveSVG />,
-    alt: "Exbabel Live streaming interface with real-time subtitles and speaker video.",
-    color: "#d5c4fa", accent: "#6740c8", language: "Français",
-    translation: "Bienvenue à tous.", source: "Everyone is welcome.",
+    title: "Exbabel Live", tone: "violet", graphic: <ExbabelLiveSVG />,
   },
   {
-    title: "Exbabel Events", graphic: <ExbabelEventsSVG />,
-    alt: "Exbabel Events dashboard with event management and translation tools.",
-    color: "#bdebd5", accent: "#087650", language: "Español",
-    translation: "Cada voz importa.", source: "Every voice matters.",
+    title: "Exbabel Events", tone: "green", graphic: <ExbabelEventsSVG />,
   },
 ];
-const taglineWords = ["One service.", "Every language.", "Understood.", "Connected."] as const;
 const churches = ["Houston Apostolic Church", "Lighthouse Pentecostal Church", "Lighthouse Church", "1st Baptist Church of Houston"] as const;
 
 function Arrow({ back = false }: { back?: boolean }) {
@@ -40,17 +29,8 @@ function Arrow({ back = false }: { back?: boolean }) {
   </svg>;
 }
 
-function Waveform() {
-  return <div className={styles.waveform} aria-hidden="true">
-    {[12, 20, 13, 30, 43, 24, 37, 50, 31, 18, 38, 55, 34, 24, 43, 28, 15, 31, 45, 22, 13, 20, 10].map((height, i) =>
-      <i key={i} style={{ height, animationDelay: `${i * -0.09}s` }} />
-    )}
-  </div>;
-}
-
 export default function GlassmorphicHero() {
   const [active, setActive] = useState(0);
-  const [taglineIndex, setTaglineIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -80,59 +60,30 @@ export default function GlassmorphicHero() {
     return () => window.clearInterval(timer);
   }, [playing, active]);
 
-  useEffect(() => {
-    if (reduceMotion !== false || !visible) return;
-    const timer = window.setInterval(() => setTaglineIndex(current => (current + 1) % taglineWords.length), 3000);
-    return () => window.clearInterval(timer);
-  }, [reduceMotion, visible]);
-
   const select = (index: number) => {
     setActive((index + scenes.length) % scenes.length);
     setPaused(true);
   };
 
   return (
-    <section className={styles.hero} aria-labelledby="hero-title" style={{ "--scene-color": scene.color, "--scene-accent": scene.accent } as CSSProperties}>
-      <div className={styles.ambient} aria-hidden="true">
-        {scenes.map((item, index) => <div key={item.title} className={styles.colorWash} style={{ background: item.color, opacity: index === active ? 1 : 0 }} />)}
-      </div>
+    <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.copy}>
-        <p className={styles.tagline}>
-          <span>Every voice.</span>{" "}
-          <span className={styles.rotatingWords} aria-hidden="true">
-            {taglineWords.map(word => <span key={word} className={styles.wordSizer}>{word}</span>)}
-            <AnimatePresence initial={false} mode="wait">
-              <motion.span key={reduceMotion ? "static" : taglineIndex} className={styles.rotatingWord}
-                initial={{ y: "100%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}>
-                {taglineWords[reduceMotion ? 0 : taglineIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-          <span className={styles.srOnly}>One service.</span>
-        </p>
-        <h1 id="hero-title" className={styles.title}>
+        <h1 id="hero-title" className={`${styles.title} homepage-section-title`}>
           <span className={styles.titleLead}>AI Church Translation System</span>{" "}
-          <span className={styles.titleSupport}>for Live Sermons and Services</span>
+          <span className={styles.titleSupport}>for <span className={styles.titleAccent}>Live Sermons and Services</span></span>
         </h1>
         <p className={styles.description}>
           Translate sermons into multiple languages with live AI audio and captions. Your congregation listens on their phones—no special receivers or app downloads required.
         </p>
         <div className={styles.actions}>
-          <Link href="/demo" className={`${styles.primary} premium-action`}>Book a Consultation <Arrow /></Link>
-          <Link href="https://app.exbabel.com/translate/checkout?plan=starter" className={`${styles.secondary} premium-action premium-action--quiet`}>Start Free 30-Day Trial <Arrow /></Link>
+          <Link href="/demo" className={styles.primary}>Book a Consultation <Arrow /></Link>
+          <Link href="https://app.exbabel.com/translate/checkout?plan=starter" className={styles.secondary}>Start Free 30-Day Trial <Arrow /></Link>
         </div>
         <div className={styles.trust}>
           <p>Trusted by top churches</p>
-          <div className={styles.churchViewport}>
-            <div className={styles.churchTrack}>
-              {[0, 1].map(copy => (
-                <div key={copy} className={styles.churchGroup} aria-hidden={copy === 1 ? true : undefined}>
-                  {churches.map(church => <span key={church}><i aria-hidden="true" />{church}</span>)}
-                </div>
-              ))}
-            </div>
-          </div>
+          <ul className={styles.churches} role="list">
+            {churches.map(church => <li key={church}>{church}</li>)}
+          </ul>
         </div>
       </div>
 
@@ -159,23 +110,18 @@ export default function GlassmorphicHero() {
           {scenes.map((item, index) => {
             const offset = (index - active + scenes.length) % scenes.length;
             const position = offset === 0 ? "center" : offset === 1 ? "right" : "left";
-            return <div key={item.title} className={styles.slide} data-position={position} role="group" aria-roledescription="slide"
+            return <div key={item.title} className={styles.slide} data-position={position} data-tone={item.tone} role="group" aria-roledescription="slide"
               aria-label={`${index + 1} of ${scenes.length}: ${item.title}`} aria-hidden={index !== active}>
               <div className={styles.artwork}>{item.graphic}</div>
             </div>;
           })}
-          <div className={styles.audioCard} aria-hidden="true">
-            <div className={styles.cardEyebrow}><span className={styles.audioIcon}>♪</span> {scene.title}</div>
-            <Waveform />
-            <div className={styles.cardFooter}><span className={styles.liveDot} /> {scene.language} <span>Live</span></div>
-          </div>
         </div>
         <div className={styles.controls}>
           <button className={styles.arrowButton} type="button" onClick={() => select(active - 1)} aria-label="Previous scene"><Arrow back /></button>
           <div className={styles.sceneButtons} aria-label="Choose a scene">
             {scenes.map((item, index) =>
               <button key={item.title} type="button" aria-pressed={index === active} onClick={() => select(index)} className={index === active ? styles.selectedScene : undefined}>
-                <span className={styles.sceneDot} /><span>{item.title}</span>
+                {item.title}
               </button>
             )}
           </div>
@@ -186,7 +132,6 @@ export default function GlassmorphicHero() {
               : <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4v12M13 4v12" stroke="currentColor" strokeWidth="2.5" /></svg>}
           </button>}
         </div>
-        <p className={styles.illustrationNote}>Exbabel product interfaces</p>
         <span className={styles.srOnly} aria-live={playing ? "off" : "polite"} aria-atomic="true">{scene.title}, scene {active + 1} of {scenes.length}</span>
       </div>
     </section>
