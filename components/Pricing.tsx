@@ -1,315 +1,236 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
 import Image from "next/image";
-import styles from "./Pricing.module.css";
-import { appRoutes } from "@/lib/config";
+import Link from "next/link";
+import styles from "@/app/solutions/church-translation/page.module.css";
 import { capturePostHogEvent } from "@/lib/posthog-client";
 
-export default function Pricing() {
-  const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
-  const [selectedPlan, setSelectedPlan] = useState<string>("pro");
-
-  const plans = [
-    {
-      name: "Starter",
-      art: "/plan-starter.png",
-      monthlyPrice: 39,
-      annualPrice: 375,
-      description: "Everything you need to start translating live services",
-      features: [
-        { text: "6 hours live + 10 hours solo included", icon: "✓" },
-        { text: "60 premium languages with voices (TTS)", icon: "✓" },
-        { text: "200+ languages", icon: "✓" },
-        { text: "Unlimited simultaneous languages", icon: "✓" },
-        { text: "Email & phone support", icon: "✓" },
-        { text: "30-day free trial", icon: "✓" },
-        { text: "Additional hours: $10/hour", icon: "✓" },
-      ],
-      cta: "Start Free Trial",
-      highlighted: false,
-      badge: "30-DAY TRIAL INCLUDED",
-      accentColor: "#10b981",
-      signupUrl: (interval: string) =>
-        `${appRoutes.pricingStarter}${interval === "yearly" ? "&billing=yearly" : ""}`,
-    },
-    {
-      name: "Pro",
-      art: "/plan-pro.jpg",
-      monthlyPrice: 99,
-      annualPrice: 950,
-      description: "More hours, more voices, faster translation",
-      features: [
-        { text: "12 hours live + 20 hours solo included", icon: "✓" },
-        { text: "90 premium languages with voices (TTS)", icon: "✓" },
-        { text: "250+ languages & dialects", icon: "✓" },
-        { text: "Unlimited simultaneous languages", icon: "✓" },
-        { text: "50% faster translation", icon: "✓" },
-        { text: "24/7 support", icon: "✓" },
-        { text: "Additional hours: $10/hour", icon: "✓" },
-      ],
-      cta: "Get Pro",
-      highlighted: true,
-      accentColor: "#3b82f6",
-      signupUrl: (interval: string) =>
-        `${appRoutes.pricingPro}${interval === "yearly" ? "&billing=yearly" : ""}`,
-    },
-    {
-      name: "Unlimited",
-      art: "/plan-unlimited.jpg",
-      monthlyPrice: 299,
-      annualPrice: 2900,
-      description: "No limits. World-class voices. White-glove service.",
-      features: [
-        { text: "36 hours live included + unlimited solo hours", icon: "✓" },
-        { text: "60 premium languages with voices (TTS)", icon: "✓" },
-        { text: "90 premium languages with voices (TTS)", icon: "✓" },
-        { text: "75 world-class life-like languages with voices (ElevenLabs)", icon: "✓" },
-        { text: "250+ languages & dialects", icon: "✓" },
-        { text: "Unlimited simultaneous languages", icon: "✓" },
-        { text: "Fastest translation speed", icon: "✓" },
-        { text: "24/7 priority + personal onboarding", icon: "✓" },
-        { text: "Custom branding & voice cloning", icon: "✓" },
-        { text: "Additional hours: $10/hour", icon: "✓" },
-      ],
-      cta: "Get Unlimited",
-      highlighted: false,
-      accentColor: "#8b5cf6",
-      signupUrl: (interval: string) =>
-        `${appRoutes.pricingUnlimited}${interval === "yearly" ? "&billing=yearly" : ""}`,
-    },
-  ];
-
-  const isYearly = billingInterval === "yearly";
-
+export default function Pricing({ surface = "home" }: { surface?: "home" | "church" }) {
   return (
-    <section id="pricing" className="py-20 px-6 bg-base-100 relative overflow-hidden">
-      {/* Background blobs — static */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl opacity-30"
-          style={{ background: 'radial-gradient(circle, #7C3AED35 0%, #7C3AED18 50%, transparent 70%)' }} />
-        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-25"
-          style={{ background: 'radial-gradient(circle, #2563EB30 0%, #2563EB15 50%, transparent 70%)' }} />
-      </div>
+    <section
+      id={surface === "home" ? "pricing" : undefined}
+      className={surface === "home" ? `${styles.page} ${styles.planningBand}` : styles.planningBand}
+      aria-labelledby="pricing-title"
+    >
+      <div className={styles.wrap}>
+        <div className={styles.planningContainer}>
+          <div className={styles.planningHeader}>
+            <h2 id="pricing-title">
+              Church &amp; House of Worship Packages
+            </h2>
+            <p className={styles.planningIntro}>
+              Flexible packages designed to cover 12 months of Exbabel usage across a wide range of services, meetings, and campus types.
+              You can expand your package at any time during the year as your multilingual congregation grows. Volume discounts apply to all packages.
+            </p>
+          </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="homepage-section-title text-4xl md:text-5xl font-bold mb-4 text-base-content tracking-[0.015em]" style={{ fontFamily: "var(--font-sora), sans-serif" }}>
-            Select Your Plan
-          </h2>
-          <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
-            Real-time AI translation for churches and organizations of every size.
+          {/* Full-width 3-column pricing cards */}
+          <ul className={styles.pricingCards} aria-label="Exbabel packages for churches">
+            <li className={styles.pricingCard} data-plan="starter">
+              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-starter.png" alt="" width={80} height={58} /><span><small>1 — PLAN</small>Starter</span></h3>
+              <strong className={styles.planPrice}>$39<span>/mo</span></strong>
+              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
+                6 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~72 hrs/yr)</span>
+              </div>
+              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
+                Sample Meeting Types:
+              </div>
+              <ul className={styles.planFeatures}>
+                <li>1 Weekly Sunday Service</li>
+                <li>Community Outreach Meetings</li>
+                <li>Midweek Bible Study</li>
+                <li>Volunteer Onboarding</li>
+                <li><strong>90+</strong> Spoken Voice Languages</li>
+                <li><strong>180+</strong> Live Caption Languages</li>
+                <li>Customizable Church Glossaries</li>
+                <li>30-Day Free Trial</li>
+              </ul>
+              <Link
+                prefetch={false}
+                href="https://app.exbabel.com/translate/checkout?plan=starter"
+                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "starter", billing_interval: "monthly", is_recommended: false })}
+                className={styles.planCta}
+              >
+                Start free trial
+              </Link>
+            </li>
+            <li className={styles.pricingCard + " " + styles.pricingCardFeatured} data-plan="pro">
+              <span className={styles.planBadge}>Most popular</span>
+              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-pro.jpg" alt="" width={80} height={58} /><span><small>2 — PLAN</small>Pro</span></h3>
+              <strong className={styles.planPrice}>$99<span>/mo</span></strong>
+              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
+                15 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~180 hrs/yr)</span>
+              </div>
+              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
+                Sample Meeting Types:
+              </div>
+              <ul className={styles.planFeatures}>
+                <li>Multiple Weekly Services</li>
+                <li>Youth &amp; Children’s Services</li>
+                <li>Ministry Staff Meetings</li>
+                <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
+                <li>Priority WebRTC Low-Latency Audio</li>
+                <li>Post-Sermon Multilingual Transcripts</li>
+                <li>AI Sermon Summaries &amp; Study Notes</li>
+              </ul>
+              <Link
+                prefetch={false}
+                href="https://app.exbabel.com/translate/checkout?plan=pro"
+                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "pro", billing_interval: "monthly", is_recommended: true })}
+                className={styles.planCta}
+              >
+                Get started
+              </Link>
+            </li>
+            <li className={styles.pricingCard} data-plan="unlimited">
+              <h3 className={styles.planName}><Image className={styles.planArt} src="/plan-unlimited.jpg" alt="" width={80} height={58} /><span><small>3 — PLAN</small>Unlimited</span></h3>
+              <strong className={styles.planPrice}>$299<span>/mo</span></strong>
+              <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
+                36 Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~432 hrs/yr)</span>
+              </div>
+              <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
+                Sample Meeting Types:
+              </div>
+              <ul className={styles.planFeatures}>
+                <li>Multiple Campuses &amp; Large Sanctuaries</li>
+                <li><strong>90+</strong> Voice &amp; <strong>180+</strong> Caption Languages</li>
+                <li>Voice Cloning (Pastor Voice Match)</li>
+                <li>Conference &amp; Revival Event Support</li>
+                <li>Video Subtitles &amp; Dubbing</li>
+                <li>Livestream Captions &amp; Broadcasts</li>
+                <li>Dedicated AV Specialist Onboarding</li>
+                <li>SSO Access Included</li>
+              </ul>
+              <Link
+                prefetch={false}
+                href="https://app.exbabel.com/translate/checkout?plan=unlimited"
+                onClick={() => capturePostHogEvent("checkout_started", { plan_name: "unlimited", billing_interval: "monthly", is_recommended: false })}
+                className={styles.planCta}
+              >
+                Get started
+              </Link>
+            </li>
+          </ul>
+          <p className={styles.pricingNote}>
+            Additional usage billed at $10/hour per language. 30-day free trial available on Starter plan.{" "}
+            <Link prefetch={false} href={surface === "home" ? "/solutions/church-translation/#pricing-title" : "/#pricing"}>
+              Full pricing details ↗
+            </Link>
           </p>
 
-
-          {/* Monthly / Annual Toggle */}
-          <div className="inline-flex bg-base-200 rounded-full p-1 gap-0">
-            <button
-              onClick={() => setBillingInterval("monthly")}
-              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${billingInterval === "monthly"
-                ? "bg-white text-base-content shadow-md"
-                : "text-base-content/60 hover:text-base-content/80"
-                }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingInterval("yearly")}
-              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${billingInterval === "yearly"
-                ? "bg-white text-base-content shadow-md"
-                : "text-base-content/60 hover:text-base-content/80"
-                }`}
-            >
-              Annual
-              <span className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                20% OFF
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {plans.map((plan, index) => {
-            const isActive = selectedPlan === plan.name.toLowerCase();
-            return (
-              <div
-                key={index}
-                onClick={() => {
-                  setSelectedPlan(plan.name.toLowerCase());
-                  capturePostHogEvent("pricing_plan_selected", {
-                    plan_name: plan.name.toLowerCase(),
-                    billing_interval: billingInterval,
-                    is_recommended: plan.highlighted,
-                  });
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                <div
-                  className="bg-white md:backdrop-blur-sm transition-all duration-300 h-full rounded-3xl relative"
-                  style={{
-                    borderStyle: "solid",
-                    borderTopWidth: 2,
-                    borderRightWidth: 2,
-                    borderBottomWidth: 2,
-                    borderLeftWidth: 2,
-                    borderTopColor: plan.accentColor,
-                    borderRightColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
-                    borderBottomColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
-                    borderLeftColor: isActive ? plan.accentColor : `${plan.accentColor}66`,
-                    boxShadow: isActive
-                      ? `0 8px 40px ${plan.accentColor}38, 0 2px 8px ${plan.accentColor}18`
-                      : "0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08)",
-                    transform: isActive ? "scale(1.04)" : "scale(1)",
-                  }}
-                >
-                  {/* Popular Badge */}
-                  {plan.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.4)] whitespace-nowrap z-10">
-                      Recommended
-                    </div>
-                  )}
-
-                  {/* Free Trial Badge */}
-                  {plan.badge && !plan.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-10">
-                      {plan.badge}
-                    </div>
-                  )}
-
-                  {/* Selected checkmark */}
-                  {isActive && (
-                    <div
-                      style={{
-                        position: "absolute", top: 14, right: 16,
-                        width: 24, height: 24, background: plan.accentColor,
-                        borderRadius: "50%", display: "flex", alignItems: "center",
-                        justifyContent: "center", color: "white", fontSize: 13,
-                        fontWeight: 700, zIndex: 10,
-                      }}
-                    >
-                      ✓
-                    </div>
-                  )}
-
-                  <div className="p-8 pt-10 flex flex-col h-full">
-                    {/* Plan Name & Description */}
-                    <div style={{ minHeight: "8rem" }}>
-                      <h3 className="flex items-center justify-center gap-3 text-2xl font-bold text-center mb-3" style={{ color: plan.accentColor }}><Image src={plan.art} alt="" width={80} height={80} className="w-20 h-20 shrink-0 object-cover rounded-lg border" style={{ borderColor: `${plan.accentColor}55` }} /><span>{plan.name}</span></h3>
-                      <p className="text-sm text-base-content/60 text-center mb-5">{plan.description}</p>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="text-center mb-5 flex flex-col justify-center" style={{ minHeight: 130 }}>
-                      {isYearly ? (
-                        <>
-                          {plan.name === "Starter" && (
-                            <div className="text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
-                              Free for 30 Days
-                            </div>
-                          )}
-                          {plan.name !== "Starter" && <div className="h-5 mb-1" aria-hidden="true" />}
-                          <div className="text-5xl font-extrabold text-base-content leading-none">
-                            ${plan.annualPrice.toLocaleString()}
-                            <span className="text-lg font-medium text-base-content/70">/yr</span>
-                          </div>
-                          <div className="text-sm text-base-content/50 mt-1">
-                            ~${Math.round(plan.annualPrice / 12)}/mo
-                          </div>
-                          <div className="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 self-center">
-                            Save ${plan.monthlyPrice * 12 - plan.annualPrice}/year
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          {plan.name === "Starter" ? (
-                            <>
-                              <div className="text-xs text-base-content/50 font-semibold mb-1 uppercase tracking-wide">
-                                Free for 30 Days
-                              </div>
-                              <div className="text-5xl font-extrabold text-base-content leading-none">$0</div>
-                              <div className="text-sm font-semibold text-base-content/70 mt-1.5">
-                                then ${plan.monthlyPrice}/mo
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <div className="h-5" aria-hidden="true" />
-                              <div
-                                className="text-5xl font-extrabold text-base-content leading-none"
-                                style={plan.name === "Unlimited" ? { paddingTop: "2rem", paddingBottom: "2rem" } : {}}
-                              >
-                                ${plan.monthlyPrice}
-                                <span className="text-lg font-medium text-base-content/70">/mo</span>
-                              </div>
-                            </>
-                          )}
-                        </>
-                      )}
-                    </div>
-
-                    {/* Divider */}
-                    <div className="w-full h-px bg-base-content/10 mb-5"></div>
-
-                    {/* Features */}
-                    <ul className="space-y-2 mb-6 flex-grow">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2.5 text-sm text-base-content/80">
-                          <span className="text-sm flex-shrink-0 font-semibold" style={{ color: plan.accentColor }}>✓</span>
-                          <span className="leading-relaxed">{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA Button */}
-                    <div className="mt-auto text-center">
-                      <a
-                        href={plan.signupUrl(billingInterval)}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          capturePostHogEvent("checkout_started", {
-                            plan_name: plan.name.toLowerCase(),
-                            billing_interval: billingInterval,
-                            is_recommended: plan.highlighted,
-                          });
-                        }}
-                        className={`${styles.planButton} inline-flex w-full items-center justify-center py-3 rounded-xl font-bold text-center`}
-                        style={{ "--plan-accent": plan.accentColor } as CSSProperties}
-                      >
-                        {plan.cta}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="flex justify-center gap-8 flex-wrap mb-6">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">✓</span>
-            <span className="text-sm text-base-content/70">Secure payment via Stripe</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">Cancel anytime</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-base-content/70">30-day trial on Starter</span>
-          </div>
-        </div>
-
-        {/* Custom Plan CTA */}
-        <div className="text-center">
-          <div className="bg-gradient-to-br from-[#5a5d80]/5 to-white/70 md:backdrop-blur-sm shadow-lg border border-[#5a5d80]/20 inline-block rounded-3xl">
-            <div className="p-8 text-center">
-              <h3 className="text-xl font-bold text-base-content mb-2">Need a custom plan?</h3>
-              <p className="text-base-content/70 mb-4">For organizations with specific requirements, our team will design a tailored deployment.</p>
-              <a href="mailto:support@exbabel.com" className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all">Contact Us</a>
+          {/* ── Packages Comparison Matrix Table ── */}
+          <div className={styles.packagesComparison}>
+            <h3>Feature &amp; Package Comparison</h3>
+            <p className={styles.packagesComparisonSubtitle}>
+              Compare features across all three church packages. Expand hours anytime as your multilingual ministry needs grow.
+            </p>
+            <div className={styles.packagesTableWrap}>
+              <table className={styles.packagesTable}>
+                <thead>
+                  <tr>
+                    <th scope="col">Feature / Capability</th>
+                    <th scope="col" className={styles.starterHeading}>Starter</th>
+                    <th scope="col" className={styles.proHeading}>Pro (Recommended)</th>
+                    <th scope="col" className={styles.unlimitedHeading}>Unlimited</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Live Hours / Month</td>
+                    <td><span className={styles.tableBadge}>6 Hours</span></td>
+                    <td><span className={styles.tableBadgeFeatured}>15 Hours</span></td>
+                    <td><span className={styles.tableBadge}>36 Hours</span></td>
+                  </tr>
+                  <tr>
+                    <td>Annual Hours Included</td>
+                    <td>72 Hours / year</td>
+                    <td>180 Hours / year</td>
+                    <td>432 Hours / year</td>
+                  </tr>
+                  <tr>
+                    <td>Primary Coverage</td>
+                    <td>1 Weekly Service + Bible Study</td>
+                    <td>Multiple Weekly Services + Youth</td>
+                    <td>Multiple Campuses + Broadcasts</td>
+                  </tr>
+                  <tr>
+                    <td>Free Trial Available</td>
+                    <td><span className={styles.checkIcon}>✅ 30-Day Free Trial</span></td>
+                    <td>—</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>Spoken Voice Languages (Audio)</td>
+                    <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                    <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                    <td><span className={styles.checkIcon}>✅ 90+ Languages</span></td>
+                  </tr>
+                  <tr>
+                    <td>Live Caption Languages (Subtitles)</td>
+                    <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
+                    <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
+                    <td><span className={styles.checkIcon}>✅ 180+ Languages</span></td>
+                  </tr>
+                  <tr>
+                    <td>In Person &amp; Virtual (WebRTC)</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                  <tr>
+                    <td>Output Formats</td>
+                    <td>Audio + Live Captions</td>
+                    <td>Audio + Captions + Transcripts</td>
+                    <td>Audio + Captions + Transcripts</td>
+                  </tr>
+                  <tr>
+                    <td>Customizable Glossaries (Biblical Terms)</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Advanced</span></td>
+                  </tr>
+                  <tr>
+                    <td>Volunteer Onboarding &amp; Support</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Priority</span></td>
+                    <td><span className={styles.checkIcon}>✅ Dedicated AV Specialist</span></td>
+                  </tr>
+                  <tr>
+                    <td>Post-Sermon Transcript Translation</td>
+                    <td>—</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                  <tr>
+                    <td>AI Sermon Summaries &amp; Study Notes</td>
+                    <td>—</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                  <tr>
+                    <td>Voice Cloning (Pastor Voice Match)</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                  <tr>
+                    <td>Conference &amp; Revival Event Support</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                  <tr>
+                    <td>SSO Access &amp; Multi-Admin Security</td>
+                    <td>—</td>
+                    <td>Optional add-on</td>
+                    <td><span className={styles.checkIcon}>✅ Included</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+
+
         </div>
       </div>
     </section>
