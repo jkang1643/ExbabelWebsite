@@ -15,7 +15,7 @@ export default function Footer() {
   // Map specific items to their real routes
   const linkHrefs: Record<string, string> = {
     Features: "/how-it-works",
-    Pricing: "/#pricing",
+    Pricing: "/pricing/",
     API: "/demo",
     Enterprise: "/solutions/events/",
     About: "/how-it-works",

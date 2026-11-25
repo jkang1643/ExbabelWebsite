@@ -1858,3 +1858,16 @@
 
 .heroLangIcon { display: inline-grid; place-items: center; width: 18px; height: 18px; color: var(--church-blue); }
 .heroLangIcon svg { display: block; width: 18px; height: 18px; }
+
+
+.pricingPageMain { padding-top: 96px; }
+.planningHeader h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+  margin-bottom: 16px;
+}
+.pricingExplore { padding-block: 56px 72px; border-top: 1px solid var(--church-line); }
+.pricingExplore h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.pricingExplore p { margin-top: 12px; color: var(--church-muted); line-height: 1.6; }
+.pricingExploreLinks { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; }
+.pricingExploreLinks a { font-weight: 600; color: var(--church-blue); text-decoration: underline; text-underline-offset: 4px; }

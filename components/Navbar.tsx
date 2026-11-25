@@ -289,7 +289,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
 
               {/* Pricing directly visible */}
               <a
-                href={pathname === '/' ? "#pricing" : "/#pricing"}
+                href="/pricing/"
                 className="text-sm font-medium text-[#1d1c1d] hover:text-primary transition-colors"
               >
                 Pricing
@@ -416,7 +416,7 @@ export default function Navbar({ churchPage = false }: { churchPage?: boolean })
                   </div>
                   <ComparisonMenu onNavigate={() => setIsMobileMenuOpen(false)} />
                   <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Blog</Link>
-                  <a href={pathname === '/' ? "#pricing" : "/#pricing"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Pricing</a>
+                  <a href="/pricing/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Pricing</a>
                   <a href={pathname === '/' ? "#faq" : "/#faq"} onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">FAQ</a>
                   <Link href="/impact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-bold text-gray-900 hover:text-primary rounded-xl hover:bg-slate-50 transition-colors">Impact</Link>
                 </div>

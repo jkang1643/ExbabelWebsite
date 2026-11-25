@@ -5,7 +5,8 @@ import Link from "next/link";
 import styles from "@/app/solutions/church-translation/page.module.css";
 import { capturePostHogEvent } from "@/lib/posthog-client";
 
-export default function Pricing({ surface = "home" }: { surface?: "home" | "church" }) {
+export default function Pricing({ surface = "home" }: { surface?: "home" | "church" | "pricing" }) {
+  const Title = surface === "pricing" ? "h1" : "h2";
   return (
     <section
       id={surface === "home" ? "pricing" : undefined}
@@ -14,15 +15,15 @@ export default function Pricing({ surface = "home" }: { surface?: "home" | "chur
     >
       <div className={styles.wrap}>
         <div className={styles.planningContainer}>
-          <div className={styles.planningHeader}>
-            <h2 id="pricing-title">
+          {surface === "home" ? <h2 id="pricing-title" className="sr-only">Church &amp; House of Worship Packages</h2> : <div className={styles.planningHeader}>
+            <Title id="pricing-title">
               Church &amp; House of Worship Packages
-            </h2>
+            </Title>
             <p className={styles.planningIntro}>
               Flexible packages designed to cover 12 months of Exbabel usage across a wide range of services, meetings, and campus types.
               You can expand your package at any time during the year as your multilingual congregation grows. Volume discounts apply to all packages.
             </p>
-          </div>
+          </div>}
 
           {/* Full-width 3-column pricing cards */}
           <ul className={styles.pricingCards} aria-label="Exbabel packages for churches">
@@ -111,11 +112,10 @@ export default function Pricing({ surface = "home" }: { surface?: "home" | "chur
               </Link>
             </li>
           </ul>
+          {surface !== "home" && <>
           <p className={styles.pricingNote}>
             Additional usage billed at $10/hour per language. 30-day free trial available on Starter plan.{" "}
-            <Link prefetch={false} href={surface === "home" ? "/solutions/church-translation/#pricing-title" : "/#pricing"}>
-              Full pricing details ↗
-            </Link>
+            {surface === "church" && <Link prefetch={false} href="/pricing/">Full pricing details ↗</Link>}
           </p>
 
           {/* ── Packages Comparison Matrix Table ── */}
@@ -229,6 +229,7 @@ export default function Pricing({ surface = "home" }: { surface?: "home" | "chur
               </table>
             </div>
           </div>
+          </>}
 
 
         </div>

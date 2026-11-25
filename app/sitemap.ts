@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
+    { url: "https://www.exbabel.com/pricing/", changeFrequency: "monthly", priority: 0.9 },
     { url: "https://www.exbabel.com/solutions/church-translation/", changeFrequency: "monthly", priority: 0.9 },
     { url: "https://www.exbabel.com/solutions/events/", changeFrequency: "monthly", priority: 0.9 },
     { url: "https://www.exbabel.com/solutions/business/", changeFrequency: "monthly", priority: 0.9 },
