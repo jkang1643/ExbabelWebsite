@@ -19,7 +19,10 @@ export default function HomePricing() {
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <h2 className="sr-only">Church &amp; House of Worship Packages</h2>
+        <h2 className="homepage-section-title mb-10 text-center text-4xl font-bold tracking-[0.015em] text-base-content md:text-5xl"
+          style={{ fontFamily: "var(--font-sora), sans-serif" }}>
+          Select Your Plan
+        </h2>
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {churchPricingPlans.map(plan => {
