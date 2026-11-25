@@ -3,7 +3,7 @@ import ComparisonDirectory from '@/components/compare/ComparisonDirectory';
 
 export const metadata = {
   title: 'Compare live translation platforms',
-  description: 'Explore 14 comparisons of Exbabel and other translation platforms, with pricing models, language coverage and observed timing where available.',
+  description: 'Compare Exbabel’s unlimited simultaneous languages with 14 other live translation platforms. Review language capacity, pricing, and timing observations.',
   alternates: { canonical: '/compare/' },
 };
 
@@ -14,7 +14,8 @@ export default function CompareIndex() {
       <div className="grid items-end gap-8 border-b border-slate-200 pb-10 lg:grid-cols-[1fr_320px]">
         <div>
           <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-[#394dfe] sm:text-6xl">Compare live translation platforms</h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">Find a platform for your church or event. Browse the pricing models, language coverage and recorded timing observations for 14 alternatives to Exbabel.</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg"><strong className="text-[#234fdb]">Exbabel offers unlimited simultaneous languages on every church plan.</strong>{" "}
+            Compare language capacity, pricing models, and recorded timing with 14 other platforms.</p>
         </div>
         <aside className="border-l-2 border-[#394dfe] pl-5">
           <p className="font-bold">See the Wordly latency benchmark</p>

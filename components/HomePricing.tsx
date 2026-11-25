@@ -95,6 +95,8 @@ export default function HomePricing() {
                       </p>
                     </div>
 
+                    <p className="mb-4 text-center text-sm font-semibold text-[#234fdb]">Unlimited simultaneous languages</p>
+
                     {/* Divider */}
                     <div className="w-full h-px bg-base-content/10 mb-5"></div>
 

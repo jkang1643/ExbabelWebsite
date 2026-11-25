@@ -171,8 +171,8 @@ function SecurityAnimation() {
 const FEATURES: Feature[] = [
     {
         id: "voices",
-        title: "90+ Voice Languages, 180+ with Captions",
-        description: "Speech-to-speech translation with 90+ natural voices and live real-time captions across 180+ languages, preserving the speaker's natural cadence, tone, and emotional clarity.",
+        title: "Unlimited Simultaneous Languages",
+        description: "Give every listener a choice in the same live session. Exbabel supports 90+ voice languages and 180+ caption languages, with no per-session cap on supported target languages.",
         accentColor: "#394DFE",
         videoSrc: "/videos/90naturalvoices.mp4",
         badge: "90+ Voices · 180+ Captions",

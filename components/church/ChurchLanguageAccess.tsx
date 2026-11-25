@@ -14,10 +14,9 @@ export default function ChurchLanguageAccess() {
           Keep the words in view.
         </h2>
         <p>
-          Audio and captions serve different needs. Written language
-          coverage is broader than voice coverage, so confirm your source
-          language, target languages, and output modes before choosing a
-          plan.
+          With unlimited simultaneous languages, attendees can choose among supported
+          options in the same live session. Spoken audio and written captions cover
+          different languages, so check availability for the output your audience needs.
         </p>
       </div>
       <div className={styles.outputPair}>

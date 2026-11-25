@@ -1,6 +1,10 @@
 {
   "exbabel": {
     "features": {
+      "simultaneous": {
+        "value": "Unlimited simultaneous supported target languages on Starter, Pro, and Unlimited. Included hours and usage charges still apply.",
+        "source": "https://www.exbabel.com/pricing/"
+      },
       "captions": {
         "value": "180+ live caption languages advertised. Plan pages list broader translation coverage.",
         "source": "https://www.exbabel.com/#pricing"
@@ -67,6 +71,10 @@
   },
   "wordly": {
     "features": {
+      "simultaneous": {
+        "value": "No per-session limit. Wordly says all supported languages are available in every session.",
+        "source": "https://www.wordly.ai/faq"
+      },
       "captions": {
         "value": "Live captions. Wordly advertises 3,000+ language pairs across the platform.",
         "source": "https://www.wordly.ai/pricing"
@@ -296,6 +304,10 @@
   },
   "breeze-translate": {
     "features": {
+      "simultaneous": {
+        "value": "Breeze says all supported listener languages are available on every plan. The Abundant plans list unlimited languages.",
+        "source": "https://docs.breezetranslate.com/en/plans/pricing-and-plans/"
+      },
       "captions": {
         "value": "Nearly 200 languages advertised.",
         "source": "https://breezetranslate.com/en/"
@@ -760,6 +772,10 @@
   },
   "stenomatic": {
     "features": {
+      "simultaneous": {
+        "value": "The self-service tier lists unlimited parallel tracks.",
+        "source": "https://www.stenomatic.ai/pricing"
+      },
       "captions": {
         "value": "More than 132 languages advertised for the general platform. Church workflows have a separate language offering.",
         "source": "https://www.stenomatic.ai/"

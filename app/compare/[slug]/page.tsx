@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
   if (!entry) notFound();
   return {
     title: `Exbabel vs ${entry.name}`,
-    description: `Compare Exbabel and ${entry.name} for live translation, including pricing structure, language coverage and available timing observations.`,
+    description: `Compare Exbabel’s unlimited simultaneous languages with ${entry.name}. See per-session language capacity, pricing, and available timing observations.`,
     alternates: { canonical: comparisonHref(slug) },
   };
 }
@@ -31,7 +31,8 @@ export default async function ComparisonPage({ params }: Props) {
       <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-600"><Link href="/compare/" className="font-semibold text-[#3042dd] hover:underline">Comparisons</Link> / {entry.name}</nav>
       <header className="border-b border-slate-200 pb-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-[#394dfe] sm:text-6xl">Exbabel vs {entry.name}</h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">Compare live translation features and the cost of reaching your audience in one to five languages.</p>
+        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600"><strong className="text-[#234fdb]">Exbabel includes unlimited simultaneous languages on every church plan.</strong>{" "}
+          Compare per-session language capacity, live translation features, and example costs for one to five languages.</p>
         <nav aria-label="Page sections" className="mt-5 flex flex-wrap gap-5 text-sm font-bold text-[#3042dd]">
           <a href="#features" className="hover:underline">Platform features</a>
           <a href="#playback" className="hover:underline">Speech demo</a>

@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     absolute: "AI Church Translation System & Live Captions | Exbabel",
   },
   description:
-    "Real-time AI church translation for sermons and livestreams. Deliver live audio and captions to congregants in 180+ languages on any phone with ~2s latency.",
+    "Live AI church translation with unlimited simultaneous languages. Deliver translated audio and captions to congregants on their own phones.",
   alternates: { canonical: "https://www.exbabel.com/" },
   openGraph: {
     title: "AI Church Translation System & Live Captions | Exbabel",
-    description: "Real-time AI church translation for sermons and livestreams. Deliver live audio and captions to congregants in 180+ languages on any phone with ~2s latency.",
+    description: "Live AI church translation with unlimited simultaneous languages. Deliver translated audio and captions to congregants on their own phones.",
     url: "https://www.exbabel.com/",
   },
 };

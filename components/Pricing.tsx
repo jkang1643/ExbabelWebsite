@@ -20,8 +20,9 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
               Church &amp; House of Worship Packages
             </Title>
             <p className={styles.planningIntro}>
-              Flexible packages designed to cover 12 months of Exbabel usage across a wide range of services, meetings, and campus types.
-              You can expand your package at any time during the year as your multilingual congregation grows. Volume discounts apply to all packages.
+              <strong className="text-[#234fdb]">Unlimited simultaneous languages on every plan.</strong>{" "}
+              Choose your package by the live hours your church needs. You can add hours as your congregation
+              grows, and volume discounts apply to all packages.
             </p>
           </div>
 
@@ -38,6 +39,7 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
                 <div style={{ fontSize: "13px", fontWeight: "600", color: "#394dfe", marginBottom: "8px" }}>
                   {plan.hours} Hours / Month <span style={{ color: "#667085", fontWeight: "normal" }}>(~{plan.annualHours} hrs/yr)</span>
                 </div>
+                <p className="mb-2 text-sm font-semibold text-[#234fdb]">Unlimited simultaneous languages</p>
                 <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#475467", fontWeight: "600", margin: "12px 0 6px" }}>
                   Sample Meeting Types:
                 </div>
@@ -61,7 +63,7 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
           <div className={styles.packagesComparison}>
             <h3>Feature &amp; Package Comparison</h3>
             <p className={styles.packagesComparisonSubtitle}>
-              Compare features across all three church packages. Expand hours anytime as your multilingual ministry needs grow.
+              Starter, Pro, and Unlimited all have no cap on supported target languages per live session. Included live hours and additional usage charges still apply.
             </p>
             <div className={styles.packagesTableWrap}>
               <table className={styles.packagesTable}>
@@ -74,6 +76,12 @@ export default function Pricing({ surface = "church" }: { surface?: "church" | "
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>
+                    <th scope="row">Simultaneous supported languages</th>
+                    <td><span className={styles.tableBadge}>Unlimited</span></td>
+                    <td><span className={styles.tableBadgeFeatured}>Unlimited</span></td>
+                    <td><span className={styles.tableBadge}>Unlimited</span></td>
+                  </tr>
                   <tr>
                     <td>Live Hours / Month</td>
                     <td><span className={styles.tableBadge}>6 Hours</span></td>

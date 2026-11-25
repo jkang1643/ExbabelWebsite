@@ -8,6 +8,7 @@ type Vendor = {
 };
 const facts: Record<string, Vendor> = research;
 const criteria = [
+  ['simultaneous', 'Simultaneous target languages per session'],
   ['captions', 'Live translated captions'],
   ['audio', 'Live translated audio'],
   ['input', 'Supported speaker languages'],
@@ -39,10 +40,10 @@ export default function VendorFacts({ slug, name }: { slug: string; name: string
       <div className="overflow-auto rounded-xl border border-slate-200 bg-white">
         <table className={tableClass}>
           <thead className="bg-indigo-50"><tr><th scope="col">Feature</th><th scope="col" className="rounded-t-xl border-x border-t border-indigo-300 text-indigo-700">Exbabel</th><th scope="col">{name}</th></tr></thead>
-          <tbody>{criteria.filter(([key]) => exbabel.features[key] && competitor.features[key]).map(([key, label]) => <tr key={key}>
+          <tbody>{criteria.filter(([key]) => exbabel.features[key] && (key === 'simultaneous' || competitor.features[key])).map(([key, label]) => <tr key={key} className={key === "simultaneous" ? "font-semibold" : undefined}>
             <th scope="row" className="w-1/4">{label}</th>
             <td className="w-[37.5%] border-x border-indigo-300 bg-indigo-50/40"><FactCell fact={exbabel.features[key]} /></td>
-            <td><FactCell fact={competitor.features[key]} /></td>
+            <td>{competitor.features[key] ? <FactCell fact={competitor.features[key]} /> : 'Per-session limit unverified'}</td>
           </tr>)}</tbody>
         </table>
       </div>

@@ -73,7 +73,7 @@ export default function GlassmorphicHero() {
           <span className={styles.titleSupport}>for <span className={styles.titleAccent}>Live Sermons and Services</span></span>
         </h1>
         <p className={styles.description}>
-          Translate sermons into multiple languages with live AI audio and captions. Your congregation listens on their phones—no special receivers or app downloads required.
+          <strong className={styles.titleAccent}>Unlimited simultaneous languages.</strong> Translate one sermon into as many supported languages as your congregation needs. Listeners get live audio and captions on their phones without downloading an app.
         </p>
         <div className={styles.actions}>
           <Link href="/demo" className={styles.primary}>Book a Consultation <Arrow /></Link>

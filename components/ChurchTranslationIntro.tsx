@@ -99,7 +99,7 @@ export default function ChurchTranslationIntro() {
           </h2>
           
           <p className="mx-auto mb-9 max-w-[71ch] text-base leading-relaxed text-slate-600 md:text-lg">
-            Welcome more people into the conversation, wherever they tune in. Reach audiences in their own language across live gatherings, broadcasts, and Zoom, then give them more ways to revisit and share what was said.
+            Welcome more people into every live gathering. With unlimited simultaneous languages for live translation, everyone can follow the same session in their preferred supported language. Keep the message going with transcripts and summaries.
           </p>
         </motion.div>
 

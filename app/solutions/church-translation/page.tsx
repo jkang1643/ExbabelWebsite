@@ -20,7 +20,7 @@ import styles from "./page.module.css";
 const title =
   "Church Translation System — AI Audio & Captions for Live Services | Exbabel";
 const description =
-  "Live AI church translation for sermons and services — 90+ voice languages and 180+ caption languages, no app required. Book a demo.";
+  "Live AI church translation with unlimited simultaneous languages, 90+ spoken voice languages, and 180+ caption languages. No app required.";
 const canonical = "https://www.exbabel.com/solutions/church-translation/";
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -114,7 +114,7 @@ export default function ChurchTranslationPage() {
             name: "Exbabel Church Translation",
             url: canonical,
             description:
-              "Real-time AI church translation for live services — 90+ spoken voice languages and 180+ live caption languages. No app download required; congregants join via QR code or link.",
+              "Real-time AI church translation with unlimited simultaneous languages. Congregants join via QR code or link for translated audio and live captions.",
             applicationCategory: "ReligiousApplication",
             operatingSystem: "Web Browser (Chrome, Safari, Firefox, Edge)",
             audience: {
@@ -126,7 +126,7 @@ export default function ChurchTranslationPage() {
               url: "https://www.exbabel.com/#pricing",
               priceCurrency: "USD",
               price: "39",
-              description: "Starter plan — 6 live hours/month, 90+ voice and 180+ caption languages",
+              description: "Starter plan with 6 live hours per month and unlimited simultaneous supported languages.",
             },
             publisher: {
               "@type": "Organization",
@@ -146,8 +146,9 @@ export default function ChurchTranslationPage() {
               AI church translation <span>for live services</span>
             </h1>
             <p className={styles.lead}>
-              Help people follow your service in their language with translated
-              audio and live captions on their own devices.
+              <strong className="text-[#234fdb]">Unlimited simultaneous languages.</strong>{" "}
+              Translate one service into as many supported languages as your congregation needs. Attendees
+              choose their own language for live audio or captions on their devices.
             </p>
             <div className={styles.heroLangBadges}>
               <div className={styles.heroLangBadge}>

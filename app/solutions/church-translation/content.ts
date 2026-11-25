@@ -25,6 +25,11 @@ export const churchFAQs = [
       "Yes. Route a speech feed from your mixer to the host computer through a compatible audio interface, then choose that device in Exbabel’s audio input selector and allow browser microphone access. Your connection depends on the mixer, interface, and computer. Check the full signal path in rehearsal.",
   },
   {
+    question: "Can attendees use different languages in the same service?",
+    answer:
+      "Yes. Every church plan includes unlimited simultaneous supported target languages. Attendees choose their language in the same live session. Translation-hour allowances and usage charges still apply.",
+  },
+  {
     question: "Which languages support audio and captions?",
     answer:
       "Spoken audio and written captions have different coverage. Voice availability also depends on the plan and selected voice. Confirm your source language, target languages, and required output modes in the product and during your demo; do not assume every written language has an audio voice.",
