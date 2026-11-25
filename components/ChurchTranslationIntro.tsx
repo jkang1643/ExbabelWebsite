@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { Captions, FileText, Languages, ListChecks, Phone, Radio, ScanFace, Video } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -39,53 +40,44 @@ export default function ChurchTranslationIntro() {
   }, []);
 
   const features = [
-    { name: 'Translation', icon: 'T', color: 'text-emerald-500' },
-    { name: 'Captions', icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg>, color: 'text-teal-500' },
-    { name: 'Transcripts', icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>, color: 'text-blue-500' },
-    { name: 'Summaries', icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h8m-8 6h16" /></svg>, color: 'text-purple-500' }
+    { name: 'Translation', icon: Languages },
+    { name: 'Captions', icon: Captions },
+    { name: 'Transcripts', icon: FileText },
+    { name: 'Summaries', icon: ListChecks },
+    { name: 'Join by Phone', icon: Phone },
+    { name: 'Live Broadcasts', icon: Radio },
+    { name: 'Zoom Calls', icon: Video },
+    { name: 'AI Avatars', icon: ScanFace },
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden bg-white">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-emerald-50/50 blur-[100px] rounded-full opacity-60 hidden md:block" />
-        <div className="absolute top-[10%] right-[-5%] w-[600px] h-[600px] bg-blue-50/50 blur-[100px] rounded-full opacity-60 hidden md:block" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-        
+    <section id="church-translation" ref={sectionRef} aria-labelledby="church-translation-title" className="relative scroll-mt-20 overflow-hidden border-t border-slate-100 bg-[#f8fafc] py-20 md:py-24">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-6 text-center">
         {/* Animated Waveform Graphic at the top */}
         {mounted && (
           <motion.div 
             initial={{ y: 20 }}
             whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
             transition={{ duration: 0.8 }}
-            className="mb-8 h-20 w-full max-w-[300px] relative"
+            className="relative mb-5 h-12 w-full max-w-[240px] text-[#234fdb] md:mb-7"
           >
-            <svg viewBox="0 0 400 100" className="w-full h-full drop-shadow-md">
-              <defs>
-                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#10B981" />
-                  <stop offset="50%" stopColor="#06B6D4" />
-                  <stop offset="100%" stopColor="#3B82F6" />
-                </linearGradient>
-              </defs>
+            <svg aria-hidden="true" viewBox="0 0 400 100" className="h-full w-full">
               <path 
                 d="M0,50 Q20,10 40,50 T80,50 T120,50 T160,50 T200,50 T240,50 T280,50 T320,50 T360,50 T400,50" 
                 fill="none" 
-                stroke="url(#waveGrad)" 
+                stroke="currentColor"
                 strokeWidth="4"
                 strokeLinecap="round"
-                className="animate-[waveform_3s_ease-in-out_infinite]"
+                className="motion-safe:animate-[waveform_3s_ease-in-out_infinite]"
               />
               <path 
                 d="M0,50 Q20,30 40,50 T80,50 T120,50 T160,50 T200,50 T240,50 T280,50 T320,50 T360,50 T400,50" 
                 fill="none" 
-                stroke="url(#waveGrad)" 
+                stroke="currentColor"
                 strokeWidth="2"
                 opacity="0.3"
                 strokeLinecap="round"
-                className="animate-[waveform_4s_ease-in-out_infinite_reverse]"
+                className="motion-safe:animate-[waveform_4s_ease-in-out_infinite_reverse]"
               />
             </svg>
           </motion.div>
@@ -97,12 +89,12 @@ export default function ChurchTranslationIntro() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-4xl"
         >
-          <h2 className="homepage-section-title text-4xl md:text-5xl font-extrabold text-slate-900 tracking-[0.01em] leading-tight mb-6" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-            A Church Translation System Built for Live Services
+          <h2 id="church-translation-title" className="homepage-section-title mb-6 text-balance text-slate-900">
+            Meet the <span className="text-[#234fdb]">Exbabel Suite</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium mb-12">
-            Traditional church translation systems often require interpreters, wireless receivers, transmitters, translation booths, or dedicated translation equipment. <strong className="text-slate-800 font-bold">Exbabel delivers translated speech and captions through the devices attendees already carry</strong>, allowing churches to translate sermons and services without distributing specialized hardware.
+          <p className="mx-auto mb-9 max-w-[71ch] text-base leading-relaxed text-slate-600 md:text-lg">
+            Welcome more people into the conversation, wherever they tune in. Reach audiences in their own language across live gatherings, broadcasts, and Zoom, then give them more ways to revisit and share what was said.
           </p>
         </motion.div>
 
@@ -110,24 +102,19 @@ export default function ChurchTranslationIntro() {
           initial={{ y: 20 }}
           whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mb-20 w-full max-w-4xl"
+          className="relative mb-12 w-full max-w-4xl md:mb-16"
         >
-          {/* Intense Colorful Backdrop Glow for Pills */}
-          <div className="absolute inset-0 top-1/2 -translate-y-1/2 w-full h-[80px] bg-gradient-to-r from-emerald-300/40 via-blue-300/40 to-purple-300/40 blur-2xl rounded-full" />
-          
-          <div className="relative z-10 flex flex-wrap justify-center gap-3 md:gap-4">
-            {features.map((feature, i) => (
-              <div 
-                key={feature.name}
-                className="flex items-center gap-2.5 px-5 md:px-7 py-3 md:py-3.5 bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-slate-100 hover:-translate-y-1 transition-transform duration-300 cursor-default"
+          <ul role="list" className="mx-auto grid max-w-3xl grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-3.5">
+            {features.map(({ name, icon: Icon }) => (
+              <li
+                key={name}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#dce5f7] bg-white px-2.5 py-2 text-[13px] font-semibold leading-snug text-slate-800 shadow-[0_5px_15px_-8px_#234fdb45] md:px-3 md:text-sm"
               >
-                <div className={`font-bold text-lg md:text-xl flex items-center justify-center w-5 h-5 ${feature.color}`}>
-                  {feature.icon}
-                </div>
-                <span className="font-semibold text-slate-700 text-sm md:text-base">{feature.name}</span>
-              </div>
+                <Icon aria-hidden="true" className="h-[18px] w-[18px] shrink-0 text-[#234fdb]" strokeWidth={1.75} />
+                <span>{name}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </motion.div>
 
         <motion.div
@@ -137,7 +124,7 @@ export default function ChurchTranslationIntro() {
           className="w-full max-w-5xl mx-auto"
         >
           <div
-            className="relative bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.15)] ring-1 ring-slate-200/50 cursor-pointer group"
+            className="relative bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-[0_18px_38px_-27px_#234fdb50] ring-1 ring-[#dce5f7] cursor-pointer group"
             onClick={toggleMute}
           >
             {/* The Video */}
