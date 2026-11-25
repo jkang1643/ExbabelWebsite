@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { Captions, FileText, Languages, ListChecks, Phone, Radio, ScanFace, Video } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type MotionProps } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function ChurchTranslationIntro() {
@@ -39,6 +39,11 @@ export default function ChurchTranslationIntro() {
       }
   }, []);
 
+  const viewport: MotionProps["viewport"] = {
+    once: true,
+    margin: mounted && window.innerWidth < 768 ? "300px" : "100px",
+  };
+
   const features = [
     { name: 'Translation', icon: Languages },
     { name: 'Captions', icon: Captions },
@@ -57,7 +62,7 @@ export default function ChurchTranslationIntro() {
         {mounted && (
           <motion.div 
             initial={{ y: 20 }}
-            whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
+            whileInView={{ y: 0 }} viewport={viewport}
             transition={{ duration: 0.8 }}
             className="relative mb-5 h-12 w-full max-w-[240px] text-[#234fdb] md:mb-7"
           >
@@ -85,7 +90,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div 
           initial={{ y: 20 }}
-          whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
+          whileInView={{ y: 0 }} viewport={viewport}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-4xl"
         >
@@ -100,7 +105,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div 
           initial={{ y: 20 }}
-          whileInView={{ y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
+          whileInView={{ y: 0 }} viewport={viewport}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative mb-12 w-full max-w-4xl md:mb-16"
         >
@@ -119,7 +124,7 @@ export default function ChurchTranslationIntro() {
 
         <motion.div
           initial={{ scale: 0.95, y: 40 }}
-          whileInView={{ scale: 1, y: 0 }} viewport={{ once: true, margin: typeof window !== 'undefined' && window.innerWidth < 768 ? "300px" : "100px" }}
+          whileInView={{ scale: 1, y: 0 }} viewport={viewport}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="w-full max-w-5xl mx-auto"
         >
