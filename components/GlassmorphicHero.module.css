@@ -178,3 +178,84 @@
 @media (prefers-reduced-motion: reduce) {
   .hero *, .hero *::before, .hero *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition: none !important; }
 }
+
+.headlineGrid, .titleLead, .supportStage { display: grid; grid-template-columns: minmax(0, 1fr); }
+.titleLead > *, .supportStage > *, .typeArea > * { grid-area: 1 / 1; }
+.measure, .supportMeasure { visibility: hidden; pointer-events: none; }
+.titleLead {
+  --radius: 1.45em;
+  position: relative;
+  padding-block: .22em;
+  isolation: isolate;
+}
+.drumWindow {
+  grid-area: auto;
+  position: absolute; inset: 0;
+  perspective: 18em;
+  clip-path: inset(.22em 0);
+}
+.drum {
+  position: absolute; inset: .22em 0;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(-1 * var(--radius)));
+}
+.drumFace {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  backface-visibility: hidden;
+  background: white;
+  color: #101828;
+  text-align: center;
+}
+.drumFace strong { color: var(--hero-blue); font-weight: inherit; }
+.typeArea { color: var(--hero-blue); }
+@media (max-width: 960px) { .titleLead { --radius: 2.9em; } }
+@media (max-width: 480px) { .titleLead { --radius: 4em; } }
+@media (prefers-reduced-motion: no-preference) {
+  .titleLead[data-turning="true"] .drumWindow { animation: openDrum 1480ms both; }
+  .titleLead[data-turning="true"] .drum { animation: advanceDrum 1480ms both; }
+}
+.titleLead[data-paused="true"] .drumWindow, .titleLead[data-paused="true"] .drum { animation-play-state: paused; }
+@keyframes openDrum {
+  0%, 100% { clip-path: inset(.22em 0); }
+  18%, 82% { clip-path: inset(0); }
+}
+@keyframes advanceDrum {
+  0% { transform: translateZ(calc(-1 * var(--radius))) rotateX(0deg); animation-timing-function: ease-out; }
+  18% { transform: translateZ(calc(-1 * var(--radius) - .9em)) rotateX(-6deg); animation-timing-function: cubic-bezier(.42,0,.63,1); }
+  56% { transform: translateZ(calc(-1 * var(--radius) - .9em)) rotateX(175deg); animation-timing-function: cubic-bezier(.12,.72,.23,1); }
+  90% { transform: translateZ(calc(-1 * var(--radius))) rotateX(225deg); }
+  100% { transform: translateZ(calc(-1 * var(--radius))) rotateX(225deg); }
+}
+.supportStage { margin-top: .12em; }
+.titleSupport, .supportMeasure {
+  display: flex; align-items: baseline; gap: .22em;
+  justify-self: center; align-self: center; width: max-content; max-width: 100%;
+}
+.titleSupport { transform: translateY(.07em); transition: transform 320ms ease-out; }
+.titleSupport[data-settled="true"] { transform: none; }
+.typeArea { display: grid; grid-template-columns: minmax(0,1fr); min-width: 0; text-align: start; text-wrap: wrap; }
+.supportMeasure > :last-child { min-width: 0; text-align: start; text-wrap: wrap; }
+.cue { position: relative; align-self: flex-start; width: 1.05em; flex: none; height: 1.08em; }
+.prop { position: absolute; inset: 0; margin: auto; width: 100%; height: auto; animation: iconEntrance 420ms ease-out both; }
+.typedPhrase { align-self: start; }
+@keyframes iconEntrance { from { opacity: 0; transform: translateY(.13em) scale(.68); } 72% { opacity: 1; transform: scale(1.06); } to { transform: none; } }
+
+.churchViewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.churchTrack { display: flex; width: -moz-max-content; width: max-content; animation: churchesScroll 24s linear infinite; }
+.churchGroup { display: flex; align-items: center; gap: 42px; padding-right: 42px; flex-shrink: 0; }
+.churchGroup span { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; font-weight: 600; letter-spacing: -.025em; }
+.churchGroup i { width: 5px; height: 5px; border-radius: 50%; background: #6366f1; opacity: .65; }
+.churchViewport:hover .churchTrack { animation-play-state: paused; }
+@keyframes churchesScroll { to { transform: translateX(-50%); } }
+
+.trust { max-width: 940px; align-items: center; }
+@media (max-width: 700px) {
+  .churchViewport { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .churchViewport { mask-image: none; }
+  .churchTrack { width: 100%; animation: none; }
+  .churchGroup { width: 100%; flex-wrap: wrap; justify-content: center; gap: 8px 18px; padding: 0; }
+  .churchGroup[aria-hidden="true"] { display: none; }
+}
