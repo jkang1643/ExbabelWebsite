@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "framer-motion";
-import type TypeIt from "typeit";
 import Link from "next/link";
 import styles from "./GlassmorphicHero.module.css";
 import ExbabelTranslateSVG from "./svg/ExbabelTranslateSVG";
@@ -74,7 +73,7 @@ function SceneIllustration({ effect }: { effect: Reveal }) {
 
 function AnimatedHeadline({ enabled, running }: { enabled: boolean; running: boolean }) {
   const target = useRef<HTMLSpanElement>(null);
-  const instance = useRef<TypeIt | null>(null);
+  const resumeStep = useRef<(() => void) | null>(null);
   const shouldRun = useRef(running);
   const [cue, setCue] = useState(0);
   const [hasTurned, setHasTurned] = useState(false);
@@ -82,32 +81,40 @@ function AnimatedHeadline({ enabled, running }: { enabled: boolean; running: boo
 
   useEffect(() => {
     shouldRun.current = running;
-    if (running) instance.current?.unfreeze();
-    else instance.current?.freeze();
+    if (running) {
+      resumeStep.current?.();
+      resumeStep.current = null;
+    }
   }, [running]);
 
   useEffect(() => {
     const node = target.current;
     if (!enabled || !node) return;
     let disposed = false;
+    let stopWriter: (() => void) | undefined;
     void import("typeit").then(({ default: Writer }) => {
       if (disposed) return;
       const writer = new Writer(node, {
+        beforeStep: async () => {
+          if (!disposed && !shouldRun.current) {
+            await new Promise<void>(resolve => { resumeStep.current = resolve; });
+          }
+        },
         startDelay: 0, speed: 46, deleteSpeed: 25, lifeLike: false,
         cursor: false, html: false, loop: true, loopDelay: 0,
       });
-      instance.current = writer;
+      stopWriter = () => writer.destroy();
       settings.forEach(([label], i) => {
         writer.exec(() => { setCue(i); setSettled(false); if (i !== 0) setHasTurned(true); }).pause(540)
           .type(label).exec(() => setSettled(true)).pause(1450).delete().pause(100);
       });
       writer.go();
-      if (!shouldRun.current) writer.freeze();
     });
     return () => {
       disposed = true;
-      instance.current?.destroy();
-      instance.current = null;
+      stopWriter?.();
+      resumeStep.current?.();
+      resumeStep.current = null;
       node.replaceChildren();
     };
   }, [enabled]);
@@ -158,6 +165,7 @@ function Arrow({ back = false }: { back?: boolean }) {
 export default function GlassmorphicHero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [manualScene, setManualScene] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -167,7 +175,7 @@ export default function GlassmorphicHero() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const scene = scenes[active];
-  const playing = reduceMotion === false && !paused && !hovered && !focused && visible && inView;
+  const playing = reduceMotion === false && !paused && !manualScene && !hovered && !focused && visible && inView;
 
   useEffect(() => {
     setMounted(true);
@@ -190,7 +198,7 @@ export default function GlassmorphicHero() {
 
   const select = (index: number) => {
     setActive((index + scenes.length) % scenes.length);
-    setPaused(true);
+    setManualScene(true);
   };
 
   return (
@@ -260,7 +268,7 @@ export default function GlassmorphicHero() {
             )}
           </div>
           <button className={styles.arrowButton} type="button" onClick={() => select(active + 1)} aria-label="Next scene"><Arrow /></button>
-          {mounted && !reduceMotion && <button className={styles.pauseButton} type="button" onClick={() => setPaused(current => !current)}
+          {mounted && !reduceMotion && <button className={styles.pauseButton} type="button" onClick={() => { setPaused(current => !current); setManualScene(false); }}
             aria-label={paused ? "Start hero animations" : "Pause hero animations"} aria-pressed={paused}>
             {paused ? <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" fill="currentColor" /></svg>
               : <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4v12M13 4v12" stroke="currentColor" strokeWidth="2.5" /></svg>}
